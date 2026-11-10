@@ -5,6 +5,19 @@ import { clamp, rand, type Vec3 } from "../utils/animation";
 // banhistas, trabalhadores, moradores, cientistas... Proporção estilizada adulta: ~1,8 u3d de altura (scale 1),
 // pés em y=0. Cores configuráveis; animação por função pura do frame (andar, acenar, apontar, respirar, piscar).
 
+/** Altura da Pessoa com scale = 1 (u3d). */
+export const PERSON_HEIGHT = 1.8;
+
+/**
+ * ESCALA DO MUNDO: converta "1 metro" da maquete em u3d e derive a escala das pessoas e do mascote.
+ * Ex.: se uma casa de 2 andares (~6 m) tem 1,2 u3d na maquete, metro = 0,2 u3d → uma pessoa de 1,7 m
+ * deve ter 0,34 u3d → scale = worldScale(0.2).person. Use a MESMA conta para todo personagem da cena.
+ */
+export const worldScale = (uPerMeter: number, personMeters = 1.7, mascotMeters = 1.6) => ({
+  person: (personMeters * uPerMeter) / PERSON_HEIGHT,
+  mascot: (mascotMeters * uPerMeter) / 1.65,
+});
+
 export type PersonLook = {
   skin?: string;
   hair?: string;

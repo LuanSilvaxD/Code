@@ -86,6 +86,21 @@ sapato — use `crowdLooks(n, "<tema>")` para grupos (garante vizinhos diferente
 para alguém avulso. As paletas são discretas de propósito (convivem com o roxo da marca); não vista
 figurantes de vermelho/verde puros, que são as cores de problema/solução.
 
+### Proporção de personagens × cenário (regra do usuário)
+
+Pessoas e mascote precisam caber no MUNDO da maquete — nada de gente do tamanho de uma casa ou de um carro
+menor que uma pessoa. Antes de posicionar qualquer personagem:
+1. Escolha a régua da cena: quanto vale **1 metro em u3d** a partir de um objeto de tamanho conhecido
+   (porta ~2 m, andar de casa ~3 m, carro ~1,5 m de altura/4,5 m de comprimento, árvore 5–15 m, poste ~8 m).
+2. Derive as escalas com `worldScale(uPorMetro)` (`components/Person.tsx`): pessoa ~1,7 m, mascote ~1,6 m.
+   Todos os personagens da mesma cena usam a mesma régua; o mascote fica do tamanho de uma pessoa, um pouco menor.
+3. Modele os objetos da cena na MESMA régua (casas, carros, portas, móveis). Se o cenário for esquemático e
+   fora de escala (ex.: oceano de 4.000 m, corte geológico), não force gente "em escala": coloque os
+   personagens só onde a escala local faz sentido (praia, cidade, superfície) ou como visitantes na borda do
+   pedestal, e mantenha o selo de escala esquemática.
+4. Confira nos stills: compare cada personagem com uma porta/casa/carro ao lado. Se parecer brinquedo
+   gigante ou formiga, corrija a régua — não "no olho" por personagem.
+
 Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
 do `MainSequence` volta ao visual neutro.
 
