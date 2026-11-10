@@ -19,12 +19,13 @@ export const useScreenFx = () => {
   const whip = clamp(track("screen.whip", frame), -1, 1);
   const rewind = clamp(track("rewind", frame), 0, 1);
   const sat = clamp(track("screen.sat", frame, 1), 0, 1);
-  const dx = shake * 16 * Math.sin(frame * 2.7) + whip * 260;
+  // chicote: desloca e amplia junto (zoom ≥ deslocamento/540 px) para nunca mostrar a borda do canvas
+  const dx = shake * 16 * Math.sin(frame * 2.7) + whip * 160;
   const dy = shake * 11 * Math.cos(frame * 3.3);
   const blur = Math.abs(whip) * 14 + rewind * 3;
   return {
     style: {
-      transform: `translate(${dx}px, ${dy}px) scale(${1 + 0.07 * zoom})`,
+      transform: `translate(${dx}px, ${dy}px) scale(${1 + 0.07 * zoom + 0.36 * Math.abs(whip) + 0.04 * shake})`,
       filter: `saturate(${sat * (1 - 0.8 * rewind)}) contrast(${1 + 0.15 * rewind}) blur(${blur}px)`,
     } as React.CSSProperties,
     whip,
