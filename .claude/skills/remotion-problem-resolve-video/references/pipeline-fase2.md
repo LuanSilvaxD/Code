@@ -63,7 +63,9 @@ src/
 ## 2. Narração e tempos
 
 1. No projeto, crie `scripts/narration.json` a partir de `scripts/narration.example.json`
-   (`{"s1": "...", ...}`, uma fala por cena, texto aprovado, UTF-8).
+   (`{"s1": "...", ..., "cta": "<BRAND.ctaVoice>"}`, uma fala por cena, texto aprovado, UTF-8). A chave
+   `"cta"` é a chamada falada fixa do encerramento da marca: o Soundtrack a toca depois que a fenda fecha e
+   `timing.ts` ajusta a duração do encerramento a ela.
 2. Gere: `python scripts/voiceover.py --lines scripts/narration.json --voice <id>`
    (ElevenLabs `eleven_multilingual_v2` com `/with-timestamps`; voz masculina enérgica testada:
    "Liam" `TX3LPaxmHKxFdv7VOQHJ`; "Brian" `nPczCjzI2devNBz1zQrb` é mais grave/calma), ou

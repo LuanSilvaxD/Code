@@ -32,9 +32,13 @@ revelações). Não pergunte de novo sobre marca; ela já foi decidida pelo usu�
 
 - **Abertura fixa (~0,7 s, sem consumir fala):** a tela começa em sombra com uma rachadura de luz roxa (núcleo
   branco, como no logo) que se abre revelando a maquete; a marca pequena aparece no topo e sai antes dos badges. Som `fenda-open`.
-- **Encerramento fixo (últimos 2,6 s, `OUTRO_SECONDS`):** a fenda se fecha sobre a maquete, a rachadura se
-  apaga e entram o **logo oficial**, a marca e a chamada "Siga para abrir a próxima fenda". Som `fenda-close`. A última
-  fala precisa terminar antes disso — `timing.ts` acusa erro e `vo_budget.py` já reserva esse tempo.
+- **Encerramento fixo com chamada FALADA (a "propaganda" do canal, ~4,5 s no total):** a fenda se fecha sobre a maquete,
+  a rachadura se apaga, entram o **logo oficial**, a marca e o texto "Siga e compartilhe para abrir a próxima
+  fenda", e o narrador diz **sempre a mesma frase**: *"Segue a Fenda Umbra e compartilha pra mais vídeos
+  assim!"* (`BRAND.ctaVoice`). Som `fenda-close`. Essa fala vai em `scripts/narration.json` com a chave
+  `"cta"` (gerada junto com as outras); `utils/timing.ts` estica o encerramento até caber nela
+  (`OUTRO_SECONDS` ≈ 0,6 + fala + 0,6 s) e a trilha abaixa sob ela. A última fala das cenas precisa terminar
+  antes do encerramento — `timing.ts` acusa erro e `vo_budget.py` já reserva esse tempo.
 - **Maquete premium:** fundo de estúdio escuro (`BACKDROP.mode = "studio"`) com halo roxo atrás da
   maquete, tingido pelo tema (`BACKDROP.tint`: padrão `#2a1d48`; oceano `#182a4e`, história `#2e1f3a`,
   espaço `#1f1a4d`, natureza `#1b2e33`, tecnologia `#16244a`); luz de estúdio neutra com contraluz roxa; maquete sobre
@@ -45,8 +49,10 @@ revelações). Não pergunte de novo sobre marca; ela já foi decidida pelo usu�
 - **Logo:** `public/brand/logo.png` (fenda branca com brilho roxo num círculo). Aparece no encerramento e na
   capa com máscara radial (o fundo escuro do PNG se funde à sombra). Para trocar, substitua o arquivo.
 - **Voz do canal:** edge-tts `pt-BR-AntonioNeural` (gratuita), +0% por padrão, até +12% se precisar caber.
-- **Tom e bordão:** frases curtas, segunda pessoa; a última fala segue o padrão de recompensa ("Pronto:
-  agora você entende/sabe…"). A chamada para seguir fica no encerramento visual, não na narração.
+- **Tom e bordão:** frases curtas, segunda pessoa; a última fala da última cena segue o padrão de recompensa
+  ("Pronto: agora você entende/sabe…"). O pedido de seguir/compartilhar NÃO entra nas cenas: é a chamada fixa
+  falada do encerramento (acima). No roteiro (Fase 1, seção 4), liste-a como "encerramento fixo da marca",
+  conte o tempo dela (~3,3 s) no orçamento e não a reescreva por vídeo.
 - **Capa:** logo + marca no topo, etiqueta roxa, pergunta em 3 linhas (palavra-chave em lavanda).
 - **`publicacao.md`:** inclua `#fendaumbra` como hashtag de marca (volume baixo; serve para agrupar o
   canal, não para alcance) além das 3–5 do tema.
@@ -216,7 +222,9 @@ camada 2D de badges/legendas; se optar por 2.5D, diga isso explicitamente.
 ### 4. Áudio e montagem
 Narração integral em texto corrido, idêntica à tabela; contagem de palavras, duração estimada e como será
 reajustada após o TTS. Intenção de voz, provedor, efeitos (com momento) e trilha. Legendas palavra a
-palavra só ganham tempos finais após o alinhamento com o áudio.
+palavra só ganham tempos finais após o alinhamento com o áudio. Ao fim, registre o **encerramento fixo da
+marca** com a chamada falada (`BRAND.ctaVoice`, ~3,3 s) — fora da tabela de cenas, mas dentro do orçamento
+de tempo (`vo_budget.py` já a desconta quando a chave `"cta"` está no `narration.json`).
 
 ### 5. Critérios de aceite e notas de verificação
 Confira e corrija: gancho imediato; cadeia causal compreensível; explicação antes do nome técnico; sistema
@@ -259,7 +267,8 @@ enquadramento e as armadilhas já resolvidas. Resumo do caminho:
    Chromium local e se o TTS está acessível — resolva bloqueios agora, não depois de animar.
    Abra o Studio cedo para o usuário acompanhar (`references/remotion/remotion-studio/REFERENCE.md`).
 2. **Narração primeiro.** Gere as falas (`scripts/voiceover.py` com o provedor autorizado; nomes difíceis
-   com grafia fonética num `narration-tts.json` à parte, mesma contagem de palavras), rode
+   com grafia fonética num `narration-tts.json` à parte, mesma contagem de palavras) — inclua sempre a chave
+   `"cta"` com `BRAND.ctaVoice` (chamada falada do encerramento) —, rode
    `scripts/prepare_vo.py` e `scripts/vo_budget.py --measured`, e deixe `utils/timing.ts` derivar os cortes
    da voz. Meça antes de animar: o tempo real decide os frames. Se o host do TTS for bloqueado, peça a
    liberação ao usuário; não transforme falta de voz num vídeo silencioso apresentado como final.

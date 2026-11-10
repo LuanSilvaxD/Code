@@ -1,7 +1,7 @@
 import { Audio } from "@remotion/media";
 import { Sequence, staticFile } from "remotion";
 import { scenes } from "../data/scenes";
-import { DURATION, f, OUTRO_SECONDS, VO } from "../utils/timing";
+import { CTA_OFFSET, CTA_SECONDS, DURATION, f, HAS_CTA, OUTRO_SECONDS, VO } from "../utils/timing";
 
 // Áudio: narração (prioridade), efeitos de cada cena e trilha instrumental discreta.
 // A trilha abaixa sempre que a voz entra (sidechain simples por volume).
@@ -10,10 +10,14 @@ import { DURATION, f, OUTRO_SECONDS, VO } from "../utils/timing";
 /** Mude para true depois de gerar public/audio/music.wav (scripts/music.py). */
 const HAS_MUSIC = false;
 const MUSIC = { base: 0.5, ducked: 0.17, ramp: 8 };
+/** Segundo absoluto em que a chamada falada começa (logo depois de a fenda fechar). */
+const SECONDS_CTA_AT = () => DURATION / 30 - OUTRO_SECONDS + CTA_OFFSET;
 
 const musicVolume = (frame: number) => {
   let duck = 0;
-  for (const seg of VO) {
+  // a chamada falada do encerramento também abaixa a trilha
+  const segs = HAS_CTA ? [...VO, { at: SECONDS_CTA_AT(), seconds: CTA_SECONDS }] : VO;
+  for (const seg of segs) {
     const start = f(seg.at);
     const end = f(seg.at + seg.seconds);
     const d = Math.min(Math.max(0, (frame - (start - MUSIC.ramp)) / MUSIC.ramp), Math.max(0, (end + MUSIC.ramp * 2 - frame) / (MUSIC.ramp * 2)), 1);
@@ -34,6 +38,11 @@ export const Soundtrack: React.FC = () => (
         <Sequence name="Marca · fenda fecha" from={DURATION - f(OUTRO_SECONDS)} layout="none">
           <Audio src={staticFile("audio/sfx/fenda-close.wav")} volume={0.34} />
         </Sequence>
+        {HAS_CTA ? (
+          <Sequence name="Marca · chamada falada" from={DURATION - f(OUTRO_SECONDS) + f(CTA_OFFSET)} layout="none">
+            <Audio src={staticFile("audio/vo/cta.wav")} volume={1} />
+          </Sequence>
+        ) : null}
       </>
     ) : null}
     {HAS_MUSIC ? <Audio name="Trilha instrumental" src={staticFile("audio/music.wav")} volume={musicVolume} /> : null}

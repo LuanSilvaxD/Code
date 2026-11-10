@@ -10,8 +10,6 @@ export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
 export const SECONDS = 12;
-/** Encerramento fixo da marca (components/Brand.tsx): a última fala precisa terminar antes dele. */
-export const OUTRO_SECONDS = 2.6;
 export const DURATION = SECONDS * FPS;
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -35,6 +33,17 @@ type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };
 const VO_DATA = vo as unknown as Partial<Record<string, VoLine>>;
 
+/**
+ * Encerramento fixo da marca (components/Brand.tsx): a fenda fecha e o narrador fala a chamada fixa
+ * ("cta" em scripts/narration.json → src/data/vo.json, texto em brand.ts → BRAND.ctaVoice).
+ * A duração se ajusta à fala real: começa CTA_OFFSET s depois do início do encerramento e deixa ~0,6 s no fim.
+ * Sem a fala gerada, o encerramento dura 2,6 s (só visual). A última fala das cenas termina antes dele.
+ */
+export const CTA_OFFSET = 0.6;
+export const HAS_CTA = VO_DATA["cta"] !== undefined;
+export const CTA_SECONDS = VO_DATA["cta"]?.seconds ?? 0;
+export const OUTRO_SECONDS = Math.max(2.6, HAS_CTA ? CTA_OFFSET + CTA_SECONDS + 0.6 : 0);
+
 /** true quando todas as falas já têm áudio medido. */
 export const HAS_VO = VO_KEYS.every((k) => VO_DATA[k] !== undefined);
 
@@ -48,8 +57,7 @@ const voStart = {} as Record<VoKey, number>;
     t += (line?.seconds ?? 0) + (GAPS[i] ?? 0);
     planned += PLANNED_SECONDS[i];
   });
-  // t = fim da última fala; deixe ao menos 0,4 s de respiro antes do fim do vídeo
-  // a última fala termina antes do encerramento da marca (+0,2 s de respiro)
+  // t = fim da última fala: ela termina antes do encerramento da marca (+0,2 s de respiro)
   if (HAS_VO && t > SECONDS - OUTRO_SECONDS - 0.2) {
     throw new Error(`A narração (${t.toFixed(2)} s) invade o encerramento (${OUTRO_SECONDS} s) de um vídeo de ${SECONDS} s: encurte o texto, a voz ou GAPS, ou aumente SECONDS.`);
   }

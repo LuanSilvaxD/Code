@@ -22,7 +22,8 @@ LPS = 16.8
 P_STOP = 0.75
 P_COMMA = 0.36
 FIRST_VO = 0.45
-TAIL = 2.8  # encerramento fixo da marca (OUTRO_SECONDS 2,6 s) + respiro
+TAIL_MIN = 2.8  # encerramento da marca sem fala (2,6 s) + respiro
+CTA_OFFSET = 0.6  # a chamada falada começa 0,6 s após o início do encerramento (utils/timing.ts)
 
 
 def estimate(text: str) -> float:
@@ -50,6 +51,13 @@ def main() -> None:
         lines = json.loads(Path(a.lines).read_text(encoding="utf-8-sig"))
         durs = {k: estimate(v) for k, v in lines.items()}
         label = "estimado"
+    # "cta" = chamada falada fixa do encerramento da marca: não soma na fala das cenas, define o encerramento
+    cta = durs.pop("cta", None)
+    TAIL = max(TAIL_MIN, (CTA_OFFSET + cta + 0.6 + 0.2) if cta else 0)
+    if cta:
+        print(f"encerramento com chamada falada: {cta:.1f} s de fala → {TAIL - 0.2:.1f} s de encerramento")
+    else:
+        print("aviso: sem a chave \"cta\" (chamada falada do encerramento) — inclua BRAND.ctaVoice no narration.json")
     speech = sum(durs.values())
     gaps = a.gaps * (len(durs) - 1)
     total = FIRST_VO + speech + gaps + TAIL

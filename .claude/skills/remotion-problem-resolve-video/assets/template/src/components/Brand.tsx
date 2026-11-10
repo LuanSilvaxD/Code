@@ -99,7 +99,7 @@ export const BrandOutro: React.FC = () => {
   if (local < 0) return null;
   const p = interpolate(local, [0, 18], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: EASE.inOut });
   const wm = interpolate(local, [21, 31], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: EASE.out });
-  const cta = interpolate(local, [29, 41], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const cta = interpolate(local, [18, 30], [0, 1] /* entra junto com a chamada falada (CTA_OFFSET) */, { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   // a rachadura brilha enquanto fecha e se apaga antes da marca entrar
   const crack = interpolate(local, [12, 22], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
