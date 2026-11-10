@@ -127,7 +127,6 @@ export const scenes: ScenePlan[] = [
       ...fx.flash(W("s2", 6)),
       ...fx.punch(W("s2", 6)),
       ...fx.burst("solucao", W("s2", 6)),
-      { type: "interpolate", target: "fade", startFrame: end(1) - 14, endFrame: end(1), from: 0, to: 1, easing: "in", unit: "0-1" },
     ],
     badges: [{ text: "SOLUÇÃO", variant: "positive", appearAt: W("s2", 6), disappearAt: end(1) }],
     highlights: ["SOLUÇÃO"],

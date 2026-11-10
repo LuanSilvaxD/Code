@@ -22,7 +22,7 @@ LPS = 16.8
 P_STOP = 0.75
 P_COMMA = 0.36
 FIRST_VO = 0.45
-TAIL = 1.0
+TAIL = 2.8  # encerramento fixo da marca (OUTRO_SECONDS 2,6 s) + respiro
 
 
 def estimate(text: str) -> float:

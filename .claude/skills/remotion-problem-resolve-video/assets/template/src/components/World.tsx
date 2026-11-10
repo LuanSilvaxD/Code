@@ -2,6 +2,7 @@ import { useCurrentFrame } from "remotion";
 import { isVisible, track } from "../data/scenes";
 import { MATTE, PALETTE } from "../theme";
 import { pulse } from "../utils/animation";
+import { BrandPedestal } from "./BrandPedestal";
 
 // O cenário persistente: o MESMO modelo do começo ao fim. Cada objeto lê seu estado das trilhas
 // de animação (track) no frame GLOBAL, então nada "pula" de lugar entre cortes — só a câmera se move.
@@ -24,10 +25,7 @@ export const World: React.FC = () => {
             <boxGeometry args={[6, 0.05, 4]} />
             <meshStandardMaterial {...MATTE} color={PALETTE.ground} />
           </mesh>
-          <mesh position={[0, -2.2, 0]}>
-            <boxGeometry args={[6.4, 0.4, 4.4]} />
-            <meshStandardMaterial {...MATTE} color={PALETTE.pedestal} />
-          </mesh>
+          <BrandPedestal width={6} depth={4} y={-2} />
         </group>
       ) : null}
       {isVisible("subject", frame) && scale > 0.001 ? (

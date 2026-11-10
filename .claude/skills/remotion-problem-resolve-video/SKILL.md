@@ -1,6 +1,6 @@
 ---
 name: remotion-problem-resolve-video
-description: Planeja e produz, de ponta a ponta, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato problema → solução (ou pergunta → revelação) — roteiro com tabela cronológica e contrato de dados, aprovação do usuário, depois implementação com acabamento cinematográfico (pós-efeitos, efeitos de tela, legendas em cápsula), narração TTS sincronizada palavra a palavra, trilha e efeitos sintetizados, revisão por frames, MP4 final, capa/thumbnail, título/descrição/hashtags e um .zip de entrega. Use sempre que o usuário pedir um vídeo explicativo, didático, "como funciona" ou "qual é o maior/mais antigo/primeiro" sobre qualquer mecanismo, processo, fenômeno ou curiosidade (ex. "como funciona um poço artesiano", "por que o tsunami cresce na costa", "qual a cidade mais antiga"), um short animado em 3D, um prompt mestre/roteiro de vídeo para Remotion, ou colar um briefing/storyboard com timestamps — mesmo que não cite Remotion nem 3D.
+description: Planeja e produz, de ponta a ponta, com a identidade do canal Fenda Umbra, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato problema → solução (ou pergunta → revelação) — roteiro com tabela cronológica e contrato de dados, aprovação do usuário, depois implementação com acabamento cinematográfico (pós-efeitos, efeitos de tela, legendas em cápsula), narração TTS sincronizada palavra a palavra, trilha e efeitos sintetizados, revisão por frames, MP4 final, capa/thumbnail, título/descrição/hashtags e um .zip de entrega. Use sempre que o usuário pedir um vídeo explicativo, didático, "como funciona" ou "qual é o maior/mais antigo/primeiro" sobre qualquer mecanismo, processo, fenômeno ou curiosidade (ex. "como funciona um poço artesiano", "por que o tsunami cresce na costa", "qual a cidade mais antiga"), um short animado em 3D, um prompt mestre/roteiro de vídeo para Remotion, ou colar um briefing/storyboard com timestamps — mesmo que não cite Remotion nem 3D.
 ---
 
 # Remotion Problem Resolve Video
@@ -22,6 +22,34 @@ Esta skill une um método narrativo (problema → solução) a um pipeline técn
 | `assets/template/` | Motor reutilizável: câmera orbital, trilhas, badges, legendas, rótulos 3D seguros, áudio, pós-efeitos, efeitos de tela (`utils/fx.ts`), explosões, capa/thumbnail, fontes locais | Copiar para o projeto na Fase 2 |
 | `scripts/` | `doctor.sh` (ambiente), `vo_budget.py` (cabe no tempo?), narração, trilha/efeitos, `stills.mjs`/`render.mjs` (GPU ou software), folhas de contato, loudness, `package_delivery.py` (.zip final) | Fase 1 (orçamento) e Fase 2 |
 | `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela) e `cidade-mais-antiga/` (tells em corte, revelação com coroa) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
+
+## Identidade do canal: FENDA UMBRA
+
+Todo vídeo desta skill sai com a identidade do canal **Fenda Umbra** — o conceito é *uma fenda de luz que se
+abre na sombra e revela o que está escondido dentro das coisas* (combina com cortes, vistas explodidas e
+revelações). Não pergunte de novo sobre marca; ela já foi decidida pelo usuário. Fica toda em
+`assets/template/src/brand.ts` (nome, cores, tempos) e `components/Brand.tsx`:
+
+- **Abertura fixa (~0,7 s, sem consumir fala):** a tela começa em sombra com uma rachadura âmbar que se abre
+  revelando a maquete; a marca pequena aparece no topo e sai antes dos badges. Som `fenda-open`.
+- **Encerramento fixo (últimos 2,6 s, `OUTRO_SECONDS`):** a fenda se fecha sobre a maquete, a rachadura se
+  apaga e entram a marca grande e a chamada "Siga para abrir a próxima fenda". Som `fenda-close`. A última
+  fala precisa terminar antes disso — `timing.ts` acusa erro e `vo_budget.py` já reserva esse tempo.
+- **Maquete premium:** fundo de estúdio escuro (`BACKDROP.mode = "studio"`) com halo quente atrás da
+  maquete, tingido pelo tema (`BACKDROP.tint`: oceano `#17324a`, história `#3a2a1e`, espaço `#1f1a3d`,
+  natureza `#1f3324`, tecnologia `#13283a`); luz de estúdio quente com contraluz; maquete sobre
+  `<BrandPedestal>` — base em sombra com o **fio de luz âmbar** na frente (assinatura visível em todo plano aberto).
+- **Cores:** umbra `#0e0b0a`/`#1d1714`, âmbar `#f2b544` (luz da marca, cápsula da legenda), creme `#f6ead6`.
+  O âmbar é da marca; os estados didáticos continuam vermelho/verde/azul/amarelo.
+- **Voz do canal:** edge-tts `pt-BR-AntonioNeural` (gratuita), +0% por padrão, até +12% se precisar caber.
+- **Tom e bordão:** frases curtas, segunda pessoa; a última fala segue o padrão de recompensa ("Pronto:
+  agora você entende/sabe…"). A chamada para seguir fica no encerramento visual, não na narração.
+- **Capa:** marca no topo, etiqueta âmbar, pergunta em 3 linhas (palavra-chave em âmbar).
+- **`publicacao.md`:** inclua `#fendaumbra` como hashtag de marca (volume baixo; serve para agrupar o
+  canal, não para alcance) além das 3–5 do tema.
+
+Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
+do `MainSequence` volta ao visual neutro.
 
 ## Entrada e escopo
 

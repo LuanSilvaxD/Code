@@ -1,7 +1,7 @@
 import { Audio } from "@remotion/media";
 import { Sequence, staticFile } from "remotion";
 import { scenes } from "../data/scenes";
-import { DURATION, f, VO } from "../utils/timing";
+import { DURATION, f, OUTRO_SECONDS, VO } from "../utils/timing";
 
 // Áudio: narração (prioridade), efeitos de cada cena e trilha instrumental discreta.
 // A trilha abaixa sempre que a voz entra (sidechain simples por volume).
@@ -23,8 +23,19 @@ const musicVolume = (frame: number) => {
   return (MUSIC.base - (MUSIC.base - MUSIC.ducked) * duck) * fadeOut;
 };
 
+/** Sons fixos da marca (scripts/sfx.py gera fenda-open/fenda-close). Mude para false se não gerar. */
+const BRAND_SFX = true;
+
 export const Soundtrack: React.FC = () => (
   <>
+    {BRAND_SFX ? (
+      <>
+        <Audio name="Marca · fenda abre" src={staticFile("audio/sfx/fenda-open.wav")} volume={0.3} />
+        <Sequence name="Marca · fenda fecha" from={DURATION - f(OUTRO_SECONDS)} layout="none">
+          <Audio src={staticFile("audio/sfx/fenda-close.wav")} volume={0.34} />
+        </Sequence>
+      </>
+    ) : null}
     {HAS_MUSIC ? <Audio name="Trilha instrumental" src={staticFile("audio/music.wav")} volume={musicVolume} /> : null}
     {scenes.map((sc) => (
       <Sequence key={sc.id} name={`Áudio · ${sc.id}`} from={sc.startFrame} durationInFrames={sc.durationInFrames + 120} layout="none">

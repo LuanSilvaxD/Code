@@ -9,7 +9,9 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 10;
+export const SECONDS = 12;
+/** Encerramento fixo da marca (components/Brand.tsx): a última fala precisa terminar antes dele. */
+export const OUTRO_SECONDS = 2.6;
 export const DURATION = SECONDS * FPS;
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,7 +23,7 @@ export const VO_KEYS = ["s1", "s2"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [5, 5];
+const PLANNED_SECONDS = [6, 6];
 /** A 1ª fala entra depois do whoosh de abertura. */
 const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
@@ -47,8 +49,9 @@ const voStart = {} as Record<VoKey, number>;
     planned += PLANNED_SECONDS[i];
   });
   // t = fim da última fala; deixe ao menos 0,4 s de respiro antes do fim do vídeo
-  if (HAS_VO && t > SECONDS - 0.4) {
-    throw new Error(`A narração (${t.toFixed(2)} s) não cabe em ${SECONDS} s: encurte o texto ou ajuste GAPS/SECONDS.`);
+  // a última fala termina antes do encerramento da marca (+0,2 s de respiro)
+  if (HAS_VO && t > SECONDS - OUTRO_SECONDS - 0.2) {
+    throw new Error(`A narração (${t.toFixed(2)} s) invade o encerramento (${OUTRO_SECONDS} s) de um vídeo de ${SECONDS} s: encurte o texto, a voz ou GAPS, ou aumente SECONDS.`);
   }
 }
 

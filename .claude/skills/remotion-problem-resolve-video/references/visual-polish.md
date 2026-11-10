@@ -16,6 +16,13 @@ espectador sente o ruído antes de entender o conteúdo.
 
 ---
 
+## 0. Identidade Fenda Umbra (sempre)
+
+Abertura com a fenda abrindo, encerramento com a fenda fechando + marca, fundo de estúdio com halo tingido
+pelo tema, pedestal com fio âmbar, cápsula de legenda âmbar. Detalhes e cores no `SKILL.md` ("Identidade do
+canal") e em `brand.ts`. Ao revisar: a marca pequena da abertura não pode coincidir com o 1º badge; nada da
+cena importante nos últimos 2,6 s (o encerramento cobre a tela).
+
 ## 1. Camadas de acabamento (sempre ligadas)
 
 `components/PostFx.tsx`, parâmetros em `theme.ts → POST`:

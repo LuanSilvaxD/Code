@@ -1,12 +1,29 @@
 import { AbsoluteFill, interpolateColors, useCurrentFrame } from "remotion";
-import { SKY } from "../theme";
+import { BRAND } from "../brand";
+import { BACKDROP, SKY } from "../theme";
 import { clamp } from "../utils/animation";
 import { cameraPoseAt } from "./CameraController";
 
-// Fundo atrás do diorama: céu claro com a câmera acima do solo, azul profundo quando ela mergulha.
+// Fundo atrás do diorama.
+// "studio" (identidade Fenda Umbra): sombra quente com um halo de luz atrás da maquete, tingido pelo tema;
+//   o halo acompanha levemente a câmera (parallax) para o fundo não parecer um papel parado.
+// "sky": céu claro com a câmera acima do solo, azul profundo quando ela mergulha.
 export const Background: React.FC = () => {
   const frame = useCurrentFrame();
-  const camY = cameraPoseAt(frame).position[1];
+  const pose = cameraPoseAt(frame);
+  if (BACKDROP.mode === "studio") {
+    const az = Math.atan2(pose.position[0] - pose.target[0], pose.position[2] - pose.target[2]);
+    const hx = 50 - clamp(az / Math.PI, -0.5, 0.5) * 24;
+    const { umbra } = BRAND.colors;
+    return (
+      <AbsoluteFill>
+        <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${BACKDROP.tint} 55%, ${umbra} 100%)` }} />
+        <AbsoluteFill style={{ background: `radial-gradient(ellipse 75% 34% at ${hx}% 52%, ${BACKDROP.halo}55 0%, ${BACKDROP.halo}14 45%, rgba(0,0,0,0) 75%)` }} />
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse 95% 70% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45) 100%)" }} />
+      </AbsoluteFill>
+    );
+  }
+  const camY = pose.position[1];
   const t = clamp((1.2 - camY) / 4.2, 0, 1);
   const c = SKY.surface.map((top, i) => interpolateColors(t, [0, 1], [top, SKY.underground[i]]));
   return (

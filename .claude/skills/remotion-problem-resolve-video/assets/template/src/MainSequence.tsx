@@ -3,6 +3,7 @@ import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig } from "remotio
 import { Soundtrack } from "./audio/Soundtrack";
 import { AnimatedCaptions } from "./components/AnimatedCaptions";
 import { Background } from "./components/Background";
+import { BrandIntro, BrandOutro } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
 import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
@@ -67,6 +68,9 @@ export const MainSequence: React.FC = () => {
       <AnimatedCaptions />
       <ProgressBar />
       <FadeOut />
+      {/* identidade Fenda Umbra: abertura (fenda abre) e encerramento (fenda fecha + marca + chamada) */}
+      <BrandIntro />
+      <BrandOutro />
       <Soundtrack />
     </AbsoluteFill>
   );

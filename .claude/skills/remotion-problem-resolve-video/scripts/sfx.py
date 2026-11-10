@@ -414,6 +414,37 @@ save("flow", flow())
 save("fill", fill())
 save("pump", pump())
 
+# ---------------------------------------------------------------- marca Fenda Umbra
+def fenda_open(d=1.3):
+    """Fenda abrindo: sopro de ar que sobe + brilho cristalino + baque grave suave no fim."""
+    t = tt(d)
+    air = sweep_bp(rng.standard_normal(len(t)), np.geomspace(300, 5200, len(t)), q=2.0) * np.minimum(1, t / 0.5) * 0.8
+    shimmer = sum(np.sin(2 * np.pi * f * t + i) for i, f in enumerate((1318.5, 1760, 2637))) * 0.06 * np.clip((t - 0.35) / 0.4, 0, 1)
+    n = int(0.5 * SR)
+    thump = np.zeros(len(t))
+    i0 = int(0.62 * SR)
+    seg = np.sin(2 * np.pi * 58 * np.arange(n) / SR) * np.exp(-np.linspace(0, 7, n)) * 0.7
+    thump[i0 : i0 + n] = seg[: len(t) - i0]
+    return (air + shimmer + thump) * env(d, 0.02, 0.5)
+
+
+def fenda_close(d=1.6):
+    """Fenda fechando: sopro descendo + batida grave (porta de pedra) + cauda escura."""
+    t = tt(d)
+    air = sweep_bp(rng.standard_normal(len(t)), np.geomspace(4200, 260, len(t)), q=2.0) * np.clip(1 - t / 0.7, 0, 1) * 0.8
+    n = int(0.9 * SR)
+    hit = np.zeros(len(t))
+    i0 = int(0.55 * SR)
+    k = np.arange(n) / SR
+    seg = (np.sin(2 * np.pi * 46 * k) * 0.8 + lp(rng.standard_normal(n), 220) * 0.6) * np.exp(-k / 0.28)
+    hit[i0 : i0 + n] = seg[: len(t) - i0]
+    return (air + hit) * env(d, 0.01, 0.6)
+
+
+save("fenda-open", fenda_open())
+save("fenda-close", fenda_close())
+
+
 def dig(d=0.9):
     t = tt(d)
     out = np.zeros(len(t))

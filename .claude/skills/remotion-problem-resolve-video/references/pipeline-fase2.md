@@ -185,6 +185,12 @@ ffmpeg -y -i out/<nome>-raw.mp4 -i out/tail.mp4 -i out/<nome>.mp4 \
 ```
 Confira com ffprobe que o total de frames continua igual.
 
+## 8a. CLI do Remotion sem GPU / sem download
+
+Os scripts (`stills.mjs`, `render.mjs`) detectam GPU e Chromium sozinhos, mas `npx remotion still|render`
+não: passe `--gl=swangle --browser-executable=<chromium>` (o caminho sai de `node scripts/env.mjs`), ou
+descomente `Config.setBrowserExecutable` no `remotion.config.ts`.
+
 ## 8c. Entrega
 
 1. Capa e thumbnail: `npx remotion still CapaVertical out/capa-vertical.png --frame=<N>` e `ThumbYouTube`.

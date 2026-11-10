@@ -1,6 +1,8 @@
 import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, useVideoConfig } from "remotion";
+import { BRAND } from "./brand";
 import { Background } from "./components/Background";
+import { Wordmark } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
 import { PostFx } from "./components/PostFx";
@@ -14,7 +16,7 @@ import { FONT, PALETTE } from "./theme";
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
   { text: "PERGUNTA", color: "#ffffff", scale: 0.6 },
-  { text: "IMPACTANTE", color: PALETTE.warning, scale: 1 },
+  { text: "IMPACTANTE", color: "#f2b544", scale: 1 },
   { text: "AQUI?", color: "#ffffff", scale: 0.75 },
 ];
 export const THUMB_TAG = "TEMA";
@@ -30,7 +32,7 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
   const v = layout === "vertical";
   const base = v ? 150 : 96;
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0e2036" }}>
+    <AbsoluteFill style={{ backgroundColor: BRAND.colors.umbra }}>
       <Background />
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.5, far: 400, position: [8, 6, 30] }}>
         <CameraController />
@@ -38,10 +40,11 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
         <World />
       </ThreeCanvas>
       <PostFx />
-      <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(6,10,18,0.82) 0%, rgba(6,10,18,0.5) 32%, rgba(0,0,0,0) 48%)" : "linear-gradient(90deg, rgba(6,10,18,0.85) 0%, rgba(6,10,18,0.4) 50%, rgba(0,0,0,0) 72%)" }} />
+      <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(14,11,10,0.88) 0%, rgba(14,11,10,0.55) 34%, rgba(0,0,0,0) 50%)" : "linear-gradient(90deg, rgba(14,11,10,0.9) 0%, rgba(14,11,10,0.45) 50%, rgba(0,0,0,0) 72%)" }} />
       {/* texto no terço superior: a base da capa fica sob a interface do TikTok/Shorts */}
       <div style={{ position: "absolute", left: v ? 60 : 56, right: v ? 60 : undefined, top: v ? 190 : 64, display: "flex", flexDirection: "column", alignItems: v ? "center" : "flex-start", textAlign: v ? "center" : "left", gap: v ? 14 : 8 }}>
-        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: PALETTE.negative, color: "#fff", fontFamily: FONT, fontWeight: 900, fontSize: v ? 44 : 28, letterSpacing: 2, boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
+        <Wordmark size={v ? 28 : 18} />
+        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: BRAND.colors.amber, color: BRAND.colors.umbra, fontFamily: FONT, fontWeight: 900, fontSize: v ? 44 : 28, letterSpacing: 2, boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
         {THUMB_LINES.map((l, i) => (
           <Line key={i} text={l.text} color={l.color} size={Math.round(base * l.scale)} />
         ))}

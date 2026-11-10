@@ -30,19 +30,22 @@ export const PALETTE = {
   groundSide: "#b98a5d",
   subject: "#25b4dc",
   metal: "#a2abb5",
-  pedestal: "#232c38",
+  // maquete premium Fenda Umbra: pedestal em sombra quente + fio de luz âmbar (BrandPedestal)
+  pedestal: "#1d1714",
 } as const;
 
 /** Acabamento levemente fosco para todo o diorama. */
 export const MATTE = { roughness: 0.88, metalness: 0, flatShading: true } as const;
 export const METAL = { roughness: 0.38, metalness: 0.55, flatShading: true } as const;
 
+// Luz de estúdio quente (maquete de museu): chave âmbar suave, preenchimento frio fraco e contraluz forte
+// que recorta a silhueta da maquete contra o fundo escuro.
 export const LIGHTING = {
-  ambient: 0.55,
-  hemisphere: { sky: "#dff2ff", ground: "#6b5a48", intensity: 1.05 },
-  key: { position: [9, 16, 12] as [number, number, number], intensity: 2.5, color: "#fff4e2" },
-  fill: { position: [-12, 6, 8] as [number, number, number], intensity: 0.75, color: "#cfe6ff" },
-  rim: { position: [-4, 8, -12] as [number, number, number], intensity: 0.6, color: "#ffffff" },
+  ambient: 0.5,
+  hemisphere: { sky: "#fff1dc", ground: "#3a2a20", intensity: 1.0 },
+  key: { position: [9, 16, 12] as [number, number, number], intensity: 2.6, color: "#ffe6c2" },
+  fill: { position: [-12, 6, 8] as [number, number, number], intensity: 0.6, color: "#cfe0ff" },
+  rim: { position: [-4, 8, -12] as [number, number, number], intensity: 1.1, color: "#ffd08a" },
   shadowMapSize: 2048,
 } as const;
 
@@ -64,6 +67,13 @@ export const SKY = {
   underground: ["#16304f", "#1d3f63", "#0e2036"],
 } as const;
 
+/**
+ * Fundo. "studio" (padrão da marca): maquete sobre fundo escuro de estúdio com um halo de luz atrás —
+ * o "tint" dá o clima do tema sem perder a identidade (oceano #17324a, história #3a2a1e, espaço #1f1a3d,
+ * natureza #1f3324, tecnologia #13283a). "sky": céu/subsolo como nos primeiros vídeos (cenas ao ar livre).
+ */
+export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#3a2c22", halo: "#ffd9a0" };
+
 /** Cores das palavras-chave nas legendas (as demais palavras ficam brancas). */
 export const KEYWORD_COLOR: Record<string, string> = {};
 export const KEYWORD_DEFAULT = "#4fdcff";
@@ -74,9 +84,9 @@ export const KEYWORD_DEFAULT = "#4fdcff";
  * para badges e legendas lerem sobre qualquer cenário. Ajuste por tema; 0 desliga.
  */
 export const POST = {
-  vignette: 0.32,
+  vignette: 0.4,
   grain: 0.05,
-  grade: { color: "#ffb36b", opacity: 0.07 },
+  grade: { color: "#ffb36b", opacity: 0.06 },
   scrimTop: 0.22,
   scrimBottom: 0.3,
   /** barra de progresso fina no topo (retenção em Shorts/Reels); desligada por padrão */
@@ -84,4 +94,4 @@ export const POST = {
 } as const;
 
 /** Legenda: "pill" = palavra falada numa cápsula colorida (estilo Shorts); "color" = só muda a cor. */
-export const CAPTION_STYLE = { active: "pill" as "pill" | "color", pillColor: "#f8c815", pillText: "#16120a" };
+export const CAPTION_STYLE = { active: "pill" as "pill" | "color", pillColor: "#f2b544", pillText: "#16120a" }; // âmbar da marca
