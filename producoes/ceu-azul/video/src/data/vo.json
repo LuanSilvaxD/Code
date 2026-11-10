@@ -1,0 +1,1209 @@
+{
+  "s1": {
+    "text": "Por que o céu é azul? A resposta é a mesma que faz o pôr do sol ficar laranja.",
+    "seconds": 5.454,
+    "words": [
+      {
+        "text": "Por",
+        "start": 0,
+        "end": 0.114
+      },
+      {
+        "text": "que",
+        "start": 0.127,
+        "end": 0.302
+      },
+      {
+        "text": "o",
+        "start": 0.314,
+        "end": 0.377
+      },
+      {
+        "text": "céu",
+        "start": 0.389,
+        "end": 0.714
+      },
+      {
+        "text": "é",
+        "start": 0.727,
+        "end": 0.839
+      },
+      {
+        "text": "azul",
+        "start": 0.852,
+        "end": 1.239
+      },
+      {
+        "text": "A",
+        "start": 2.102,
+        "end": 2.227
+      },
+      {
+        "text": "resposta",
+        "start": 2.24,
+        "end": 2.865
+      },
+      {
+        "text": "é",
+        "start": 2.877,
+        "end": 2.927
+      },
+      {
+        "text": "a",
+        "start": 2.939,
+        "end": 2.977
+      },
+      {
+        "text": "mesma",
+        "start": 2.99,
+        "end": 3.389
+      },
+      {
+        "text": "que",
+        "start": 3.402,
+        "end": 3.527
+      },
+      {
+        "text": "faz",
+        "start": 3.539,
+        "end": 3.74
+      },
+      {
+        "text": "o",
+        "start": 3.752,
+        "end": 3.902
+      },
+      {
+        "text": "pôr",
+        "start": 3.915,
+        "end": 4.115
+      },
+      {
+        "text": "do",
+        "start": 4.127,
+        "end": 4.227
+      },
+      {
+        "text": "sol",
+        "start": 4.239,
+        "end": 4.477
+      },
+      {
+        "text": "ficar",
+        "start": 4.489,
+        "end": 4.827
+      },
+      {
+        "text": "laranja",
+        "start": 4.84,
+        "end": 5.365
+      }
+    ]
+  },
+  "s2": {
+    "text": "Muita gente acha que o céu reflete o mar. Só que ele é azul até no meio do deserto.",
+    "seconds": 5.559,
+    "words": [
+      {
+        "text": "Muita",
+        "start": 0,
+        "end": 0.306
+      },
+      {
+        "text": "gente",
+        "start": 0.318,
+        "end": 0.63
+      },
+      {
+        "text": "acha",
+        "start": 0.643,
+        "end": 0.943
+      },
+      {
+        "text": "que",
+        "start": 0.956,
+        "end": 1.043
+      },
+      {
+        "text": "o",
+        "start": 1.055,
+        "end": 1.093
+      },
+      {
+        "text": "céu",
+        "start": 1.105,
+        "end": 1.368
+      },
+      {
+        "text": "reflete",
+        "start": 1.381,
+        "end": 1.881
+      },
+      {
+        "text": "o",
+        "start": 1.893,
+        "end": 1.918
+      },
+      {
+        "text": "mar.",
+        "start": 1.93,
+        "end": 2.168
+      },
+      {
+        "text": "Só",
+        "start": 3.031,
+        "end": 3.368
+      },
+      {
+        "text": "que",
+        "start": 3.381,
+        "end": 3.506
+      },
+      {
+        "text": "ele",
+        "start": 3.518,
+        "end": 3.655
+      },
+      {
+        "text": "é",
+        "start": 3.668,
+        "end": 3.731
+      },
+      {
+        "text": "azul",
+        "start": 3.743,
+        "end": 4.056
+      },
+      {
+        "text": "até",
+        "start": 4.068,
+        "end": 4.33
+      },
+      {
+        "text": "no",
+        "start": 4.343,
+        "end": 4.443
+      },
+      {
+        "text": "meio",
+        "start": 4.455,
+        "end": 4.743
+      },
+      {
+        "text": "do",
+        "start": 4.755,
+        "end": 4.88
+      },
+      {
+        "text": "deserto",
+        "start": 4.893,
+        "end": 5.493
+      }
+    ]
+  },
+  "s3": {
+    "text": "O segredo começa na luz do Sol. Ela parece branca, mas é uma mistura de todas as cores.",
+    "seconds": 6.298,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.052
+      },
+      {
+        "text": "segredo",
+        "start": 0.064,
+        "end": 0.576
+      },
+      {
+        "text": "começa",
+        "start": 0.589,
+        "end": 1.114
+      },
+      {
+        "text": "na",
+        "start": 1.127,
+        "end": 1.227
+      },
+      {
+        "text": "luz",
+        "start": 1.239,
+        "end": 1.501
+      },
+      {
+        "text": "do",
+        "start": 1.514,
+        "end": 1.627
+      },
+      {
+        "text": "Sol",
+        "start": 1.639,
+        "end": 1.977
+      },
+      {
+        "text": "Ela",
+        "start": 2.839,
+        "end": 3.127
+      },
+      {
+        "text": "parece",
+        "start": 3.139,
+        "end": 3.501
+      },
+      {
+        "text": "branca",
+        "start": 3.514,
+        "end": 3.889
+      },
+      {
+        "text": "mas",
+        "start": 4.151,
+        "end": 4.277
+      },
+      {
+        "text": "é",
+        "start": 4.289,
+        "end": 4.451
+      },
+      {
+        "text": "uma",
+        "start": 4.464,
+        "end": 4.614
+      },
+      {
+        "text": "mistura",
+        "start": 4.626,
+        "end": 5.076
+      },
+      {
+        "text": "de",
+        "start": 5.089,
+        "end": 5.239
+      },
+      {
+        "text": "todas",
+        "start": 5.251,
+        "end": 5.551
+      },
+      {
+        "text": "as",
+        "start": 5.564,
+        "end": 5.739
+      },
+      {
+        "text": "cores",
+        "start": 5.751,
+        "end": 6.214
+      }
+    ]
+  },
+  "s4": {
+    "text": "No caminho até você, essa luz atravessa o ar: trilhões de moléculas minúsculas de nitrogênio e oxigênio.",
+    "seconds": 6.505,
+    "words": [
+      {
+        "text": "No",
+        "start": 0,
+        "end": 0.114
+      },
+      {
+        "text": "caminho",
+        "start": 0.126,
+        "end": 0.551
+      },
+      {
+        "text": "até",
+        "start": 0.564,
+        "end": 0.789
+      },
+      {
+        "text": "você",
+        "start": 0.801,
+        "end": 1.264
+      },
+      {
+        "text": "essa",
+        "start": 1.451,
+        "end": 1.739
+      },
+      {
+        "text": "luz",
+        "start": 1.751,
+        "end": 1.938
+      },
+      {
+        "text": "atravessa",
+        "start": 1.951,
+        "end": 2.564
+      },
+      {
+        "text": "o",
+        "start": 2.576,
+        "end": 2.639
+      },
+      {
+        "text": "ar",
+        "start": 2.651,
+        "end": 2.826
+      },
+      {
+        "text": "trilhões",
+        "start": 3.063,
+        "end": 3.563
+      },
+      {
+        "text": "de",
+        "start": 3.576,
+        "end": 3.639
+      },
+      {
+        "text": "moléculas",
+        "start": 3.651,
+        "end": 4.226
+      },
+      {
+        "text": "minúsculas",
+        "start": 4.239,
+        "end": 4.826
+      },
+      {
+        "text": "de",
+        "start": 4.838,
+        "end": 4.926
+      },
+      {
+        "text": "nitrogênio",
+        "start": 4.939,
+        "end": 5.601
+      },
+      {
+        "text": "e",
+        "start": 5.614,
+        "end": 5.676
+      },
+      {
+        "text": "oxigênio",
+        "start": 5.689,
+        "end": 6.401
+      }
+    ]
+  },
+  "s5": {
+    "text": "E essas moléculas desviam muito mais as cores de onda curta, como o azul, do que o vermelho.",
+    "seconds": 5.571,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.06
+      },
+      {
+        "text": "essas",
+        "start": 0.072,
+        "end": 0.384
+      },
+      {
+        "text": "moléculas",
+        "start": 0.397,
+        "end": 0.997
+      },
+      {
+        "text": "desviam",
+        "start": 1.01,
+        "end": 1.46
+      },
+      {
+        "text": "muito",
+        "start": 1.472,
+        "end": 1.822
+      },
+      {
+        "text": "mais",
+        "start": 1.835,
+        "end": 1.997
+      },
+      {
+        "text": "as",
+        "start": 2.01,
+        "end": 2.184
+      },
+      {
+        "text": "cores",
+        "start": 2.197,
+        "end": 2.51
+      },
+      {
+        "text": "de",
+        "start": 2.522,
+        "end": 2.622
+      },
+      {
+        "text": "onda",
+        "start": 2.635,
+        "end": 2.885
+      },
+      {
+        "text": "curta",
+        "start": 2.897,
+        "end": 3.322
+      },
+      {
+        "text": "como",
+        "start": 3.635,
+        "end": 3.897
+      },
+      {
+        "text": "o",
+        "start": 3.909,
+        "end": 3.959
+      },
+      {
+        "text": "azul",
+        "start": 3.972,
+        "end": 4.334
+      },
+      {
+        "text": "do",
+        "start": 4.584,
+        "end": 4.772
+      },
+      {
+        "text": "que",
+        "start": 4.785,
+        "end": 4.884
+      },
+      {
+        "text": "o",
+        "start": 4.897,
+        "end": 4.934
+      },
+      {
+        "text": "vermelho",
+        "start": 4.947,
+        "end": 5.459
+      }
+    ]
+  },
+  "s6": {
+    "text": "Isso se chama espalhamento de Rêili. O azul ricocheteia pelo céu inteiro e chega aos seus olhos de todas as direções.",
+    "seconds": 7.203,
+    "words": [
+      {
+        "text": "Isso",
+        "start": 0,
+        "end": 0.255
+      },
+      {
+        "text": "se",
+        "start": 0.268,
+        "end": 0.393
+      },
+      {
+        "text": "chama",
+        "start": 0.405,
+        "end": 0.73
+      },
+      {
+        "text": "espalhamento",
+        "start": 0.743,
+        "end": 1.405
+      },
+      {
+        "text": "de",
+        "start": 1.418,
+        "end": 1.518
+      },
+      {
+        "text": "Rêili",
+        "start": 1.531,
+        "end": 1.905
+      },
+      {
+        "text": "O",
+        "start": 2.768,
+        "end": 2.88
+      },
+      {
+        "text": "azul",
+        "start": 2.893,
+        "end": 3.18
+      },
+      {
+        "text": "ricocheteia",
+        "start": 3.193,
+        "end": 3.905
+      },
+      {
+        "text": "pelo",
+        "start": 3.918,
+        "end": 4.118
+      },
+      {
+        "text": "céu",
+        "start": 4.13,
+        "end": 4.368
+      },
+      {
+        "text": "inteiro",
+        "start": 4.38,
+        "end": 4.781
+      },
+      {
+        "text": "e",
+        "start": 4.793,
+        "end": 4.83
+      },
+      {
+        "text": "chega",
+        "start": 4.843,
+        "end": 5.106
+      },
+      {
+        "text": "aos",
+        "start": 5.118,
+        "end": 5.243
+      },
+      {
+        "text": "seus",
+        "start": 5.255,
+        "end": 5.405
+      },
+      {
+        "text": "olhos",
+        "start": 5.418,
+        "end": 5.806
+      },
+      {
+        "text": "de",
+        "start": 5.818,
+        "end": 5.955
+      },
+      {
+        "text": "todas",
+        "start": 5.968,
+        "end": 6.268
+      },
+      {
+        "text": "as",
+        "start": 6.281,
+        "end": 6.418
+      },
+      {
+        "text": "direções",
+        "start": 6.431,
+        "end": 7.118
+      }
+    ]
+  },
+  "s7": {
+    "text": "Mas o violeta se espalha ainda mais. Então por que o céu não é roxo? O Sol manda menos violeta, e seus olhos são menos sensíveis a ele.",
+    "seconds": 9.813,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.158
+      },
+      {
+        "text": "o",
+        "start": 0.171,
+        "end": 0.309
+      },
+      {
+        "text": "violeta",
+        "start": 0.321,
+        "end": 0.846
+      },
+      {
+        "text": "se",
+        "start": 0.858,
+        "end": 0.971
+      },
+      {
+        "text": "espalha",
+        "start": 0.983,
+        "end": 1.346
+      },
+      {
+        "text": "ainda",
+        "start": 1.358,
+        "end": 1.634
+      },
+      {
+        "text": "mais",
+        "start": 1.646,
+        "end": 2.046
+      },
+      {
+        "text": "Então",
+        "start": 2.908,
+        "end": 3.371
+      },
+      {
+        "text": "por",
+        "start": 3.384,
+        "end": 3.546
+      },
+      {
+        "text": "que",
+        "start": 3.558,
+        "end": 3.708
+      },
+      {
+        "text": "o",
+        "start": 3.721,
+        "end": 3.784
+      },
+      {
+        "text": "céu",
+        "start": 3.796,
+        "end": 4.083
+      },
+      {
+        "text": "não",
+        "start": 4.096,
+        "end": 4.246
+      },
+      {
+        "text": "é",
+        "start": 4.258,
+        "end": 4.321
+      },
+      {
+        "text": "roxo",
+        "start": 4.333,
+        "end": 4.734
+      },
+      {
+        "text": "O",
+        "start": 5.596,
+        "end": 5.708
+      },
+      {
+        "text": "Sol",
+        "start": 5.721,
+        "end": 5.971
+      },
+      {
+        "text": "manda",
+        "start": 5.984,
+        "end": 6.296
+      },
+      {
+        "text": "menos",
+        "start": 6.309,
+        "end": 6.609
+      },
+      {
+        "text": "violeta",
+        "start": 6.621,
+        "end": 7.184
+      },
+      {
+        "text": "e",
+        "start": 7.496,
+        "end": 7.546
+      },
+      {
+        "text": "seus",
+        "start": 7.559,
+        "end": 7.784
+      },
+      {
+        "text": "olhos",
+        "start": 7.796,
+        "end": 8.196
+      },
+      {
+        "text": "são",
+        "start": 8.209,
+        "end": 8.346
+      },
+      {
+        "text": "menos",
+        "start": 8.358,
+        "end": 8.671
+      },
+      {
+        "text": "sensíveis",
+        "start": 8.684,
+        "end": 9.258
+      },
+      {
+        "text": "a",
+        "start": 9.271,
+        "end": 9.446
+      },
+      {
+        "text": "ele",
+        "start": 9.459,
+        "end": 9.721
+      }
+    ]
+  },
+  "s8": {
+    "text": "Quer uma prova? No espaço não tem ar para espalhar a luz. Por isso lá o céu é preto, mesmo com o Sol brilhando.",
+    "seconds": 8.138,
+    "words": [
+      {
+        "text": "Quer",
+        "start": 0,
+        "end": 0.135
+      },
+      {
+        "text": "uma",
+        "start": 0.147,
+        "end": 0.322
+      },
+      {
+        "text": "prova",
+        "start": 0.335,
+        "end": 0.773
+      },
+      {
+        "text": "No",
+        "start": 1.635,
+        "end": 1.798
+      },
+      {
+        "text": "espaço",
+        "start": 1.81,
+        "end": 2.31
+      },
+      {
+        "text": "não",
+        "start": 2.322,
+        "end": 2.485
+      },
+      {
+        "text": "tem",
+        "start": 2.498,
+        "end": 2.685
+      },
+      {
+        "text": "ar",
+        "start": 2.697,
+        "end": 2.86
+      },
+      {
+        "text": "para",
+        "start": 2.873,
+        "end": 3.023
+      },
+      {
+        "text": "espalhar",
+        "start": 3.035,
+        "end": 3.46
+      },
+      {
+        "text": "a",
+        "start": 3.473,
+        "end": 3.51
+      },
+      {
+        "text": "luz",
+        "start": 3.523,
+        "end": 3.96
+      },
+      {
+        "text": "Por",
+        "start": 4.822,
+        "end": 4.985
+      },
+      {
+        "text": "isso",
+        "start": 4.997,
+        "end": 5.273
+      },
+      {
+        "text": "lá",
+        "start": 5.285,
+        "end": 5.51
+      },
+      {
+        "text": "o",
+        "start": 5.523,
+        "end": 5.585
+      },
+      {
+        "text": "céu",
+        "start": 5.598,
+        "end": 5.897
+      },
+      {
+        "text": "é",
+        "start": 5.91,
+        "end": 5.947
+      },
+      {
+        "text": "preto",
+        "start": 5.96,
+        "end": 6.36
+      },
+      {
+        "text": "mesmo",
+        "start": 6.647,
+        "end": 7.023
+      },
+      {
+        "text": "com",
+        "start": 7.035,
+        "end": 7.223
+      },
+      {
+        "text": "o",
+        "start": 7.235,
+        "end": 7.273
+      },
+      {
+        "text": "Sol",
+        "start": 7.285,
+        "end": 7.51
+      },
+      {
+        "text": "brilhando",
+        "start": 7.523,
+        "end": 8.035
+      }
+    ]
+  },
+  "s9": {
+    "text": "E no fim da tarde, o Sol fica baixo. A luz atravessa muito mais ar até chegar em você.",
+    "seconds": 5.993,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.045
+      },
+      {
+        "text": "no",
+        "start": 0.057,
+        "end": 0.183
+      },
+      {
+        "text": "fim",
+        "start": 0.195,
+        "end": 0.382
+      },
+      {
+        "text": "da",
+        "start": 0.395,
+        "end": 0.545
+      },
+      {
+        "text": "tarde",
+        "start": 0.558,
+        "end": 1.008
+      },
+      {
+        "text": "o",
+        "start": 1.245,
+        "end": 1.307
+      },
+      {
+        "text": "Sol",
+        "start": 1.32,
+        "end": 1.595
+      },
+      {
+        "text": "fica",
+        "start": 1.607,
+        "end": 1.907
+      },
+      {
+        "text": "baixo",
+        "start": 1.92,
+        "end": 2.345
+      },
+      {
+        "text": "A",
+        "start": 3.207,
+        "end": 3.32
+      },
+      {
+        "text": "luz",
+        "start": 3.332,
+        "end": 3.495
+      },
+      {
+        "text": "atravessa",
+        "start": 3.508,
+        "end": 4.07
+      },
+      {
+        "text": "muito",
+        "start": 4.082,
+        "end": 4.47
+      },
+      {
+        "text": "mais",
+        "start": 4.483,
+        "end": 4.657
+      },
+      {
+        "text": "ar",
+        "start": 4.67,
+        "end": 4.82
+      },
+      {
+        "text": "até",
+        "start": 4.832,
+        "end": 5.007
+      },
+      {
+        "text": "chegar",
+        "start": 5.02,
+        "end": 5.37
+      },
+      {
+        "text": "em",
+        "start": 5.382,
+        "end": 5.445
+      },
+      {
+        "text": "você",
+        "start": 5.457,
+        "end": 5.882
+      }
+    ]
+  },
+  "s10": {
+    "text": "No caminho, quase todo o azul se espalha e fica para trás. Sobram o laranja e o vermelho.",
+    "seconds": 6.327,
+    "words": [
+      {
+        "text": "No",
+        "start": 0,
+        "end": 0.129
+      },
+      {
+        "text": "caminho",
+        "start": 0.142,
+        "end": 0.642
+      },
+      {
+        "text": "quase",
+        "start": 0.88,
+        "end": 1.28
+      },
+      {
+        "text": "todo",
+        "start": 1.292,
+        "end": 1.592
+      },
+      {
+        "text": "o",
+        "start": 1.604,
+        "end": 1.642
+      },
+      {
+        "text": "azul",
+        "start": 1.654,
+        "end": 1.954
+      },
+      {
+        "text": "se",
+        "start": 1.967,
+        "end": 2.067
+      },
+      {
+        "text": "espalha",
+        "start": 2.079,
+        "end": 2.53
+      },
+      {
+        "text": "e",
+        "start": 2.542,
+        "end": 2.617
+      },
+      {
+        "text": "fica",
+        "start": 2.63,
+        "end": 2.942
+      },
+      {
+        "text": "para",
+        "start": 2.954,
+        "end": 3.179
+      },
+      {
+        "text": "trás",
+        "start": 3.192,
+        "end": 3.63
+      },
+      {
+        "text": "Sobram",
+        "start": 4.492,
+        "end": 5.017
+      },
+      {
+        "text": "o",
+        "start": 5.03,
+        "end": 5.055
+      },
+      {
+        "text": "laranja",
+        "start": 5.067,
+        "end": 5.579
+      },
+      {
+        "text": "e",
+        "start": 5.592,
+        "end": 5.629
+      },
+      {
+        "text": "o",
+        "start": 5.642,
+        "end": 5.692
+      },
+      {
+        "text": "vermelho",
+        "start": 5.704,
+        "end": 6.217
+      }
+    ]
+  },
+  "s11": {
+    "text": "Pronto: agora você sabe por que o céu é azul e o pôr do sol, laranja.",
+    "seconds": 4.56,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.354
+      },
+      {
+        "text": "agora",
+        "start": 0.629,
+        "end": 1.004
+      },
+      {
+        "text": "você",
+        "start": 1.017,
+        "end": 1.279
+      },
+      {
+        "text": "sabe",
+        "start": 1.291,
+        "end": 1.654
+      },
+      {
+        "text": "por",
+        "start": 1.666,
+        "end": 1.841
+      },
+      {
+        "text": "que",
+        "start": 1.854,
+        "end": 1.992
+      },
+      {
+        "text": "o",
+        "start": 2.004,
+        "end": 2.066
+      },
+      {
+        "text": "céu",
+        "start": 2.079,
+        "end": 2.404
+      },
+      {
+        "text": "é",
+        "start": 2.416,
+        "end": 2.504
+      },
+      {
+        "text": "azul",
+        "start": 2.517,
+        "end": 2.842
+      },
+      {
+        "text": "e",
+        "start": 2.854,
+        "end": 2.916
+      },
+      {
+        "text": "o",
+        "start": 2.929,
+        "end": 2.992
+      },
+      {
+        "text": "pôr",
+        "start": 3.004,
+        "end": 3.229
+      },
+      {
+        "text": "do",
+        "start": 3.242,
+        "end": 3.342
+      },
+      {
+        "text": "sol",
+        "start": 3.354,
+        "end": 3.666
+      },
+      {
+        "text": "laranja",
+        "start": 3.917,
+        "end": 4.479
+      }
+    ]
+  },
+  "cta": {
+    "text": "Segue a Fenda Umbra e compartilha pra mais vídeos assim!",
+    "seconds": 3.188,
+    "words": [
+      {
+        "text": "Segue",
+        "start": 0,
+        "end": 0.335
+      },
+      {
+        "text": "a",
+        "start": 0.348,
+        "end": 0.411
+      },
+      {
+        "text": "Fenda",
+        "start": 0.423,
+        "end": 0.761
+      },
+      {
+        "text": "Umbra",
+        "start": 0.773,
+        "end": 1.073
+      },
+      {
+        "text": "e",
+        "start": 1.085,
+        "end": 1.11
+      },
+      {
+        "text": "compartilha",
+        "start": 1.123,
+        "end": 1.761
+      },
+      {
+        "text": "pra",
+        "start": 1.773,
+        "end": 1.935
+      },
+      {
+        "text": "mais",
+        "start": 1.948,
+        "end": 2.261
+      },
+      {
+        "text": "vídeos",
+        "start": 2.273,
+        "end": 2.611
+      },
+      {
+        "text": "assim",
+        "start": 2.623,
+        "end": 3.11
+      }
+    ]
+  }
+}
