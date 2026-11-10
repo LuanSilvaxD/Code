@@ -1,7 +1,7 @@
 # Status de produção — Qual é a cidade mais antiga que ainda existe?
 
-- **Fase atual:** 2 (implementação e render).
-- **Status:** APROVADO pelo usuário (v1, "sim aprovo, pode gerar", 2026-11-10) — render em andamento.
+- **Fase atual:** 2 concluída.
+- **Status:** CONCLUÍDO — MP4 renderizado e verificado (v1 aprovada pelo usuário, "sim aprovo, pode gerar", 2026-11-10).
 - **Versão do roteiro:** v1 (conteúdo inalterado).
 - **Skill:** remotion-problem-resolve-video.
 
@@ -30,6 +30,14 @@ npx remotion render CidadeMaisAntiga out/cidade-raw.mp4 --gl=swangle --concurren
 python3 scripts/loudnorm.py out/cidade-raw.mp4 out/cidade-mais-antiga.mp4
 ```
 
+## Entrega e verificações
+- `cidade-mais-antiga.mp4` — H.264 1080×1920, 30 fps, 2700 frames, 90,0 s, AAC 48 kHz (ffprobe).
+- Loudness: −14,0 LUFS, pico real −1,4 dBTP, LRA 2,0 LU. Bruto sem clipping (pico −0,79 dBFS).
+- Capa `capa-vertical.png` (1080×1920) e `thumb-youtube.png` (1280×720), quadro 1330, sem spoiler.
+- Verificado: tsc + eslint; stills revisados em 3 rodadas; 16 quadros extraídos do MP4 final conferidos.
+- NÃO verificado: audição (o agente não ouve áudio), inclusive a pronúncia de "Çatalhöyük".
+
 ## Histórico
 - 2026-11-10 — v1 entregue (Fase 1).
 - 2026-11-10 — v1 aprovada; Fase 2 iniciada.
+- 2026-11-10 — Fase 2 concluída; entregue cidade-mais-antiga-entrega.zip.
