@@ -1,4 +1,6 @@
-"""MODELO de trilha — este arranjo é o do exemplo "poço artesiano"; adapte antes de usar:
+"""Trilha sintetizada por código (sem direitos de terceiros), sincronizada com a voz.
+Os cortes vêm de src/utils/timing.ts + src/data/vo.json; o arranjo é por INTENÇÃO de cena (edite INTENTS/HITS).
+Notas antigas do modelo do poço, ainda úteis como referência de instrumentos:
   1. DUR = duração do vídeo; S = início (s) de cada cena = SCENE_FRAMES de src/utils/timing.ts / 30.
   2. Troque os momentos-chave (DRILL_START, JET, PUMP...) pelos do seu roteiro (frames/30).
   3. Reescreva a seção "arranjo" com uma intenção por cena (calma, tensão, crescendo, resolução).
@@ -25,22 +27,39 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "audio" / "music.wav"
 
 SR = 48000
-DUR = 45.0
-N = int(SR * DUR)
 BPM = 100
 BEAT = 60 / BPM
 BAR = BEAT * 4
 rng = np.random.default_rng(12)
 
-# Cortes das cenas (s) — iguais a SCENE_FRAMES em src/utils/timing.ts (frames / 30)
-S = [0.0, 4.1, 9.1, 14.833, 19.767, 25.833, 33.033, 39.767]
-DRILL_START = 11.92  # "perfura"
-DRILL_HIT = 13.7  # broca alcança o aquífero
-JET = 24.27  # água chega à boca do poço
-JORRAR = 25.07
-PUMP = 31.4  # "bomba"
-HOUSE = 39.07  # "casa"
-FINAL_HIT = 43.72
+# Cortes e momentos derivados da narração, lidos de src/utils/timing.ts + src/data/vo.json — a trilha
+# fica sincronizada com o vídeo sem copiar números à mão (mesma conta de utils/timing.ts).
+import json
+import re
+
+_TIMING = (ROOT / "src" / "utils" / "timing.ts").read_text(encoding="utf-8")
+_num = lambda name: float(re.search(rf"const {name} = ([0-9.]+)", _TIMING).group(1))
+_GAPS = [float(x) for x in re.search(r"const GAPS: number\[\] = \[([^\]]*)\]", _TIMING).group(1).split(",") if x.strip()]
+_KEYS = re.findall(r'"(s\d+)"', re.search(r"VO_KEYS = \[([^\]]*)\]", _TIMING).group(1))
+_VO = json.loads((ROOT / "src" / "data" / "vo.json").read_text(encoding="utf-8"))
+DUR = _num("SECONDS")
+N = int(SR * DUR)
+FIRST_VO, LEAD = _num("FIRST_VO"), _num("LEAD")
+VO_AT = {}
+_t = FIRST_VO
+for _i, _k in enumerate(_KEYS):
+    VO_AT[_k] = _t
+    _t += _VO[_k]["seconds"] + (_GAPS[_i] if _i < len(_GAPS) else 0)
+S = [0.0] + [round((VO_AT[k] - LEAD) * 30) / 30 for k in _KEYS[1:]]
+
+
+def word(k, i):
+    """Segundo absoluto em que a palavra i da fala k começa (para amarrar impactos à voz)."""
+    return VO_AT[k] + _VO[k]["words"][i]["start"]
+
+
+# Último impacto (sinos) ~1,3 s antes do fim; troque por word("sN", i) para cair numa palavra.
+FINAL_HIT = DUR - 1.3
 
 CH = {
     "F": [53, 57, 60, 65],
@@ -243,73 +262,64 @@ def groove(start, end, kick_g, hat_g, clap_g=0.0):
             place(drums, stereo(shaker(), 0.3 if sub else -0.2), t0 + sub * BEAT, hat_g * (1.0 if sub else 0.6))
 
 
-# 1) intro curiosa — pad + motivo de "pergunta"
-section_pads(S[0], S[1], ["F", "Dm"], 1100, 0.7)
-for t0, m in [(0.35, 72), (0.65, 69), (0.95, 65), (1.25, 67), (2.75, 72), (3.05, 74), (3.35, 76)]:
-    place(leads, stereo(marimba(m, 1.2), 0.2), t0, 0.5)
-place(fx, riser(1.6), S[1] - 1.6, 0.35)
+# Arranjo GENÉRICO por intenção de cena — funciona com qualquer número de cenas.
+# Edite INTENTS (uma por cena, na ordem) e HITS (impactos amarrados à voz). Intenções:
+#   "calm"    pad suave + motivo esparso (gancho, pergunta)
+#   "curious" marimba em colcheias + chocalho (descoberta, explicação)
+#   "groove"  bumbo, baixo ativo, pluck (ação, máquina, velocidade)
+#   "tense"   progressão menor, pulso grave, pouca coisa (problema, suspense)
+#   "build"   crescendo com riser até a próxima cena (antes de uma revelação)
+#   "reveal"  impacto + acorde maior aberto + sinos (revelação, solução)
+#   "resolve" Fadd9 longo, sinos no FINAL_HIT (encerramento)
+n_sc = len(S)
+INTENTS = (["calm"] + ["curious"] * max(0, n_sc - 3) + ["build"] + ["resolve"])[-n_sc:] if n_sc > 1 else ["resolve"]
+HITS: list[float] = []  # ex.: [word("s3", 12), word("s12", 2)] — impactos suaves nesses segundos
 
-# 2) descoberta — arpejo de marimba e chocalho
-section_pads(S[1], S[2], MAJOR, 1500, 0.75)
-arps(S[1], S[2], MAJOR, BEAT / 2, [0, 2, 3, 1, 2, 3, 1, 2], 0.42)
-groove(S[1] + BAR, S[2], 0, 0.5)
-basses(S[1] + BAR, S[2], MAJOR, [1, 0, 0, 1, 0, 0, 1, 0], 0.55)
+for i, intent in enumerate(INTENTS):
+    a, b = S[i], (S[i + 1] if i + 1 < n_sc else DUR)
+    if b - a < 0.3:
+        continue
+    if intent == "calm":
+        section_pads(a, b, ["F", "Dm"], 1100, 0.7)
+        arps(a + BAR / 2, b, ["F", "Dm"], BEAT, [0, 2, 1, 3], 0.26)
+    elif intent == "curious":
+        section_pads(a, b, MAJOR, 1500, 0.72)
+        arps(a, b, MAJOR, BEAT / 2, [0, 2, 3, 1, 2, 3, 1, 2], 0.36)
+        groove(a, b, 0, 0.45)
+        basses(a, b, MAJOR, [1, 0, 0, 1, 0, 0, 1, 0], 0.5)
+    elif intent == "groove":
+        section_pads(a, b, MAJOR, 1800, 0.62)
+        arps(a, b, MAJOR, BEAT / 4, [0, 1, 2, 3, 2, 1], 0.18, inst=pluck, octave=24)
+        groove(a, b - 0.2, 0.7, 0.55, 0.3)
+        basses(a, b, MAJOR, [1, 0, 1, 1, 0, 1, 1, 0], 0.58)
+    elif intent == "tense":
+        section_pads(a, b, TENSE, 900, 0.85)
+        for t0 in np.arange(a, b - 0.05, BEAT):
+            place(low, stereo(bass(ROOT_NOTE[chord_at(t0, TENSE, a)], BEAT * 0.3)), t0, 0.45)
+        arps(a + BEAT, b, TENSE, BEAT, [0, 2, 1, 3], 0.26, inst=pluck)
+    elif intent == "build":
+        section_pads(a, b, TENSE, 1300, 0.85)
+        arps(a, b, TENSE, BEAT / 2, [0, 2, 1, 3], 0.28, inst=pluck)
+        groove(a + BAR / 2, b - 0.3, 0.5, 0.4)
+        place(fx, riser(max(0.8, b - a - 0.2)), a + 0.2, 0.35)
+    elif intent == "reveal":
+        place(fx, stereo(soft_hit(1.4)), a + 0.3, 0.6)
+        section_pads(a, b, MAJOR, 2200, 0.85)
+        arps(a, b, MAJOR, BEAT / 2, [0, 1, 2, 3, 2, 1], 0.32)
+        groove(a + BAR / 2, b - 0.2, 0.6, 0.5, 0.3)
+        for k, m in enumerate([77, 81, 84, 88]):
+            place(leads, stereo(bell(m, 2.2), -0.5 + 0.33 * k), a + 0.3 + 0.06 * k, 0.22)
+    else:  # resolve
+        place(fx, stereo(soft_hit(1.0)), a, 0.4)
+        place(pads, pad(CH["Fadd9"], b - a, 2400, 1.0), a, 1.0)
+        place(low, stereo(np.sin(2 * np.pi * hz(29) * tt(min(5.0, b - a))) * env(min(5.0, b - a), 0.05, 2.0) * 0.6), a, 1.0)
+        arps(a, max(a + 0.5, FINAL_HIT - 0.3), ["Fadd9"], BEAT / 2, [0, 1, 2, 3, 2, 1], 0.28)
 
-# 3) perfuração — groove com bumbo e baixo mais ativo
-section_pads(S[2], S[3], MAJOR, 1800, 0.65)
-arps(S[2], S[3], MAJOR, BEAT / 2, [0, 3, 2, 3, 1, 3, 2, 3], 0.38)
-groove(S[2], S[3] - 0.3, 0.75, 0.6, 0.35)
-basses(S[2], S[3], MAJOR, [1, 0, 1, 1, 0, 1, 1, 0], 0.6)
-for k in range(4):
-    place(leads, stereo(bell(84 + (0, 3, 7, 12)[k], 1.6), 0.4), DRILL_HIT + k * 0.06, 0.22)
-
-# 4) pressão — progressão menor, pulso grave e contido
-section_pads(S[3], S[4], TENSE, 1000, 0.85)
-for t0 in np.arange(S[3], S[4] - 0.05, BEAT):
-    name = chord_at(t0, TENSE, S[3])
-    place(low, stereo(bass(ROOT_NOTE[name], BEAT * 0.8)), t0, 0.5)
-    kicks.append((t0, 0.4))
-    place(drums, kick(0.45), t0, 1.0)
-arps(S[3] + BEAT, S[4], TENSE, BEAT, [0, 2, 1, 3], 0.3, inst=pluck)
-place(fx, riser(2.2), S[4] - 2.2, 0.3)
-
-# 5) subida da água — crescendo até o jorro
-section_pads(S[4], S[5], MAJOR, 2200, 0.7)
-arps(S[4], JET, MAJOR, BEAT / 2, [0, 1, 2, 3, 1, 2, 3, 0], 0.38)
-arps(S[4] + 2 * BAR, JET, MAJOR, BEAT / 4, [0, 1, 2, 3], 0.16, inst=pluck, octave=24)
-groove(S[4] + BAR, JET - 0.2, 0.7, 0.55)
-basses(S[4], S[5], MAJOR, [1, 0, 1, 0, 1, 1, 1, 0], 0.6)
-place(fx, riser(JET - (S[4] + 1.8)), S[4] + 1.8, 0.4)
-place(fx, stereo(soft_hit(1.0)), JET, 0.55)
-for k, m in enumerate([77, 81, 84, 89]):
-    place(leads, stereo(bell(m, 2.0), -0.5 + 0.33 * k), JORRAR + 0.03 * k, 0.24)
-groove(JET + 0.6, S[5], 0.8, 0.6, 0.4)
-arps(JET + 0.6, S[5], MAJOR, BEAT / 2, [0, 2, 3, 1], 0.36)
-
-# 6) comparação — groove mais leve
-section_pads(S[5], S[6], MAJOR, 1600, 0.6)
-arps(S[5], S[6], MAJOR, BEAT / 2, [0, 2, 1, 3, 2, 3, 1, 2], 0.34)
-groove(S[5], S[6] - 0.2, 0.55, 0.45, 0.25)
-basses(S[5], S[6], MAJOR, [1, 0, 0, 1, 0, 1, 0, 0], 0.55)
-for k, m in enumerate([72, 76, 79]):
-    place(leads, stereo(bell(m + 12, 1.5), 0.3), PUMP + 0.05 * k, 0.18)
-
-# 7) distribuição — fluido e acolhedor
-section_pads(S[6], S[7], ["Bb", "C", "F", "Dm"], 2000, 0.7)
-arps(S[6], S[7], ["Bb", "C", "F", "Dm"], BEAT / 2, [0, 1, 2, 3, 2, 1], 0.36)
-groove(S[6] + BAR / 2, S[7] - 0.4, 0.6, 0.5, 0.3)
-basses(S[6], S[7], ["Bb", "C", "F", "Dm"], [1, 0, 1, 0, 1, 0, 1, 1], 0.55)
-place(leads, stereo(bell(84, 1.8)), HOUSE, 0.2)
-place(fx, riser(1.4), S[7] - 1.4, 0.3)
-
-# 8) resolução
-place(fx, stereo(soft_hit(1.2)), S[7], 0.5)
-place(pads, pad(CH["Fadd9"], 45.0 - S[7], 2400, 1.0), S[7], 1.0)
-place(low, stereo(np.sin(2 * np.pi * hz(29) * tt(5.0)) * env(5.0, 0.05, 2.5) * 0.6), S[7], 1.0)
-arps(S[7], FINAL_HIT - 0.3, ["Fadd9"], BEAT / 2, [0, 1, 2, 3, 2, 1], 0.3)
+for h in HITS:
+    place(fx, stereo(soft_hit(1.0)), h, 0.4)
 for k, m in enumerate([77, 81, 84, 88, 91]):
-    place(leads, stereo(bell(m, 2.6), -0.6 + 0.3 * k), FINAL_HIT + 0.05 * k, 0.24)
-place(fx, stereo(soft_hit(1.0)), FINAL_HIT, 0.45)
+    place(leads, stereo(bell(m, 2.6), -0.6 + 0.3 * k), FINAL_HIT + 0.05 * k, 0.22)
+place(fx, stereo(soft_hit(1.0)), FINAL_HIT, 0.4)
 
 # ---------------------------------------------------------------- mixagem
 sc = np.ones(N)

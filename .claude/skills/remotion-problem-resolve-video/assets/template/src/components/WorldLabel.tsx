@@ -1,4 +1,4 @@
-import { FONT, PALETTE } from "../theme";
+import { FONT, PALETTE, SAFE } from "../theme";
 import { clamp, type Vec3 } from "../utils/animation";
 import { HEIGHT, WIDTH } from "../utils/timing";
 import { projectPoint, type CameraPose } from "./CameraController";
@@ -16,15 +16,28 @@ export type WorldLabelProps = {
   accent?: string;
   size?: number;
   viewport?: { width: number; height: number };
+  /**
+   * true (padrão): some se o ponto sair da tela e empurra a etiqueta para baixo da faixa dos badges,
+   * para dentro das margens laterais e para cima das legendas. Desligue em painéis de tela dividida.
+   */
+  safe?: boolean;
 };
 
-export const WorldLabel: React.FC<WorldLabelProps> = ({ pose, point, text, appear, offset = [0, -90], accent = PALETTE.accent, size = 32, viewport = { width: WIDTH, height: HEIGHT } }) => {
+export const WorldLabel: React.FC<WorldLabelProps> = ({ pose, point, text, appear, offset = [0, -90], accent = PALETTE.accent, size = 32, viewport = { width: WIDTH, height: HEIGHT }, safe = true }) => {
   if (appear <= 0.001) return null;
   const p = projectPoint(pose, point, viewport.width, viewport.height);
   if (!p.visible) return null;
+  let [ox, oy] = offset;
+  if (safe) {
+    if (p.x < 30 || p.x > viewport.width - 30 || p.y < 120 || p.y > viewport.height - 200) return null;
+    const minY = SAFE.badgeTop + 220; // abaixo de ~2 badges empilhados
+    const maxY = SAFE.captionCenterY - 120; // acima das legendas
+    oy = clamp(p.y + oy, minY, maxY) - p.y;
+    ox = clamp(p.x + ox, SAFE.side + 70, viewport.width - SAFE.side - 70) - p.x;
+  }
   const a = clamp(appear, 0, 1);
-  const lx = p.x + offset[0] * a;
-  const ly = p.y + offset[1] * a;
+  const lx = p.x + ox * a;
+  const ly = p.y + oy * a;
   const len = Math.hypot(lx - p.x, ly - p.y);
   const ang = (Math.atan2(ly - p.y, lx - p.x) * 180) / Math.PI;
   return (

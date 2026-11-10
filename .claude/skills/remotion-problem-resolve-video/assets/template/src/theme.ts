@@ -1,12 +1,19 @@
-import { loadFont } from "@remotion/google-fonts/Montserrat";
+import { loadFont } from "@remotion/fonts";
+import { staticFile } from "remotion";
 
-// Configuração visual central: paleta, materiais, luz, câmera e áreas seguras.
+// Configuração visual central: paleta, materiais, luz, câmera, áreas seguras e acabamento (pós-efeitos).
 // Adapte a paleta ao tema; mantenha os papéis semânticos (positive/negative/info/warning).
 
-export const { fontFamily: FONT } = loadFont("normal", {
-  weights: ["700", "800", "900"],
-  subsets: ["latin", "latin-ext"],
-});
+// Montserrat variável (700–900) servida de public/fonts (licença OFL em public/fonts/OFL.txt).
+// Local de propósito: o Chrome headless atrás de proxies corporativos/na nuvem costuma falhar ao baixar
+// do Google Fonts (certificado), e o render trava esperando a fonte.
+export const FONT = "Montserrat";
+for (const [file, range] of [
+  ["fonts/montserrat-latin.woff2", "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"],
+  ["fonts/montserrat-latin-ext.woff2", "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF"],
+] as const) {
+  loadFont({ family: FONT, url: staticFile(file), weight: "700 900", unicodeRange: range });
+}
 
 export const PALETTE = {
   // Estados didáticos (sempre com ícone + texto, nunca só cor)
@@ -60,3 +67,21 @@ export const SKY = {
 /** Cores das palavras-chave nas legendas (as demais palavras ficam brancas). */
 export const KEYWORD_COLOR: Record<string, string> = {};
 export const KEYWORD_DEFAULT = "#4fdcff";
+
+/**
+ * Acabamento de imagem (camada 2D por cima de tudo, barato até em render por software):
+ * vinheta, grão de filme, correção de cor suave e "scrims" que escurecem de leve o topo e a base
+ * para badges e legendas lerem sobre qualquer cenário. Ajuste por tema; 0 desliga.
+ */
+export const POST = {
+  vignette: 0.32,
+  grain: 0.05,
+  grade: { color: "#ffb36b", opacity: 0.07 },
+  scrimTop: 0.22,
+  scrimBottom: 0.3,
+  /** barra de progresso fina no topo (retenção em Shorts/Reels); desligada por padrão */
+  progressBar: false,
+} as const;
+
+/** Legenda: "pill" = palavra falada numa cápsula colorida (estilo Shorts); "color" = só muda a cor. */
+export const CAPTION_STYLE = { active: "pill" as "pill" | "color", pillColor: "#f8c815", pillText: "#16120a" };

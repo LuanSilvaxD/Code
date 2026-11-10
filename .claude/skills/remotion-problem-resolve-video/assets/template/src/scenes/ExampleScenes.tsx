@@ -1,5 +1,6 @@
 import { useCurrentFrame } from "remotion";
 import { Arrow3D } from "../components/Arrow3D";
+import { Burst } from "../components/Burst";
 import { cameraPoseAt } from "../components/CameraController";
 import { WorldLabel } from "../components/WorldLabel";
 import { track } from "../data/scenes";
@@ -24,5 +25,7 @@ const SolucaoStage: React.FC<SceneProps> = ({ scene }) => {
   return <Arrow3D from={[-1.6, 0.75, 0.5]} dir={[1, 0, 0]} length={0.8} color={PALETTE.positive} scale={k} />;
 };
 
+const SolucaoOverlay: React.FC<SceneProps> = ({ scene }) => <Burst id="solucao" point={[0, 0.9, 0.5]} kind="sparkle" count={28} sceneStart={scene.startFrame} />;
+
 export const GanchoScene: SceneModule = { Overlay: GanchoOverlay };
-export const SolucaoScene: SceneModule = { Stage: SolucaoStage };
+export const SolucaoScene: SceneModule = { Stage: SolucaoStage, Overlay: SolucaoOverlay };

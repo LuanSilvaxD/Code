@@ -1,6 +1,6 @@
 ---
 name: remotion-problem-resolve-video
-description: Planeja e produz, de ponta a ponta, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato problema → solução — roteiro com tabela cronológica e contrato de dados, aprovação do usuário, depois implementação, narração TTS sincronizada palavra a palavra, badges, legendas, trilha e efeitos sintetizados, revisão por frames e MP4 final renderizado. Use sempre que o usuário pedir um vídeo explicativo, didático ou "como funciona" sobre qualquer mecanismo, processo ou sistema (ex. "como funciona um poço artesiano", "vídeo de 60 s sobre freio ABS"), um short animado em 3D, um prompt mestre/roteiro de vídeo para Remotion, ou colar um briefing/storyboard com timestamps e frames — mesmo que não cite Remotion nem 3D.
+description: Planeja e produz, de ponta a ponta, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato problema → solução (ou pergunta → revelação) — roteiro com tabela cronológica e contrato de dados, aprovação do usuário, depois implementação com acabamento cinematográfico (pós-efeitos, efeitos de tela, legendas em cápsula), narração TTS sincronizada palavra a palavra, trilha e efeitos sintetizados, revisão por frames, MP4 final, capa/thumbnail, título/descrição/hashtags e um .zip de entrega. Use sempre que o usuário pedir um vídeo explicativo, didático, "como funciona" ou "qual é o maior/mais antigo/primeiro" sobre qualquer mecanismo, processo, fenômeno ou curiosidade (ex. "como funciona um poço artesiano", "por que o tsunami cresce na costa", "qual a cidade mais antiga"), um short animado em 3D, um prompt mestre/roteiro de vídeo para Remotion, ou colar um briefing/storyboard com timestamps — mesmo que não cite Remotion nem 3D.
 ---
 
 # Remotion Problem Resolve Video
@@ -17,10 +17,11 @@ Esta skill une um método narrativo (problema → solução) a um pipeline técn
 | `references/scene-plan-contract.md` | Contrato TypeScript `VideoConfig`/`ScenePlan` e como a tabela vira dados | Fase 1, seção 3 |
 | `references/pipeline-fase2.md` | Passo a passo da produção, comandos, enquadramento, áudio, render, armadilhas | Início da Fase 2 |
 | `references/diorama-3d.md` | Técnicas 3D: corte transversal, rasgo no plano de corte, partículas, tubos, tela dividida | Ao construir o cenário |
+| `references/visual-polish.md` | Acabamento: pós-efeitos, efeitos de tela por momento, explosões, legenda em cápsula, enquadramento 9:16, capa | Ao construir o cenário e na revisão |
 | `references/remotion/INDEX.md` | Regras oficiais do Remotion (3D, sequências, áudio, fontes, legendas, render, Studio, busca na doc) | Sempre que usar uma API do Remotion |
-| `assets/template/` | Motor reutilizável: câmera orbital por chaves, trilhas de animação, badges, legendas, rótulos 3D, áudio | Copiar para `src/` na Fase 2 |
-| `scripts/` | Narração com tempos por palavra, trilha/efeitos sintetizados, stills, folha de contato, loudness | Fase 2 |
-| `examples/poco-artesiano/` | Projeto completo entregue + `roteiro.md` de exemplo | Para calibrar qualidade e resolver dúvidas |
+| `assets/template/` | Motor reutilizável: câmera orbital, trilhas, badges, legendas, rótulos 3D seguros, áudio, pós-efeitos, efeitos de tela (`utils/fx.ts`), explosões, capa/thumbnail, fontes locais | Copiar para o projeto na Fase 2 |
+| `scripts/` | `doctor.sh` (ambiente), `vo_budget.py` (cabe no tempo?), narração, trilha/efeitos, `stills.mjs`/`render.mjs` (GPU ou software), folhas de contato, loudness, `package_delivery.py` (.zip final) | Fase 1 (orçamento) e Fase 2 |
+| `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela) e `cidade-mais-antiga/` (tells em corte, revelação com coroa) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
 
 ## Entrada e escopo
 
@@ -90,6 +91,13 @@ segurança, consulte fontes primárias quando houver ferramentas; sem acesso, de
 simplifique ou omita. Não invente números universais (profundidade, vazão, pressão). Marque abstrações
 visuais como esquemáticas quando necessário e evite instruções operacionais perigosas.
 
+**Superlativos e "o primeiro/o maior/o mais antigo".** Esses títulos quase sempre dependem do critério
+(ex.: "cidade mais antiga": Jericó tem as ruínas mais velhas, mas ficou vazia por séculos; Damasco é a mais
+citada como habitada sem parar). Pesquise as candidatas, diga ao usuário que o título é disputado e faça do
+critério o motor da história (cada regra elimina uma candidata). Revele a resposta mais aceita com um badge
+de atenção ("TÍTULO DISPUTADO") em vez de vender certeza que não existe. Prefira os números conservadores das
+fontes oficiais (ex.: UNESCO) aos virais.
+
 ## Direção visual recorrente
 
 - 3D low-poly limpo: materiais foscos (`flatShading`), formas geométricas legíveis, luz suave com sombras
@@ -111,12 +119,19 @@ visuais como esquemáticas quando necessário e evite instruções operacionais 
   Legendas e badges nunca se sobrepõem.
 - Rótulos 2D ancorados em pontos 3D (projeção com a pose da câmera do frame) nomeiam as peças sem poluir.
 - Trilha discreta e efeitos pontuais sempre subordinados à inteligibilidade da voz.
+- **Acabamento sempre ligado** (template): vinheta, grão leve, correção de cor por tema e scrims que
+  garantem leitura de badges e legendas sobre qualquer fundo; legenda com a palavra falada em cápsula.
+- **Efeitos de tela marcam momentos, não cortes**: tremor no impacto, punch-in na palavra-chave, clarão +
+  confete na revelação, chicote na virada de assunto, dessaturar/rebobinar para prévia ou flashback — no
+  máximo um forte a cada ~6–8 s. Catálogo e dosagem em `references/visual-polish.md`; atalhos em `utils/fx.ts`.
 
 ## Tempo, voz e frames
 
-Planeje a locução para ~145–170 palavras por minuto, com espaço para pausas e revelações. Conte as
-palavras e confira a compatibilidade com a duração; encurte o texto antes de acelerar a voz (no
-ElevenLabs, velocidade até ~1,12 ainda soa natural). Os tempos são estimativas até existir áudio final.
+Planeje a locução para ~145–170 palavras por minuto, com espaço para pausas e revelações. Contar palavras
+não basta: palavras longas e muitos ":" e "," alongam a fala (num caso real, 224 palavras deram 89 s, não os
+~75 s esperados). Rode `python scripts/vo_budget.py --lines <narration.json> --seconds <dur>` já na Fase 1 e
+ajuste o texto antes de pedir aprovação; encurte o texto antes de acelerar a voz (edge-tts ou ElevenLabs:
+até ~+12% ainda soa natural). Os tempos são estimativas até existir áudio final.
 
 Use frames inteiros e intervalos semiabertos [início, fim): o frame final de uma cena é o primeiro da
 próxima. Comece em 0, sem lacunas nem sobreposições. `durationInFrames = endFrame − startFrame`;
@@ -204,16 +219,19 @@ Após a aprovação, siga até entregar o vídeo final; não pare em código, st
 usuário renderizar. **Leia `references/pipeline-fase2.md` antes de começar** — ele tem os comandos, o
 enquadramento e as armadilhas já resolvidas. Resumo do caminho:
 
-1. **Projeto.** Reutilize um projeto Remotion compatível ou crie um isolado
-   (`npx create-video@latest --yes --blank --no-tailwind <pasta>`), instale `@remotion/three`,
-   `@remotion/media`, `@remotion/google-fonts`, `@remotion/bundler`, `@remotion/renderer` (via
-   `npx remotion add`), `three`, `@react-three/fiber`, `@react-three/drei`, `@types/three`, e configure
-   `Config.setChromiumOpenGlRenderer("angle")`. Verifique Node, Python (numpy/scipy/soundfile/Pillow),
-   ffmpeg, GPU e meios de TTS. Copie `assets/template/` para o projeto e `scripts/` para `scripts/`.
+1. **Projeto e ambiente.** Reutilize um projeto Remotion compatível (ex.: o da produção anterior — copie-o
+   sem `out/` e `public/audio/`) ou crie um isolado (`npx create-video@latest --yes --blank --no-tailwind
+   <pasta>`) e instale `@remotion/three`, `@remotion/media`, `@remotion/fonts`, `@remotion/bundler`,
+   `@remotion/renderer` (via `npx remotion add`), `three`, `@react-three/fiber`, `@react-three/drei`,
+   `@types/three`. Copie `assets/template/` (inclui `public/fonts`) e `scripts/`. **Rode
+   `bash scripts/doctor.sh`**: ele diz se há GPU ou se o render será por software (~20 min para 90 s), se há
+   Chromium local e se o TTS está acessível — resolva bloqueios agora, não depois de animar.
    Abra o Studio cedo para o usuário acompanhar (`references/remotion/remotion-studio/REFERENCE.md`).
-2. **Narração primeiro.** Gere as falas (`scripts/voiceover.py` com o provedor autorizado), rode
-   `scripts/prepare_vo.py`, e deixe `utils/timing.ts` derivar os cortes da voz. Meça antes de animar:
-   o tempo real decide os frames. Não transforme falta de voz num vídeo silencioso apresentado como final.
+2. **Narração primeiro.** Gere as falas (`scripts/voiceover.py` com o provedor autorizado; nomes difíceis
+   com grafia fonética num `narration-tts.json` à parte, mesma contagem de palavras), rode
+   `scripts/prepare_vo.py` e `scripts/vo_budget.py --measured`, e deixe `utils/timing.ts` derivar os cortes
+   da voz. Meça antes de animar: o tempo real decide os frames. Se o host do TTS for bloqueado, peça a
+   liberação ao usuário; não transforme falta de voz num vídeo silencioso apresentado como final.
 3. **Dados.** Transforme o `scene-plan.ts` aprovado em `src/data/scenes.ts`, preservando ids, ordem,
    narração, problemas, soluções e encerramento. A verificação de integridade (contíguo, soma exata) roda
    ao importar.
@@ -221,10 +239,13 @@ enquadramento e as armadilhas já resolvidas. Resumo do caminho:
    `track("alvo.prop", frameGlobal)`. Extras de uma cena vão em `scenes/<Cena>.tsx` (`Stage` 3D,
    `Overlay` 2D). Técnicas em `references/diorama-3d.md`. Use 3D real quando previsto; não reduza para
    2.5D em silêncio; não troque mecanismos animados por cartelas estáticas.
-5. **Câmera e leitura.** Poses-chave por cena em coordenadas orbitais; mantenha o assunto entre os badges
-   e as legendas (cálculo em px no pipeline). Badges, legendas e rótulos vêm prontos no template.
-6. **Áudio.** Efeitos (`scripts/sfx.py`) e trilha (`scripts/music.py`, adaptando seções e momentos)
-   sintetizados por código, sem direitos de terceiros; a trilha abaixa sob a voz.
+5. **Câmera, leitura e acabamento.** Poses-chave por cena em coordenadas orbitais; mantenha o assunto entre
+   os badges e as legendas (cálculo em px no pipeline; sistemas compridos em diagonal "de trás", ver
+   `references/visual-polish.md` §6). Marque 4–6 momentos fortes com `fx.*` (impacto, virada, revelação)
+   e `Burst` na revelação. Badges, legendas, rótulos seguros e pós-efeitos vêm prontos no template.
+6. **Áudio.** Efeitos (`scripts/sfx.py`) e trilha (`scripts/music.py`: lê os cortes de `timing.ts` e
+   `vo.json`; edite `INTENTS`, uma intenção por cena — calm, curious, groove, tense, build, reveal, resolve —
+   e `HITS` com `word("sN", i)`), sintetizados por código, sem direitos de terceiros; a trilha abaixa sob a voz.
 7. **Planejamento sincronizado.** Atualize os arquivos de planejamento com os ajustes técnicos de tempo,
    preservando a versão aprovada como referência.
 
@@ -235,9 +256,11 @@ folhas de contato (`python scripts/sheet.py`) e **olhe as imagens**: estados de 
 entrada de badges, transições, rótulos cortados ou atrás de badges/legendas, objetos atravessando o que
 não deveriam, continuidade. Corrija e repita.
 
-Renderize o MP4 completo (H.264, 1080×1920, 30 fps, AAC): `npx remotion render <Id> out/<nome>-raw.mp4
---gl=angle --concurrency=4 --crf=17`. Confira com `ffprobe` (resolução, fps, nº de frames, duração,
-áudio), extraia frames do próprio MP4 e meça o áudio (`python scripts/audiocheck.py`, picos por segundo).
+Renderize o MP4 completo (H.264, 1080×1920, 30 fps, AAC) em segundo plano: `node scripts/render.mjs <Id>
+out/<nome>-raw.mp4` (detecta GPU/software e o Chromium). Enquanto renderiza, faça capa, `publicacao.md` e o
+status. Confira com `ffprobe` (resolução, fps, nº de frames, duração, áudio), olhe a folha de quadros do
+próprio MP4 (`python scripts/mp4sheet.py`) e meça o áudio (`python scripts/audiocheck.py`, picos por segundo).
+Defeito localizado? Re-renderize só o trecho e emende (pipeline §8b) em vez de refazer tudo.
 Normalize com `python scripts/loudnorm.py` (−14 LUFS / −1,5 dBTP). Para remixar só o áudio, renderize
 `--codec=wav` e remonte com ffmpeg sem reprocessar o vídeo.
 
@@ -248,7 +271,17 @@ projeto e o diagnóstico, diga exatamente o que falta e não marque como conclu�
 
 ### Entrega final
 
-Entregue o caminho do MP4, os arquivos do projeto, o roteiro aprovado e o comando para renderizar de
-novo. Informe duração, resolução e fps medidos, as verificações realmente executadas, os ajustes técnicos
-feitos (ex.: cortes realinhados à voz) e as limitações. Atualize `production-status.md` para CONCLUÍDO
-apenas quando o MP4 existir e as verificações essenciais passarem. Não publique nem envie a terceiros.
+O pacote padrão (o usuário pediu isso em todas as produções reais):
+- **Capa e thumbnail** com o próprio cenário (`Thumbnail.tsx`: `CapaVertical` 1080×1920 e `ThumbYouTube`
+  1280×720, `--frame=<N>`). Vídeo de revelação → capa sem spoiler.
+- **`publicacao.md`**: título, legenda (TikTok) e descrição (YouTube), 3–5 hashtags por plataforma, tags do
+  YouTube. Se não verificou o volume das hashtags, diga isso no arquivo em vez de chamá-las de "mais usadas".
+- **Um único .zip organizado** (`python scripts/package_delivery.py ...`: 01-PUBLICAR / 02-DOCUMENTOS /
+  03-PROJETO + LEIA-ME). Se houver ferramenta de envio de arquivos (ex.: SendUserFile), envie o .zip na
+  conversa — quem usa o app no celular ou numa sessão na nuvem não tem outro jeito de salvar, e o container
+  pode ser apagado.
+
+Na resposta, informe duração, resolução e fps medidos, as verificações realmente executadas, os ajustes
+técnicos feitos (ex.: cortes realinhados à voz, velocidade da voz) e as limitações — inclusive os pontos
+fracos que você viu nas imagens. Atualize `production-status.md` para CONCLUÍDO apenas quando o MP4 existir
+e as verificações essenciais passarem. Não publique nem envie a terceiros.

@@ -5,6 +5,8 @@ import { AnimatedCaptions } from "./components/AnimatedCaptions";
 import { Background } from "./components/Background";
 import { CameraController } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
+import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
+import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
@@ -30,8 +32,11 @@ const FadeOut: React.FC = () => {
 
 export const MainSequence: React.FC = () => {
   const { width, height } = useVideoConfig();
+  const screen = useScreenFx();
   return (
     <AbsoluteFill style={{ backgroundColor: "#0e2036" }}>
+      {/* fundo + 3D recebem os efeitos de tela (tremor, punch, chicote, rebobinar, dessaturação) */}
+      <AbsoluteFill style={screen.style}>
       <Background />
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }}>
         <CameraController />
@@ -46,6 +51,9 @@ export const MainSequence: React.FC = () => {
           ) : null;
         })}
       </ThreeCanvas>
+      </AbsoluteFill>
+      <Scrims />
+      <ScreenFxOverlay />
       {scenes.map((sc) => {
         const Overlay = MODULES[sc.id]?.Overlay;
         return (
@@ -55,7 +63,9 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
+      <PostFx />
       <AnimatedCaptions />
+      <ProgressBar />
       <FadeOut />
       <Soundtrack />
     </AbsoluteFill>

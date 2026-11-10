@@ -1,5 +1,6 @@
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
+import { fx } from "../utils/fx";
 
 // Contrato de dados do vídeo (o scene-plan.ts da Fase 1 vira este arquivo na Fase 2).
 // Frames de animações, badges, legendas, câmera e áudio são LOCAIS à cena; startFrame é global.
@@ -98,7 +99,11 @@ export const scenes: ScenePlan[] = [
       { id: "terrain", type: "diorama", visible: true },
       { id: "subject", type: "mecanismo", visible: true, state: { start: "ausente", end: "montado" } },
     ],
-    animations: [{ type: "spring", target: "subject.scale", startFrame: s(0.3), endFrame: s(1.5), from: 0, to: 1, unit: "0-1" }],
+    animations: [
+      { type: "spring", target: "subject.scale", startFrame: s(0.3), endFrame: s(1.5), from: 0, to: 1, unit: "0-1" },
+      // transição forte para a virada da história (efeitos: utils/fx.ts, components/ScreenFx.tsx)
+      ...fx.whipOut(end(0)),
+    ],
     badges: [{ text: "PROBLEMA", variant: "negative", appearAt: W("s1", 2), disappearAt: end(0) - 6 }],
     highlights: ["X", "Y"],
     captions: [{ text: "Você quer X. Parece que basta fazer Y...", from: voLocal("s1"), to: end(0) }],
@@ -116,7 +121,12 @@ export const scenes: ScenePlan[] = [
       { id: "subject", type: "mecanismo", visible: true, state: { start: "montado", end: "funcionando" } },
     ],
     animations: [
+      ...fx.whipIn(),
       { type: "interpolate", target: "subject.glow", startFrame: W("s2", 6), endFrame: W("s2", 6) + 12, from: 0, to: 1, easing: "out", unit: "0-1" },
+      // revelação da solução: clarão + punch-in + faíscas no objeto (Burst id "solucao")
+      ...fx.flash(W("s2", 6)),
+      ...fx.punch(W("s2", 6)),
+      ...fx.burst("solucao", W("s2", 6)),
       { type: "interpolate", target: "fade", startFrame: end(1) - 14, endFrame: end(1), from: 0, to: 1, easing: "in", unit: "0-1" },
     ],
     badges: [{ text: "SOLUÇÃO", variant: "positive", appearAt: W("s2", 6), disappearAt: end(1) }],

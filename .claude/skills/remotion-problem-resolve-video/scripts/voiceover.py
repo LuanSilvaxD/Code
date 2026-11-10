@@ -10,6 +10,11 @@ Uso (na raiz do projeto Remotion):
     python scripts/voiceover.py --lines scripts/narration.json --provider edge --voice pt-BR-AntonioNeural --rate +8%
     python scripts/voiceover.py --lines scripts/narration.json --voice <id> --only s3 s5   # regera só essas
 
+Pronúncia e pausas: mande ao TTS um arquivo à parte (ex.: scripts/narration-tts.json) com grafia fonética
+("Çatalhöyük" → "Tchatalrôiuk") e ":" trocado por "," para encurtar pausas — MESMA contagem de palavras do
+texto aprovado. As legendas continuam usando o texto aprovado (AnimatedCaptions recupera a pontuação).
+Proxy: o edge-tts (aiohttp) não lê HTTPS_PROXY sozinho; este script repassa a variável.
+
 Saída: public/audio/vo/<fala>.mp3 + scripts/out/vo-timings.json.
 Depois rode scripts/prepare_vo.py (normaliza, apara o silêncio e grava src/data/vo.json).
 """
@@ -18,6 +23,7 @@ import argparse
 import asyncio
 import base64
 import json
+import os
 import sys
 import urllib.error
 import urllib.request
@@ -89,7 +95,7 @@ async def synth_edge(key: str, text: str, args) -> list[dict]:
 
     for attempt in range(1, 6):
         try:
-            communicate = edge_tts.Communicate(text, args.voice, rate=args.rate, boundary="WordBoundary")
+            communicate = edge_tts.Communicate(text, args.voice, rate=args.rate, boundary="WordBoundary", proxy=os.environ.get("HTTPS_PROXY") or None)
             words = []
             with open(OUT_AUDIO / f"{key}.mp3", "wb") as f:
                 async for chunk in communicate.stream():

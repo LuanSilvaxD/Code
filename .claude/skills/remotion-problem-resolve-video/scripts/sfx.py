@@ -308,7 +308,83 @@ def pump(d=2.0):
     return (hum + bp(rng.standard_normal(len(t)), 400, 2000) * 0.12 + start) * env(d, 0.04, 0.6)
 
 
+
+# ---------------------------------------------------------------- tema tsunami
+def ocean_amb(d=7.0, lo=180, hi=900):
+    t = tt(d)
+    n = rng.standard_normal(len(t))
+    swell = 0.55 + 0.45 * np.sin(2 * np.pi * t / 3.1) ** 2
+    return bp(n, lo, hi) * swell * 0.5 * env(d, 0.8, 1.5)
+
+
+def deep_amb(d=6.0):
+    t = tt(d)
+    drone = sum(np.sin(2 * np.pi * f * t + i) / (i + 1) for i, f in enumerate((55, 82.5, 110)))
+    return (lp(drone, 400) * 0.35 + lp(rng.standard_normal(len(t)), 220) * 0.4) * env(d, 0.9, 1.6)
+
+
+def rumble(d=3.2):
+    t = tt(d)
+    n = lp(rng.standard_normal(len(t)), 120, 4) * 3.0
+    sub = np.sin(2 * np.pi * (38 + 8 * np.exp(-t)) * t)
+    crack = np.concatenate([hp(rng.standard_normal(int(0.12 * SR)), 900) * np.exp(-np.linspace(0, 6, int(0.12 * SR))), np.zeros(len(t) - int(0.12 * SR))])
+    return (n + sub * 0.7) * np.exp(-t / 1.3) * env(d, 0.01, 0.8) + crack * 0.5
+
+
+def strain(d=1.4):
+    t = tt(d)
+    f = 70 + 40 * t / d
+    tone = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * 0.3
+    return bp(tone + rng.standard_normal(len(t)) * 0.2, 150, 1200) * (t / d) * env(d, 0.3, 0.2)
+
+
+def rewind(d=0.6):
+    t = tt(d)
+    centers = np.geomspace(5000, 300, len(t))
+    warble = 1 + 0.3 * np.sin(2 * np.pi * 18 * t)
+    return sweep_bp(rng.standard_normal(len(t)), centers * warble, q=2.2) * env(d, 0.05, 0.15) * 1.4
+
+
+def jet_flyby(d=2.6):
+    t = tt(d)
+    x = (t - d / 2) / (d / 4)
+    amp = 1 / (1 + x ** 2)
+    centers = 2200 - 1200 * np.tanh(x)
+    roar = sweep_bp(rng.standard_normal(len(t)), centers, q=1.8)
+    return pan(roar * amp * env(d, 0.2, 0.4), np.tanh(x) * 0.7)
+
+
+def rush(d=3.4):
+    t = tt(d)
+    n = rng.standard_normal(len(t))
+    body = lp(n, 900) * 1.2 + bp(n, 900, 4000) * 0.35
+    return body * np.minimum(1, t / 0.35) * env(d, 0.05, 1.4)
+
+
+def drain(d=2.4):
+    t = tt(d)
+    centers = np.geomspace(1400, 260, len(t))
+    suck = sweep_bp(rng.standard_normal(len(t)), centers, q=1.5)
+    return suck * env(d, 0.4, 0.9) * 0.9
+
+
+def flood(d=7.5):
+    t = tt(d)
+    n = rng.standard_normal(len(t))
+    gurgle = bp(n, 250, 1600) * (0.7 + 0.3 * np.sin(2 * np.pi * 0.7 * t))
+    return (gurgle + lp(n, 300) * 0.6) * env(d, 0.8, 2.0) * 0.6
+
+
 OUT.mkdir(parents=True, exist_ok=True)
+save("ocean-amb", ocean_amb())
+save("deep-amb", deep_amb())
+save("rumble", rumble())
+save("strain", strain())
+save("rewind", rewind())
+save("jet-flyby", jet_flyby())
+save("rush", rush())
+save("drain", drain())
+save("flood-loop", flood())
 save("whoosh", whoosh(0.7))
 save("whoosh-soft", whoosh(0.9, 300, 6, 0.3))
 save("whoosh-big", whoosh(1.2, 200, 20, 0.8))
@@ -337,4 +413,19 @@ save("rain", rain())
 save("flow", flow())
 save("fill", fill())
 save("pump", pump())
+
+def dig(d=0.9):
+    t = tt(d)
+    out = np.zeros(len(t))
+    for k, t0 in enumerate((0.0, 0.42)):
+        i = int(t0 * SR)
+        n = int(0.32 * SR)
+        seg = bp(rng.standard_normal(n), 700, 4200) * np.exp(-np.linspace(0, 5, n)) * 0.9
+        thump = np.sin(2 * np.pi * 95 * np.arange(n) / SR) * np.exp(-np.linspace(0, 9, n)) * 0.6
+        out[i : i + n] += (seg + thump)[: len(out) - i]
+    return out
+
+
+save("dig", dig())
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

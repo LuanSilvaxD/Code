@@ -1,6 +1,6 @@
 import { interpolate, useCurrentFrame } from "remotion";
 import { scenes } from "../data/scenes";
-import { FONT, KEYWORD_COLOR, KEYWORD_DEFAULT, PALETTE, SAFE } from "../theme";
+import { CAPTION_STYLE, FONT, KEYWORD_COLOR, KEYWORD_DEFAULT, PALETTE, SAFE } from "../theme";
 import { clamp } from "../utils/animation";
 import { f, VO_START, voWords } from "../utils/timing";
 
@@ -39,8 +39,13 @@ const buildPages = (): Page[] => {
       cur = [];
       chars = 0;
     };
-    words.forEach((w, i) => {
-      const text = w.text.toUpperCase();
+    // Alguns TTS (edge-tts) devolvem as palavras SEM pontuação; recupera do texto aprovado quando a contagem
+    // bate — assim os blocos quebram nas frases e a legenda mostra "?"/"!" como no roteiro.
+    const tokens = scene.narration.split(/\s+/);
+    const sameCount = tokens.length === words.length;
+    words.forEach((w0, i) => {
+      const w = sameCount ? { ...w0, text: tokens[i] } : w0;
+      const text = w.text.replace(/[.,:;]+$/, "").toUpperCase();
       const c = clean(w.text);
       const key = highlights.has(c);
       if (chars + text.length > MAX_CHARS && cur.length) flush();
@@ -89,6 +94,7 @@ export const AnimatedCaptions: React.FC = () => {
         const active = w.timed && frame >= w.from && frame < Math.max(w.to, w.from + 4);
         const spoken = !w.timed || frame >= w.from;
         const pop = active ? interpolate(frame - w.from, [0, 3, 7], [1, 1.14, 1.08], { extrapolateRight: "clamp" }) : 1;
+        const pill = active && CAPTION_STYLE.active === "pill";
         return (
           <span
             key={i}
@@ -97,8 +103,13 @@ export const AnimatedCaptions: React.FC = () => {
               fontWeight: 900,
               fontSize: 66,
               lineHeight: 1.1,
-              color: w.key ? w.color : spoken ? "#ffffff" : "rgba(255,255,255,0.82)",
-              WebkitTextStroke: `11px ${PALETTE.outline}`,
+              color: pill ? CAPTION_STYLE.pillText : w.key ? w.color : spoken ? "#ffffff" : "rgba(255,255,255,0.82)",
+              WebkitTextStroke: pill ? "0px transparent" : `11px ${PALETTE.outline}`,
+              background: pill ? (w.key ? w.color : CAPTION_STYLE.pillColor) : "transparent",
+              padding: pill ? "0px 14px" : "0px",
+              margin: pill ? "0px -14px" : "0px",
+              borderRadius: 18,
+              boxShadow: pill ? "0 8px 18px rgba(0,0,0,0.35)" : "none",
               paintOrder: "stroke fill",
               textShadow: "0 7px 14px rgba(0,0,0,0.45)",
               display: "inline-block",

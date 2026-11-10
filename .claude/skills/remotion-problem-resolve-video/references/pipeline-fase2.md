@@ -12,8 +12,8 @@ Testado em Windows 11 + RTX (GPU) + Node 24 + Python 3.14 + ffmpeg, Remotion 4.0
 5. Badges, legendas e rótulos
 6. Efeitos e trilha
 7. Ciclo de revisão por stills
-8. Render, medição e entrega
-9. Armadilhas já resolvidas
+8. Render, medição e entrega (8b emendar trecho · 8c entrega em .zip)
+9. Armadilhas já resolvidas (inclui nuvem/proxy, voz e revisão)
 
 ---
 
@@ -23,15 +23,20 @@ Testado em Windows 11 + RTX (GPU) + Node 24 + Python 3.14 + ffmpeg, Remotion 4.0
 npx create-video@latest --yes --blank --no-tailwind <pasta-do-tema>
 cd <pasta-do-tema>
 npm i
-npx remotion add @remotion/three @remotion/media @remotion/google-fonts @remotion/renderer @remotion/bundler
+npx remotion add @remotion/three @remotion/media @remotion/fonts @remotion/renderer @remotion/bundler
 npm i three @react-three/fiber @react-three/drei
 npm i -D @types/three
 ```
 
 - `remotion.config.ts`: acrescente `Config.setChromiumOpenGlRenderer("angle")` (Three.js não renderiza
   no GL padrão do Chrome headless; `angle` usa a GPU). O template já traz isso.
-- Copie `assets/template/remotion.config.ts` e `assets/template/src/*` sobre o scaffold (apague o
-  `Composition.tsx` do scaffold) e `scripts/*` para `<projeto>/scripts/`.
+- Copie `assets/template/remotion.config.ts`, `assets/template/src/*` e `assets/template/public/*`
+  (fontes locais + licença OFL) sobre o scaffold (apague o `Composition.tsx` do scaffold) e `scripts/*`
+  para `<projeto>/scripts/`.
+- **Rode `bash scripts/doctor.sh` antes de tudo.** Ele diz se há GPU (`angle`) ou se o render será por
+  software (`swangle`, ~20 min para 90 s), se existe um Chromium local (evita o download do Remotion), e se
+  `remotion.media` e o edge-tts estão acessíveis. Com Chromium local, acrescente em `remotion.config.ts`
+  `Config.setBrowserExecutable("<caminho>")`; `scripts/stills.mjs` e `scripts/render.mjs` já detectam sozinhos.
 - `tsconfig.json` do scaffold já tem `resolveJsonModule` (o template importa `src/data/vo.json`).
 - Python: `numpy scipy soundfile pillow` (+ `edge-tts` se for usar TTS gratuito). ffmpeg/ffprobe no PATH.
 - Credenciais: ElevenLabs lê `ELEVENLABS_API_KEY` de `<projeto>/.env` (mantenha `.env` no `.gitignore`;
@@ -65,7 +70,8 @@ src/
    `--provider edge --voice pt-BR-AntonioNeural` (masculina) / `pt-BR-ThalitaMultilingualNeural`.
 3. `python scripts/prepare_vo.py` → normaliza (−17 dB RMS), apara silêncio, grava `public/audio/vo/sX.wav`
    e `src/data/vo.json` com duração e palavras (tempos relativos ao áudio aparado).
-4. Some as durações: fala total + pausas (0,5–0,7 s entre falas) + ~0,45 s de abertura + ≥ 0,8 s de
+4. Confira o orçamento com `python scripts/vo_budget.py --measured --seconds <dur> --gaps <média>`
+   (e já na Fase 1, sem `--measured`, para não aprovar um roteiro que não cabe). Some as durações: fala total + pausas (0,5–0,7 s entre falas) + ~0,45 s de abertura + ≥ 0,8 s de
    respiro final deve caber na duração. Se não couber: primeiro encurte o texto (exige aprovação se
    mudar conteúdo), depois suba a velocidade com moderação (ElevenLabs `--speed` ≤ ~1,12).
 5. Em `utils/timing.ts`: preencha `VO_KEYS`, `SECONDS`, `PLANNED_SECONDS`, `GAPS`. Com `vo.json`
@@ -150,20 +156,44 @@ negativo para o frame 0 já mostrar algo), continuidade entre cortes.
 
 ```bash
 npx tsc --noEmit && npx eslint src
-npx remotion render <Id> out/<nome>-raw.mp4 --gl=angle --concurrency=4 --crf=17
+node scripts/render.mjs <Id> out/<nome>-raw.mp4   # detecta GPU (angle) ou software (swangle) e o Chromium
 ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,nb_frames -show_entries format=duration out/<nome>-raw.mp4
 python scripts/audiocheck.py out/<nome>-raw.mp4      # pico e RMS por segundo
 python scripts/loudnorm.py out/<nome>-raw.mp4 out/<nome>.mp4
 ```
 
-- Render de 45 s em GPU (RTX, concurrency 4) leva poucos minutos; rode em segundo plano.
+- Render de 45 s em GPU (RTX, concurrency 4) leva poucos minutos; sem GPU, ~0,45 s/frame (90 s ≈ 20 min).
+  Rode em segundo plano.
 - Picos perto de 0 dBFS = efeitos fortes demais somados à voz: reduza volumes nos dados, renderize só
   o áudio (`npx remotion render <Id> out/audio.wav --codec=wav`) e remonte sem reprocessar o vídeo:
   `ffmpeg -i out/<nome>-raw.mp4 -i out/audio.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest out/<nome>-raw2.mp4`.
-- Extraia frames do MP4 final (`ffmpeg -ss <t> -i out/<nome>.mp4 -frames:v 1 ...`) e confira que
-  bate com os stills (telas divididas com vários canvas, fades).
+- Folha de quadros do MP4 final: `python scripts/mp4sheet.py out/<nome>.mp4 out/mp4sheet.png` — confira que
+  bate com os stills (telas divididas com vários canvas, fades, efeitos de tela).
 - Entregue: caminho do MP4, projeto, roteiro aprovado, comando de render; duração/resolução/fps medidos,
   loudness, verificações feitas e o que não pôde ser verificado (o agente não ouve o áudio).
+
+## 8b. Emendar um trecho re-renderizado (sem refazer 20 min)
+
+Erro visto só no MP4 (ex.: rótulos sobrepostos na última cena)? Corrija, renderize só aquele intervalo e
+emende o vídeo novo com o áudio já normalizado:
+
+```bash
+node scripts/render.mjs <Id> out/tail.mp4 --frames=<inicio>-<fim>
+ffmpeg -y -i out/<nome>-raw.mp4 -i out/tail.mp4 -i out/<nome>.mp4 \
+  -filter_complex "[0:v]trim=end_frame=<inicio>,setpts=PTS-STARTPTS[a];[1:v]setpts=PTS-STARTPTS[b];[a][b]concat=n=2:v=1:a=0[v]" \
+  -map "[v]" -map 2:a -c:v libx264 -crf 17 -pix_fmt yuv420p -r 30 -c:a copy out/<nome>-final.mp4
+```
+Confira com ffprobe que o total de frames continua igual.
+
+## 8c. Entrega
+
+1. Capa e thumbnail: `npx remotion still CapaVertical out/capa-vertical.png --frame=<N>` e `ThumbYouTube`.
+2. `publicacao.md` na pasta de produção: título, legenda/descrição e hashtags para TikTok e YouTube
+   (3–5 hashtags; sem spoiler em vídeo de revelação; diga que o volume das hashtags não foi verificado se não foi).
+3. `python scripts/mp4sheet.py out/<nome>.mp4 out/mp4sheet.png` e olhe a folha (quadros do arquivo final).
+4. `python scripts/package_delivery.py --prod <pasta> --video out/<nome>.mp4 --title "<título>" --out <scratchpad>/<nome>-entrega.zip`
+   → um único .zip com 01-PUBLICAR / 02-DOCUMENTOS / 03-PROJETO + LEIA-ME. Se houver ferramenta de envio de
+   arquivo (ex.: SendUserFile), **envie o .zip** — usuários no celular/na nuvem não têm onde baixar de outro jeito.
 
 ## 9. Armadilhas já resolvidas
 
@@ -186,3 +216,30 @@ python scripts/loudnorm.py out/<nome>-raw.mp4 out/<nome>.mp4
   continua por baixo para as transições de entrada/saída. Em 9:16 os painéis são estreitos: aproxime a
   câmera e use rótulos de duas linhas.
 - **argparse**: `%` em `help=` precisa ser `%%`.
+
+### Ambientes na nuvem / atrás de proxy (vistos em produção)
+- **Sem GPU:** `--gl=angle` falha ("Could not create a WebGL context"). Use `swangle` (render por software);
+  `swiftshader` também falha. 90 s em 1080×1920 ≈ 20 min com 4 núcleos — rode em segundo plano e aproveite
+  para fazer capa, `publicacao.md` e status.
+- **Download do Chrome do Remotion bloqueado** (`remotion.media`): aponte `browserExecutable` para um Chromium
+  local (ex.: o do Playwright em `/opt/pw-browsers/.../chrome-headless-shell`).
+- **Google Fonts no Chrome headless:** `ERR_CERT_AUTHORITY_INVALID` atrás de proxy que reassina TLS, e o render
+  trava 30 s em `delayRender`. O template usa fontes locais (`public/fonts`) por isso.
+- **edge-tts atrás de proxy:** o aiohttp não lê `HTTPS_PROXY`; `voiceover.py` repassa. Se o host
+  `speech.platform.bing.com` for recusado pela política de rede, peça a liberação desse host ao usuário (é
+  gratuito) — não entregue vídeo mudo.
+- **`<Freeze>` + ThreeCanvas:** o Freeze não chega ao canvas 3D; capa/thumbnail saem com a câmera do frame 0.
+  Use composições normais e `--frame=<N>`.
+
+### Voz e tempo (vistos em produção)
+- A estimativa por palavras falhou por ~15 s num roteiro com muitos ":" e palavras longas. Use `vo_budget.py`
+  (conta letras + pontuação; calibrado em duas narrações reais).
+- Texto só para o TTS (`scripts/narration-tts.json`): grafia fonética para nomes estrangeiros e ":" → ","
+  para encurtar pausas. Mesma contagem de palavras do texto aprovado (as legendas dependem disso).
+- edge-tts devolve as palavras sem pontuação: `AnimatedCaptions` recupera do texto aprovado.
+
+### Revisão (vistos em produção)
+- Morros/objetos altos encostam nos badges: suba o alvo da câmera ~1 u3d (o assunto desce no quadro).
+- Rótulos de objetos fora do quadro "puxados" para dentro da tela confundem: `WorldLabel safe` os esconde.
+- Cartões 2D (regras, gráficos) cobrindo o objeto citado: mostre-os só nas cenas em que são o assunto.
+- Réguas/escalas na borda do quadro ficam ilegíveis em 9:16; prefira a idade/medida no badge.

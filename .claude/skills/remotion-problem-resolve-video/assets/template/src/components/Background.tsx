@@ -13,6 +13,8 @@ export const Background: React.FC = () => {
     <AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(180deg, ${c[0]} 0%, ${c[1]} 52%, ${c[2]} 100%)` }} />
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 85% 60% at 50% 48%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0) 55%, rgba(4,10,22,0.32) 100%)" }} />
+      {/* brilho de horizonte: dá profundidade atrás do diorama (some quando a câmera "mergulha") */}
+      <AbsoluteFill style={{ opacity: 1 - t, background: "radial-gradient(ellipse 70% 22% at 50% 58%, rgba(255,250,235,0.55) 0%, rgba(255,250,235,0) 100%)" }} />
     </AbsoluteFill>
   );
 };
