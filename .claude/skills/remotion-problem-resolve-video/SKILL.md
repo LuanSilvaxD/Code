@@ -57,6 +57,24 @@ revelações). Não pergunte de novo sobre marca; ela já foi decidida pelo usu�
 - **`publicacao.md`:** inclua `#fendaumbra` como hashtag de marca (volume baixo; serve para agrupar o
   canal, não para alcance) além das 3–5 do tema.
 
+### Mascote (personagem fixo, NÃO é o narrador)
+
+Um astronautinha low-poly da marca (`components/Mascot.tsx`): capacete grande com visor escuro de brilho roxo
+e olhinhos lavanda que piscam, antena com luz roxa, ombreiras roxas e o símbolo da fenda no peito. Ele
+**aparece em todo vídeo, dentro do cenário do tema, e reage** — não fala, não explica, não cobre o assunto.
+
+- **Adapta-se ao mundo do tema:** espaço/água/gravidade zero → flutua girando devagar (`mascot.float`);
+  terra/maquete/cidade/máquina → anda pela maquete (`mascot.walk`), como um visitante do diorama; subsolo/
+  corte → observa da borda do corte; escala sempre menor que o objeto explicado (0,5–0,9).
+- **Reage aos momentos da narração** (atalhos em `utils/mascot.ts`, amarrados a `W("sN", i)`): acena no
+  gancho; pulinho de surpresa no problema; aponta para o objeto quando o termo técnico é dito; comemora na
+  revelação; acena/ comemora no plano final antes do encerramento. 3–6 reações por vídeo bastam.
+- **Planeje no roteiro:** na coluna "Props & Elementos" diga onde ele está; em "Animações", as reações
+  (ex.: "mascote aponta o filtro em 'filtro' — mascot.point"). Ele entra na Fase 1 como parte da cena.
+- **Enquadramento:** nunca atrás de badges/legendas; em plano de detalhe, pode sair de quadro (esconda com
+  `mascot.hide` ou deixe fora do enquadramento) — o assunto vem primeiro.
+- Vitrine de referência (terra + espaço): `examples/mascote/MascotShowcase.tsx`.
+
 Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
 do `MainSequence` volta ao visual neutro.
 

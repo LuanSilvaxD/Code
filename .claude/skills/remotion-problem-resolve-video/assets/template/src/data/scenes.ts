@@ -1,6 +1,7 @@
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
 import { fx } from "../utils/fx";
+import { mascot } from "../utils/mascot";
 
 // Contrato de dados do vídeo (o scene-plan.ts da Fase 1 vira este arquivo na Fase 2).
 // Frames de animações, badges, legendas, câmera e áudio são LOCAIS à cena; startFrame é global.
@@ -101,6 +102,11 @@ export const scenes: ScenePlan[] = [
     ],
     animations: [
       { type: "spring", target: "subject.scale", startFrame: s(0.3), endFrame: s(1.5), from: 0, to: 1, unit: "0-1" },
+      // mascote: entra andando pela maquete e acena no gancho (utils/mascot.ts)
+      ...mascot.place([-2.8, 0.05, 1.2], Math.PI / 2, 0.75, 0),
+      ...mascot.walk(0, s(1.6), [-2.8, 0.05, 1.2], [-2.1, 0.05, 1.2]),
+      ...mascot.turn(s(1.6), 0.3),
+      ...mascot.wave(s(1.8), s(1.3)),
       // transição forte para a virada da história (efeitos: utils/fx.ts, components/ScreenFx.tsx)
       ...fx.whipOut(end(0)),
     ],
@@ -127,6 +133,9 @@ export const scenes: ScenePlan[] = [
       ...fx.flash(W("s2", 6)),
       ...fx.punch(W("s2", 6)),
       ...fx.burst("solucao", W("s2", 6)),
+      // mascote reage: pulinho no problema, aponta para a solução
+      ...mascot.jump(W("s2", 2)),
+      ...mascot.point(W("s2", 6), s(1.4), 1.25),
     ],
     badges: [{ text: "SOLUÇÃO", variant: "positive", appearAt: W("s2", 6), disappearAt: end(1) }],
     highlights: ["SOLUÇÃO"],

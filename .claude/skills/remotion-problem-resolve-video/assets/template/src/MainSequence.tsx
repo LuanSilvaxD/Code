@@ -6,6 +6,7 @@ import { Background } from "./components/Background";
 import { BrandIntro, BrandOutro } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
+import { MascotFromTracks } from "./components/Mascot";
 import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
 import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
@@ -43,6 +44,8 @@ export const MainSequence: React.FC = () => {
         <CameraController />
         <Lighting />
         <World />
+        {/* mascote da Fenda Umbra (aparece em todo vídeo; dirigido pelas trilhas mascot.* — utils/mascot.ts) */}
+        <MascotFromTracks />
         {scenes.map((sc) => {
           const Stage = MODULES[sc.id]?.Stage;
           return Stage ? (
