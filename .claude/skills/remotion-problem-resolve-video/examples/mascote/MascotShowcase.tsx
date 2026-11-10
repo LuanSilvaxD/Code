@@ -5,6 +5,7 @@ import { BrandPedestal } from "./components/BrandPedestal";
 import { usePose } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
 import { Mascot } from "./components/Mascot";
+import { crowdLooks, Person } from "./components/Person";
 import { PostFx } from "./components/PostFx";
 import { Planet, Stars } from "./components/SpaceScene";
 import { EASE, lerp, orbit, progress, rand, type Vec3 } from "./utils/animation";
@@ -77,7 +78,15 @@ const EarthSet: React.FC<{ f: number }> = ({ f }) => {
           <meshStandardMaterial color="#38bdf8" emissive="#0ea5e9" emissiveIntensity={0.15 + 0.35 * point} flatShading />
         </mesh>
       </group>
-      <Mascot frame={f} position={[x, 0, 0.6]} rotY={rotY} scale={0.95} walk={walk} wave={wave} point={point} jump={jump} look={wave * 0.15} />
+      {/* figurantes variados ao fundo: um passa andando, outro observa */}
+      {crowdLooks(2, "vitrine").map((look, i) =>
+        i === 0 ? (
+          <Person key={i} {...look} seed={i} frame={f} position={[interpolate(f, [0, CUT], [3.2, -0.6]), 0, -1.35]} rotY={-Math.PI / 2} walk={1} scale={0.82} />
+        ) : (
+          <Person key={i} {...look} seed={i} frame={f} position={[-2.0, 0, -1.35]} rotY={0.45} scale={0.82} wave={seg(f, 74, 82) * (1 - seg(f, 104, 112))} />
+        ),
+      )}
+      <Mascot frame={f} position={[x, 0, 0.6]} rotY={rotY} scale={0.8} walk={walk} wave={wave} point={point} jump={jump} look={wave * 0.15} />
     </group>
   );
 };
@@ -95,7 +104,7 @@ const SpaceSet: React.FC<{ f: number }> = ({ f }) => {
       {Array.from({ length: 10 }, (_, i) => (
         <Planet key={i} position={[(rand(`ast${i}`) - 0.5) * 12, (rand(`asy${i}`) - 0.5) * 8, -4 - rand(`asz${i}`) * 6]} radius={0.08 + 0.12 * rand(`asr${i}`)} color="#8b8f9c" frame={f} spin={0.02} detail={0} />
       ))}
-      <Mascot frame={f} position={[0, 0.1, 0]} rotY={0.4 * Math.sin(f / 70) + 0.25} scale={1.05} float={1} wave={wave} cheer={cheer} look={-0.1} />
+      <Mascot frame={f} position={[0, -0.1, 0]} rotY={0.4 * Math.sin(f / 70) + 0.25} scale={0.95} float={1} wave={wave} cheer={cheer} look={-0.1} />
     </group>
   );
 };
