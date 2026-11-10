@@ -1,7 +1,7 @@
 # Status de produção — Tsunami: a onda quase invisível que vira paredão
 
-- **Fase atual:** 2 (implementação e render).
-- **Status:** APROVADO pelo usuário (roteiro v1, mensagem "sim aprovo", 2026-11-10). Render em andamento.
+- **Fase atual:** 2 concluída.
+- **Status:** CONCLUÍDO — MP4 renderizado e verificado (roteiro v1 aprovado pelo usuário, "sim aprovo", 2026-11-10).
 - **Extras pedidos na aprovação:** thumbnail + arquivo com título/descrição/hashtags (TikTok e YouTube).
 - **Skill:** remotion-problem-resolve-video.
 
@@ -31,6 +31,15 @@ npx remotion render TsunamiShort out/tsunami-raw.mp4 --gl=swangle --concurrency=
 python3 scripts/loudnorm.py out/tsunami-raw.mp4 out/tsunami.mp4
 ```
 
+## Entrega e verificações
+- `video/out/tsunami.mp4` — H.264 1080×1920, 30 fps, 2700 frames, 90,0 s, AAC 48 kHz estéreo (ffprobe).
+- Loudness: −14,0 LUFS integrado, pico real −1,4 dBTP, LRA 2,4 LU (ffmpeg ebur128). Sem clipping no bruto (pico −0,67 dBFS).
+- `video/out/capa-vertical.png` (1080×1920) e `video/out/thumb-youtube.png` (1280×720), quadro 395 (parede d'água).
+- Verificado: tsc + eslint; stills de todas as cenas revisados (3 rodadas); quadros extraídos do MP4 final conferidos.
+- Ajuste pós-render: rótulos da cena 14 se sobrepunham → cena 14 re-renderizada (frames 2459–2699) e emendada; áudio inalterado.
+- NÃO verificado: audição real (o agente não ouve áudio) — só medições.
+
 ## Histórico
 - 2026-11-10 — v1 entregue (Fase 1).
 - 2026-11-10 — v1 aprovada; Fase 2 iniciada.
+- 2026-11-10 — Fase 2 concluída: MP4, capa, thumbnail e publicacao.md entregues.

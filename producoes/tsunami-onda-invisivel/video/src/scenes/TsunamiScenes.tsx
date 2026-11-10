@@ -153,10 +153,10 @@ const S14: React.FC<SceneProps> = ({ scene }) => {
   const step = (i: number) => clamp(r * 4 - i, 0, 1);
   const pose = cameraPoseAt(local + scene.startFrame);
   const items: [Vec3, string, [number, number], string][] = [
-    [[-21, -4.3, 2.05], "ORIGEM", [170, -40], PALETTE.warning],
+    [[-21, -4.3, 2.05], "ORIGEM", [230, -230], PALETTE.warning],
     [[-10, 0.25, 1.2], "RÁPIDA\nE BAIXA", [-90, -130], PALETTE.accent],
-    [[10, 0.6, 1.2], "FREIA\nE CRESCE", [-60, -150], PALETTE.accent],
-    [[22.2, 1.4, 1.0], "PAREDÃO", [-170, 40], PALETTE.negative],
+    [[10, 0.6, 1.2], "FREIA\nE CRESCE", [-170, -60], PALETTE.accent],
+    [[22.2, 1.4, 1.0], "PAREDÃO", [-60, 190], PALETTE.negative],
   ];
   return (
     <AbsoluteFill>
