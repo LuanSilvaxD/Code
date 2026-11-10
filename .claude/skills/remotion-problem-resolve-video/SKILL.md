@@ -71,8 +71,10 @@ e olhinhos lavanda que piscam, antena com luz roxa, ombreiras roxas e o símbolo
   revelação; acena/ comemora no plano final antes do encerramento. 3–6 reações por vídeo bastam.
 - **Planeje no roteiro:** na coluna "Props & Elementos" diga onde ele está; em "Animações", as reações
   (ex.: "mascote aponta o filtro em 'filtro' — mascot.point"). Ele entra na Fase 1 como parte da cena.
-- **Enquadramento:** nunca atrás de badges/legendas; em plano de detalhe, pode sair de quadro (esconda com
-  `mascot.hide` ou deixe fora do enquadramento) — o assunto vem primeiro.
+- **Enquadramento:** em 9:16 a largura útil é só ~0,24 × distância da câmera — posicione-o PERTO do objeto
+  (à frente e de lado, ~0,7–1 u3d), não na ponta da maquete, ou ele some nos planos fechados (erro visto no
+  teste). Confira nos stills de cada cena; nunca atrás de badges/legendas. Em plano de detalhe pode sair de
+  quadro de propósito (ou `mascot.hide`) — o assunto vem primeiro.
 - Vitrine de referência (terra + espaço): `examples/mascote/MascotShowcase.tsx`.
 
 Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
