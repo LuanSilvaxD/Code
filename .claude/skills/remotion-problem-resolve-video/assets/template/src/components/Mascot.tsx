@@ -8,7 +8,7 @@ import { clamp, type Vec3 } from "../utils/animation";
 // NÃO narra: é um personagem que aparece em todo vídeo, dentro do cenário do tema, e REAGE à história.
 // Toda a animação é função pura do frame (sem estado) e misturável: os "modos" são pesos 0..1 que se somam.
 //
-// Escala: ~1,15 u3d de altura com scale=1 (pés em y=0 do grupo). Na maquete, use scale 0,5–0,9 para ele
+// Proporção "magra" (v2): mais estreito e um pouco mais alto que a 1ª versão. Escala: ~1,4 u3d de altura com scale=1 (pés em y=0 do grupo). Na maquete, use scale 0,5–0,9 para ele
 // ficar como "visitante" do diorama, nunca maior que o objeto explicado.
 
 export type MascotPose = {
@@ -81,19 +81,19 @@ export const Mascot: React.FC<MascotPose> = ({ frame, position = [0, 0, 0], rotY
     <group position={[position[0], position[1] + bob, position[2]]} rotation={[tiltX, rotY + drift, tiltZ]} scale={scale}>
       {/* pernas */}
       {[-1, 1].map((s) => (
-        <group key={`leg${s}`} position={[0.13 * s, 0.32, 0]} rotation={[s * legSwing + legFloat * (s > 0 ? 1 : -0.6), 0, s * 0.06 * fl]}>
-          <group position={[0, -0.13, 0]}>{box([0.17, 0.26, 0.2], C.suit)}</group>
-          <group position={[0, -0.28, 0.025]}>{box([0.2, 0.09, 0.25], C.joint)}</group>
+        <group key={`leg${s}`} position={[0.1 * s, 0.4, 0]} rotation={[s * legSwing + legFloat * (s > 0 ? 1 : -0.6), 0, s * 0.06 * fl]}>
+          <group position={[0, -0.16, 0]}>{box([0.13, 0.32, 0.15], C.suit)}</group>
+          <group position={[0, -0.36, 0.02]}>{box([0.15, 0.08, 0.21], C.joint)}</group>
         </group>
       ))}
       {/* tronco */}
-      <group position={[0, 0.53, 0]} scale={[1, breathe, 1]}>
-        {box([0.52, 0.44, 0.38], C.suit)}
+      <group position={[0, 0.64, 0]} scale={[1, breathe, 1]}>
+        {box([0.4, 0.5, 0.3], C.suit)}
         {/* mochila */}
-        <group position={[0, 0.02, -0.25]}>{box([0.42, 0.38, 0.16], C.suitShade)}</group>
+        <group position={[0, 0.03, -0.2]}>{box([0.32, 0.42, 0.13], C.suitShade)}</group>
         {/* emblema da fenda no peito */}
-        <group position={[0, 0.03, 0.195]}>
-          {box([0.24, 0.16, 0.03], BRAND.colors.umbra, { radius: 0.02 })}
+        <group position={[0, 0.05, 0.155]}>
+          {box([0.2, 0.15, 0.03], BRAND.colors.umbra, { radius: 0.02 })}
           {[
             [-0.006, 0.05, 0.5],
             [0.012, 0.0, -0.6],
@@ -106,7 +106,7 @@ export const Mascot: React.FC<MascotPose> = ({ frame, position = [0, 0, 0], rotY
           ))}
         </group>
         {/* cinto */}
-        <group position={[0, -0.19, 0]}>{box([0.54, 0.06, 0.4], C.joint, { radius: 0.02 })}</group>
+        <group position={[0, -0.22, 0]}>{box([0.42, 0.06, 0.32], C.joint, { radius: 0.02 })}</group>
       </group>
       {/* braços */}
       {[-1, 1].map((s) => {
@@ -114,51 +114,51 @@ export const Mascot: React.FC<MascotPose> = ({ frame, position = [0, 0, 0], rotY
         const rx = (right ? -armSwing - pointX : armSwing) + fl * 0.25 * Math.sin(frame / 27 + s);
         const rz = right ? rightArmZ : leftArmZ;
         return (
-          <group key={`arm${s}`} position={[0.31 * s, 0.69, 0]} rotation={[rx, 0, rz]}>
+          <group key={`arm${s}`} position={[0.25 * s, 0.84, 0]} rotation={[rx, 0, rz]}>
             {/* ombreira roxa */}
-            <group position={[0.02 * s, 0.03, 0]}>{box([0.17, 0.08, 0.21], accent, { emissive: accentDeep, emissiveIntensity: 0.25 })}</group>
-            <group position={[0, -0.14, 0]}>{box([0.14, 0.28, 0.16], C.suit)}</group>
-            <group position={[0, -0.31, 0]}>{box([0.15, 0.1, 0.17], C.joint)}</group>
+            <group position={[0.015 * s, 0.03, 0]}>{box([0.13, 0.07, 0.17], accent, { emissive: accentDeep, emissiveIntensity: 0.25 })}</group>
+            <group position={[0, -0.165, 0]}>{box([0.105, 0.33, 0.12], C.suit)}</group>
+            <group position={[0, -0.36, 0]}>{box([0.12, 0.09, 0.13], C.joint)}</group>
           </group>
         );
       })}
       {/* cabeça (capacete) */}
-      <group position={[0, 0.76, 0]} rotation={[0.05 * Math.sin(frame / 31) * (1 - w), look + 0.08 * Math.sin(frame / 47), wv * 0.12]}>
-        <group position={[0, 0.34, 0]}>{box([0.8, 0.7, 0.68], C.suit, { radius: 0.16 })}</group>
+      <group position={[0, 0.9, 0]} rotation={[0.05 * Math.sin(frame / 31) * (1 - w), look + 0.08 * Math.sin(frame / 47), wv * 0.12]}>
+        <group position={[0, 0.3, 0]}>{box([0.62, 0.6, 0.56], C.suit, { radius: 0.14 })}</group>
         {/* visor */}
-        <group position={[0, 0.33, 0.325]}>{box([0.6, 0.42, 0.08], C.visor, { emissive: accentDeep, emissiveIntensity: 0.28, radius: 0.09 })}</group>
+        <group position={[0, 0.29, 0.27]}>{box([0.46, 0.36, 0.07], C.visor, { emissive: accentDeep, emissiveIntensity: 0.28, radius: 0.09 })}</group>
         {/* reflexo do visor */}
-        <mesh position={[-0.17, 0.46, 0.372]} rotation={[0, 0, 0.6]}>
-          <boxGeometry args={[0.03, 0.13, 0.005]} />
+        <mesh position={[-0.13, 0.4, 0.31]} rotation={[0, 0, 0.6]}>
+          <boxGeometry args={[0.025, 0.11, 0.005]} />
           <meshBasicMaterial color="#ffffff" transparent opacity={0.55} />
         </mesh>
         {/* olhinhos */}
         {[-1, 1].map((s) => (
-          <mesh key={`eye${s}`} position={[0.11 * s, 0.33, 0.372]} scale={[1, blink, 1]}>
-            <boxGeometry args={[0.085, 0.12, 0.01]} />
+          <mesh key={`eye${s}`} position={[0.085 * s, 0.29, 0.31]} scale={[1, blink, 1]}>
+            <boxGeometry args={[0.07, 0.1, 0.01]} />
             <meshStandardMaterial color={C.eye} emissive={C.eye} emissiveIntensity={0.9} />
           </mesh>
         ))}
         {/* "fones" laterais com anel roxo */}
         {[-1, 1].map((s) => (
-          <group key={`ear${s}`} position={[0.42 * s, 0.34, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <group key={`ear${s}`} position={[0.33 * s, 0.3, 0]} rotation={[0, 0, Math.PI / 2]}>
             <mesh castShadow>
-              <cylinderGeometry args={[0.11, 0.11, 0.07, 14]} />
+              <cylinderGeometry args={[0.085, 0.085, 0.06, 14]} />
               <meshStandardMaterial color={C.joint} roughness={0.5} />
             </mesh>
-            <mesh position={[0, 0.036 * s, 0]}>
-              <cylinderGeometry args={[0.07, 0.07, 0.01, 14]} />
+            <mesh position={[0, 0.031 * s, 0]}>
+              <cylinderGeometry args={[0.055, 0.055, 0.01, 14]} />
               <meshStandardMaterial color={accent} emissive={accent} emissiveIntensity={0.6} />
             </mesh>
           </group>
         ))}
         {/* antena com luz roxa */}
-        <mesh position={[0.18, 0.75, 0]} castShadow>
+        <mesh position={[0.14, 0.66, 0]} castShadow>
           <cylinderGeometry args={[0.018, 0.018, 0.16, 6]} />
           <meshStandardMaterial color={C.joint} />
         </mesh>
-        <mesh position={[0.18, 0.85, 0]}>
-          <sphereGeometry args={[0.05, 12, 10]} />
+        <mesh position={[0.14, 0.76, 0]}>
+          <sphereGeometry args={[0.045, 12, 10]} />
           <meshStandardMaterial color="#f5f0ff" emissive={accent} emissiveIntensity={1.4 * antenna} />
         </mesh>
       </group>
