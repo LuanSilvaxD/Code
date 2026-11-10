@@ -1,0 +1,1191 @@
+{
+  "s1": {
+    "text": "No meio do oceano, um tsunami mal se percebe. O navio sobe e desce, e ninguém nota.",
+    "seconds": 6.558,
+    "words": [
+      {
+        "text": "No",
+        "start": 0,
+        "end": 0.118
+      },
+      {
+        "text": "meio",
+        "start": 0.13,
+        "end": 0.443
+      },
+      {
+        "text": "do",
+        "start": 0.456,
+        "end": 0.556
+      },
+      {
+        "text": "oceano",
+        "start": 0.568,
+        "end": 1.105
+      },
+      {
+        "text": "um",
+        "start": 1.393,
+        "end": 1.543
+      },
+      {
+        "text": "tsunami",
+        "start": 1.555,
+        "end": 2.08
+      },
+      {
+        "text": "mal",
+        "start": 2.093,
+        "end": 2.33
+      },
+      {
+        "text": "se",
+        "start": 2.343,
+        "end": 2.481
+      },
+      {
+        "text": "percebe",
+        "start": 2.493,
+        "end": 3.106
+      },
+      {
+        "text": "O",
+        "start": 3.968,
+        "end": 4.068
+      },
+      {
+        "text": "navio",
+        "start": 4.08,
+        "end": 4.43
+      },
+      {
+        "text": "sobe",
+        "start": 4.443,
+        "end": 4.818
+      },
+      {
+        "text": "e",
+        "start": 4.83,
+        "end": 4.868
+      },
+      {
+        "text": "desce",
+        "start": 4.88,
+        "end": 5.343
+      },
+      {
+        "text": "e",
+        "start": 5.606,
+        "end": 5.681
+      },
+      {
+        "text": "ninguém",
+        "start": 5.693,
+        "end": 6.068
+      },
+      {
+        "text": "nota",
+        "start": 6.08,
+        "end": 6.455
+      }
+    ]
+  },
+  "s2": {
+    "text": "Mas, na praia, essa mesma onda vira um paredão de água. Como?",
+    "seconds": 5.022,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.473
+      },
+      {
+        "text": "na",
+        "start": 0.574,
+        "end": 0.786
+      },
+      {
+        "text": "praia",
+        "start": 0.799,
+        "end": 1.199
+      },
+      {
+        "text": "essa",
+        "start": 1.423,
+        "end": 1.686
+      },
+      {
+        "text": "mesma",
+        "start": 1.699,
+        "end": 2.048
+      },
+      {
+        "text": "onda",
+        "start": 2.061,
+        "end": 2.361
+      },
+      {
+        "text": "vira",
+        "start": 2.374,
+        "end": 2.586
+      },
+      {
+        "text": "um",
+        "start": 2.599,
+        "end": 2.674
+      },
+      {
+        "text": "paredão",
+        "start": 2.686,
+        "end": 3.148
+      },
+      {
+        "text": "de",
+        "start": 3.161,
+        "end": 3.286
+      },
+      {
+        "text": "água",
+        "start": 3.298,
+        "end": 3.673
+      },
+      {
+        "text": "Como",
+        "start": 4.536,
+        "end": 4.924
+      }
+    ]
+  },
+  "s3": {
+    "text": "Tudo começa num terremoto no fundo do mar: uma placa travada se solta e ergue o assoalho.",
+    "seconds": 5.269,
+    "words": [
+      {
+        "text": "Tudo",
+        "start": 0,
+        "end": 0.198
+      },
+      {
+        "text": "começa",
+        "start": 0.21,
+        "end": 0.698
+      },
+      {
+        "text": "num",
+        "start": 0.71,
+        "end": 0.847
+      },
+      {
+        "text": "terremoto",
+        "start": 0.86,
+        "end": 1.41
+      },
+      {
+        "text": "no",
+        "start": 1.422,
+        "end": 1.51
+      },
+      {
+        "text": "fundo",
+        "start": 1.523,
+        "end": 1.835
+      },
+      {
+        "text": "do",
+        "start": 1.848,
+        "end": 1.96
+      },
+      {
+        "text": "mar",
+        "start": 1.973,
+        "end": 2.198
+      },
+      {
+        "text": "uma",
+        "start": 2.572,
+        "end": 2.785
+      },
+      {
+        "text": "placa",
+        "start": 2.797,
+        "end": 3.185
+      },
+      {
+        "text": "travada",
+        "start": 3.197,
+        "end": 3.66
+      },
+      {
+        "text": "se",
+        "start": 3.672,
+        "end": 3.81
+      },
+      {
+        "text": "solta",
+        "start": 3.822,
+        "end": 4.21
+      },
+      {
+        "text": "e",
+        "start": 4.223,
+        "end": 4.26
+      },
+      {
+        "text": "ergue",
+        "start": 4.273,
+        "end": 4.548
+      },
+      {
+        "text": "o",
+        "start": 4.56,
+        "end": 4.61
+      },
+      {
+        "text": "assoalho",
+        "start": 4.622,
+        "end": 5.147
+      }
+    ]
+  },
+  "s4": {
+    "text": "E empurra para cima toda a água acima dela.",
+    "seconds": 2.641,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.018
+      },
+      {
+        "text": "empurra",
+        "start": 0.031,
+        "end": 0.531
+      },
+      {
+        "text": "para",
+        "start": 0.543,
+        "end": 0.743
+      },
+      {
+        "text": "cima",
+        "start": 0.755,
+        "end": 1.105
+      },
+      {
+        "text": "toda",
+        "start": 1.118,
+        "end": 1.43
+      },
+      {
+        "text": "a",
+        "start": 1.443,
+        "end": 1.518
+      },
+      {
+        "text": "água",
+        "start": 1.531,
+        "end": 1.793
+      },
+      {
+        "text": "acima",
+        "start": 1.805,
+        "end": 2.18
+      },
+      {
+        "text": "dela",
+        "start": 2.193,
+        "end": 2.531
+      }
+    ]
+  },
+  "s5": {
+    "text": "Na superfície, vira um calombo baixo, em geral com menos de um metro, mas com centenas de quilômetros de largura.",
+    "seconds": 6.741,
+    "words": [
+      {
+        "text": "Na",
+        "start": 0,
+        "end": 0.118
+      },
+      {
+        "text": "superfície",
+        "start": 0.13,
+        "end": 0.893
+      },
+      {
+        "text": "vira",
+        "start": 1.18,
+        "end": 1.393
+      },
+      {
+        "text": "um",
+        "start": 1.405,
+        "end": 1.468
+      },
+      {
+        "text": "calombo",
+        "start": 1.48,
+        "end": 1.918
+      },
+      {
+        "text": "baixo",
+        "start": 1.93,
+        "end": 2.381
+      },
+      {
+        "text": "em",
+        "start": 2.618,
+        "end": 2.705
+      },
+      {
+        "text": "geral",
+        "start": 2.718,
+        "end": 3.093
+      },
+      {
+        "text": "com",
+        "start": 3.106,
+        "end": 3.256
+      },
+      {
+        "text": "menos",
+        "start": 3.268,
+        "end": 3.58
+      },
+      {
+        "text": "de",
+        "start": 3.593,
+        "end": 3.655
+      },
+      {
+        "text": "um",
+        "start": 3.668,
+        "end": 3.743
+      },
+      {
+        "text": "metro",
+        "start": 3.756,
+        "end": 4.118
+      },
+      {
+        "text": "mas",
+        "start": 4.431,
+        "end": 4.618
+      },
+      {
+        "text": "com",
+        "start": 4.63,
+        "end": 4.793
+      },
+      {
+        "text": "centenas",
+        "start": 4.806,
+        "end": 5.331
+      },
+      {
+        "text": "de",
+        "start": 5.343,
+        "end": 5.443
+      },
+      {
+        "text": "quilômetros",
+        "start": 5.455,
+        "end": 6.018
+      },
+      {
+        "text": "de",
+        "start": 6.031,
+        "end": 6.118
+      },
+      {
+        "text": "largura",
+        "start": 6.13,
+        "end": 6.63
+      }
+    ]
+  },
+  "s6": {
+    "text": "A subida é tão suave que o navio nem sente.",
+    "seconds": 2.519,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.039
+      },
+      {
+        "text": "subida",
+        "start": 0.051,
+        "end": 0.489
+      },
+      {
+        "text": "é",
+        "start": 0.501,
+        "end": 0.539
+      },
+      {
+        "text": "tão",
+        "start": 0.552,
+        "end": 0.739
+      },
+      {
+        "text": "suave",
+        "start": 0.751,
+        "end": 1.214
+      },
+      {
+        "text": "que",
+        "start": 1.226,
+        "end": 1.301
+      },
+      {
+        "text": "o",
+        "start": 1.314,
+        "end": 1.339
+      },
+      {
+        "text": "navio",
+        "start": 1.351,
+        "end": 1.714
+      },
+      {
+        "text": "nem",
+        "start": 1.726,
+        "end": 1.964
+      },
+      {
+        "text": "sente",
+        "start": 1.977,
+        "end": 2.439
+      }
+    ]
+  },
+  "s7": {
+    "text": "Só que ela mexe o oceano inteiro. E, quanto mais fundo o mar, mais rápido ela corre.",
+    "seconds": 5.902,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.26
+      },
+      {
+        "text": "que",
+        "start": 0.273,
+        "end": 0.347
+      },
+      {
+        "text": "ela",
+        "start": 0.36,
+        "end": 0.523
+      },
+      {
+        "text": "mexe",
+        "start": 0.535,
+        "end": 0.91
+      },
+      {
+        "text": "o",
+        "start": 0.922,
+        "end": 0.947
+      },
+      {
+        "text": "oceano",
+        "start": 0.96,
+        "end": 1.385
+      },
+      {
+        "text": "inteiro",
+        "start": 1.397,
+        "end": 1.848
+      },
+      {
+        "text": "E",
+        "start": 2.71,
+        "end": 2.998
+      },
+      {
+        "text": "quanto",
+        "start": 3.235,
+        "end": 3.572
+      },
+      {
+        "text": "mais",
+        "start": 3.585,
+        "end": 3.797
+      },
+      {
+        "text": "fundo",
+        "start": 3.81,
+        "end": 4.085
+      },
+      {
+        "text": "o",
+        "start": 4.098,
+        "end": 4.123
+      },
+      {
+        "text": "mar",
+        "start": 4.135,
+        "end": 4.385
+      },
+      {
+        "text": "mais",
+        "start": 4.598,
+        "end": 4.81
+      },
+      {
+        "text": "rápido",
+        "start": 4.822,
+        "end": 5.185
+      },
+      {
+        "text": "ela",
+        "start": 5.197,
+        "end": 5.385
+      },
+      {
+        "text": "corre",
+        "start": 5.397,
+        "end": 5.835
+      }
+    ]
+  },
+  "s8": {
+    "text": "Num mar de quatro mil metros, passa de setecentos quilômetros por hora: velocidade de avião.",
+    "seconds": 5.719,
+    "words": [
+      {
+        "text": "Num",
+        "start": 0,
+        "end": 0.169
+      },
+      {
+        "text": "mar",
+        "start": 0.182,
+        "end": 0.432
+      },
+      {
+        "text": "de",
+        "start": 0.444,
+        "end": 0.569
+      },
+      {
+        "text": "quatro",
+        "start": 0.582,
+        "end": 0.957
+      },
+      {
+        "text": "mil",
+        "start": 0.969,
+        "end": 1.144
+      },
+      {
+        "text": "metros",
+        "start": 1.156,
+        "end": 1.669
+      },
+      {
+        "text": "passa",
+        "start": 1.931,
+        "end": 2.257
+      },
+      {
+        "text": "de",
+        "start": 2.269,
+        "end": 2.381
+      },
+      {
+        "text": "setecentos",
+        "start": 2.394,
+        "end": 3.081
+      },
+      {
+        "text": "quilômetros",
+        "start": 3.094,
+        "end": 3.681
+      },
+      {
+        "text": "por",
+        "start": 3.694,
+        "end": 3.869
+      },
+      {
+        "text": "hora",
+        "start": 3.881,
+        "end": 4.131
+      },
+      {
+        "text": "velocidade",
+        "start": 4.419,
+        "end": 5.119
+      },
+      {
+        "text": "de",
+        "start": 5.131,
+        "end": 5.194
+      },
+      {
+        "text": "avião",
+        "start": 5.206,
+        "end": 5.644
+      }
+    ]
+  },
+  "s9": {
+    "text": "Perto da costa, o fundo sobe, o mar fica raso, e a frente da onda freia.",
+    "seconds": 4.939,
+    "words": [
+      {
+        "text": "Perto",
+        "start": 0,
+        "end": 0.25
+      },
+      {
+        "text": "da",
+        "start": 0.263,
+        "end": 0.375
+      },
+      {
+        "text": "costa",
+        "start": 0.387,
+        "end": 0.825
+      },
+      {
+        "text": "o",
+        "start": 1.087,
+        "end": 1.15
+      },
+      {
+        "text": "fundo",
+        "start": 1.162,
+        "end": 1.513
+      },
+      {
+        "text": "sobe",
+        "start": 1.525,
+        "end": 1.988
+      },
+      {
+        "text": "o",
+        "start": 2.2,
+        "end": 2.275
+      },
+      {
+        "text": "mar",
+        "start": 2.287,
+        "end": 2.488
+      },
+      {
+        "text": "fica",
+        "start": 2.5,
+        "end": 2.8
+      },
+      {
+        "text": "raso",
+        "start": 2.812,
+        "end": 3.2
+      },
+      {
+        "text": "e",
+        "start": 3.425,
+        "end": 3.5
+      },
+      {
+        "text": "a",
+        "start": 3.513,
+        "end": 3.613
+      },
+      {
+        "text": "frente",
+        "start": 3.625,
+        "end": 3.987
+      },
+      {
+        "text": "da",
+        "start": 4.0,
+        "end": 4.1
+      },
+      {
+        "text": "onda",
+        "start": 4.112,
+        "end": 4.425
+      },
+      {
+        "text": "freia",
+        "start": 4.437,
+        "end": 4.825
+      }
+    ]
+  },
+  "s10": {
+    "text": "Mas a parte de trás ainda vem rápida, alcança a da frente, e a água se empilha.",
+    "seconds": 4.837,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.145
+      },
+      {
+        "text": "a",
+        "start": 0.157,
+        "end": 0.308
+      },
+      {
+        "text": "parte",
+        "start": 0.32,
+        "end": 0.67
+      },
+      {
+        "text": "de",
+        "start": 0.683,
+        "end": 0.795
+      },
+      {
+        "text": "trás",
+        "start": 0.808,
+        "end": 0.958
+      },
+      {
+        "text": "ainda",
+        "start": 0.97,
+        "end": 1.307
+      },
+      {
+        "text": "vem",
+        "start": 1.32,
+        "end": 1.508
+      },
+      {
+        "text": "rápida",
+        "start": 1.52,
+        "end": 1.995
+      },
+      {
+        "text": "alcança",
+        "start": 2.207,
+        "end": 2.732
+      },
+      {
+        "text": "a",
+        "start": 2.745,
+        "end": 2.758
+      },
+      {
+        "text": "da",
+        "start": 2.77,
+        "end": 2.895
+      },
+      {
+        "text": "frente",
+        "start": 2.907,
+        "end": 3.37
+      },
+      {
+        "text": "e",
+        "start": 3.645,
+        "end": 3.732
+      },
+      {
+        "text": "a",
+        "start": 3.745,
+        "end": 3.82
+      },
+      {
+        "text": "água",
+        "start": 3.832,
+        "end": 4.132
+      },
+      {
+        "text": "se",
+        "start": 4.145,
+        "end": 4.257
+      },
+      {
+        "text": "empilha",
+        "start": 4.27,
+        "end": 4.72
+      }
+    ]
+  },
+  "s11": {
+    "text": "A onda encurta e cresce: a mesma energia, espremida em menos profundidade, vira altura.",
+    "seconds": 5.562,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.083
+      },
+      {
+        "text": "onda",
+        "start": 0.095,
+        "end": 0.382
+      },
+      {
+        "text": "encurta",
+        "start": 0.395,
+        "end": 0.808
+      },
+      {
+        "text": "e",
+        "start": 0.82,
+        "end": 0.857
+      },
+      {
+        "text": "cresce",
+        "start": 0.87,
+        "end": 1.32
+      },
+      {
+        "text": "a",
+        "start": 1.583,
+        "end": 1.67
+      },
+      {
+        "text": "mesma",
+        "start": 1.682,
+        "end": 2.033
+      },
+      {
+        "text": "energia",
+        "start": 2.045,
+        "end": 2.583
+      },
+      {
+        "text": "espremida",
+        "start": 2.845,
+        "end": 3.307
+      },
+      {
+        "text": "em",
+        "start": 3.32,
+        "end": 3.395
+      },
+      {
+        "text": "menos",
+        "start": 3.407,
+        "end": 3.72
+      },
+      {
+        "text": "profundidade",
+        "start": 3.733,
+        "end": 4.508
+      },
+      {
+        "text": "vira",
+        "start": 4.77,
+        "end": 4.983
+      },
+      {
+        "text": "altura",
+        "start": 4.995,
+        "end": 5.458
+      }
+    ]
+  },
+  "s12": {
+    "text": "Às vezes o mar recua antes, expondo o fundo. Se vir isso, não vá olhar: suba para um lugar alto.",
+    "seconds": 7.067,
+    "words": [
+      {
+        "text": "Às",
+        "start": 0,
+        "end": 0.219
+      },
+      {
+        "text": "vezes",
+        "start": 0.232,
+        "end": 0.557
+      },
+      {
+        "text": "o",
+        "start": 0.57,
+        "end": 0.695
+      },
+      {
+        "text": "mar",
+        "start": 0.707,
+        "end": 0.882
+      },
+      {
+        "text": "recua",
+        "start": 0.894,
+        "end": 1.207
+      },
+      {
+        "text": "antes",
+        "start": 1.219,
+        "end": 1.669
+      },
+      {
+        "text": "expondo",
+        "start": 1.957,
+        "end": 2.357
+      },
+      {
+        "text": "o",
+        "start": 2.37,
+        "end": 2.394
+      },
+      {
+        "text": "fundo",
+        "start": 2.407,
+        "end": 2.82
+      },
+      {
+        "text": "Se",
+        "start": 3.682,
+        "end": 3.907
+      },
+      {
+        "text": "vir",
+        "start": 3.92,
+        "end": 4.132
+      },
+      {
+        "text": "isso",
+        "start": 4.144,
+        "end": 4.457
+      },
+      {
+        "text": "não",
+        "start": 4.67,
+        "end": 4.907
+      },
+      {
+        "text": "vá",
+        "start": 4.92,
+        "end": 5.07
+      },
+      {
+        "text": "olhar",
+        "start": 5.082,
+        "end": 5.444
+      },
+      {
+        "text": "suba",
+        "start": 5.757,
+        "end": 6.107
+      },
+      {
+        "text": "para",
+        "start": 6.119,
+        "end": 6.294
+      },
+      {
+        "text": "um",
+        "start": 6.307,
+        "end": 6.357
+      },
+      {
+        "text": "lugar",
+        "start": 6.369,
+        "end": 6.644
+      },
+      {
+        "text": "alto",
+        "start": 6.657,
+        "end": 6.982
+      }
+    ]
+  },
+  "s13": {
+    "text": "E ela não quebra e acaba como onda de surfe: é tão comprida que a água segue avançando por minutos.",
+    "seconds": 5.692,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.043
+      },
+      {
+        "text": "ela",
+        "start": 0.055,
+        "end": 0.255
+      },
+      {
+        "text": "não",
+        "start": 0.268,
+        "end": 0.443
+      },
+      {
+        "text": "quebra",
+        "start": 0.456,
+        "end": 0.793
+      },
+      {
+        "text": "e",
+        "start": 0.806,
+        "end": 0.831
+      },
+      {
+        "text": "acaba",
+        "start": 0.843,
+        "end": 1.243
+      },
+      {
+        "text": "como",
+        "start": 1.256,
+        "end": 1.493
+      },
+      {
+        "text": "onda",
+        "start": 1.506,
+        "end": 1.781
+      },
+      {
+        "text": "de",
+        "start": 1.793,
+        "end": 1.918
+      },
+      {
+        "text": "surfe",
+        "start": 1.93,
+        "end": 2.368
+      },
+      {
+        "text": "é",
+        "start": 2.68,
+        "end": 2.781
+      },
+      {
+        "text": "tão",
+        "start": 2.793,
+        "end": 3.006
+      },
+      {
+        "text": "comprida",
+        "start": 3.018,
+        "end": 3.543
+      },
+      {
+        "text": "que",
+        "start": 3.555,
+        "end": 3.668
+      },
+      {
+        "text": "a",
+        "start": 3.68,
+        "end": 3.718
+      },
+      {
+        "text": "água",
+        "start": 3.731,
+        "end": 4.018
+      },
+      {
+        "text": "segue",
+        "start": 4.031,
+        "end": 4.318
+      },
+      {
+        "text": "avançando",
+        "start": 4.33,
+        "end": 4.88
+      },
+      {
+        "text": "por",
+        "start": 4.893,
+        "end": 5.018
+      },
+      {
+        "text": "minutos",
+        "start": 5.031,
+        "end": 5.606
+      }
+    ]
+  },
+  "s14": {
+    "text": "Pronto: agora você sabe por que a onda quase invisível no mar vira um paredão na costa.",
+    "seconds": 5.002,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.335
+      },
+      {
+        "text": "agora",
+        "start": 0.622,
+        "end": 0.998
+      },
+      {
+        "text": "você",
+        "start": 1.01,
+        "end": 1.26
+      },
+      {
+        "text": "sabe",
+        "start": 1.273,
+        "end": 1.647
+      },
+      {
+        "text": "por",
+        "start": 1.66,
+        "end": 1.823
+      },
+      {
+        "text": "que",
+        "start": 1.835,
+        "end": 1.947
+      },
+      {
+        "text": "a",
+        "start": 1.96,
+        "end": 2.035
+      },
+      {
+        "text": "onda",
+        "start": 2.047,
+        "end": 2.373
+      },
+      {
+        "text": "quase",
+        "start": 2.385,
+        "end": 2.722
+      },
+      {
+        "text": "invisível",
+        "start": 2.735,
+        "end": 3.26
+      },
+      {
+        "text": "no",
+        "start": 3.273,
+        "end": 3.36
+      },
+      {
+        "text": "mar",
+        "start": 3.373,
+        "end": 3.598
+      },
+      {
+        "text": "vira",
+        "start": 3.61,
+        "end": 3.822
+      },
+      {
+        "text": "um",
+        "start": 3.835,
+        "end": 3.897
+      },
+      {
+        "text": "paredão",
+        "start": 3.91,
+        "end": 4.322
+      },
+      {
+        "text": "na",
+        "start": 4.335,
+        "end": 4.46
+      },
+      {
+        "text": "costa",
+        "start": 4.473,
+        "end": 4.91
+      }
+    ]
+  }
+}
