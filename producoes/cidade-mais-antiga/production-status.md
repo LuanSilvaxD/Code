@@ -1,27 +1,35 @@
 # Status de produção — Qual é a cidade mais antiga que ainda existe?
 
-- **Fase atual:** 1 (planejamento) concluída.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
-- **Versão do roteiro:** v1 (2026-11-10).
+- **Fase atual:** 2 (implementação e render).
+- **Status:** APROVADO pelo usuário (v1, "sim aprovo, pode gerar", 2026-11-10) — render em andamento.
+- **Versão do roteiro:** v1 (conteúdo inalterado).
 - **Skill:** remotion-problem-resolve-video.
 
 ## Arquivos
-- `producoes/cidade-mais-antiga/roteiro.md` — briefing, tabela, narração, direção, fontes, critérios.
-- `producoes/cidade-mais-antiga/scene-plan.ts` — contrato de dados (14 cenas, 2700 frames).
-- `producoes/cidade-mais-antiga/narration.json` — falas s1–s14 para `scripts/voiceover.py`.
+- `roteiro.md` — roteiro aprovado v1 (referência de conteúdo).
+- `scene-plan.ts` — plano de dados aprovado (Fase 1). O vivo está em `video/src/data/scenes.ts`.
+- `narration.json` — falas s1–s14 (idênticas ao roteiro); `video/scripts/narration-tts.json` = texto enviado ao TTS.
+- `publicacao.md` — título, legenda/descrição e hashtags (TikTok e YouTube), sem spoiler.
+- `video/` — projeto Remotion. Composições: `CidadeMaisAntiga` (vídeo), `CapaVertical`, `ThumbYouTube` (quadro 1330).
 
-## Preferências / premissas
-- 90 s, 1080×1920, 30 fps, pt-BR, público leigo, tom didático e ágil.
-- Gancho do usuário: "Qual é a cidade mais antiga que ainda existe?" — revelar a cidade no final.
-- TTS: edge-tts `pt-BR-AntonioNeural`, rate +0% (gratuito). ElevenLabs NÃO autorizado.
-- Entrega pedida: **arquivo compactado único** (como `tsunami-entrega.zip`), enviado na conversa — o usuário
-  não tem onde baixar fora dela. Incluir também capa/thumbnail e `publicacao.md` no mesmo padrão do tsunami
-  (não pedido explicitamente desta vez — confirmar).
+## Ajustes técnicos feitos na Fase 2 (sem mudar o conteúdo aprovado)
+- **Voz:** edge-tts `pt-BR-AntonioNeural` a **+12%** (a +0% a fala deu 89 s e não cabia em 90 s; +12% ainda é
+  considerado natural). Só no texto enviado ao TTS: "Çatalhöyük" → "Tchatalrôiuk" (pronúncia) e ":" → ","
+  (menos pausa). Legendas usam o texto aprovado.
+- **Pausas** entre falas reduzidas para 0,5–0,6 s (1,0 s de suspense antes de "Ela é Damasco").
+- **Cortes realinhados à voz** (frames): 0–202, 202–423, 423–604, 604–803, 803–1009, 1009–1237, 1237–1428,
+  1428–1602, 1602–1752, 1752–1868, 1868–2113, 2113–2304, 2304–2487, 2487–2700 (2700 = 90 s).
+- **Câmeras** reenquadradas após revisão por stills (morros batiam nos badges; plano final mais afastado).
+- **Régua do tempo removida** (ficava espremida na borda, ilegível em 9:16); idades seguem nos badges e o selo
+  "IDADES ESQUEMÁTICAS" continua na tela.
+- Cartão de regras só nas cenas 5 e 8 (cobria a torre de Jericó).
 
-## Pendências para a Fase 2
-- Aprovação explícita da v1 (ou revisão).
-- Pronúncia de "Çatalhöyük" e "tell" no TTS (grafia fonética só para o áudio, se preciso).
-- Reaproveitar o pipeline do vídeo do tsunami (Chromium local, `--gl=swangle`, fontes locais, proxy no edge-tts).
+## Comando para renderizar de novo (na pasta video/)
+```
+npx remotion render CidadeMaisAntiga out/cidade-raw.mp4 --gl=swangle --concurrency=4 --crf=17 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+python3 scripts/loudnorm.py out/cidade-raw.mp4 out/cidade-mais-antiga.mp4
+```
 
 ## Histórico
-- 2026-11-10 — v1 entregue, aguardando aprovação.
+- 2026-11-10 — v1 entregue (Fase 1).
+- 2026-11-10 — v1 aprovada; Fase 2 iniciada.

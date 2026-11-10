@@ -1,0 +1,1206 @@
+{
+  "s1": {
+    "text": "Qual é a cidade mais antiga que ainda existe? Roma tem quase três mil anos, e nem chega perto.",
+    "seconds": 5.974,
+    "words": [
+      {
+        "text": "Qual",
+        "start": 0,
+        "end": 0.182
+      },
+      {
+        "text": "é",
+        "start": 0.193,
+        "end": 0.283
+      },
+      {
+        "text": "a",
+        "start": 0.294,
+        "end": 0.327
+      },
+      {
+        "text": "cidade",
+        "start": 0.338,
+        "end": 0.763
+      },
+      {
+        "text": "mais",
+        "start": 0.774,
+        "end": 0.975
+      },
+      {
+        "text": "antiga",
+        "start": 0.986,
+        "end": 1.421
+      },
+      {
+        "text": "que",
+        "start": 1.432,
+        "end": 1.566
+      },
+      {
+        "text": "ainda",
+        "start": 1.577,
+        "end": 1.8
+      },
+      {
+        "text": "existe",
+        "start": 1.812,
+        "end": 2.28
+      },
+      {
+        "text": "Roma",
+        "start": 3.045,
+        "end": 3.369
+      },
+      {
+        "text": "tem",
+        "start": 3.38,
+        "end": 3.514
+      },
+      {
+        "text": "quase",
+        "start": 3.525,
+        "end": 3.882
+      },
+      {
+        "text": "três",
+        "start": 3.893,
+        "end": 4.15
+      },
+      {
+        "text": "mil",
+        "start": 4.161,
+        "end": 4.396
+      },
+      {
+        "text": "anos",
+        "start": 4.407,
+        "end": 4.708
+      },
+      {
+        "text": "e",
+        "start": 4.898,
+        "end": 4.965
+      },
+      {
+        "text": "nem",
+        "start": 4.976,
+        "end": 5.188
+      },
+      {
+        "text": "chega",
+        "start": 5.199,
+        "end": 5.523
+      },
+      {
+        "text": "perto",
+        "start": 5.534,
+        "end": 5.902
+      }
+    ]
+  },
+  "s2": {
+    "text": "Pra descobrir, você precisa cavar. Cidades antigas crescem em cima das próprias ruínas, camada por camada.",
+    "seconds": 6.764,
+    "words": [
+      {
+        "text": "Pra",
+        "start": 0,
+        "end": 0.119
+      },
+      {
+        "text": "descobrir",
+        "start": 0.13,
+        "end": 0.655
+      },
+      {
+        "text": "você",
+        "start": 0.867,
+        "end": 1.146
+      },
+      {
+        "text": "precisa",
+        "start": 1.157,
+        "end": 1.548
+      },
+      {
+        "text": "cavar",
+        "start": 1.559,
+        "end": 1.894
+      },
+      {
+        "text": "Cidades",
+        "start": 2.658,
+        "end": 3.172
+      },
+      {
+        "text": "antigas",
+        "start": 3.183,
+        "end": 3.652
+      },
+      {
+        "text": "crescem",
+        "start": 3.663,
+        "end": 4.02
+      },
+      {
+        "text": "em",
+        "start": 4.031,
+        "end": 4.098
+      },
+      {
+        "text": "cima",
+        "start": 4.109,
+        "end": 4.377
+      },
+      {
+        "text": "das",
+        "start": 4.388,
+        "end": 4.567
+      },
+      {
+        "text": "próprias",
+        "start": 4.578,
+        "end": 4.946
+      },
+      {
+        "text": "ruínas",
+        "start": 4.958,
+        "end": 5.404
+      },
+      {
+        "text": "camada",
+        "start": 5.627,
+        "end": 6.051
+      },
+      {
+        "text": "por",
+        "start": 6.062,
+        "end": 6.196
+      },
+      {
+        "text": "camada",
+        "start": 6.208,
+        "end": 6.665
+      }
+    ]
+  },
+  "s3": {
+    "text": "Esse morro de cidades empilhadas se chama tell. Quanto mais funda a camada, mais antiga ela é.",
+    "seconds": 5.512,
+    "words": [
+      {
+        "text": "Esse",
+        "start": 0,
+        "end": 0.209
+      },
+      {
+        "text": "morro",
+        "start": 0.22,
+        "end": 0.522
+      },
+      {
+        "text": "de",
+        "start": 0.533,
+        "end": 0.6
+      },
+      {
+        "text": "cidades",
+        "start": 0.611,
+        "end": 1.002
+      },
+      {
+        "text": "empilhadas",
+        "start": 1.013,
+        "end": 1.604
+      },
+      {
+        "text": "se",
+        "start": 1.616,
+        "end": 1.705
+      },
+      {
+        "text": "chama",
+        "start": 1.716,
+        "end": 2.017
+      },
+      {
+        "text": "tell",
+        "start": 2.029,
+        "end": 2.33
+      },
+      {
+        "text": "Quanto",
+        "start": 3.095,
+        "end": 3.407
+      },
+      {
+        "text": "mais",
+        "start": 3.418,
+        "end": 3.619
+      },
+      {
+        "text": "funda",
+        "start": 3.63,
+        "end": 3.865
+      },
+      {
+        "text": "a",
+        "start": 3.876,
+        "end": 3.898
+      },
+      {
+        "text": "camada",
+        "start": 3.909,
+        "end": 4.3
+      },
+      {
+        "text": "mais",
+        "start": 4.49,
+        "end": 4.635
+      },
+      {
+        "text": "antiga",
+        "start": 4.646,
+        "end": 5.059
+      },
+      {
+        "text": "ela",
+        "start": 5.07,
+        "end": 5.237
+      },
+      {
+        "text": "é",
+        "start": 5.249,
+        "end": 5.427
+      }
+    ]
+  },
+  "s4": {
+    "text": "Então é só achar a camada mais funda? Olha Tchatalrôiuk, na Turquia, mais de nove mil anos.",
+    "seconds": 6.057,
+    "words": [
+      {
+        "text": "Então",
+        "start": 0,
+        "end": 0.366
+      },
+      {
+        "text": "é",
+        "start": 0.377,
+        "end": 0.421
+      },
+      {
+        "text": "só",
+        "start": 0.433,
+        "end": 0.633
+      },
+      {
+        "text": "achar",
+        "start": 0.645,
+        "end": 0.89
+      },
+      {
+        "text": "a",
+        "start": 0.901,
+        "end": 0.946
+      },
+      {
+        "text": "camada",
+        "start": 0.957,
+        "end": 1.325
+      },
+      {
+        "text": "mais",
+        "start": 1.337,
+        "end": 1.549
+      },
+      {
+        "text": "funda",
+        "start": 1.56,
+        "end": 1.939
+      },
+      {
+        "text": "Olha",
+        "start": 2.704,
+        "end": 2.961
+      },
+      {
+        "text": "Tchatalrôiuk",
+        "start": 2.972,
+        "end": 3.675
+      },
+      {
+        "text": "na",
+        "start": 3.887,
+        "end": 4.021
+      },
+      {
+        "text": "Turquia",
+        "start": 4.032,
+        "end": 4.467
+      },
+      {
+        "text": "mais",
+        "start": 4.702,
+        "end": 4.936
+      },
+      {
+        "text": "de",
+        "start": 4.947,
+        "end": 5.037
+      },
+      {
+        "text": "nove",
+        "start": 5.048,
+        "end": 5.383
+      },
+      {
+        "text": "mil",
+        "start": 5.394,
+        "end": 5.595
+      },
+      {
+        "text": "anos",
+        "start": 5.606,
+        "end": 5.974
+      }
+    ]
+  },
+  "s5": {
+    "text": "Só que ela foi abandonada. Hoje é só ruína. Primeira regra, a cidade tem que estar habitada.",
+    "seconds": 6.284,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.237
+      },
+      {
+        "text": "que",
+        "start": 0.248,
+        "end": 0.349
+      },
+      {
+        "text": "ela",
+        "start": 0.36,
+        "end": 0.538
+      },
+      {
+        "text": "foi",
+        "start": 0.55,
+        "end": 0.695
+      },
+      {
+        "text": "abandonada",
+        "start": 0.706,
+        "end": 1.32
+      },
+      {
+        "text": "Hoje",
+        "start": 2.084,
+        "end": 2.386
+      },
+      {
+        "text": "é",
+        "start": 2.397,
+        "end": 2.43
+      },
+      {
+        "text": "só",
+        "start": 2.441,
+        "end": 2.609
+      },
+      {
+        "text": "ruína",
+        "start": 2.62,
+        "end": 3.044
+      },
+      {
+        "text": "Primeira",
+        "start": 3.814,
+        "end": 4.16
+      },
+      {
+        "text": "regra",
+        "start": 4.171,
+        "end": 4.54
+      },
+      {
+        "text": "a",
+        "start": 4.741,
+        "end": 4.785
+      },
+      {
+        "text": "cidade",
+        "start": 4.796,
+        "end": 5.232
+      },
+      {
+        "text": "tem",
+        "start": 5.243,
+        "end": 5.366
+      },
+      {
+        "text": "que",
+        "start": 5.377,
+        "end": 5.444
+      },
+      {
+        "text": "estar",
+        "start": 5.455,
+        "end": 5.7
+      },
+      {
+        "text": "habitada",
+        "start": 5.712,
+        "end": 6.169
+      }
+    ]
+  },
+  "s6": {
+    "text": "Agora Jericó, na Cisjordânia. Lá tem uma torre de pedra com uns dez mil anos. Ninguém bate isso.",
+    "seconds": 7.044,
+    "words": [
+      {
+        "text": "Agora",
+        "start": 0,
+        "end": 0.327
+      },
+      {
+        "text": "Jericó",
+        "start": 0.338,
+        "end": 0.785
+      },
+      {
+        "text": "na",
+        "start": 0.985,
+        "end": 1.108
+      },
+      {
+        "text": "Cisjordânia",
+        "start": 1.119,
+        "end": 1.878
+      },
+      {
+        "text": "Lá",
+        "start": 2.643,
+        "end": 2.833
+      },
+      {
+        "text": "tem",
+        "start": 2.844,
+        "end": 2.989
+      },
+      {
+        "text": "uma",
+        "start": 3.0,
+        "end": 3.156
+      },
+      {
+        "text": "torre",
+        "start": 3.168,
+        "end": 3.424
+      },
+      {
+        "text": "de",
+        "start": 3.435,
+        "end": 3.547
+      },
+      {
+        "text": "pedra",
+        "start": 3.558,
+        "end": 3.882
+      },
+      {
+        "text": "com",
+        "start": 3.893,
+        "end": 4.06
+      },
+      {
+        "text": "uns",
+        "start": 4.072,
+        "end": 4.15
+      },
+      {
+        "text": "dez",
+        "start": 4.161,
+        "end": 4.44
+      },
+      {
+        "text": "mil",
+        "start": 4.451,
+        "end": 4.674
+      },
+      {
+        "text": "anos",
+        "start": 4.685,
+        "end": 5.054
+      },
+      {
+        "text": "Ninguém",
+        "start": 5.824,
+        "end": 6.27
+      },
+      {
+        "text": "bate",
+        "start": 6.281,
+        "end": 6.65
+      },
+      {
+        "text": "isso",
+        "start": 6.661,
+        "end": 6.951
+      }
+    ]
+  },
+  "s7": {
+    "text": "Mas olha as camadas, em alguns períodos, ficaram séculos vazias. Ninguém morava ali.",
+    "seconds": 5.801,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.142
+      },
+      {
+        "text": "olha",
+        "start": 0.154,
+        "end": 0.444
+      },
+      {
+        "text": "as",
+        "start": 0.455,
+        "end": 0.533
+      },
+      {
+        "text": "camadas",
+        "start": 0.544,
+        "end": 1.069
+      },
+      {
+        "text": "em",
+        "start": 1.27,
+        "end": 1.348
+      },
+      {
+        "text": "alguns",
+        "start": 1.359,
+        "end": 1.705
+      },
+      {
+        "text": "períodos",
+        "start": 1.716,
+        "end": 2.185
+      },
+      {
+        "text": "ficaram",
+        "start": 2.419,
+        "end": 2.81
+      },
+      {
+        "text": "séculos",
+        "start": 2.821,
+        "end": 3.267
+      },
+      {
+        "text": "vazias",
+        "start": 3.279,
+        "end": 3.904
+      },
+      {
+        "text": "Ninguém",
+        "start": 4.668,
+        "end": 5.081
+      },
+      {
+        "text": "morava",
+        "start": 5.092,
+        "end": 5.438
+      },
+      {
+        "text": "ali",
+        "start": 5.449,
+        "end": 5.717
+      }
+    ]
+  },
+  "s8": {
+    "text": "Por isso, muita gente usa uma regra mais dura, habitada sem parar, sem grandes intervalos.",
+    "seconds": 5.273,
+    "words": [
+      {
+        "text": "Por",
+        "start": 0,
+        "end": 0.111
+      },
+      {
+        "text": "isso",
+        "start": 0.122,
+        "end": 0.401
+      },
+      {
+        "text": "muita",
+        "start": 0.636,
+        "end": 0.937
+      },
+      {
+        "text": "gente",
+        "start": 0.948,
+        "end": 1.249
+      },
+      {
+        "text": "usa",
+        "start": 1.261,
+        "end": 1.461
+      },
+      {
+        "text": "uma",
+        "start": 1.473,
+        "end": 1.595
+      },
+      {
+        "text": "regra",
+        "start": 1.607,
+        "end": 1.886
+      },
+      {
+        "text": "mais",
+        "start": 1.897,
+        "end": 2.075
+      },
+      {
+        "text": "dura",
+        "start": 2.086,
+        "end": 2.354
+      },
+      {
+        "text": "habitada",
+        "start": 2.611,
+        "end": 3.091
+      },
+      {
+        "text": "sem",
+        "start": 3.102,
+        "end": 3.325
+      },
+      {
+        "text": "parar",
+        "start": 3.336,
+        "end": 3.66
+      },
+      {
+        "text": "sem",
+        "start": 3.928,
+        "end": 4.107
+      },
+      {
+        "text": "grandes",
+        "start": 4.118,
+        "end": 4.43
+      },
+      {
+        "text": "intervalos",
+        "start": 4.441,
+        "end": 5.189
+      }
+    ]
+  },
+  "s9": {
+    "text": "Só que provar isso é difícil, a cidade de hoje está construída em cima das provas.",
+    "seconds": 4.4,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.207
+      },
+      {
+        "text": "que",
+        "start": 0.218,
+        "end": 0.297
+      },
+      {
+        "text": "provar",
+        "start": 0.308,
+        "end": 0.643
+      },
+      {
+        "text": "isso",
+        "start": 0.654,
+        "end": 0.877
+      },
+      {
+        "text": "é",
+        "start": 0.888,
+        "end": 0.933
+      },
+      {
+        "text": "difícil",
+        "start": 0.944,
+        "end": 1.468
+      },
+      {
+        "text": "a",
+        "start": 1.703,
+        "end": 1.759
+      },
+      {
+        "text": "cidade",
+        "start": 1.77,
+        "end": 2.216
+      },
+      {
+        "text": "de",
+        "start": 2.227,
+        "end": 2.328
+      },
+      {
+        "text": "hoje",
+        "start": 2.339,
+        "end": 2.573
+      },
+      {
+        "text": "está",
+        "start": 2.585,
+        "end": 2.763
+      },
+      {
+        "text": "construída",
+        "start": 2.774,
+        "end": 3.232
+      },
+      {
+        "text": "em",
+        "start": 3.243,
+        "end": 3.321
+      },
+      {
+        "text": "cima",
+        "start": 3.332,
+        "end": 3.622
+      },
+      {
+        "text": "das",
+        "start": 3.634,
+        "end": 3.801
+      },
+      {
+        "text": "provas",
+        "start": 3.812,
+        "end": 4.314
+      }
+    ]
+  },
+  "s10": {
+    "text": "Mesmo assim, uma candidata aparece em quase todas as listas.",
+    "seconds": 3.369,
+    "words": [
+      {
+        "text": "Mesmo",
+        "start": 0,
+        "end": 0.287
+      },
+      {
+        "text": "assim",
+        "start": 0.299,
+        "end": 0.611
+      },
+      {
+        "text": "uma",
+        "start": 0.879,
+        "end": 1.002
+      },
+      {
+        "text": "candidata",
+        "start": 1.013,
+        "end": 1.482
+      },
+      {
+        "text": "aparece",
+        "start": 1.493,
+        "end": 1.872
+      },
+      {
+        "text": "em",
+        "start": 1.883,
+        "end": 1.939
+      },
+      {
+        "text": "quase",
+        "start": 1.95,
+        "end": 2.308
+      },
+      {
+        "text": "todas",
+        "start": 2.319,
+        "end": 2.609
+      },
+      {
+        "text": "as",
+        "start": 2.62,
+        "end": 2.776
+      },
+      {
+        "text": "listas",
+        "start": 2.787,
+        "end": 3.279
+      }
+    ]
+  },
+  "s11": {
+    "text": "Registros mostram gente vivendo nela há pelo menos quatro mil anos. E, até onde se sabe, nunca ficou vazia.",
+    "seconds": 7.159,
+    "words": [
+      {
+        "text": "Registros",
+        "start": 0,
+        "end": 0.539
+      },
+      {
+        "text": "mostram",
+        "start": 0.551,
+        "end": 0.975
+      },
+      {
+        "text": "gente",
+        "start": 0.986,
+        "end": 1.276
+      },
+      {
+        "text": "vivendo",
+        "start": 1.287,
+        "end": 1.644
+      },
+      {
+        "text": "nela",
+        "start": 1.656,
+        "end": 1.834
+      },
+      {
+        "text": "há",
+        "start": 1.845,
+        "end": 1.879
+      },
+      {
+        "text": "pelo",
+        "start": 1.89,
+        "end": 2.102
+      },
+      {
+        "text": "menos",
+        "start": 2.113,
+        "end": 2.448
+      },
+      {
+        "text": "quatro",
+        "start": 2.459,
+        "end": 2.816
+      },
+      {
+        "text": "mil",
+        "start": 2.827,
+        "end": 3.062
+      },
+      {
+        "text": "anos",
+        "start": 3.073,
+        "end": 3.441
+      },
+      {
+        "text": "E",
+        "start": 4.207,
+        "end": 4.464
+      },
+      {
+        "text": "até",
+        "start": 4.732,
+        "end": 5.0
+      },
+      {
+        "text": "onde",
+        "start": 5.011,
+        "end": 5.268
+      },
+      {
+        "text": "se",
+        "start": 5.279,
+        "end": 5.402
+      },
+      {
+        "text": "sabe",
+        "start": 5.413,
+        "end": 5.77
+      },
+      {
+        "text": "nunca",
+        "start": 5.971,
+        "end": 6.328
+      },
+      {
+        "text": "ficou",
+        "start": 6.339,
+        "end": 6.596
+      },
+      {
+        "text": "vazia",
+        "start": 6.607,
+        "end": 7.076
+      }
+    ]
+  },
+  "s12": {
+    "text": "Ela é Damasco, na Síria. Muitos a consideram a cidade habitada sem parar mais antiga do mundo.",
+    "seconds": 5.759,
+    "words": [
+      {
+        "text": "Ela",
+        "start": 0,
+        "end": 0.177
+      },
+      {
+        "text": "é",
+        "start": 0.188,
+        "end": 0.244
+      },
+      {
+        "text": "Damasco",
+        "start": 0.255,
+        "end": 0.802
+      },
+      {
+        "text": "na",
+        "start": 1.014,
+        "end": 1.126
+      },
+      {
+        "text": "Síria",
+        "start": 1.136,
+        "end": 1.538
+      },
+      {
+        "text": "Muitos",
+        "start": 2.302,
+        "end": 2.626
+      },
+      {
+        "text": "a",
+        "start": 2.637,
+        "end": 2.75
+      },
+      {
+        "text": "consideram",
+        "start": 2.76,
+        "end": 3.24
+      },
+      {
+        "text": "a",
+        "start": 3.251,
+        "end": 3.284
+      },
+      {
+        "text": "cidade",
+        "start": 3.296,
+        "end": 3.653
+      },
+      {
+        "text": "habitada",
+        "start": 3.664,
+        "end": 4.089
+      },
+      {
+        "text": "sem",
+        "start": 4.1,
+        "end": 4.312
+      },
+      {
+        "text": "parar",
+        "start": 4.323,
+        "end": 4.591
+      },
+      {
+        "text": "mais",
+        "start": 4.602,
+        "end": 4.824
+      },
+      {
+        "text": "antiga",
+        "start": 4.836,
+        "end": 5.25
+      },
+      {
+        "text": "do",
+        "start": 5.26,
+        "end": 5.339
+      },
+      {
+        "text": "mundo",
+        "start": 5.35,
+        "end": 5.663
+      }
+    ]
+  },
+  "s13": {
+    "text": "Jericó é mais velha, mas teve intervalos. Ou seja, a resposta depende da regra.",
+    "seconds": 5.505,
+    "words": [
+      {
+        "text": "Jericó",
+        "start": 0,
+        "end": 0.399
+      },
+      {
+        "text": "é",
+        "start": 0.41,
+        "end": 0.466
+      },
+      {
+        "text": "mais",
+        "start": 0.477,
+        "end": 0.7
+      },
+      {
+        "text": "velha",
+        "start": 0.711,
+        "end": 1.035
+      },
+      {
+        "text": "mas",
+        "start": 1.303,
+        "end": 1.515
+      },
+      {
+        "text": "teve",
+        "start": 1.526,
+        "end": 1.749
+      },
+      {
+        "text": "intervalos",
+        "start": 1.76,
+        "end": 2.464
+      },
+      {
+        "text": "Ou",
+        "start": 3.228,
+        "end": 3.373
+      },
+      {
+        "text": "seja",
+        "start": 3.385,
+        "end": 3.798
+      },
+      {
+        "text": "a",
+        "start": 3.965,
+        "end": 4.021
+      },
+      {
+        "text": "resposta",
+        "start": 4.032,
+        "end": 4.556
+      },
+      {
+        "text": "depende",
+        "start": 4.568,
+        "end": 4.947
+      },
+      {
+        "text": "da",
+        "start": 4.958,
+        "end": 5.048
+      },
+      {
+        "text": "regra",
+        "start": 5.059,
+        "end": 5.405
+      }
+    ]
+  },
+  "s14": {
+    "text": "Pronto, agora você sabe qual é a mais antiga, e por que até arqueólogos discutem isso.",
+    "seconds": 4.802,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.315
+      },
+      {
+        "text": "agora",
+        "start": 0.594,
+        "end": 0.884
+      },
+      {
+        "text": "você",
+        "start": 0.895,
+        "end": 1.107
+      },
+      {
+        "text": "sabe",
+        "start": 1.118,
+        "end": 1.375
+      },
+      {
+        "text": "qual",
+        "start": 1.386,
+        "end": 1.587
+      },
+      {
+        "text": "é",
+        "start": 1.598,
+        "end": 1.677
+      },
+      {
+        "text": "a",
+        "start": 1.688,
+        "end": 1.721
+      },
+      {
+        "text": "mais",
+        "start": 1.732,
+        "end": 1.911
+      },
+      {
+        "text": "antiga",
+        "start": 1.922,
+        "end": 2.402
+      },
+      {
+        "text": "e",
+        "start": 2.726,
+        "end": 2.804
+      },
+      {
+        "text": "por",
+        "start": 2.815,
+        "end": 2.971
+      },
+      {
+        "text": "que",
+        "start": 2.982,
+        "end": 3.116
+      },
+      {
+        "text": "até",
+        "start": 3.127,
+        "end": 3.339
+      },
+      {
+        "text": "arqueólogos",
+        "start": 3.351,
+        "end": 3.92
+      },
+      {
+        "text": "discutem",
+        "start": 3.931,
+        "end": 4.456
+      },
+      {
+        "text": "isso",
+        "start": 4.467,
+        "end": 4.735
+      }
+    ]
+  }
+}
