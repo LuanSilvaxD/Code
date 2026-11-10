@@ -77,6 +77,15 @@ e olhinhos lavanda que piscam, antena com luz roxa, ombreiras roxas e o símbolo
   quadro de propósito (ou `mascot.hide`) — o assunto vem primeiro.
 - Vitrine de referência (terra + espaço): `examples/mascote/MascotShowcase.tsx`.
 
+### Pessoas (figurantes)
+
+`components/Person.tsx`: pessoa low-poly no mesmo estilo do mascote (aprovada pelo usuário — mantenha o
+desenho). Use quando o tema tiver gente (praia, cidade, fábrica, laboratório). **Nunca deixe as pessoas
+"padrão" nem iguais:** varie levemente tom de pele, cabelo, penteado, cor de camiseta e calça, manga e
+sapato — use `crowdLooks(n, "<tema>")` para grupos (garante vizinhos diferentes) ou `personLook(semente)`
+para alguém avulso. As paletas são discretas de propósito (convivem com o roxo da marca); não vista
+figurantes de vermelho/verde puros, que são as cores de problema/solução.
+
 Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
 do `MainSequence` volta ao visual neutro.
 
