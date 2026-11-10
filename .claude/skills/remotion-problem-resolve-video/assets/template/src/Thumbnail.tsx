@@ -2,7 +2,7 @@ import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, useVideoConfig } from "remotion";
 import { BRAND } from "./brand";
 import { Background } from "./components/Background";
-import { Wordmark } from "./components/Brand";
+import { Logo, Wordmark } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
 import { Lighting } from "./components/Lighting";
 import { PostFx } from "./components/PostFx";
@@ -16,7 +16,7 @@ import { FONT, PALETTE } from "./theme";
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
   { text: "PERGUNTA", color: "#ffffff", scale: 0.6 },
-  { text: "IMPACTANTE", color: "#f2b544", scale: 1 },
+  { text: "IMPACTANTE", color: "#c4b5fd", scale: 1 },
   { text: "AQUI?", color: "#ffffff", scale: 0.75 },
 ];
 export const THUMB_TAG = "TEMA";
@@ -40,11 +40,14 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
         <World />
       </ThreeCanvas>
       <PostFx />
-      <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(14,11,10,0.88) 0%, rgba(14,11,10,0.55) 34%, rgba(0,0,0,0) 50%)" : "linear-gradient(90deg, rgba(14,11,10,0.9) 0%, rgba(14,11,10,0.45) 50%, rgba(0,0,0,0) 72%)" }} />
+      <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(11,8,18,0.88) 0%, rgba(11,8,18,0.55) 34%, rgba(0,0,0,0) 50%)" : "linear-gradient(90deg, rgba(11,8,18,0.9) 0%, rgba(11,8,18,0.45) 50%, rgba(0,0,0,0) 72%)" }} />
       {/* texto no terço superior: a base da capa fica sob a interface do TikTok/Shorts */}
       <div style={{ position: "absolute", left: v ? 60 : 56, right: v ? 60 : undefined, top: v ? 190 : 64, display: "flex", flexDirection: "column", alignItems: v ? "center" : "flex-start", textAlign: v ? "center" : "left", gap: v ? 14 : 8 }}>
-        <Wordmark size={v ? 28 : 18} />
-        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: BRAND.colors.amber, color: BRAND.colors.umbra, fontFamily: FONT, fontWeight: 900, fontSize: v ? 44 : 28, letterSpacing: 2, boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
+        <div style={{ display: "flex", alignItems: "center", gap: v ? 6 : 4 }}>
+          <Logo size={v ? 96 : 60} />
+          <Wordmark size={v ? 28 : 18} />
+        </div>
+        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: BRAND.colors.accent, color: "#ffffff", fontFamily: FONT, fontWeight: 900, fontSize: v ? 44 : 28, letterSpacing: 2, boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
         {THUMB_LINES.map((l, i) => (
           <Line key={i} text={l.text} color={l.color} size={Math.round(base * l.scale)} />
         ))}

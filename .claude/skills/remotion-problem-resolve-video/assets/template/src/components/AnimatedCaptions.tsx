@@ -103,7 +103,7 @@ export const AnimatedCaptions: React.FC = () => {
               fontWeight: 900,
               fontSize: 66,
               lineHeight: 1.1,
-              color: pill ? CAPTION_STYLE.pillText : w.key ? w.color : spoken ? "#ffffff" : "rgba(255,255,255,0.82)",
+              color: pill ? (w.key ? "#120c1e" : CAPTION_STYLE.pillText) : w.key ? w.color : spoken ? "#ffffff" : "rgba(255,255,255,0.82)",
               WebkitTextStroke: pill ? "0px transparent" : `11px ${PALETTE.outline}`,
               background: pill ? (w.key ? w.color : CAPTION_STYLE.pillColor) : "transparent",
               padding: pill ? "0px 14px" : "0px",

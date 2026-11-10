@@ -30,22 +30,22 @@ export const PALETTE = {
   groundSide: "#b98a5d",
   subject: "#25b4dc",
   metal: "#a2abb5",
-  // maquete premium Fenda Umbra: pedestal em sombra quente + fio de luz âmbar (BrandPedestal)
-  pedestal: "#1d1714",
+  // maquete premium Fenda Umbra: pedestal em sombra arroxeada + fio de luz roxa (BrandPedestal)
+  pedestal: "#171222",
 } as const;
 
 /** Acabamento levemente fosco para todo o diorama. */
 export const MATTE = { roughness: 0.88, metalness: 0, flatShading: true } as const;
 export const METAL = { roughness: 0.38, metalness: 0.55, flatShading: true } as const;
 
-// Luz de estúdio quente (maquete de museu): chave âmbar suave, preenchimento frio fraco e contraluz forte
-// que recorta a silhueta da maquete contra o fundo escuro.
+// Luz de estúdio (maquete de museu): chave branca levemente quente para as cores da maquete ficarem fiéis,
+// preenchimento lavanda fraco e contraluz roxa forte (a cor da marca) recortando a silhueta no fundo escuro.
 export const LIGHTING = {
   ambient: 0.5,
-  hemisphere: { sky: "#fff1dc", ground: "#3a2a20", intensity: 1.0 },
-  key: { position: [9, 16, 12] as [number, number, number], intensity: 2.6, color: "#ffe6c2" },
-  fill: { position: [-12, 6, 8] as [number, number, number], intensity: 0.6, color: "#cfe0ff" },
-  rim: { position: [-4, 8, -12] as [number, number, number], intensity: 1.1, color: "#ffd08a" },
+  hemisphere: { sky: "#f4efff", ground: "#2a2038", intensity: 1.0 },
+  key: { position: [9, 16, 12] as [number, number, number], intensity: 2.6, color: "#fff2e2" },
+  fill: { position: [-12, 6, 8] as [number, number, number], intensity: 0.6, color: "#d9ccff" },
+  rim: { position: [-4, 8, -12] as [number, number, number], intensity: 1.2, color: "#a78bfa" },
   shadowMapSize: 2048,
 } as const;
 
@@ -68,15 +68,16 @@ export const SKY = {
 } as const;
 
 /**
- * Fundo. "studio" (padrão da marca): maquete sobre fundo escuro de estúdio com um halo de luz atrás —
- * o "tint" dá o clima do tema sem perder a identidade (oceano #17324a, história #3a2a1e, espaço #1f1a3d,
- * natureza #1f3324, tecnologia #13283a). "sky": céu/subsolo como nos primeiros vídeos (cenas ao ar livre).
+ * Fundo. "studio" (padrão da marca): maquete sobre fundo escuro de estúdio com um halo roxo atrás —
+ * o "tint" dá o clima do tema sem perder a identidade (padrão roxo da marca #2a1d48; oceano #182a4e,
+ * história #2e1f3a, espaço #1f1a4d, natureza #1b2e33, tecnologia #16244a). "sky": céu/subsolo (cenas ao ar livre).
  */
-export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#3a2c22", halo: "#ffd9a0" };
+export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#2a1d48", halo: "#b9a3ff" };
 
 /** Cores das palavras-chave nas legendas (as demais palavras ficam brancas). */
 export const KEYWORD_COLOR: Record<string, string> = {};
-export const KEYWORD_DEFAULT = "#4fdcff";
+// palavras-chave em lavanda-roxo da marca (legível com o contorno escuro); cápsula de palavra-chave usa texto escuro
+export const KEYWORD_DEFAULT = "#b794ff";
 
 /**
  * Acabamento de imagem (camada 2D por cima de tudo, barato até em render por software):
@@ -86,7 +87,7 @@ export const KEYWORD_DEFAULT = "#4fdcff";
 export const POST = {
   vignette: 0.4,
   grain: 0.05,
-  grade: { color: "#ffb36b", opacity: 0.06 },
+  grade: { color: "#8b5cf6", opacity: 0.05 },
   scrimTop: 0.22,
   scrimBottom: 0.3,
   /** barra de progresso fina no topo (retenção em Shorts/Reels); desligada por padrão */
@@ -94,4 +95,4 @@ export const POST = {
 } as const;
 
 /** Legenda: "pill" = palavra falada numa cápsula colorida (estilo Shorts); "color" = só muda a cor. */
-export const CAPTION_STYLE = { active: "pill" as "pill" | "color", pillColor: "#f2b544", pillText: "#16120a" }; // âmbar da marca
+export const CAPTION_STYLE = { active: "pill" as "pill" | "color", pillColor: "#8b5cf6", pillText: "#ffffff" }; // roxo da marca

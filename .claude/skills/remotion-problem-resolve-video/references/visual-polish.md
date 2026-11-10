@@ -19,7 +19,7 @@ espectador sente o ruído antes de entender o conteúdo.
 ## 0. Identidade Fenda Umbra (sempre)
 
 Abertura com a fenda abrindo, encerramento com a fenda fechando + marca, fundo de estúdio com halo tingido
-pelo tema, pedestal com fio âmbar, cápsula de legenda âmbar. Detalhes e cores no `SKILL.md` ("Identidade do
+pelo tema, pedestal com fio de luz roxa, cápsula de legenda roxa, logo no encerramento e na capa. Detalhes e cores no `SKILL.md` ("Identidade do
 canal") e em `brand.ts`. Ao revisar: a marca pequena da abertura não pode coincidir com o 1º badge; nada da
 cena importante nos últimos 2,6 s (o encerramento cobre a tela).
 

@@ -9,13 +9,18 @@ export const BRAND = {
   name: "FENDA UMBRA",
   /** chamada fixa do encerramento (visual; não entra na narração) */
   cta: "Siga para abrir a próxima fenda",
+  // paleta do logo (public/brand/logo.png): sombra arroxeada + fenda de luz roxa com núcleo quase branco
   colors: {
-    umbra: "#0e0b0a", // sombra quente (fundo da marca, abertura/encerramento)
-    umbra2: "#1d1714", // pedestal e cartões
-    amber: "#f2b544", // a luz da fenda: destaque da marca, cápsula da legenda
-    amberDeep: "#c9862a",
-    cream: "#f6ead6",
+    umbra: "#0b0812", // sombra (fundo da marca, abertura/encerramento)
+    umbra2: "#171222", // pedestal e cartões
+    accent: "#8b5cf6", // a luz roxa da fenda: destaque da marca, cápsula da legenda
+    accentDeep: "#5b33d6", // brilho/halo
+    light: "#c4b5fd", // lavanda (texto secundário, bordas)
+    core: "#f5f0ff", // núcleo branco da rachadura
+    cream: "#ece6ff", // texto principal da marca
   },
+  /** logo oficial em public/brand/logo.png (800×800, fundo escuro — aparece com máscara radial) */
+  logo: "brand/logo.png",
   intro: {
     /** fenda abre entre estes frames (a 1ª fala entra em ~0,45 s = frame 13) */
     openStart: 2,

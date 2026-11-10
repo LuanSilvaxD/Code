@@ -30,21 +30,24 @@ abre na sombra e revela o que está escondido dentro das coisas* (combina com co
 revelações). Não pergunte de novo sobre marca; ela já foi decidida pelo usuário. Fica toda em
 `assets/template/src/brand.ts` (nome, cores, tempos) e `components/Brand.tsx`:
 
-- **Abertura fixa (~0,7 s, sem consumir fala):** a tela começa em sombra com uma rachadura âmbar que se abre
-  revelando a maquete; a marca pequena aparece no topo e sai antes dos badges. Som `fenda-open`.
+- **Abertura fixa (~0,7 s, sem consumir fala):** a tela começa em sombra com uma rachadura de luz roxa (núcleo
+  branco, como no logo) que se abre revelando a maquete; a marca pequena aparece no topo e sai antes dos badges. Som `fenda-open`.
 - **Encerramento fixo (últimos 2,6 s, `OUTRO_SECONDS`):** a fenda se fecha sobre a maquete, a rachadura se
-  apaga e entram a marca grande e a chamada "Siga para abrir a próxima fenda". Som `fenda-close`. A última
+  apaga e entram o **logo oficial**, a marca e a chamada "Siga para abrir a próxima fenda". Som `fenda-close`. A última
   fala precisa terminar antes disso — `timing.ts` acusa erro e `vo_budget.py` já reserva esse tempo.
-- **Maquete premium:** fundo de estúdio escuro (`BACKDROP.mode = "studio"`) com halo quente atrás da
-  maquete, tingido pelo tema (`BACKDROP.tint`: oceano `#17324a`, história `#3a2a1e`, espaço `#1f1a3d`,
-  natureza `#1f3324`, tecnologia `#13283a`); luz de estúdio quente com contraluz; maquete sobre
-  `<BrandPedestal>` — base em sombra com o **fio de luz âmbar** na frente (assinatura visível em todo plano aberto).
-- **Cores:** umbra `#0e0b0a`/`#1d1714`, âmbar `#f2b544` (luz da marca, cápsula da legenda), creme `#f6ead6`.
-  O âmbar é da marca; os estados didáticos continuam vermelho/verde/azul/amarelo.
+- **Maquete premium:** fundo de estúdio escuro (`BACKDROP.mode = "studio"`) com halo roxo atrás da
+  maquete, tingido pelo tema (`BACKDROP.tint`: padrão `#2a1d48`; oceano `#182a4e`, história `#2e1f3a`,
+  espaço `#1f1a4d`, natureza `#1b2e33`, tecnologia `#16244a`); luz de estúdio neutra com contraluz roxa; maquete sobre
+  `<BrandPedestal>` — base em sombra com o **fio de luz roxa** na frente (assinatura visível em todo plano aberto).
+- **Cores (do logo, `public/brand/logo.png`):** sombra `#0b0812`/`#171222`, roxo `#8b5cf6` (luz da marca,
+  cápsula da legenda), roxo profundo `#5b33d6` (halos), lavanda `#c4b5fd`, núcleo `#f5f0ff`. O roxo é da
+  marca; os estados didáticos continuam vermelho/verde/azul/amarelo — não pinte problema/solução de roxo.
+- **Logo:** `public/brand/logo.png` (fenda branca com brilho roxo num círculo). Aparece no encerramento e na
+  capa com máscara radial (o fundo escuro do PNG se funde à sombra). Para trocar, substitua o arquivo.
 - **Voz do canal:** edge-tts `pt-BR-AntonioNeural` (gratuita), +0% por padrão, até +12% se precisar caber.
 - **Tom e bordão:** frases curtas, segunda pessoa; a última fala segue o padrão de recompensa ("Pronto:
   agora você entende/sabe…"). A chamada para seguir fica no encerramento visual, não na narração.
-- **Capa:** marca no topo, etiqueta âmbar, pergunta em 3 linhas (palavra-chave em âmbar).
+- **Capa:** logo + marca no topo, etiqueta roxa, pergunta em 3 linhas (palavra-chave em lavanda).
 - **`publicacao.md`:** inclua `#fendaumbra` como hashtag de marca (volume baixo; serve para agrupar o
   canal, não para alcance) além das 3–5 do tema.
 
