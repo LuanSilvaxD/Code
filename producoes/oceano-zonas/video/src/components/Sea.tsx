@@ -184,38 +184,53 @@ export const Lanternfish: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0],
 };
 
 // ------------------------------------------------------------------------------------------ TAMBORIL (15 cm, fêmea de águas profundas)
+// Corpo globoso escuro com BOCARRA em meia-lua e mandíbula de baixo projetada (prognata), dentes finos em leque,
+// olhinho pequeno, nadadeiras curtas e a haste (ilício) saindo da testa com a isca luminosa (esca).
 export const Anglerfish: React.FC<SProps & { bite?: number }> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, seed = 4, glow = 1, bite = 0 }) => {
-  const sway = 0.15 * Math.sin(frame / 12);
-  const jaw = 0.35 + 0.35 * clamp(bite, 0, 1);
+  const sway = 0.12 * Math.sin(frame / 12);
+  const open = 0.25 + 0.35 * clamp(bite, 0, 1);
+  const SKIN = "#2a2230";
+  const teeth = (n: number, r: number, up: boolean) =>
+    Array.from({ length: n }, (_, i) => {
+      const a = -0.9 + (i / (n - 1)) * 1.8; // leque ao longo da boca
+      return (
+        <mesh key={`${up}${i}`} position={[Math.cos(a) * r * 0.2, 0, Math.sin(a) * r * 0.9]} rotation={[0, 0, up ? Math.PI : 0]}>
+          <coneGeometry args={[r * 0.035, r * (0.28 + 0.12 * (i % 2)), 4]} />
+          <meshStandardMaterial color="#f4f1ea" roughness={0.3} />
+        </mesh>
+      );
+    });
   return (
     <group position={position} rotation={[0, rotY, 0]} scale={scale}>
-      <Ball p={[0, 0, 0]} s={[0.07, 0.06, 0.05]} c="#2b2430" seg={12} />
-      {/* bocão com dentes */}
-      <At p={[0.045, -0.02, 0]} r={[0, 0, -jaw]}>
-        <At p={[0.025, -0.008, 0]}>{rb([0.055, 0.016, 0.07], "#241e2a", 0.006)}</At>
-        {Array.from({ length: 5 }, (_, i) => (
-          <mesh key={i} position={[0.01 + i * 0.01, 0.002, 0.02 - (i % 2) * 0.04]} rotation={[0, 0, Math.PI]}>
-            <coneGeometry args={[0.0025, 0.014, 4]} />
-            <meshStandardMaterial color="#f2efe8" />
+      {/* corpo + "testa" alta */}
+      <Ball p={[0, 0.005, 0]} s={[0.07, 0.062, 0.055]} c={SKIN} seg={16} />
+      <Ball p={[0.02, 0.03, 0]} s={[0.05, 0.04, 0.045]} c="#332a3a" seg={14} />
+      {/* interior da boca (escuro) */}
+      <Ball p={[0.05, -0.012, 0]} s={[0.03, 0.022, 0.05]} c="#120c16" seg={12} />
+      {/* maxila (de cima) com dentes para baixo */}
+      <group position={[0.062, -0.004, 0]}>{teeth(9, 0.045, true)}</group>
+      {/* mandíbula de baixo, projetada para a frente, abre com bite */}
+      <group position={[0.015, -0.028, 0]} rotation={[0, 0, -open * 0.7]}>
+        <Ball p={[0.038, -0.004, 0]} s={[0.042, 0.013, 0.048]} c={SKIN} seg={14} />
+        <group position={[0.05, 0.007, 0]}>{teeth(9, 0.045, false)}</group>
+      </group>
+      <Eye p={[0.045, 0.035, 0.04]} r={0.0055} frame={frame} seed={seed} />
+      {/* nadadeiras peitoral, dorsal e caudal */}
+      <At p={[-0.01, -0.02, 0.055]} r={[0.5, 0.2, 0.3]}>{rb([0.03, 0.004, 0.025], "#3a3042", 0.002)}</At>
+      <Fin p={[-0.05, 0.05, 0]} r={[0, 0, Math.PI / 2 + 0.6]} size={0.018} thick={0.004} c="#3a3042" />
+      <group position={[-0.075, 0, 0]} rotation={[0, 0.25 * Math.sin(frame / 9), 0]}>
+        <Fin p={[-0.015, 0, 0]} r={[0, 0, Math.PI]} size={0.028} thick={0.005} c="#3a3042" sy={1.3} />
+      </group>
+      {/* ilício (haste curva em 3 gomos) + esca luminosa */}
+      <group position={[0.035, 0.07, 0]} rotation={[0, 0, -0.35 + sway]}>
+        {[0, 1, 2].map((i) => (
+          <mesh key={i} position={[0.012 * i * i * 0.5, 0.022 + i * 0.03, 0]} rotation={[0, 0, -0.25 * i]}>
+            <cylinderGeometry args={[0.0016, 0.0022, 0.032, 6]} />
+            <meshStandardMaterial color="#3a3242" />
           </mesh>
         ))}
-      </At>
-      {Array.from({ length: 6 }, (_, i) => (
-        <mesh key={i} position={[0.055 + i * 0.006, 0.0 - (i % 2) * 0.002, 0.024 - (i % 2) * 0.048]}>
-          <coneGeometry args={[0.0025, 0.013, 4]} />
-          <meshStandardMaterial color="#f2efe8" />
-        </mesh>
-      ))}
-      <Eye p={[0.04, 0.025, 0.035]} r={0.006} frame={frame} seed={seed} />
-      {/* haste da isca + isca brilhante */}
-      <group position={[0.02, 0.055, 0]} rotation={[0, 0, -0.5 + sway]}>
-        <mesh position={[0, 0.04, 0]}>
-          <cylinderGeometry args={[0.0018, 0.0025, 0.08, 6]} />
-          <meshStandardMaterial color="#3a3242" />
-        </mesh>
-        <Glow p={[0, 0.085, 0]} r={0.008} c="#9ff0ff" i={glow} />
+        <Glow p={[0.03, 0.1, 0]} r={0.0085} c="#9ff0ff" i={glow * (0.8 + 0.2 * Math.sin(frame / 6))} />
       </group>
-      <Fin p={[-0.08, 0, 0]} r={[0, 0, Math.PI]} size={0.035} thick={0.006} c="#2b2430" />
     </group>
   );
 };
@@ -311,33 +326,64 @@ export const SpermWhale: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0], 
   );
 };
 
-// ------------------------------------------------------------------------------------------ LULA (1 m)
-export const Squid: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, seed = 7 }) => (
-  <group position={position} rotation={[0, rotY, 0]} scale={scale}>
-    {/* manto (cone) com nadadeiras, cabeça, olhos grandes, 8 braços */}
-    <mesh position={[-0.2, 0, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
-      <coneGeometry args={[0.1, 0.55, 12]} />
-      <meshStandardMaterial color="#d97a6a" roughness={0.6} flatShading />
-    </mesh>
-    {[1, -1].map((sd) => (
-      <At key={sd} p={[-0.4, 0, 0.08 * sd]} r={[0, 0.5 * sd, 0]}>{rb([0.14, 0.02, 0.12], "#c9685a", 0.008)}</At>
-    ))}
-    <Ball p={[0.12, 0, 0]} s={[0.09, 0.08, 0.08]} c="#e08b7c" />
-    <Eye p={[0.14, 0.02, 0.07]} r={0.025} frame={frame} seed={seed} white />
-    {Array.from({ length: 8 }, (_, i) => {
-      const a = (i / 8) * Math.PI * 2;
-      const w = 0.25 * Math.sin(frame / 9 + i);
-      return (
-        <group key={i} position={[0.2, Math.sin(a) * 0.04, Math.cos(a) * 0.04]} rotation={[0, 0, -Math.PI / 2 + w * 0.3]}>
-          <mesh position={[0, -0.15, 0]}>
-            <cylinderGeometry args={[0.006, 0.014, 0.3, 5]} />
-            <meshStandardMaterial color="#e08b7c" roughness={0.6} />
-          </mesh>
-        </group>
-      );
-    })}
-  </group>
-);
+// ------------------------------------------------------------------------------------------ LULA (1 m, de manto ~45 cm)
+// Nada "de costas": manto à frente (+x) com as 2 nadadeiras em losango na ponta; atrás, cabeça com olhos grandes,
+// 8 braços curtos e 2 tentáculos longos com "clava" na ponta. Pele laranja-avermelhada com pintinhas (cromatóforos).
+export const Squid: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, seed = 7 }) => {
+  const pulse = 1 + 0.05 * Math.sin(frame / 7);
+  const C = "#e0755f";
+  return (
+    <group position={position} rotation={[0, rotY, 0]} scale={scale}>
+      {/* manto alongado (tubo afinando até a ponta) */}
+      <Ball p={[0.12, 0, 0]} s={[0.24, 0.062 * pulse, 0.062 * pulse]} c={C} seg={16} />
+      <mesh position={[0.34, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
+        <coneGeometry args={[0.05, 0.16, 14]} />
+        <meshStandardMaterial color={C} roughness={0.55} flatShading />
+      </mesh>
+      {/* nadadeiras em losango na ponta do manto */}
+      <mesh position={[0.33, 0, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1.2, 1, 0.08]}>
+        <cylinderGeometry args={[0.1, 0.1, 0.02, 4]} />
+        <meshStandardMaterial color="#d4644f" roughness={0.6} flatShading />
+      </mesh>
+      {/* pintinhas (cromatóforos) */}
+      {Array.from({ length: 10 }, (_, i) => (
+        <mesh key={i} position={[0.0 + (i % 5) * 0.06, 0.035 - Math.floor(i / 5) * 0.03, 0.055]}>
+          <sphereGeometry args={[0.007, 6, 5]} />
+          <meshStandardMaterial color="#9c3b2c" />
+        </mesh>
+      ))}
+      {/* cabeça + olhos grandes */}
+      <Ball p={[-0.15, 0, 0]} s={[0.06, 0.05, 0.055]} c="#e88a74" seg={14} />
+      <Eye p={[-0.15, 0.012, 0.05]} r={0.016} frame={frame} seed={seed} white />
+      {/* 8 braços (curtos, ondulando) */}
+      {Array.from({ length: 8 }, (_, i) => {
+        const a = (i / 8) * Math.PI * 2;
+        const w = 0.18 * Math.sin(frame / 8 + i);
+        return (
+          <group key={`a${i}`} position={[-0.2, Math.sin(a) * 0.022, Math.cos(a) * 0.022]} rotation={[Math.sin(a) * 0.15, Math.cos(a) * 0.15, Math.PI / 2 + w]}>
+            <mesh position={[0, 0.09, 0]}>
+              <cylinderGeometry args={[0.004, 0.011, 0.18, 6]} />
+              <meshStandardMaterial color="#e88a74" roughness={0.6} />
+            </mesh>
+          </group>
+        );
+      })}
+      {/* 2 tentáculos longos com clava */}
+      {[1, -1].map((sd) => {
+        const w = 0.12 * Math.sin(frame / 10 + sd);
+        return (
+          <group key={`t${sd}`} position={[-0.2, -0.01, 0.012 * sd]} rotation={[0.08 * sd, 0, Math.PI / 2 + 0.05 * sd + w]}>
+            <mesh position={[0, 0.2, 0]}>
+              <cylinderGeometry args={[0.003, 0.005, 0.4, 5]} />
+              <meshStandardMaterial color="#e88a74" roughness={0.6} />
+            </mesh>
+            <Ball p={[0, 0.42, 0]} s={[0.012, 0.035, 0.01]} c="#d4644f" />
+          </group>
+        );
+      })}
+    </group>
+  );
+};
 
 // ------------------------------------------------------------------------------------------ PEPINO-DO-MAR (30 cm)
 export const SeaCucumber: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1 }) => {
@@ -362,19 +408,34 @@ export const SeaCucumber: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0],
 };
 
 // ------------------------------------------------------------------------------------------ PEIXE-CARACOL (25 cm, translúcido)
+// Formato de "girino": cabeça grande e redonda, corpo gelatinoso que afina numa cauda longa, nadadeira contínua em
+// cima e embaixo, peitorais grandes em leque; rosado translúcido (dá para ver o "fígado" escuro por dentro).
 export const Snailfish: React.FC<SProps> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, seed = 8 }) => {
-  const sw = 0.2 * Math.sin(frame / 10);
+  const segs = 6;
   return (
     <group position={position} rotation={[0, rotY, 0]} scale={scale}>
-      <Ball p={[0.03, 0, 0]} s={[0.07, 0.045, 0.04]} c="#f4c9cf" o={0.85} />
-      <Ball p={[-0.06, 0, 0]} s={[0.09, 0.03, 0.02]} c="#f4c9cf" o={0.85} />
-      <Ball p={[0.03, -0.005, 0]} s={[0.035, 0.02, 0.02]} c="#e88a98" />
-      <Eye p={[0.07, 0.012, 0.03]} r={0.007} frame={frame} seed={seed} />
-      <group position={[-0.13, 0, 0]} rotation={[0, sw, 0]}>
-        <Ball p={[-0.05, 0, 0]} s={[0.07, 0.018, 0.012]} c="#f4c9cf" o={0.8} />
-      </group>
-      <Ball p={[-0.05, 0.028, 0]} s={[0.1, 0.012, 0.004]} c="#f6d7dc" o={0.7} />
-      <Ball p={[-0.05, -0.028, 0]} s={[0.09, 0.01, 0.004]} c="#f6d7dc" o={0.7} />
+      <Ball p={[0.04, 0, 0]} s={[0.055, 0.048, 0.045]} c="#f6cdd3" o={0.85} seg={16} />
+      <Ball p={[0.03, -0.006, 0]} s={[0.025, 0.018, 0.02]} c="#b8606f" />
+      <Eye p={[0.075, 0.016, 0.034]} r={0.0065} frame={frame} seed={seed} />
+      <mesh position={[0.088, -0.012, 0.02]} rotation={[0, 0, -0.2]}>
+        <torusGeometry args={[0.009, 0.0015, 4, 8, Math.PI]} />
+        <meshBasicMaterial color="#c97c88" />
+      </mesh>
+      {/* corpo afinando em gomos que ondulam (natação de enguia) */}
+      {Array.from({ length: segs }, (_, i) => {
+        const t = (i + 1) / segs;
+        const z = 0.012 * Math.sin(frame / 7 - i * 0.7) * t;
+        return <Ball key={i} p={[0.0 - t * 0.17, 0, z]} s={[0.035, 0.04 * (1 - t * 0.8), 0.035 * (1 - t * 0.85)]} c="#f6cdd3" o={0.8} seg={12} />;
+      })}
+      {/* nadadeiras contínuas (dorsal e anal) */}
+      <Ball p={[-0.1, 0.027, 0]} s={[0.07, 0.009, 0.003]} c="#fbe1e5" o={0.55} />
+      <Ball p={[-0.1, -0.025, 0]} s={[0.065, 0.008, 0.003]} c="#fbe1e5" o={0.55} />
+      {/* peitorais grandes em leque */}
+      {[1, -1].map((sd) => (
+        <At key={sd} p={[0.02, -0.015, 0.042 * sd]} r={[0.6 * sd + 0.15 * Math.sin(frame / 8) * sd, 0, 0.3]}>
+          <Ball p={[-0.012, 0, 0.01 * sd]} s={[0.028, 0.004, 0.02]} c="#fbe1e5" o={0.7} />
+        </At>
+      ))}
     </group>
   );
 };
