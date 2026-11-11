@@ -1,14 +1,14 @@
 # Status de produção — As zonas de profundidade do oceano
 
-- **Fase atual:** 2 — passo 1 (folha de design).
-- **Status:** roteiro v2 APROVADO ("Aprovado"); AGUARDANDO APROVAÇÃO DOS 12 DESIGNS NOVOS antes de animar.
+- **Fase atual:** 2 — CONCLUÍDA.
+- **Status:** ENTREGUE — video/out/oceano-zonas.mp4 (2:55, 5250 quadros, −14 LUFS), capa e thumbnail no quadro 90.
 - **Versão do roteiro:** v2 (2026-11-11) — 2:55 a pedido do usuário. Skill v2.0 (formato fatos/documentário).
 
 ## Arquivos
 - `producoes/oceano-zonas/roteiro.md`, `scene-plan.ts`, `narration.json` (s1–s15 + "cta").
 
 ## Premissas
-- 2:55 (175 s, 5250 frames), 1080×1920, 30 fps, pt-BR. TTS edge-tts AntonioNeural +4% (cta +0%).
+- 2:55 (175 s, 5250 frames), 1080×1920, 30 fps, pt-BR. TTS edge-tts AntonioNeural +0% (voz real mais rápida que a estimativa; pausas maiores).
 - Fio condutor: descida da batisfera pela coluna A (esticada, com selo) + coluna B em escala real (Everest, faixa do sol).
 
 ## Pendências para a Fase 2
@@ -20,3 +20,7 @@
 - 2026-11-11 — v1 entregue, aguardando aprovação.
 - 2026-11-11 — v2: duração igual ao EP. 01 (2:55), 15 cenas, novos fatos verificados.
 - 2026-11-11 — v2 aprovada; folha de design dos 12 elementos enviada (video/src/SeaSheet.tsx, components/Sea.tsx).
+- 2026-11-11 — designs aprovados (lula e peixe abissal refeitos e aprovados).
+- 2026-11-11 — render completo (~2 h, swangle), loudnorm (entrada −15,9 LUFS), entrega enviada.
+  Pontos fracos conhecidos: em ~93 s (tamboril) o plano está fechado demais, batisfera cortada na borda;
+  em ~140 s o peixe-caracol entra cortado no topo do quadro.
