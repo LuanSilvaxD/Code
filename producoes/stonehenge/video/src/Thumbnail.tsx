@@ -4,9 +4,8 @@ import { BRAND } from "./brand";
 import { Background } from "./components/Background";
 import { Logo, Wordmark } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
-import { Lighting } from "./components/Lighting";
 import { PostFx } from "./components/PostFx";
-import { World } from "./components/World";
+import { StoneLighting, World } from "./components/World";
 import { FONT, PALETTE } from "./theme";
 
 // Capa (Shorts/TikTok, 1080×1920) e thumbnail (YouTube, 1280×720) feitas com o PRÓPRIO cenário 3D.
@@ -15,11 +14,11 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "AS 5 ZONAS", color: "#ffffff", scale: 0.66 },
-  { text: "DO OCEANO", color: "#7cd0ff", scale: 0.9 },
-  { text: "O EVEREST CABE NA FOSSA", color: "#c4b5fd", scale: 0.34 },
+  { text: "COMO ERGUERAM", color: "#ffffff", scale: 0.6 },
+  { text: "STONEHENGE?", color: "#ffcf7a", scale: 0.78 },
+  { text: "SÓ COM PEDRA, MADEIRA E CORDA", color: "#c4b5fd", scale: 0.3 },
 ];
-export const THUMB_TAG = "OCEANO";
+export const THUMB_TAG = "HISTÓRIA";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>
@@ -34,9 +33,9 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
   return (
     <AbsoluteFill style={{ backgroundColor: BRAND.colors.umbra }}>
       <Background />
-      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.5, far: 400, position: [8, 6, 30] }}>
+      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
-        <Lighting />
+        <StoneLighting />
         <World />
       </ThreeCanvas>
       <PostFx />
