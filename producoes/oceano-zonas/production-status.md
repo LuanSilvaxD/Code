@@ -5,7 +5,7 @@
 - **Versão do roteiro:** v2 (2026-11-11) — 2:55 a pedido do usuário. Skill v2.0 (formato fatos/documentário).
 
 ## Arquivos
-- `producoes/oceano-zonas/roteiro.md`, `scene-plan.ts`, `narration.json` (s1–s11 + "cta").
+- `producoes/oceano-zonas/roteiro.md`, `scene-plan.ts`, `narration.json` (s1–s15 + "cta").
 
 ## Premissas
 - 2:55 (175 s, 5250 frames), 1080×1920, 30 fps, pt-BR. TTS edge-tts AntonioNeural +4% (cta +0%).
