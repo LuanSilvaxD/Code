@@ -164,7 +164,9 @@ python scripts/audiocheck.py out/<nome>-raw.mp4      # pico e RMS por segundo
 python scripts/loudnorm.py out/<nome>-raw.mp4 out/<nome>.mp4
 ```
 
-- Render de 45 s em GPU (RTX, concurrency 4) leva poucos minutos; sem GPU, ~0,45 s/frame (90 s ≈ 20 min).
+- Render de 45 s em GPU (RTX, concurrency 4) leva poucos minutos; sem GPU, ~0,45 s/frame (90 s ≈ 20 min) num
+  cenário simples — mas uma maquete grande, com muitos objetos e luzes pontuais, chegou a ~1,4 s/frame (175 s ≈ 2 h).
+  Avise o usuário do prazo e acompanhe com Bash em segundo plano (timeout longo), não com sleeps encadeados.
   Rode em segundo plano.
 - Picos perto de 0 dBFS = efeitos fortes demais somados à voz: reduza volumes nos dados, renderize só
   o áudio (`npx remotion render <Id> out/audio.wav --codec=wav`) e remonte sem reprocessar o vídeo:

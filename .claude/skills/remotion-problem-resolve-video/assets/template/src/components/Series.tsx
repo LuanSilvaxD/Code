@@ -12,7 +12,9 @@ export const SERIES_LIST = {
 } as const;
 
 /** Troque por episódio: qual quadro (ou null) e o número do episódio. */
-export const SERIES: { id: keyof typeof SERIES_LIST; ep: number } | null = null;
+export type SeriesId = keyof typeof SERIES_LIST;
+/** Ex.: { id: "gigantes", ep: 2 } para o 2º episódio de Gigantes da Humanidade; null = vídeo avulso. */
+export const SERIES = null as { id: SeriesId; ep: number } | null;
 
 export const seriesTag = () => (SERIES ? `${SERIES_LIST[SERIES.id].title} ${SERIES_LIST[SERIES.id].subtitle} · EP. ${String(SERIES.ep).padStart(2, "0")}` : "");
 
