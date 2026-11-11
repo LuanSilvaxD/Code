@@ -439,7 +439,7 @@ export const World: React.FC = () => {
     <group>
       <Land frame={frame} />
       <MythArrows frame={frame} />
-      <SunBall p={sun} warm={warm} />
+      <SunBall p={sun} warm={warm} scale={1 - 0.45 * track("sun.space", frame)} />
       {/* "Sol do meio-dia" de comparação (caminho curto) */}
       <SunBall p={NOON_SUN} warm={0} opacity={noon * 0.9} scale={0.85} />
       <Prism frame={frame} sun={sun} />

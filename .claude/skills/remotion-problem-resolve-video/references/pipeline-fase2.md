@@ -176,6 +176,12 @@ python scripts/loudnorm.py out/<nome>-raw.mp4 out/<nome>.mp4
 
 ## 8b. Emendar um trecho re-renderizado (sem refazer 20 min)
 
+**Trocar a fala de UMA cena depois do render** (ex.: o usuário pediu uma frase mais clara): gere só ela
+(`voiceover.py --only s8`), rode `prepare_vo.py` e compense a diferença de duração na pausa seguinte
+(`GAPS[i] -= novo - antigo`) para os cortes das cenas seguintes ficarem nos MESMOS frames. Confira os cortes
+antes e depois; ajuste as âncoras `W("sN", i)` da cena (os índices das palavras mudam); renderize só o
+intervalo da cena + o áudio inteiro (`--codec=wav`) e emende como abaixo, usando o áudio novo.
+
 Erro visto só no MP4 (ex.: rótulos sobrepostos na última cena)? Corrija, renderize só aquele intervalo e
 emende o vídeo novo com o áudio já normalizado:
 
@@ -247,6 +253,8 @@ descomente `Config.setBrowserExecutable` no `remotion.config.ts`.
 - edge-tts devolve as palavras sem pontuação: `AnimatedCaptions` recupera do texto aprovado.
 
 ### Revisão (vistos em produção)
+- **Sem trilha:** `HAS_MUSIC` ficou `false` e o MP4 saiu com silêncio digital nas pausas. Depois de gerar
+  `music.wav`, ligue a flag; `audiocheck.py` alerta segundos mudos.
 - Morros/objetos altos encostam nos badges: suba o alvo da câmera ~1 u3d (o assunto desce no quadro).
 - Rótulos de objetos fora do quadro "puxados" para dentro da tela confundem: `WorldLabel safe` os esconde.
 - Cartões 2D (regras, gráficos) cobrindo o objeto citado: mostre-os só nas cenas em que são o assunto.

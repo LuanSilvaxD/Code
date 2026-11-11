@@ -27,7 +27,7 @@ const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-const GAPS: number[] = [0.6, 0.7, 0.6, 0.7, 0.7, 0.9, 1.5, 1.7, 0.8, 1.0];
+const GAPS: number[] = [0.6, 0.7, 0.6, 0.7, 0.7, 0.9, 1.5, 0.822, 0.8, 1.0];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

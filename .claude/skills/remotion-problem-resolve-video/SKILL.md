@@ -21,7 +21,7 @@ Esta skill une um método narrativo (problema → solução) a um pipeline técn
 | `references/remotion/INDEX.md` | Regras oficiais do Remotion (3D, sequências, áudio, fontes, legendas, render, Studio, busca na doc) | Sempre que usar uma API do Remotion |
 | `assets/template/` | Motor reutilizável: câmera orbital, trilhas, badges, legendas, rótulos 3D seguros, áudio, pós-efeitos, efeitos de tela (`utils/fx.ts`), explosões, capa/thumbnail, fontes locais | Copiar para o projeto na Fase 2 |
 | `scripts/` | `doctor.sh` (ambiente), `vo_budget.py` (cabe no tempo?), narração, trilha/efeitos, `stills.mjs`/`render.mjs` (GPU ou software), folhas de contato, loudness, `package_delivery.py` (.zip final) | Fase 1 (orçamento) e Fase 2 |
-| `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela) e `cidade-mais-antiga/` (tells em corte, revelação com coroa) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
+| `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela), `cidade-mais-antiga/` (tells em corte, revelação com coroa) e `ceu-azul/` (cúpula de ar com shader, fótons que se espalham, Sol em arco, prova no espaço) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
 
 ## Identidade do canal: FENDA UMBRA
 
@@ -159,6 +159,12 @@ Prefira frases curtas, verbos concretos e segunda pessoa. Use conectores causais
 que", "por isso", "então"). Mude o visual a cada 3–8 segundos; um ciclo pode atravessar vários planos.
 Evite introdução de canal, saudações, pedidos genéricos de engajamento e jargão sem explicação.
 
+**Provas e contraexemplos precisam dizer POR QUE provam.** "No espaço o céu é preto" sozinho confundiu o
+próprio usuário; o que faz disso uma prova é a conclusão explícita: "Sem ar, sem azul." Em toda cena de
+prova/teste/contraexemplo, a fala (e um badge) fecha a lógica — *se X fosse a causa, veríamos Y; não vemos,
+logo a causa é Z* — e o visual mostra o contraste lado a lado (ex.: cúpula azul embaixo × espaço preto em
+volta), sem um elemento maior roubando a atenção (o Sol gigante escondia a ideia).
+
 ## Rigor do conteúdo
 
 Escolha uma configuração concreta e coerente para o tema antes de escrever. Diferencie etapas universais
@@ -171,6 +177,12 @@ jurisdição informada, mantenha a formulação geral. Para alegações técnica
 segurança, consulte fontes primárias quando houver ferramentas; sem acesso, declare a limitação e
 simplifique ou omita. Não invente números universais (profundidade, vazão, pressão). Marque abstrações
 visuais como esquemáticas quando necessário e evite instruções operacionais perigosas.
+
+**O esquema não pode contradizer a explicação.** Simplificar a escala é ok; a geometria que carrega o
+argumento tem de estar certa. Ex.: uma atmosfera em meia-esfera centrada no observador deixa TODOS os
+caminhos da luz do mesmo tamanho — e o argumento do pôr do sol ("a luz atravessa muito mais ar") some. Use
+uma cúpula achatada (bem mais larga que alta), como a atmosfera real é fina. Antes de modelar, pergunte:
+"o desenho mostra a relação que a narração afirma?"
 
 **Superlativos e "o primeiro/o maior/o mais antigo".** Esses títulos quase sempre dependem do critério
 (ex.: "cidade mais antiga": Jericó tem as ruínas mais velhas, mas ficou vazia por séculos; Damasco é a mais
@@ -345,7 +357,7 @@ out/<nome>-raw.mp4` (detecta GPU/software e o Chromium). Enquanto renderiza, fa�
 status. Confira com `ffprobe` (resolução, fps, nº de frames, duração, áudio), olhe a folha de quadros do
 próprio MP4 (`python scripts/mp4sheet.py`) e meça o áudio (`python scripts/audiocheck.py`, picos por segundo).
 Defeito localizado? Re-renderize só o trecho e emende (pipeline §8b) em vez de refazer tudo.
-Normalize com `python scripts/loudnorm.py` (−14 LUFS / −1,5 dBTP). Para remixar só o áudio, renderize
+Se `audiocheck.py` alertar silêncio digital, a trilha está desligada (`HAS_MUSIC`). Normalize com `python scripts/loudnorm.py` (−14 LUFS / −1,5 dBTP). Para remixar só o áudio, renderize
 `--codec=wav` e remonte com ffmpeg sem reprocessar o vídeo.
 
 Verificações de código ou metadados não comprovam qualidade visual ou sonora. O agente não ouve áudio:

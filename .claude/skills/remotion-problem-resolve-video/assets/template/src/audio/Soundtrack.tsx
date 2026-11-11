@@ -7,7 +7,10 @@ import { CTA_OFFSET, CTA_SECONDS, DURATION, f, HAS_CTA, OUTRO_SECONDS, VO } from
 // A trilha abaixa sempre que a voz entra (sidechain simples por volume).
 // Só toca o que está com status "ready" — cues "planned" ainda não existem em disco.
 
-/** Mude para true depois de gerar public/audio/music.wav (scripts/music.py). */
+/**
+ * Mude para true depois de gerar public/audio/music.wav (scripts/music.py). NÃO esqueça: já saiu um MP4
+ * inteiro sem trilha, com silêncio total nas pausas (scripts/audiocheck.py agora acusa isso).
+ */
 const HAS_MUSIC = false;
 const MUSIC = { base: 0.5, ducked: 0.17, ramp: 8 };
 /** Segundo absoluto em que a chamada falada começa (logo depois de a fenda fechar). */
