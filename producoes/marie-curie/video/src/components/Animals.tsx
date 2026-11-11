@@ -104,12 +104,12 @@ export const Cat: React.FC<AProps> = ({ frame = 0, position = [0, 0, 0], rotY = 
   const sway = 0.3 * Math.sin(frame / 18);
   return (
     <group position={position} rotation={[0, rotY, 0]} scale={scale}>
-      <At p={[0, 0.22, 0]}>{rb([0.42, 0.2, 0.17], color, 0.08)}</At>
+      <At p={[0, 0.19, 0]}>{rb([0.42, 0.2, 0.17], color, 0.08)}</At>
       {[-0.1, 0.02].map((x) => (
-        <At key={x} p={[x, 0.27, 0.086]}>{rb([0.035, 0.08, 0.004], "#c47538", 0.004)}</At>
+        <At key={x} p={[x, 0.24, 0.086]}>{rb([0.035, 0.08, 0.004], "#c47538", 0.004)}</At>
       ))}
-      <Legs xs={[0.14, -0.14]} z={0.05} hip={0.14} w={0.055} color={color} foot="#f2e6d6" walk={walk} frame={frame} speed={0.36} />
-      <At p={[0.25, 0.33, 0]}>
+      <Legs xs={[0.14, -0.14]} z={0.05} hip={0.11} w={0.055} color={color} foot="#f2e6d6" walk={walk} frame={frame} speed={0.36} />
+      <At p={[0.25, 0.3, 0]}>
         {rb([0.16, 0.14, 0.15], color, 0.05)}
         <At p={[0.08, -0.03, 0]}>{rb([0.05, 0.05, 0.08], "#f2e6d6", 0.02)}</At>
         <At p={[0.105, -0.015, 0]}>{rb([0.012, 0.016, 0.02], "#e07a8a", 0.005)}</At>
@@ -129,12 +129,31 @@ export const Cat: React.FC<AProps> = ({ frame = 0, position = [0, 0, 0], rotY = 
         ))}
       </At>
       {/* rabo em "?" balançando */}
-      <At p={[-0.2, 0.26, 0]} r={[sway, 0, 0.5]}>
+      <At p={[-0.2, 0.23, 0]} r={[sway, 0, 0.5]}>
         <At p={[0, 0.1, 0]}>{rb([0.035, 0.2, 0.035], color, 0.015)}</At>
         <At p={[0.03, 0.2, 0]} r={[0, 0, -0.9]}>
           <At p={[0, 0.06, 0]}>{rb([0.035, 0.12, 0.035], color, 0.015)}</At>
         </At>
       </At>
+    </group>
+  );
+};
+
+/** Perna de cavalo em 2 segmentos (articula no joelho/jarrete), com meia clara e casco. */
+const HorseLeg: React.FC<{ x: number; z: number; rear: boolean; phase: number; walk: number; frame: number; color: string }> = ({ x, z, rear, phase, walk, frame, color }) => {
+  const t = frame * 0.22 + phase;
+  const sw = walk * 0.38 * Math.sin(t);
+  const bend = walk * 0.35 * Math.max(0, Math.sin(t + 1.2));
+  const a1 = (rear ? -0.24 : 0.04) + sw;
+  const a2 = (rear ? 0.34 : -0.03) + (rear ? -bend : bend);
+  return (
+    <group position={[x, rear ? 1.05 : 1.0, z]} rotation={[0, 0, a1]}>
+      <At p={[0, -0.24, 0]}>{rb([rear ? 0.24 : 0.2, 0.52, 0.2], color, 0.08)}</At>
+      <group position={[0, -0.48, 0]} rotation={[0, 0, a2]}>
+        <At p={[0, -0.2, 0]}>{rb([0.11, 0.44, 0.11], color, 0.04)}</At>
+        <At p={[0, -0.39, 0]}>{rb([0.13, 0.08, 0.13], "#efe6d6", 0.03)}</At>
+        <At p={[0, -0.47, 0]}>{rb([0.15, 0.08, 0.15], "#2b2420", 0.03)}</At>
+      </group>
     </group>
   );
 };
@@ -148,11 +167,19 @@ export const Horse: React.FC<AProps> = ({ frame = 0, position = [0, 0, 0], rotY 
       {/* peito e garupa arredondados */}
       <Ball p={[0.62, 1.28, 0]} s={[0.36, 0.4, 0.31]} c={color} />
       <Ball p={[-0.62, 1.3, 0]} s={[0.38, 0.4, 0.32]} c={color} />
-      <Legs xs={[0.58, -0.58]} z={0.18} hip={0.98} w={0.17} color={color} foot="#2b2420" walk={walk} frame={frame} speed={0.22} />
+      {/* pernas de cavalo: coxa grossa + canela fina + casco; traseiras com jarrete (ângulo para trás) */}
+      {[
+        [0.6, 0.2, false, 0],
+        [0.6, -0.2, false, Math.PI],
+        [-0.6, 0.2, true, Math.PI],
+        [-0.6, -0.2, true, 0],
+      ].map(([x, z, rear, ph]) => (
+        <HorseLeg key={`${x}${z}`} x={Number(x)} z={Number(z)} rear={Boolean(rear)} phase={Number(ph)} walk={walk} frame={frame} color={color} />
+      ))}
       {/* pescoço inclinado + cabeça */}
       <At p={[0.78, 1.62, 0]} r={[0, 0, -0.75 + nod]}>
-        <At p={[0, 0.3, 0]}>{rb([0.32, 0.75, 0.3], color, 0.12)}</At>
-        <At p={[-0.15, 0.32, 0]}>{rb([0.08, 0.8, 0.12], "#2b2420", 0.03)}</At>
+        <At p={[0, 0.3, 0]}>{rb([0.4, 0.8, 0.32], color, 0.15)}</At>
+        <At p={[-0.19, 0.36, 0]}>{rb([0.1, 0.86, 0.14], "#2b2420", 0.04)}</At>
         <At p={[0.1, 0.68, 0]} r={[0, 0, -0.85]}>
           <At p={[0.18, 0, 0]}>{rb([0.56, 0.24, 0.24], color, 0.09)}</At>
           <At p={[0.42, -0.02, 0]}>{rb([0.12, 0.2, 0.22], "#5e3b26", 0.06)}</At>

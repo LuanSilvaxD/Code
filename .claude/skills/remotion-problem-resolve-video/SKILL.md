@@ -95,13 +95,13 @@ figurantes de vermelho/verde puros, que são as cores de problema/solução.
 `speed` (giro das rodas/biela), `smoke`, `bob` (balanço na água), `flame`, `gear`, `color`. Mantenha o desenho;
 para variar, troque `color`. Folha de referência: `examples/mascote/VehicleSheet.tsx`.
 
-### Animais
+### Animais (aprovados pelo usuário)
 
 `components/Animals.tsx`: `Dog` (0,9 m), `Cat` (0,5 m), `Horse` (2,4 m), `Cow` (2,4 m), `Elephant` (4,5 m),
 `Bird` (15 cm; `fly` 0..1), `Fish` (50 cm), `Whale` (14 m; `spout`). Mesma régua dos veículos (metros, +x,
 `scale = uPorMetro`), olhos que piscam, `walk` 0..1 para andar no lugar, rabo/orelhas/asas animados sozinhos.
-Animais pequenos (passarinho, peixe, gato) somem em plano aberto: use plano fechado. Desenho ainda em revisão
-pelo usuário (o cavalo é o mais fraco: pernas retas); folha: `examples/mascote/AnimalSheet.tsx`.
+Animais pequenos (passarinho, peixe, gato) somem em plano aberto: use plano fechado. Desenho APROVADO pelo
+usuário (cavalo com pernas em 2 segmentos e jarrete — `HorseLeg`); mantenha-o. Folha: `examples/mascote/AnimalSheet.tsx`.
 
 ### Proporção de personagens × cenário (regra do usuário)
 
