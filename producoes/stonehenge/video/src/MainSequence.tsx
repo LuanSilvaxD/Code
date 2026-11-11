@@ -10,8 +10,8 @@ import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { DepthRuler, Hud, OCEAN_MODULES } from "./scenes/OceanScenes";
-import { SeaLighting } from "./components/World";
+import { STONE_MODULES } from "./scenes/StoneScenes";
+import { StoneLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
 
@@ -19,36 +19,26 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = OCEAN_MODULES;
-
-const GlobalMarks: React.FC = () => {
-  const frame = useCurrentFrame();
-  return (
-    <AbsoluteFill>
-      <DepthRuler frame={frame} />
-      <Hud frame={frame} />
-    </AbsoluteFill>
-  );
-};
+const MODULES: Record<string, SceneModule> = STONE_MODULES;
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
   const fade = track("fade", frame);
   if (fade <= 0.001) return null;
-  return <AbsoluteFill style={{ background: "#050b14", opacity: fade }} />;
+  return <AbsoluteFill style={{ background: "#0b0812", opacity: fade }} />;
 };
 
 export const MainSequence: React.FC = () => {
   const { width, height } = useVideoConfig();
   const screen = useScreenFx();
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0e2036" }}>
+    <AbsoluteFill style={{ backgroundColor: "#171222" }}>
       {/* fundo + 3D recebem os efeitos de tela (tremor, punch, chicote, rebobinar, dessaturação) */}
       <AbsoluteFill style={screen.style}>
       <Background />
-      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }}>
+      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
-        <SeaLighting />
+        <StoneLighting />
         <World />
         {scenes.map((sc) => {
           const Stage = MODULES[sc.id]?.Stage;
@@ -62,7 +52,6 @@ export const MainSequence: React.FC = () => {
       </AbsoluteFill>
       <Scrims />
       <ScreenFxOverlay />
-      <GlobalMarks />
       {scenes.map((sc) => {
         const Overlay = MODULES[sc.id]?.Overlay;
         return (

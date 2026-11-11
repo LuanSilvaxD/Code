@@ -50,7 +50,7 @@ export const LIGHTING = {
 } as const;
 
 /** Perspectiva suave: FOV baixo e câmera afastada preservam a leitura do esquema. */
-export const CAMERA = { fov: 24, near: 0.5, far: 400 } as const;
+export const CAMERA = { fov: 24, near: 0.05, far: 400 } as const;
 
 /** Faixas seguras para Shorts/Reels (px numa tela 1080x1920). */
 export const SAFE = {
@@ -72,7 +72,7 @@ export const SKY = {
  * o "tint" dá o clima do tema sem perder a identidade (padrão roxo da marca #2a1d48; oceano #182a4e,
  * história #2e1f3a, espaço #1f1a4d, natureza #1b2e33, tecnologia #16244a). "sky": céu/subsolo (cenas ao ar livre).
  */
-export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#182a4e", halo: "#b9a3ff" };
+export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#2e1f3a", halo: "#b9a3ff" };
 
 /** Cores das palavras-chave nas legendas (as demais palavras ficam brancas). */
 export const KEYWORD_COLOR: Record<string, string> = {};

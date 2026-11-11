@@ -1,319 +1,387 @@
 import { useMemo } from "react";
-import { BufferGeometry, Color, Float32BufferAttribute } from "three";
 import { useCurrentFrame } from "remotion";
-import { depthY, track, XB } from "../data/scenes";
-import { LIGHTING, MATTE } from "../theme";
-import { clamp, lerp, rand, type Vec3 } from "../utils/animation";
-import { Fish } from "./Animals";
-import { Arrow3D } from "./Arrow3D";
-import { BrandPedestal } from "./BrandPedestal";
-import { Anglerfish, Bathysphere, DeepShrimp, Dolphin, Everest, Jellyfish, Lanternfish, SeaCucumber, SeaTurtle, Snailfish, SpermWhale, Squid } from "./Sea";
-import { Boat } from "./Vehicles";
+import * as THREE from "three";
+import { BRAND } from "../brand";
+import { scenes, track } from "../data/scenes";
+import { LIGHTING } from "../theme";
+import { clamp, lerp } from "../utils/animation";
+import { MascotFromTracks } from "./Mascot";
+import { AFrame, Crib, Chips, Hammerstone, isLintelOn, isStanding, linPos, Monument, Rails, Rope, Sledge, Sun, upPos } from "./Monument";
+import { neolithicLooks, Person } from "./Person";
+import { Lintel, Sarsen } from "./Stones";
+import { Cremations, Grass, Ground, heightAt, R, Sheep, Strata, Tree } from "./Terrain";
 
-// Mundo do oceano: COLUNA A (x = 0, zonas esticadas) e COLUNA B (x = XB, escala real 1 km = 1 u3d), batisfera com o
-// mascote, seres de cada zona e partículas (plâncton, bolhas, neve marinha). Tudo pelas trilhas no frame GLOBAL.
+// Cenário persistente de "Como construíram Stonehenge?". Tudo em METROS dentro de <group scale={0.1}>
+// (1 m = 0,1 u3d). Eixo do solstício = +x (nordeste). O canteiro fica no lugar da pedra 7 do anel (z = +15 m).
 
-export const COL = { w: 3.6, d: 1.6, trenchW: 1.5 };
-export const POD_X = 0.3;
-export const POD_Z = 0.4;
-export const podY = (frame: number) => depthY(track("pod.depth", frame, 0)) + 0.0;
-const ZONES: { from: number; to: number; c: string }[] = [
-  { from: 0, to: 200, c: "#3d9be0" },
-  { from: 200, to: 1000, c: "#1f5aa8" },
-  { from: 1000, to: 4000, c: "#0f2552" },
-  { from: 4000, to: 6000, c: "#081431" },
-  { from: 6000, to: 11000, c: "#050a1a" },
-];
+const U = 0.1;
+const P = 1.7 / 1.8;
+const LOOKS = neolithicLooks(14, "obra");
+const sceneIdx = (frame: number) => {
+  let k = 0;
+  scenes.forEach((s, i) => {
+    if (frame >= s.startFrame) k = i;
+  });
+  return k;
+};
+const T = (k: string, f: number, fb = 0) => track(k, f, fb);
 
-/** Luz do diorama: escurece com a profundidade (light.depth) — substitui <Lighting/> neste vídeo. */
-export const SeaLighting: React.FC = () => {
+// pedras e lintéis que o canteiro controla a partir da cena 6 (o anel nasce em volta deles)
+const WS_UP = [6, 7, 8];
+const WS_LIN = [6, 7];
+const BASE_STAND: [number, number] = [-1.5, 15.0]; // base (y, z) da pedra-modelo em pé
+
+/** Pose da pedra-modelo (base em metros + ângulo acima da horizontal, rad). */
+export const workStonePose = (frame: number) => {
+  const sz = T("sledge.z", frame, 6.5) / U;
+  const slide = clamp(T("workStone.slide", frame), 0, 1);
+  const tilt = (T("workStone.tilt", frame) * Math.PI) / 180;
+  const lying: [number, number] = [1.13, sz - 2.8];
+  const y = lerp(lying[0], BASE_STAND[0], slide);
+  const z = lerp(lying[1], BASE_STAND[1], slide);
+  return { y, z, a: tilt };
+};
+
+/** Posições (m) e pose de cada trabalhador no frame, por cena. Usado pelo 3D e pelos "?" 2D. */
+export const crewAt = (frame: number) => {
+  const k = sceneIdx(frame);
+  const sz = T("sledge.z", frame, 6.5) / U;
+  const moving = Math.abs(T("sledge.z", frame, 6.5) - T("sledge.z", frame - 1, 6.5)) > 1e-5;
+  const out: { x: number; z: number; rot: number; walk: number; point: number; rope?: [number, number, number] }[] = [];
+  if (k === 5 || k === 6) {
+    for (let i = 0; i < 12; i++) {
+      const side = i % 2 ? 1 : -1;
+      const row = Math.floor(i / 2);
+      out.push({ x: side * 1.3, z: sz - 5 - row * 1.5, rot: Math.PI, walk: moving ? 1 : 0, point: 0, rope: [side * 0.6, 0.9, sz - 2.9] });
+    }
+  } else if (k === 7) {
+    const sw = (i: number) => 0.5 + 0.5 * Math.sin(frame * 0.5 + i * 1.7);
+    out.push({ x: -1.5, z: sz - 0.6, rot: Math.PI / 2, walk: 0, point: sw(0) });
+    out.push({ x: 1.5, z: sz + 1.0, rot: -Math.PI / 2, walk: 0, point: sw(1) });
+    out.push({ x: -1.5, z: sz + 1.8, rot: Math.PI / 2, walk: 0, point: sw(2) });
+    for (let i = 3; i < 8; i++) out.push({ x: -4.5 - (i % 2) * 1.2, z: sz - 2 + i * 0.9, rot: 2.0, walk: 0, point: 0 });
+  } else if (k === 8) {
+    const tilt = T("workStone.tilt", frame);
+    const pulling = Math.abs(tilt - T("workStone.tilt", frame - 1)) > 0.01;
+    for (let i = 0; i < 8; i++) out.push({ x: -0.8 - (i % 2) * 1.1, z: 9.6 - Math.floor(i / 2) * 1.3, rot: Math.PI, walk: pulling ? 1 : 0, point: 0, rope: [0, 0, 0] });
+  } else if (k === 9) {
+    const L = linPos(7);
+    const sw = (i: number) => 0.5 + 0.5 * Math.sin(frame * 0.3 + i * 2.1);
+    [[-2.6, 1.8], [2.6, 1.8], [-2.6, 4.4], [2.6, 4.4]].forEach(([t, r], i) => {
+      const ang = L.a;
+      const tx = -Math.sin(ang);
+      const tz = Math.cos(ang);
+      const rx = Math.cos(ang);
+      const rz = Math.sin(ang);
+      out.push({ x: L.x + tx * t + rx * r, z: L.z + tz * t + rz * r, rot: Math.atan2(-(tx * t), -(tz * t)), walk: 0, point: sw(i) });
+    });
+    for (let i = 4; i < 9; i++) out.push({ x: -4 + i * 1.3, z: 23 + (i % 2) * 1.1, rot: Math.PI, walk: 0, point: 0 });
+  } else if (k === 10 || k === 11) {
+    for (let i = 0; i < 9; i++) out.push({ x: -5 + i * 1.25, z: 22 + (i % 3) * 1.0, rot: Math.PI, walk: 0, point: 0 });
+  }
+  return out;
+};
+
+/** Luz do diorama: de dia é a luz de estúdio; na madrugada/pôr do sol vem baixa, quente, do lado do Sol. */
+export const StoneLighting: React.FC = () => {
   const frame = useCurrentFrame();
-  const k = 1 - 0.78 * track("light.depth", frame);
+  const p = T("sun.phase", frame, 0.5);
+  const day: [number, number, number] = LIGHTING.key.position;
+  const dawn: [number, number, number] = [30, 4, -3];
+  const dusk: [number, number, number] = [-30, 4, 1];
+  const m = (a: number[], b: number[], t: number) => a.map((v, i) => lerp(v, b[i], t)) as [number, number, number];
+  const pos = p < 0.5 ? m(dawn, day, p * 2) : m(day, dusk, (p - 0.5) * 2);
+  const w = 1 - Math.abs(p - 0.5) * 2; // 1 = dia
+  const col = new THREE.Color(p < 0.5 ? "#ffc27a" : "#ff8f55").lerp(new THREE.Color(LIGHTING.key.color), w);
+  const ext = 11;
   return (
     <>
-      <ambientLight intensity={LIGHTING.ambient * (0.35 + 0.65 * k)} />
-      <hemisphereLight args={[LIGHTING.hemisphere.sky, LIGHTING.hemisphere.ground, LIGHTING.hemisphere.intensity * k]} />
-      <directionalLight position={LIGHTING.key.position} intensity={LIGHTING.key.intensity * k} color={LIGHTING.key.color} />
-      <directionalLight position={LIGHTING.fill.position} intensity={LIGHTING.fill.intensity * (0.4 + 0.6 * k)} color={LIGHTING.fill.color} />
+      <ambientLight intensity={LIGHTING.ambient * lerp(0.6, 1, w)} />
+      <hemisphereLight args={[LIGHTING.hemisphere.sky, LIGHTING.hemisphere.ground, LIGHTING.hemisphere.intensity * lerp(0.55, 1, w)]} />
+      <directionalLight
+        position={pos}
+        intensity={LIGHTING.key.intensity * lerp(1.15, 1, w)}
+        color={col}
+        castShadow
+        shadow-mapSize-width={LIGHTING.shadowMapSize}
+        shadow-mapSize-height={LIGHTING.shadowMapSize}
+        shadow-camera-left={-ext}
+        shadow-camera-right={ext}
+        shadow-camera-top={ext}
+        shadow-camera-bottom={-ext}
+        shadow-camera-near={1}
+        shadow-camera-far={80}
+        shadow-bias={-0.0004}
+        shadow-normalBias={0.02}
+        shadow-radius={4}
+      />
+      <directionalLight position={LIGHTING.fill.position} intensity={LIGHTING.fill.intensity * w} color={LIGHTING.fill.color} />
       <directionalLight position={LIGHTING.rim.position} intensity={LIGHTING.rim.intensity} color={LIGHTING.rim.color} />
     </>
   );
 };
 
-const Water: React.FC<{ y0: number; y1: number; w: number; c: string; x?: number; o?: number }> = ({ y0, y1, w, c, x = 0, o = 0.5 }) => (
-  <group>
-    <mesh position={[x, (y0 + y1) / 2, 0]}>
-      <boxGeometry args={[w, y0 - y1, COL.d]} />
-      <meshStandardMaterial color={c} transparent opacity={o} roughness={0.2} depthWrite={false} />
-    </mesh>
-    {/* parede de fundo (dá o "corte") */}
-    <mesh position={[x, (y0 + y1) / 2, -COL.d / 2 - 0.02]}>
-      <boxGeometry args={[w, y0 - y1, 0.04]} />
-      <meshStandardMaterial {...MATTE} color={new Color(c).multiplyScalar(0.55).getStyle()} />
-    </mesh>
-  </group>
-);
-
-const Rock: React.FC<{ p: Vec3; s: Vec3 }> = ({ p, s }) => (
-  <mesh position={p} castShadow receiveShadow>
-    <boxGeometry args={s} />
-    <meshStandardMaterial {...MATTE} color="#2c2a35" />
-  </mesh>
-);
-
-/** Coluna de oceano (A esticada ou B real). yOf: profundidade (m) → y. */
-const Column: React.FC<{ x: number; yOf: (m: number) => number; frame: number; real?: boolean }> = ({ x, yOf, frame, real }) => {
-  const bottom = yOf(11000);
-  const hadalTop = yOf(6000);
-  const realBands = real ? track("realBands.show", frame) : 0;
-  const pulse = real ? track("realSun.pulse", frame) : 0;
-  const dark = real ? track("realDark.show", frame) : 0;
+/** Pedestal redondo com o fio de luz roxa da marca. */
+const RoundPedestal: React.FC = () => {
+  const { umbra2, accent, core } = BRAND.colors;
+  const r = R * U + 0.25;
   return (
-    <group>
-      {ZONES.map((z, i) => {
-        const w = z.from >= 6000 ? COL.trenchW : COL.w;
-        let c = z.c;
-        if (real) c = ["#5fc0ff", "#2f73c9", "#1b4590", "#123270", "#0c2252"][i];
-        if (real && realBands > 0.01) c = new Color(c).lerp(new Color(i === 0 ? "#c8f0ff" : "#060a18"), i === 0 ? 0.6 * pulse * (0.6 + 0.4 * Math.sin(frame / 4)) : dark * 0.55).getStyle();
-        return <Water key={i} x={x} y0={yOf(z.from)} y1={yOf(z.to)} w={w} c={c} o={real ? (i === 0 ? 0.6 + 0.35 * realBands : 0.42 + 0.3 * realBands) : 0.5} />;
-      })}
-      {/* rocha dos lados da fossa + planície (lado direito) */}
-      {[-1, 1].map((s) => (
-        <Rock key={s} p={[x + s * (COL.trenchW / 2 + (COL.w - COL.trenchW) / 4), (hadalTop + bottom) / 2, 0]} s={[(COL.w - COL.trenchW) / 2, hadalTop - bottom, COL.d]} />
-      ))}
-      <mesh position={[x + COL.trenchW / 2 + (COL.w - COL.trenchW) / 4, hadalTop + 0.03, 0]} receiveShadow>
-        <boxGeometry args={[(COL.w - COL.trenchW) / 2, 0.06, COL.d]} />
-        <meshStandardMaterial {...MATTE} color="#5a5048" />
+    <group position={[0, -0.9 - 0.3, 0]}>
+      <mesh receiveShadow>
+        <cylinderGeometry args={[r, r + 0.1, 0.6, 96]} />
+        <meshStandardMaterial color={umbra2} roughness={0.9} />
       </mesh>
-      <mesh position={[x - COL.trenchW / 2 - (COL.w - COL.trenchW) / 4, hadalTop + 0.03, 0]} receiveShadow>
-        <boxGeometry args={[(COL.w - COL.trenchW) / 2, 0.06, COL.d]} />
-        <meshStandardMaterial {...MATTE} color="#5a5048" />
+      <mesh position={[0, -0.02, 0]}>
+        <cylinderGeometry args={[r + 0.11, r + 0.11, 0.035, 96, 1, true]} />
+        <meshBasicMaterial color={core} />
       </mesh>
-      <Rock p={[x, bottom - 0.08, 0]} s={[COL.trenchW, 0.16, COL.d]} />
-      {/* superfície (ondas) */}
-      <mesh position={[x, 0.01 + 0.015 * Math.sin(frame / 14), 0]}>
-        <boxGeometry args={[COL.w + 0.02, 0.04, COL.d + 0.02]} />
-        <meshStandardMaterial color="#9fdcff" transparent opacity={0.8} roughness={0.1} />
+      <mesh position={[0, -0.02, 0]}>
+        <cylinderGeometry args={[r + 0.13, r + 0.13, 0.12, 96, 1, true]} />
+        <meshBasicMaterial color={accent} transparent opacity={0.4} />
       </mesh>
-      {/* moldura de vidro */}
-      {[-1, 1].map((s) => (
-        <mesh key={`f${s}`} position={[x + (s * COL.w) / 2, (0 + hadalTop) / 2, COL.d / 2]}>
-          <boxGeometry args={[0.03, -hadalTop, 0.03]} />
-          <meshBasicMaterial color="#c4b5fd" transparent opacity={0.5} />
-        </mesh>
-      ))}
-      <group position={[x, bottom - 0.16, 0]}>
-        <BrandPedestal width={COL.w} depth={COL.d} y={0} height={0.6} />
-      </group>
     </group>
   );
 };
 
-const Points: React.FC<{ pos: number[]; color: string; size: number; opacity: number }> = ({ pos, color, size, opacity }) => {
-  const geo = useMemo(() => {
-    const g = new BufferGeometry();
-    g.setAttribute("position", new Float32BufferAttribute(pos, 3));
-    return g;
-  }, [pos]);
-  if (opacity < 0.01) return null;
-  return (
-    <points geometry={geo}>
-      <pointsMaterial color={color} size={size} sizeAttenuation transparent opacity={opacity} depthWrite={false} />
-    </points>
-  );
-};
+const TREES: [number, number][] = [[-84, 30], [-86, 22], [-80, 38], [-76, 26], [-40, -84], [-30, -88], [-36, -80], [62, 62], [68, 56], [58, -66], [84, -30], [86, -22]];
+const SHEEP: [number, number, number][] = [[30, 34, 0.4], [36, 38, 2.2], [-34, 30, 1.2], [-30, -36, 3.4], [40, -30, 5.0], [-62, 10, 1.0]];
 
-const Particles: React.FC<{ frame: number }> = ({ frame }) => {
-  const plankton = track("plankton.show", frame);
-  const o2 = track("o2.flow", frame);
-  const snow = track("snow.amount", frame, 0.25);
-  const biolum = track("biolum.show", frame);
-  const pl: number[] = [];
-  for (let i = 0; i < 160; i++) pl.push((rand(`pk${i}`) - 0.5) * COL.w * 0.95, -0.1 - rand(`pky${i}`) * 2.0 + 0.03 * Math.sin(frame / 20 + i), (rand(`pkz${i}`) - 0.5) * COL.d * 0.9);
-  const bub: number[] = [];
-  for (let i = 0; i < 40; i++) {
-    const t = ((frame * 0.01 + rand(`b${i}`)) % 1);
-    bub.push((rand(`bx${i}`) - 0.5) * COL.w * 0.8, -2.0 + t * 2.0, (rand(`bz${i}`) - 0.5) * COL.d * 0.6);
-  }
-  const sn: number[] = [];
-  for (let i = 0; i < 260; i++) {
-    const y0 = -2.2 - rand(`sy${i}`) * 11.2;
-    const y = y0 - ((frame * 0.004 + rand(`sp${i}`) * 3) % 3);
-    sn.push((rand(`sx${i}`) - 0.5) * COL.w * 0.9 + 0.03 * Math.sin(frame / 30 + i), Math.max(-13.35, y), (rand(`sz${i}`) - 0.5) * COL.d * 0.8);
-  }
-  const bl: number[] = [];
-  for (let i = 0; i < 70; i++) bl.push((rand(`lx${i}`) - 0.5) * COL.w * 0.9, -5.6 - rand(`ly${i}`) * 4.4, (rand(`lz${i}`) - 0.5) * COL.d * 0.8);
-  const tw = 0.6 + 0.4 * Math.sin(frame / 5);
+/** O canteiro: trenó, trilhos, pedra-modelo, buraco em corte, escoras, plataforma, encaixes e as pedras vizinhas. */
+const WorkSite: React.FC<{ frame: number; k: number; clip: THREE.Plane[] }> = ({ frame, k }) => {
+  if (k < 5) return null;
+  const ruin = clamp(T("monument.ruin", frame), 0, 1);
+  const sz = T("sledge.z", frame, 6.5) / U;
+  const ws = workStonePose(frame);
+  const rough = clamp(T("workStone.rough", frame, 1), 0, 1);
+  const tenon = clamp(T("workStone.tenon", frame), 0, 1);
+  const dig = clamp(T("pit.dig", frame), 0, 1);
+  const props = clamp(T("props.show", frame), 0, 1);
+  const crib = T("crib.layers", frame);
+  const cribFade = k >= 10 ? clamp(T("crib.fade", frame, 1), 0, 1) : 1;
+  const ly = T("lintel.y", frame) / U;
+  const lintelShow = clamp(T("lintel.show", frame), 0, 1);
+  const explode = clamp(T("joint.explode", frame), 0, 1);
+  const neighbor = clamp(T("neighbor.show", frame), 0, 1);
+  const l2 = clamp(T("lintel2.slide", frame), 0, 1);
+  const glow = clamp(T("lintels.glow", frame), 0, 1);
+  const L7 = linPos(7);
+  const L6 = linPos(6);
+  const radialOff = 2.4 * clamp((0.43 / U - ly) / 0.3, 0, 1);
+  const topY = 4.1 + 0.25;
+  const showSledge = k <= 8 && !(k === 8 && T("workStone.slide", frame) > 0.98);
+  const ropeTop: [number, number, number] = [0, ws.y + Math.sin(ws.a) * 5.4, ws.z + Math.cos(ws.a) * 5.4];
+  const crewNow = crewAt(frame);
   return (
     <group>
-      <Points pos={pl} color="#7fe07a" size={0.05} opacity={plankton * 0.9} />
-      <Points pos={bub} color="#e8fbff" size={0.07} opacity={o2 * 0.8} />
-      <Points pos={sn} color="#f2f4ff" size={0.035} opacity={snow * 0.7} />
-      <Points pos={bl} color="#7ad7ff" size={0.06} opacity={biolum * tw} />
-    </group>
-  );
-};
-
-const Creatures: React.FC<{ frame: number }> = ({ frame }) => {
-  const turtle = track("turtle.show", frame);
-  const dolph = track("dolphins.show", frame);
-  const school = track("school.show", frame);
-  const lantern = track("lantern.show", frame);
-  const migrate = track("lantern.migrate", frame);
-  const belly = Math.max(track("lantern.bellyGlow", frame), 0.4);
-  const jelly = track("biolum.show", frame);
-  const angler = track("angler.show", frame);
-  const lure = track("angler.lure", frame);
-  const bite = track("angler.bite", frame);
-  const shrimp = track("shrimp.show", frame);
-  const dive = track("whale.dive", frame);
-  const flee = track("squid.flee", frame);
-  const eat = track("cucumber.eat", frame);
-  const snail = track("snail.show", frame);
-  const lamp = track("podLamp.on", frame);
-  const redBall = track("redBall.depth", frame);
-  const ly = lerp(depthY(600), -1.0, migrate);
-  const whaleP: Vec3 = [lerp(-2.4, 0.9, dive), lerp(-4.6, -7.9, dive), -0.15];
-  return (
-    <group>
-      {/* zona do sol */}
-      {turtle > 0.01 ? <SeaTurtle frame={frame} position={[-0.9 + 0.1 * Math.sin(frame / 40), -0.75, 0.25]} scale={0.4 * clamp(turtle, 0, 1)} rotY={0.2} /> : null}
-      {dolph > 0.01
-        ? [0, 1].map((i) => <Dolphin key={i} frame={frame + i * 20} position={[0.7 + i * 0.5, -0.45 - i * 0.35 + 0.08 * Math.sin(frame / 18 + i), -0.25 + i * 0.3]} scale={0.32 * clamp(dolph, 0, 1)} rotY={Math.PI} />)
-        : null}
-      {school > 0.01
-        ? Array.from({ length: 9 }, (_, i) => <Fish key={i} frame={frame + i * 7} position={[-0.6 + (i % 3) * 0.28 + 0.1 * Math.sin(frame / 25), -1.45 - Math.floor(i / 3) * 0.14, -0.2 + (i % 2) * 0.3]} scale={0.5 * clamp(school, 0, 1)} />)
-        : null}
-      {/* boia vermelha perdendo a cor */}
-      {redBall > 0.001 && redBall < 0.999 ? (
-        <mesh position={[-1.1, lerp(-0.3, -2.1, redBall), 0.5]}>
-          <sphereGeometry args={[0.13, 16, 12]} />
-          <meshStandardMaterial color={new Color("#e5383b").lerp(new Color("#4a5a78"), redBall).getStyle()} roughness={0.5} />
-        </mesh>
-      ) : null}
-      {/* zona do crepúsculo: peixes-lanterna (com migração) */}
-      {lantern > 0.01
-        ? Array.from({ length: 14 }, (_, i) => (
-            <Lanternfish key={i} frame={frame} seed={i} glow={belly} position={[-1.2 + (i % 5) * 0.55 + 0.1 * Math.sin(frame / 20 + i), ly - Math.floor(i / 5) * 0.35 + 0.15 * rand(`ly${i}`), -0.4 + rand(`lz${i}`) * 0.8]} scale={4.0 * clamp(lantern, 0, 1)} rotY={i % 2 ? 0 : Math.PI} />
-          ))
-        : null}
-      {/* zona da meia-noite: águas-vivas, tamboril, camarão */}
-      {jelly > 0.01
-        ? [[-1.3, 1450], [1.25, 1600], [-1.15, 2350]].map(([x, m], i) => <Jellyfish key={i} frame={frame + i * 13} glow={jelly} position={[x, depthY(m) + 0.1 * Math.sin(frame / 25 + i), -0.35]} scale={3.0} />)
-        : null}
-      {angler > 0.01 ? <Anglerfish frame={frame} position={[-0.2, depthY(1800), 0.7]} scale={4.5 * clamp(angler, 0, 1)} glow={0.6 + 0.4 * lure} bite={bite} /> : null}
-      {shrimp > 0.01 ? (
+      {/* pilha de sarsens brutas à espera, fora do anel */}
+      {k <= 7 ? (
         <group>
-          <DeepShrimp frame={frame} position={[0.75, depthY(1850), 0.6]} scale={4 * clamp(shrimp, 0, 1)} rotY={Math.PI} />
-          {/* sem o farol, o camarão vermelho vira silhueta preta */}
-          <mesh position={[0.75, depthY(1850), 0.6]} scale={[0.32, 0.12, 0.1]}>
-            <sphereGeometry args={[1, 10, 8]} />
-            <meshBasicMaterial color="#020306" transparent opacity={0.85 * (1 - clamp(lamp * 1.4, 0, 1)) * clamp(shrimp, 0, 1)} depthWrite={false} />
+          {[[-7, 46, 0.3], [-4.5, 50, 1.2], [7, 44, 2.6]].map(([x, z, r], i) => (
+            <group key={i} position={[x, heightAt(x, z) + 0.55, z]} rotation={[Math.PI / 2, r, 0]}>
+              <group position={[0, -2.3, 0]}>
+                <Sarsen h={4.6} w={2.0} d={1.1} seed={30 + i} rough={1} tenons={0} lichen={false} />
+              </group>
+            </group>
+          ))}
+        </group>
+      ) : null}
+      {/* trilhos de troncos, ao longo de z, até o canteiro */}
+      {k <= 8 ? (
+        <group position={[0, heightAt(0, 45), 45]} rotation={[0, Math.PI / 2, 0]}>
+          <Rails len={44} show={T("rails.show", frame)} />
+        </group>
+      ) : null}
+      {showSledge ? (
+        <group position={[0, 0.42 * 0 + 0.1, sz]} rotation={[0, Math.PI / 2, 0]}>
+          <Sledge stone={false} />
+        </group>
+      ) : null}
+      {/* pedra-modelo (vira a pedra 7 do anel) */}
+      {k <= 12 || isStanding(7) || ruin < 1 ? (
+        <group position={[0, ws.y, ws.z]} rotation={[Math.PI / 2 - ws.a, 0, 0]}>
+          <Sarsen h={5.6} w={2.1} d={1.1} seed={8} rough={rough} tenons={k >= 8 ? tenon : 0} />
+        </group>
+      ) : null}
+      {/* cordas: do trenó até a equipe / do topo da pedra até a equipe (cena 9) */}
+      {crewNow.map((c, i) =>
+        c.rope ? (
+          <Rope key={i} a={k === 8 ? ropeTop : c.rope} b={[c.x * 0.94, 1.0, c.z + 0.4]} r={0.035} />
+        ) : null,
+      )}
+      {/* martelos de pedra e lascas (cena 8) */}
+      {k === 7 ? (
+        <group>
+          {[0, 1].map((j) => {
+            const big = T("hammer.big", frame);
+            const small = T("hammer.small", frame);
+            const on = j ? small > 0 : big > 0 && small <= 0;
+            if (!on) return null;
+            const hit = (frame * (j ? 0.12 : 0.08)) % 1;
+            const hx = j ? 0.35 : -0.35;
+            const hz = sz + (j ? 0.9 : -0.3);
+            return (
+              <group key={j}>
+                <Hammerstone size={j ? 0.14 : 0.34} seed={3 + j} position={[hx, 1.85 + 0.7 * Math.abs(Math.sin(hit * Math.PI)), hz]} />
+                <Chips t={hit < 0.5 ? hit * 2 : 0} origin={[hx, 1.7, hz]} seed={j} />
+              </group>
+            );
+          })}
+        </group>
+      ) : null}
+      {/* vala com rampa escavada no chão (buraco fundo + rampa de giz) e o monte de giz retirado */}
+      {dig > 0.01 && k <= 9 ? (
+        <group>
+          {/* rampa: do nível do chão (z ≈ 19,5) até a boca do buraco (z ≈ 15,9) */}
+          <mesh position={[0, heightAt(0, 17.7) + 0.04, 17.7]} rotation={[-Math.PI / 2, 0, 0]} scale={[1, dig, 1]}>
+            <planeGeometry args={[2.8, 3.6]} />
+            <meshStandardMaterial color="#d8cfb8" roughness={1} />
+          </mesh>
+          {[0.25, 0.5, 0.75].map((t) => (
+            <mesh key={t} position={[0, heightAt(0, 17.7) + 0.05, 15.9 + t * 3.6]} rotation={[-Math.PI / 2, 0, 0]} scale={[dig, 1, 1]}>
+              <planeGeometry args={[2.6, 0.08]} />
+              <meshBasicMaterial color="#b9ae95" />
+            </mesh>
+          ))}
+          {/* buraco */}
+          <mesh position={[0, heightAt(0, 15) + 0.05, 15]} rotation={[-Math.PI / 2, 0, 0]} scale={dig}>
+            <planeGeometry args={[2.8, 1.9]} />
+            <meshBasicMaterial color="#2e241c" />
+          </mesh>
+          {/* borda de giz e monte de terra retirada */}
+          <mesh position={[0, heightAt(0, 15) + 0.03, 15]} rotation={[-Math.PI / 2, 0, 0]} scale={dig}>
+            <planeGeometry args={[3.5, 2.6]} />
+            <meshStandardMaterial color="#e6dfcd" roughness={1} />
+          </mesh>
+          <mesh position={[3.4, heightAt(3.4, 16.5), 16.5]} scale={[1.6 * dig, 0.9 * dig, 2.6 * dig]} castShadow>
+            <sphereGeometry args={[1, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
+            <meshStandardMaterial color="#e3dccb" roughness={1} flatShading />
           </mesh>
         </group>
       ) : null}
-      {/* cachalote + lula */}
-      {dive > 0.01 && dive < 0.99 ? <group position={whaleP} rotation={[0, 0, -0.7]}><SpermWhale frame={frame} scale={0.13} /></group> : null}
-      {flee < 0.99 && (dive > 0.3 || flee > 0.01) ? <Squid frame={frame} position={[0.9 + flee * 1.4, depthY(2100) - 0.2 + flee * 0.3, 0.3]} scale={0.7} /> : null}
-      {/* abismo: pepinos-do-mar na planície da direita */}
-      {[0, 1, 2].map((i) => (
-        <SeaCucumber key={i} frame={frame + i * 30} position={[1.0 + i * 0.25, depthY(6000) + 0.06, -0.3 + i * 0.3]} scale={1.6 * (1 + 0.1 * eat * Math.sin(frame / 6 + i))} rotY={i} />
-      ))}
-      {/* hadal: peixe-caracol */}
-      {snail > 0.01 ? <Snailfish frame={frame} position={[-0.25, depthY(8300), 0.35]} scale={3 * clamp(snail, 0, 1)} /> : null}
-    </group>
-  );
-};
-
-const Pod: React.FC<{ frame: number }> = ({ frame }) => {
-  const y = podY(frame);
-  const lamp = track("podLamp.on", frame);
-  const press = track("pressure.arrows", frame);
-  const cups = track("cups.show", frame);
-  const shrink = track("cups.shrink", frame);
-  const m = { wave: track("mascot.wave", frame), jump: track("mascot.jump", frame), cheer: track("mascot.cheer", frame), look: track("mascot.look", frame) };
-  const p: Vec3 = [POD_X, y - 0.27, POD_Z];
-  return (
-    <group>
-      <Bathysphere frame={frame} position={p} scale={0.24} lamp={lamp} m={m} rotY={0} />
-      {press > 0.01
-        ? [
-            [-1, 0],
-            [1, 0],
-            [0, 1],
-            [0, -1],
-          ].map(([sx, sy], i) => {
-            const dir: Vec3 = [-sx, -sy, 0];
-            const from: Vec3 = [POD_X + sx * (0.62 + 0.04 * Math.sin(frame / 4)), y + sy * 0.62, POD_Z];
-            return <Arrow3D key={i} from={from} dir={dir} length={0.3} radius={0.028} color="#f8c815" scale={clamp(press, 0, 1)} />;
-          })
-        : null}
-      {cups > 0.01
-        ? [0, 1].map((i) => {
-            const k = i === 1 ? 1 - 0.55 * shrink : 1;
-            return (
-              <mesh key={i} position={[POD_X + 0.55 + i * 0.3, y - 0.18 - (1 - k) * 0.08, POD_Z + 0.2]} scale={[k * clamp(cups, 0, 1), k * clamp(cups, 0, 1), k * clamp(cups, 0, 1)]}>
-                <cylinderGeometry args={[0.1, 0.07, 0.2, 14]} />
-                <meshStandardMaterial color="#f4f1ea" roughness={0.8} />
-              </mesh>
-            );
-          })
-        : null}
-    </group>
-  );
-};
-
-const Surface: React.FC<{ frame: number }> = ({ frame }) => {
-  const rays = track("sunRays.show", frame, 0.3) * (1 - track("light.depth", frame));
-  return (
-    <group>
-      <mesh position={[-1.3, 2.6, -0.6]}>
-        <icosahedronGeometry args={[0.45, 1]} />
-        <meshBasicMaterial color="#fff4c8" />
-      </mesh>
-      <mesh position={[-1.3, 2.6, -0.6]}>
-        <sphereGeometry args={[0.8, 16, 12]} />
-        <meshBasicMaterial color="#ffd36b" transparent opacity={0.25} depthWrite={false} />
-      </mesh>
-      <Boat frame={frame} position={[0.6, 0.0, -0.2]} scale={0.12} rotY={Math.PI} />
-      {rays > 0.01
-        ? [-1.2, -0.4, 0.4, 1.2].map((x, i) => (
-            <mesh key={i} position={[x, -1.1, 0]} rotation={[0, 0, 0.12]}>
-              <coneGeometry args={[0.32, 2.2, 10, 1, true]} />
-              <meshBasicMaterial color="#e8fbff" transparent opacity={0.1 * rays * (0.7 + 0.3 * Math.sin(frame / 15 + i))} depthWrite={false} />
-            </mesh>
-          ))
-        : null}
-    </group>
-  );
-};
-
-/** Coluna B em escala real + Everest (km). */
-const RealColumn: React.FC<{ frame: number }> = ({ frame }) => {
-  const rise = track("everest.rise", frame);
-  const yReal = (m: number) => -m / 1000;
-  return (
-    <group position={[0, 0, 0]}>
-      <Column x={XB} yOf={yReal} frame={frame} real />
-      {rise > 0.01 ? (
-        <group position={[XB, -10.935, -0.1]} scale={[0.115, clamp(rise, 0, 1), 0.09]}>
-          <Everest />
+      {props > 0.01 && k <= 9 ? (
+        <group position={[-0.6, 0, 11.6]} scale={[1, props, 1]}>
+          <AFrame h={4.6} spread={2.4} />
         </group>
       ) : null}
+      {/* vizinhas: pedra 8 (cena 10) e pedra 6 (cena 11) */}
+      {[8, 6].map((i) => {
+        const p = upPos(i);
+        const show = i === 8 ? neighbor : clamp(l2 * 3, 0, 1);
+        if (show <= 0) return null;
+        const fall = ruin > 0 && !isStanding(i) ? ruin : 0;
+        return (
+          <group key={i} position={[p.x, heightAt(p.x, p.z) - 4.4 * (1 - show), p.z]} rotation={[0, Math.PI / 2 - p.a, 0]}>
+            <group rotation={[fall * 1.45, 0, 0]}>
+              <Sarsen h={4.1} seed={i + 1} tenons={1} />
+            </group>
+          </group>
+        );
+      })}
+      {/* plataforma de troncos (fora do anel) + lintel 7 */}
+      {crib > 0.01 && cribFade > 0.01 ? (
+        <group position={[L7.x + Math.cos(L7.a) * 2.4, 0, L7.z + Math.sin(L7.a) * 2.4]} rotation={[0, Math.PI / 2 - L7.a, 0]} scale={[1, cribFade, 1]}>
+          <Crib layers={crib} w={3.6} d={2.6} />
+        </group>
+      ) : null}
+      {lintelShow > 0.01 && (ruin < 0.999 || isLintelOn(7)) ? (
+        <group
+          position={[L7.x + Math.cos(L7.a) * radialOff, (k >= 10 ? topY : Math.max(ly, 0) + 0.02) + explode * 1.2 + (ruin > 0 && !isLintelOn(7) ? 6 * ruin : 0), L7.z + Math.sin(L7.a) * radialOff]}
+          rotation={[0, Math.PI / 2 - L7.a, 0]}
+          scale={lintelShow * (1 - (isLintelOn(7) ? 0 : ruin))}
+        >
+          <Lintel R={15} mortises={k >= 9 && k <= 11} joints={k >= 9 && k <= 11} glow={glow} />
+        </group>
+      ) : null}
+      {l2 > 0.01 && (ruin < 0.999 || isLintelOn(6)) ? (
+        <group
+          position={[L6.x + Math.sin(L6.a) * -3 * (1 - l2) * -1, topY + (ruin > 0 && !isLintelOn(6) ? 6 * ruin : 0), L6.z - Math.cos(L6.a) * 3 * (1 - l2)]}
+          rotation={[0, Math.PI / 2 - L6.a, 0]}
+          scale={1 - (isLintelOn(6) ? 0 : ruin)}
+        >
+          <Lintel R={15} mortises={false} joints={k <= 11} glow={glow} />
+        </group>
+      ) : null}
+    </group>
+  );
+};
+
+const Crew: React.FC<{ frame: number }> = ({ frame }) => {
+  const show = clamp(T("crew.show", frame), 0, 1);
+  if (show <= 0.01) return null;
+  const list = crewAt(frame);
+  return (
+    <group>
+      {list.map((c, i) => (
+        <Person key={i} {...LOOKS[i % LOOKS.length]} seed={i} frame={frame} position={[c.x, heightAt(c.x, c.z), c.z]} rotY={c.rot} scale={P * show} walk={c.walk} point={c.point} />
+      ))}
     </group>
   );
 };
 
 export const World: React.FC = () => {
   const frame = useCurrentFrame();
+  const k = sceneIdx(frame);
+  const dig = clamp(T("ditch.dig", frame, 1), 0, 1);
+  const chalk = clamp(T("ditch.chalk", frame), 0, 1);
+  const cut = clamp(T("pit.cut", frame), 0, 1);
+  const clip = useMemo(() => [new THREE.Plane(new THREE.Vector3(-1, 0, 0), 12)], []);
+  clip[0].constant = 1e5; // corte por plano desativado (vala de rampa vista de cima)
+  void cut;
+  // quantiza para não reconstruir a malha do terreno a cada frame sem necessidade
+  const dq = Math.round(dig * 40) / 40;
+  const cq = Math.round(chalk * 40) / 40;
+  const built = clamp(T("monument.built", frame, 1), 0, 1);
+  const ruin = clamp(T("monument.ruin", frame), 0, 1);
+  const ghost = clamp(T("ghost.show", frame), 0, 1);
+  const heel = clamp(T("heel.show", frame, 1), 0, 1);
+  const glow = clamp(T("lintels.glow", frame), 0, 1);
+  const axis = clamp(T("axis.show", frame), 0, 1);
+  const phase = T("sun.phase", frame, 0.5);
+  const rise = clamp(T("sun.rise", frame), 0, 1);
+  const set = clamp(T("sun.set", frame), 0, 1);
+  const rays = clamp(T("sunRays.show", frame), 0, 1);
+  const personRef = clamp(T("personRef.show", frame), 0, 1);
+  const pre = k >= 5;
   return (
     <group>
-      <Column x={0} yOf={depthY} frame={frame} />
-      <Surface frame={frame} />
-      <Particles frame={frame} />
-      <Creatures frame={frame} />
-      <Pod frame={frame} />
-      <RealColumn frame={frame} />
+      <group scale={U}>
+        <Ground dig={dq} chalk={cq} clip={clip} />
+        <Strata />
+        <Grass dig={dq} clip={clip} />
+        {TREES.map(([x, z], i) => (
+          <Tree key={i} position={[x, heightAt(x, z), z]} s={1.4 + (i % 2) * 0.4} seed={i} />
+        ))}
+        {SHEEP.map(([x, z, r], i) => (
+          <Sheep key={i} frame={frame} position={[x, heightAt(x, z), z]} rotY={r} seed={i} />
+        ))}
+        <Cremations show={clamp(T("cremations.show", frame), 0, 1)} />
+        <Monument built={built} ruin={ruin} ghost={ghost} heel={heel} glow={glow} skipUp={pre ? WS_UP : []} skipLin={pre ? WS_LIN : []} />
+        <WorkSite frame={frame} k={k} clip={clip} />
+        <Crew frame={frame} />
+        {personRef > 0.01 && k === 0 ? <Person {...LOOKS[3]} frame={frame} position={[5.2, 0, 16.9]} rotY={0.55} scale={P * personRef} seed={3} /> : null}
+        {axis > 0.01 ? (
+          <mesh position={[0, 0.3, 0]}>
+            <boxGeometry args={[R * 2 * axis, 0.08, 0.3]} />
+            <meshBasicMaterial color="#d9ccff" transparent opacity={0.6} />
+          </mesh>
+        ) : null}
+        {/* raios do pôr do sol atravessando o monumento (−x → +x) */}
+        {rays > 0.01 ? (
+          <group>
+            {[-2.2, 0, 2.2].map((z, i) => (
+              <mesh key={i} position={[0, 2.4, z]} rotation={[0, 0, Math.PI / 2]}>
+                <cylinderGeometry args={[0.6, 1.6, 60, 8, 1, true]} />
+                <meshBasicMaterial color="#ffb070" transparent opacity={0.12 * rays} blending={THREE.AdditiveBlending} depthWrite={false} side={THREE.DoubleSide} />
+              </mesh>
+            ))}
+          </group>
+        ) : null}
+      </group>
+      {/* Sol: nascente de verão a +x (um pouco à esquerda do Calcanhar), poente de inverno a −x */}
+      {phase < 0.3 ? <Sun position={[44, lerp(-1.4, 1.1, rise), -0.8]} color="#ffcf7a" size={1.3} glow={1 - phase / 0.3} /> : null}
+      {phase > 0.7 ? <Sun position={[-44, lerp(1.4, 0.35, set), 0]} color="#ff9a52" size={1.3} glow={(phase - 0.7) / 0.3} /> : null}
+      <RoundPedestal />
+      <MascotFromTracks />
     </group>
   );
 };

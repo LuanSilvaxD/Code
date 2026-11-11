@@ -93,8 +93,8 @@ export const Sarsen: React.FC<{ h?: number; w?: number; d?: number; seed?: numbe
 };
 
 /** Lintel curvo do anel externo: setor de coroa circular (raio médio R) extrudado na vertical. Buracos embaixo, lingueta/ranhura nas pontas. */
-export const Lintel: React.FC<{ R?: number; arcDeg?: number; h?: number; d?: number; curved?: number; mortises?: boolean; joints?: boolean; color?: string }> = ({
-  R = 15, arcDeg = 12, h = 0.8, d = 1.05, curved = 1, mortises = true, joints = true, color = C.sarsen,
+export const Lintel: React.FC<{ R?: number; arcDeg?: number; h?: number; d?: number; curved?: number; mortises?: boolean; joints?: boolean; color?: string; glow?: number }> = ({
+  R = 15, arcDeg = 12, h = 0.8, d = 1.05, curved = 1, mortises = true, joints = true, color = C.sarsen, glow = 0,
 }) => {
   const geo = useMemo(() => {
     const a = ((arcDeg * Math.PI) / 180) / 2;
@@ -127,11 +127,11 @@ export const Lintel: React.FC<{ R?: number; arcDeg?: number; h?: number; d?: num
   return (
     <group>
       <mesh geometry={geo.g} castShadow receiveShadow>
-        <meshStandardMaterial color={color} roughness={0.95} flatShading side={THREE.DoubleSide} />
+        <meshStandardMaterial color={color} roughness={0.95} flatShading side={THREE.DoubleSide} emissive="#c4b5fd" emissiveIntensity={0.55 * glow} />
       </mesh>
       {mortises
         ? [-1, 1].map((sx) => (
-            <mesh key={sx} position={[sx * geo.half * 0.72, -0.004, 0]} rotation={[Math.PI / 2, 0, 0]}>
+            <mesh key={sx} position={[sx * geo.half * 0.665, -0.004, 0]} rotation={[Math.PI / 2, 0, 0]}>
               <circleGeometry args={[0.24, 10]} />
               <meshBasicMaterial color={C.mortise} side={THREE.DoubleSide} />
             </mesh>

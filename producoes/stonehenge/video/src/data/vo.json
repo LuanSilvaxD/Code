@@ -1,2196 +1,2216 @@
 {
   "s1": {
-    "text": "O Monte Everest inteiro cabe no ponto mais fundo do oceano, e ainda sobram dois quilômetros de água por cima. Vamos descer até lá?",
-    "seconds": 8.489,
+    "text": "Pedras de vinte e cinco toneladas, de pé, em círculo, com outras deitadas por cima. E tudo isso há quatro mil e quinhentos anos, só com pedra, madeira e corda. Como construíram Stonehenge?",
+    "seconds": 12.913,
     "words": [
       {
-        "text": "O",
+        "text": "Pedras",
         "start": 0,
-        "end": 0.039
-      },
-      {
-        "text": "Monte",
-        "start": 0.051,
-        "end": 0.476
-      },
-      {
-        "text": "Everest",
-        "start": 0.489,
-        "end": 0.889
-      },
-      {
-        "text": "inteiro",
-        "start": 0.901,
-        "end": 1.252
-      },
-      {
-        "text": "cabe",
-        "start": 1.264,
-        "end": 1.564
-      },
-      {
-        "text": "no",
-        "start": 1.577,
-        "end": 1.702
-      },
-      {
-        "text": "ponto",
-        "start": 1.714,
-        "end": 2.027
-      },
-      {
-        "text": "mais",
-        "start": 2.039,
-        "end": 2.239
-      },
-      {
-        "text": "fundo",
-        "start": 2.252,
-        "end": 2.564
-      },
-      {
-        "text": "do",
-        "start": 2.576,
-        "end": 2.651
-      },
-      {
-        "text": "oceano",
-        "start": 2.664,
-        "end": 3.164
-      },
-      {
-        "text": "e",
-        "start": 3.564,
-        "end": 3.676
-      },
-      {
-        "text": "ainda",
-        "start": 3.689,
-        "end": 4.001
-      },
-      {
-        "text": "sobram",
-        "start": 4.014,
-        "end": 4.439
-      },
-      {
-        "text": "dois",
-        "start": 4.451,
-        "end": 4.751
-      },
-      {
-        "text": "quilômetros",
-        "start": 4.764,
-        "end": 5.326
+        "end": 0.32
       },
       {
         "text": "de",
-        "start": 5.339,
-        "end": 5.427
+        "start": 0.332,
+        "end": 0.416
       },
       {
-        "text": "água",
-        "start": 5.439,
-        "end": 5.714
+        "text": "vinte",
+        "start": 0.428,
+        "end": 0.668
+      },
+      {
+        "text": "e",
+        "start": 0.68,
+        "end": 0.704
+      },
+      {
+        "text": "cinco",
+        "start": 0.716,
+        "end": 0.993
+      },
+      {
+        "text": "toneladas",
+        "start": 1.005,
+        "end": 1.666
+      },
+      {
+        "text": "de",
+        "start": 1.918,
+        "end": 2.038
+      },
+      {
+        "text": "pé",
+        "start": 2.05,
+        "end": 2.339
+      },
+      {
+        "text": "em",
+        "start": 2.435,
+        "end": 2.543
+      },
+      {
+        "text": "círculo",
+        "start": 2.555,
+        "end": 3.06
+      },
+      {
+        "text": "com",
+        "start": 3.349,
+        "end": 3.577
+      },
+      {
+        "text": "outras",
+        "start": 3.589,
+        "end": 3.889
+      },
+      {
+        "text": "deitadas",
+        "start": 3.901,
+        "end": 4.454
       },
       {
         "text": "por",
-        "start": 5.727,
-        "end": 5.877
+        "start": 4.466,
+        "end": 4.623
       },
       {
         "text": "cima",
-        "start": 5.889,
-        "end": 6.289
+        "start": 4.635,
+        "end": 5.019
       },
       {
-        "text": "Vamos",
-        "start": 7.151,
-        "end": 7.539
+        "text": "E",
+        "start": 5.847,
+        "end": 5.967
       },
       {
-        "text": "descer",
-        "start": 7.552,
-        "end": 7.889
+        "text": "tudo",
+        "start": 5.979,
+        "end": 6.291
       },
       {
-        "text": "até",
-        "start": 7.901,
-        "end": 8.114
+        "text": "isso",
+        "start": 6.303,
+        "end": 6.532
       },
       {
-        "text": "lá",
-        "start": 8.126,
-        "end": 8.401
+        "text": "há",
+        "start": 6.544,
+        "end": 6.58
+      },
+      {
+        "text": "quatro",
+        "start": 6.592,
+        "end": 6.94
+      },
+      {
+        "text": "mil",
+        "start": 6.952,
+        "end": 7.109
+      },
+      {
+        "text": "e",
+        "start": 7.121,
+        "end": 7.157
+      },
+      {
+        "text": "quinhentos",
+        "start": 7.169,
+        "end": 7.674
+      },
+      {
+        "text": "anos",
+        "start": 7.686,
+        "end": 8.13
+      },
+      {
+        "text": "só",
+        "start": 8.359,
+        "end": 8.575
+      },
+      {
+        "text": "com",
+        "start": 8.587,
+        "end": 8.779
+      },
+      {
+        "text": "pedra",
+        "start": 8.791,
+        "end": 9.164
+      },
+      {
+        "text": "madeira",
+        "start": 9.38,
+        "end": 9.777
+      },
+      {
+        "text": "e",
+        "start": 9.789,
+        "end": 9.837
+      },
+      {
+        "text": "corda",
+        "start": 9.849,
+        "end": 10.258
+      },
+      {
+        "text": "Como",
+        "start": 11.087,
+        "end": 11.436
+      },
+      {
+        "text": "construíram",
+        "start": 11.448,
+        "end": 12.085
+      },
+      {
+        "text": "Stonehenge",
+        "start": 12.097,
+        "end": 12.842
       }
     ]
   },
   "s2": {
-    "text": "Os primeiros duzentos metros são a zona do sol, a única parte bem iluminada. É aqui que vive a maior parte da vida marinha que você conhece: tartarugas, golfinhos e cardumes.",
-    "seconds": 11.266,
+    "text": "No começo, por volta de três mil anos antes de Cristo, era só uma vala redonda com um barranco de terra, no sul da Inglaterra. E ali já se enterravam as cinzas dos mortos.",
+    "seconds": 10.699,
     "words": [
       {
-        "text": "Os",
+        "text": "No",
         "start": 0,
-        "end": 0.126
+        "end": 0.143
       },
       {
-        "text": "primeiros",
-        "start": 0.139,
-        "end": 0.564
+        "text": "começo",
+        "start": 0.155,
+        "end": 0.648
       },
       {
-        "text": "duzentos",
-        "start": 0.577,
-        "end": 1.102
+        "text": "por",
+        "start": 0.937,
+        "end": 1.081
       },
       {
-        "text": "metros",
-        "start": 1.114,
-        "end": 1.539
+        "text": "volta",
+        "start": 1.093,
+        "end": 1.441
       },
       {
-        "text": "são",
-        "start": 1.551,
-        "end": 1.726
+        "text": "de",
+        "start": 1.453,
+        "end": 1.586
       },
       {
-        "text": "a",
-        "start": 1.739,
-        "end": 1.777
+        "text": "três",
+        "start": 1.598,
+        "end": 1.886
       },
       {
-        "text": "zona",
-        "start": 1.789,
-        "end": 2.102
+        "text": "mil",
+        "start": 1.898,
+        "end": 2.127
       },
       {
-        "text": "do",
-        "start": 2.114,
-        "end": 2.214
+        "text": "anos",
+        "start": 2.139,
+        "end": 2.355
       },
       {
-        "text": "sol",
-        "start": 2.227,
-        "end": 2.589
+        "text": "antes",
+        "start": 2.367,
+        "end": 2.679
       },
       {
-        "text": "a",
-        "start": 2.789,
-        "end": 2.889
+        "text": "de",
+        "start": 2.691,
+        "end": 2.776
       },
       {
-        "text": "única",
-        "start": 2.901,
-        "end": 3.326
+        "text": "Cristo",
+        "start": 2.788,
+        "end": 3.256
       },
       {
-        "text": "parte",
-        "start": 3.339,
-        "end": 3.701
+        "text": "era",
+        "start": 3.557,
+        "end": 3.725
       },
       {
-        "text": "bem",
-        "start": 3.714,
-        "end": 3.977
+        "text": "só",
+        "start": 3.737,
+        "end": 3.893
       },
       {
-        "text": "iluminada",
-        "start": 3.989,
-        "end": 4.577
+        "text": "uma",
+        "start": 3.905,
+        "end": 4.062
       },
       {
-        "text": "É",
-        "start": 5.439,
-        "end": 5.576
+        "text": "vala",
+        "start": 4.074,
+        "end": 4.278
       },
       {
-        "text": "aqui",
-        "start": 5.589,
+        "text": "redonda",
+        "start": 4.29,
+        "end": 4.735
+      },
+      {
+        "text": "com",
+        "start": 4.747,
+        "end": 4.879
+      },
+      {
+        "text": "um",
+        "start": 4.891,
+        "end": 4.951
+      },
+      {
+        "text": "barranco",
+        "start": 4.963,
+        "end": 5.408
+      },
+      {
+        "text": "de",
+        "start": 5.42,
+        "end": 5.564
+      },
+      {
+        "text": "terra",
+        "start": 5.576,
         "end": 5.864
       },
       {
-        "text": "que",
-        "start": 5.876,
-        "end": 6.014
+        "text": "no",
+        "start": 6.117,
+        "end": 6.225
       },
       {
-        "text": "vive",
-        "start": 6.027,
-        "end": 6.264
-      },
-      {
-        "text": "a",
-        "start": 6.277,
-        "end": 6.302
-      },
-      {
-        "text": "maior",
-        "start": 6.314,
-        "end": 6.601
-      },
-      {
-        "text": "parte",
-        "start": 6.614,
-        "end": 6.964
+        "text": "sul",
+        "start": 6.237,
+        "end": 6.49
       },
       {
         "text": "da",
-        "start": 6.977,
-        "end": 7.089
+        "start": 6.502,
+        "end": 6.598
       },
       {
-        "text": "vida",
-        "start": 7.102,
-        "end": 7.339
+        "text": "Inglaterra",
+        "start": 6.61,
+        "end": 7.211
       },
       {
-        "text": "marinha",
-        "start": 7.352,
-        "end": 7.739
+        "text": "E",
+        "start": 8.038,
+        "end": 8.158
       },
       {
-        "text": "que",
-        "start": 7.751,
-        "end": 7.864
+        "text": "ali",
+        "start": 8.17,
+        "end": 8.435
       },
       {
-        "text": "você",
-        "start": 7.876,
-        "end": 8.139
+        "text": "já",
+        "start": 8.447,
+        "end": 8.615
       },
       {
-        "text": "conhece",
-        "start": 8.151,
-        "end": 8.714
+        "text": "se",
+        "start": 8.627,
+        "end": 8.747
       },
       {
-        "text": "tartarugas",
-        "start": 8.901,
-        "end": 9.651
+        "text": "enterravam",
+        "start": 8.759,
+        "end": 9.324
       },
       {
-        "text": "golfinhos",
-        "start": 9.889,
-        "end": 10.389
+        "text": "as",
+        "start": 9.336,
+        "end": 9.468
       },
       {
-        "text": "e",
-        "start": 10.401,
-        "end": 10.514
+        "text": "cinzas",
+        "start": 9.48,
+        "end": 9.865
       },
       {
-        "text": "cardumes",
-        "start": 10.527,
-        "end": 11.177
+        "text": "dos",
+        "start": 9.877,
+        "end": 10.069
+      },
+      {
+        "text": "mortos",
+        "start": 10.081,
+        "end": 10.61
       }
     ]
   },
   "s3": {
-    "text": "E também algas microscópicas. Elas fazem fotossíntese como as plantas, e o oceano produz cerca de metade do oxigênio do planeta.",
-    "seconds": 8.916,
+    "text": "Uns quinhentos anos depois, começa o difícil. Primeiro problema: de onde tirar pedras tão grandes? As gigantes, chamadas sarsens, vieram de uns vinte e cinco quilômetros ao norte.",
+    "seconds": 12.419,
     "words": [
       {
-        "text": "E",
+        "text": "Uns",
         "start": 0,
-        "end": 0.058
+        "end": 0.182
       },
       {
-        "text": "também",
-        "start": 0.07,
-        "end": 0.482
+        "text": "quinhentos",
+        "start": 0.194,
+        "end": 0.747
       },
       {
-        "text": "algas",
-        "start": 0.495,
-        "end": 0.87
+        "text": "anos",
+        "start": 0.759,
+        "end": 1.072
       },
       {
-        "text": "microscópicas",
-        "start": 0.883,
-        "end": 1.933
+        "text": "depois",
+        "start": 1.084,
+        "end": 1.553
       },
       {
-        "text": "Elas",
-        "start": 2.795,
-        "end": 3.157
-      },
-      {
-        "text": "fazem",
-        "start": 3.17,
-        "end": 3.495
-      },
-      {
-        "text": "fotossíntese",
-        "start": 3.508,
-        "end": 4.27
-      },
-      {
-        "text": "como",
-        "start": 4.283,
-        "end": 4.483
-      },
-      {
-        "text": "as",
-        "start": 4.495,
-        "end": 4.608
-      },
-      {
-        "text": "plantas",
-        "start": 4.62,
-        "end": 5.145
-      },
-      {
-        "text": "e",
-        "start": 5.445,
-        "end": 5.533
+        "text": "começa",
+        "start": 1.769,
+        "end": 2.25
       },
       {
         "text": "o",
-        "start": 5.545,
-        "end": 5.582
+        "start": 2.262,
+        "end": 2.286
       },
       {
-        "text": "oceano",
-        "start": 5.595,
-        "end": 6.108
+        "text": "difícil",
+        "start": 2.298,
+        "end": 2.839
       },
       {
-        "text": "produz",
-        "start": 6.12,
-        "end": 6.545
+        "text": "Primeiro",
+        "start": 3.666,
+        "end": 4.039
       },
       {
-        "text": "cerca",
-        "start": 6.558,
-        "end": 6.883
+        "text": "problema",
+        "start": 4.051,
+        "end": 4.543
       },
       {
         "text": "de",
-        "start": 6.895,
-        "end": 6.983
+        "start": 4.796,
+        "end": 4.94
       },
       {
-        "text": "metade",
-        "start": 6.995,
-        "end": 7.445
+        "text": "onde",
+        "start": 4.952,
+        "end": 5.229
       },
       {
-        "text": "do",
-        "start": 7.457,
-        "end": 7.533
+        "text": "tirar",
+        "start": 5.241,
+        "end": 5.541
       },
       {
-        "text": "oxigênio",
-        "start": 7.545,
-        "end": 8.195
+        "text": "pedras",
+        "start": 5.553,
+        "end": 5.938
       },
       {
-        "text": "do",
-        "start": 8.208,
-        "end": 8.295
+        "text": "tão",
+        "start": 5.95,
+        "end": 6.13
       },
       {
-        "text": "planeta",
-        "start": 8.308,
-        "end": 8.833
+        "text": "grandes",
+        "start": 6.142,
+        "end": 6.695
+      },
+      {
+        "text": "As",
+        "start": 7.524,
+        "end": 7.717
+      },
+      {
+        "text": "gigantes",
+        "start": 7.729,
+        "end": 8.354
+      },
+      {
+        "text": "chamadas",
+        "start": 8.57,
+        "end": 9.123
+      },
+      {
+        "text": "sarsens",
+        "start": 9.135,
+        "end": 9.676
+      },
+      {
+        "text": "vieram",
+        "start": 9.88,
+        "end": 10.313
+      },
+      {
+        "text": "de",
+        "start": 10.325,
+        "end": 10.421
+      },
+      {
+        "text": "uns",
+        "start": 10.433,
+        "end": 10.637
+      },
+      {
+        "text": "vinte",
+        "start": 10.649,
+        "end": 10.878
+      },
+      {
+        "text": "e",
+        "start": 10.89,
+        "end": 10.914
+      },
+      {
+        "text": "cinco",
+        "start": 10.926,
+        "end": 11.202
+      },
+      {
+        "text": "quilômetros",
+        "start": 11.214,
+        "end": 11.743
+      },
+      {
+        "text": "ao",
+        "start": 11.755,
+        "end": 11.899
+      },
+      {
+        "text": "norte",
+        "start": 11.911,
+        "end": 12.344
       }
     ]
   },
   "s4": {
-    "text": "Só que a luz não desce inteira. O vermelho é a primeira cor que a água apaga, por isso, quanto mais fundo, mais tudo fica azul.",
-    "seconds": 8.196,
+    "text": "Já as pedras azuis, menores, vieram das colinas de Preseli, no País de Gales: mais de duzentos quilômetros. Cada uma pesa de duas a cinco toneladas.",
+    "seconds": 10.141,
     "words": [
       {
-        "text": "Só",
+        "text": "Já",
         "start": 0,
-        "end": 0.259
+        "end": 0.171
       },
       {
-        "text": "que",
-        "start": 0.271,
-        "end": 0.371
+        "text": "as",
+        "start": 0.183,
+        "end": 0.328
       },
       {
-        "text": "a",
-        "start": 0.383,
-        "end": 0.421
+        "text": "pedras",
+        "start": 0.34,
+        "end": 0.628
       },
       {
-        "text": "luz",
-        "start": 0.434,
-        "end": 0.684
+        "text": "azuis",
+        "start": 0.64,
+        "end": 1.193
       },
       {
-        "text": "não",
-        "start": 0.696,
-        "end": 0.871
+        "text": "menores",
+        "start": 1.385,
+        "end": 1.962
       },
       {
-        "text": "desce",
-        "start": 0.883,
-        "end": 1.146
+        "text": "vieram",
+        "start": 2.203,
+        "end": 2.551
       },
       {
-        "text": "inteira",
-        "start": 1.158,
-        "end": 1.621
+        "text": "das",
+        "start": 2.563,
+        "end": 2.731
       },
       {
-        "text": "O",
-        "start": 2.484,
-        "end": 2.584
+        "text": "colinas",
+        "start": 2.744,
+        "end": 3.14
       },
       {
-        "text": "vermelho",
-        "start": 2.596,
-        "end": 3.133
+        "text": "de",
+        "start": 3.152,
+        "end": 3.224
       },
       {
-        "text": "é",
-        "start": 3.146,
-        "end": 3.221
+        "text": "Preseli",
+        "start": 3.236,
+        "end": 3.741
       },
       {
-        "text": "a",
-        "start": 3.234,
-        "end": 3.271
+        "text": "no",
+        "start": 3.994,
+        "end": 4.114
       },
       {
-        "text": "primeira",
-        "start": 3.283,
-        "end": 3.621
+        "text": "País",
+        "start": 4.126,
+        "end": 4.462
       },
       {
-        "text": "cor",
-        "start": 3.633,
-        "end": 3.896
+        "text": "de",
+        "start": 4.474,
+        "end": 4.558
       },
       {
-        "text": "que",
-        "start": 3.909,
-        "end": 4.009
-      },
-      {
-        "text": "a",
-        "start": 4.021,
-        "end": 4.058
-      },
-      {
-        "text": "água",
-        "start": 4.071,
-        "end": 4.308
-      },
-      {
-        "text": "apaga",
-        "start": 4.321,
-        "end": 4.759
-      },
-      {
-        "text": "por",
-        "start": 4.983,
-        "end": 5.146
-      },
-      {
-        "text": "isso",
-        "start": 5.159,
-        "end": 5.496
-      },
-      {
-        "text": "quanto",
-        "start": 5.709,
-        "end": 6.021
+        "text": "Gales",
+        "start": 4.57,
+        "end": 5.027
       },
       {
         "text": "mais",
-        "start": 6.034,
-        "end": 6.259
+        "start": 5.244,
+        "end": 5.472
       },
       {
-        "text": "fundo",
-        "start": 6.271,
-        "end": 6.646
+        "text": "de",
+        "start": 5.484,
+        "end": 5.544
       },
       {
-        "text": "mais",
-        "start": 6.883,
-        "end": 7.183
+        "text": "duzentos",
+        "start": 5.556,
+        "end": 6.073
       },
       {
-        "text": "tudo",
-        "start": 7.196,
-        "end": 7.509
+        "text": "quilômetros",
+        "start": 6.085,
+        "end": 6.734
       },
       {
-        "text": "fica",
-        "start": 7.521,
-        "end": 7.759
+        "text": "Cada",
+        "start": 7.561,
+        "end": 7.826
       },
       {
-        "text": "azul",
-        "start": 7.771,
-        "end": 8.108
+        "text": "uma",
+        "start": 7.838,
+        "end": 8.066
+      },
+      {
+        "text": "pesa",
+        "start": 8.078,
+        "end": 8.427
+      },
+      {
+        "text": "de",
+        "start": 8.439,
+        "end": 8.547
+      },
+      {
+        "text": "duas",
+        "start": 8.559,
+        "end": 8.823
+      },
+      {
+        "text": "a",
+        "start": 8.835,
+        "end": 8.968
+      },
+      {
+        "text": "cinco",
+        "start": 8.98,
+        "end": 9.328
+      },
+      {
+        "text": "toneladas",
+        "start": 9.34,
+        "end": 10.049
       }
     ]
   },
   "s5": {
-    "text": "E a pressão aumenta rápido: a cada dez metros, ela sobe o peso de uma atmosfera inteira. Um copinho de isopor que desce bem fundo volta todo encolhido.",
-    "seconds": 9.489,
+    "text": "E em 2024 descobriram que a Pedra do Altar, de umas seis toneladas, veio do norte da Escócia: no mínimo setecentos e cinquenta quilômetros.",
+    "seconds": 8.653,
     "words": [
       {
         "text": "E",
         "start": 0,
-        "end": 0.039
+        "end": 0.042
       },
       {
-        "text": "a",
-        "start": 0.051,
-        "end": 0.126
+        "text": "em",
+        "start": 0.054,
+        "end": 0.595
       },
       {
-        "text": "pressão",
-        "start": 0.139,
-        "end": 0.551
+        "text": "2024",
+        "start": 0.595,
+        "end": 1.136
       },
       {
-        "text": "aumenta",
-        "start": 0.564,
-        "end": 0.939
-      },
-      {
-        "text": "rápido",
-        "start": 0.952,
-        "end": 1.439
-      },
-      {
-        "text": "a",
-        "start": 1.702,
-        "end": 1.802
-      },
-      {
-        "text": "cada",
-        "start": 1.814,
-        "end": 2.064
-      },
-      {
-        "text": "dez",
-        "start": 2.076,
-        "end": 2.326
-      },
-      {
-        "text": "metros",
-        "start": 2.339,
-        "end": 2.814
-      },
-      {
-        "text": "ela",
-        "start": 3.039,
-        "end": 3.227
-      },
-      {
-        "text": "sobe",
-        "start": 3.239,
-        "end": 3.539
-      },
-      {
-        "text": "o",
-        "start": 3.551,
-        "end": 3.589
-      },
-      {
-        "text": "peso",
-        "start": 3.602,
-        "end": 3.939
-      },
-      {
-        "text": "de",
-        "start": 3.951,
-        "end": 4.039
-      },
-      {
-        "text": "uma",
-        "start": 4.052,
-        "end": 4.151
-      },
-      {
-        "text": "atmosfera",
-        "start": 4.164,
-        "end": 4.689
-      },
-      {
-        "text": "inteira",
-        "start": 4.701,
-        "end": 5.164
-      },
-      {
-        "text": "Um",
-        "start": 6.027,
-        "end": 6.201
-      },
-      {
-        "text": "copinho",
-        "start": 6.214,
-        "end": 6.664
-      },
-      {
-        "text": "de",
-        "start": 6.677,
-        "end": 6.752
-      },
-      {
-        "text": "isopor",
-        "start": 6.764,
-        "end": 7.227
+        "text": "descobriram",
+        "start": 1.148,
+        "end": 1.749
       },
       {
         "text": "que",
-        "start": 7.239,
-        "end": 7.364
+        "start": 1.761,
+        "end": 1.845
       },
       {
-        "text": "desce",
-        "start": 7.376,
-        "end": 7.639
+        "text": "a",
+        "start": 1.857,
+        "end": 1.941
       },
       {
-        "text": "bem",
-        "start": 7.651,
-        "end": 7.851
+        "text": "Pedra",
+        "start": 1.953,
+        "end": 2.278
       },
       {
-        "text": "fundo",
-        "start": 7.864,
-        "end": 8.164
+        "text": "do",
+        "start": 2.29,
+        "end": 2.374
       },
       {
-        "text": "volta",
-        "start": 8.177,
-        "end": 8.552
+        "text": "Altar",
+        "start": 2.386,
+        "end": 2.783
       },
       {
-        "text": "todo",
-        "start": 8.564,
-        "end": 8.839
+        "text": "de",
+        "start": 3.023,
+        "end": 3.131
       },
       {
-        "text": "encolhido",
-        "start": 8.851,
-        "end": 9.389
+        "text": "umas",
+        "start": 3.143,
+        "end": 3.384
+      },
+      {
+        "text": "seis",
+        "start": 3.396,
+        "end": 3.648
+      },
+      {
+        "text": "toneladas",
+        "start": 3.66,
+        "end": 4.345
+      },
+      {
+        "text": "veio",
+        "start": 4.574,
+        "end": 4.862
+      },
+      {
+        "text": "do",
+        "start": 4.874,
+        "end": 4.97
+      },
+      {
+        "text": "norte",
+        "start": 4.982,
+        "end": 5.331
+      },
+      {
+        "text": "da",
+        "start": 5.343,
+        "end": 5.415
+      },
+      {
+        "text": "Escócia",
+        "start": 5.427,
+        "end": 5.92
+      },
+      {
+        "text": "no",
+        "start": 6.196,
+        "end": 6.292
+      },
+      {
+        "text": "mínimo",
+        "start": 6.304,
+        "end": 6.665
+      },
+      {
+        "text": "setecentos",
+        "start": 6.677,
+        "end": 7.314
+      },
+      {
+        "text": "e",
+        "start": 7.326,
+        "end": 7.422
+      },
+      {
+        "text": "cinquenta",
+        "start": 7.434,
+        "end": 7.879
+      },
+      {
+        "text": "quilômetros",
+        "start": 7.891,
+        "end": 8.564
       }
     ]
   },
   "s6": {
-    "text": "De duzentos a mil metros fica a zona do crepúsculo, só com um restinho de luz azul. Muitos peixes daqui têm olhos enormes e luzinhas na barriga, para sumir contra a claridade de cima.",
-    "seconds": 11.437,
+    "text": "Segundo problema: como arrastar vinte e cinco toneladas? A hipótese mais aceita é um trenó de madeira deslizando sobre trilhos de troncos, puxado com cordas por muita gente.",
+    "seconds": 10.36,
     "words": [
       {
-        "text": "De",
+        "text": "Segundo",
         "start": 0,
-        "end": 0.133
+        "end": 0.453
       },
       {
-        "text": "duzentos",
-        "start": 0.146,
-        "end": 0.633
+        "text": "problema",
+        "start": 0.465,
+        "end": 0.934
       },
       {
-        "text": "a",
-        "start": 0.646,
-        "end": 0.784
+        "text": "como",
+        "start": 1.246,
+        "end": 1.499
       },
       {
-        "text": "mil",
-        "start": 0.796,
-        "end": 0.971
+        "text": "arrastar",
+        "start": 1.511,
+        "end": 1.967
       },
       {
-        "text": "metros",
-        "start": 0.983,
-        "end": 1.396
-      },
-      {
-        "text": "fica",
-        "start": 1.408,
-        "end": 1.658
-      },
-      {
-        "text": "a",
-        "start": 1.671,
-        "end": 1.696
-      },
-      {
-        "text": "zona",
-        "start": 1.709,
-        "end": 2.021
-      },
-      {
-        "text": "do",
-        "start": 2.034,
-        "end": 2.134
-      },
-      {
-        "text": "crepúsculo",
-        "start": 2.146,
-        "end": 2.796
-      },
-      {
-        "text": "só",
-        "start": 3.058,
-        "end": 3.271
-      },
-      {
-        "text": "com",
-        "start": 3.284,
-        "end": 3.433
-      },
-      {
-        "text": "um",
-        "start": 3.446,
-        "end": 3.521
-      },
-      {
-        "text": "restinho",
-        "start": 3.534,
-        "end": 4.021
-      },
-      {
-        "text": "de",
-        "start": 4.034,
-        "end": 4.121
-      },
-      {
-        "text": "luz",
-        "start": 4.133,
-        "end": 4.296
-      },
-      {
-        "text": "azul",
-        "start": 4.309,
-        "end": 4.759
-      },
-      {
-        "text": "Muitos",
-        "start": 5.621,
-        "end": 6.059
-      },
-      {
-        "text": "peixes",
-        "start": 6.071,
-        "end": 6.458
-      },
-      {
-        "text": "daqui",
-        "start": 6.471,
-        "end": 6.758
-      },
-      {
-        "text": "têm",
-        "start": 6.771,
-        "end": 6.946
-      },
-      {
-        "text": "olhos",
-        "start": 6.958,
-        "end": 7.208
-      },
-      {
-        "text": "enormes",
-        "start": 7.221,
-        "end": 7.696
+        "text": "vinte",
+        "start": 1.979,
+        "end": 2.22
       },
       {
         "text": "e",
-        "start": 7.708,
-        "end": 7.808
+        "start": 2.232,
+        "end": 2.256
       },
       {
-        "text": "luzinhas",
-        "start": 7.821,
-        "end": 8.321
+        "text": "cinco",
+        "start": 2.268,
+        "end": 2.568
       },
       {
-        "text": "na",
-        "start": 8.334,
-        "end": 8.421
+        "text": "toneladas",
+        "start": 2.58,
+        "end": 3.277
       },
       {
-        "text": "barriga",
-        "start": 8.434,
-        "end": 8.921
+        "text": "A",
+        "start": 4.105,
+        "end": 4.225
       },
       {
-        "text": "para",
-        "start": 9.184,
-        "end": 9.396
+        "text": "hipótese",
+        "start": 4.237,
+        "end": 4.718
       },
       {
-        "text": "sumir",
-        "start": 9.408,
-        "end": 9.796
+        "text": "mais",
+        "start": 4.73,
+        "end": 4.898
       },
       {
-        "text": "contra",
-        "start": 9.809,
-        "end": 10.158
+        "text": "aceita",
+        "start": 4.91,
+        "end": 5.355
       },
       {
-        "text": "a",
-        "start": 10.171,
-        "end": 10.196
+        "text": "é",
+        "start": 5.367,
+        "end": 5.391
       },
       {
-        "text": "claridade",
-        "start": 10.209,
-        "end": 10.796
+        "text": "um",
+        "start": 5.403,
+        "end": 5.475
+      },
+      {
+        "text": "trenó",
+        "start": 5.487,
+        "end": 5.788
       },
       {
         "text": "de",
-        "start": 10.809,
-        "end": 10.921
+        "start": 5.8,
+        "end": 5.908
       },
       {
-        "text": "cima",
-        "start": 10.934,
-        "end": 11.334
+        "text": "madeira",
+        "start": 5.92,
+        "end": 6.28
+      },
+      {
+        "text": "deslizando",
+        "start": 6.292,
+        "end": 6.809
+      },
+      {
+        "text": "sobre",
+        "start": 6.821,
+        "end": 7.11
+      },
+      {
+        "text": "trilhos",
+        "start": 7.122,
+        "end": 7.446
+      },
+      {
+        "text": "de",
+        "start": 7.458,
+        "end": 7.566
+      },
+      {
+        "text": "troncos",
+        "start": 7.578,
+        "end": 8.011
+      },
+      {
+        "text": "puxado",
+        "start": 8.263,
+        "end": 8.732
+      },
+      {
+        "text": "com",
+        "start": 8.744,
+        "end": 8.913
+      },
+      {
+        "text": "cordas",
+        "start": 8.925,
+        "end": 9.345
+      },
+      {
+        "text": "por",
+        "start": 9.357,
+        "end": 9.526
+      },
+      {
+        "text": "muita",
+        "start": 9.538,
+        "end": 9.886
+      },
+      {
+        "text": "gente",
+        "start": 9.898,
+        "end": 10.283
       }
     ]
   },
   "s7": {
-    "text": "E toda noite, bilhões de animais sobem daqui para comer perto da superfície e voltam antes do amanhecer. É a maior migração do planeta, e acontece todo dia.",
-    "seconds": 10.444,
+    "text": "Testes modernos mostram que funciona, mas sempre com pedras bem menores que as maiores de lá. Quantas pessoas e quanto tempo, ninguém sabe ao certo.",
+    "seconds": 9.085,
     "words": [
       {
-        "text": "E",
+        "text": "Testes",
         "start": 0,
-        "end": 0.069
+        "end": 0.321
       },
       {
-        "text": "toda",
-        "start": 0.081,
-        "end": 0.344
+        "text": "modernos",
+        "start": 0.333,
+        "end": 0.85
       },
       {
-        "text": "noite",
-        "start": 0.356,
-        "end": 0.744
+        "text": "mostram",
+        "start": 0.862,
+        "end": 1.306
       },
       {
-        "text": "bilhões",
-        "start": 1.032,
-        "end": 1.532
+        "text": "que",
+        "start": 1.318,
+        "end": 1.414
+      },
+      {
+        "text": "funciona",
+        "start": 1.426,
+        "end": 1.979
+      },
+      {
+        "text": "mas",
+        "start": 2.268,
+        "end": 2.448
+      },
+      {
+        "text": "sempre",
+        "start": 2.46,
+        "end": 2.821
+      },
+      {
+        "text": "com",
+        "start": 2.833,
+        "end": 3.001
+      },
+      {
+        "text": "pedras",
+        "start": 3.013,
+        "end": 3.386
+      },
+      {
+        "text": "bem",
+        "start": 3.398,
+        "end": 3.59
+      },
+      {
+        "text": "menores",
+        "start": 3.602,
+        "end": 4.071
+      },
+      {
+        "text": "que",
+        "start": 4.083,
+        "end": 4.155
+      },
+      {
+        "text": "as",
+        "start": 4.167,
+        "end": 4.263
+      },
+      {
+        "text": "maiores",
+        "start": 4.275,
+        "end": 4.696
       },
       {
         "text": "de",
-        "start": 1.544,
-        "end": 1.606
+        "start": 4.708,
+        "end": 4.804
       },
       {
-        "text": "animais",
-        "start": 1.619,
-        "end": 2.019
+        "text": "lá",
+        "start": 4.816,
+        "end": 5.068
       },
       {
-        "text": "sobem",
-        "start": 2.032,
-        "end": 2.331
+        "text": "Quantas",
+        "start": 5.896,
+        "end": 6.292
       },
       {
-        "text": "daqui",
-        "start": 2.344,
-        "end": 2.656
-      },
-      {
-        "text": "para",
-        "start": 2.669,
-        "end": 2.857
-      },
-      {
-        "text": "comer",
-        "start": 2.869,
-        "end": 3.156
-      },
-      {
-        "text": "perto",
-        "start": 3.169,
-        "end": 3.532
-      },
-      {
-        "text": "da",
-        "start": 3.544,
-        "end": 3.632
-      },
-      {
-        "text": "superfície",
-        "start": 3.644,
-        "end": 4.344
+        "text": "pessoas",
+        "start": 6.304,
+        "end": 6.725
       },
       {
         "text": "e",
-        "start": 4.357,
-        "end": 4.432
+        "start": 6.737,
+        "end": 6.845
       },
       {
-        "text": "voltam",
-        "start": 4.444,
-        "end": 4.906
+        "text": "quanto",
+        "start": 6.857,
+        "end": 7.122
       },
       {
-        "text": "antes",
-        "start": 4.919,
-        "end": 5.206
+        "text": "tempo",
+        "start": 7.134,
+        "end": 7.506
       },
       {
-        "text": "do",
-        "start": 5.219,
-        "end": 5.369
+        "text": "ninguém",
+        "start": 7.747,
+        "end": 8.107
       },
       {
-        "text": "amanhecer",
-        "start": 5.381,
-        "end": 5.969
+        "text": "sabe",
+        "start": 8.119,
+        "end": 8.42
       },
       {
-        "text": "É",
-        "start": 6.831,
-        "end": 6.969
+        "text": "ao",
+        "start": 8.432,
+        "end": 8.528
       },
       {
-        "text": "a",
-        "start": 6.982,
-        "end": 7.019
-      },
-      {
-        "text": "maior",
-        "start": 7.032,
-        "end": 7.381
-      },
-      {
-        "text": "migração",
-        "start": 7.394,
-        "end": 7.919
-      },
-      {
-        "text": "do",
-        "start": 7.932,
-        "end": 8.032
-      },
-      {
-        "text": "planeta",
-        "start": 8.044,
-        "end": 8.619
-      },
-      {
-        "text": "e",
-        "start": 8.906,
-        "end": 8.981
-      },
-      {
-        "text": "acontece",
-        "start": 8.994,
-        "end": 9.644
-      },
-      {
-        "text": "todo",
-        "start": 9.656,
-        "end": 10.006
-      },
-      {
-        "text": "dia",
-        "start": 10.019,
-        "end": 10.332
+        "text": "certo",
+        "start": 8.54,
+        "end": 8.997
       }
     ]
   },
   "s8": {
-    "text": "Passou de mil metros, escuridão total. É a zona da meia-noite: a água fica perto de quatro graus, e a única luz vem dos próprios animais.",
-    "seconds": 9.574,
+    "text": "Terceiro problema: a pedra chegava bruta. Eles batiam nela com martelos de pedra: os grandes lascavam, os pequenos alisavam. Esses martelos foram achados no próprio local.",
+    "seconds": 11.584,
     "words": [
       {
-        "text": "Passou",
+        "text": "Terceiro",
         "start": 0,
-        "end": 0.366
+        "end": 0.385
+      },
+      {
+        "text": "problema",
+        "start": 0.397,
+        "end": 0.902
+      },
+      {
+        "text": "a",
+        "start": 1.13,
+        "end": 1.226
+      },
+      {
+        "text": "pedra",
+        "start": 1.238,
+        "end": 1.575
+      },
+      {
+        "text": "chegava",
+        "start": 1.587,
+        "end": 2.007
+      },
+      {
+        "text": "bruta",
+        "start": 2.019,
+        "end": 2.38
+      },
+      {
+        "text": "Eles",
+        "start": 3.207,
+        "end": 3.436
+      },
+      {
+        "text": "batiam",
+        "start": 3.448,
+        "end": 3.82
+      },
+      {
+        "text": "nela",
+        "start": 3.832,
+        "end": 4.097
+      },
+      {
+        "text": "com",
+        "start": 4.109,
+        "end": 4.229
+      },
+      {
+        "text": "martelos",
+        "start": 4.241,
+        "end": 4.758
       },
       {
         "text": "de",
-        "start": 0.379,
-        "end": 0.492
+        "start": 4.77,
+        "end": 4.878
       },
       {
-        "text": "mil",
-        "start": 0.504,
-        "end": 0.692
+        "text": "pedra",
+        "start": 4.89,
+        "end": 5.263
       },
       {
-        "text": "metros",
-        "start": 0.704,
-        "end": 1.204
+        "text": "os",
+        "start": 5.563,
+        "end": 5.719
       },
       {
-        "text": "escuridão",
-        "start": 1.466,
-        "end": 2.041
+        "text": "grandes",
+        "start": 5.731,
+        "end": 6.152
       },
       {
-        "text": "total",
-        "start": 2.054,
-        "end": 2.541
+        "text": "lascavam",
+        "start": 6.164,
+        "end": 6.717
       },
       {
-        "text": "É",
-        "start": 3.404,
-        "end": 3.567
+        "text": "os",
+        "start": 6.969,
+        "end": 7.066
       },
       {
-        "text": "a",
-        "start": 3.579,
-        "end": 3.641
+        "text": "pequenos",
+        "start": 7.078,
+        "end": 7.462
       },
       {
-        "text": "zona",
-        "start": 3.654,
-        "end": 3.979
+        "text": "alisavam",
+        "start": 7.474,
+        "end": 8.111
       },
       {
-        "text": "da",
-        "start": 3.991,
-        "end": 4.091
+        "text": "Esses",
+        "start": 8.941,
+        "end": 9.241
       },
       {
-        "text": "meia-noite",
-        "start": 4.104,
-        "end": 4.704
+        "text": "martelos",
+        "start": 9.253,
+        "end": 9.818
       },
       {
-        "text": "a",
-        "start": 4.954,
-        "end": 5.042
+        "text": "foram",
+        "start": 9.83,
+        "end": 10.082
       },
       {
-        "text": "água",
-        "start": 5.054,
-        "end": 5.391
+        "text": "achados",
+        "start": 10.094,
+        "end": 10.587
       },
       {
-        "text": "fica",
-        "start": 5.404,
-        "end": 5.667
+        "text": "no",
+        "start": 10.599,
+        "end": 10.695
       },
       {
-        "text": "perto",
-        "start": 5.679,
-        "end": 6.029
+        "text": "próprio",
+        "start": 10.707,
+        "end": 11.068
       },
       {
-        "text": "de",
-        "start": 6.042,
-        "end": 6.154
-      },
-      {
-        "text": "quatro",
-        "start": 6.167,
-        "end": 6.504
-      },
-      {
-        "text": "graus",
-        "start": 6.517,
-        "end": 6.941
-      },
-      {
-        "text": "e",
-        "start": 7.267,
-        "end": 7.342
-      },
-      {
-        "text": "a",
-        "start": 7.354,
-        "end": 7.454
-      },
-      {
-        "text": "única",
-        "start": 7.467,
-        "end": 7.816
-      },
-      {
-        "text": "luz",
-        "start": 7.829,
-        "end": 8.104
-      },
-      {
-        "text": "vem",
-        "start": 8.116,
-        "end": 8.267
-      },
-      {
-        "text": "dos",
-        "start": 8.279,
-        "end": 8.466
-      },
-      {
-        "text": "próprios",
-        "start": 8.479,
-        "end": 8.842
-      },
-      {
-        "text": "animais",
-        "start": 8.854,
-        "end": 9.479
+        "text": "local",
+        "start": 11.08,
+        "end": 11.477
       }
     ]
   },
   "s9": {
-    "text": "O tamboril balança uma isca que brilha para atrair presas até a boca. E muitos bichos daqui são vermelhos, porque sem luz vermelha, o vermelho fica preto, quase invisível.",
-    "seconds": 11.073,
+    "text": "Quarto problema: pôr de pé um bloco gigante. Cavava-se um buraco com um lado inclinado, a pedra escorregava para dentro, e cordas e escoras terminavam de erguer.",
+    "seconds": 10.042,
     "words": [
       {
-        "text": "O",
+        "text": "Quarto",
         "start": 0,
-        "end": 0.068
+        "end": 0.321
       },
       {
-        "text": "tamboril",
-        "start": 0.08,
-        "end": 0.568
+        "text": "problema",
+        "start": 0.333,
+        "end": 0.837
       },
       {
-        "text": "balança",
-        "start": 0.581,
-        "end": 1.081
+        "text": "pôr",
+        "start": 1.138,
+        "end": 1.318
       },
       {
-        "text": "uma",
-        "start": 1.093,
-        "end": 1.268
+        "text": "de",
+        "start": 1.33,
+        "end": 1.45
       },
       {
-        "text": "isca",
-        "start": 1.281,
-        "end": 1.555
+        "text": "pé",
+        "start": 1.463,
+        "end": 1.607
       },
       {
-        "text": "que",
-        "start": 1.568,
-        "end": 1.693
+        "text": "um",
+        "start": 1.619,
+        "end": 1.727
       },
       {
-        "text": "brilha",
-        "start": 1.706,
-        "end": 2.093
+        "text": "bloco",
+        "start": 1.739,
+        "end": 2.124
       },
       {
-        "text": "para",
-        "start": 2.106,
-        "end": 2.243
+        "text": "gigante",
+        "start": 2.136,
+        "end": 2.664
       },
       {
-        "text": "atrair",
-        "start": 2.256,
-        "end": 2.618
+        "text": "Cavava-se",
+        "start": 3.492,
+        "end": 4.081
       },
       {
-        "text": "presas",
-        "start": 2.631,
-        "end": 3.018
+        "text": "um",
+        "start": 4.093,
+        "end": 4.141
       },
       {
-        "text": "até",
-        "start": 3.031,
-        "end": 3.33
+        "text": "buraco",
+        "start": 4.153,
+        "end": 4.586
+      },
+      {
+        "text": "com",
+        "start": 4.598,
+        "end": 4.73
+      },
+      {
+        "text": "um",
+        "start": 4.742,
+        "end": 4.826
+      },
+      {
+        "text": "lado",
+        "start": 4.838,
+        "end": 5.054
+      },
+      {
+        "text": "inclinado",
+        "start": 5.066,
+        "end": 5.631
       },
       {
         "text": "a",
-        "start": 3.343,
-        "end": 3.405
+        "start": 5.836,
+        "end": 5.944
       },
       {
-        "text": "boca",
-        "start": 3.418,
-        "end": 3.781
+        "text": "pedra",
+        "start": 5.956,
+        "end": 6.256
       },
       {
-        "text": "E",
-        "start": 4.643,
-        "end": 4.743
+        "text": "escorregava",
+        "start": 6.268,
+        "end": 6.893
       },
       {
-        "text": "muitos",
-        "start": 4.755,
-        "end": 5.243
+        "text": "para",
+        "start": 6.905,
+        "end": 7.11
       },
       {
-        "text": "bichos",
-        "start": 5.255,
-        "end": 5.618
+        "text": "dentro",
+        "start": 7.122,
+        "end": 7.494
       },
       {
-        "text": "daqui",
-        "start": 5.63,
-        "end": 5.918
+        "text": "e",
+        "start": 7.819,
+        "end": 7.927
       },
       {
-        "text": "são",
-        "start": 5.931,
-        "end": 6.118
+        "text": "cordas",
+        "start": 7.939,
+        "end": 8.312
       },
       {
-        "text": "vermelhos",
-        "start": 6.13,
-        "end": 6.718
+        "text": "e",
+        "start": 8.324,
+        "end": 8.42
       },
       {
-        "text": "porque",
-        "start": 6.943,
-        "end": 7.268
+        "text": "escoras",
+        "start": 8.432,
+        "end": 8.864
       },
       {
-        "text": "sem",
-        "start": 7.281,
-        "end": 7.481
+        "text": "terminavam",
+        "start": 8.876,
+        "end": 9.465
       },
       {
-        "text": "luz",
-        "start": 7.493,
-        "end": 7.743
+        "text": "de",
+        "start": 9.477,
+        "end": 9.55
       },
       {
-        "text": "vermelha",
-        "start": 7.755,
-        "end": 8.281
-      },
-      {
-        "text": "o",
-        "start": 8.581,
-        "end": 8.681
-      },
-      {
-        "text": "vermelho",
-        "start": 8.693,
-        "end": 9.181
-      },
-      {
-        "text": "fica",
-        "start": 9.193,
-        "end": 9.443
-      },
-      {
-        "text": "preto",
-        "start": 9.456,
-        "end": 9.806
-      },
-      {
-        "text": "quase",
-        "start": 9.993,
-        "end": 10.356
-      },
-      {
-        "text": "invisível",
-        "start": 10.368,
-        "end": 11.005
+        "text": "erguer",
+        "start": 9.562,
+        "end": 9.886
       }
     ]
   },
   "s10": {
-    "text": "Até aqui desce o cachalote, a cerca de dois mil metros, com um único fôlego, para caçar lulas.",
-    "seconds": 5.851,
+    "text": "Quinto problema: a pedra deitada, de umas sete toneladas, vai lá em cima. O mais provável é uma plataforma de madeira: sobe a pedra um pouco, põe madeira embaixo, e repete até o topo.",
+    "seconds": 11.775,
     "words": [
       {
-        "text": "Até",
+        "text": "Quinto",
         "start": 0,
-        "end": 0.26
+        "end": 0.263
       },
       {
-        "text": "aqui",
-        "start": 0.273,
-        "end": 0.498
-      },
-      {
-        "text": "desce",
-        "start": 0.51,
-        "end": 0.723
-      },
-      {
-        "text": "o",
-        "start": 0.735,
-        "end": 0.76
-      },
-      {
-        "text": "cachalote",
-        "start": 0.773,
-        "end": 1.435
+        "text": "problema",
+        "start": 0.275,
+        "end": 0.767
       },
       {
         "text": "a",
-        "start": 1.685,
-        "end": 1.735
+        "start": 1.008,
+        "end": 1.116
       },
       {
-        "text": "cerca",
-        "start": 1.748,
-        "end": 2.148
+        "text": "pedra",
+        "start": 1.128,
+        "end": 1.441
+      },
+      {
+        "text": "deitada",
+        "start": 1.453,
+        "end": 1.945
       },
       {
         "text": "de",
-        "start": 2.16,
-        "end": 2.248
+        "start": 2.162,
+        "end": 2.246
       },
       {
-        "text": "dois",
-        "start": 2.261,
-        "end": 2.461
+        "text": "umas",
+        "start": 2.258,
+        "end": 2.486
       },
       {
-        "text": "mil",
-        "start": 2.473,
-        "end": 2.623
+        "text": "sete",
+        "start": 2.498,
+        "end": 2.763
       },
       {
-        "text": "metros",
-        "start": 2.636,
-        "end": 3.098
+        "text": "toneladas",
+        "start": 2.775,
+        "end": 3.436
       },
       {
-        "text": "com",
-        "start": 3.373,
-        "end": 3.498
+        "text": "vai",
+        "start": 3.616,
+        "end": 3.832
+      },
+      {
+        "text": "lá",
+        "start": 3.844,
+        "end": 4.001
+      },
+      {
+        "text": "em",
+        "start": 4.013,
+        "end": 4.109
+      },
+      {
+        "text": "cima",
+        "start": 4.121,
+        "end": 4.553
+      },
+      {
+        "text": "O",
+        "start": 5.381,
+        "end": 5.477
+      },
+      {
+        "text": "mais",
+        "start": 5.489,
+        "end": 5.741
+      },
+      {
+        "text": "provável",
+        "start": 5.753,
+        "end": 6.306
+      },
+      {
+        "text": "é",
+        "start": 6.318,
+        "end": 6.354
+      },
+      {
+        "text": "uma",
+        "start": 6.366,
+        "end": 6.499
+      },
+      {
+        "text": "plataforma",
+        "start": 6.511,
+        "end": 7.148
+      },
+      {
+        "text": "de",
+        "start": 7.16,
+        "end": 7.232
+      },
+      {
+        "text": "madeira",
+        "start": 7.244,
+        "end": 7.64
+      },
+      {
+        "text": "sobe",
+        "start": 7.917,
+        "end": 8.145
+      },
+      {
+        "text": "a",
+        "start": 8.157,
+        "end": 8.229
+      },
+      {
+        "text": "pedra",
+        "start": 8.241,
+        "end": 8.518
       },
       {
         "text": "um",
-        "start": 3.511,
-        "end": 3.586
+        "start": 8.53,
+        "end": 8.614
       },
       {
-        "text": "único",
-        "start": 3.598,
-        "end": 3.861
+        "text": "pouco",
+        "start": 8.626,
+        "end": 8.987
       },
       {
-        "text": "fôlego",
-        "start": 3.873,
-        "end": 4.336
+        "text": "põe",
+        "start": 9.275,
+        "end": 9.455
       },
       {
-        "text": "para",
-        "start": 4.611,
-        "end": 4.811
+        "text": "madeira",
+        "start": 9.467,
+        "end": 9.78
       },
       {
-        "text": "caçar",
-        "start": 4.823,
-        "end": 5.248
+        "text": "embaixo",
+        "start": 9.792,
+        "end": 10.285
       },
       {
-        "text": "lulas",
-        "start": 5.26,
-        "end": 5.76
+        "text": "e",
+        "start": 10.537,
+        "end": 10.597
+      },
+      {
+        "text": "repete",
+        "start": 10.609,
+        "end": 11.042
+      },
+      {
+        "text": "até",
+        "start": 11.054,
+        "end": 11.222
+      },
+      {
+        "text": "o",
+        "start": 11.234,
+        "end": 11.318
+      },
+      {
+        "text": "topo",
+        "start": 11.33,
+        "end": 11.667
       }
     ]
   },
   "s11": {
-    "text": "De quatro a seis mil metros é o abismo: planícies enormes de lama gelada. Lá cai devagar uma chuva de restos lá de cima, a neve marinha, que pode levar semanas para chegar ao fundo e vira comida de quem vive ali.",
-    "seconds": 13.348,
+    "text": "E para nada escorregar, copiaram a marcenaria: buracos na pedra de cima encaixam em pinos das pedras em pé, e as pontas se encaixam umas nas outras, como num móvel.",
+    "seconds": 9.725,
     "words": [
       {
-        "text": "De",
+        "text": "E",
         "start": 0,
-        "end": 0.13
-      },
-      {
-        "text": "quatro",
-        "start": 0.143,
-        "end": 0.505
-      },
-      {
-        "text": "a",
-        "start": 0.518,
-        "end": 0.543
-      },
-      {
-        "text": "seis",
-        "start": 0.556,
-        "end": 0.806
-      },
-      {
-        "text": "mil",
-        "start": 0.818,
-        "end": 0.993
-      },
-      {
-        "text": "metros",
-        "start": 1.006,
-        "end": 1.381
-      },
-      {
-        "text": "é",
-        "start": 1.393,
-        "end": 1.518
-      },
-      {
-        "text": "o",
-        "start": 1.531,
-        "end": 1.593
-      },
-      {
-        "text": "abismo",
-        "start": 1.605,
-        "end": 2.08
-      },
-      {
-        "text": "planícies",
-        "start": 2.305,
-        "end": 2.83
-      },
-      {
-        "text": "enormes",
-        "start": 2.843,
-        "end": 3.356
-      },
-      {
-        "text": "de",
-        "start": 3.368,
-        "end": 3.468
-      },
-      {
-        "text": "lama",
-        "start": 3.481,
-        "end": 3.743
-      },
-      {
-        "text": "gelada",
-        "start": 3.756,
-        "end": 4.255
-      },
-      {
-        "text": "Lá",
-        "start": 5.118,
-        "end": 5.356
-      },
-      {
-        "text": "cai",
-        "start": 5.368,
-        "end": 5.568
-      },
-      {
-        "text": "devagar",
-        "start": 5.58,
-        "end": 5.981
-      },
-      {
-        "text": "uma",
-        "start": 5.993,
-        "end": 6.143
-      },
-      {
-        "text": "chuva",
-        "start": 6.155,
-        "end": 6.531
-      },
-      {
-        "text": "de",
-        "start": 6.543,
-        "end": 6.643
-      },
-      {
-        "text": "restos",
-        "start": 6.655,
-        "end": 7.08
-      },
-      {
-        "text": "lá",
-        "start": 7.093,
-        "end": 7.243
-      },
-      {
-        "text": "de",
-        "start": 7.255,
-        "end": 7.393
-      },
-      {
-        "text": "cima",
-        "start": 7.405,
-        "end": 7.793
-      },
-      {
-        "text": "a",
-        "start": 8.068,
-        "end": 8.143
-      },
-      {
-        "text": "neve",
-        "start": 8.155,
-        "end": 8.418
-      },
-      {
-        "text": "marinha",
-        "start": 8.431,
-        "end": 8.843
-      },
-      {
-        "text": "que",
-        "start": 9.105,
-        "end": 9.243
-      },
-      {
-        "text": "pode",
-        "start": 9.255,
-        "end": 9.505
-      },
-      {
-        "text": "levar",
-        "start": 9.518,
-        "end": 9.818
-      },
-      {
-        "text": "semanas",
-        "start": 9.831,
-        "end": 10.381
+        "end": 0.054
       },
       {
         "text": "para",
-        "start": 10.393,
-        "end": 10.581
+        "start": 0.066,
+        "end": 0.307
       },
       {
-        "text": "chegar",
-        "start": 10.593,
-        "end": 10.905
+        "text": "nada",
+        "start": 0.319,
+        "end": 0.559
       },
       {
-        "text": "ao",
-        "start": 10.918,
-        "end": 11.031
+        "text": "escorregar",
+        "start": 0.571,
+        "end": 1.184
       },
       {
-        "text": "fundo",
-        "start": 11.043,
-        "end": 11.468
+        "text": "copiaram",
+        "start": 1.4,
+        "end": 1.905
       },
       {
-        "text": "e",
-        "start": 11.48,
-        "end": 11.543
+        "text": "a",
+        "start": 1.917,
+        "end": 1.941
       },
       {
-        "text": "vira",
-        "start": 11.556,
-        "end": 11.793
+        "text": "marcenaria",
+        "start": 1.953,
+        "end": 2.602
       },
       {
-        "text": "comida",
-        "start": 11.806,
-        "end": 12.255
+        "text": "buracos",
+        "start": 2.939,
+        "end": 3.432
+      },
+      {
+        "text": "na",
+        "start": 3.444,
+        "end": 3.564
+      },
+      {
+        "text": "pedra",
+        "start": 3.576,
+        "end": 3.888
       },
       {
         "text": "de",
-        "start": 12.268,
-        "end": 12.368
+        "start": 3.9,
+        "end": 4.021
       },
       {
-        "text": "quem",
-        "start": 12.38,
-        "end": 12.643
+        "text": "cima",
+        "start": 4.033,
+        "end": 4.273
       },
       {
-        "text": "vive",
-        "start": 12.655,
-        "end": 12.931
+        "text": "encaixam",
+        "start": 4.285,
+        "end": 4.754
       },
       {
-        "text": "ali",
-        "start": 12.943,
-        "end": 13.255
+        "text": "em",
+        "start": 4.766,
+        "end": 4.862
+      },
+      {
+        "text": "pinos",
+        "start": 4.874,
+        "end": 5.174
+      },
+      {
+        "text": "das",
+        "start": 5.186,
+        "end": 5.379
+      },
+      {
+        "text": "pedras",
+        "start": 5.391,
+        "end": 5.691
+      },
+      {
+        "text": "em",
+        "start": 5.703,
+        "end": 5.884
+      },
+      {
+        "text": "pé",
+        "start": 5.896,
+        "end": 6.16
+      },
+      {
+        "text": "e",
+        "start": 6.485,
+        "end": 6.569
+      },
+      {
+        "text": "as",
+        "start": 6.581,
+        "end": 6.737
+      },
+      {
+        "text": "pontas",
+        "start": 6.749,
+        "end": 7.134
+      },
+      {
+        "text": "se",
+        "start": 7.146,
+        "end": 7.242
+      },
+      {
+        "text": "encaixam",
+        "start": 7.254,
+        "end": 7.783
+      },
+      {
+        "text": "umas",
+        "start": 7.795,
+        "end": 7.999
+      },
+      {
+        "text": "nas",
+        "start": 8.011,
+        "end": 8.107
+      },
+      {
+        "text": "outras",
+        "start": 8.119,
+        "end": 8.624
+      },
+      {
+        "text": "como",
+        "start": 8.84,
+        "end": 9.093
+      },
+      {
+        "text": "num",
+        "start": 9.105,
+        "end": 9.273
+      },
+      {
+        "text": "móvel",
+        "start": 9.285,
+        "end": 9.646
       }
     ]
   },
   "s12": {
-    "text": "Mais fundo, só nas fossas: a zona hadal, de Hades, o deus do mundo dos mortos. Perto de onze mil metros, a pressão passa de mil vezes a da superfície.",
-    "seconds": 10.806,
+    "text": "As pedras de cima são até levemente curvas, formando um anel de trinta metros, suspenso a quatro metros do chão.",
+    "seconds": 6.699,
     "words": [
       {
-        "text": "Mais",
+        "text": "As",
         "start": 0,
-        "end": 0.261
+        "end": 0.145
       },
       {
-        "text": "fundo",
-        "start": 0.274,
-        "end": 0.636
-      },
-      {
-        "text": "só",
-        "start": 0.886,
-        "end": 1.024
-      },
-      {
-        "text": "nas",
-        "start": 1.036,
-        "end": 1.236
-      },
-      {
-        "text": "fossas",
-        "start": 1.249,
-        "end": 1.761
-      },
-      {
-        "text": "a",
-        "start": 2.073,
-        "end": 2.161
-      },
-      {
-        "text": "zona",
-        "start": 2.173,
-        "end": 2.486
-      },
-      {
-        "text": "hadal",
-        "start": 2.499,
-        "end": 2.849
+        "text": "pedras",
+        "start": 0.157,
+        "end": 0.554
       },
       {
         "text": "de",
-        "start": 3.111,
-        "end": 3.223
+        "start": 0.566,
+        "end": 0.674
       },
       {
-        "text": "Hades",
-        "start": 3.236,
-        "end": 3.648
+        "text": "cima",
+        "start": 0.686,
+        "end": 0.987
       },
       {
-        "text": "o",
-        "start": 3.924,
-        "end": 4.036
+        "text": "são",
+        "start": 0.999,
+        "end": 1.239
       },
       {
-        "text": "deus",
-        "start": 4.049,
-        "end": 4.361
+        "text": "até",
+        "start": 1.251,
+        "end": 1.431
       },
       {
-        "text": "do",
-        "start": 4.373,
-        "end": 4.473
+        "text": "levemente",
+        "start": 1.444,
+        "end": 2.008
       },
       {
-        "text": "mundo",
-        "start": 4.486,
-        "end": 4.824
+        "text": "curvas",
+        "start": 2.02,
+        "end": 2.501
       },
       {
-        "text": "dos",
-        "start": 4.836,
-        "end": 5.036
+        "text": "formando",
+        "start": 2.766,
+        "end": 3.222
       },
       {
-        "text": "mortos",
-        "start": 5.049,
-        "end": 5.611
+        "text": "um",
+        "start": 3.234,
+        "end": 3.331
       },
       {
-        "text": "Perto",
-        "start": 6.474,
-        "end": 6.836
+        "text": "anel",
+        "start": 3.343,
+        "end": 3.595
       },
       {
         "text": "de",
-        "start": 6.849,
-        "end": 6.974
+        "start": 3.607,
+        "end": 3.739
       },
       {
-        "text": "onze",
-        "start": 6.986,
-        "end": 7.299
-      },
-      {
-        "text": "mil",
-        "start": 7.311,
-        "end": 7.461
+        "text": "trinta",
+        "start": 3.751,
+        "end": 4.064
       },
       {
         "text": "metros",
-        "start": 7.474,
-        "end": 7.949
+        "start": 4.076,
+        "end": 4.556
+      },
+      {
+        "text": "suspenso",
+        "start": 4.809,
+        "end": 5.386
       },
       {
         "text": "a",
-        "start": 8.123,
-        "end": 8.186
+        "start": 5.398,
+        "end": 5.446
       },
       {
-        "text": "pressão",
-        "start": 8.199,
-        "end": 8.586
+        "text": "quatro",
+        "start": 5.458,
+        "end": 5.794
       },
       {
-        "text": "passa",
-        "start": 8.598,
-        "end": 8.961
+        "text": "metros",
+        "start": 5.807,
+        "end": 6.167
       },
       {
-        "text": "de",
-        "start": 8.973,
-        "end": 9.086
+        "text": "do",
+        "start": 6.179,
+        "end": 6.275
       },
       {
-        "text": "mil",
-        "start": 9.098,
-        "end": 9.286
-      },
-      {
-        "text": "vezes",
-        "start": 9.299,
-        "end": 9.648
-      },
-      {
-        "text": "a",
-        "start": 9.661,
-        "end": 9.786
-      },
-      {
-        "text": "da",
-        "start": 9.799,
-        "end": 9.911
-      },
-      {
-        "text": "superfície",
-        "start": 9.924,
-        "end": 10.736
+        "text": "chão",
+        "start": 6.287,
+        "end": 6.636
       }
     ]
   },
   "s13": {
-    "text": "Mesmo assim, tem vida: um peixe-caracol já foi filmado a mais de oito mil metros. E pouquíssimas pessoas desceram até o ponto mais fundo, bem menos do que as que já foram ao espaço.",
-    "seconds": 11.358,
+    "text": "Mas por que tanto trabalho? O monumento está alinhado com o Sol. No dia mais longo do ano, o Sol nasce perto da Pedra do Calcanhar. No mais curto, se põe do lado oposto.",
+    "seconds": 12.126,
     "words": [
       {
-        "text": "Mesmo",
+        "text": "Mas",
         "start": 0,
-        "end": 0.319
+        "end": 0.223
       },
       {
-        "text": "assim",
-        "start": 0.331,
-        "end": 0.694
+        "text": "por",
+        "start": 0.235,
+        "end": 0.403
       },
       {
-        "text": "tem",
-        "start": 0.906,
-        "end": 1.106
+        "text": "que",
+        "start": 0.415,
+        "end": 0.619
       },
       {
-        "text": "vida",
-        "start": 1.119,
-        "end": 1.431
+        "text": "tanto",
+        "start": 0.631,
+        "end": 0.968
       },
       {
-        "text": "um",
-        "start": 1.744,
-        "end": 1.894
+        "text": "trabalho",
+        "start": 0.98,
+        "end": 1.449
       },
       {
-        "text": "peixe-caracol",
-        "start": 1.906,
-        "end": 2.706
+        "text": "O",
+        "start": 2.276,
+        "end": 2.348
       },
       {
-        "text": "já",
-        "start": 2.719,
-        "end": 2.844
+        "text": "monumento",
+        "start": 2.36,
+        "end": 2.901
       },
       {
-        "text": "foi",
-        "start": 2.857,
-        "end": 3.019
+        "text": "está",
+        "start": 2.913,
+        "end": 3.117
       },
       {
-        "text": "filmado",
-        "start": 3.032,
-        "end": 3.469
+        "text": "alinhado",
+        "start": 3.129,
+        "end": 3.61
       },
       {
-        "text": "a",
-        "start": 3.482,
-        "end": 3.532
-      },
-      {
-        "text": "mais",
-        "start": 3.544,
-        "end": 3.807
-      },
-      {
-        "text": "de",
-        "start": 3.819,
-        "end": 3.919
-      },
-      {
-        "text": "oito",
-        "start": 3.932,
-        "end": 4.194
-      },
-      {
-        "text": "mil",
-        "start": 4.206,
-        "end": 4.394
-      },
-      {
-        "text": "metros",
-        "start": 4.406,
-        "end": 4.932
-      },
-      {
-        "text": "E",
-        "start": 5.794,
-        "end": 5.919
-      },
-      {
-        "text": "pouquíssimas",
-        "start": 5.932,
-        "end": 6.594
-      },
-      {
-        "text": "pessoas",
-        "start": 6.607,
-        "end": 7.081
-      },
-      {
-        "text": "desceram",
-        "start": 7.094,
-        "end": 7.532
-      },
-      {
-        "text": "até",
-        "start": 7.544,
-        "end": 7.719
+        "text": "com",
+        "start": 3.622,
+        "end": 3.79
       },
       {
         "text": "o",
-        "start": 7.732,
-        "end": 7.807
+        "start": 3.802,
+        "end": 3.838
       },
       {
-        "text": "ponto",
-        "start": 7.819,
-        "end": 8.131
+        "text": "Sol",
+        "start": 3.85,
+        "end": 4.175
+      },
+      {
+        "text": "No",
+        "start": 5.004,
+        "end": 5.173
+      },
+      {
+        "text": "dia",
+        "start": 5.185,
+        "end": 5.377
       },
       {
         "text": "mais",
-        "start": 8.144,
-        "end": 8.357
+        "start": 5.389,
+        "end": 5.629
       },
       {
-        "text": "fundo",
-        "start": 8.369,
-        "end": 8.732
-      },
-      {
-        "text": "bem",
-        "start": 9.006,
-        "end": 9.231
-      },
-      {
-        "text": "menos",
-        "start": 9.244,
-        "end": 9.594
+        "text": "longo",
+        "start": 5.641,
+        "end": 5.978
       },
       {
         "text": "do",
-        "start": 9.606,
-        "end": 9.719
+        "start": 5.99,
+        "end": 6.158
       },
       {
-        "text": "que",
-        "start": 9.731,
-        "end": 9.844
+        "text": "ano",
+        "start": 6.17,
+        "end": 6.423
       },
       {
-        "text": "as",
-        "start": 9.856,
-        "end": 10.006
+        "text": "o",
+        "start": 6.711,
+        "end": 6.771
       },
       {
-        "text": "que",
-        "start": 10.019,
-        "end": 10.132
+        "text": "Sol",
+        "start": 6.783,
+        "end": 7.035
       },
       {
-        "text": "já",
-        "start": 10.144,
-        "end": 10.282
+        "text": "nasce",
+        "start": 7.047,
+        "end": 7.3
       },
       {
-        "text": "foram",
-        "start": 10.294,
-        "end": 10.619
+        "text": "perto",
+        "start": 7.312,
+        "end": 7.624
       },
       {
-        "text": "ao",
-        "start": 10.631,
-        "end": 10.744
+        "text": "da",
+        "start": 7.636,
+        "end": 7.757
       },
       {
-        "text": "espaço",
-        "start": 10.756,
-        "end": 11.282
+        "text": "Pedra",
+        "start": 7.769,
+        "end": 8.117
+      },
+      {
+        "text": "do",
+        "start": 8.129,
+        "end": 8.273
+      },
+      {
+        "text": "Calcanhar",
+        "start": 8.286,
+        "end": 8.85
+      },
+      {
+        "text": "No",
+        "start": 9.68,
+        "end": 9.848
+      },
+      {
+        "text": "mais",
+        "start": 9.86,
+        "end": 10.136
+      },
+      {
+        "text": "curto",
+        "start": 10.148,
+        "end": 10.521
+      },
+      {
+        "text": "se",
+        "start": 10.737,
+        "end": 10.882
+      },
+      {
+        "text": "põe",
+        "start": 10.894,
+        "end": 11.122
+      },
+      {
+        "text": "do",
+        "start": 11.134,
+        "end": 11.242
+      },
+      {
+        "text": "lado",
+        "start": 11.254,
+        "end": 11.567
+      },
+      {
+        "text": "oposto",
+        "start": 11.579,
+        "end": 12.06
       }
     ]
   },
   "s14": {
-    "text": "Agora olha o oceano em escala real: a zona do sol é só essa faixa fininha. Quase tudo fica no escuro, e menos de um terço do fundo do mar foi mapeado em detalhe.",
-    "seconds": 10.768,
+    "text": "Para muitos arqueólogos, esse pôr do sol de inverno era o grande momento: dali em diante, os dias voltam a crescer.",
+    "seconds": 6.726,
     "words": [
       {
-        "text": "Agora",
+        "text": "Para",
         "start": 0,
-        "end": 0.401
+        "end": 0.163
       },
       {
-        "text": "olha",
-        "start": 0.413,
-        "end": 0.676
+        "text": "muitos",
+        "start": 0.175,
+        "end": 0.536
       },
       {
-        "text": "o",
-        "start": 0.689,
-        "end": 0.701
+        "text": "arqueólogos",
+        "start": 0.548,
+        "end": 1.281
       },
       {
-        "text": "oceano",
-        "start": 0.714,
-        "end": 1.201
+        "text": "esse",
+        "start": 1.546,
+        "end": 1.738
       },
       {
-        "text": "em",
-        "start": 1.214,
-        "end": 1.289
-      },
-      {
-        "text": "escala",
-        "start": 1.301,
-        "end": 1.726
-      },
-      {
-        "text": "real",
-        "start": 1.738,
-        "end": 2.114
-      },
-      {
-        "text": "a",
-        "start": 2.463,
-        "end": 2.563
-      },
-      {
-        "text": "zona",
-        "start": 2.576,
-        "end": 2.913
+        "text": "pôr",
+        "start": 1.75,
+        "end": 1.942
       },
       {
         "text": "do",
-        "start": 2.926,
-        "end": 3.026
+        "start": 1.954,
+        "end": 2.05
       },
       {
         "text": "sol",
-        "start": 3.039,
-        "end": 3.376
-      },
-      {
-        "text": "é",
-        "start": 3.389,
-        "end": 3.438
-      },
-      {
-        "text": "só",
-        "start": 3.451,
-        "end": 3.651
-      },
-      {
-        "text": "essa",
-        "start": 3.663,
-        "end": 3.963
-      },
-      {
-        "text": "faixa",
-        "start": 3.976,
-        "end": 4.326
-      },
-      {
-        "text": "fininha",
-        "start": 4.338,
-        "end": 4.838
-      },
-      {
-        "text": "Quase",
-        "start": 5.701,
-        "end": 6.151
-      },
-      {
-        "text": "tudo",
-        "start": 6.163,
-        "end": 6.463
-      },
-      {
-        "text": "fica",
-        "start": 6.476,
-        "end": 6.701
-      },
-      {
-        "text": "no",
-        "start": 6.713,
-        "end": 6.789
-      },
-      {
-        "text": "escuro",
-        "start": 6.801,
-        "end": 7.239
-      },
-      {
-        "text": "e",
-        "start": 7.551,
-        "end": 7.639
-      },
-      {
-        "text": "menos",
-        "start": 7.651,
-        "end": 8.051
+        "start": 2.062,
+        "end": 2.327
       },
       {
         "text": "de",
-        "start": 8.064,
-        "end": 8.138
+        "start": 2.339,
+        "end": 2.411
       },
       {
-        "text": "um",
-        "start": 8.151,
-        "end": 8.276
+        "text": "inverno",
+        "start": 2.423,
+        "end": 2.844
       },
       {
-        "text": "terço",
-        "start": 8.289,
-        "end": 8.626
+        "text": "era",
+        "start": 2.856,
+        "end": 2.94
       },
       {
-        "text": "do",
-        "start": 8.638,
-        "end": 8.751
+        "text": "o",
+        "start": 2.952,
+        "end": 2.988
       },
       {
-        "text": "fundo",
-        "start": 8.763,
-        "end": 9.051
+        "text": "grande",
+        "start": 3.0,
+        "end": 3.361
       },
       {
-        "text": "do",
-        "start": 9.064,
-        "end": 9.163
+        "text": "momento",
+        "start": 3.373,
+        "end": 3.805
       },
       {
-        "text": "mar",
-        "start": 9.176,
-        "end": 9.401
-      },
-      {
-        "text": "foi",
-        "start": 9.413,
-        "end": 9.539
-      },
-      {
-        "text": "mapeado",
-        "start": 9.551,
-        "end": 10.051
+        "text": "dali",
+        "start": 4.106,
+        "end": 4.394
       },
       {
         "text": "em",
-        "start": 10.064,
-        "end": 10.126
+        "start": 4.406,
+        "end": 4.502
       },
       {
-        "text": "detalhe",
-        "start": 10.138,
-        "end": 10.676
+        "text": "diante",
+        "start": 4.514,
+        "end": 5.019
+      },
+      {
+        "text": "os",
+        "start": 5.26,
+        "end": 5.416
+      },
+      {
+        "text": "dias",
+        "start": 5.428,
+        "end": 5.728
+      },
+      {
+        "text": "voltam",
+        "start": 5.74,
+        "end": 6.101
+      },
+      {
+        "text": "a",
+        "start": 6.113,
+        "end": 6.149
+      },
+      {
+        "text": "crescer",
+        "start": 6.161,
+        "end": 6.582
       }
     ]
   },
   "s15": {
-    "text": "Pronto: agora você conhece as cinco zonas do oceano, do sol até o fundo das fossas.",
-    "seconds": 5.454,
+    "text": "Hoje, muitas pedras caíram ou sumiram. E do primeiro buraco à última pedra mexida, foram mais de mil anos de obra. Pronto: agora você sabe como se ergueu Stonehenge, só com pedra, madeira e corda.",
+    "seconds": 13.321,
     "words": [
       {
-        "text": "Pronto",
+        "text": "Hoje",
         "start": 0,
-        "end": 0.354
+        "end": 0.314
+      },
+      {
+        "text": "muitas",
+        "start": 0.542,
+        "end": 0.915
+      },
+      {
+        "text": "pedras",
+        "start": 0.927,
+        "end": 1.275
+      },
+      {
+        "text": "caíram",
+        "start": 1.287,
+        "end": 1.672
+      },
+      {
+        "text": "ou",
+        "start": 1.684,
+        "end": 1.768
+      },
+      {
+        "text": "sumiram",
+        "start": 1.78,
+        "end": 2.249
+      },
+      {
+        "text": "E",
+        "start": 3.076,
+        "end": 3.184
+      },
+      {
+        "text": "do",
+        "start": 3.196,
+        "end": 3.329
+      },
+      {
+        "text": "primeiro",
+        "start": 3.341,
+        "end": 3.701
+      },
+      {
+        "text": "buraco",
+        "start": 3.713,
+        "end": 4.182
+      },
+      {
+        "text": "à",
+        "start": 4.194,
+        "end": 4.278
+      },
+      {
+        "text": "última",
+        "start": 4.29,
+        "end": 4.687
+      },
+      {
+        "text": "pedra",
+        "start": 4.699,
+        "end": 5.011
+      },
+      {
+        "text": "mexida",
+        "start": 5.023,
+        "end": 5.468
+      },
+      {
+        "text": "foram",
+        "start": 5.72,
+        "end": 5.961
+      },
+      {
+        "text": "mais",
+        "start": 5.973,
+        "end": 6.213
+      },
+      {
+        "text": "de",
+        "start": 6.225,
+        "end": 6.309
+      },
+      {
+        "text": "mil",
+        "start": 6.321,
+        "end": 6.622
+      },
+      {
+        "text": "anos",
+        "start": 6.634,
+        "end": 6.898
+      },
+      {
+        "text": "de",
+        "start": 6.91,
+        "end": 7.006
+      },
+      {
+        "text": "obra",
+        "start": 7.018,
+        "end": 7.355
+      },
+      {
+        "text": "Pronto",
+        "start": 8.184,
+        "end": 8.581
       },
       {
         "text": "agora",
-        "start": 0.604,
-        "end": 0.979
+        "start": 8.845,
+        "end": 9.182
       },
       {
         "text": "você",
-        "start": 0.992,
-        "end": 1.254
+        "start": 9.194,
+        "end": 9.422
       },
       {
-        "text": "conhece",
-        "start": 1.267,
-        "end": 1.754
+        "text": "sabe",
+        "start": 9.434,
+        "end": 9.723
       },
       {
-        "text": "as",
-        "start": 1.767,
-        "end": 1.867
+        "text": "como",
+        "start": 9.735,
+        "end": 9.951
       },
       {
-        "text": "cinco",
-        "start": 1.879,
-        "end": 2.216
+        "text": "se",
+        "start": 9.963,
+        "end": 10.071
       },
       {
-        "text": "zonas",
-        "start": 2.229,
-        "end": 2.579
+        "text": "ergueu",
+        "start": 10.083,
+        "end": 10.348
       },
       {
-        "text": "do",
-        "start": 2.592,
-        "end": 2.679
+        "text": "Stonehenge",
+        "start": 10.36,
+        "end": 10.985
       },
       {
-        "text": "oceano",
-        "start": 2.691,
-        "end": 3.166
+        "text": "só",
+        "start": 11.213,
+        "end": 11.466
       },
       {
-        "text": "do",
-        "start": 3.454,
-        "end": 3.579
+        "text": "com",
+        "start": 11.478,
+        "end": 11.658
       },
       {
-        "text": "sol",
-        "start": 3.592,
-        "end": 3.904
+        "text": "pedra",
+        "start": 11.67,
+        "end": 12.042
       },
       {
-        "text": "até",
-        "start": 3.917,
-        "end": 4.141
+        "text": "madeira",
+        "start": 12.271,
+        "end": 12.704
       },
       {
-        "text": "o",
-        "start": 4.154,
-        "end": 4.217
+        "text": "e",
+        "start": 12.716,
+        "end": 12.776
       },
       {
-        "text": "fundo",
-        "start": 4.229,
-        "end": 4.604
-      },
-      {
-        "text": "das",
-        "start": 4.616,
-        "end": 4.804
-      },
-      {
-        "text": "fossas",
-        "start": 4.816,
-        "end": 5.354
+        "text": "corda",
+        "start": 12.788,
+        "end": 13.22
       }
     ]
   },

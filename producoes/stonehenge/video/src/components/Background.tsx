@@ -16,8 +16,9 @@ export const Background: React.FC = () => {
     const az = Math.atan2(pose.position[0] - pose.target[0], pose.position[2] - pose.target[2]);
     const hx = 50 - clamp(az / Math.PI, -0.5, 0.5) * 24;
     const { umbra } = BRAND.colors;
-    // o estúdio escurece conforme a descida (light.depth)
-    const tint = interpolateColors(track("light.depth", frame), [0, 1], [BACKDROP.tint, "#04060e"]);
+    // o estúdio ganha a cor do céu na madrugada (sun.phase 0) e no pôr do sol (sun.phase 1)
+    const ph = track("sun.phase", frame, 0.5);
+    const tint = interpolateColors(ph, [0, 0.12, 0.5, 0.88, 1], ["#d08a52", "#b8774e", BACKDROP.tint, "#a8473c", "#c4583c"]);
     return (
       <AbsoluteFill>
         <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />

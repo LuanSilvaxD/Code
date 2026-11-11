@@ -18,8 +18,13 @@ const STANDING = new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 26, 27, 28, 29, 
 const LINTEL_ON = new Set([29, 0, 1, 2, 3, 27]);
 const FALLEN_UP = new Set([12, 13, 21, 23, 25]);
 
-export const Monument: React.FC<{ built?: number; ruin?: number; ghost?: number; curve?: number; heel?: number; skipUpright?: number }> = ({
-  built = 1, ruin = 0, ghost = 0, curve = 1, heel = 1, skipUpright = -1,
+export const upPos = (i: number) => ({ a: upAngle(i), x: RING * Math.cos(upAngle(i)), z: RING * Math.sin(upAngle(i)) });
+export const linPos = (i: number) => ({ a: linAngle(i), x: RING * Math.cos(linAngle(i)), z: RING * Math.sin(linAngle(i)) });
+export const isStanding = (i: number) => STANDING.has(i);
+export const isLintelOn = (i: number) => LINTEL_ON.has(i);
+
+export const Monument: React.FC<{ built?: number; ruin?: number; ghost?: number; curve?: number; heel?: number; skipUpright?: number; skipUp?: number[]; skipLin?: number[]; glow?: number }> = ({
+  built = 1, ruin = 0, ghost = 0, curve = 1, heel = 1, skipUpright = -1, skipUp = [], skipLin = [], glow = 0,
 }) => {
   const b = clamp(built, 0, 1);
   const r = clamp(ruin, 0, 1);
@@ -50,7 +55,7 @@ export const Monument: React.FC<{ built?: number; ruin?: number; ghost?: number;
     <group>
       {/* anel externo: pedras em pé */}
       {Array.from({ length: N }, (_, i) => {
-        if (i === skipUpright) return null;
+        if (i === skipUpright || skipUp.includes(i)) return null;
         const a = upAngle(i);
         const t = stage(0, 0.35, i, N);
         if (t <= 0) return null;
@@ -70,6 +75,7 @@ export const Monument: React.FC<{ built?: number; ruin?: number; ghost?: number;
       })}
       {/* anel externo: lintéis curvos */}
       {Array.from({ length: N }, (_, i) => {
+        if (skipLin.includes(i)) return null;
         const a = linAngle(i);
         const t = stage(0.35, 0.2, i, N);
         if (t <= 0) return null;
@@ -80,7 +86,7 @@ export const Monument: React.FC<{ built?: number; ruin?: number; ghost?: number;
         const z = RING * Math.sin(a);
         return (
           <group key={`l${i}`} position={[x, 4.1 + 0.25 + 3 * (1 - t) + 6 * vanish, z]} rotation={[0, Math.PI / 2 - a, 0]} scale={1 - vanish}>
-            <Lintel R={RING} curved={curve} mortises={false} joints={false} />
+            <Lintel R={RING} curved={curve} mortises={false} joints={false} glow={glow} />
           </group>
         );
       })}
@@ -269,8 +275,8 @@ export const PitSection: React.FC<{ depth?: number; dig?: number }> = ({ depth =
     s.lineTo(0.6, -d);
     s.lineTo(4, 0);
     s.lineTo(6, 0);
-    s.lineTo(6, -3.2);
-    s.lineTo(-5, -3.2);
+    s.lineTo(6, -9);
+    s.lineTo(-5, -9);
     s.closePath();
     return s;
   }, [d]);
@@ -281,9 +287,9 @@ export const PitSection: React.FC<{ depth?: number; dig?: number }> = ({ depth =
         <meshStandardMaterial color="#e6dfcd" roughness={1} flatShading />
       </mesh>
       {/* fundo do buraco (parede de trás, mais sombreada) */}
-      <mesh position={[0, -d / 2, 0.02]}>
+      <mesh position={[0, -d / 2, 2.98]}>
         <planeGeometry args={[6, d + 0.1]} />
-        <meshStandardMaterial color="#b9b09a" roughness={1} />
+        <meshStandardMaterial color="#b9b09a" roughness={1} side={THREE.DoubleSide} />
       </mesh>
       {/* faixa de terra escura no topo do corte */}
       <mesh position={[0.5, -0.18, 3.005]}>

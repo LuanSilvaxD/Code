@@ -1,4 +1,5 @@
-// scene-plan.ts — "As zonas de profundidade do oceano" (formato FATOS/DOCUMENTÁRIO) — roteiro v2 (2:55) APROVADO — Fase 2, cortes derivados da voz real
+// scene-plan.ts — "Como construíram Stonehenge?" (formato PROBLEMA → SOLUÇÃO + fecho de PERGUNTA → REVELAÇÃO)
+// Roteiro v1 (2:55) — APROVADO; cortes derivados da voz real (utils/timing.ts)
 //
 // Contrato de dados da Fase 1. Na Fase 2 vira src/data/scenes.ts SEM tradução (tipos e helpers do template).
 // Frames de animações, badges, legendas, câmera e áudio são LOCAIS à cena; startFrame é global.
@@ -6,30 +7,34 @@
 // c(i, f) prende a âncora ao fim da cena). Linha do tempo determinística (sem timers / Math.random sem semente).
 //
 // ---- Configuração que vai para src/utils/timing.ts ------------------------------------------
-//   export const SECONDS = 175;   // 5250 frames (2:55, igual ao EP. 01); encerramento da marca (~4,7 s) no fim da s15
+//   export const SECONDS = 175;   // 5250 frames (2:55 — teto do formato; o conteúdo pede, ver roteiro §1)
 //   export const VO_KEYS = ["s1", ..., "s15"] as const;
-//   const PLANNED_SECONDS = [9.7, 12.5, 9.2, 9.6, 11.2, 12.2, 11.2, 10.5, 12.1, 7.6, 14.5, 11.9, 13.1, 11.4, 18.3];
-//   const GAPS = [0.8, 0.7, 0.7, 0.8, 1.0, 0.8, 1.1, 0.8, 0.8, 1.1, 1.0, 0.9, 1.1, 0.9];
-//   TTS: edge-tts pt-BR-AntonioNeural, rate +4% (cta em +0%).
+//   const PLANNED_SECONDS = [12.3, 10.1, 12.2, 9.9, 8.3, 10.6, 9.0, 11.9, 10.2, 12.4, 9.9, 6.6, 11.0, 7.3, 13.1];
+//   const GAPS = [0.9, 1.0, 0.9, 0.8, 1.1, 0.9, 1.0, 1.0, 1.0, 1.0, 0.9, 1.2, 1.1, 1.0];
+//   TTS: edge-tts pt-BR-AntonioNeural, rate +4% (cta em +0%). Tempos reais decidem os cortes na Fase 2.
 // ----------------------------------------------------------------------------------------------
 //
-// FIO CONDUTOR: uma descida vertical. O mascote vai dentro de uma BATISFERA (esfera de vidro com farol) pela
-// COLUNA A — um corte de oceano em pé sobre o pedestal, com as 5 zonas empilhadas (faixas ESTICADAS para caber:
-// selo "ESQUEMA · FAIXAS FORA DE ESCALA"). Profundidade real → y (u3d), por trechos:
-//   0 m → 0 · 200 m → −2,2 · 1.000 m → −5,4 · 4.000 m → −10,4 · 6.000 m → −13,4 · 11.000 m → −17,6 (fossa estreita).
-// COLUNA B (x = 7) é a mesma coluna em ESCALA REAL (1 km = 1 u3d, 11 u de altura): mostra o Everest (8,85 u) dentro
-// da fossa (10,94 u) no gancho, e na s10 revela que a zona do sol é só uma faixa fininha. O Everest NUNCA aparece na
-// coluna A (esticada), porque lá a comparação ficaria errada.
-// Régua da batisfera/mascote: esquemática (não há gente em escala no mar aberto); peixes e cachalote também fora de
-// escala em relação à coluna (selo), mas proporcionais entre si.
+// FIO CONDUTOR: a OBRA acontece na frente do espectador. Um único diorama da planície de Salisbury sobre o
+// pedestal da marca; o monumento vai sendo construído fase por fase (vala → pedras chegam → erguidas → lintéis →
+// completo → alinhado com o Sol → ruína de hoje). Cada "problema" usa um CANTEIRO na frente do círculo, onde UMA
+// pedra passa por todas as etapas (trenó → martelos → buraco → plataforma → encaixe) e vira a pedra que falta no anel.
+//
+// RÉGUA: 1 m = 0,1 u3d (todo o diorama na mesma régua, sem selo de esquema exceto na vala, ver abaixo).
+//   Anel externo de sarsens: Ø 30 m → raio 1,5 u3d; pedras em pé ~4,1 m acima do chão → 0,41 u3d; lintéis a ~4 m.
+//   Trilitos internos (ferradura): 5, subindo até ~7,3 m (Grande Trilito; pedra 56 ~6,7 m acima do chão hoje).
+//   Pessoas: worldScale(0.1) → 1,7 m = 0,17 u3d. Mascote ~1,6 m. Vala circular: Ø ~110 m → raio 5,5 u3d.
+//   Pedra do Calcanhar: fora da vala, na entrada nordeste, sobre o EIXO DO SOLSTÍCIO (eixo = +x no diorama).
+// Mapa da Grã-Bretanha (s3–s5) é uma camada 2D sobre a cena escurecida (contorno real Natural Earth, via world-atlas).
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
+import { heightAt } from "../components/Terrain";
+import { worldScale } from "../components/Person";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
-export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-oceano", language: "pt-BR" };
+export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-historia", language: "pt-BR" };
 
 export type BadgeVariant = "positive" | "negative" | "info" | "warning";
 export type CameraKey = { at: number; position: Vec3; target: Vec3; zoom?: number; easing?: EaseName };
@@ -55,401 +60,448 @@ const cap = (k: VoKey, i: number, text: string): CaptionBlock => ({ text, from: 
 const lin = (target: string, a: number, b: number, from: number | undefined, to: number, easing: EaseName = "inOut", unit: TrackAnimation["unit"] = "0-1"): TrackAnimation => ({ type: "interpolate", target, startFrame: a, endFrame: b, from, to, easing, unit });
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 
-/** Profundidade real (m) → y na COLUNA A (esticada por trechos). */
-export const depthY = (m: number) => {
-  const P: [number, number][] = [[0, 0], [200, -2.2], [1000, -5.4], [4000, -10.4], [6000, -13.4], [11000, -17.6]];
-  for (let i = 1; i < P.length; i++) if (m <= P[i][0]) return P[i - 1][1] + ((m - P[i - 1][0]) / (P[i][0] - P[i - 1][0])) * (P[i][1] - P[i - 1][1]);
-  return P[P.length - 1][1];
-};
-export const XB = 7; // coluna B (escala real)
-/** Câmera seguindo a batisfera — 1,8× mais longe que o rascunho (nos stills a batisfera tampava a cena). */
-const pod = (y: number, d = 6, az = 14, el = 6) => orbit([0.3, y, 0.4], d * 1.8, az, el);
+const MS = worldScale(0.1).mascot;
+/** ponto no chão (u3d) a partir de x,z em u3d */
+const g = (x: number, z: number): Vec3 => [x, heightAt(x * 10, z * 10) * 0.1, z];
+/** Canteiro de obra: na frente do anel, do lado da câmera (+z). A pedra-modelo termina no vão do anel em [0, 0, 1.5]. */
+export const SITE: Vec3 = [0, 0, 1.5];
+export const HEEL: Vec3 = [7.2, 0, 0]; // Pedra do Calcanhar no eixo (+x = nordeste)
 const P = {
-  realTop: orbit([XB, -4.5, 0], 30, 10, 6), // coluna B inteira
-  realTrench: orbit([XB, -8.5, 0], 16, 8, 4), // fossa + Everest
-  surface: orbit([0.2, 0.4, 0.4], 9, 12, 14),
-  sun: pod(-1.0, 8, 10, 8),
-  algae: pod(-0.8, 5.5, 18, 6),
-  press: pod(-2.0, 6, -10, 4),
-  twilight: pod(depthY(600), 7, 12, 4),
-  twilightWide: orbit([0.2, -2.6, 0.4], 15, 10, 6),
-  midnight: pod(depthY(1600), 5.5, -12, 4),
-  whale: pod(depthY(2000), 8, 16, 4),
-  abyss: pod(depthY(5200), 7, 20, 10),
-  hadal: pod(depthY(9000), 6, -14, 2),
-  hadalBottom: pod(depthY(10900), 4.6, 6, 6),
-  both: orbit([XB / 2, -8, 0], 46, 6, 6),
+  hero: orbit([0, 0.32, 0], 9, 28, 8), // monumento completo, baixo e heroico
+  hero2: orbit([0, 0.3, 0], 10.5, 52, 12),
+  heroWide: orbit([0, 0.2, 0], 17, 20, 24),
+  ditch: orbit([0, 0, 0], 52, -14, 52), // vala inteira
+  cremation: orbit([4.05, 0, 2.5], 7, 10, 34), // borda interna da vala, covinhas brancas
+  cremation2: orbit([4.05, 0, 2.5], 8, 30, 28),
+  mapHold: orbit([0, 0, 0], 40, 14, 40), // cena escurecida atrás do mapa 2D
+  mapHold2: orbit([0, 0, 0], 42, 4, 40),
+  mapHold3: orbit([0, 0, 0], 43, -6, 40),
+  sledgeFar: orbit([0, 0.15, 5.95], 5, 40, 12), // trenó chegando
+  sledgeSide: orbit([0, 0.15, 2.85], 4.2, 70, 8),
+  sledgeOut: orbit([0, 0.15, 2.05], 5.5, 60, 14),
+  hammer: orbit([0, 0.15, 2.6], 1.9, 40, 16), // close dos martelos
+  hammer2: orbit([0, 0.15, 2.6], 2.3, 10, 22),
+  pitFront: orbit([0, 0.2, 2.2], 4.5, 60, 14),
+  pit: orbit([0, 0.2, 1.75], 4.2, 74, 18), // vista lateral do corte com a rampa
+  pitEnd: orbit([0, 0.25, 1.5], 4.6, 64, 10),
+  platform: orbit([-0.15, 0.25, 1.65], 4.5, 40, 12),
+  platformTop: orbit([-0.15, 0.42, 1.6], 4, 30, 18),
+  joint: orbit([-0.157, 0.44, 1.49], 1.6, 22, 22), // vista explodida do encaixe
+  joint2: orbit([-0.157, 0.44, 1.49], 2.0, -18, 20),
+  ring: orbit([0, 0.3, 0], 18, 12, 50), // anel visto de cima
+  ringLow: orbit([0, 0.3, 0], 17, 40, 10),
+  axisDawn: orbit([7.8, 0.19, 0], 7.8, -90, 0), // do centro, olhando para +x (Calcanhar e nascente)
+  axisDusk: orbit([-0.5, 0.3, 0], 8.6, 92, 1.5), // do Calcanhar olhando para o centro e o poente (−x)
+  axisDusk2: orbit([-0.9, 0.32, 0], 7.4, 93, 1.5),
+  dusk: orbit([-1.4, 0.36, 0], 5.2, 92, 2),
+  ruin: orbit([0, 0.3, 0], 14, 34, 16),
+  ruin2: orbit([0, 0.3, 0], 16, 60, 20),
+  final: orbit([0, 0.2, 0], 24, 46, 24),
+  final2: orbit([0, 0.2, 0], 30, 70, 26),
 };
 
 const O = {
-  backdrop: { id: "backdrop", type: "estúdio (tint oceano #182a4e) que escurece com a profundidade da câmera", visible: true },
-  colA: { id: "colA", type: "COLUNA A: corte de oceano esticado com as 5 zonas, régua de profundidade e selo de esquema", visible: true },
-  colB: { id: "colB", type: "COLUNA B: o mesmo oceano em escala real (1 km = 1 u3d) + Everest", visible: true },
-  pod: { id: "pod", type: "batisfera de vidro com farol, mascote dentro (trilhas pod.* e mascot.*)", visible: true },
-  snow: { id: "snow", type: "neve marinha: partículas brancas caindo devagar na coluna A", visible: true },
+  backdrop: { id: "backdrop", type: "estúdio Fenda Umbra (tint história #2e1f3a); céu do diorama muda com sun.phase", visible: true },
+  plain: { id: "plain", type: "planície de Salisbury low-poly no pedestal: grama, leves ondulações, montes funerários ao fundo", visible: true },
+  ditch: { id: "ditch", type: "vala circular + barranco interno e externo (Ø ~110 m), entrada a nordeste", visible: true },
+  monument: { id: "monument", type: "Stonehenge montável: 30 sarsens + 30 lintéis curvos, 5 trilitos, pedras azuis, Pedra do Altar (trilhas *.built)", visible: true },
+  heel: { id: "heel", type: "Pedra do Calcanhar (bruta, inclinada) no eixo +x", visible: true },
+  crew: { id: "crew", type: "trabalhadores neolíticos (Person variante túnica, crowdLooks(n, 'neolitico'))", visible: true },
+  mascot: { id: "mascot", type: "mascote andando pelo diorama como visitante (mascot.walk)", visible: true },
 };
-const base = [O.backdrop, O.colA, O.colB, O.pod, O.snow];
+const base = [O.backdrop, O.plain, O.ditch, O.monument, O.heel, O.mascot];
 
 export const scenes: ScenePlan[] = [
-  // 1 — GANCHO: o Everest cabe na fossa (coluna B, escala real)
+  // 1 — GANCHO: o monumento completo, a pergunta
   {
-    id: "scene-01-gancho-everest",
+    id: "scene-01-gancho",
     startFrame: sc(0).from,
     durationInFrames: sc(0).durationInFrames,
     voKey: "s1",
-    narration: "O Monte Everest inteiro cabe no ponto mais fundo do oceano, e ainda sobram dois quilômetros de água por cima. Vamos descer até lá?",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, orbit([XB, -5.0, 0], 27, 4, 4)), key(c(0, W("s1", 20), 12), orbit([XB, -5.6, 0], 25, 14, 6), "soft"), key(end(0), P.surface, "soft")] },
-    objects: [...base, { id: "everest", type: "Monte Everest low-poly (rocha + neve) dentro da fossa da coluna B (DESIGN NOVO)", visible: true, state: { start: "abaixo do fundo", end: "pico a 2 km da superfície" } }],
+    narration: "Pedras de vinte e cinco toneladas, de pé, em círculo, com outras deitadas por cima. E tudo isso há quatro mil e quinhentos anos, só com pedra, madeira e corda. Como construíram Stonehenge?",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.hero), key(W("s1", 15), P.hero2, "soft"), key(end(0), P.heroWide, "soft")] },
+    objects: [...base, { id: "toolsTrio", type: "3 ícones 2D: pedra, tronco, corda", visible: true }, { id: "personRef", type: "uma pessoa de 1,7 m ao pé de uma sarsen (escala)", visible: true }],
     animations: [
-      lin("pod.depth", 0, 1, 0, 0, "linear", "u3d"), lin("light.depth", 0, 1, 0, 0),
-      lin("everest.rise", W("s1", 0), W("s1", 4) + 12, 0, 1, "out"),
-      lin("bracket.water", W("s1", 12), W("s1", 19), 0, 1, "out"),
+      lin("monument.built", 0, 1, 1, 1, "linear"), lin("monument.ruin", 0, 1, 0, 0, "linear"), lin("sun.phase", 0, 1, 0.5, 0.5, "linear"),
+      lin("ditch.dig", 0, 1, 1, 1, "linear"), lin("ditch.chalk", 0, 1, 0, 0, "linear"), lin("heel.show", 0, 1, 1, 1, "linear"),
+      lin("crew.show", 0, 1, 0, 0, "linear"),
+      pop("personRef.show", W("s1", 2)),
+      lin("lintels.glow", W("s1", 11), W("s1", 14) + 10, 0, 1, "out"),
+      lin("lintels.glow", W("s1", 18), W("s1", 23), 1, 0, "inOut"),
+      pop("toolsTrio.show", W("s1", 24)),
+      ...fx.punch(W("s1", 30)),
       ...fx.whipOut(end(0)),
-      ...mascot.place([0.6, 0.1, 0.5], 0.3, 0.32, 0),
-      ...mascot.float(0),
-      ...mascot.wave(c(0, W("s1", 20), 30), s(1.0)),
+      ...mascot.place(g(0.75, 1.95), 0.5, MS, 0),
+      ...mascot.wave(W("s1", 0), s(1.2)),
+      ...mascot.jump(W("s1", 30)),
     ],
     badges: [
-      { text: "EVEREST: 8.849 m", variant: "info", appearAt: W("s1", 1), disappearAt: W("s1", 11) - 2 },
-      { text: "FOSSA: ~10.935 m", variant: "info", subtitle: "Abismo Challenger", appearAt: W("s1", 5), disappearAt: W("s1", 11) - 2 },
-      { text: "+2 km DE ÁGUA POR CIMA", variant: "warning", appearAt: W("s1", 12), disappearAt: c(0, W("s1", 20)) - 2 },
+      { text: "~25 TONELADAS", variant: "info", subtitle: "média de cada sarsen", appearAt: W("s1", 2), disappearAt: W("s1", 15) - 2 },
+      { text: "~2500 a.C.", variant: "info", subtitle: "as grandes pedras", appearAt: W("s1", 18), disappearAt: W("s1", 30) - 2 },
+      { text: "COMO?", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 30), disappearAt: end(0) - 2 },
     ],
-    highlights: ["EVEREST", "INTEIRO", "FUNDO", "OCEANO", "DOIS", "QUILÔMETROS", "DESCER"],
-    captions: [cap("s1", 0, "O Monte Everest inteiro cabe no ponto mais fundo do oceano, e ainda sobram dois quilômetros de água por cima. Vamos descer até lá?")],
-    audioCues: [narration("s1"), sfx("rumble", W("s1", 0), 0.2), sfx("ding", W("s1", 12), 0.2), sfx("whoosh-big", end(0) - 8, 0.26)],
+    highlights: ["VINTE", "CINCO", "TONELADAS", "CÍRCULO", "QUATRO", "MIL", "PEDRA", "MADEIRA", "CORDA", "STONEHENGE"],
+    captions: [cap("s1", 0, "Pedras de vinte e cinco toneladas, de pé, em círculo, com outras deitadas por cima. E tudo isso há quatro mil e quinhentos anos, só com pedra, madeira e corda. Como construíram Stonehenge?")],
+    audioCues: [narration("s1"), sfx("thud", W("s1", 2), 0.24), sfx("ding", W("s1", 24), 0.2), sfx("whoosh-big", end(0) - 8, 0.26)],
   },
-  // 2 — ZONA DO SOL (0–200 m) e a vida que você conhece
+  // 2 — REBOBINA: 3000 a.C., só a vala (e cremações)
   {
-    id: "scene-02-zona-sol",
+    id: "scene-02-vala",
     startFrame: sc(1).from,
     durationInFrames: sc(1).durationInFrames,
     voKey: "s2",
-    narration: "Os primeiros duzentos metros são a zona do sol, a única parte bem iluminada. É aqui que vive a maior parte da vida marinha que você conhece: tartarugas, golfinhos e cardumes.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.surface), key(W("s2", 14), P.sun, "soft"), key(end(1), pod(-1.2, 6.5, -12, 6), "soft")] },
-    objects: [...base, { id: "surface", type: "superfície com ondas, Sol, barco de pesca (Boat) e raios de luz", visible: true }, { id: "sunLife", type: "tartaruga e golfinhos (DESIGNS NOVOS) + cardume (Fish, aprovado)", visible: true }],
+    narration: "No começo, por volta de três mil anos antes de Cristo, era só uma vala redonda com um barranco de terra, no sul da Inglaterra. E ali já se enterravam as cinzas dos mortos.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.heroWide), key(W("s2", 11), P.ditch, "soft"), key(W("s2", 25), P.cremation, "soft"), key(end(1), P.cremation2, "soft")] },
+    objects: [...base, { id: "cremations", type: "covinhas com cinzas (manchas brancas) na borda interna da vala e nos buracos de Aubrey", visible: true }, { id: "rewind", type: "efeito rebobinar: pedras afundam/somem em sequência inversa", visible: true }],
     animations: [
       ...fx.whipIn(),
-      lin("sunRays.show", 0, W("s2", 8), 0.3, 1, "out"),
-      lin("zone.sun", W("s2", 5), W("s2", 8) + 8, 0, 1, "out"),
-      pop("turtle.show", W("s2", 27)),
-      pop("dolphins.show", W("s2", 28)),
-      pop("school.show", c(1, W("s2", 30), 32)),
-      lin("pod.depth", W("s2", 2), end(1), 0, 60, "inOut", "u3d"),
+      ...fx.desaturate(0, W("s2", 10) + 6, 0.5),
+      lin("monument.built", 0, W("s2", 10), 1, 0, "inOut"),
+      lin("heel.show", 0, W("s2", 10), 1, 0, "inOut"),
+      lin("ditch.dig", 0, W("s2", 10), 1, 0, "inOut"),
+      lin("ditch.dig", W("s2", 11), W("s2", 20) + 10, 0, 1, "out"),
+      lin("ditch.chalk", W("s2", 11), W("s2", 20) + 10, 0, 1, "out"),
+      lin("cremations.show", W("s2", 29), c(1, W("s2", 33) + 20), 0, 1, "out"),
+      ...mascot.walk(W("s2", 12), W("s2", 26), g(0.75, 1.95), g(3.75, 2.35)),
     ],
-    badges: [{ text: "ZONA DO SOL", variant: "info", subtitle: "0 a 200 m · epipelágica", appearAt: W("s2", 5), disappearAt: end(1) - 2 }],
-    highlights: ["DUZENTOS", "METROS", "ZONA", "SOL", "ILUMINADA", "TARTARUGAS", "GOLFINHOS", "CARDUMES"],
-    captions: [cap("s2", 1, "Os primeiros duzentos metros são a zona do sol, a única parte bem iluminada. É aqui que vive a maior parte da vida marinha que você conhece: tartarugas, golfinhos e cardumes.")],
-    audioCues: [narration("s2"), sfx("water-rise", 0, 0.2), sfx("pop-high", W("s2", 27), 0.18), sfx("pop-high", W("s2", 28), 0.18)],
+    badges: [
+      { text: "~3000 a.C.", variant: "info", subtitle: "a 1ª fase: vala e barranco", appearAt: W("s2", 5), disappearAt: W("s2", 25) - 2 },
+      { text: "TAMBÉM UM CEMITÉRIO", variant: "info", subtitle: "cinzas de dezenas de pessoas", appearAt: W("s2", 29), disappearAt: end(1) - 2 },
+    ],
+    highlights: ["TRÊS", "MIL", "VALA", "REDONDA", "BARRANCO", "INGLATERRA", "CINZAS", "MORTOS"],
+    captions: [cap("s2", 1, "No começo, por volta de três mil anos antes de Cristo, era só uma vala redonda com um barranco de terra, no sul da Inglaterra. E ali já se enterravam as cinzas dos mortos.")],
+    audioCues: [narration("s2"), sfx("rewind", 0, 0.22), sfx("dig", W("s2", 14), 0.2), sfx("glow", W("s2", 29), 0.18)],
   },
-  // 3 — ALGAS MICROSCÓPICAS E OXIGÊNIO
+  // 3 — PROBLEMA 1: de onde vêm as pedras? sarsens (~25 km, West Woods)
   {
-    id: "scene-03-oxigenio",
+    id: "scene-03-sarsens",
     startFrame: sc(2).from,
     durationInFrames: sc(2).durationInFrames,
     voKey: "s3",
-    narration: "E também algas microscópicas. Elas fazem fotossíntese como as plantas, e o oceano produz cerca de metade do oxigênio do planeta.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, pod(-1.2, 6.5, -12, 6)), key(end(2), P.algae, "soft")] },
-    objects: [...base, { id: "plankton", type: "fitoplâncton: partículas verdes + lupa 2D mostrando uma alga ampliada", visible: true }, { id: "o2", type: "bolhas de O₂ subindo", visible: true }, { id: "o2Card", type: "cartão 2D: pizza 'metade do oxigênio'", visible: true }],
+    narration: "Uns quinhentos anos depois, começa o difícil. Primeiro problema: de onde tirar pedras tão grandes? As gigantes, chamadas sarsens, vieram de uns vinte e cinco quilômetros ao norte.",
+    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.cremation2), key(W("s3", 7), P.mapHold, "soft"), key(end(2), P.mapHold2, "linear")] },
+    objects: [...base, { id: "map", type: "MAPA 2D da Grã-Bretanha (contorno real), ponto roxo = Stonehenge; rotas animadas", visible: true }, { id: "sarsenIcon", type: "ícone de sarsen gigante com pessoa ao lado", visible: true }],
     animations: [
-      lin("plankton.show", W("s3", 1), W("s3", 3) + 6, 0, 1, "out"),
-      pop("magnifier.show", W("s3", 2)),
-      lin("o2.flow", W("s3", 5), end(2), 0, 1, "linear"),
-      pop("o2Card.show", W("s3", 14)),
-      lin("pod.depth", 0, end(2), 60, 110, "linear", "u3d"),
+      lin("ditch.chalk", 0, W("s3", 6) + 20, 1, 0, "inOut"),
+      ...mascot.hide(W("s3", 6)),
+      lin("map.show", W("s3", 7), W("s3", 9) + 6, 0, 1, "out"),
+      lin("scene.dim", W("s3", 7), W("s3", 9) + 6, 0, 0.7, "out"),
+      lin("route.sarsen", W("s3", 19), W("s3", 27), 0, 1, "inOut"),
+      pop("sarsenIcon.show", W("s3", 16)),
     ],
-    badges: [{ text: "~METADE DO OXIGÊNIO", variant: "positive", subtitle: "vem do oceano (NOAA)", appearAt: W("s3", 14), disappearAt: end(2) - 2 }],
-    highlights: ["ALGAS", "MICROSCÓPICAS", "FOTOSSÍNTESE", "METADE", "OXIGÊNIO", "PLANETA"],
-    captions: [cap("s3", 2, "E também algas microscópicas. Elas fazem fotossíntese como as plantas, e o oceano produz cerca de metade do oxigênio do planeta.")],
-    audioCues: [narration("s3"), sfx("bubbles", W("s3", 5), 0.2), sfx("badge", W("s3", 14), 0.24)],
+    badges: [
+      { text: "PROBLEMA 1: A PEDRA", variant: "negative", subtitle: "de onde tirar?", appearAt: W("s3", 7), disappearAt: W("s3", 15) - 2 },
+      { text: "SARSENS: ~25 km", variant: "positive", subtitle: "West Woods (estudo de 2020)", appearAt: W("s3", 18), disappearAt: end(2) - 2 },
+    ],
+    highlights: ["QUINHENTOS", "DIFÍCIL", "PRIMEIRO", "PROBLEMA", "GRANDES", "SARSENS", "VINTE", "CINCO", "NORTE"],
+    captions: [cap("s3", 2, "Uns quinhentos anos depois, começa o difícil. Primeiro problema: de onde tirar pedras tão grandes? As gigantes, chamadas sarsens, vieram de uns vinte e cinco quilômetros ao norte.")],
+    audioCues: [narration("s3"), sfx("buzz", W("s3", 7), 0.18), sfx("whoosh-soft", W("s3", 19), 0.2), sfx("badge", W("s3", 18), 0.22)],
   },
-  // 4 — AS CORES SOMEM (o vermelho primeiro)
+  // 4 — pedras azuis (Preseli, País de Gales, >200 km)
   {
-    id: "scene-04-cores",
+    id: "scene-04-pedras-azuis",
     startFrame: sc(3).from,
     durationInFrames: sc(3).durationInFrames,
     voKey: "s4",
-    narration: "Só que a luz não desce inteira. O vermelho é a primeira cor que a água apaga, por isso, quanto mais fundo, mais tudo fica azul.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.algae), key(end(3), pod(-2.0, 6, 10, 4), "soft")] },
-    objects: [...base, { id: "colorBar", type: "barra 2D do arco-íris ao lado da régua: as cores somem de baixo para cima com a profundidade (vermelho primeiro)", visible: true }, { id: "redBall", type: "boia vermelha descendo e ficando cinza-azulada", visible: true }],
+    narration: "Já as pedras azuis, menores, vieram das colinas de Preseli, no País de Gales: mais de duzentos quilômetros. Cada uma pesa de duas a cinco toneladas.",
+    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.mapHold2), key(end(3), P.mapHold3, "linear")] },
+    objects: [...base, { id: "map", type: "MAPA 2D (continua)", visible: true }, { id: "blueIcon", type: "ícone de pedra azul com pessoa ao lado", visible: true }],
     animations: [
-      lin("colorBar.show", W("s4", 3), W("s4", 6), 0, 1, "out"),
-      lin("redBall.depth", W("s4", 7), W("s4", 16) + 10, 0, 1, "inOut"),
-      lin("colorBar.fadeRed", W("s4", 8), W("s4", 16) + 8, 0, 1, "inOut"),
-      lin("light.depth", W("s4", 19), end(3), 0, 0.25, "inOut"),
-      lin("pod.depth", 0, end(3), 110, 170, "linear", "u3d"),
+      lin("map.zoomOut", 0, W("s4", 6), 0, 1, "inOut"),
+      lin("route.blue", W("s4", 5), W("s4", 17), 0, 1, "inOut"),
+      pop("blueIcon.show", W("s4", 2)),
     ],
-    badges: [{ text: "VERMELHO SOME PRIMEIRO", variant: "info", subtitle: "depois laranja, amarelo, verde…", appearAt: W("s4", 7), disappearAt: end(3) - 2 }],
-    highlights: ["LUZ", "VERMELHO", "PRIMEIRA", "COR", "APAGA", "FUNDO", "AZUL"],
-    captions: [cap("s4", 3, "Só que a luz não desce inteira. O vermelho é a primeira cor que a água apaga, por isso, quanto mais fundo, mais tudo fica azul.")],
-    audioCues: [narration("s4"), sfx("shimmer", W("s4", 7), 0.18)],
+    badges: [{ text: "PEDRAS AZUIS: +200 km", variant: "info", subtitle: "Preseli, País de Gales · 2 a 5 t cada", appearAt: W("s4", 9), disappearAt: end(3) - 2 }],
+    highlights: ["PEDRAS", "AZUIS", "PRESELI", "GALES", "DUZENTOS", "QUILÔMETROS", "DUAS", "CINCO", "TONELADAS"],
+    captions: [cap("s4", 3, "Já as pedras azuis, menores, vieram das colinas de Preseli, no País de Gales: mais de duzentos quilômetros. Cada uma pesa de duas a cinco toneladas.")],
+    audioCues: [narration("s4"), sfx("whoosh-soft", W("s4", 5), 0.2), sfx("badge", W("s4", 9), 0.22)],
   },
-  // 5 — PRESSÃO (+ o copinho de isopor)
+  // 5 — Pedra do Altar: norte da Escócia, ≥750 km (Nature, 2024)
   {
-    id: "scene-05-pressao",
+    id: "scene-05-altar",
     startFrame: sc(4).from,
     durationInFrames: sc(4).durationInFrames,
     voKey: "s5",
-    narration: "E a pressão aumenta rápido: a cada dez metros, ela sobe o peso de uma atmosfera inteira. Um copinho de isopor que desce bem fundo volta todo encolhido.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, pod(-2.0, 6, 10, 4)), key(W("s5", 17), P.press, "soft"), key(end(4), pod(-2.4, 4.6, -16, 6), "soft")] },
-    objects: [...base, { id: "pressure", type: "setas de pressão apertando a batisfera + medidor 2D 'atm'", visible: true }, { id: "cups", type: "dois copinhos de isopor: normal × encolhido (prop simples)", visible: true }],
+    narration: "E em 2024 descobriram que a Pedra do Altar, de umas seis toneladas, veio do norte da Escócia: no mínimo setecentos e cinquenta quilômetros.",
+    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.mapHold3), key(end(4), orbit([0, 0, 0], 44, -10, 40), "linear")] },
+    objects: [...base, { id: "map", type: "MAPA 2D (zoom maior, Escócia inteira)", visible: true }, { id: "altarIcon", type: "ícone da Pedra do Altar deitada", visible: true }],
     animations: [
-      lin("pod.depth", 0, end(4), 170, 260, "inOut", "u3d"),
-      lin("gauge.atm", W("s5", 5), W("s5", 16), 18, 27, "linear"),
-      lin("pressure.arrows", W("s5", 9), W("s5", 12) + 8, 0, 1, "out"),
-      pop("cups.show", W("s5", 18)),
-      lin("cups.shrink", W("s5", 24), c(4, W("s5", 27) + 10), 0, 1, "inOut"),
-      ...mascot.jump(W("s5", 26)),
-      lin("cups.show", end(4) - 10, end(4), undefined, 0, "in"),
-      lin("pressure.arrows", end(4) - 10, end(4), undefined, 0, "in"),
+      lin("map.zoomOut2", 0, W("s5", 13), 0, 1, "inOut"),
+      lin("route.altar", W("s5", 13), W("s5", 23), 0, 1, "inOut"),
+      pop("altarIcon.show", W("s5", 6)),
+      ...fx.shake(W("s5", 20)),
+      lin("map.show", c(4, end(4) - 10), end(4), 1, 0, "in"),
+      lin("scene.dim", c(4, end(4) - 10), end(4), 0.7, 0, "in"),
     ],
-    badges: [
-      { text: "+1 ATM A CADA 10 m", variant: "warning", appearAt: W("s5", 5), disappearAt: W("s5", 17) - 2 },
-      { text: "O ISOPOR ENCOLHE", variant: "info", subtitle: "a água esmaga o ar de dentro", appearAt: W("s5", 24), disappearAt: end(4) - 2 },
-    ],
-    highlights: ["PRESSÃO", "DEZ", "METROS", "ATMOSFERA", "ISOPOR", "ENCOLHIDO"],
-    captions: [cap("s5", 4, "E a pressão aumenta rápido: a cada dez metros, ela sobe o peso de uma atmosfera inteira. Um copinho de isopor que desce bem fundo volta todo encolhido.")],
-    audioCues: [narration("s5"), sfx("pressure", W("s5", 9), 0.2), sfx("strain", W("s5", 24), 0.16)],
+    badges: [{ text: "PEDRA DO ALTAR: ≥750 km", variant: "warning", subtitle: "norte da Escócia (Nature, 2024)", appearAt: W("s5", 17), disappearAt: end(4) - 2 }],
+    highlights: ["2024", "PEDRA", "ALTAR", "SEIS", "ESCÓCIA", "SETECENTOS", "CINQUENTA"],
+    captions: [cap("s5", 4, "E em 2024 descobriram que a Pedra do Altar, de umas seis toneladas, veio do norte da Escócia: no mínimo setecentos e cinquenta quilômetros.")],
+    audioCues: [narration("s5"), sfx("whoosh-soft", W("s5", 13), 0.2), sfx("thud", W("s5", 20), 0.22)],
   },
-  // 6 — ZONA DO CREPÚSCULO (200–1.000 m): olhos grandes e luz na barriga
+  // 6 — PROBLEMA 2: arrastar 25 t → trenó sobre trilhos de troncos
   {
-    id: "scene-06-crepusculo",
+    id: "scene-06-treno",
     startFrame: sc(5).from,
     durationInFrames: sc(5).durationInFrames,
     voKey: "s6",
-    narration: "De duzentos a mil metros fica a zona do crepúsculo, só com um restinho de luz azul. Muitos peixes daqui têm olhos enormes e luzinhas na barriga, para sumir contra a claridade de cima.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, pod(-2.4, 4.6, -16, 6)), key(W("s6", 6), P.twilight, "soft"), key(W("s6", 17), pod(depthY(600), 3.6, 4, -10), "soft"), key(end(5), pod(depthY(650), 4.2, 14, -14), "soft")] },
-    objects: [...base, { id: "lanternfish", type: "peixes-lanterna (DESIGN NOVO): olhos grandes, pontinhos de luz na barriga", visible: true }],
+    narration: "Segundo problema: como arrastar vinte e cinco toneladas? A hipótese mais aceita é um trenó de madeira deslizando sobre trilhos de troncos, puxado com cordas por muita gente.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, orbit([0, 0, 0], 44, -10, 40)), key(W("s6", 8), P.sledgeFar, "soft"), key(end(5), P.sledgeSide, "linear")] },
+    objects: [...base, O.crew, { id: "workStone", type: "A PEDRA-MODELO: sarsen bruta deitada no trenó", visible: true, state: { start: "fora do diorama (+z)", end: "no canteiro" } }, { id: "sledge", type: "trenó de madeira + trilhos de troncos + cordas (DESIGN NOVO)", visible: true }],
     animations: [
-      lin("pod.depth", 0, W("s6", 9), 260, 600, "inOut", "u3d"),
-      lin("light.depth", 0, W("s6", 15), 0.25, 0.45, "inOut"),
-      lin("zone.twilight", W("s6", 6), W("s6", 9) + 8, 0, 1, "out"),
-      pop("lantern.show", W("s6", 17)),
-      lin("lantern.bellyGlow", W("s6", 23), W("s6", 26) + 8, 0, 1, "out"),
-      lin("lantern.hide", W("s6", 27), c(5, W("s6", 33) + 10), 0, 1, "inOut"), // visto de baixo, a silhueta some na claridade
+      lin("monument.built", 0, 1, 0, 0, "linear"), lin("ditch.dig", 0, 1, 1, 1, "linear"),
+      lin("stonesPile.show", 0, W("s6", 3), 0, 1, "out"),
+      lin("crew.show", 0, 1, 1, 1, "linear"),
+      lin("sledge.z", W("s6", 8), end(5), 6.5, 3.4, "linear", "u3d"),
+      lin("crew.pull", W("s6", 22), end(5), 0, 1, "linear"),
+      lin("rails.show", W("s6", 17), W("s6", 21) + 6, 0, 1, "out"),
+      ...mascot.place(g(2.6, 4.4), -1.2, MS, 0, 10),
+      ...mascot.walk(2, W("s6", 10), g(2.6, 4.4), g(1.3, 3.6)),
+      ...mascot.point(W("s6", 14), s(1.2), -1.6),
     ],
     badges: [
-      { text: "ZONA DO CREPÚSCULO", variant: "info", subtitle: "200 a 1.000 m · mesopelágica", appearAt: W("s6", 6), disappearAt: W("s6", 17) - 2 },
-      { text: "LUZ NA BARRIGA = CAMUFLAGEM", variant: "positive", subtitle: "some vista de baixo", appearAt: W("s6", 24), disappearAt: end(5) - 2 },
+      { text: "PROBLEMA 2: O PESO", variant: "negative", subtitle: "25 toneladas por pedra", appearAt: W("s6", 0), disappearAt: W("s6", 8) - 2 },
+      { text: "TRENÓ + TRILHOS DE TRONCOS", variant: "positive", subtitle: "hipótese mais aceita", appearAt: W("s6", 14), disappearAt: end(5) - 2 },
     ],
-    highlights: ["MIL", "CREPÚSCULO", "AZUL", "OLHOS", "ENORMES", "LUZINHAS", "BARRIGA", "SUMIR"],
-    captions: [cap("s6", 5, "De duzentos a mil metros fica a zona do crepúsculo, só com um restinho de luz azul. Muitos peixes daqui têm olhos enormes e luzinhas na barriga, para sumir contra a claridade de cima.")],
-    audioCues: [narration("s6"), sfx("dive", 0, 0.18), sfx("shimmer", W("s6", 23), 0.18)],
+    highlights: ["SEGUNDO", "PROBLEMA", "ARRASTAR", "TONELADAS", "HIPÓTESE", "TRENÓ", "MADEIRA", "TRILHOS", "TRONCOS", "CORDAS", "GENTE"],
+    captions: [cap("s6", 5, "Segundo problema: como arrastar vinte e cinco toneladas? A hipótese mais aceita é um trenó de madeira deslizando sobre trilhos de troncos, puxado com cordas por muita gente.")],
+    audioCues: [narration("s6"), sfx("buzz", W("s6", 0), 0.18), sfx("rumble-soft", W("s6", 22), 0.22), sfx("badge", W("s6", 14), 0.22)],
   },
-  // 7 — A MAIOR MIGRAÇÃO DO PLANETA
+  // 7 — honestidade: testes só com pedras menores; ninguém sabe quantos/quanto tempo
   {
-    id: "scene-07-migracao",
+    id: "scene-07-incerteza",
     startFrame: sc(6).from,
     durationInFrames: sc(6).durationInFrames,
     voKey: "s7",
-    narration: "E toda noite, bilhões de animais sobem daqui para comer perto da superfície e voltam antes do amanhecer. É a maior migração do planeta, e acontece todo dia.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, pod(depthY(650), 4.2, 14, -14)), key(W("s7", 3), P.twilightWide, "soft"), key(end(6), P.twilightWide, "soft")] },
-    objects: [...base, { id: "lanternfish", type: "cardume grande de peixes-lanterna + zooplâncton", visible: true }, { id: "dayNight", type: "ícone 2D sol/lua no topo da coluna", visible: true }],
+    narration: "Testes modernos mostram que funciona, mas sempre com pedras bem menores que as maiores de lá. Quantas pessoas e quanto tempo, ninguém sabe ao certo.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.sledgeSide), key(end(6), P.sledgeOut, "linear")] },
+    objects: [...base, O.crew, { id: "workStone", type: "pedra-modelo no trenó (continua)", visible: true }, { id: "sledge", type: "trenó (continua)", visible: true }, { id: "compare", type: "camada 2D: blocos lado a lado — 'testes' (pequeno) × 'maior sarsen' (~30 t)", visible: true }, { id: "qmarks", type: "pessoas viram silhuetas com '?' em volta (contagem desconhecida)", visible: true }],
     animations: [
-      lin("dayNight.night", W("s7", 1), W("s7", 2) + 8, 0, 1, "inOut"),
-      lin("lantern.migrate", W("s7", 3), W("s7", 12), 0, 1, "inOut"),
-      lin("dayNight.night", W("s7", 14), W("s7", 17), undefined, 0, "inOut"),
-      lin("lantern.migrate", W("s7", 14), W("s7", 17) + 10, undefined, 0, "inOut"),
-      ...mascot.look(W("s7", 6), 0.6, 12),
+      lin("sledge.z", 0, end(6), 3.4, 2.6, "linear", "u3d"),
+      pop("compare.show", W("s7", 5)),
+      lin("compare.show", W("s7", 16) - 8, W("s7", 16), 1, 0, "in"),
+      lin("crew.unknown", W("s7", 16), W("s7", 21) + 8, 0, 1, "out"),
+      ...mascot.look(W("s7", 21), 0.5),
+      ...mascot.hide(end(6) - 10),
     ],
-    badges: [{ text: "A MAIOR MIGRAÇÃO DO PLANETA", variant: "positive", subtitle: "sobe à noite, desce de dia", appearAt: W("s7", 18), disappearAt: end(6) - 2 }],
-    highlights: ["NOITE", "BILHÕES", "ANIMAIS", "SUPERFÍCIE", "AMANHECER", "MAIOR", "MIGRAÇÃO", "DIA"],
-    captions: [cap("s7", 6, "E toda noite, bilhões de animais sobem daqui para comer perto da superfície e voltam antes do amanhecer. É a maior migração do planeta, e acontece todo dia.")],
-    audioCues: [narration("s7"), sfx("whoosh-soft", W("s7", 3), 0.2), sfx("whoosh-soft", W("s7", 14), 0.18), sfx("badge", W("s7", 18), 0.24)],
+    badges: [{ text: "NINGUÉM SABE AO CERTO", variant: "warning", icon: "?", subtitle: "quantas pessoas · quanto tempo", appearAt: W("s7", 16), disappearAt: end(6) - 2 }],
+    highlights: ["TESTES", "FUNCIONA", "MENORES", "MAIORES", "PESSOAS", "TEMPO", "NINGUÉM", "CERTO"],
+    captions: [cap("s7", 6, "Testes modernos mostram que funciona, mas sempre com pedras bem menores que as maiores de lá. Quantas pessoas e quanto tempo, ninguém sabe ao certo.")],
+    audioCues: [narration("s7"), sfx("pop-high", W("s7", 5), 0.18), sfx("pop", W("s7", 16), 0.2)],
   },
-  // 8 — ZONA DA MEIA-NOITE (1.000–4.000 m)
+  // 8 — PROBLEMA 3: pedra bruta → martelos de pedra (lascar e alisar)
   {
-    id: "scene-08-meia-noite",
+    id: "scene-08-martelos",
     startFrame: sc(7).from,
     durationInFrames: sc(7).durationInFrames,
     voKey: "s8",
-    narration: "Passou de mil metros, escuridão total. É a zona da meia-noite: a água fica perto de quatro graus, e a única luz vem dos próprios animais.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.twilightWide), key(W("s8", 4), P.midnight, "soft"), key(end(7), pod(depthY(1700), 5, 10, 4), "soft")] },
-    objects: [...base, { id: "podLamp", type: "farol da batisfera (cone de luz)", visible: true }, { id: "jellies", type: "águas-vivas bioluminescentes (DESIGN NOVO) + faíscas azuis", visible: true }],
+    narration: "Terceiro problema: a pedra chegava bruta. Eles batiam nela com martelos de pedra: os grandes lascavam, os pequenos alisavam. Esses martelos foram achados no próprio local.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.sledgeOut), key(W("s8", 6), P.hammer, "soft"), key(end(7), P.hammer2, "soft")] },
+    objects: [...base, O.crew, { id: "workStone", type: "pedra-modelo: de bruta (facetada irregular) para alisada, com o pino (espiga) no topo", visible: true, state: { start: "bruta", end: "alisada" } }, { id: "hammers", type: "martelos de pedra: grandes (cabeça de ~30 cm) e pequenos (~10 cm) (DESIGN NOVO)", visible: true }, { id: "chips", type: "lascas cinzentas saltando a cada golpe", visible: true }],
     animations: [
-      lin("pod.depth", 0, W("s8", 6), 600, 1600, "inOut", "u3d"),
-      lin("light.depth", W("s8", 2), W("s8", 5), undefined, 1, "in"),
-      lin("podLamp.on", W("s8", 5), W("s8", 6) + 4, 0, 1, "out"),
-      lin("zone.midnight", W("s8", 6), W("s8", 10) + 8, 0, 1, "out"),
-      lin("temp.show", W("s8", 13), W("s8", 17) + 6, 0, 1, "out"),
-      lin("podLamp.on", W("s8", 19), W("s8", 21), undefined, 0.15, "inOut"),
-      lin("biolum.show", W("s8", 19), c(7, W("s8", 25) + 10), 0, 1, "out"),
+      lin("workStone.rough", 0, 1, 1, 1, "linear"),
+      lin("hammer.big", W("s8", 13), W("s8", 16), 0, 1, "linear"),
+      lin("workStone.rough", W("s8", 13), W("s8", 18) + 10, 1, 0, "inOut"),
+      lin("hammer.small", W("s8", 16), W("s8", 19), 0, 1, "linear"),
+      lin("workStone.tenon", W("s8", 18), W("s8", 19) + 10, 0, 1, "out"),
+      pop("hammersFound.show", W("s8", 19)),
+      ...fx.shake(W("s8", 7)),
     ],
     badges: [
-      { text: "ZONA DA MEIA-NOITE", variant: "info", subtitle: "1.000 a 4.000 m · batipelágica", appearAt: W("s8", 6), disappearAt: W("s8", 19) - 2 },
-      { text: "LUZ DOS PRÓPRIOS ANIMAIS", variant: "positive", subtitle: "bioluminescência", appearAt: W("s8", 19), disappearAt: end(7) - 2 },
+      { text: "PROBLEMA 3: PEDRA BRUTA", variant: "negative", appearAt: W("s8", 0), disappearAt: W("s8", 6) - 2 },
+      { text: "MARTELOS DE PEDRA", variant: "positive", subtitle: "grandes lascam · pequenos alisam", appearAt: W("s8", 10), disappearAt: W("s8", 19) - 2 },
+      { text: "ACHADOS NO LOCAL", variant: "info", subtitle: "English Heritage", appearAt: W("s8", 19), disappearAt: end(7) - 2 },
     ],
-    highlights: ["MIL", "ESCURIDÃO", "TOTAL", "MEIA-NOITE", "QUATRO", "GRAUS", "LUZ", "ANIMAIS"],
-    captions: [cap("s8", 7, "Passou de mil metros, escuridão total. É a zona da meia-noite: a água fica perto de quatro graus, e a única luz vem dos próprios animais.")],
-    audioCues: [narration("s8"), sfx("deep-amb", 0, 0.18), sfx("click", W("s8", 5), 0.2), sfx("shimmer", W("s8", 19), 0.22)],
+    highlights: ["TERCEIRO", "PROBLEMA", "BRUTA", "MARTELOS", "PEDRA", "GRANDES", "LASCAVAM", "PEQUENOS", "ALISAVAM", "ACHADOS"],
+    captions: [cap("s8", 7, "Terceiro problema: a pedra chegava bruta. Eles batiam nela com martelos de pedra: os grandes lascavam, os pequenos alisavam. Esses martelos foram achados no próprio local.")],
+    audioCues: [narration("s8"), sfx("buzz", W("s8", 0), 0.18), sfx("tick", W("s8", 13), 0.24), sfx("tick", W("s8", 14), 0.2), sfx("tick", W("s8", 17), 0.2), sfx("badge", W("s8", 19), 0.22)],
   },
-  // 9 — TAMBORIL E O "VERMELHO INVISÍVEL"
+  // 9 — PROBLEMA 4: erguer → buraco com lado inclinado, cordas e escoras
   {
-    id: "scene-09-tamboril",
+    id: "scene-09-erguer",
     startFrame: sc(8).from,
     durationInFrames: sc(8).durationInFrames,
     voKey: "s9",
-    narration: "O tamboril balança uma isca que brilha para atrair presas até a boca. E muitos bichos daqui são vermelhos, porque sem luz vermelha, o vermelho fica preto, quase invisível.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, pod(depthY(1700), 5, 10, 4)), key(W("s9", 1), orbit([-0.2, depthY(1800) + 0.12, 0.7], 4.4, -6, 4), "soft"), key(W("s9", 13), orbit([0.75, depthY(1850), 0.6], 4.0, 10, 4), "soft"), key(end(8), pod(depthY(1900), 4.4, 4, 4), "soft")] },
-    objects: [...base, { id: "angler", type: "tamboril com isca de luz (DESIGN NOVO)", visible: true }, { id: "redShrimp", type: "camarão vermelho de águas profundas (DESIGN NOVO): vermelho no farol, preto no escuro", visible: true }],
+    narration: "Quarto problema: pôr de pé um bloco gigante. Cavava-se um buraco com um lado inclinado, a pedra escorregava para dentro, e cordas e escoras terminavam de erguer.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.pitFront), key(W("s9", 8), P.pit, "soft"), key(end(8), P.pitEnd, "soft")] },
+    objects: [...base, O.crew, { id: "pit", type: "vala escavada: rampa de giz descendo até o buraco + monte de terra retirada", visible: true }, { id: "workStone", type: "pedra-modelo: deitada → inclinada → em pé no buraco", visible: true, state: { start: "tilt 0°", end: "tilt 90°" } }, { id: "props", type: "escoras de madeira (cavalete em A) + cordas (DESIGN NOVO)", visible: true }],
     animations: [
-      pop("angler.show", W("s9", 1)),
-      lin("angler.lure", W("s9", 2), W("s9", 6) + 10, 0, 1, "inOut"),
-      lin("angler.bite", W("s9", 10), W("s9", 12) + 6, 0, 1, "out"),
-      pop("shrimp.show", W("s9", 15)),
-      lin("podLamp.on", W("s9", 15), W("s9", 17), undefined, 1, "out"), // no farol: vermelho
-      lin("podLamp.on", W("s9", 19), W("s9", 22) + 6, undefined, 0, "inOut"), // sem luz: some
-      ...mascot.jump(W("s9", 11)),
+      lin("pit.dig", W("s9", 8), W("s9", 14) + 6, 0, 1, "out"),
+      lin("pit.cut", W("s9", 8), W("s9", 10), 0, 1, "out"),
+      lin("workStone.slide", W("s9", 15), W("s9", 19) + 6, 0, 1, "in"),
+      lin("workStone.tilt", W("s9", 15), W("s9", 19) + 6, 0, 35, "in", "deg"),
+      lin("workStone.tilt", W("s9", 20), c(8, W("s9", 26) + 20), 35, 90, "inOut", "deg"),
+      lin("props.show", W("s9", 20), W("s9", 23) + 6, 0, 1, "out"),
+      lin("crew.pull", W("s9", 20), c(8, W("s9", 26) + 20), 0, 1, "linear"),
+      ...fx.shake(c(8, W("s9", 26) + 20)),
     ],
     badges: [
-      { text: "ISCA DE LUZ", variant: "info", subtitle: "o tamboril pesca no escuro", appearAt: W("s9", 3), disappearAt: W("s9", 13) - 2 },
-      { text: "VERMELHO = INVISÍVEL", variant: "positive", subtitle: "sem luz vermelha, vira preto", appearAt: W("s9", 19), disappearAt: end(8) - 2 },
+      { text: "PROBLEMA 4: ERGUER", variant: "negative", subtitle: "as mais altas: +6 m acima do chão", appearAt: W("s9", 0), disappearAt: W("s9", 8) - 2 },
+      { text: "BURACO COM RAMPA + ESCORAS", variant: "positive", subtitle: "hipótese mais aceita", appearAt: W("s9", 10), disappearAt: end(8) - 2 },
     ],
-    highlights: ["TAMBORIL", "ISCA", "BRILHA", "BOCA", "VERMELHOS", "PRETO", "INVISÍVEL"],
-    captions: [cap("s9", 8, "O tamboril balança uma isca que brilha para atrair presas até a boca. E muitos bichos daqui são vermelhos, porque sem luz vermelha, o vermelho fica preto, quase invisível.")],
-    audioCues: [narration("s9"), sfx("glow", W("s9", 3), 0.2), sfx("pop", W("s9", 11), 0.2), sfx("click", W("s9", 19), 0.18)],
+    highlights: ["QUARTO", "PROBLEMA", "PÉ", "GIGANTE", "BURACO", "INCLINADO", "ESCORREGAVA", "CORDAS", "ESCORAS", "ERGUER"],
+    captions: [cap("s9", 8, "Quarto problema: pôr de pé um bloco gigante. Cavava-se um buraco com um lado inclinado, a pedra escorregava para dentro, e cordas e escoras terminavam de erguer.")],
+    audioCues: [narration("s9"), sfx("buzz", W("s9", 0), 0.18), sfx("dig", W("s9", 8), 0.2), sfx("crumble", W("s9", 15), 0.22), sfx("thud", c(8, W("s9", 26) + 20), 0.26)],
   },
-  // 10 — O CACHALOTE
+  // 10 — PROBLEMA 5: lintel lá em cima → plataforma de madeira que cresce
   {
-    id: "scene-10-cachalote",
+    id: "scene-10-plataforma",
     startFrame: sc(9).from,
     durationInFrames: sc(9).durationInFrames,
     voKey: "s10",
-    narration: "Até aqui desce o cachalote, a cerca de dois mil metros, com um único fôlego, para caçar lulas.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, pod(depthY(1900), 4.4, 4, 4)), key(W("s10", 3), P.whale, "soft"), key(end(9), pod(depthY(2100), 7, -8, 2), "soft")] },
-    objects: [...base, { id: "spermWhale", type: "cachalote (DESIGN NOVO, cabeça quadrada) mergulhando de cabeça", visible: true }, { id: "squid", type: "lula (DESIGN NOVO)", visible: true }],
+    narration: "Quinto problema: a pedra deitada, de umas sete toneladas, vai lá em cima. O mais provável é uma plataforma de madeira: sobe a pedra um pouco, põe madeira embaixo, e repete até o topo.",
+    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.pitEnd), key(W("s10", 13), P.platform, "soft"), key(end(9), P.platformTop, "soft")] },
+    objects: [...base, O.crew, { id: "neighbor", type: "segunda pedra em pé ao lado da pedra-modelo (par para o lintel)", visible: true }, { id: "lintel", type: "lintel curvo (~7 t) com 2 buracos (encaixes) embaixo", visible: true, state: { start: "no chão", end: "no topo" } }, { id: "crib", type: "plataforma de troncos cruzados que cresce camada por camada (DESIGN NOVO)", visible: true }],
     animations: [
-      lin("podLamp.on", 0, 8, undefined, 0.8, "out"),
-      lin("pod.depth", 0, end(9), 1900, 2100, "linear", "u3d"),
-      lin("whale.dive", W("s10", 2), W("s10", 10) + 10, 0, 1, "inOut"),
-      lin("squid.flee", W("s10", 15), c(9, W("s10", 17) + 12), 0, 1, "out"),
-      ...mascot.jump(W("s10", 4)),
+      lin("neighbor.show", 0, W("s10", 4), 0, 1, "out"),
+      pop("lintel.show", W("s10", 2)),
+      lin("pit.cut", 0, 20, 1, 0, "inOut"),
+      lin("crib.layers", W("s10", 17), c(9, W("s10", 33) + 10), 0, 12, "linear"),
+      lin("lintel.y", W("s10", 21), c(9, W("s10", 33) + 10), 0, 0.435, "linear", "u3d"),
+      lin("crew.lever", W("s10", 21), c(9, W("s10", 33) + 10), 0, 1, "linear"),
+      ...mascot.place(g(1.6, 2.6), -0.9, MS, 0, 10),
+      ...mascot.point(W("s10", 18), s(1.2)),
+      ...mascot.hide(end(9) - 10),
     ],
-    badges: [{ text: "CACHALOTE: ~2.000 m", variant: "info", subtitle: "num único fôlego", appearAt: W("s10", 4), disappearAt: end(9) - 2 }],
-    highlights: ["CACHALOTE", "DOIS", "MIL", "METROS", "FÔLEGO", "LULAS"],
-    captions: [cap("s10", 9, "Até aqui desce o cachalote, a cerca de dois mil metros, com um único fôlego, para caçar lulas.")],
-    audioCues: [narration("s10"), sfx("whoosh-big", W("s10", 2), 0.22), sfx("bubbles", W("s10", 11), 0.16)],
+    badges: [
+      { text: "PROBLEMA 5: O LINTEL", variant: "negative", subtitle: "~7 t a ~4 m de altura", appearAt: W("s10", 0), disappearAt: W("s10", 13) - 2 },
+      { text: "PLATAFORMA DE MADEIRA", variant: "positive", subtitle: "sobe um pouco · calça · repete", appearAt: W("s10", 17), disappearAt: end(9) - 2 },
+    ],
+    highlights: ["QUINTO", "PROBLEMA", "DEITADA", "SETE", "TONELADAS", "PLATAFORMA", "MADEIRA", "SOBE", "EMBAIXO", "REPETE", "TOPO"],
+    captions: [cap("s10", 9, "Quinto problema: a pedra deitada, de umas sete toneladas, vai lá em cima. O mais provável é uma plataforma de madeira: sobe a pedra um pouco, põe madeira embaixo, e repete até o topo.")],
+    audioCues: [narration("s10"), sfx("buzz", W("s10", 0), 0.18), sfx("clunk", W("s10", 21), 0.2), sfx("clunk", W("s10", 26), 0.2), sfx("clunk", W("s10", 30), 0.2)],
   },
-  // 11 — ABISMO (4.000–6.000 m) e a neve marinha
+  // 11 — encaixes de marcenaria em pedra (vista explodida)
   {
-    id: "scene-11-abismo",
+    id: "scene-11-encaixes",
     startFrame: sc(10).from,
     durationInFrames: sc(10).durationInFrames,
     voKey: "s11",
-    narration: "De quatro a seis mil metros é o abismo: planícies enormes de lama gelada. Lá cai devagar uma chuva de restos lá de cima, a neve marinha, que pode levar semanas para chegar ao fundo e vira comida de quem vive ali.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, pod(depthY(2100), 7, -8, 2)), key(W("s11", 6), P.abyss, "soft"), key(W("s11", 27), pod(depthY(5800), 4.6, 26, 14), "soft"), key(end(10), pod(depthY(5900), 4.2, 8, 10), "soft")] },
-    objects: [...base, { id: "abyssPlain", type: "planície abissal: plataforma de lama lateral + pepinos-do-mar (DESIGN NOVO)", visible: true }],
+    narration: "E para nada escorregar, copiaram a marcenaria: buracos na pedra de cima encaixam em pinos das pedras em pé, e as pontas se encaixam umas nas outras, como num móvel.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.platformTop), key(W("s11", 6), P.joint, "soft"), key(end(10), P.joint2, "soft")] },
+    objects: [...base, { id: "lintel", type: "lintel (continua)", visible: true }, { id: "lintel2", type: "lintel vizinho (para mostrar a lingueta e ranhura)", visible: true }, { id: "jointLabels", type: "rótulos 3D: 'pino (espiga)', 'buraco (encaixe)', 'lingueta e ranhura'", visible: true }],
     animations: [
-      lin("pod.depth", 0, W("s11", 8), 2100, 5600, "inOut", "u3d"),
-      lin("zone.abyss", W("s11", 6), W("s11", 8) + 8, 0, 1, "out"),
-      lin("snow.amount", W("s11", 14), W("s11", 20), 0.2, 1, "inOut"),
-      lin("snow.trace", W("s11", 27), W("s11", 34), 0, 1, "inOut"), // um floco acompanhado até o fundo (relógio 2D "semanas")
-      lin("cucumber.eat", W("s11", 36), c(10, W("s11", 41) + 10), 0, 1, "inOut"),
+      lin("crib.fade", 0, W("s11", 4), 1, 0, "inOut"),
+      lin("joint.explode", W("s11", 7), W("s11", 12) + 6, 0, 1, "out"),
+      lin("joint.explode", W("s11", 14) + 6, W("s11", 18) + 6, 1, 0, "inOut"),
+      lin("lintel2.slide", W("s11", 20), W("s11", 26) + 6, 0, 1, "inOut"),
+      ...fx.punch(W("s11", 12)),
     ],
     badges: [
-      { text: "ABISMO", variant: "info", subtitle: "4.000 a 6.000 m · abissopelágica", appearAt: W("s11", 6), disappearAt: W("s11", 24) - 2 },
-      { text: "NEVE MARINHA", variant: "info", subtitle: "pode levar semanas para cair", appearAt: W("s11", 24), disappearAt: end(10) - 2 },
+      { text: "ENCAIXE DE MARCENARIA", variant: "info", subtitle: "pino e buraco · lingueta e ranhura", appearAt: W("s11", 6), disappearAt: W("s11", 27) - 2 },
+      { text: "EM PEDRA!", variant: "warning", subtitle: "técnica de quem trabalha madeira", appearAt: W("s11", 27), disappearAt: end(10) - 2 },
     ],
-    highlights: ["QUATRO", "SEIS", "MIL", "ABISMO", "LAMA", "GELADA", "NEVE", "MARINHA", "SEMANAS", "COMIDA"],
-    captions: [cap("s11", 10, "De quatro a seis mil metros é o abismo: planícies enormes de lama gelada. Lá cai devagar uma chuva de restos lá de cima, a neve marinha, que pode levar semanas para chegar ao fundo e vira comida de quem vive ali.")],
-    audioCues: [narration("s11"), sfx("dive", 0, 0.2), sfx("shimmer", W("s11", 24), 0.18)],
+    highlights: ["ESCORREGAR", "MARCENARIA", "BURACOS", "ENCAIXAM", "PINOS", "PONTAS", "MÓVEL"],
+    captions: [cap("s11", 10, "E para nada escorregar, copiaram a marcenaria: buracos na pedra de cima encaixam em pinos das pedras em pé, e as pontas se encaixam umas nas outras, como num móvel.")],
+    audioCues: [narration("s11"), sfx("click", W("s11", 12), 0.24), sfx("click", W("s11", 23), 0.24)],
   },
-  // 12 — ZONA HADAL (6.000–~11.000 m)
+  // 12 — anel curvo: Ø 30 m a 4 m do chão (o monumento se completa)
   {
-    id: "scene-12-hadal",
+    id: "scene-12-anel",
     startFrame: sc(11).from,
     durationInFrames: sc(11).durationInFrames,
     voKey: "s12",
-    narration: "Mais fundo, só nas fossas: a zona hadal, de Hades, o deus do mundo dos mortos. Perto de onze mil metros, a pressão passa de mil vezes a da superfície.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, pod(depthY(5900), 4.2, 8, 10)), key(W("s12", 5), P.hadal, "soft"), key(W("s12", 16), P.hadalBottom, "soft"), key(end(11), pod(depthY(10900), 4.2, -6, 4), "soft")] },
-    objects: [...base, { id: "trench", type: "paredes da fossa se estreitando (rocha escura)", visible: true }, { id: "gauge", type: "medidor 2D de pressão: 1.000+ atm", visible: true }],
+    narration: "As pedras de cima são até levemente curvas, formando um anel de trinta metros, suspenso a quatro metros do chão.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.joint2), key(W("s12", 8), P.ring, "soft"), key(end(11), P.ringLow, "soft")] },
+    objects: [...base, O.crew, { id: "ringDims", type: "cotas 3D: diâmetro 30 m (seta atravessando o anel) e altura 4 m (seta vertical com pessoa ao lado)", visible: true }],
     animations: [
-      lin("pod.depth", 0, W("s12", 18), 5600, 10900, "inOut", "u3d"),
-      lin("zone.hadal", W("s12", 5), W("s12", 7) + 8, 0, 1, "out"),
-      lin("gauge.atm", W("s12", 16), W("s12", 26) + 10, 600, 1090, "out"),
-      lin("pressure.arrows", W("s12", 21), W("s12", 23) + 8, 0, 1, "out"),
-      ...fx.shake(W("s12", 25)),
-      ...mascot.jump(W("s12", 25)),
+      lin("monument.built", W("s12", 6), W("s12", 10) + 10, 0, 1, "inOut"),
+      lin("heel.show", W("s12", 6), W("s12", 10) + 10, 0, 1, "inOut"),
+      lin("lintels.glow", W("s12", 5), W("s12", 7) + 8, 0, 1, "out"),
+      lin("lintels.glow", W("s12", 14), W("s12", 19), 1, 0, "inOut"),
+      lin("ringDims.diameter", W("s12", 11), W("s12", 13) + 8, 0, 1, "out"),
+      lin("ringDims.height", W("s12", 14), W("s12", 17) + 8, 0, 1, "out"),
+      ...fx.burst("ring", W("s12", 10)),
     ],
-    badges: [
-      { text: "ZONA HADAL", variant: "info", subtitle: "6.000 a ~11.000 m · nas fossas", appearAt: W("s12", 5), disappearAt: W("s12", 16) - 2 },
-      { text: "+1.000× A PRESSÃO", variant: "warning", subtitle: "da superfície", appearAt: W("s12", 21), disappearAt: end(11) - 2 },
-    ],
-    highlights: ["FOSSAS", "HADAL", "HADES", "MORTOS", "ONZE", "MIL", "PRESSÃO", "VEZES"],
-    captions: [cap("s12", 11, "Mais fundo, só nas fossas: a zona hadal, de Hades, o deus do mundo dos mortos. Perto de onze mil metros, a pressão passa de mil vezes a da superfície.")],
-    audioCues: [narration("s12"), sfx("rumble-soft", W("s12", 5), 0.18), sfx("strain", W("s12", 21), 0.2)],
+    badges: [{ text: "ANEL: Ø 30 m · A 4 m DO CHÃO", variant: "positive", subtitle: "lintéis curvos", appearAt: W("s12", 10), disappearAt: end(11) - 2 }],
+    highlights: ["CURVAS", "ANEL", "TRINTA", "METROS", "QUATRO", "CHÃO"],
+    captions: [cap("s12", 11, "As pedras de cima são até levemente curvas, formando um anel de trinta metros, suspenso a quatro metros do chão.")],
+    audioCues: [narration("s12"), sfx("shimmer", W("s12", 6), 0.2), sfx("final", W("s12", 10), 0.22)],
   },
-  // 13 — AINDA ASSIM, VIDA (peixe-caracol) + quase ninguém foi lá
+  // 13 — POR QUÊ: alinhamento com o Sol (nascente de verão / poente de inverno)
   {
-    id: "scene-13-vida-hadal",
+    id: "scene-13-sol",
     startFrame: sc(12).from,
     durationInFrames: sc(12).durationInFrames,
     voKey: "s13",
-    narration: "Mesmo assim, tem vida: um peixe-caracol já foi filmado a mais de oito mil metros. E pouquíssimas pessoas desceram até o ponto mais fundo, bem menos do que as que já foram ao espaço.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, pod(depthY(10900), 4.2, -6, 4)), key(W("s13", 4), pod(depthY(8300), 3.6, 12, 4), "soft"), key(W("s13", 15), pod(depthY(10900), 5, -10, 6), "soft"), key(end(12), pod(depthY(10900), 5.4, 8, 8), "soft")] },
-    objects: [...base, { id: "snailfish", type: "peixe-caracol (DESIGN NOVO), translúcido e rosado", visible: true }, { id: "peopleCard", type: "cartão 2D: ~30 pessoas no fundo × 600+ no espaço (ícones)", visible: true }],
+    narration: "Mas por que tanto trabalho? O monumento está alinhado com o Sol. No dia mais longo do ano, o Sol nasce perto da Pedra do Calcanhar. No mais curto, se põe do lado oposto.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.ringLow), key(W("s13", 5), P.heroWide, "soft"), key(W("s13", 12), P.axisDawn, "soft"), key(W("s13", 26) - 1, orbit([7.8, 0.2, 0], 7.6, -90, 0.3), "linear"), key(W("s13", 26), P.axisDusk, "linear"), key(end(12), P.axisDusk2, "linear")] },
+    objects: [...base, { id: "axis", type: "linha de luz roxa clara no chão: eixo do solstício (atravessa o centro e a Pedra do Calcanhar)", visible: true }, { id: "sun", type: "Sol low-poly no horizonte do diorama; céu muda (madrugada dourada → pôr do sol alaranjado)", visible: true }],
     animations: [
-      lin("pressure.arrows", 0, 10, undefined, 0, "in"),
-      pop("snail.show", W("s13", 4)),
-      lin("depthTag.8336", W("s13", 9), W("s13", 14) + 6, 0, 1, "out"), // etiqueta "8.336 m" (2022)
-      pop("peopleCard.show", W("s13", 16)),
-      lin("peopleCard.space", W("s13", 24), c(12, W("s13", 33) + 10), 0, 1, "out"),
-      ...mascot.wave(W("s13", 2), s(1.2)),
+      lin("crew.show", 0, s(0.8), 1, 0, "out"),
+      lin("axis.show", W("s13", 6), W("s13", 8) + 8, 0, 1, "out"),
+      lin("sun.phase", W("s13", 12), W("s13", 20) + 10, 0.5, 0.0, "inOut"), // 0 = nascente de verão (NE, +x)
+      lin("sun.rise", W("s13", 18), W("s13", 25) + 6, 0, 1, "out"),
+      lin("axis.show", W("s13", 12), W("s13", 14), 1, 0, "inOut"),
+      lin("sun.phase", W("s13", 26), c(12, W("s13", 33) + 10), 0.0, 1.0, "inOut"), // 1 = poente de inverno (SO, −x)
+      ...fx.flash(W("s13", 26)),
     ],
     badges: [
-      { text: "PEIXE MAIS FUNDO: 8.336 m", variant: "positive", subtitle: "peixe-caracol filmado em 2022", appearAt: W("s13", 4), disappearAt: W("s13", 15) - 2 },
-      { text: "MAIS GENTE NO ESPAÇO", variant: "warning", subtitle: "do que no fundo do mar", appearAt: W("s13", 24), disappearAt: end(12) - 2 },
+      { text: "POR QUÊ?", variant: "warning", icon: "?", appearAt: W("s13", 0), disappearAt: W("s13", 5) - 2 },
+      { text: "ALINHADO COM O SOL", variant: "info", subtitle: "eixo dos solstícios", appearAt: W("s13", 6), disappearAt: W("s13", 12) - 2 },
+      { text: "NASCER DO SOL · VERÃO", variant: "info", subtitle: "perto da Pedra do Calcanhar", appearAt: W("s13", 18), disappearAt: W("s13", 26) - 2 },
+      { text: "PÔR DO SOL · INVERNO", variant: "info", subtitle: "do lado oposto, no mesmo eixo", appearAt: W("s13", 26), disappearAt: end(12) - 2 },
     ],
-    highlights: ["VIDA", "PEIXE-CARACOL", "OITO", "MIL", "POUQUÍSSIMAS", "PESSOAS", "ESPAÇO"],
-    captions: [cap("s13", 12, "Mesmo assim, tem vida: um peixe-caracol já foi filmado a mais de oito mil metros. E pouquíssimas pessoas desceram até o ponto mais fundo, bem menos do que as que já foram ao espaço.")],
-    audioCues: [narration("s13"), sfx("pop-high", W("s13", 4), 0.2), sfx("badge", W("s13", 24), 0.24)],
+    highlights: ["TRABALHO", "ALINHADO", "SOL", "LONGO", "NASCE", "PEDRA", "CALCANHAR", "CURTO", "OPOSTO"],
+    captions: [cap("s13", 12, "Mas por que tanto trabalho? O monumento está alinhado com o Sol. No dia mais longo do ano, o Sol nasce perto da Pedra do Calcanhar. No mais curto, se põe do lado oposto.")],
+    audioCues: [narration("s13"), sfx("glow", W("s13", 6), 0.2), sfx("shimmer", W("s13", 18), 0.22), sfx("whoosh", W("s13", 26), 0.22)],
   },
-  // 14 — ESCALA REAL: a faixa do sol + o fundo quase sem mapa
+  // 14 — o poente de inverno como grande momento (os dias voltam a crescer)
   {
-    id: "scene-14-escala-real",
+    id: "scene-14-inverno",
     startFrame: sc(13).from,
     durationInFrames: sc(13).durationInFrames,
     voKey: "s14",
-    narration: "Agora olha o oceano em escala real: a zona do sol é só essa faixa fininha. Quase tudo fica no escuro, e menos de um terço do fundo do mar foi mapeado em detalhe.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, pod(depthY(10900), 5.4, 8, 8)), key(W("s14", 3), P.realTop, "soft"), key(W("s14", 16), orbit([XB, -1.5, 0], 18, 8, 6), "soft"), key(end(13), P.realTop, "soft")] },
-    objects: [...base, { id: "realBands", type: "faixas das zonas na coluna B com a espessura real", visible: true }, { id: "mapCard", type: "cartão 2D: fundo do mar ~29% mapeado (barra)", visible: true }],
+    narration: "Para muitos arqueólogos, esse pôr do sol de inverno era o grande momento: dali em diante, os dias voltam a crescer.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.axisDusk2), key(end(13), P.dusk, "soft")] },
+    objects: [...base, { id: "sun", type: "Sol se pondo entre as pedras do Grande Trilito, raios atravessando o monumento", visible: true }, { id: "dayBar", type: "camada 2D: barra 'duração do dia' que para de encolher e volta a crescer", visible: true }],
     animations: [
-      lin("light.depth", W("s14", 2), W("s14", 4) + 6, undefined, 0.1, "inOut"),
-      lin("realBands.show", W("s14", 4), W("s14", 6) + 10, 0, 1, "out"),
-      lin("realSun.pulse", W("s14", 8), W("s14", 15), 0, 1, "inOut"),
-      lin("realDark.show", W("s14", 16), W("s14", 20) + 10, 0, 1, "inOut"),
-      pop("mapCard.show", W("s14", 22)),
+      lin("sun.set", 0, W("s14", 12), 0, 1, "inOut"),
+      lin("axis.show", 0, 20, 1, 0, "inOut"),
+      lin("sunRays.show", W("s14", 3), W("s14", 8) + 10, 0, 1, "out"),
+      pop("dayBar.show", W("s14", 13)),
+      lin("dayBar.value", W("s14", 13), c(13, W("s14", 20) + 20), 0, 1, "inOut"),
+      ...mascot.place(g(-0.95, 0.32), -Math.PI / 2, MS, 0, 10),
+      ...mascot.cheer(W("s14", 17), s(1.4)),
     ],
-    badges: [
-      { text: "SÓ 200 m DE LUZ", variant: "warning", subtitle: "de até 11.000 m de profundidade", appearAt: W("s14", 7), disappearAt: W("s14", 21) - 2 },
-      { text: "< 1/3 DO FUNDO MAPEADO", variant: "info", subtitle: "Seabed 2030: ~29%", appearAt: W("s14", 22), disappearAt: end(13) - 2 },
-    ],
-    highlights: ["ESCALA", "REAL", "SOL", "FININHA", "ESCURO", "TERÇO", "MAPEADO"],
-    captions: [cap("s14", 13, "Agora olha o oceano em escala real: a zona do sol é só essa faixa fininha. Quase tudo fica no escuro, e menos de um terço do fundo do mar foi mapeado em detalhe.")],
-    audioCues: [narration("s14"), sfx("whoosh", W("s14", 3), 0.24), sfx("glow", W("s14", 8), 0.22), sfx("badge", W("s14", 22), 0.22)],
+    badges: [{ text: "OS DIAS VOLTAM A CRESCER", variant: "positive", subtitle: "solstício de inverno (interpretação)", appearAt: W("s14", 13), disappearAt: end(13) - 2 }],
+    highlights: ["ARQUEÓLOGOS", "PÔR", "SOL", "INVERNO", "GRANDE", "MOMENTO", "DIAS", "CRESCER"],
+    captions: [cap("s14", 13, "Para muitos arqueólogos, esse pôr do sol de inverno era o grande momento: dali em diante, os dias voltam a crescer.")],
+    audioCues: [narration("s14"), sfx("glow", W("s14", 4), 0.2), sfx("shimmer", W("s14", 13), 0.2)],
   },
-  // 15 — PRONTO (+ encerramento fixo da marca nos últimos ~4,7 s)
+  // 15 — HOJE: ruína + mil anos de obra + PRONTO (+ encerramento fixo da marca nos últimos ~4,7 s)
   {
     id: "scene-15-final",
     startFrame: sc(14).from,
     durationInFrames: sc(14).durationInFrames,
     voKey: "s15",
-    narration: "Pronto: agora você conhece as cinco zonas do oceano, do sol até o fundo das fossas.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.realTop), key(s(1.4), P.both, "soft"), key(end(14), orbit([XB / 2, -8, 0], 44, 14, 8), "linear")] },
-    objects: [...base, { id: "zoneLabels", type: "5 rótulos das zonas acendendo de cima para baixo na coluna A", visible: true }],
+    narration: "Hoje, muitas pedras caíram ou sumiram. E do primeiro buraco à última pedra mexida, foram mais de mil anos de obra. Pronto: agora você sabe como se ergueu Stonehenge, só com pedra, madeira e corda.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.ruin), key(W("s15", 6), P.ruin2, "soft"), key(W("s15", 21), P.final, "soft"), key(end(14), P.final2, "linear")] },
+    objects: [...base, { id: "ghost", type: "fantasma translúcido do monumento completo sobre a ruína (contraste ontem × hoje)", visible: true }, { id: "timeline", type: "camada 2D: linha do tempo 3000 a.C. → ~1500 a.C. com as fases acendendo", visible: true }],
     animations: [
-      lin("zoneLabels.reveal", W("s15", 4), W("s15", 15) + 10, 0, 1, "linear"),
-      lin("pod.depth", 0, s(3), 10900, 0, "inOut", "u3d"),
-      ...mascot.cheer(W("s15", 0), s(1.6)),
-      ...fx.burst("final", W("s15", 0)),
+      lin("sun.phase", 0, s(1.0), 1.0, 0.5, "inOut"),
+      lin("sunRays.show", 0, s(0.8), 1, 0, "inOut"),
+      lin("monument.ruin", W("s15", 1), W("s15", 5) + 10, 0, 1, "inOut"),
+      lin("ghost.show", W("s15", 3), W("s15", 6), 0, 0.35, "out"),
+      pop("timeline.show", W("s15", 7)),
+      lin("timeline.progress", W("s15", 7), W("s15", 20), 0, 1, "linear"),
+      lin("timeline.show", W("s15", 21) - 6, W("s15", 21), 1, 0, "in"),
+      lin("ghost.show", W("s15", 21), W("s15", 27), 0.35, 1, "inOut"),
+      ...mascot.place(g(0.75, 1.95), 0.5, MS, 0),
+      ...mascot.cheer(W("s15", 21), s(1.6)),
+      ...fx.burst("final", W("s15", 27)),
     ],
-    badges: [{ text: "5 ZONAS DO OCEANO", variant: "positive", subtitle: "sol · crepúsculo · meia-noite · abismo · hadal", appearAt: W("s15", 0), disappearAt: W("s15", 15) + 30 }],
-    highlights: ["PRONTO", "CINCO", "ZONAS", "OCEANO", "SOL", "FOSSAS"],
-    captions: [cap("s15", 14, "Pronto: agora você conhece as cinco zonas do oceano, do sol até o fundo das fossas.")],
-    audioCues: [narration("s15"), sfx("final", W("s15", 0), 0.28)],
+    badges: [
+      { text: "HOJE: RUÍNA PARCIAL", variant: "negative", subtitle: "pedras caídas ou levadas", appearAt: W("s15", 0), disappearAt: W("s15", 7) - 2 },
+      { text: "+1.000 ANOS DE OBRA", variant: "info", subtitle: "~3000 a.C. a ~1500 a.C.", appearAt: W("s15", 14), disappearAt: W("s15", 21) - 2 },
+      { text: "PEDRA · MADEIRA · CORDA", variant: "positive", appearAt: W("s15", 29), disappearAt: W("s15", 34) + 30 },
+    ],
+    highlights: ["HOJE", "CAÍRAM", "SUMIRAM", "PRIMEIRO", "ÚLTIMA", "MIL", "ANOS", "PRONTO", "STONEHENGE", "PEDRA", "MADEIRA", "CORDA"],
+    captions: [cap("s15", 14, "Hoje, muitas pedras caíram ou sumiram. E do primeiro buraco à última pedra mexida, foram mais de mil anos de obra. Pronto: agora você sabe como se ergueu Stonehenge, só com pedra, madeira e corda.")],
+    audioCues: [narration("s15"), sfx("rumble", W("s15", 1), 0.2), sfx("final", W("s15", 21), 0.28)],
   },
 ];
 
-/** Valor de uma trilha (ex.: "pod.depth" em metros reais) no frame global. */
+/** Valor de uma trilha (ex.: "workStone.tilt" em graus) no frame global. */
 export const track = (target: string, frame: number, fallback = 0) => evaluateTrack(scenes, target, frame, FPS, fallback);
 export const sceneAt = (frame: number) => {
   for (let i = scenes.length - 1; i >= 0; i--) if (frame >= scenes[i].startFrame) return scenes[i];

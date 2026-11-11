@@ -43,7 +43,7 @@ const GRASS = ["#6f8f4e", "#7a9a52", "#66884a", "#829e57", "#738f4a", "#8aa25c"]
 const CHALK = new THREE.Color("#ece6d6");
 
 /** Superfície: grade radial com cores por vértice (grama variada; giz exposto na vala quando `chalk` > 0). */
-export const Ground: React.FC<{ dig?: number; chalk?: number }> = ({ dig = 1, chalk = 0 }) => {
+export const Ground: React.FC<{ dig?: number; chalk?: number; clip?: THREE.Plane[] }> = ({ dig = 1, chalk = 0, clip }) => {
   const geo = useMemo(() => {
     const RINGS = 110;
     const SEG = 160;
@@ -62,7 +62,11 @@ export const Ground: React.FC<{ dig?: number; chalk?: number }> = ({ dig = 1, ch
         const x = rr * Math.cos(a);
         const z = rr * Math.sin(a);
         pos.push(x, heightAt(x, z, dig), z);
-        c.set(GRASS[Math.floor(hash(i, j) * GRASS.length)]);
+        // cor por ruído SUAVE (sem redemoinho no centro da malha radial) + leve variação
+        const n1 = 0.5 + 0.5 * Math.sin(x * 0.19 + 0.7) * Math.cos(z * 0.23 - 1.1);
+        const n2 = 0.5 + 0.5 * Math.sin((x - z) * 0.11 + 2.0);
+        c.set(GRASS[0]).lerp(new THREE.Color(GRASS[3]), n1).lerp(new THREE.Color(GRASS[4]), 0.5 * n2);
+        c.offsetHSL(0, 0, (hash(Math.round(x * 2), Math.round(z * 2)) - 0.5) * 0.025);
         // manchas mais secas/amareladas
         const patch = 0.5 + 0.5 * Math.sin(x * 0.09 + 2) * Math.sin(z * 0.07);
         c.lerp(new THREE.Color("#a5a55e"), 0.25 * patch * patch);
@@ -107,7 +111,7 @@ export const Ground: React.FC<{ dig?: number; chalk?: number }> = ({ dig = 1, ch
   }, [dig, chalk]);
   return (
     <mesh geometry={geo} receiveShadow>
-      <meshStandardMaterial vertexColors roughness={1} flatShading />
+      <meshStandardMaterial vertexColors roughness={1} flatShading clippingPlanes={clip ?? null} />
     </mesh>
   );
 };
@@ -142,7 +146,7 @@ export const Strata: React.FC<{ depth?: number }> = ({ depth = 9 }) => {
 };
 
 /** Tufos de capim + flores do campo (instanciados, semeados; evitam a vala e o centro). */
-export const Grass: React.FC<{ dig?: number; count?: number }> = ({ dig = 1, count = 1400 }) => {
+export const Grass: React.FC<{ dig?: number; count?: number; clip?: THREE.Plane[] }> = ({ dig = 1, count = 1400, clip }) => {
   const tufts = useRef<THREE.InstancedMesh>(null);
   const flowers = useRef<THREE.InstancedMesh>(null);
   const pts = useMemo(() => {
@@ -155,7 +159,8 @@ export const Grass: React.FC<{ dig?: number; count?: number }> = ({ dig = 1, cou
       if (Math.abs(r - DITCH_R) < 6) continue;
       const x = r * Math.cos(a);
       const z = r * Math.sin(a);
-      out.push({ x, z, s: 0.5 + hash(k, 3) * 0.9, flower: hash(k, 9) });
+      if (Math.abs(x) < 6 && z > 8 && z < 70) continue; // canteiro e trilhos limpos
+      out.push({ x, z, s: 0.35 + hash(k, 3) * 0.45, flower: hash(k, 9) });
     }
     return out;
   }, [count]);
@@ -195,11 +200,11 @@ export const Grass: React.FC<{ dig?: number; count?: number }> = ({ dig = 1, cou
     <>
       <instancedMesh ref={tufts} args={[undefined, undefined, pts.length]} castShadow>
         <coneGeometry args={[0.35, 0.8, 4]} />
-        <meshStandardMaterial roughness={1} flatShading />
+        <meshStandardMaterial roughness={1} flatShading clippingPlanes={clip ?? null} />
       </instancedMesh>
       <instancedMesh ref={flowers} args={[undefined, undefined, pts.length]}>
         <icosahedronGeometry args={[0.16, 0]} />
-        <meshStandardMaterial roughness={0.8} flatShading />
+        <meshStandardMaterial roughness={0.8} flatShading clippingPlanes={clip ?? null} />
       </instancedMesh>
     </>
   );
