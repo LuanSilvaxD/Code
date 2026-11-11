@@ -5,14 +5,13 @@ import { AnimatedCaptions } from "./components/AnimatedCaptions";
 import { Background } from "./components/Background";
 import { BrandIntro, BrandOutro } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
-import { Lighting } from "./components/Lighting";
-import { MascotFromTracks } from "./components/Mascot";
 import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
 import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { GanchoScene, SolucaoScene } from "./scenes/ExampleScenes";
+import { DepthRuler, Hud, OCEAN_MODULES } from "./scenes/OceanScenes";
+import { SeaLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
 
@@ -20,9 +19,16 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = {
-  "scene-01-gancho": GanchoScene,
-  "scene-02-solucao": SolucaoScene,
+const MODULES: Record<string, SceneModule> = OCEAN_MODULES;
+
+const GlobalMarks: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill>
+      <DepthRuler frame={frame} />
+      <Hud frame={frame} />
+    </AbsoluteFill>
+  );
 };
 
 const FadeOut: React.FC = () => {
@@ -42,10 +48,8 @@ export const MainSequence: React.FC = () => {
       <Background />
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }}>
         <CameraController />
-        <Lighting />
+        <SeaLighting />
         <World />
-        {/* mascote da Fenda Umbra (aparece em todo vídeo; dirigido pelas trilhas mascot.* — utils/mascot.ts) */}
-        <MascotFromTracks />
         {scenes.map((sc) => {
           const Stage = MODULES[sc.id]?.Stage;
           return Stage ? (
@@ -58,6 +62,7 @@ export const MainSequence: React.FC = () => {
       </AbsoluteFill>
       <Scrims />
       <ScreenFxOverlay />
+      <GlobalMarks />
       {scenes.map((sc) => {
         const Overlay = MODULES[sc.id]?.Overlay;
         return (

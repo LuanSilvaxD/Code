@@ -1,1 +1,2253 @@
-{}
+{
+  "s1": {
+    "text": "O Monte Everest inteiro cabe no ponto mais fundo do oceano, e ainda sobram dois quilômetros de água por cima. Vamos descer até lá?",
+    "seconds": 8.489,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.039
+      },
+      {
+        "text": "Monte",
+        "start": 0.051,
+        "end": 0.476
+      },
+      {
+        "text": "Everest",
+        "start": 0.489,
+        "end": 0.889
+      },
+      {
+        "text": "inteiro",
+        "start": 0.901,
+        "end": 1.252
+      },
+      {
+        "text": "cabe",
+        "start": 1.264,
+        "end": 1.564
+      },
+      {
+        "text": "no",
+        "start": 1.577,
+        "end": 1.702
+      },
+      {
+        "text": "ponto",
+        "start": 1.714,
+        "end": 2.027
+      },
+      {
+        "text": "mais",
+        "start": 2.039,
+        "end": 2.239
+      },
+      {
+        "text": "fundo",
+        "start": 2.252,
+        "end": 2.564
+      },
+      {
+        "text": "do",
+        "start": 2.576,
+        "end": 2.651
+      },
+      {
+        "text": "oceano",
+        "start": 2.664,
+        "end": 3.164
+      },
+      {
+        "text": "e",
+        "start": 3.564,
+        "end": 3.676
+      },
+      {
+        "text": "ainda",
+        "start": 3.689,
+        "end": 4.001
+      },
+      {
+        "text": "sobram",
+        "start": 4.014,
+        "end": 4.439
+      },
+      {
+        "text": "dois",
+        "start": 4.451,
+        "end": 4.751
+      },
+      {
+        "text": "quilômetros",
+        "start": 4.764,
+        "end": 5.326
+      },
+      {
+        "text": "de",
+        "start": 5.339,
+        "end": 5.427
+      },
+      {
+        "text": "água",
+        "start": 5.439,
+        "end": 5.714
+      },
+      {
+        "text": "por",
+        "start": 5.727,
+        "end": 5.877
+      },
+      {
+        "text": "cima",
+        "start": 5.889,
+        "end": 6.289
+      },
+      {
+        "text": "Vamos",
+        "start": 7.151,
+        "end": 7.539
+      },
+      {
+        "text": "descer",
+        "start": 7.552,
+        "end": 7.889
+      },
+      {
+        "text": "até",
+        "start": 7.901,
+        "end": 8.114
+      },
+      {
+        "text": "lá",
+        "start": 8.126,
+        "end": 8.401
+      }
+    ]
+  },
+  "s2": {
+    "text": "Os primeiros duzentos metros são a zona do sol, a única parte bem iluminada. É aqui que vive a maior parte da vida marinha que você conhece: tartarugas, golfinhos e cardumes.",
+    "seconds": 11.266,
+    "words": [
+      {
+        "text": "Os",
+        "start": 0,
+        "end": 0.126
+      },
+      {
+        "text": "primeiros",
+        "start": 0.139,
+        "end": 0.564
+      },
+      {
+        "text": "duzentos",
+        "start": 0.577,
+        "end": 1.102
+      },
+      {
+        "text": "metros",
+        "start": 1.114,
+        "end": 1.539
+      },
+      {
+        "text": "são",
+        "start": 1.551,
+        "end": 1.726
+      },
+      {
+        "text": "a",
+        "start": 1.739,
+        "end": 1.777
+      },
+      {
+        "text": "zona",
+        "start": 1.789,
+        "end": 2.102
+      },
+      {
+        "text": "do",
+        "start": 2.114,
+        "end": 2.214
+      },
+      {
+        "text": "sol",
+        "start": 2.227,
+        "end": 2.589
+      },
+      {
+        "text": "a",
+        "start": 2.789,
+        "end": 2.889
+      },
+      {
+        "text": "única",
+        "start": 2.901,
+        "end": 3.326
+      },
+      {
+        "text": "parte",
+        "start": 3.339,
+        "end": 3.701
+      },
+      {
+        "text": "bem",
+        "start": 3.714,
+        "end": 3.977
+      },
+      {
+        "text": "iluminada",
+        "start": 3.989,
+        "end": 4.577
+      },
+      {
+        "text": "É",
+        "start": 5.439,
+        "end": 5.576
+      },
+      {
+        "text": "aqui",
+        "start": 5.589,
+        "end": 5.864
+      },
+      {
+        "text": "que",
+        "start": 5.876,
+        "end": 6.014
+      },
+      {
+        "text": "vive",
+        "start": 6.027,
+        "end": 6.264
+      },
+      {
+        "text": "a",
+        "start": 6.277,
+        "end": 6.302
+      },
+      {
+        "text": "maior",
+        "start": 6.314,
+        "end": 6.601
+      },
+      {
+        "text": "parte",
+        "start": 6.614,
+        "end": 6.964
+      },
+      {
+        "text": "da",
+        "start": 6.977,
+        "end": 7.089
+      },
+      {
+        "text": "vida",
+        "start": 7.102,
+        "end": 7.339
+      },
+      {
+        "text": "marinha",
+        "start": 7.352,
+        "end": 7.739
+      },
+      {
+        "text": "que",
+        "start": 7.751,
+        "end": 7.864
+      },
+      {
+        "text": "você",
+        "start": 7.876,
+        "end": 8.139
+      },
+      {
+        "text": "conhece",
+        "start": 8.151,
+        "end": 8.714
+      },
+      {
+        "text": "tartarugas",
+        "start": 8.901,
+        "end": 9.651
+      },
+      {
+        "text": "golfinhos",
+        "start": 9.889,
+        "end": 10.389
+      },
+      {
+        "text": "e",
+        "start": 10.401,
+        "end": 10.514
+      },
+      {
+        "text": "cardumes",
+        "start": 10.527,
+        "end": 11.177
+      }
+    ]
+  },
+  "s3": {
+    "text": "E também algas microscópicas. Elas fazem fotossíntese como as plantas, e o oceano produz cerca de metade do oxigênio do planeta.",
+    "seconds": 8.916,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.058
+      },
+      {
+        "text": "também",
+        "start": 0.07,
+        "end": 0.482
+      },
+      {
+        "text": "algas",
+        "start": 0.495,
+        "end": 0.87
+      },
+      {
+        "text": "microscópicas",
+        "start": 0.883,
+        "end": 1.933
+      },
+      {
+        "text": "Elas",
+        "start": 2.795,
+        "end": 3.157
+      },
+      {
+        "text": "fazem",
+        "start": 3.17,
+        "end": 3.495
+      },
+      {
+        "text": "fotossíntese",
+        "start": 3.508,
+        "end": 4.27
+      },
+      {
+        "text": "como",
+        "start": 4.283,
+        "end": 4.483
+      },
+      {
+        "text": "as",
+        "start": 4.495,
+        "end": 4.608
+      },
+      {
+        "text": "plantas",
+        "start": 4.62,
+        "end": 5.145
+      },
+      {
+        "text": "e",
+        "start": 5.445,
+        "end": 5.533
+      },
+      {
+        "text": "o",
+        "start": 5.545,
+        "end": 5.582
+      },
+      {
+        "text": "oceano",
+        "start": 5.595,
+        "end": 6.108
+      },
+      {
+        "text": "produz",
+        "start": 6.12,
+        "end": 6.545
+      },
+      {
+        "text": "cerca",
+        "start": 6.558,
+        "end": 6.883
+      },
+      {
+        "text": "de",
+        "start": 6.895,
+        "end": 6.983
+      },
+      {
+        "text": "metade",
+        "start": 6.995,
+        "end": 7.445
+      },
+      {
+        "text": "do",
+        "start": 7.457,
+        "end": 7.533
+      },
+      {
+        "text": "oxigênio",
+        "start": 7.545,
+        "end": 8.195
+      },
+      {
+        "text": "do",
+        "start": 8.208,
+        "end": 8.295
+      },
+      {
+        "text": "planeta",
+        "start": 8.308,
+        "end": 8.833
+      }
+    ]
+  },
+  "s4": {
+    "text": "Só que a luz não desce inteira. O vermelho é a primeira cor que a água apaga, por isso, quanto mais fundo, mais tudo fica azul.",
+    "seconds": 8.196,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.259
+      },
+      {
+        "text": "que",
+        "start": 0.271,
+        "end": 0.371
+      },
+      {
+        "text": "a",
+        "start": 0.383,
+        "end": 0.421
+      },
+      {
+        "text": "luz",
+        "start": 0.434,
+        "end": 0.684
+      },
+      {
+        "text": "não",
+        "start": 0.696,
+        "end": 0.871
+      },
+      {
+        "text": "desce",
+        "start": 0.883,
+        "end": 1.146
+      },
+      {
+        "text": "inteira",
+        "start": 1.158,
+        "end": 1.621
+      },
+      {
+        "text": "O",
+        "start": 2.484,
+        "end": 2.584
+      },
+      {
+        "text": "vermelho",
+        "start": 2.596,
+        "end": 3.133
+      },
+      {
+        "text": "é",
+        "start": 3.146,
+        "end": 3.221
+      },
+      {
+        "text": "a",
+        "start": 3.234,
+        "end": 3.271
+      },
+      {
+        "text": "primeira",
+        "start": 3.283,
+        "end": 3.621
+      },
+      {
+        "text": "cor",
+        "start": 3.633,
+        "end": 3.896
+      },
+      {
+        "text": "que",
+        "start": 3.909,
+        "end": 4.009
+      },
+      {
+        "text": "a",
+        "start": 4.021,
+        "end": 4.058
+      },
+      {
+        "text": "água",
+        "start": 4.071,
+        "end": 4.308
+      },
+      {
+        "text": "apaga",
+        "start": 4.321,
+        "end": 4.759
+      },
+      {
+        "text": "por",
+        "start": 4.983,
+        "end": 5.146
+      },
+      {
+        "text": "isso",
+        "start": 5.159,
+        "end": 5.496
+      },
+      {
+        "text": "quanto",
+        "start": 5.709,
+        "end": 6.021
+      },
+      {
+        "text": "mais",
+        "start": 6.034,
+        "end": 6.259
+      },
+      {
+        "text": "fundo",
+        "start": 6.271,
+        "end": 6.646
+      },
+      {
+        "text": "mais",
+        "start": 6.883,
+        "end": 7.183
+      },
+      {
+        "text": "tudo",
+        "start": 7.196,
+        "end": 7.509
+      },
+      {
+        "text": "fica",
+        "start": 7.521,
+        "end": 7.759
+      },
+      {
+        "text": "azul",
+        "start": 7.771,
+        "end": 8.108
+      }
+    ]
+  },
+  "s5": {
+    "text": "E a pressão aumenta rápido: a cada dez metros, ela sobe o peso de uma atmosfera inteira. Um copinho de isopor que desce bem fundo volta todo encolhido.",
+    "seconds": 9.489,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.039
+      },
+      {
+        "text": "a",
+        "start": 0.051,
+        "end": 0.126
+      },
+      {
+        "text": "pressão",
+        "start": 0.139,
+        "end": 0.551
+      },
+      {
+        "text": "aumenta",
+        "start": 0.564,
+        "end": 0.939
+      },
+      {
+        "text": "rápido",
+        "start": 0.952,
+        "end": 1.439
+      },
+      {
+        "text": "a",
+        "start": 1.702,
+        "end": 1.802
+      },
+      {
+        "text": "cada",
+        "start": 1.814,
+        "end": 2.064
+      },
+      {
+        "text": "dez",
+        "start": 2.076,
+        "end": 2.326
+      },
+      {
+        "text": "metros",
+        "start": 2.339,
+        "end": 2.814
+      },
+      {
+        "text": "ela",
+        "start": 3.039,
+        "end": 3.227
+      },
+      {
+        "text": "sobe",
+        "start": 3.239,
+        "end": 3.539
+      },
+      {
+        "text": "o",
+        "start": 3.551,
+        "end": 3.589
+      },
+      {
+        "text": "peso",
+        "start": 3.602,
+        "end": 3.939
+      },
+      {
+        "text": "de",
+        "start": 3.951,
+        "end": 4.039
+      },
+      {
+        "text": "uma",
+        "start": 4.052,
+        "end": 4.151
+      },
+      {
+        "text": "atmosfera",
+        "start": 4.164,
+        "end": 4.689
+      },
+      {
+        "text": "inteira",
+        "start": 4.701,
+        "end": 5.164
+      },
+      {
+        "text": "Um",
+        "start": 6.027,
+        "end": 6.201
+      },
+      {
+        "text": "copinho",
+        "start": 6.214,
+        "end": 6.664
+      },
+      {
+        "text": "de",
+        "start": 6.677,
+        "end": 6.752
+      },
+      {
+        "text": "isopor",
+        "start": 6.764,
+        "end": 7.227
+      },
+      {
+        "text": "que",
+        "start": 7.239,
+        "end": 7.364
+      },
+      {
+        "text": "desce",
+        "start": 7.376,
+        "end": 7.639
+      },
+      {
+        "text": "bem",
+        "start": 7.651,
+        "end": 7.851
+      },
+      {
+        "text": "fundo",
+        "start": 7.864,
+        "end": 8.164
+      },
+      {
+        "text": "volta",
+        "start": 8.177,
+        "end": 8.552
+      },
+      {
+        "text": "todo",
+        "start": 8.564,
+        "end": 8.839
+      },
+      {
+        "text": "encolhido",
+        "start": 8.851,
+        "end": 9.389
+      }
+    ]
+  },
+  "s6": {
+    "text": "De duzentos a mil metros fica a zona do crepúsculo, só com um restinho de luz azul. Muitos peixes daqui têm olhos enormes e luzinhas na barriga, para sumir contra a claridade de cima.",
+    "seconds": 11.437,
+    "words": [
+      {
+        "text": "De",
+        "start": 0,
+        "end": 0.133
+      },
+      {
+        "text": "duzentos",
+        "start": 0.146,
+        "end": 0.633
+      },
+      {
+        "text": "a",
+        "start": 0.646,
+        "end": 0.784
+      },
+      {
+        "text": "mil",
+        "start": 0.796,
+        "end": 0.971
+      },
+      {
+        "text": "metros",
+        "start": 0.983,
+        "end": 1.396
+      },
+      {
+        "text": "fica",
+        "start": 1.408,
+        "end": 1.658
+      },
+      {
+        "text": "a",
+        "start": 1.671,
+        "end": 1.696
+      },
+      {
+        "text": "zona",
+        "start": 1.709,
+        "end": 2.021
+      },
+      {
+        "text": "do",
+        "start": 2.034,
+        "end": 2.134
+      },
+      {
+        "text": "crepúsculo",
+        "start": 2.146,
+        "end": 2.796
+      },
+      {
+        "text": "só",
+        "start": 3.058,
+        "end": 3.271
+      },
+      {
+        "text": "com",
+        "start": 3.284,
+        "end": 3.433
+      },
+      {
+        "text": "um",
+        "start": 3.446,
+        "end": 3.521
+      },
+      {
+        "text": "restinho",
+        "start": 3.534,
+        "end": 4.021
+      },
+      {
+        "text": "de",
+        "start": 4.034,
+        "end": 4.121
+      },
+      {
+        "text": "luz",
+        "start": 4.133,
+        "end": 4.296
+      },
+      {
+        "text": "azul",
+        "start": 4.309,
+        "end": 4.759
+      },
+      {
+        "text": "Muitos",
+        "start": 5.621,
+        "end": 6.059
+      },
+      {
+        "text": "peixes",
+        "start": 6.071,
+        "end": 6.458
+      },
+      {
+        "text": "daqui",
+        "start": 6.471,
+        "end": 6.758
+      },
+      {
+        "text": "têm",
+        "start": 6.771,
+        "end": 6.946
+      },
+      {
+        "text": "olhos",
+        "start": 6.958,
+        "end": 7.208
+      },
+      {
+        "text": "enormes",
+        "start": 7.221,
+        "end": 7.696
+      },
+      {
+        "text": "e",
+        "start": 7.708,
+        "end": 7.808
+      },
+      {
+        "text": "luzinhas",
+        "start": 7.821,
+        "end": 8.321
+      },
+      {
+        "text": "na",
+        "start": 8.334,
+        "end": 8.421
+      },
+      {
+        "text": "barriga",
+        "start": 8.434,
+        "end": 8.921
+      },
+      {
+        "text": "para",
+        "start": 9.184,
+        "end": 9.396
+      },
+      {
+        "text": "sumir",
+        "start": 9.408,
+        "end": 9.796
+      },
+      {
+        "text": "contra",
+        "start": 9.809,
+        "end": 10.158
+      },
+      {
+        "text": "a",
+        "start": 10.171,
+        "end": 10.196
+      },
+      {
+        "text": "claridade",
+        "start": 10.209,
+        "end": 10.796
+      },
+      {
+        "text": "de",
+        "start": 10.809,
+        "end": 10.921
+      },
+      {
+        "text": "cima",
+        "start": 10.934,
+        "end": 11.334
+      }
+    ]
+  },
+  "s7": {
+    "text": "E toda noite, bilhões de animais sobem daqui para comer perto da superfície e voltam antes do amanhecer. É a maior migração do planeta, e acontece todo dia.",
+    "seconds": 10.444,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.069
+      },
+      {
+        "text": "toda",
+        "start": 0.081,
+        "end": 0.344
+      },
+      {
+        "text": "noite",
+        "start": 0.356,
+        "end": 0.744
+      },
+      {
+        "text": "bilhões",
+        "start": 1.032,
+        "end": 1.532
+      },
+      {
+        "text": "de",
+        "start": 1.544,
+        "end": 1.606
+      },
+      {
+        "text": "animais",
+        "start": 1.619,
+        "end": 2.019
+      },
+      {
+        "text": "sobem",
+        "start": 2.032,
+        "end": 2.331
+      },
+      {
+        "text": "daqui",
+        "start": 2.344,
+        "end": 2.656
+      },
+      {
+        "text": "para",
+        "start": 2.669,
+        "end": 2.857
+      },
+      {
+        "text": "comer",
+        "start": 2.869,
+        "end": 3.156
+      },
+      {
+        "text": "perto",
+        "start": 3.169,
+        "end": 3.532
+      },
+      {
+        "text": "da",
+        "start": 3.544,
+        "end": 3.632
+      },
+      {
+        "text": "superfície",
+        "start": 3.644,
+        "end": 4.344
+      },
+      {
+        "text": "e",
+        "start": 4.357,
+        "end": 4.432
+      },
+      {
+        "text": "voltam",
+        "start": 4.444,
+        "end": 4.906
+      },
+      {
+        "text": "antes",
+        "start": 4.919,
+        "end": 5.206
+      },
+      {
+        "text": "do",
+        "start": 5.219,
+        "end": 5.369
+      },
+      {
+        "text": "amanhecer",
+        "start": 5.381,
+        "end": 5.969
+      },
+      {
+        "text": "É",
+        "start": 6.831,
+        "end": 6.969
+      },
+      {
+        "text": "a",
+        "start": 6.982,
+        "end": 7.019
+      },
+      {
+        "text": "maior",
+        "start": 7.032,
+        "end": 7.381
+      },
+      {
+        "text": "migração",
+        "start": 7.394,
+        "end": 7.919
+      },
+      {
+        "text": "do",
+        "start": 7.932,
+        "end": 8.032
+      },
+      {
+        "text": "planeta",
+        "start": 8.044,
+        "end": 8.619
+      },
+      {
+        "text": "e",
+        "start": 8.906,
+        "end": 8.981
+      },
+      {
+        "text": "acontece",
+        "start": 8.994,
+        "end": 9.644
+      },
+      {
+        "text": "todo",
+        "start": 9.656,
+        "end": 10.006
+      },
+      {
+        "text": "dia",
+        "start": 10.019,
+        "end": 10.332
+      }
+    ]
+  },
+  "s8": {
+    "text": "Passou de mil metros, escuridão total. É a zona da meia-noite: a água fica perto de quatro graus, e a única luz vem dos próprios animais.",
+    "seconds": 9.574,
+    "words": [
+      {
+        "text": "Passou",
+        "start": 0,
+        "end": 0.366
+      },
+      {
+        "text": "de",
+        "start": 0.379,
+        "end": 0.492
+      },
+      {
+        "text": "mil",
+        "start": 0.504,
+        "end": 0.692
+      },
+      {
+        "text": "metros",
+        "start": 0.704,
+        "end": 1.204
+      },
+      {
+        "text": "escuridão",
+        "start": 1.466,
+        "end": 2.041
+      },
+      {
+        "text": "total",
+        "start": 2.054,
+        "end": 2.541
+      },
+      {
+        "text": "É",
+        "start": 3.404,
+        "end": 3.567
+      },
+      {
+        "text": "a",
+        "start": 3.579,
+        "end": 3.641
+      },
+      {
+        "text": "zona",
+        "start": 3.654,
+        "end": 3.979
+      },
+      {
+        "text": "da",
+        "start": 3.991,
+        "end": 4.091
+      },
+      {
+        "text": "meia-noite",
+        "start": 4.104,
+        "end": 4.704
+      },
+      {
+        "text": "a",
+        "start": 4.954,
+        "end": 5.042
+      },
+      {
+        "text": "água",
+        "start": 5.054,
+        "end": 5.391
+      },
+      {
+        "text": "fica",
+        "start": 5.404,
+        "end": 5.667
+      },
+      {
+        "text": "perto",
+        "start": 5.679,
+        "end": 6.029
+      },
+      {
+        "text": "de",
+        "start": 6.042,
+        "end": 6.154
+      },
+      {
+        "text": "quatro",
+        "start": 6.167,
+        "end": 6.504
+      },
+      {
+        "text": "graus",
+        "start": 6.517,
+        "end": 6.941
+      },
+      {
+        "text": "e",
+        "start": 7.267,
+        "end": 7.342
+      },
+      {
+        "text": "a",
+        "start": 7.354,
+        "end": 7.454
+      },
+      {
+        "text": "única",
+        "start": 7.467,
+        "end": 7.816
+      },
+      {
+        "text": "luz",
+        "start": 7.829,
+        "end": 8.104
+      },
+      {
+        "text": "vem",
+        "start": 8.116,
+        "end": 8.267
+      },
+      {
+        "text": "dos",
+        "start": 8.279,
+        "end": 8.466
+      },
+      {
+        "text": "próprios",
+        "start": 8.479,
+        "end": 8.842
+      },
+      {
+        "text": "animais",
+        "start": 8.854,
+        "end": 9.479
+      }
+    ]
+  },
+  "s9": {
+    "text": "O tamboril balança uma isca que brilha para atrair presas até a boca. E muitos bichos daqui são vermelhos, porque sem luz vermelha, o vermelho fica preto, quase invisível.",
+    "seconds": 11.073,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.068
+      },
+      {
+        "text": "tamboril",
+        "start": 0.08,
+        "end": 0.568
+      },
+      {
+        "text": "balança",
+        "start": 0.581,
+        "end": 1.081
+      },
+      {
+        "text": "uma",
+        "start": 1.093,
+        "end": 1.268
+      },
+      {
+        "text": "isca",
+        "start": 1.281,
+        "end": 1.555
+      },
+      {
+        "text": "que",
+        "start": 1.568,
+        "end": 1.693
+      },
+      {
+        "text": "brilha",
+        "start": 1.706,
+        "end": 2.093
+      },
+      {
+        "text": "para",
+        "start": 2.106,
+        "end": 2.243
+      },
+      {
+        "text": "atrair",
+        "start": 2.256,
+        "end": 2.618
+      },
+      {
+        "text": "presas",
+        "start": 2.631,
+        "end": 3.018
+      },
+      {
+        "text": "até",
+        "start": 3.031,
+        "end": 3.33
+      },
+      {
+        "text": "a",
+        "start": 3.343,
+        "end": 3.405
+      },
+      {
+        "text": "boca",
+        "start": 3.418,
+        "end": 3.781
+      },
+      {
+        "text": "E",
+        "start": 4.643,
+        "end": 4.743
+      },
+      {
+        "text": "muitos",
+        "start": 4.755,
+        "end": 5.243
+      },
+      {
+        "text": "bichos",
+        "start": 5.255,
+        "end": 5.618
+      },
+      {
+        "text": "daqui",
+        "start": 5.63,
+        "end": 5.918
+      },
+      {
+        "text": "são",
+        "start": 5.931,
+        "end": 6.118
+      },
+      {
+        "text": "vermelhos",
+        "start": 6.13,
+        "end": 6.718
+      },
+      {
+        "text": "porque",
+        "start": 6.943,
+        "end": 7.268
+      },
+      {
+        "text": "sem",
+        "start": 7.281,
+        "end": 7.481
+      },
+      {
+        "text": "luz",
+        "start": 7.493,
+        "end": 7.743
+      },
+      {
+        "text": "vermelha",
+        "start": 7.755,
+        "end": 8.281
+      },
+      {
+        "text": "o",
+        "start": 8.581,
+        "end": 8.681
+      },
+      {
+        "text": "vermelho",
+        "start": 8.693,
+        "end": 9.181
+      },
+      {
+        "text": "fica",
+        "start": 9.193,
+        "end": 9.443
+      },
+      {
+        "text": "preto",
+        "start": 9.456,
+        "end": 9.806
+      },
+      {
+        "text": "quase",
+        "start": 9.993,
+        "end": 10.356
+      },
+      {
+        "text": "invisível",
+        "start": 10.368,
+        "end": 11.005
+      }
+    ]
+  },
+  "s10": {
+    "text": "Até aqui desce o cachalote, a cerca de dois mil metros, com um único fôlego, para caçar lulas.",
+    "seconds": 5.851,
+    "words": [
+      {
+        "text": "Até",
+        "start": 0,
+        "end": 0.26
+      },
+      {
+        "text": "aqui",
+        "start": 0.273,
+        "end": 0.498
+      },
+      {
+        "text": "desce",
+        "start": 0.51,
+        "end": 0.723
+      },
+      {
+        "text": "o",
+        "start": 0.735,
+        "end": 0.76
+      },
+      {
+        "text": "cachalote",
+        "start": 0.773,
+        "end": 1.435
+      },
+      {
+        "text": "a",
+        "start": 1.685,
+        "end": 1.735
+      },
+      {
+        "text": "cerca",
+        "start": 1.748,
+        "end": 2.148
+      },
+      {
+        "text": "de",
+        "start": 2.16,
+        "end": 2.248
+      },
+      {
+        "text": "dois",
+        "start": 2.261,
+        "end": 2.461
+      },
+      {
+        "text": "mil",
+        "start": 2.473,
+        "end": 2.623
+      },
+      {
+        "text": "metros",
+        "start": 2.636,
+        "end": 3.098
+      },
+      {
+        "text": "com",
+        "start": 3.373,
+        "end": 3.498
+      },
+      {
+        "text": "um",
+        "start": 3.511,
+        "end": 3.586
+      },
+      {
+        "text": "único",
+        "start": 3.598,
+        "end": 3.861
+      },
+      {
+        "text": "fôlego",
+        "start": 3.873,
+        "end": 4.336
+      },
+      {
+        "text": "para",
+        "start": 4.611,
+        "end": 4.811
+      },
+      {
+        "text": "caçar",
+        "start": 4.823,
+        "end": 5.248
+      },
+      {
+        "text": "lulas",
+        "start": 5.26,
+        "end": 5.76
+      }
+    ]
+  },
+  "s11": {
+    "text": "De quatro a seis mil metros é o abismo: planícies enormes de lama gelada. Lá cai devagar uma chuva de restos lá de cima, a neve marinha, que pode levar semanas para chegar ao fundo e vira comida de quem vive ali.",
+    "seconds": 13.348,
+    "words": [
+      {
+        "text": "De",
+        "start": 0,
+        "end": 0.13
+      },
+      {
+        "text": "quatro",
+        "start": 0.143,
+        "end": 0.505
+      },
+      {
+        "text": "a",
+        "start": 0.518,
+        "end": 0.543
+      },
+      {
+        "text": "seis",
+        "start": 0.556,
+        "end": 0.806
+      },
+      {
+        "text": "mil",
+        "start": 0.818,
+        "end": 0.993
+      },
+      {
+        "text": "metros",
+        "start": 1.006,
+        "end": 1.381
+      },
+      {
+        "text": "é",
+        "start": 1.393,
+        "end": 1.518
+      },
+      {
+        "text": "o",
+        "start": 1.531,
+        "end": 1.593
+      },
+      {
+        "text": "abismo",
+        "start": 1.605,
+        "end": 2.08
+      },
+      {
+        "text": "planícies",
+        "start": 2.305,
+        "end": 2.83
+      },
+      {
+        "text": "enormes",
+        "start": 2.843,
+        "end": 3.356
+      },
+      {
+        "text": "de",
+        "start": 3.368,
+        "end": 3.468
+      },
+      {
+        "text": "lama",
+        "start": 3.481,
+        "end": 3.743
+      },
+      {
+        "text": "gelada",
+        "start": 3.756,
+        "end": 4.255
+      },
+      {
+        "text": "Lá",
+        "start": 5.118,
+        "end": 5.356
+      },
+      {
+        "text": "cai",
+        "start": 5.368,
+        "end": 5.568
+      },
+      {
+        "text": "devagar",
+        "start": 5.58,
+        "end": 5.981
+      },
+      {
+        "text": "uma",
+        "start": 5.993,
+        "end": 6.143
+      },
+      {
+        "text": "chuva",
+        "start": 6.155,
+        "end": 6.531
+      },
+      {
+        "text": "de",
+        "start": 6.543,
+        "end": 6.643
+      },
+      {
+        "text": "restos",
+        "start": 6.655,
+        "end": 7.08
+      },
+      {
+        "text": "lá",
+        "start": 7.093,
+        "end": 7.243
+      },
+      {
+        "text": "de",
+        "start": 7.255,
+        "end": 7.393
+      },
+      {
+        "text": "cima",
+        "start": 7.405,
+        "end": 7.793
+      },
+      {
+        "text": "a",
+        "start": 8.068,
+        "end": 8.143
+      },
+      {
+        "text": "neve",
+        "start": 8.155,
+        "end": 8.418
+      },
+      {
+        "text": "marinha",
+        "start": 8.431,
+        "end": 8.843
+      },
+      {
+        "text": "que",
+        "start": 9.105,
+        "end": 9.243
+      },
+      {
+        "text": "pode",
+        "start": 9.255,
+        "end": 9.505
+      },
+      {
+        "text": "levar",
+        "start": 9.518,
+        "end": 9.818
+      },
+      {
+        "text": "semanas",
+        "start": 9.831,
+        "end": 10.381
+      },
+      {
+        "text": "para",
+        "start": 10.393,
+        "end": 10.581
+      },
+      {
+        "text": "chegar",
+        "start": 10.593,
+        "end": 10.905
+      },
+      {
+        "text": "ao",
+        "start": 10.918,
+        "end": 11.031
+      },
+      {
+        "text": "fundo",
+        "start": 11.043,
+        "end": 11.468
+      },
+      {
+        "text": "e",
+        "start": 11.48,
+        "end": 11.543
+      },
+      {
+        "text": "vira",
+        "start": 11.556,
+        "end": 11.793
+      },
+      {
+        "text": "comida",
+        "start": 11.806,
+        "end": 12.255
+      },
+      {
+        "text": "de",
+        "start": 12.268,
+        "end": 12.368
+      },
+      {
+        "text": "quem",
+        "start": 12.38,
+        "end": 12.643
+      },
+      {
+        "text": "vive",
+        "start": 12.655,
+        "end": 12.931
+      },
+      {
+        "text": "ali",
+        "start": 12.943,
+        "end": 13.255
+      }
+    ]
+  },
+  "s12": {
+    "text": "Mais fundo, só nas fossas: a zona hadal, de Hades, o deus do mundo dos mortos. Perto de onze mil metros, a pressão passa de mil vezes a da superfície.",
+    "seconds": 10.806,
+    "words": [
+      {
+        "text": "Mais",
+        "start": 0,
+        "end": 0.261
+      },
+      {
+        "text": "fundo",
+        "start": 0.274,
+        "end": 0.636
+      },
+      {
+        "text": "só",
+        "start": 0.886,
+        "end": 1.024
+      },
+      {
+        "text": "nas",
+        "start": 1.036,
+        "end": 1.236
+      },
+      {
+        "text": "fossas",
+        "start": 1.249,
+        "end": 1.761
+      },
+      {
+        "text": "a",
+        "start": 2.073,
+        "end": 2.161
+      },
+      {
+        "text": "zona",
+        "start": 2.173,
+        "end": 2.486
+      },
+      {
+        "text": "hadal",
+        "start": 2.499,
+        "end": 2.849
+      },
+      {
+        "text": "de",
+        "start": 3.111,
+        "end": 3.223
+      },
+      {
+        "text": "Hades",
+        "start": 3.236,
+        "end": 3.648
+      },
+      {
+        "text": "o",
+        "start": 3.924,
+        "end": 4.036
+      },
+      {
+        "text": "deus",
+        "start": 4.049,
+        "end": 4.361
+      },
+      {
+        "text": "do",
+        "start": 4.373,
+        "end": 4.473
+      },
+      {
+        "text": "mundo",
+        "start": 4.486,
+        "end": 4.824
+      },
+      {
+        "text": "dos",
+        "start": 4.836,
+        "end": 5.036
+      },
+      {
+        "text": "mortos",
+        "start": 5.049,
+        "end": 5.611
+      },
+      {
+        "text": "Perto",
+        "start": 6.474,
+        "end": 6.836
+      },
+      {
+        "text": "de",
+        "start": 6.849,
+        "end": 6.974
+      },
+      {
+        "text": "onze",
+        "start": 6.986,
+        "end": 7.299
+      },
+      {
+        "text": "mil",
+        "start": 7.311,
+        "end": 7.461
+      },
+      {
+        "text": "metros",
+        "start": 7.474,
+        "end": 7.949
+      },
+      {
+        "text": "a",
+        "start": 8.123,
+        "end": 8.186
+      },
+      {
+        "text": "pressão",
+        "start": 8.199,
+        "end": 8.586
+      },
+      {
+        "text": "passa",
+        "start": 8.598,
+        "end": 8.961
+      },
+      {
+        "text": "de",
+        "start": 8.973,
+        "end": 9.086
+      },
+      {
+        "text": "mil",
+        "start": 9.098,
+        "end": 9.286
+      },
+      {
+        "text": "vezes",
+        "start": 9.299,
+        "end": 9.648
+      },
+      {
+        "text": "a",
+        "start": 9.661,
+        "end": 9.786
+      },
+      {
+        "text": "da",
+        "start": 9.799,
+        "end": 9.911
+      },
+      {
+        "text": "superfície",
+        "start": 9.924,
+        "end": 10.736
+      }
+    ]
+  },
+  "s13": {
+    "text": "Mesmo assim, tem vida: um peixe-caracol já foi filmado a mais de oito mil metros. E pouquíssimas pessoas desceram até o ponto mais fundo, bem menos do que as que já foram ao espaço.",
+    "seconds": 11.358,
+    "words": [
+      {
+        "text": "Mesmo",
+        "start": 0,
+        "end": 0.319
+      },
+      {
+        "text": "assim",
+        "start": 0.331,
+        "end": 0.694
+      },
+      {
+        "text": "tem",
+        "start": 0.906,
+        "end": 1.106
+      },
+      {
+        "text": "vida",
+        "start": 1.119,
+        "end": 1.431
+      },
+      {
+        "text": "um",
+        "start": 1.744,
+        "end": 1.894
+      },
+      {
+        "text": "peixe-caracol",
+        "start": 1.906,
+        "end": 2.706
+      },
+      {
+        "text": "já",
+        "start": 2.719,
+        "end": 2.844
+      },
+      {
+        "text": "foi",
+        "start": 2.857,
+        "end": 3.019
+      },
+      {
+        "text": "filmado",
+        "start": 3.032,
+        "end": 3.469
+      },
+      {
+        "text": "a",
+        "start": 3.482,
+        "end": 3.532
+      },
+      {
+        "text": "mais",
+        "start": 3.544,
+        "end": 3.807
+      },
+      {
+        "text": "de",
+        "start": 3.819,
+        "end": 3.919
+      },
+      {
+        "text": "oito",
+        "start": 3.932,
+        "end": 4.194
+      },
+      {
+        "text": "mil",
+        "start": 4.206,
+        "end": 4.394
+      },
+      {
+        "text": "metros",
+        "start": 4.406,
+        "end": 4.932
+      },
+      {
+        "text": "E",
+        "start": 5.794,
+        "end": 5.919
+      },
+      {
+        "text": "pouquíssimas",
+        "start": 5.932,
+        "end": 6.594
+      },
+      {
+        "text": "pessoas",
+        "start": 6.607,
+        "end": 7.081
+      },
+      {
+        "text": "desceram",
+        "start": 7.094,
+        "end": 7.532
+      },
+      {
+        "text": "até",
+        "start": 7.544,
+        "end": 7.719
+      },
+      {
+        "text": "o",
+        "start": 7.732,
+        "end": 7.807
+      },
+      {
+        "text": "ponto",
+        "start": 7.819,
+        "end": 8.131
+      },
+      {
+        "text": "mais",
+        "start": 8.144,
+        "end": 8.357
+      },
+      {
+        "text": "fundo",
+        "start": 8.369,
+        "end": 8.732
+      },
+      {
+        "text": "bem",
+        "start": 9.006,
+        "end": 9.231
+      },
+      {
+        "text": "menos",
+        "start": 9.244,
+        "end": 9.594
+      },
+      {
+        "text": "do",
+        "start": 9.606,
+        "end": 9.719
+      },
+      {
+        "text": "que",
+        "start": 9.731,
+        "end": 9.844
+      },
+      {
+        "text": "as",
+        "start": 9.856,
+        "end": 10.006
+      },
+      {
+        "text": "que",
+        "start": 10.019,
+        "end": 10.132
+      },
+      {
+        "text": "já",
+        "start": 10.144,
+        "end": 10.282
+      },
+      {
+        "text": "foram",
+        "start": 10.294,
+        "end": 10.619
+      },
+      {
+        "text": "ao",
+        "start": 10.631,
+        "end": 10.744
+      },
+      {
+        "text": "espaço",
+        "start": 10.756,
+        "end": 11.282
+      }
+    ]
+  },
+  "s14": {
+    "text": "Agora olha o oceano em escala real: a zona do sol é só essa faixa fininha. Quase tudo fica no escuro, e menos de um terço do fundo do mar foi mapeado em detalhe.",
+    "seconds": 10.768,
+    "words": [
+      {
+        "text": "Agora",
+        "start": 0,
+        "end": 0.401
+      },
+      {
+        "text": "olha",
+        "start": 0.413,
+        "end": 0.676
+      },
+      {
+        "text": "o",
+        "start": 0.689,
+        "end": 0.701
+      },
+      {
+        "text": "oceano",
+        "start": 0.714,
+        "end": 1.201
+      },
+      {
+        "text": "em",
+        "start": 1.214,
+        "end": 1.289
+      },
+      {
+        "text": "escala",
+        "start": 1.301,
+        "end": 1.726
+      },
+      {
+        "text": "real",
+        "start": 1.738,
+        "end": 2.114
+      },
+      {
+        "text": "a",
+        "start": 2.463,
+        "end": 2.563
+      },
+      {
+        "text": "zona",
+        "start": 2.576,
+        "end": 2.913
+      },
+      {
+        "text": "do",
+        "start": 2.926,
+        "end": 3.026
+      },
+      {
+        "text": "sol",
+        "start": 3.039,
+        "end": 3.376
+      },
+      {
+        "text": "é",
+        "start": 3.389,
+        "end": 3.438
+      },
+      {
+        "text": "só",
+        "start": 3.451,
+        "end": 3.651
+      },
+      {
+        "text": "essa",
+        "start": 3.663,
+        "end": 3.963
+      },
+      {
+        "text": "faixa",
+        "start": 3.976,
+        "end": 4.326
+      },
+      {
+        "text": "fininha",
+        "start": 4.338,
+        "end": 4.838
+      },
+      {
+        "text": "Quase",
+        "start": 5.701,
+        "end": 6.151
+      },
+      {
+        "text": "tudo",
+        "start": 6.163,
+        "end": 6.463
+      },
+      {
+        "text": "fica",
+        "start": 6.476,
+        "end": 6.701
+      },
+      {
+        "text": "no",
+        "start": 6.713,
+        "end": 6.789
+      },
+      {
+        "text": "escuro",
+        "start": 6.801,
+        "end": 7.239
+      },
+      {
+        "text": "e",
+        "start": 7.551,
+        "end": 7.639
+      },
+      {
+        "text": "menos",
+        "start": 7.651,
+        "end": 8.051
+      },
+      {
+        "text": "de",
+        "start": 8.064,
+        "end": 8.138
+      },
+      {
+        "text": "um",
+        "start": 8.151,
+        "end": 8.276
+      },
+      {
+        "text": "terço",
+        "start": 8.289,
+        "end": 8.626
+      },
+      {
+        "text": "do",
+        "start": 8.638,
+        "end": 8.751
+      },
+      {
+        "text": "fundo",
+        "start": 8.763,
+        "end": 9.051
+      },
+      {
+        "text": "do",
+        "start": 9.064,
+        "end": 9.163
+      },
+      {
+        "text": "mar",
+        "start": 9.176,
+        "end": 9.401
+      },
+      {
+        "text": "foi",
+        "start": 9.413,
+        "end": 9.539
+      },
+      {
+        "text": "mapeado",
+        "start": 9.551,
+        "end": 10.051
+      },
+      {
+        "text": "em",
+        "start": 10.064,
+        "end": 10.126
+      },
+      {
+        "text": "detalhe",
+        "start": 10.138,
+        "end": 10.676
+      }
+    ]
+  },
+  "s15": {
+    "text": "Pronto: agora você conhece as cinco zonas do oceano, do sol até o fundo das fossas.",
+    "seconds": 5.454,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.354
+      },
+      {
+        "text": "agora",
+        "start": 0.604,
+        "end": 0.979
+      },
+      {
+        "text": "você",
+        "start": 0.992,
+        "end": 1.254
+      },
+      {
+        "text": "conhece",
+        "start": 1.267,
+        "end": 1.754
+      },
+      {
+        "text": "as",
+        "start": 1.767,
+        "end": 1.867
+      },
+      {
+        "text": "cinco",
+        "start": 1.879,
+        "end": 2.216
+      },
+      {
+        "text": "zonas",
+        "start": 2.229,
+        "end": 2.579
+      },
+      {
+        "text": "do",
+        "start": 2.592,
+        "end": 2.679
+      },
+      {
+        "text": "oceano",
+        "start": 2.691,
+        "end": 3.166
+      },
+      {
+        "text": "do",
+        "start": 3.454,
+        "end": 3.579
+      },
+      {
+        "text": "sol",
+        "start": 3.592,
+        "end": 3.904
+      },
+      {
+        "text": "até",
+        "start": 3.917,
+        "end": 4.141
+      },
+      {
+        "text": "o",
+        "start": 4.154,
+        "end": 4.217
+      },
+      {
+        "text": "fundo",
+        "start": 4.229,
+        "end": 4.604
+      },
+      {
+        "text": "das",
+        "start": 4.616,
+        "end": 4.804
+      },
+      {
+        "text": "fossas",
+        "start": 4.816,
+        "end": 5.354
+      }
+    ]
+  },
+  "cta": {
+    "text": "Segue a Fenda Umbra e compartilha pra mais vídeos assim!",
+    "seconds": 3.188,
+    "words": [
+      {
+        "text": "Segue",
+        "start": 0,
+        "end": 0.335
+      },
+      {
+        "text": "a",
+        "start": 0.348,
+        "end": 0.411
+      },
+      {
+        "text": "Fenda",
+        "start": 0.423,
+        "end": 0.761
+      },
+      {
+        "text": "Umbra",
+        "start": 0.773,
+        "end": 1.073
+      },
+      {
+        "text": "e",
+        "start": 1.085,
+        "end": 1.11
+      },
+      {
+        "text": "compartilha",
+        "start": 1.123,
+        "end": 1.761
+      },
+      {
+        "text": "pra",
+        "start": 1.773,
+        "end": 1.935
+      },
+      {
+        "text": "mais",
+        "start": 1.948,
+        "end": 2.261
+      },
+      {
+        "text": "vídeos",
+        "start": 2.273,
+        "end": 2.611
+      },
+      {
+        "text": "assim",
+        "start": 2.623,
+        "end": 3.11
+      }
+    ]
+  }
+}

@@ -272,7 +272,7 @@ def groove(start, end, kick_g, hat_g, clap_g=0.0):
 #   "reveal"  impacto + acorde maior aberto + sinos (revelação, solução)
 #   "resolve" Fadd9 longo, sinos no FINAL_HIT (encerramento)
 n_sc = len(S)
-INTENTS = (["calm"] + ["curious"] * max(0, n_sc - 3) + ["build"] + ["resolve"])[-n_sc:] if n_sc > 1 else ["resolve"]
+INTENTS = ["reveal", "calm", "calm", "curious", "curious", "curious", "curious", "tense", "tense", "tense", "build", "tense", "curious", "reveal", "resolve"]
 HITS: list[float] = []  # ex.: [word("s3", 12), word("s12", 2)] — impactos suaves nesses segundos
 
 for i, intent in enumerate(INTENTS):

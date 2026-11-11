@@ -15,11 +15,11 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "PERGUNTA", color: "#ffffff", scale: 0.6 },
-  { text: "IMPACTANTE", color: "#c4b5fd", scale: 1 },
-  { text: "AQUI?", color: "#ffffff", scale: 0.75 },
+  { text: "AS 5 ZONAS", color: "#ffffff", scale: 0.66 },
+  { text: "DO OCEANO", color: "#7cd0ff", scale: 0.9 },
+  { text: "O EVEREST CABE NA FOSSA", color: "#c4b5fd", scale: 0.34 },
 ];
-export const THUMB_TAG = "TEMA";
+export const THUMB_TAG = "OCEANO";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>

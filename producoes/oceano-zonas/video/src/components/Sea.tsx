@@ -1,4 +1,5 @@
 import { RoundedBox } from "@react-three/drei";
+import { AdditiveBlending } from "three";
 import { clamp, type Vec3 } from "../utils/animation";
 import { Mascot } from "./Mascot";
 
@@ -71,7 +72,8 @@ const Fin: React.FC<{ p: Vec3; r: Vec3; size: number; thick: number; c: string; 
 );
 
 // ------------------------------------------------------------------------------------------ BATISFERA (2,2 m)
-export const Bathysphere: React.FC<SProps & { lamp?: number }> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, lamp = 1 }) => (
+export type PodMascot = { wave?: number; jump?: number; cheer?: number; look?: number; point?: number };
+export const Bathysphere: React.FC<SProps & { lamp?: number; m?: PodMascot }> = ({ frame = 0, position = [0, 0, 0], rotY = 0, scale = 1, lamp = 1, m = {} }) => (
   <group position={position} rotation={[0, rotY, 0]} scale={scale}>
     {/* casco de vidro + anéis de metal + farol + cabo */}
     <Ball p={[0, 1.1, 0]} s={[1.1, 1.1, 1.1]} c="#bfe6ff" o={0.28} seg={24} />
@@ -95,7 +97,7 @@ export const Bathysphere: React.FC<SProps & { lamp?: number }> = ({ frame = 0, p
     {lamp > 0.01 ? (
       <mesh position={[2.6, 1.0, 0]} rotation={[0, 0, Math.PI / 2 + 0.15]}>
         <coneGeometry args={[1.1, 2.8, 16, 1, true]} />
-        <meshBasicMaterial color="#fff6d6" transparent opacity={0.18 * lamp} depthWrite={false} />
+        <meshBasicMaterial color="#fff6d6" transparent opacity={0.07 * lamp} depthWrite={false} blending={AdditiveBlending} />
       </mesh>
     ) : null}
     <mesh position={[0, 2.9, 0]}>
@@ -103,7 +105,7 @@ export const Bathysphere: React.FC<SProps & { lamp?: number }> = ({ frame = 0, p
       <meshStandardMaterial color="#c9ced8" />
     </mesh>
     {/* o mascote sentado dentro */}
-    <Mascot frame={frame} position={[0, 0.25, 0]} scale={0.95} float={0.3} rotY={0.4} />
+    <Mascot frame={frame} position={[0, 0.25 + 0.25 * (m.jump ?? 0), 0]} scale={0.95} float={0.3} rotY={0.4} wave={m.wave} cheer={m.cheer} look={m.look} point={m.point} />
   </group>
 );
 

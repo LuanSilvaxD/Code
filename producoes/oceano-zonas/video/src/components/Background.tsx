@@ -3,6 +3,7 @@ import { BRAND } from "../brand";
 import { BACKDROP, SKY } from "../theme";
 import { clamp } from "../utils/animation";
 import { cameraPoseAt } from "./CameraController";
+import { track } from "../data/scenes";
 
 // Fundo atrás do diorama.
 // "studio" (identidade Fenda Umbra): sombra quente com um halo de luz atrás da maquete, tingido pelo tema;
@@ -15,9 +16,11 @@ export const Background: React.FC = () => {
     const az = Math.atan2(pose.position[0] - pose.target[0], pose.position[2] - pose.target[2]);
     const hx = 50 - clamp(az / Math.PI, -0.5, 0.5) * 24;
     const { umbra } = BRAND.colors;
+    // o estúdio escurece conforme a descida (light.depth)
+    const tint = interpolateColors(track("light.depth", frame), [0, 1], [BACKDROP.tint, "#04060e"]);
     return (
       <AbsoluteFill>
-        <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${BACKDROP.tint} 55%, ${umbra} 100%)` }} />
+        <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />
         <AbsoluteFill style={{ background: `radial-gradient(ellipse 75% 34% at ${hx}% 52%, ${BACKDROP.halo}55 0%, ${BACKDROP.halo}14 45%, rgba(0,0,0,0) 75%)` }} />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse 95% 70% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45) 100%)" }} />
       </AbsoluteFill>

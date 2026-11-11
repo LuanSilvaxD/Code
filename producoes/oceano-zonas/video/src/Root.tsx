@@ -10,7 +10,7 @@ import { DURATION } from "./utils/timing";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition id="ProblemResolveVideo" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
+      <Composition id="OceanoZonas" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
       <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
       <Composition id="ThumbYouTube" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1280} height={720} defaultProps={{ layout: "horizontal" as const }} />
       <Composition id="RedoSheet" component={RedoSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
