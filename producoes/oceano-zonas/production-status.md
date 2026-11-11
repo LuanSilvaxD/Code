@@ -1,7 +1,7 @@
 # Status de produção — As zonas de profundidade do oceano
 
-- **Fase atual:** 1 (planejamento) concluída.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
+- **Fase atual:** 2 — passo 1 (folha de design).
+- **Status:** roteiro v2 APROVADO ("Aprovado"); AGUARDANDO APROVAÇÃO DOS 12 DESIGNS NOVOS antes de animar.
 - **Versão do roteiro:** v2 (2026-11-11) — 2:55 a pedido do usuário. Skill v2.0 (formato fatos/documentário).
 
 ## Arquivos
@@ -19,3 +19,4 @@
 ## Histórico
 - 2026-11-11 — v1 entregue, aguardando aprovação.
 - 2026-11-11 — v2: duração igual ao EP. 01 (2:55), 15 cenas, novos fatos verificados.
+- 2026-11-11 — v2 aprovada; folha de design dos 12 elementos enviada (video/src/SeaSheet.tsx, components/Sea.tsx).
