@@ -1,7 +1,7 @@
 # Status de produção — Quem foi ela? (Marie Curie)
 
-- **Fase atual:** 1 (planejamento) concluída.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
+- **Fase atual:** 2 concluída.
+- **Status:** ENTREGUE — v1 aprovada ("Aprovo") + pedido de encaixar no quadro "Gigantes da Humanidade" (EP. 01).
 - **Versão do roteiro:** v1 (2026-11-11).
 - **Skill:** remotion-problem-resolve-video (Fenda Umbra + mascote v3 + pessoas variadas).
 
@@ -24,3 +24,6 @@
 
 ## Histórico
 - 2026-11-11 — v1 entregue, aguardando aprovação.
+- 2026-11-11 — v1 aprovada; usuário pediu o quadro "Gigantes da Humanidade" (visual + falado). Mudança na fala s1: "+ Este é o Gigantes da Humanidade." (depois do gancho).
+  Voz real ficou ~9% mais longa que a estimativa: rate +10% (cta mantida em +0%) e duração 2:55 (175 s, 5250 quadros).
+  MP4 1080×1920 30 fps, loudnorm (pico −1,4 dBFS); sem silêncio digital. Render por software ~2 h.

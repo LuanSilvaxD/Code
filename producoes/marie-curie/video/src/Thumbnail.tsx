@@ -50,7 +50,7 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
           <Logo size={v ? 96 : 60} />
           <Wordmark size={v ? 28 : 18} />
         </div>
-        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: BRAND.colors.accent, color: "#ffffff", fontFamily: FONT, fontWeight: 900, fontSize: v ? 44 : 28, letterSpacing: 2, boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
+        <div style={{ padding: v ? "10px 30px" : "6px 20px", borderRadius: 999, background: BRAND.colors.accent, color: "#ffffff", fontFamily: FONT, fontWeight: 900, fontSize: v ? (THUMB_TAG.length > 22 ? 34 : 44) : 28, letterSpacing: 2, whiteSpace: "nowrap", boxShadow: "0 8px 20px rgba(0,0,0,0.4)" }}>{THUMB_TAG}</div>
         {THUMB_LINES.map((l, i) => (
           <Line key={i} text={l.text} color={l.color} size={Math.round(base * l.scale)} />
         ))}
