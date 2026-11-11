@@ -86,6 +86,15 @@ sapato — use `crowdLooks(n, "<tema>")` para grupos (garante vizinhos diferente
 para alguém avulso. As paletas são discretas de propósito (convivem com o roxo da marca); não vista
 figurantes de vermelho/verde puros, que são as cores de problema/solução.
 
+### Veículos (aprovados pelo usuário)
+
+`components/Vehicles.tsx`: `Car` (4,3 m), `Bus` (12 m), `Truck` (10,5 m), `SteamLocomotive` (11 m) + `PassengerCar`
+(12 m) sobre `Rails`, `CargoShip` (60 m estilizado), `Boat` (barco de pesca 7 m), `Rocket` (50 m genérico) e
+`Airplane` (38 m genérico). Modelados em METROS, de frente para +x, apoiados em y = 0 → passe `scale = uPorMetro`
+(a mesma régua das pessoas) e nunca "no olho" — o trem do EP. 01 virou brinquedo por isso. Props: `frame`,
+`speed` (giro das rodas/biela), `smoke`, `bob` (balanço na água), `flame`, `gear`, `color`. Mantenha o desenho;
+para variar, troque `color`. Folha de referência: `examples/mascote/VehicleSheet.tsx`.
+
 ### Proporção de personagens × cenário (regra do usuário)
 
 Pessoas e mascote precisam caber no MUNDO da maquete — nada de gente do tamanho de uma casa ou de um carro
