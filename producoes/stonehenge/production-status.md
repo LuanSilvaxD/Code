@@ -1,7 +1,7 @@
 # Status de produção — Como construíram Stonehenge?
 
-- **Fase atual:** 2 — passo 1 (folha de design).
-- **Status:** roteiro v1 APROVADO; AGUARDANDO APROVAÇÃO DOS DESIGNS NOVOS antes de animar.
+- **Fase atual:** 2 — concluída.
+- **Status:** ENTREGUE — video/out/stonehenge.mp4 (2:55, 5250 quadros, 1080×1920, 30 fps, loudnorm −14 LUFS); capa no quadro 90, thumbnail no 4570 (pôr do sol).
 - **Versão do roteiro:** v1 (2026-11-11). Skill v2.0. Formato: problema → solução + pergunta → revelação.
 
 ## Arquivos
@@ -12,12 +12,15 @@
 - Duração decidida pelo conteúdo (regra do usuário: explicar no tempo que precisar, teto de ~3 min).
 - Régua única: 1 m = 0,1 u3d. Fato × hipótese marcados na tela.
 
-## Pendências para a Fase 2
-- Aprovação explícita da v1.
-- 1º passo da Fase 2: folha de design dos 12 elementos novos (ver roteiro §1) → enviar e PARAR até a aprovação.
+## Pendências
+- Push ao GitHub bloqueado (403, app do Claude sem acesso ao repo) — commits locais; usuário pediu para deixar pro final.
+- Pronúncia de "Stonehenge"/"Preseli" não verificada (o agente não ouve o áudio).
 
 ## Histórico
 - 2026-11-11 — v1 entregue, aguardando aprovação.
 - 2026-11-11 — v1 aprovada ("pode caprichar no terreno"; entrega final em .zip como antes).
 - 2026-11-11 — folhas de design enviadas: video/src/StoneSheet.tsx (StoneSheet, StoneSheet2);
   componentes em video/src/components/{Stones,Monument,Terrain}.tsx; Person.tsx ganhou túnica (neolithicLooks).
+- 2026-11-11 — designs aprovados ("Gostei pode fazer"); render em 3 trechos (limite de 2 h do ambiente), emendados
+  com re-encode (5250 quadros exatos) e áudio contínuo montado dos trechos (emendas checadas: sem estalo).
+- 2026-11-11 — ENTREGUE: zip completo + MP4 comprimido + zip leve.
