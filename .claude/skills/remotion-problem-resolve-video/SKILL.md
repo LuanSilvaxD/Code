@@ -1,6 +1,6 @@
 ---
 name: remotion-problem-resolve-video
-description: Planeja e produz, de ponta a ponta, com a identidade do canal Fenda Umbra, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato problema → solução (ou pergunta → revelação) — roteiro com tabela cronológica e contrato de dados, aprovação do usuário, depois implementação com acabamento cinematográfico (pós-efeitos, efeitos de tela, legendas em cápsula), narração TTS sincronizada palavra a palavra, trilha e efeitos sintetizados, revisão por frames, MP4 final, capa/thumbnail, título/descrição/hashtags e um .zip de entrega. Use sempre que o usuário pedir um vídeo explicativo, didático, "como funciona" ou "qual é o maior/mais antigo/primeiro" sobre qualquer mecanismo, processo, fenômeno ou curiosidade (ex. "como funciona um poço artesiano", "por que o tsunami cresce na costa", "qual a cidade mais antiga"), um short animado em 3D, um roteiro/briefing de vídeo para Remotion ou um storyboard com timestamps — mesmo sem citar Remotion nem 3D.
+description: Planeja e produz, com a identidade do canal Fenda Umbra, vídeos educativos verticais (Shorts/Reels/TikTok, 1080×1920) em 3D low-poly com Remotion + React Three Fiber, no formato que o tema pede — problema → solução, pergunta → revelação, fatos/documentário ou história/biografia (inclui o quadro Gigantes da Humanidade). Roteiro com tabela cronológica e contrato de dados, aprovação do usuário (e dos designs novos), depois implementação com acabamento cinematográfico, narração TTS sincronizada palavra a palavra, trilha e efeitos, revisão por frames, MP4, capa/thumbnail, título/descrição/hashtags e .zip de entrega. Use sempre que o usuário pedir um vídeo explicativo, didático, "como funciona", "por que", curiosidades ou fatos sobre um tema (ex. "fatos sobre o oceano"), biografia ou "qual é o maior/mais antigo", um short animado em 3D, um roteiro/storyboard com timestamps para Remotion — mesmo sem citar Remotion nem 3D.
 ---
 
 # Remotion Problem Resolve Video
@@ -9,7 +9,7 @@ Atue como roteirista educativo, diretor de animação 3D e desenvolvedor Remotio
 **Fase 1** cria e entrega o roteiro e o plano técnico; **Fase 2**, somente com aprovação, implementa,
 renderiza e entrega o MP4. Responda em português brasileiro, salvo preferência expressa do usuário.
 
-Esta skill une um método narrativo (problema → solução) a um pipeline técnico já testado em produção
+Esta skill une métodos narrativos (problema → solução, pergunta → revelação, fatos/documentário, história) a um pipeline técnico já testado em produção
 (o Short "Como funciona um poço artesiano?", em `examples/poco-artesiano/`). Ela traz:
 
 | Pasta | Conteúdo | Quando ler/usar |
@@ -174,7 +174,27 @@ Se houver vídeo, transcrição ou análise anexada, use como referência. Disti
 foi descrito por terceiros; nunca afirme ter assistido a uma referência inacessível. Preserve a gramática
 visual e narrativa abaixo sem copiar frases, identidade, marcas ou personagens de um canal.
 
-## Gramática narrativa
+## Formato da narrativa (escolha pelo tema)
+
+Nem todo tema é problema → solução. Escolha o formato no início da Fase 1, diga qual escolheu no briefing (e por
+quê, em uma frase) e siga a gramática dele. Se o usuário pedir um formato, use-o.
+
+| Formato | Quando | Espinha da história |
+| --- | --- | --- |
+| **Problema → solução** (padrão para "como funciona X") | mecanismos, máquinas, processos construídos | tentativa → obstáculo → solução → termo técnico → novo obstáculo (abaixo) |
+| **Pergunta → revelação** | "por que…?", "qual é o maior/mais antigo…?" | pergunta + promessa → pistas/critérios que eliminam respostas → revelação (céu azul, cidade mais antiga) |
+| **Fatos / documentário** | lugares, seres, fenômenos "para conhecer" (oceano, planetas, corpo humano, dinossauros) | gancho com o fato mais surpreendente → fatos encadeados por um FIO CONDUTOR → fecho com o fato mais forte |
+| **História / biografia** | pessoas, eventos, invenções no tempo | gancho → cronologia de viradas (obstáculo → feito) → consequência/legado; no quadro Gigantes da Humanidade, mistério do nome |
+
+**Fatos / documentário — como não virar lista:** escolha um fio condutor visível que dê progressão e sensação de
+"avançar" (uma descida do raso ao abismo, uma viagem do Sol a Netuno, do menor ao maior, do mais antigo ao mais
+novo, por dentro de um corpo de fora para dentro). Cada fato muda o MESMO cenário (a câmera desce, a luz some, a
+pressão aumenta) e liga ao próximo com um conector ("e quanto mais fundo…", "só que lá embaixo…"). 6–9 fatos em
+90 s; um número concreto e verificável por fato, comparado a algo do cotidiano ("a pressão de 1 carro em cima do
+dedão"); o mais surpreendente vai no gancho ou no fim, nunca no meio. Feche com recompensa ("Pronto: agora você
+conhece…"). Rigor: cada número com fonte; o que for estimativa, diga que é estimativa.
+
+## Gramática narrativa (problema → solução)
 
 Abra com uma ação simples e uma promessa visual: "Você quer X. Parece que basta fazer Y…". Mostre a
 tentativa acontecendo desde os primeiros segundos.
@@ -276,8 +296,9 @@ Escreva o resultado como instruções prontas para um produtor/agente implementa
 
 ### 1. Briefing de produção
 Tema, recorte técnico escolhido, público, objetivo educativo, duração, resolução, fps, tom, premissas,
-direção de arte, provedor/voz de TTS planejados. Explique em uma frase qual sistema será construído ou
-revelado e quais problemas conduzem sua evolução.
+direção de arte, provedor/voz de TTS planejados, **formato da narrativa** escolhido (e por quê) e a lista de
+**designs novos** que precisarão de aprovação. Explique em uma frase qual sistema/cenário será construído ou
+revelado e o que conduz a história (os problemas, as pistas, o fio condutor dos fatos ou a cronologia).
 
 ### 2. Tabela cronológica completa
 Use exatamente estas sete colunas, sem adicionar ou renomear:
@@ -341,6 +362,24 @@ Ao receber a aprovação, leia os arquivos salvos antes de agir, mesmo que outro
 Confira no histórico qual versão foi aprovada e registre a referência no status — o status é um registro,
 não uma autorização. Se a confirmação existir mas o planejamento não estiver acessível, peça o arquivo;
 não recrie silenciosamente outro roteiro. Não refaça a Fase 1 só porque houve troca de modelo.
+
+## Designs novos: aprovação antes de usar (regra do usuário)
+
+Se o vídeo precisa de um elemento que AINDA NÃO existe na biblioteca da skill (personagem, animal, veículo,
+construção, criatura — ex.: dinossauros, planetas, células), o primeiro passo da Fase 2 é uma **folha de design**:
+cada item de perfil (e, se ajudar, em 3/4), no estilo da marca, com uma pessoa de 1,7 m ao lado para escala e o
+tamanho real escrito, como `examples/mascote/VehicleSheet.tsx`/`AnimalSheet.tsx`. Envie a imagem (SendUserFile),
+liste o que você mesmo acha fraco e **pare**: o usuário aprova, pede detalhes ou acrescenta coisas. Só depois de
+aprovado o elemento entra no vídeo. Na Fase 1, liste no roteiro quais designs serão novos. A biblioteca da skill
+só recebe o elemento numa atualização da skill pedida pelo usuário — não a altere por conta própria no meio de
+um vídeo. Elementos já aprovados (mascote, pessoas, veículos, animais) não precisam de nova aprovação.
+
+## Atualizações da skill e versão
+
+Quando o usuário pedir para salvar/atualizar a skill e mandar os arquivos, empacote com a **versão no nome do
+arquivo** (só no nome): `fenda-umbra-skill-vX.Y.zip` (skill + folhas de design + COMO-INSTALAR.md) e
+`remotion-problem-resolve-video-vX.Y.skill`. Suba o número a cada entrega: Y para ajustes (v2.0 → v2.1), X para
+mudanças grandes. A última versão entregue fica anotada em `references/versao.md`.
 
 ## Fase 2 — implementação e geração do vídeo aprovado
 
