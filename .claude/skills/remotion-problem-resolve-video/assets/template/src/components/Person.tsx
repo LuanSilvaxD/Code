@@ -21,7 +21,9 @@ export const worldScale = (uPerMeter: number, personMeters = 1.7, mascotMeters =
 export type PersonLook = {
   skin?: string;
   hair?: string;
-  hairStyle?: "short" | "long" | "bald";
+  hairStyle?: "short" | "long" | "bald" | "bun";
+  /** vestido longo (cor da saia): substitui calça e pernas por uma saia até os pés (figurino de época) */
+  dress?: string;
   shirt?: string;
   sleeves?: "short" | "long";
   pants?: string;
@@ -104,6 +106,7 @@ export const Person: React.FC<PersonPose> = ({
   point = 0,
   look = 0,
   seed = 0,
+  dress,
   skin = "#e8b48f",
   hair = "#3b2a22",
   hairStyle = "short",
@@ -125,8 +128,17 @@ export const Person: React.FC<PersonPose> = ({
   const waveZ = wv * (2.6 + 0.35 * Math.sin(f * 0.45));
   return (
     <group position={[position[0], position[1] + bob, position[2]]} rotation={[0, rotY, 0]} scale={scale}>
+      {/* vestido longo: saia em tronco de cone até os pés */}
+      {dress ? (
+        <group position={[0, 0.43, 0]}>
+          <mesh castShadow receiveShadow>
+            <cylinderGeometry args={[0.2, 0.3, 0.86, 10]} />
+            <meshStandardMaterial color={dress} roughness={0.7} flatShading />
+          </mesh>
+        </group>
+      ) : null}
       {/* pernas (calça + sapato) */}
-      {[-1, 1].map((s) => (
+      {dress ? null : [-1, 1].map((s) => (
         <group key={`leg${s}`} position={[0.095 * s, 0.82, 0]} rotation={[s * legSwing, 0, 0]}>
           <group position={[0, -0.38, 0]}>{rb([0.135, 0.76, 0.15], pants)}</group>
           <group position={[0, -0.79, 0.035]}>{rb([0.145, 0.08, 0.25], shoes, 0.03)}</group>
@@ -161,7 +173,16 @@ export const Person: React.FC<PersonPose> = ({
           </mesh>
         ))}
         {/* cabelo */}
-        {hairStyle !== "bald" ? (
+        {hairStyle === "bun" ? (
+          <>
+            <group position={[0, 0.135, -0.01]}>{rb([0.29, 0.09, 0.29], hair, 0.04)}</group>
+            <group position={[0, 0.06, -0.12]}>{rb([0.29, 0.16, 0.07], hair, 0.03)}</group>
+            <mesh position={[0, 0.17, -0.13]} castShadow>
+              <sphereGeometry args={[0.075, 10, 8]} />
+              <meshStandardMaterial color={hair} roughness={0.6} />
+            </mesh>
+          </>
+        ) : hairStyle !== "bald" ? (
           <>
             <group position={[0, 0.135, -0.01]}>{rb([0.29, 0.09, 0.29], hair, 0.04)}</group>
             <group position={[0, hairStyle === "long" ? -0.05 : 0.05, -0.12]}>{rb([0.29, hairStyle === "long" ? 0.38 : 0.2, 0.07], hair, 0.03)}</group>

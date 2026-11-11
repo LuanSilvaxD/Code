@@ -255,6 +255,16 @@ descomente `Config.setBrowserExecutable` no `remotion.config.ts`.
 ### Revisão (vistos em produção)
 - **Sem trilha:** `HAS_MUSIC` ficou `false` e o MP4 saiu com silêncio digital nas pausas. Depois de gerar
   `music.wav`, ligue a flag; `audiocheck.py` alerta segundos mudos.
+- **Câmera perto demais em maquete comprida (linha do tempo):** as poses do rascunho saíram com prédios
+  gigantes e a personagem fora de quadro. Em 9:16 a largura útil é ~0,24 × distância: para uma estação com
+  pessoa + cenário (~2 u3d de largura), use d ≥ 8 e elevação 14–18°. Um multiplicador nas poses
+  (`ob = (t, d, az, el) => orbit(t, d * 1.4, az, el + 4)`) corrige tudo de uma vez; depois ajuste caso a caso.
+  Mire entre o objeto e a personagem; não deixe veículos/props na frente dela (trem tapando a cena).
+- **edge-tts junta palavras** ("em 1934" num marcador só): a contagem deixa de bater com o texto, a legenda
+  perde a pontuação e as âncoras W() pulam. `prepare_vo.py` agora separa e avisa quando a contagem diverge.
+- **Velocidade da voz real > estimativa:** num texto de 402 palavras com números por extenso, a voz real ficou
+  ~9% mais longa que o `vo_budget.py`. Gere a voz cedo; se estourar, suba a velocidade até +10% e mantenha a
+  chamada falada da marca (`cta`) em +0% para a assinatura soar sempre igual.
 - Morros/objetos altos encostam nos badges: suba o alvo da câmera ~1 u3d (o assunto desce no quadro).
 - Rótulos de objetos fora do quadro "puxados" para dentro da tela confundem: `WorldLabel safe` os esconde.
 - Cartões 2D (regras, gráficos) cobrindo o objeto citado: mostre-os só nas cenas em que são o assunto.

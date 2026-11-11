@@ -58,6 +58,21 @@ def fade(x: np.ndarray) -> np.ndarray:
     return x
 
 
+def split_words(words: list[dict]) -> list[dict]:
+    """O edge-tts às vezes junta palavras num só marcador (ex.: "em 1934"). Separa e reparte o tempo, para a
+    contagem bater com o texto aprovado (as legendas e as âncoras W("sN", i) dependem disso)."""
+    out = []
+    for w in words:
+        parts = w["text"].split()
+        if len(parts) <= 1:
+            out.append(w)
+            continue
+        step = (w["end"] - w["start"]) / len(parts)
+        for j, p in enumerate(parts):
+            out.append({"text": p, "start": w["start"] + j * step, "end": w["start"] + (j + 1) * step})
+    return out
+
+
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     out = {}
@@ -72,10 +87,13 @@ def main() -> None:
             "seconds": round(len(y) / SR, 3),
             "words": [
                 {"text": w["text"], "start": round(max(w["start"] - offset, 0), 3), "end": round(w["end"] - offset, 3)}
-                for w in line["words"]
+                for w in split_words(line["words"])
             ],
         }
         print(f"{key}: {out[key]['seconds']:.3f}s (aparado {offset * 1000:.0f} ms no início)")
+        n_txt = len(line["text"].split())
+        if len(out[key]["words"]) != n_txt:
+            print(f"  ATENÇÃO {key}: {len(out[key]['words'])} palavras no áudio x {n_txt} no texto — confira as âncoras W() e as legendas")
     print(f"total: {sum(v['seconds'] for v in out.values()):.2f}s")
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -21,7 +21,7 @@ Esta skill une um método narrativo (problema → solução) a um pipeline técn
 | `references/remotion/INDEX.md` | Regras oficiais do Remotion (3D, sequências, áudio, fontes, legendas, render, Studio, busca na doc) | Sempre que usar uma API do Remotion |
 | `assets/template/` | Motor reutilizável: câmera orbital, trilhas, badges, legendas, rótulos 3D seguros, áudio, pós-efeitos, efeitos de tela (`utils/fx.ts`), explosões, capa/thumbnail, fontes locais | Copiar para o projeto na Fase 2 |
 | `scripts/` | `doctor.sh` (ambiente), `vo_budget.py` (cabe no tempo?), narração, trilha/efeitos, `stills.mjs`/`render.mjs` (GPU ou software), folhas de contato, loudness, `package_delivery.py` (.zip final) | Fase 1 (orçamento) e Fase 2 |
-| `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela), `cidade-mais-antiga/` (tells em corte, revelação com coroa) e `ceu-azul/` (cúpula de ar com shader, fótons que se espalham, Sol em arco, prova no espaço) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
+| `examples/` | `poco-artesiano/` (projeto completo), `tsunami-onda/` (superfície de água animada, efeitos de tela), `cidade-mais-antiga/` (tells em corte, revelação com coroa), `marie-curie/` (biografia em linha do tempo, mistério do nome, quadro) e `ceu-azul/` (cúpula de ar com shader, fótons que se espalham, Sol em arco, prova no espaço) — com `roteiro.md` | Para calibrar qualidade e reaproveitar técnicas |
 
 ## Identidade do canal: FENDA UMBRA
 
@@ -100,6 +100,23 @@ menor que uma pessoa. Antes de posicionar qualquer personagem:
    pedestal, e mantenha o selo de escala esquemática.
 4. Confira nos stills: compare cada personagem com uma porta/casa/carro ao lado. Se parecer brinquedo
    gigante ou formiga, corrija a régua — não "no olho" por personagem.
+
+### Quadros (séries do canal)
+
+O canal tem **quadros** — séries com nome, número de episódio e cartão próprio (`components/Series.tsx`).
+Quando o usuário pedir um tema "no quadro X", o vídeo vira um episódio desse quadro:
+- **Gigantes da Humanidade** — as pessoas mais importantes da história. EP. 01 = Marie Curie (`examples/marie-curie/`).
+  Formato aprovado: biografia contada como **mistério do nome** — a pessoa é "ela/ele", uma silhueta com "?",
+  e o nome só é dito e mostrado perto do fim (revelação com luz, placa do nome, confete). Nenhum nome,
+  sobrenome, apelido derivado do nome (ex.: "petites Curies"), rosto realista ou nome de parente próximo que
+  entregue o sobrenome antes da revelação — nem na capa, no título ou na 1ª linha da legenda.
+- **Nome falado logo depois do gancho**, nunca antes (o gancho vem primeiro): ex. "…Quem foi ela? Este é o
+  Gigantes da Humanidade." — uma frase de ~1,5 s, com o cartão do quadro na tela e os badges recolhidos.
+- Capa e thumbnail: etiqueta "<QUADRO> · EP. NN"; título "…| Gigantes da Humanidade #N"; hashtag do quadro
+  (`#gigantesdahumanidade`) junto de `#fendaumbra`. Numere os episódios em sequência (confira o último em `producoes/`).
+- Pergunte o nome de um quadro novo antes do render (aparece em tudo; refazer custa um render inteiro).
+- Biografias pedem rigor extra: confira cada fato (datas, "primeira/única", números) em fontes primárias ou de
+  referência (nobelprize.org, enciclopédias, museus); o que divergir entre fontes, suavize ou corte, e liste no roteiro.
 
 Se o usuário pedir um vídeo fora da marca, `BACKDROP.mode = "sky"` e remover `<BrandIntro/>`/`<BrandOutro/>`
 do `MainSequence` volta ao visual neutro.
