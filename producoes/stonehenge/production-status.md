@@ -1,7 +1,7 @@
 # Status de produção — Como construíram Stonehenge?
 
-- **Fase atual:** 1 — roteiro entregue.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
+- **Fase atual:** 2 — passo 1 (folha de design).
+- **Status:** roteiro v1 APROVADO; AGUARDANDO APROVAÇÃO DOS DESIGNS NOVOS antes de animar.
 - **Versão do roteiro:** v1 (2026-11-11). Skill v2.0. Formato: problema → solução + pergunta → revelação.
 
 ## Arquivos
@@ -18,3 +18,6 @@
 
 ## Histórico
 - 2026-11-11 — v1 entregue, aguardando aprovação.
+- 2026-11-11 — v1 aprovada ("pode caprichar no terreno"; entrega final em .zip como antes).
+- 2026-11-11 — folhas de design enviadas: video/src/StoneSheet.tsx (StoneSheet, StoneSheet2);
+  componentes em video/src/components/{Stones,Monument,Terrain}.tsx; Person.tsx ganhou túnica (neolithicLooks).
