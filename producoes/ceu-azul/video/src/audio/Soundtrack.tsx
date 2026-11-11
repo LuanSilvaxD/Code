@@ -8,7 +8,7 @@ import { CTA_OFFSET, CTA_SECONDS, DURATION, f, HAS_CTA, OUTRO_SECONDS, VO } from
 // Só toca o que está com status "ready" — cues "planned" ainda não existem em disco.
 
 /** Mude para true depois de gerar public/audio/music.wav (scripts/music.py). */
-const HAS_MUSIC = false;
+const HAS_MUSIC = true;
 const MUSIC = { base: 0.5, ducked: 0.17, ramp: 8 };
 /** Segundo absoluto em que a chamada falada começa (logo depois de a fenda fechar). */
 const SECONDS_CTA_AT = () => DURATION / 30 - OUTRO_SECONDS + CTA_OFFSET;
