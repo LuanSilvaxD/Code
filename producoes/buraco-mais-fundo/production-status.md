@@ -29,3 +29,7 @@
   vídeo passa de 1:55 para 1:59 (3570 frames) — ajuste de sincronização, conteúdo igual.
 - 2026-11-12 — folhas de design: video/src/KolaSheet.tsx (KolaSheet1–3) → video/out/KolaSheet{1,2,3}.png; componentes em
   video/src/components/Kola.tsx; textura do globo public/globe.png (Natural Earth 110m, world-atlas). Person ganhou helmetColor.
+
+## ENTREGUE (2026-11-12)
+- MP4 final 3570 frames / 119,0 s, loudnorm (entrada −15,2 LUFS), emenda de áudio limpa (salto 159 vs p99 local 2167).
+- Entregáveis: zip completo, MP4 compacto (crf 23), zip leve (sem MP4/áudio).
