@@ -14,12 +14,11 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "CAVARAM", color: "#ffffff", scale: 0.6 },
-  { text: "12 KM", color: "#c4b5fd", scale: 1.0 },
-  { text: "PARA DENTRO DA TERRA", color: "#ffffff", scale: 0.36 },
-  { text: "POR QUE PARARAM?", color: "#ffcf7a", scale: 0.42 },
+  { text: "VAI TER", color: "#ffffff", scale: 0.5 },
+  { text: "APAGÃO MUNDIAL", color: "#ffcf7a", scale: 0.6 },
+  { text: "DIA 17?", color: "#c4b5fd", scale: 1.0 },
 ];
-export const THUMB_TAG = "O BURACO MAIS FUNDO DO MUNDO";
+export const THUMB_TAG = "BOATO OU VERDADE? · EP. 01";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>

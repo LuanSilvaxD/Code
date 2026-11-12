@@ -67,7 +67,7 @@ export type TrackAnimation = {
   easing?: EaseName;
   damping?: number;
   /** Unidade do valor: "u3d" (unidades do mundo 3D), "px", "deg", "rad" ou "0-1". */
-  unit?: "u3d" | "px" | "deg" | "rad" | "0-1";
+  unit?: "u3d" | "px" | "deg" | "rad" | "0-1" | "count";
 };
 
 type SceneLike = { startFrame: number; animations: readonly TrackAnimation[] };

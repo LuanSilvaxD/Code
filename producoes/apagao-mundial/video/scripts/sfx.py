@@ -583,10 +583,67 @@ def power_down(d=1.8):
     return np.tanh(hum * 1.5) * np.clip(1 - t / d, 0, 1) ** 1.5 * 0.6
 
 
-save("screams-fake", screams_fake())
-save("cable", cable())
-save("record-scratch", record_scratch())
-save("wind-cold", wind_cold())
-save("power-down", power_down())
+def tv_on(d=0.7):
+    """TV ligando: estalo + chiado curto que sobe e some (tubo esquentando)."""
+    t = tt(d)
+    pop_ = np.exp(-t / 0.01) * rng.standard_normal(len(t)) * 0.9
+    hiss = bp(rng.standard_normal(len(t)), 3000, 9000) * np.exp(-t / 0.18) * 0.5
+    whine = np.sin(2 * np.pi * np.cumsum(9000 + 6000 * t) / SR) * 0.05 * np.exp(-t / 0.3)
+    return (pop_ + hiss + whine) * env(d, 0.002, 0.2)
+
+
+def alert_tone(d=1.6):
+    """alerta de TESTE: dois tons alternados, sintéticos (NÃO é o tom oficial de emergência)."""
+    t = tt(d)
+    f = np.where((t * 4).astype(int) % 2 == 0, 740, 554)
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.25 * np.sin(2 * np.pi * np.cumsum(f * 2) / SR)
+    return tone * 0.45 * env(d, 0.02, 0.25)
+
+
+def spark(d=0.6):
+    """faísca elétrica: estalos agudos rápidos + chiado."""
+    t = tt(d)
+    x = np.zeros(len(t))
+    for _ in range(18):
+        i = int(rng.uniform(0, 0.35) * SR)
+        m = min(int(0.006 * SR), len(t) - i)
+        x[i : i + m] += rng.standard_normal(m) * rng.uniform(0.4, 1.0)
+    return hp(x + bp(rng.standard_normal(len(t)), 4000, 10000) * np.exp(-t / 0.12) * 0.4, 1500) * env(d, 0.001, 0.2)
+
+
+def hum(d=1.6):
+    """zumbido elétrico de 60 Hz (com harmônicos para soar no celular)."""
+    t = tt(d)
+    x = sum(np.sin(2 * np.pi * 60 * k * t) / k for k in (1, 2, 3, 4, 5))
+    return np.tanh(x * 0.9) * 0.45 * env(d, 0.15, 0.5)
+
+
+def domino(d=2.0, n=24):
+    """cliques em cascata que aceleram (estados apagando)."""
+    t = tt(d)
+    x = np.zeros(len(t))
+    times = np.cumsum(np.geomspace(0.14, 0.035, n))
+    times = times / times[-1] * (d - 0.25)
+    for k, tk in enumerate(times):
+        i = int(tk * SR)
+        m = min(int(0.03 * SR), len(t) - i)
+        x[i : i + m] += np.sin(2 * np.pi * (900 - k * 15) * np.arange(m) / SR) * np.exp(-np.linspace(0, 9, m)) * 0.7
+    return x
+
+
+def solar_whoosh(d=2.6):
+    """sopro grave e quente (ejeção solar viajando)."""
+    t = tt(d)
+    n = sweep_bp(rng.standard_normal(len(t)), np.geomspace(250, 1400, len(t)), q=1.6)
+    sub = np.sin(2 * np.pi * np.cumsum(45 + 20 * t) / SR) * 0.35
+    return (n + sub) * env(d, 0.4, 0.9)
+
+
+save("tv-on", tv_on())
+save("alert-tone", alert_tone())
+save("spark", spark())
+save("hum", hum())
+save("domino", domino())
+save("solar-whoosh", solar_whoosh())
 
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

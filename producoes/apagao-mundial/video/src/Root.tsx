@@ -8,7 +8,7 @@ import { DURATION } from "./utils/timing";
 // Capa e thumbnail são Composições (não <Still>) para poder escolher o quadro com --frame=<N>.
 export const RemotionRoot: React.FC = () => (
   <>
-    <Composition id="Kola" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Apagao" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
     <Composition id="ThumbYouTube" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1280} height={720} defaultProps={{ layout: "horizontal" as const }} />
     <Composition id="ApagaoSheet1" component={ApagaoSheet1} durationInFrames={120} fps={30} width={1080} height={1920} />

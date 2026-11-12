@@ -1,6 +1,6 @@
 # Status — Vai ter apagão mundial em 17 de novembro? (Boato ou Verdade? EP. 01)
 
-- **Fase:** 2 — roteiro v1 APROVADO ("Certo", 12/11); nome do quadro "Boato ou Verdade?" confirmado. Folhas de design enviadas — AGUARDANDO APROVAÇÃO dos designs.
+- **Fase:** 2 — roteiro v1 e designs APROVADOS; TTS gerado (1:58, SECONDS 118); cenas implementadas e revisadas por stills; render em blocos rodando (0-1769, 1770-3539); capa/thumb frame 112; publicacao.md escrito.
 - **Roteiro:** v1 (1:55 planejado, 14 cenas, 3450 frames), em `roteiro.md`; dados em `scene-plan.ts`; narração em `narration.json`.
 - **Pendências de decisão do usuário:** aprovar roteiro; confirmar o nome do quadro ("Boato ou Verdade?").
 - **Prazo:** o boato perde força depois de 17/11/2026; ideal postar até 15–16/11.

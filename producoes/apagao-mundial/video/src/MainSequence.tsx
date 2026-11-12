@@ -10,7 +10,7 @@ import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { DepthHud, KOLA_MODULES } from "./scenes/KolaScenes";
+import { APAGAO_MODULES } from "./scenes/ApagaoScenes";
 import { KolaLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
@@ -19,7 +19,7 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = KOLA_MODULES;
+const MODULES: Record<string, SceneModule> = APAGAO_MODULES;
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -61,7 +61,6 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
-      <DepthHud />
       <PostFx />
       <AnimatedCaptions />
       <ProgressBar />

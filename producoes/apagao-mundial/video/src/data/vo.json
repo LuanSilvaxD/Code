@@ -1,668 +1,1148 @@
 {
   "s1": {
-    "text": "Os soviéticos cavaram um buraco de doze quilômetros para dentro da Terra. Dizem que pararam porque ouviram gritos. A verdade é mais estranha.",
-    "seconds": 9.086,
+    "text": "Dia 17 de novembro, o mundo inteiro vai ficar sem luz. É o que tá rodando na internet. Será verdade?",
+    "seconds": 7.953,
     "words": [
       {
-        "text": "Os",
+        "text": "Dia",
         "start": 0,
-        "end": 0.102
+        "end": 0.231
       },
       {
-        "text": "soviéticos",
-        "start": 0.114,
-        "end": 0.787
-      },
-      {
-        "text": "cavaram",
-        "start": 0.799,
-        "end": 1.172
-      },
-      {
-        "text": "um",
-        "start": 1.184,
-        "end": 1.244
-      },
-      {
-        "text": "buraco",
-        "start": 1.256,
-        "end": 1.677
+        "text": "17",
+        "start": 0.243,
+        "end": 0.615
       },
       {
         "text": "de",
-        "start": 1.689,
-        "end": 1.797
+        "start": 0.615,
+        "end": 0.988
       },
       {
-        "text": "doze",
-        "start": 1.809,
-        "end": 2.158
+        "text": "novembro",
+        "start": 0.988,
+        "end": 1.36
       },
       {
-        "text": "quilômetros",
-        "start": 2.17,
-        "end": 2.723
+        "text": "o",
+        "start": 1.613,
+        "end": 1.673
       },
       {
-        "text": "para",
-        "start": 2.735,
-        "end": 2.927
+        "text": "mundo",
+        "start": 1.685,
+        "end": 1.949
       },
       {
-        "text": "dentro",
-        "start": 2.939,
-        "end": 3.251
+        "text": "inteiro",
+        "start": 1.961,
+        "end": 2.346
       },
       {
-        "text": "da",
-        "start": 3.263,
-        "end": 3.372
+        "text": "vai",
+        "start": 2.358,
+        "end": 2.49
       },
       {
-        "text": "Terra",
-        "start": 3.384,
-        "end": 3.744
+        "text": "ficar",
+        "start": 2.502,
+        "end": 2.827
       },
       {
-        "text": "Dizem",
-        "start": 4.572,
-        "end": 4.992
+        "text": "sem",
+        "start": 2.839,
+        "end": 3.091
+      },
+      {
+        "text": "luz",
+        "start": 3.103,
+        "end": 3.464
+      },
+      {
+        "text": "É",
+        "start": 4.291,
+        "end": 4.423
+      },
+      {
+        "text": "o",
+        "start": 4.435,
+        "end": 4.483
       },
       {
         "text": "que",
-        "start": 5.004,
-        "end": 5.1
+        "start": 4.495,
+        "end": 4.628
       },
       {
-        "text": "pararam",
-        "start": 5.112,
-        "end": 5.485
+        "text": "tá",
+        "start": 4.64,
+        "end": 4.736
       },
       {
-        "text": "porque",
-        "start": 5.497,
-        "end": 5.761
+        "text": "rodando",
+        "start": 4.748,
+        "end": 5.241
       },
       {
-        "text": "ouviram",
-        "start": 5.774,
-        "end": 6.17
+        "text": "na",
+        "start": 5.253,
+        "end": 5.349
       },
       {
-        "text": "gritos",
-        "start": 6.182,
-        "end": 6.675
+        "text": "internet",
+        "start": 5.361,
+        "end": 6.034
       },
       {
-        "text": "A",
-        "start": 7.504,
-        "end": 7.612
+        "text": "Será",
+        "start": 6.863,
+        "end": 7.224
       },
       {
         "text": "verdade",
-        "start": 7.624,
-        "end": 8.141
-      },
-      {
-        "text": "é",
-        "start": 8.153,
-        "end": 8.189
-      },
-      {
-        "text": "mais",
-        "start": 8.201,
-        "end": 8.418
-      },
-      {
-        "text": "estranha",
-        "start": 8.43,
-        "end": 8.983
+        "start": 7.236,
+        "end": 7.837
       }
     ]
   },
   "s2": {
-    "text": "Em 1989, rodou o mundo a história do poço para o inferno, microfone no fundo, gritos, calor de mais de mil graus.",
-    "seconds": 8.073,
+    "text": "Este é o Boato ou Verdade.",
+    "seconds": 1.511,
     "words": [
       {
-        "text": "Em",
+        "text": "Este",
         "start": 0,
-        "end": 0.771
+        "end": 0.273
       },
       {
-        "text": "1989",
-        "start": 0.771,
-        "end": 1.595
-      },
-      {
-        "text": "rodou",
-        "start": 1.895,
-        "end": 2.22
+        "text": "é",
+        "start": 0.285,
+        "end": 0.321
       },
       {
         "text": "o",
-        "start": 2.232,
-        "end": 2.256
+        "start": 0.333,
+        "end": 0.369
       },
       {
-        "text": "mundo",
-        "start": 2.268,
-        "end": 2.58
+        "text": "Boato",
+        "start": 0.381,
+        "end": 0.801
       },
       {
-        "text": "a",
-        "start": 2.592,
-        "end": 2.616
+        "text": "ou",
+        "start": 0.813,
+        "end": 0.862
       },
       {
-        "text": "história",
-        "start": 2.628,
-        "end": 2.977
-      },
-      {
-        "text": "do",
-        "start": 2.989,
-        "end": 3.097
-      },
-      {
-        "text": "poço",
-        "start": 3.109,
-        "end": 3.458
-      },
-      {
-        "text": "para",
-        "start": 3.47,
-        "end": 3.638
-      },
-      {
-        "text": "o",
-        "start": 3.65,
-        "end": 3.662
-      },
-      {
-        "text": "inferno",
-        "start": 3.674,
-        "end": 4.179
-      },
-      {
-        "text": "microfone",
-        "start": 4.443,
-        "end": 5.02
-      },
-      {
-        "text": "no",
-        "start": 5.032,
-        "end": 5.128
-      },
-      {
-        "text": "fundo",
-        "start": 5.14,
-        "end": 5.477
-      },
-      {
-        "text": "gritos",
-        "start": 5.681,
-        "end": 6.126
-      },
-      {
-        "text": "calor",
-        "start": 6.318,
-        "end": 6.751
-      },
-      {
-        "text": "de",
-        "start": 6.763,
-        "end": 6.871
-      },
-      {
-        "text": "mais",
-        "start": 6.883,
-        "end": 7.184
-      },
-      {
-        "text": "de",
-        "start": 7.196,
-        "end": 7.292
-      },
-      {
-        "text": "mil",
-        "start": 7.304,
-        "end": 7.508
-      },
-      {
-        "text": "graus",
-        "start": 7.52,
-        "end": 7.989
+        "text": "Verdade",
+        "start": 0.874,
+        "end": 1.414
       }
     ]
   },
   "s3": {
-    "text": "Era boato. O áudio era uma montagem de efeitos sonoros, e o poço nem ficava na Sibéria.",
-    "seconds": 5.871,
+    "text": "Ela junta duas coisas. Um episódio dos Simpsons, de 2023, em que a cidade fica seis dias no escuro a partir de 17 de novembro.",
+    "seconds": 9.317,
     "words": [
       {
-        "text": "Era",
+        "text": "Ela",
         "start": 0,
-        "end": 0.174
+        "end": 0.218
       },
       {
-        "text": "boato",
-        "start": 0.186,
-        "end": 0.655
+        "text": "junta",
+        "start": 0.23,
+        "end": 0.578
       },
       {
-        "text": "O",
-        "start": 1.483,
-        "end": 1.639
+        "text": "duas",
+        "start": 0.59,
+        "end": 0.903
       },
       {
-        "text": "áudio",
-        "start": 1.651,
-        "end": 1.987
+        "text": "coisas",
+        "start": 0.915,
+        "end": 1.456
       },
       {
-        "text": "era",
-        "start": 1.999,
-        "end": 2.096
+        "text": "Um",
+        "start": 2.283,
+        "end": 2.427
       },
       {
-        "text": "uma",
-        "start": 2.108,
-        "end": 2.192
+        "text": "episódio",
+        "start": 2.439,
+        "end": 2.944
       },
       {
-        "text": "montagem",
-        "start": 2.204,
-        "end": 2.721
+        "text": "dos",
+        "start": 2.956,
+        "end": 3.172
+      },
+      {
+        "text": "Simpsons",
+        "start": 3.184,
+        "end": 3.821
       },
       {
         "text": "de",
-        "start": 2.733,
-        "end": 2.805
+        "start": 4.026,
+        "end": 4.134
       },
       {
-        "text": "efeitos",
-        "start": 2.817,
-        "end": 3.213
+        "text": "2023",
+        "start": 4.146,
+        "end": 5.204
       },
       {
-        "text": "sonoros",
-        "start": 3.225,
-        "end": 3.706
+        "text": "em",
+        "start": 5.492,
+        "end": 5.564
       },
       {
-        "text": "e",
-        "start": 3.959,
-        "end": 4.031
+        "text": "que",
+        "start": 5.576,
+        "end": 5.648
       },
       {
-        "text": "o",
-        "start": 4.043,
-        "end": 4.115
+        "text": "a",
+        "start": 5.66,
+        "end": 5.708
       },
       {
-        "text": "poço",
-        "start": 4.127,
-        "end": 4.547
+        "text": "cidade",
+        "start": 5.72,
+        "end": 6.141
       },
       {
-        "text": "nem",
-        "start": 4.56,
-        "end": 4.752
+        "text": "fica",
+        "start": 6.153,
+        "end": 6.405
       },
       {
-        "text": "ficava",
-        "start": 4.764,
-        "end": 5.173
+        "text": "seis",
+        "start": 6.417,
+        "end": 6.718
       },
       {
-        "text": "na",
-        "start": 5.185,
-        "end": 5.281
+        "text": "dias",
+        "start": 6.73,
+        "end": 7.079
       },
       {
-        "text": "Sibéria",
-        "start": 5.293,
-        "end": 5.773
+        "text": "no",
+        "start": 7.091,
+        "end": 7.163
+      },
+      {
+        "text": "escuro",
+        "start": 7.175,
+        "end": 7.523
+      },
+      {
+        "text": "a",
+        "start": 7.535,
+        "end": 7.571
+      },
+      {
+        "text": "partir",
+        "start": 7.583,
+        "end": 7.944
+      },
+      {
+        "text": "de",
+        "start": 7.956,
+        "end": 8.052
+      },
+      {
+        "text": "17",
+        "start": 8.064,
+        "end": 8.449
+      },
+      {
+        "text": "de",
+        "start": 8.449,
+        "end": 8.833
+      },
+      {
+        "text": "novembro",
+        "start": 8.833,
+        "end": 9.218
       }
     ]
   },
   "s4": {
-    "text": "O de verdade fica em Kola, no extremo norte da Rússia. Começou em 1970, com uma missão, furar a crosta e ver o que tem lá dentro.",
-    "seconds": 9.034,
+    "text": "E um teste real, nesse dia, os Estados Unidos disparam um alerta de emergência de teste nas tevês e rádios.",
+    "seconds": 6.419,
     "words": [
       {
-        "text": "O",
+        "text": "E",
         "start": 0,
-        "end": 0.051
+        "end": 0.056
+      },
+      {
+        "text": "um",
+        "start": 0.068,
+        "end": 0.2
+      },
+      {
+        "text": "teste",
+        "start": 0.212,
+        "end": 0.585
+      },
+      {
+        "text": "real",
+        "start": 0.597,
+        "end": 0.958
+      },
+      {
+        "text": "nesse",
+        "start": 1.174,
+        "end": 1.475
+      },
+      {
+        "text": "dia",
+        "start": 1.487,
+        "end": 1.799
+      },
+      {
+        "text": "os",
+        "start": 2.063,
+        "end": 2.124
+      },
+      {
+        "text": "Estados",
+        "start": 2.136,
+        "end": 2.58
+      },
+      {
+        "text": "Unidos",
+        "start": 2.592,
+        "end": 3.025
+      },
+      {
+        "text": "disparam",
+        "start": 3.037,
+        "end": 3.434
+      },
+      {
+        "text": "um",
+        "start": 3.446,
+        "end": 3.554
+      },
+      {
+        "text": "alerta",
+        "start": 3.566,
+        "end": 3.975
       },
       {
         "text": "de",
-        "start": 0.063,
-        "end": 0.147
+        "start": 3.987,
+        "end": 4.047
       },
       {
-        "text": "verdade",
-        "start": 0.159,
-        "end": 0.664
+        "text": "emergência",
+        "start": 4.059,
+        "end": 4.624
       },
       {
-        "text": "fica",
-        "start": 0.676,
-        "end": 0.881
+        "text": "de",
+        "start": 4.636,
+        "end": 4.78
       },
       {
-        "text": "em",
-        "start": 0.893,
-        "end": 0.977
+        "text": "teste",
+        "start": 4.792,
+        "end": 5.14
       },
       {
-        "text": "Kola",
-        "start": 0.989,
-        "end": 1.301
+        "text": "nas",
+        "start": 5.152,
+        "end": 5.297
       },
       {
-        "text": "no",
-        "start": 1.554,
-        "end": 1.626
-      },
-      {
-        "text": "extremo",
-        "start": 1.638,
-        "end": 2.034
-      },
-      {
-        "text": "norte",
-        "start": 2.046,
-        "end": 2.383
-      },
-      {
-        "text": "da",
-        "start": 2.395,
-        "end": 2.503
-      },
-      {
-        "text": "Rússia",
-        "start": 2.515,
-        "end": 2.924
-      },
-      {
-        "text": "Começou",
-        "start": 3.751,
-        "end": 4.244
-      },
-      {
-        "text": "em",
-        "start": 4.256,
-        "end": 4.959
-      },
-      {
-        "text": "1970",
-        "start": 4.959,
-        "end": 5.662
-      },
-      {
-        "text": "com",
-        "start": 5.951,
-        "end": 6.071
-      },
-      {
-        "text": "uma",
-        "start": 6.083,
-        "end": 6.191
-      },
-      {
-        "text": "missão",
-        "start": 6.203,
-        "end": 6.588
-      },
-      {
-        "text": "furar",
-        "start": 6.936,
-        "end": 7.225
-      },
-      {
-        "text": "a",
-        "start": 7.237,
-        "end": 7.309
-      },
-      {
-        "text": "crosta",
-        "start": 7.321,
-        "end": 7.706
+        "text": "tevês",
+        "start": 5.309,
+        "end": 5.669
       },
       {
         "text": "e",
-        "start": 7.718,
-        "end": 7.766
+        "start": 5.681,
+        "end": 5.789
       },
       {
-        "text": "ver",
-        "start": 7.778,
-        "end": 7.994
-      },
-      {
-        "text": "o",
-        "start": 8.006,
-        "end": 8.054
-      },
-      {
-        "text": "que",
-        "start": 8.066,
-        "end": 8.198
-      },
-      {
-        "text": "tem",
-        "start": 8.21,
-        "end": 8.367
-      },
-      {
-        "text": "lá",
-        "start": 8.379,
-        "end": 8.523
-      },
-      {
-        "text": "dentro",
-        "start": 8.535,
-        "end": 8.956
+        "text": "rádios",
+        "start": 5.801,
+        "end": 6.33
       }
     ]
   },
   "s5": {
-    "text": "O furo tem só vinte e três centímetros de largura. Mas foi descendo.",
-    "seconds": 4.525,
+    "text": "Só que o desenho não fala de 2026, nem do mundo. E o teste não desliga nada. Mas dá pra apagar o planeta inteiro de uma vez?",
+    "seconds": 9.108,
     "words": [
       {
-        "text": "O",
+        "text": "Só",
         "start": 0,
-        "end": 0.062
+        "end": 0.237
       },
       {
-        "text": "furo",
-        "start": 0.074,
-        "end": 0.423
+        "text": "que",
+        "start": 0.249,
+        "end": 0.333
       },
       {
-        "text": "tem",
-        "start": 0.435,
-        "end": 0.591
+        "text": "o",
+        "start": 0.345,
+        "end": 0.369
       },
       {
-        "text": "só",
-        "start": 0.603,
-        "end": 0.795
+        "text": "desenho",
+        "start": 0.381,
+        "end": 0.789
       },
       {
-        "text": "vinte",
-        "start": 0.807,
-        "end": 1.048
+        "text": "não",
+        "start": 0.801,
+        "end": 0.958
       },
       {
-        "text": "e",
-        "start": 1.06,
-        "end": 1.096
-      },
-      {
-        "text": "três",
-        "start": 1.108,
-        "end": 1.312
-      },
-      {
-        "text": "centímetros",
-        "start": 1.324,
-        "end": 1.961
+        "text": "fala",
+        "start": 0.97,
+        "end": 1.27
       },
       {
         "text": "de",
-        "start": 1.973,
-        "end": 2.033
+        "start": 1.282,
+        "end": 1.366
       },
       {
-        "text": "largura",
-        "start": 2.045,
-        "end": 2.562
+        "text": "2026",
+        "start": 1.378,
+        "end": 2.472
+      },
+      {
+        "text": "nem",
+        "start": 2.64,
+        "end": 2.917
+      },
+      {
+        "text": "do",
+        "start": 2.929,
+        "end": 3.037
+      },
+      {
+        "text": "mundo",
+        "start": 3.049,
+        "end": 3.41
+      },
+      {
+        "text": "E",
+        "start": 4.237,
+        "end": 4.357
+      },
+      {
+        "text": "o",
+        "start": 4.369,
+        "end": 4.453
+      },
+      {
+        "text": "teste",
+        "start": 4.465,
+        "end": 4.862
+      },
+      {
+        "text": "não",
+        "start": 4.874,
+        "end": 5.054
+      },
+      {
+        "text": "desliga",
+        "start": 5.066,
+        "end": 5.511
+      },
+      {
+        "text": "nada",
+        "start": 5.523,
+        "end": 5.884
       },
       {
         "text": "Mas",
-        "start": 3.39,
-        "end": 3.69
+        "start": 6.713,
+        "end": 6.953
       },
       {
-        "text": "foi",
-        "start": 3.702,
-        "end": 3.87
+        "text": "dá",
+        "start": 6.965,
+        "end": 7.074
       },
       {
-        "text": "descendo",
-        "start": 3.882,
-        "end": 4.411
+        "text": "pra",
+        "start": 7.086,
+        "end": 7.194
+      },
+      {
+        "text": "apagar",
+        "start": 7.206,
+        "end": 7.53
+      },
+      {
+        "text": "o",
+        "start": 7.542,
+        "end": 7.578
+      },
+      {
+        "text": "planeta",
+        "start": 7.59,
+        "end": 8.011
+      },
+      {
+        "text": "inteiro",
+        "start": 8.023,
+        "end": 8.372
+      },
+      {
+        "text": "de",
+        "start": 8.384,
+        "end": 8.444
+      },
+      {
+        "text": "uma",
+        "start": 8.456,
+        "end": 8.612
+      },
+      {
+        "text": "vez",
+        "start": 8.624,
+        "end": 9.009
       }
     ]
   },
   "s6": {
-    "text": "Com oito quilômetros e meio, já era mais fundo que o Everest é alto. Com onze, mais fundo que a Fossa das Marianas.",
-    "seconds": 7.278,
+    "text": "Pra isso, a Terra precisaria de uma rede elétrica só. Ela não existe. Cada região tem a sua.",
+    "seconds": 7.205,
     "words": [
       {
-        "text": "Com",
+        "text": "Pra",
         "start": 0,
-        "end": 0.176
+        "end": 0.178
       },
       {
-        "text": "oito",
-        "start": 0.188,
-        "end": 0.429
-      },
-      {
-        "text": "quilômetros",
-        "start": 0.441,
-        "end": 0.946
-      },
-      {
-        "text": "e",
-        "start": 0.958,
-        "end": 1.066
-      },
-      {
-        "text": "meio",
-        "start": 1.078,
-        "end": 1.39
-      },
-      {
-        "text": "já",
-        "start": 1.679,
-        "end": 1.823
-      },
-      {
-        "text": "era",
-        "start": 1.835,
-        "end": 1.991
-      },
-      {
-        "text": "mais",
-        "start": 2.003,
-        "end": 2.232
-      },
-      {
-        "text": "fundo",
-        "start": 2.244,
-        "end": 2.544
-      },
-      {
-        "text": "que",
-        "start": 2.556,
-        "end": 2.652
-      },
-      {
-        "text": "o",
-        "start": 2.664,
-        "end": 2.749
-      },
-      {
-        "text": "Everest",
-        "start": 2.761,
-        "end": 3.253
-      },
-      {
-        "text": "é",
-        "start": 3.265,
-        "end": 3.325
-      },
-      {
-        "text": "alto",
-        "start": 3.337,
-        "end": 3.698
-      },
-      {
-        "text": "Com",
-        "start": 4.526,
-        "end": 4.766
-      },
-      {
-        "text": "onze",
-        "start": 4.778,
-        "end": 5.078
-      },
-      {
-        "text": "mais",
-        "start": 5.307,
-        "end": 5.535
-      },
-      {
-        "text": "fundo",
-        "start": 5.547,
-        "end": 5.86
-      },
-      {
-        "text": "que",
-        "start": 5.872,
-        "end": 5.944
+        "text": "isso",
+        "start": 0.19,
+        "end": 0.527
       },
       {
         "text": "a",
-        "start": 5.956,
-        "end": 6.028
+        "start": 0.707,
+        "end": 0.839
       },
       {
-        "text": "Fossa",
-        "start": 6.04,
-        "end": 6.364
+        "text": "Terra",
+        "start": 0.852,
+        "end": 1.152
       },
       {
-        "text": "das",
-        "start": 6.376,
-        "end": 6.545
+        "text": "precisaria",
+        "start": 1.164,
+        "end": 1.741
       },
       {
-        "text": "Marianas",
-        "start": 6.557,
-        "end": 7.194
+        "text": "de",
+        "start": 1.753,
+        "end": 1.837
+      },
+      {
+        "text": "uma",
+        "start": 1.849,
+        "end": 1.981
+      },
+      {
+        "text": "rede",
+        "start": 1.993,
+        "end": 2.258
+      },
+      {
+        "text": "elétrica",
+        "start": 2.27,
+        "end": 2.787
+      },
+      {
+        "text": "só",
+        "start": 2.799,
+        "end": 3.099
+      },
+      {
+        "text": "Ela",
+        "start": 3.927,
+        "end": 4.179
+      },
+      {
+        "text": "não",
+        "start": 4.191,
+        "end": 4.383
+      },
+      {
+        "text": "existe",
+        "start": 4.395,
+        "end": 4.9
+      },
+      {
+        "text": "Cada",
+        "start": 5.729,
+        "end": 5.982
+      },
+      {
+        "text": "região",
+        "start": 5.994,
+        "end": 6.439
+      },
+      {
+        "text": "tem",
+        "start": 6.451,
+        "end": 6.619
+      },
+      {
+        "text": "a",
+        "start": 6.631,
+        "end": 6.691
+      },
+      {
+        "text": "sua",
+        "start": 6.703,
+        "end": 7.112
       }
     ]
   },
   "s7": {
-    "text": "Em 1989, chegou a 12.262 metros. Poços de petróleo já foram mais compridos, mas inclinados. Na vertical, ninguém desceu tanto.",
-    "seconds": 11.819,
+    "text": "Numa rede, todos os geradores giram no mesmo ritmo. E as redes nem combinam, o Brasil usa sessenta hertz; o Paraguai, cinquenta.",
+    "seconds": 8.985,
+    "words": [
+      {
+        "text": "Numa",
+        "start": 0,
+        "end": 0.271
+      },
+      {
+        "text": "rede",
+        "start": 0.283,
+        "end": 0.655
+      },
+      {
+        "text": "todos",
+        "start": 0.86,
+        "end": 1.172
+      },
+      {
+        "text": "os",
+        "start": 1.184,
+        "end": 1.328
+      },
+      {
+        "text": "geradores",
+        "start": 1.34,
+        "end": 1.881
+      },
+      {
+        "text": "giram",
+        "start": 1.893,
+        "end": 2.146
+      },
+      {
+        "text": "no",
+        "start": 2.158,
+        "end": 2.23
+      },
+      {
+        "text": "mesmo",
+        "start": 2.242,
+        "end": 2.59
+      },
+      {
+        "text": "ritmo",
+        "start": 2.602,
+        "end": 3.083
+      },
+      {
+        "text": "E",
+        "start": 3.911,
+        "end": 4.031
+      },
+      {
+        "text": "as",
+        "start": 4.043,
+        "end": 4.163
+      },
+      {
+        "text": "redes",
+        "start": 4.175,
+        "end": 4.535
+      },
+      {
+        "text": "nem",
+        "start": 4.548,
+        "end": 4.704
+      },
+      {
+        "text": "combinam",
+        "start": 4.716,
+        "end": 5.209
+      },
+      {
+        "text": "o",
+        "start": 5.485,
+        "end": 5.533
+      },
+      {
+        "text": "Brasil",
+        "start": 5.545,
+        "end": 6.05
+      },
+      {
+        "text": "usa",
+        "start": 6.062,
+        "end": 6.278
+      },
+      {
+        "text": "sessenta",
+        "start": 6.29,
+        "end": 6.759
+      },
+      {
+        "text": "hertz",
+        "start": 6.771,
+        "end": 7.252
+      },
+      {
+        "text": "o",
+        "start": 7.504,
+        "end": 7.564
+      },
+      {
+        "text": "Paraguai",
+        "start": 7.576,
+        "end": 8.069
+      },
+      {
+        "text": "cinquenta",
+        "start": 8.285,
+        "end": 8.898
+      }
+    ]
+  },
+  "s8": {
+    "text": "Tanto que Itaipu, dos dois países, tem metade dos geradores em cada ritmo.",
+    "seconds": 4.705,
+    "words": [
+      {
+        "text": "Tanto",
+        "start": 0,
+        "end": 0.265
+      },
+      {
+        "text": "que",
+        "start": 0.277,
+        "end": 0.361
+      },
+      {
+        "text": "Itaipu",
+        "start": 0.373,
+        "end": 0.866
+      },
+      {
+        "text": "dos",
+        "start": 1.13,
+        "end": 1.346
+      },
+      {
+        "text": "dois",
+        "start": 1.358,
+        "end": 1.599
+      },
+      {
+        "text": "países",
+        "start": 1.611,
+        "end": 2.164
+      },
+      {
+        "text": "tem",
+        "start": 2.416,
+        "end": 2.524
+      },
+      {
+        "text": "metade",
+        "start": 2.536,
+        "end": 3.017
+      },
+      {
+        "text": "dos",
+        "start": 3.029,
+        "end": 3.149
+      },
+      {
+        "text": "geradores",
+        "start": 3.161,
+        "end": 3.654
+      },
+      {
+        "text": "em",
+        "start": 3.666,
+        "end": 3.846
+      },
+      {
+        "text": "cada",
+        "start": 3.858,
+        "end": 4.135
+      },
+      {
+        "text": "ritmo",
+        "start": 4.147,
+        "end": 4.628
+      }
+    ]
+  },
+  "s9": {
+    "text": "Apagão grande existe. Em agosto de 2023, uma linha caiu no Ceará, e a falha correu como dominó, vinte e cinco estados e o Distrito Federal no escuro.",
+    "seconds": 10.097,
+    "words": [
+      {
+        "text": "Apagão",
+        "start": 0,
+        "end": 0.424
+      },
+      {
+        "text": "grande",
+        "start": 0.436,
+        "end": 0.808
+      },
+      {
+        "text": "existe",
+        "start": 0.821,
+        "end": 1.361
+      },
+      {
+        "text": "Em",
+        "start": 2.189,
+        "end": 2.321
+      },
+      {
+        "text": "agosto",
+        "start": 2.333,
+        "end": 2.826
+      },
+      {
+        "text": "de",
+        "start": 2.838,
+        "end": 2.922
+      },
+      {
+        "text": "2023",
+        "start": 2.934,
+        "end": 3.919
+      },
+      {
+        "text": "uma",
+        "start": 4.244,
+        "end": 4.424
+      },
+      {
+        "text": "linha",
+        "start": 4.436,
+        "end": 4.677
+      },
+      {
+        "text": "caiu",
+        "start": 4.689,
+        "end": 4.917
+      },
+      {
+        "text": "no",
+        "start": 4.929,
+        "end": 5.025
+      },
+      {
+        "text": "Ceará",
+        "start": 5.037,
+        "end": 5.434
+      },
+      {
+        "text": "e",
+        "start": 5.722,
+        "end": 5.807
+      },
+      {
+        "text": "a",
+        "start": 5.819,
+        "end": 5.915
+      },
+      {
+        "text": "falha",
+        "start": 5.927,
+        "end": 6.239
+      },
+      {
+        "text": "correu",
+        "start": 6.251,
+        "end": 6.576
+      },
+      {
+        "text": "como",
+        "start": 6.588,
+        "end": 6.804
+      },
+      {
+        "text": "dominó",
+        "start": 6.816,
+        "end": 7.213
+      },
+      {
+        "text": "vinte",
+        "start": 7.561,
+        "end": 7.814
+      },
+      {
+        "text": "e",
+        "start": 7.826,
+        "end": 7.85
+      },
+      {
+        "text": "cinco",
+        "start": 7.862,
+        "end": 8.09
+      },
+      {
+        "text": "estados",
+        "start": 8.102,
+        "end": 8.487
+      },
+      {
+        "text": "e",
+        "start": 8.499,
+        "end": 8.583
+      },
+      {
+        "text": "o",
+        "start": 8.595,
+        "end": 8.643
+      },
+      {
+        "text": "Distrito",
+        "start": 8.655,
+        "end": 9.088
+      },
+      {
+        "text": "Federal",
+        "start": 9.1,
+        "end": 9.508
+      },
+      {
+        "text": "no",
+        "start": 9.52,
+        "end": 9.593
+      },
+      {
+        "text": "escuro",
+        "start": 9.605,
+        "end": 10.001
+      }
+    ]
+  },
+  "s10": {
+    "text": "Só Roraima ficou com luz. Por quê? Ela não era ligada à rede nacional. A falha só corre até onde vão os fios.",
+    "seconds": 8.845,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.159
+      },
+      {
+        "text": "Roraima",
+        "start": 0.171,
+        "end": 0.7
+      },
+      {
+        "text": "ficou",
+        "start": 0.712,
+        "end": 1.025
+      },
+      {
+        "text": "com",
+        "start": 1.037,
+        "end": 1.241
+      },
+      {
+        "text": "luz",
+        "start": 1.253,
+        "end": 1.59
+      },
+      {
+        "text": "Por",
+        "start": 2.417,
+        "end": 2.585
+      },
+      {
+        "text": "quê",
+        "start": 2.597,
+        "end": 2.838
+      },
+      {
+        "text": "Ela",
+        "start": 3.667,
+        "end": 3.895
+      },
+      {
+        "text": "não",
+        "start": 3.907,
+        "end": 4.076
+      },
+      {
+        "text": "era",
+        "start": 4.088,
+        "end": 4.22
+      },
+      {
+        "text": "ligada",
+        "start": 4.232,
+        "end": 4.677
+      },
+      {
+        "text": "à",
+        "start": 4.689,
+        "end": 4.713
+      },
+      {
+        "text": "rede",
+        "start": 4.725,
+        "end": 5.013
+      },
+      {
+        "text": "nacional",
+        "start": 5.025,
+        "end": 5.554
+      },
+      {
+        "text": "A",
+        "start": 6.384,
+        "end": 6.516
+      },
+      {
+        "text": "falha",
+        "start": 6.528,
+        "end": 6.864
+      },
+      {
+        "text": "só",
+        "start": 6.876,
+        "end": 7.081
+      },
+      {
+        "text": "corre",
+        "start": 7.093,
+        "end": 7.369
+      },
+      {
+        "text": "até",
+        "start": 7.381,
+        "end": 7.621
+      },
+      {
+        "text": "onde",
+        "start": 7.634,
+        "end": 7.934
+      },
+      {
+        "text": "vão",
+        "start": 7.946,
+        "end": 8.174
+      },
+      {
+        "text": "os",
+        "start": 8.186,
+        "end": 8.319
+      },
+      {
+        "text": "fios",
+        "start": 8.331,
+        "end": 8.763
+      }
+    ]
+  },
+  "s11": {
+    "text": "Então, algo derruba várias redes ao mesmo tempo? Tem um candidato, o Sol.",
+    "seconds": 5.424,
+    "words": [
+      {
+        "text": "Então",
+        "start": 0,
+        "end": 0.424
+      },
+      {
+        "text": "algo",
+        "start": 0.688,
+        "end": 0.929
+      },
+      {
+        "text": "derruba",
+        "start": 0.941,
+        "end": 1.337
+      },
+      {
+        "text": "várias",
+        "start": 1.349,
+        "end": 1.686
+      },
+      {
+        "text": "redes",
+        "start": 1.698,
+        "end": 1.938
+      },
+      {
+        "text": "ao",
+        "start": 1.95,
+        "end": 2.106
+      },
+      {
+        "text": "mesmo",
+        "start": 2.118,
+        "end": 2.479
+      },
+      {
+        "text": "tempo",
+        "start": 2.491,
+        "end": 2.864
+      },
+      {
+        "text": "Tem",
+        "start": 3.691,
+        "end": 3.883
+      },
+      {
+        "text": "um",
+        "start": 3.895,
+        "end": 4.028
+      },
+      {
+        "text": "candidato",
+        "start": 4.04,
+        "end": 4.689
+      },
+      {
+        "text": "o",
+        "start": 4.917,
+        "end": 5.001
+      },
+      {
+        "text": "Sol",
+        "start": 5.013,
+        "end": 5.35
+      }
+    ]
+  },
+  "s12": {
+    "text": "Em 1989, uma tempestade solar apagou Quebec, no Canadá, em menos de um minuto. Nove horas no escuro.",
+    "seconds": 8.012,
     "words": [
       {
         "text": "Em",
@@ -675,755 +1155,306 @@
         "end": 1.559
       },
       {
-        "text": "chegou",
-        "start": 1.835,
-        "end": 2.196
+        "text": "uma",
+        "start": 1.799,
+        "end": 1.955
       },
       {
-        "text": "a",
-        "start": 2.208,
-        "end": 2.28
+        "text": "tempestade",
+        "start": 1.967,
+        "end": 2.58
       },
       {
-        "text": "12.262",
-        "start": 2.292,
-        "end": 3.439
+        "text": "solar",
+        "start": 2.592,
+        "end": 2.893
       },
       {
-        "text": "metros",
-        "start": 3.439,
-        "end": 4.587
+        "text": "apagou",
+        "start": 2.905,
+        "end": 3.277
       },
       {
-        "text": "Poços",
-        "start": 5.415,
-        "end": 5.775
-      },
-      {
-        "text": "de",
-        "start": 5.788,
-        "end": 5.86
-      },
-      {
-        "text": "petróleo",
-        "start": 5.872,
-        "end": 6.328
-      },
-      {
-        "text": "já",
-        "start": 6.34,
-        "end": 6.461
-      },
-      {
-        "text": "foram",
-        "start": 6.473,
-        "end": 6.725
-      },
-      {
-        "text": "mais",
-        "start": 6.737,
-        "end": 6.953
-      },
-      {
-        "text": "compridos",
-        "start": 6.965,
-        "end": 7.59
-      },
-      {
-        "text": "mas",
-        "start": 7.807,
-        "end": 7.951
-      },
-      {
-        "text": "inclinados",
-        "start": 7.963,
-        "end": 8.804
-      },
-      {
-        "text": "Na",
-        "start": 9.634,
-        "end": 9.802
-      },
-      {
-        "text": "vertical",
-        "start": 9.814,
-        "end": 10.355
-      },
-      {
-        "text": "ninguém",
-        "start": 10.631,
-        "end": 10.968
-      },
-      {
-        "text": "desceu",
-        "start": 10.98,
-        "end": 11.316
-      },
-      {
-        "text": "tanto",
-        "start": 11.328,
-        "end": 11.725
-      }
-    ]
-  },
-  "s8": {
-    "text": "Lá embaixo, surpresas, rocha rachada e cheia de água, onde ninguém esperava. E fósseis microscópicos de plâncton, com uns dois bilhões de anos.",
-    "seconds": 9.81,
-    "words": [
-      {
-        "text": "Lá",
-        "start": 0,
-        "end": 0.151
-      },
-      {
-        "text": "embaixo",
-        "start": 0.163,
-        "end": 0.704
-      },
-      {
-        "text": "surpresas",
-        "start": 0.933,
-        "end": 1.618
-      },
-      {
-        "text": "rocha",
-        "start": 1.87,
-        "end": 2.195
-      },
-      {
-        "text": "rachada",
-        "start": 2.207,
-        "end": 2.76
-      },
-      {
-        "text": "e",
-        "start": 2.772,
-        "end": 2.832
-      },
-      {
-        "text": "cheia",
-        "start": 2.844,
-        "end": 3.144
-      },
-      {
-        "text": "de",
-        "start": 3.156,
-        "end": 3.276
-      },
-      {
-        "text": "água",
-        "start": 3.288,
-        "end": 3.613
-      },
-      {
-        "text": "onde",
-        "start": 3.841,
-        "end": 4.082
-      },
-      {
-        "text": "ninguém",
-        "start": 4.094,
-        "end": 4.43
-      },
-      {
-        "text": "esperava",
-        "start": 4.442,
-        "end": 4.995
-      },
-      {
-        "text": "E",
-        "start": 5.823,
-        "end": 5.931
-      },
-      {
-        "text": "fósseis",
-        "start": 5.943,
-        "end": 6.4
-      },
-      {
-        "text": "microscópicos",
-        "start": 6.412,
-        "end": 7.217
-      },
-      {
-        "text": "de",
-        "start": 7.229,
-        "end": 7.325
-      },
-      {
-        "text": "plâncton",
-        "start": 7.337,
-        "end": 7.794
-      },
-      {
-        "text": "com",
-        "start": 8.058,
-        "end": 8.214
-      },
-      {
-        "text": "uns",
-        "start": 8.226,
-        "end": 8.335
-      },
-      {
-        "text": "dois",
-        "start": 8.347,
-        "end": 8.659
-      },
-      {
-        "text": "bilhões",
-        "start": 8.671,
-        "end": 9.188
-      },
-      {
-        "text": "de",
-        "start": 9.2,
-        "end": 9.32
-      },
-      {
-        "text": "anos",
-        "start": 9.332,
-        "end": 9.717
-      }
-    ]
-  },
-  "s9": {
-    "text": "Então por que pararam? Esperavam cem graus no fundo. Encontraram cento e oitenta.",
-    "seconds": 6.297,
-    "words": [
-      {
-        "text": "Então",
-        "start": 0,
-        "end": 0.375
-      },
-      {
-        "text": "por",
-        "start": 0.387,
-        "end": 0.531
-      },
-      {
-        "text": "que",
-        "start": 0.543,
-        "end": 0.687
-      },
-      {
-        "text": "pararam",
-        "start": 0.699,
-        "end": 1.216
-      },
-      {
-        "text": "Esperavam",
-        "start": 2.044,
-        "end": 2.644
-      },
-      {
-        "text": "cem",
-        "start": 2.656,
-        "end": 2.909
-      },
-      {
-        "text": "graus",
-        "start": 2.921,
-        "end": 3.221
+        "text": "Quebec",
+        "start": 3.289,
+        "end": 3.746
       },
       {
         "text": "no",
-        "start": 3.233,
-        "end": 3.33
+        "start": 3.951,
+        "end": 4.035
       },
       {
-        "text": "fundo",
-        "start": 3.342,
-        "end": 3.726
+        "text": "Canadá",
+        "start": 4.047,
+        "end": 4.503
       },
       {
-        "text": "Encontraram",
-        "start": 4.556,
-        "end": 5.265
-      },
-      {
-        "text": "cento",
-        "start": 5.277,
-        "end": 5.649
-      },
-      {
-        "text": "e",
-        "start": 5.661,
-        "end": 5.685
-      },
-      {
-        "text": "oitenta",
-        "start": 5.697,
-        "end": 6.202
-      }
-    ]
-  },
-  "s10": {
-    "text": "Nesse calor, a rocha fica mole, quase massinha, e vai fechando o furo atrás da broca.",
-    "seconds": 5.157,
-    "words": [
-      {
-        "text": "Nesse",
-        "start": 0,
-        "end": 0.302
-      },
-      {
-        "text": "calor",
-        "start": 0.314,
-        "end": 0.71
-      },
-      {
-        "text": "a",
-        "start": 0.963,
-        "end": 1.035
-      },
-      {
-        "text": "rocha",
-        "start": 1.047,
-        "end": 1.419
-      },
-      {
-        "text": "fica",
-        "start": 1.431,
-        "end": 1.672
-      },
-      {
-        "text": "mole",
-        "start": 1.684,
-        "end": 2.044
-      },
-      {
-        "text": "quase",
-        "start": 2.225,
-        "end": 2.537
-      },
-      {
-        "text": "massinha",
-        "start": 2.549,
-        "end": 3.042
-      },
-      {
-        "text": "e",
-        "start": 3.294,
-        "end": 3.391
-      },
-      {
-        "text": "vai",
-        "start": 3.403,
-        "end": 3.547
-      },
-      {
-        "text": "fechando",
-        "start": 3.559,
-        "end": 3.931
-      },
-      {
-        "text": "o",
-        "start": 3.943,
-        "end": 3.967
-      },
-      {
-        "text": "furo",
-        "start": 3.98,
-        "end": 4.208
-      },
-      {
-        "text": "atrás",
-        "start": 4.22,
-        "end": 4.556
-      },
-      {
-        "text": "da",
-        "start": 4.568,
-        "end": 4.665
-      },
-      {
-        "text": "broca",
-        "start": 4.677,
-        "end": 5.073
-      }
-    ]
-  },
-  "s11": {
-    "text": "Tentaram até 1992 e não passaram dos doze quilômetros. Aí a União Soviética acabou, e o dinheiro também.",
-    "seconds": 7.949,
-    "words": [
-      {
-        "text": "Tentaram",
-        "start": 0,
-        "end": 0.491
-      },
-      {
-        "text": "até",
-        "start": 0.503,
-        "end": 0.683
-      },
-      {
-        "text": "1992",
-        "start": 0.695,
-        "end": 1.435
-      },
-      {
-        "text": "e",
-        "start": 1.435,
-        "end": 2.174
-      },
-      {
-        "text": "não",
-        "start": 2.186,
-        "end": 2.354
-      },
-      {
-        "text": "passaram",
-        "start": 2.366,
-        "end": 2.763
-      },
-      {
-        "text": "dos",
-        "start": 2.775,
-        "end": 2.955
-      },
-      {
-        "text": "doze",
-        "start": 2.967,
-        "end": 3.279
-      },
-      {
-        "text": "quilômetros",
-        "start": 3.291,
-        "end": 3.964
-      },
-      {
-        "text": "Aí",
-        "start": 4.792,
-        "end": 5.08
-      },
-      {
-        "text": "a",
-        "start": 5.092,
-        "end": 5.201
-      },
-      {
-        "text": "União",
-        "start": 5.213,
-        "end": 5.537
-      },
-      {
-        "text": "Soviética",
-        "start": 5.549,
-        "end": 6.162
-      },
-      {
-        "text": "acabou",
-        "start": 6.174,
-        "end": 6.619
-      },
-      {
-        "text": "e",
-        "start": 6.907,
-        "end": 6.979
-      },
-      {
-        "text": "o",
-        "start": 6.991,
-        "end": 7.039
-      },
-      {
-        "text": "dinheiro",
-        "start": 7.051,
-        "end": 7.436
-      },
-      {
-        "text": "também",
-        "start": 7.448,
-        "end": 7.869
-      }
-    ]
-  },
-  "s12": {
-    "text": "E o mais estranho, isso é menos de 0,2% do caminho até o centro da Terra. Nem a casca do planeta foi furada.",
-    "seconds": 8.006,
-    "words": [
-      {
-        "text": "E",
-        "start": 0,
-        "end": 0.066
-      },
-      {
-        "text": "o",
-        "start": 0.078,
-        "end": 0.126
-      },
-      {
-        "text": "mais",
-        "start": 0.138,
-        "end": 0.391
-      },
-      {
-        "text": "estranho",
-        "start": 0.403,
-        "end": 0.908
-      },
-      {
-        "text": "isso",
-        "start": 1.208,
-        "end": 1.388
-      },
-      {
-        "text": "é",
-        "start": 1.4,
-        "end": 1.448
+        "text": "em",
+        "start": 4.756,
+        "end": 4.84
       },
       {
         "text": "menos",
-        "start": 1.461,
-        "end": 1.821
+        "start": 4.852,
+        "end": 5.188
       },
       {
         "text": "de",
-        "start": 1.833,
-        "end": 1.929
+        "start": 5.201,
+        "end": 5.321
       },
       {
-        "text": "0,2%",
-        "start": 1.941,
-        "end": 3.323
+        "text": "um",
+        "start": 5.333,
+        "end": 5.429
       },
       {
-        "text": "do",
-        "start": 3.335,
-        "end": 3.42
+        "text": "minuto",
+        "start": 5.441,
+        "end": 5.85
       },
       {
-        "text": "caminho",
-        "start": 3.432,
-        "end": 3.828
+        "text": "Nove",
+        "start": 6.677,
+        "end": 7.086
       },
       {
-        "text": "até",
-        "start": 3.84,
-        "end": 4.093
+        "text": "horas",
+        "start": 7.098,
+        "end": 7.398
       },
       {
-        "text": "o",
-        "start": 4.105,
-        "end": 4.165
+        "text": "no",
+        "start": 7.41,
+        "end": 7.482
       },
       {
-        "text": "centro",
-        "start": 4.177,
-        "end": 4.597
-      },
-      {
-        "text": "da",
-        "start": 4.61,
-        "end": 4.706
-      },
-      {
-        "text": "Terra",
-        "start": 4.718,
-        "end": 5.078
-      },
-      {
-        "text": "Nem",
-        "start": 5.906,
-        "end": 6.194
-      },
-      {
-        "text": "a",
-        "start": 6.206,
-        "end": 6.278
-      },
-      {
-        "text": "casca",
-        "start": 6.29,
-        "end": 6.639
-      },
-      {
-        "text": "do",
-        "start": 6.651,
-        "end": 6.735
-      },
-      {
-        "text": "planeta",
-        "start": 6.747,
-        "end": 7.24
-      },
-      {
-        "text": "foi",
-        "start": 7.252,
-        "end": 7.408
-      },
-      {
-        "text": "furada",
-        "start": 7.42,
-        "end": 7.901
+        "text": "escuro",
+        "start": 7.494,
+        "end": 7.915
       }
     ]
   },
   "s13": {
-    "text": "Hoje, o buraco mais fundo do mundo é uma tampa de metal enferrujada. Pronto, agora você sabe. No fundo do poço não tinha inferno. Tinha calor, rocha mole e falta de dinheiro.",
-    "seconds": 12.572,
+    "text": "Só que tempestade solar não tem data marcada. A explosão é vista no Sol horas ou dias antes de chegar.",
+    "seconds": 6.703,
     "words": [
       {
-        "text": "Hoje",
+        "text": "Só",
         "start": 0,
-        "end": 0.361
+        "end": 0.218
       },
       {
-        "text": "o",
-        "start": 0.625,
-        "end": 0.685
+        "text": "que",
+        "start": 0.23,
+        "end": 0.338
       },
       {
-        "text": "buraco",
-        "start": 0.697,
-        "end": 1.13
+        "text": "tempestade",
+        "start": 0.35,
+        "end": 0.939
       },
       {
-        "text": "mais",
-        "start": 1.142,
-        "end": 1.322
-      },
-      {
-        "text": "fundo",
-        "start": 1.334,
-        "end": 1.623
-      },
-      {
-        "text": "do",
-        "start": 1.635,
-        "end": 1.731
-      },
-      {
-        "text": "mundo",
-        "start": 1.743,
-        "end": 2.079
-      },
-      {
-        "text": "é",
-        "start": 2.091,
-        "end": 2.128
-      },
-      {
-        "text": "uma",
-        "start": 2.14,
-        "end": 2.332
-      },
-      {
-        "text": "tampa",
-        "start": 2.344,
-        "end": 2.692
-      },
-      {
-        "text": "de",
-        "start": 2.704,
-        "end": 2.789
-      },
-      {
-        "text": "metal",
-        "start": 2.801,
-        "end": 3.137
-      },
-      {
-        "text": "enferrujada",
-        "start": 3.149,
-        "end": 3.882
-      },
-      {
-        "text": "Pronto",
-        "start": 4.71,
-        "end": 5.106
-      },
-      {
-        "text": "agora",
-        "start": 5.371,
-        "end": 5.707
-      },
-      {
-        "text": "você",
-        "start": 5.719,
-        "end": 5.948
-      },
-      {
-        "text": "sabe",
-        "start": 5.96,
-        "end": 6.38
-      },
-      {
-        "text": "No",
-        "start": 7.21,
-        "end": 7.354
-      },
-      {
-        "text": "fundo",
-        "start": 7.366,
-        "end": 7.715
-      },
-      {
-        "text": "do",
-        "start": 7.727,
-        "end": 7.835
-      },
-      {
-        "text": "poço",
-        "start": 7.847,
-        "end": 8.183
+        "text": "solar",
+        "start": 0.951,
+        "end": 1.371
       },
       {
         "text": "não",
-        "start": 8.195,
-        "end": 8.376
+        "start": 1.383,
+        "end": 1.576
       },
       {
-        "text": "tinha",
-        "start": 8.388,
-        "end": 8.616
+        "text": "tem",
+        "start": 1.588,
+        "end": 1.756
       },
       {
-        "text": "inferno",
-        "start": 8.628,
-        "end": 9.121
+        "text": "data",
+        "start": 1.768,
+        "end": 2.044
       },
       {
-        "text": "Tinha",
-        "start": 9.95,
-        "end": 10.215
+        "text": "marcada",
+        "start": 2.056,
+        "end": 2.597
       },
       {
-        "text": "calor",
-        "start": 10.227,
-        "end": 10.635
+        "text": "A",
+        "start": 3.425,
+        "end": 3.545
       },
       {
-        "text": "rocha",
-        "start": 10.876,
-        "end": 11.248
+        "text": "explosão",
+        "start": 3.557,
+        "end": 4.098
       },
       {
-        "text": "mole",
-        "start": 11.26,
-        "end": 11.573
+        "text": "é",
+        "start": 4.11,
+        "end": 4.182
       },
       {
-        "text": "e",
-        "start": 11.585,
-        "end": 11.633
+        "text": "vista",
+        "start": 4.194,
+        "end": 4.531
       },
       {
-        "text": "falta",
-        "start": 11.645,
-        "end": 11.969
+        "text": "no",
+        "start": 4.543,
+        "end": 4.639
+      },
+      {
+        "text": "Sol",
+        "start": 4.651,
+        "end": 4.903
+      },
+      {
+        "text": "horas",
+        "start": 4.915,
+        "end": 5.119
+      },
+      {
+        "text": "ou",
+        "start": 5.132,
+        "end": 5.324
+      },
+      {
+        "text": "dias",
+        "start": 5.336,
+        "end": 5.6
+      },
+      {
+        "text": "antes",
+        "start": 5.612,
+        "end": 6.033
       },
       {
         "text": "de",
-        "start": 11.981,
-        "end": 12.078
+        "start": 6.045,
+        "end": 6.117
       },
       {
-        "text": "dinheiro",
-        "start": 12.09,
-        "end": 12.474
+        "text": "chegar",
+        "start": 6.129,
+        "end": 6.538
+      }
+    ]
+  },
+  "s14": {
+    "text": "Veredito, apagão no mundo inteiro, dia 17? Boato. Pronto, agora você sabe por que não existe um botão que desliga o planeta.",
+    "seconds": 9.352,
+    "words": [
+      {
+        "text": "Veredito",
+        "start": 0,
+        "end": 0.619
+      },
+      {
+        "text": "apagão",
+        "start": 0.727,
+        "end": 1.16
+      },
+      {
+        "text": "no",
+        "start": 1.172,
+        "end": 1.244
+      },
+      {
+        "text": "mundo",
+        "start": 1.256,
+        "end": 1.545
+      },
+      {
+        "text": "inteiro",
+        "start": 1.557,
+        "end": 1.953
+      },
+      {
+        "text": "dia",
+        "start": 2.182,
+        "end": 2.41
+      },
+      {
+        "text": "17",
+        "start": 2.422,
+        "end": 3.083
+      },
+      {
+        "text": "Boato",
+        "start": 3.91,
+        "end": 4.463
+      },
+      {
+        "text": "Pronto",
+        "start": 5.293,
+        "end": 5.689
+      },
+      {
+        "text": "agora",
+        "start": 6.002,
+        "end": 6.314
+      },
+      {
+        "text": "você",
+        "start": 6.326,
+        "end": 6.567
+      },
+      {
+        "text": "sabe",
+        "start": 6.579,
+        "end": 6.915
+      },
+      {
+        "text": "por",
+        "start": 6.927,
+        "end": 7.084
+      },
+      {
+        "text": "que",
+        "start": 7.096,
+        "end": 7.228
+      },
+      {
+        "text": "não",
+        "start": 7.24,
+        "end": 7.408
+      },
+      {
+        "text": "existe",
+        "start": 7.42,
+        "end": 7.781
+      },
+      {
+        "text": "um",
+        "start": 7.793,
+        "end": 7.853
+      },
+      {
+        "text": "botão",
+        "start": 7.865,
+        "end": 8.249
+      },
+      {
+        "text": "que",
+        "start": 8.261,
+        "end": 8.37
+      },
+      {
+        "text": "desliga",
+        "start": 8.382,
+        "end": 8.73
+      },
+      {
+        "text": "o",
+        "start": 8.742,
+        "end": 8.766
+      },
+      {
+        "text": "planeta",
+        "start": 8.778,
+        "end": 9.283
       }
     ]
   },
