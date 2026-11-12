@@ -1,4 +1,7 @@
-"""Monta a entrega final num ÚNICO .zip organizado (o que o usuário salva/posta).
+"""Monta a entrega final em DOIS .zip (pedido do usuário: só 2 arquivos por vídeo):
+    <nome>-publicacao.zip  LEIA-ME + 01-PUBLICAR + 02-DOCUMENTOS  (vídeo, capa, thumb, publicacao.md, roteiro)
+    <nome>-projeto.zip     LEIA-ME + 03-PROJETO                    (código para editar/renderizar de novo)
+--single gera o zip único antigo.
 
     python scripts/package_delivery.py --prod <pasta-de-producao> --video <projeto>/out/<nome>.mp4 \\
         --title "Título do vídeo" --out <scratchpad>/<nome>-entrega.zip
@@ -38,7 +41,8 @@ def main() -> None:
     ap.add_argument("--video", required=True, help="MP4 final")
     ap.add_argument("--project", default=None, help="projeto Remotion (padrão: <prod>/video)")
     ap.add_argument("--title", required=True)
-    ap.add_argument("--out", required=True, help="caminho do .zip")
+    ap.add_argument("--out", required=True, help="caminho base: <dir>/<nome>-entrega.zip")
+    ap.add_argument("--single", action="store_true", help="um zip só (formato antigo)")
     a = ap.parse_args()
 
     prod = Path(a.prod)
@@ -81,13 +85,27 @@ def main() -> None:
 """,
         encoding="utf-8",
     )
-    out.unlink(missing_ok=True)
-    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-        for p in sorted(stage.rglob("*")):
-            if p.is_file():
-                z.write(p, p.relative_to(stage.parent))
-    n = sum(1 for p in stage.rglob("*") if p.is_file())
-    print(f"{out} ({out.stat().st_size / 1e6:.1f} MB, {n} arquivos)")
+    def pack(zpath: Path, parts) -> None:
+        zpath.unlink(missing_ok=True)
+        n = 0
+        with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+            for base in parts:
+                files = [base] if base.is_file() else sorted(base.rglob("*"))
+                for p in files:
+                    if p.is_file():
+                        z.write(p, p.relative_to(stage.parent))
+                        n += 1
+        print(f"{zpath} ({zpath.stat().st_size / 1e6:.1f} MB, {n} arquivos)")
+
+    readme = stage / "LEIA-ME.md"
+    if a.single:
+        pack(out, [stage])
+    else:
+        # Padrão: só 2 arquivos — publicação (vídeo, capa, textos, roteiro) e projeto (código p/ editar).
+        base = out.with_suffix("")
+        base = base.with_name(base.name.removesuffix("-entrega"))
+        pack(base.with_name(base.name + "-publicacao.zip"), [readme, pub, docs])
+        pack(base.with_name(base.name + "-projeto.zip"), [readme, proj])
 
 
 main()
