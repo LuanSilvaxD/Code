@@ -32,3 +32,6 @@
 - Ajustes técnicos (sem mudar conteúdo): régua das estações 1 m = 0,04 u3d (o roteiro dizia 0,06; ficou menor
   para as miniaturas caberem no mapa); estações sobre bases de miniatura acima das camadas do mapa; luzes pontuais em
   unidades do mundo; rota some nos closes; câmeras recalibradas pela regra 0,24·d; câmera da viagem acompanha os cavaleiros.
+
+## ENTREGUE (2026-11-12)
+MP4 175 s / 5250 quadros (3 trechos, áudio emendado sem cliques), loudnorm -14 LUFS; capa quadro 1700, thumb quadro 2900; zip completo + MP4 compacto + zip leve.
