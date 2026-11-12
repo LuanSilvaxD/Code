@@ -6,3 +6,7 @@
 - **Prazo:** o boato perde força depois de 17/11/2026; ideal postar até 15–16/11.
 - **Preferências em vigor:** pt-BR; entrega só em 2 zips (publicação + projeto) com MP4 em qualidade máxima; trilha variada por tema (aqui: `tecnologia`); designs novos passam por folha de design antes do vídeo.
 - **Base técnica para a Fase 2:** copiar o projeto do Kola (`producoes/buraco-mais-fundo/video`), reaproveitando EarthGlobe (textura noturna nova), timing, legendas, Brand e Series.
+
+## ENTREGUE (2026-11-12)
+- MP4 final 3540 frames / 118,0 s; loudnorm (entrada −14,7 LUFS, pico −1,5 dBFS); emenda de áudio limpa (salto 783 vs p99 local 1739).
+- Entrega em 2 zips: apagao-mundial-publicacao.zip e apagao-mundial-projeto.zip.
