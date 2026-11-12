@@ -1,7 +1,7 @@
 # Status de produção — O buraco mais fundo do mundo (Poço de Kola)
 
-- **Fase atual:** 1 — roteiro.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
+- **Fase atual:** 2 — folha de design.
+- **Status:** roteiro v1 APROVADO ("Aprovado"); folhas de design enviadas — AGUARDANDO APROVAÇÃO DOS DESIGNS.
 - **Versão do roteiro:** v1 (2026-11-12). Skill v2.1 (trilha v3 com paletas; CTA pedindo tema).
 - **Formato:** pergunta → revelação com fio condutor de fatos (a descida pelo furo).
 
@@ -24,3 +24,8 @@
 
 ## Histórico
 - 2026-11-12 — tema escolhido pelo usuário ("vamos fazer do buraco mais fundo"); v1 entregue, aguardando aprovação.
+- 2026-11-12 — v1 aprovada ("Aprovado"). Projeto em video/ (copiado da Joana; trilha v3 + Soundtrack novos da skill).
+- 2026-11-12 — TTS real (edge AntonioNeural +4%, cta +0%; ":"→"," só no TTS): fala 105,5 s; GAPS 0,55 (0,8 nas viradas);
+  vídeo passa de 1:55 para 1:59 (3570 frames) — ajuste de sincronização, conteúdo igual.
+- 2026-11-12 — folhas de design: video/src/KolaSheet.tsx (KolaSheet1–3) → video/out/KolaSheet{1,2,3}.png; componentes em
+  video/src/components/Kola.tsx; textura do globo public/globe.png (Natural Earth 110m, world-atlas). Person ganhou helmetColor.
