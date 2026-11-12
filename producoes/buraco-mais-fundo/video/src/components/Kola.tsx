@@ -161,8 +161,6 @@ export const DrillStation: React.FC<{ lights?: number; ruin?: number }> = ({ lig
       {[0, 1].map((k) => (
         <Cyl key={k} p={[15, 2 + k * 1.4, -8]} r={0.45} h={24} rot={[0, 0, Math.PI / 2]} c={R ? RUST : STEEL} />
       ))}
-      {/* boca do poço (no centro, ao pé da torre) */}
-      <Cyl p={[0, R ? 0.5 : 0.7, R ? 0 : 9.5]} r={R ? 0.45 : 0.3} h={0.3} c={R ? RUST : STEEL_D} />
     </group>
   );
 };
@@ -283,7 +281,7 @@ export const RockColumn: React.FC<{ KM?: number; depthKm?: number; w?: number; d
         ? Array.from({ length: 9 }, (_, i) => {
             const y = -(3 + (i / 8) * 3) * KM;
             const x = (rand(`ck${i}`) - 0.5) * w * 0.7;
-            return <Box key={i} p={[x, y, d / 2 + 0.008]} s={[0.5 * cracks + rand(`cl${i}`) * 0.4 * cracks, 0.025, 0.004]} r={[0, 0, (rand(`ca${i}`) - 0.5) * 1.2]} c="#0d1622" e="#4fa3ff" ei={0.8 * cracks} />;
+            return <Box key={i} p={[x, y, d / 2 + 0.008]} s={[0.7 * cracks + rand(`cl${i}`) * 0.5 * cracks, 0.05, 0.004]} r={[0, 0, (rand(`ca${i}`) - 0.5) * 1.2]} c="#0d1622" e="#4fa3ff" ei={1.6 * cracks} />;
           })
         : null}
       {cracks > 0.01
@@ -291,7 +289,7 @@ export const RockColumn: React.FC<{ KM?: number; depthKm?: number; w?: number; d
             const y = -(dr.k * KM) - ((f * 0.01 * dr.sp) % 0.6);
             return (
               <mesh key={i} position={[dr.x, y, d / 2 + 0.03]}>
-                <sphereGeometry args={[0.025, 6, 4]} />
+                <sphereGeometry args={[0.045, 6, 4]} />
                 <meshStandardMaterial color="#7cc4ff" emissive="#4fa3ff" emissiveIntensity={1.2 * cracks} transparent opacity={0.9 * cracks} />
               </mesh>
             );
@@ -453,11 +451,14 @@ export const ScaleBoard: React.FC<{ K?: number; everest?: number; marianas?: num
       {/* terra (esquerda e direita) e oceano (meio) */}
       <Box p={[-2.6, -0.25, 0]} s={[2.2, 0.5, 1.2]} c="#7a6a52" />
       <Box p={[2.7, -KO / 2 - 0.2, 0]} s={[2.4, KO + 0.4, 1.2]} c="#6f6458" />
-      <Box p={[0.05, -1.0 / 2, 0]} s={[2.9, 1.0, 1.2]} c="#2d6fa6" />
-      <mesh position={[0.05, -M / 2, 0]}>
-        <boxGeometry args={[0.36, M, 1.2]} />
-        <meshStandardMaterial {...MATTE} color="#1f4f7a" />
-      </mesh>
+      {/* oceano (~4 km) e a fossa crescem de cima para baixo com `marianas` */}
+      <group scale={[1, Math.max(0.001, marianas), 1]}>
+        <Box p={[0.05, -1.0 / 2, 0]} s={[2.9, 1.0, 1.2]} c="#2d6fa6" />
+        <mesh position={[0.05, -M / 2, 0]}>
+          <boxGeometry args={[0.36, M, 1.2]} />
+          <meshStandardMaterial {...MATTE} color="#1f4f7a" />
+        </mesh>
+      </group>
       <mesh position={[0.05, 0.002, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[2.9, 1.2]} />
         <meshStandardMaterial color="#5fa3dc" transparent opacity={0.75} />
@@ -490,8 +491,8 @@ export const ScaleBoard: React.FC<{ K?: number; everest?: number; marianas?: num
         <meshBasicMaterial color="#f5f0ff" />
       </mesh>
       {/* linhas-guia: altura do Everest e fundo da Fossa projetadas */}
-      <Box p={[0, -E, 0.62]} s={[6.8, 0.012, 0.005]} c="#ffffff" />
-      <Box p={[0, -M, 0.62]} s={[6.8, 0.012, 0.005]} c="#9fd0ff" />
+      {everest > 0.6 ? <Box p={[0, -E, 0.62]} s={[6.8, 0.014, 0.005]} c="#ffffff" /> : null}
+      {marianas > 0.6 ? <Box p={[0, -M, 0.62]} s={[6.8, 0.014, 0.005]} c="#9fd0ff" /> : null}
       {/* poço de petróleo inclinado (mais comprido, pouco fundo) */}
       {oil > 0.01 ? (
         <group position={[1.6, 0, 0.625]}>

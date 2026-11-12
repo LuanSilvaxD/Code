@@ -10,8 +10,8 @@ import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { HerMark, JOANA_MODULES } from "./scenes/JoanaScenes";
-import { JoanaLighting } from "./components/World";
+import { DepthHud, KOLA_MODULES } from "./scenes/KolaScenes";
+import { KolaLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
 
@@ -19,7 +19,7 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = JOANA_MODULES;
+const MODULES: Record<string, SceneModule> = KOLA_MODULES;
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -38,7 +38,7 @@ export const MainSequence: React.FC = () => {
       <Background />
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
-        <JoanaLighting />
+        <KolaLighting />
         <World />
         {scenes.map((sc) => {
           const Stage = MODULES[sc.id]?.Stage;
@@ -61,7 +61,7 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
-      <HerMark />
+      <DepthHud />
       <PostFx />
       <AnimatedCaptions />
       <ProgressBar />

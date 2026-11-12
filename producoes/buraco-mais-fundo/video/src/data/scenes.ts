@@ -46,37 +46,41 @@ const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(targ
 const add = (a: Vec3, b: Vec3): Vec3 => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
 const COL = (km: number, dx = 0): Vec3 => [dx, depthY(km), FACE_Z];
 /** visitante da coluna: mascote flutuando à esquerda da face, na altura `km` */
-const MASCOT_COL = (km: number): Vec3 => [-1.55, depthY(km) - 0.2, FACE_Z + 0.25];
+const MASCOT_COL = (km: number): Vec3 => [-1.55, depthY(km) + 0.5, FACE_Z + 0.25];
 const MCOL = 0.3;
+/** distâncias de câmera: em 9:16 a largura visível é ~0,24·d — os fatores abaixo levam os valores-base à escala certa */
+const orbitC = (t: Vec3, d: number, az: number, el: number) => orbit(t, d * 3.3, az, el); // coluna
+const orbitG = (t: Vec3, d: number, az: number, el: number) => orbit(t, d * 2.9, az, el); // globo
+const orbitS = (t: Vec3, d: number, az: number, el: number) => orbit(t, d * 2.4, az, el); // régua
 
 const P = {
-  stationWide: orbit([0.2, 0.35, 0], 7.0, 32, 24),
-  station: orbit([0.1, 0.6, 0.1], 3.6, 25, 12),
-  stationLow: orbit([0.3, 0.45, 0.2], 2.6, -22, 7),
-  mouth: orbit(add(MOUTH, [0.05, 0.03, 0]), 0.42, 25, 18),
-  mouth2: orbit(add(MOUTH, [0.05, 0.03, 0]), 0.6, 30, 20),
-  shaftTop: orbit(COL(0.4), 5.2, 22, 8),
-  at: (km: number, d = 4.6, az = 20, el = 2) => orbit(COL(km), d, az, el),
-  mythTop: orbit(COL(1.2), 5.0, 15, 4),
-  mythDeep: orbit(COL(BOTTOM_KM - 0.7), 4.2, 12, 2),
-  mythBlur: orbit(COL(BOTTOM_KM - 0.7), 5.4, 24, 6),
-  mythMic: orbit(COL(BOTTOM_KM - 0.7), 3.6, 4, 2),
-  globeSiberia: orbit(add(GLOBE, [0, 1.0, 0]), 10.5, 160, 32),
-  globeSiberia2: orbit(add(GLOBE, [0, 1.0, 0]), 9.8, 150, 32),
-  globeKola: orbit(KOLA_W, 4.4, 122, 38),
-  scale: orbit(add(SCALE_POS, [0.05, -1.0, 0]), 13.5, 0, 4),
-  scaleTilt: orbit(add(SCALE_POS, [0.05, -1.2, 0]), 14.0, 16, 8),
-  scaleOil: orbit(add(SCALE_POS, [1.7, -1.2, 0]), 11.5, 8, 6),
-  water: orbit(COL(4.5, 0.2), 2.4, 28, 4),
-  fossil: orbit(COL(6.7, 0.35), 1.6, 22, 4),
-  bottom: orbit(COL(BOTTOM_KM - 0.35), 3.2, 20, 3),
-  bottomClose: orbit(COL(BOTTOM_KM - 0.2), 1.5, 26, 4),
-  globeZoomKola: orbit(KOLA_W, 1.4, 122, 38),
-  globeCut: orbit(GLOBE, 13, 150, 22),
-  globeCut2: orbit(GLOBE, 12.2, 160, 20),
-  cap: orbit(add(MOUTH, [0, 0.02, 0]), 0.75, 30, 20),
-  final: orbit([0.2, 0.4, 0.1], 6.0, 40, 22),
-  final2: orbit([0.2, 0.4, 0.1], 7.0, 55, 24),
+  stationWide: orbit([0.2, 0.55, 0], 12.5, 32, 22),
+  station: orbit([0.1, 0.7, 0.1], 7.0, 25, 12),
+  stationLow: orbit([0.3, 0.6, 0.2], 5.2, -22, 7),
+  mouth: orbit(add(MOUTH, [0.006, 0.012, 0]), 0.16, 25, 48),
+  mouth2: orbit(add(MOUTH, [0.006, 0.012, 0]), 0.22, 32, 44),
+  shaftTop: orbitC(COL(0.4), 5.2, 22, 8),
+  at: (km: number, d = 4.6, az = 20, el = 2) => orbitC(COL(km), d, az, el),
+  mythTop: orbitC(COL(1.2), 5.0, 15, 4),
+  mythDeep: orbitC(COL(BOTTOM_KM - 0.7), 4.2, 12, 2),
+  mythBlur: orbitC(COL(BOTTOM_KM - 0.7), 5.4, 24, 6),
+  mythMic: orbitC(COL(BOTTOM_KM - 0.7), 3.6, 4, 2),
+  globeSiberia: orbitG(add(GLOBE, [0, 1.0, 0]), 10.5, 160, 32),
+  globeSiberia2: orbitG(add(GLOBE, [0, 1.0, 0]), 9.8, 150, 32),
+  globeKola: orbitG(KOLA_W, 4.4, 122, 38),
+  scale: orbitS(add(SCALE_POS, [0.05, -1.0, 0]), 13.5, 0, 4),
+  scaleTilt: orbitS(add(SCALE_POS, [0.05, -1.2, 0]), 14.0, 16, 8),
+  scaleOil: orbitS(add(SCALE_POS, [1.7, -1.2, 0]), 11.5, 8, 6),
+  water: orbitC(COL(4.5, 0.2), 2.4, 28, 4),
+  fossil: orbitC(COL(6.7, 0.35), 1.6, 22, 4),
+  bottom: orbitC(COL(BOTTOM_KM - 0.35), 3.2, 20, 3),
+  bottomClose: orbitC(COL(BOTTOM_KM - 0.2), 1.5, 26, 4),
+  globeZoomKola: orbitG(KOLA_W, 1.4, 122, 38),
+  globeCut: orbitG(GLOBE, 11, 150, 20),
+  globeCut2: orbitG(GLOBE, 10.4, 158, 18),
+  cap: orbit(add(MOUTH, [0, 0.03, 0]), 0.3, 30, 16),
+  final: orbit([0.2, 0.5, 0.1], 11, 40, 20),
+  final2: orbit([0.2, 0.5, 0.1], 13, 55, 22),
 };
 
 const base: SceneObject[] = [{ id: "mascot", type: "Mascot", visible: true }];
@@ -89,14 +93,14 @@ export const scenes: ScenePlan[] = [
       projection: "perspective", movement: "vertical",
       keys: [
         key(0, P.stationWide), key(W("s1", 4), P.station, "inOut"), key(W("s1", 6), P.shaftTop, "inOut"),
-        key(W("s1", 11), P.at(9, 5.0), "in"), ...cut(W("s1", 12), P.at(BOTTOM_KM - 0.6, 4.6), P.mythDeep),
-        key(W("s1", 18), P.mythBlur, "out"), key(end(0), orbit(COL(BOTTOM_KM - 0.7), 5.8, 26, 6), "linear"),
+        key(W("s1", 11), P.at(BOTTOM_KM - 0.6, 5.0), "in"), ...cut(W("s1", 12), P.at(BOTTOM_KM - 0.6, 5.0), P.mythDeep),
+        key(W("s1", 18), P.mythBlur, "out"), key(end(0), orbitC(COL(BOTTOM_KM - 0.7), 5.8, 26, 6), "linear"),
       ],
     },
     objects: [...base, { id: "station", type: "DrillStation", visible: true }, { id: "shaft", type: "RockColumn", visible: true }],
     animations: [
       ...fx.flash(0),
-      set("station.lights", 0, 1),
+      set("station.lights", 0, 1), set("station.ruin", 0, 0),
       lin("shaft.open", W("s1", 4), W("s1", 6), 0, 1),
       lin("drill.km", W("s1", 5), W("s1", 11), 0, BOTTOM_KM, "in", "u3d"),
       lin("rock.heat", W("s1", 5), W("s1", 11), 0, 0.8),
@@ -124,7 +128,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s2", ...sc(1), voKey: "s2",
     narration: "Em 1989, rodou o mundo a história do poço para o inferno: microfone no fundo, gritos, calor de mais de mil graus.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.mythTop), key(W("s2", 12), P.mythTop), key(c(1, W("s2", 16)), P.mythMic, "inOut"), key(end(1), orbit(COL(BOTTOM_KM - 0.75), 3.3, 0, 2), "linear")] },
+    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.mythTop), key(W("s2", 12), P.mythTop), key(c(1, W("s2", 16)), P.mythMic, "inOut"), key(end(1), orbitC(COL(BOTTOM_KM - 0.75), 3.3, 0, 2), "linear")] },
     objects: [...base, { id: "shaft", type: "RockColumn(myth)", visible: true }, { id: "mic", type: "Microphone", visible: true }, { id: "news", type: "recortes 1989 (2D)", visible: true }],
     animations: [
       set("myth.k", 0, 1), set("myth.waves", 0, 0), set("drill.km", 0, 0), set("rock.heat", 0, 0),
@@ -147,7 +151,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s3", ...sc(2), voKey: "s3",
     narration: "Era boato. O áudio era uma montagem de efeitos sonoros, e o poço nem ficava na Sibéria.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, orbit(COL(BOTTOM_KM - 0.75), 3.3, 0, 2)), ...cut(W("s3", 10), P.mythBlur, P.globeSiberia), key(end(2), P.globeSiberia2, "linear")] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, orbitC(COL(BOTTOM_KM - 0.75), 3.3, 0, 2)), ...cut(W("s3", 10), P.mythBlur, P.globeSiberia), key(end(2), P.globeSiberia2, "linear")] },
     objects: [...base, { id: "stamp", type: "carimbo BOATO (2D)", visible: true }, { id: "globe", type: "EarthGlobe", visible: true }],
     animations: [
       set("mic.km", 0, BOTTOM_KM - 0.6), set("flames.level", 0, 1), set("myth.waves", 0, 1),
@@ -163,7 +167,6 @@ export const scenes: ScenePlan[] = [
       ...mascot.hide(W("s3", 10) - 6, 6),
     ],
     badges: [
-      { text: "BOATO", variant: "negative", size: "large", appearAt: W("s3", 1), disappearAt: W("s3", 10) - 2 },
       { text: "ÁUDIO = EFEITOS SONOROS MONTADOS", variant: "negative", appearAt: W("s3", 6), disappearAt: W("s3", 10) - 2 },
       { text: "NEM ERA NA SIBÉRIA", variant: "negative", appearAt: W("s3", 14) },
     ],
@@ -183,7 +186,7 @@ export const scenes: ScenePlan[] = [
       set("station.lights", 0, 0), lin("station.lights", W("s4", 11), W("s4", 13), 0, 1),
       pop("year.1970", W("s4", 12)),
       lin("shaft.open", W("s4", 18), W("s4", 20), 0, 1),
-      ...mascot.place(add(MOUTH, [0.6, 0, 0.45]), -0.9, MS, W("s4", 11)),
+      ...mascot.place(add(MOUTH, [0.6, 0, 0.45]), -0.9, MS, W("s4", 11)), ...mascot.float(W("s4", 11), false, 1),
       ...mascot.walk(W("s4", 12), W("s4", 16), add(MOUTH, [0.6, 0, 0.45]), add(MOUTH, [0.22, 0, 0.12])),
       ...mascot.point(W("s4", 18), 40, -1.2),
     ],
@@ -203,10 +206,9 @@ export const scenes: ScenePlan[] = [
     objects: [...base, { id: "mouth", type: "BoreholeMouth", visible: true }],
     animations: [
       set("shaft.open", 0, 1), set("year.1970", 0, 0),
-      pop("ruler.show", W("s5", 4)),
+      pop("ruler.show", W("s5", 4)), popOut("ruler.show", W("s5", 11), 6),
       lin("drill.km", W("s5", 11), end(4), 0, 4, "in", "u3d"), lin("rock.heat", W("s5", 11), end(4), 0, 0.15),
-      ...mascot.place(add(MOUTH, [0.13, 0, 0.06]), -0.8, MS, 0),
-      ...mascot.point(W("s5", 5), 40, -1.4),
+      ...mascot.hide(0, 1),
       ...mascot.place(MASCOT_COL(1.5), 0.5, MCOL, W("s5", 11)),
       ...mascot.float(W("s5", 11), true, 1),
       lin("mascot.y", W("s5", 11), end(4), MASCOT_COL(1.5)[1], MASCOT_COL(4)[1], "in"),
@@ -247,7 +249,7 @@ export const scenes: ScenePlan[] = [
     animations: [
       set("scale.everest", 0, 1), set("scale.marianas", 0, 1),
       lin("scale.kola", 0, W("s7", 4), 11 / BOTTOM_KM, 1, "out"),
-      pop("scale.record", W("s7", 4)), ...fx.flash(W("s7", 4), 8),
+      pop("scale.record", W("s7", 4)), ...fx.flash(W("s7", 4), 8), ...fx.burst("record", W("s7", 4)),
       lin("scale.oil", W("s7", 6), W("s7", 12), 0, 1),
       pop("scale.vguide", W("s7", 15)),
       ...mascot.place(add(SCALE_POS, [-4.3, 0.15, 0.8]), 0.4, 0.42, 0),
@@ -265,7 +267,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s8", ...sc(7), voKey: "s8",
     narration: "Lá embaixo, surpresas: rocha rachada e cheia de água, onde ninguém esperava. E fósseis microscópicos de plâncton, com uns dois bilhões de anos.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.at(4.5, 3.4)), key(W("s8", 3), P.water, "inOut"), key(W("s8", 12), P.water), key(W("s8", 13) + 6, P.at(6.7, 2.6), "inOut"), key(W("s8", 15), P.fossil, "inOut"), key(end(7), orbit(COL(6.7, 0.35), 1.4, 34, 6), "linear")] },
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.at(4.5, 3.4)), key(W("s8", 3), P.water, "inOut"), key(W("s8", 12), P.water), key(W("s8", 13) + 6, P.at(6.7, 2.6), "inOut"), key(W("s8", 15), P.fossil, "inOut"), key(end(7), orbitC(COL(6.7, 0.35), 1.4, 34, 6), "linear")] },
     objects: [...base, { id: "lens", type: "Magnifier + Microfossil[5]", visible: true }],
     animations: [
       set("scale.oil", 0, 1), set("scale.vguide", 0, 1), set("scale.record", 0, 1),
@@ -290,7 +292,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s9", ...sc(8), voKey: "s9",
     narration: "Então por que pararam? Esperavam cem graus no fundo. Encontraram cento e oitenta.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.at(6.7, 3.2)), key(W("s9", 4), P.bottom, "inOut"), key(W("s9", 9), P.bottom), key(end(8), orbit(COL(BOTTOM_KM - 0.35), 2.8, 30, 3), "linear")] },
+    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.at(6.7, 3.2)), key(W("s9", 4), P.bottom, "inOut"), key(W("s9", 9), P.bottom), key(end(8), orbitC(COL(BOTTOM_KM - 0.35), 2.8, 30, 3), "linear")] },
     objects: [...base, { id: "thermo", type: "Thermometer (2D)", visible: true }],
     animations: [
       set("cracks.open", 0, 1), set("lens.show", 0, 1), set("fossils.reveal", 0, 1), popOut("lens.show", 4, 8),
@@ -316,7 +318,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s10", ...sc(9), voKey: "s10",
     narration: "Nesse calor, a rocha fica mole, quase massinha, e vai fechando o furo atrás da broca.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, orbit(COL(BOTTOM_KM - 0.35), 2.8, 30, 3)), key(W("s10", 3), P.bottomClose, "inOut"), key(end(9), orbit(COL(BOTTOM_KM - 0.2), 1.3, 18, 4), "linear")] },
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, orbitC(COL(BOTTOM_KM - 0.35), 2.8, 30, 3)), key(W("s10", 3), P.bottomClose, "inOut"), key(end(9), orbitC(COL(BOTTOM_KM - 0.2), 1.3, 18, 4), "linear")] },
     objects: [...base],
     animations: [
       set("thermo.show", 0, 1), set("thermo.real", 0, 1), popOut("thermo.show", 6, 8),
@@ -338,7 +340,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s11", ...sc(10), voKey: "s11",
     narration: "Tentaram até 1992 e não passaram dos doze quilômetros. Aí a União Soviética acabou, e o dinheiro também.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.bottom), ...cut(W("s11", 9), orbit(COL(BOTTOM_KM - 0.4), 3.6, 20, 3), P.stationLow), key(end(10), P.station, "inOut")] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.bottom), ...cut(W("s11", 9), orbitC(COL(BOTTOM_KM - 0.4), 3.6, 20, 3), P.stationLow), key(end(10), P.station, "inOut")] },
     objects: [...base, { id: "station", type: "DrillStation", visible: true }, { id: "coins", type: "Coins", visible: true }],
     animations: [
       set("walls.squeeze", 0, 0.6), set("rock.soft", 0, 1), set("drill.spin", 0, 0.15),
@@ -349,7 +351,7 @@ export const scenes: ScenePlan[] = [
       lin("station.lights", W("s11", 14), end(10), 1, 0.15),
       lin("people.leave", W("s11", 13), end(10), 0, 1),
       ...fx.desaturate(W("s11", 12), end(10), 0.45),
-      ...mascot.place(add(MOUTH, [0.42, 0, 0.32]), -0.3, MS, W("s11", 9)),
+      ...mascot.place(add(MOUTH, [0.42, 0, 0.32]), -0.3, MS, W("s11", 9)), ...mascot.float(W("s11", 9), false, 1),
       ...mascot.look(W("s11", 13), 0.8),
     ],
     badges: [
@@ -363,11 +365,11 @@ export const scenes: ScenePlan[] = [
   {
     id: "s12", ...sc(11), voKey: "s12",
     narration: "E o mais estranho: isso é menos de 0,2% do caminho até o centro da Terra. Nem a casca do planeta foi furada.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.globeZoomKola), key(W("s12", 6), orbit(KOLA_W, 3.6, 126, 34), "in"), key(W("s12", 10), P.globeCut, "out"), key(W("s12", 16), P.globeCut), key(end(11), P.globeCut2, "linear")] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.globeZoomKola), key(W("s12", 6), orbitG(KOLA_W, 3.6, 126, 34), "in"), key(W("s12", 10), P.globeCut, "out"), key(W("s12", 16), P.globeCut), key(end(11), P.globeCut2, "linear")] },
     objects: [...base, { id: "globe", type: "EarthGlobe(cut)", visible: true }],
     animations: [
       set("coins.show", 0, 0), set("station.lights", 0, 0.15), set("people.leave", 0, 1),
-      set("pin.kola", 0, 0), set("pin.siberia", 0, 0),
+      set("pin.kola", 0, 0.3), set("pin.siberia", 0, 0),
       pop("hole.mark", 0), popOut("hole.mark", W("s12", 7), 8),
       lin("globe.cut", W("s12", 6), W("s12", 10), 0, 1, "inOut"),
       lin("radius.draw", W("s12", 9), W("s12", 15), 0, 1),
@@ -386,12 +388,12 @@ export const scenes: ScenePlan[] = [
   {
     id: "s13", ...sc(12), voKey: "s13",
     narration: "Hoje, o buraco mais fundo do mundo é uma tampa de metal enferrujada. Pronto: agora você sabe. No fundo do poço não tinha inferno. Tinha calor, rocha mole e falta de dinheiro.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.cap), key(W("s13", 12), orbit(add(MOUTH, [0, 0.02, 0]), 0.95, 38, 22), "linear"), key(W("s13", 17), P.final, "inOut"), key(end(12), P.final2, "linear")] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.cap), key(W("s13", 12), orbit(add(MOUTH, [0, 0.03, 0]), 0.42, 38, 18), "linear"), key(W("s13", 17), P.final, "inOut"), key(end(12), P.final2, "linear")] },
     objects: [...base, { id: "cap", type: "RustyCap", visible: true }, { id: "ruins", type: "DrillStation(ruin)", visible: true }],
     animations: [
       set("globe.cut", 0, 0), set("crust.glow", 0, 0), set("radius.draw", 0, 0),
       set("station.ruin", 0, 1), set("shaft.open", 0, 0), set("drill.km", 0, 0), set("rock.heat", 0, 0), set("walls.squeeze", 0, 0), set("rock.soft", 0, 0),
-      ...mascot.place(add(MOUTH, [0.0, 0.42 * 0.03, 0.0]), 0.5, MS * 0.9, 0),
+      ...mascot.place(add(MOUTH, [0.0, 0.42 * 0.03, 0.0]), 0.5, MS * 0.9, 0), ...mascot.float(0, false, 1),
       ...mascot.wave(W("s13", 13), 36),
       pop("summary.heat", W("s13", 25)), pop("summary.rock", W("s13", 26)), pop("summary.money", W("s13", 29)),
       ...mascot.cheer(W("s13", 24), 40),

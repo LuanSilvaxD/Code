@@ -18,10 +18,12 @@ export const Background: React.FC = () => {
     const { umbra } = BRAND.colors;
     // o estúdio ganha a cor do céu na madrugada (sun.phase 0) e no pôr do sol (sun.phase 1)
     // noite (viagem) esfria o estúdio; tribunal/fogueira escurecem (bg.dim)
-    const night = track("sky.night", frame);
-    const dim = track("bg.dim", frame);
-    const t0 = interpolateColors(night, [0, 1], [BACKDROP.tint, "#1c2346"]);
-    const tint = interpolateColors(dim, [0, 1], [t0, "#120c18"]);
+    // na coluna o estúdio esquenta com a profundidade; na lenda fica vermelho-inferno
+    const under = clamp((-0.3 - pose.target[1]) / 20, 0, 1) * (Math.abs(pose.target[0]) < 3 ? 1 : 0);
+    const heat = track("rock.heat", frame) * under;
+    const myth = track("myth.k", frame);
+    const t0 = interpolateColors(heat, [0, 1], [BACKDROP.tint, "#3a1a14"]);
+    const tint = interpolateColors(myth, [0, 1], [t0, "#4a0f0c"]);
     return (
       <AbsoluteFill>
         <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />

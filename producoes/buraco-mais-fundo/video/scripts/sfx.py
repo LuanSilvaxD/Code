@@ -530,4 +530,63 @@ save("fire", fire())
 save("chains", chains())
 save("murmur", murmur())
 
+
+# ---------------------------------------------------------------- buraco mais fundo (Kola)
+def screams_fake(d=1.6):
+    """'Gritos' da lenda: vozes sintéticas distorcidas e abafadas (formantes em glissando + eco). Não é gravação."""
+    t = tt(d)
+    out = np.zeros(len(t))
+    for k, (f0, f1) in enumerate(((520, 380), (690, 430), (440, 300))):
+        f = np.geomspace(f0, f1, len(t)) * (1 + 0.03 * np.sin(2 * np.pi * (6 + k) * t))
+        src = np.sign(np.sin(2 * np.pi * np.cumsum(f) / SR)) * 0.5
+        out += (bp(src, 700, 1100) + 0.5 * bp(src, 1600, 2400)) * np.clip((t - 0.08 * k) / 0.15, 0, 1)
+    out = lp(np.tanh(out * 2.2), 2600)
+    echo = np.zeros_like(out)
+    n = int(0.21 * SR)
+    echo[n:] = out[:-n] * 0.45
+    return (out + echo) * env(d, 0.05, 0.6) * 0.6
+
+
+def cable(d=1.0):
+    """cabo descendo: chiado metálico rápido que desce de tom."""
+    t = tt(d)
+    n = sweep_bp(rng.standard_normal(len(t)), np.geomspace(3800, 900, len(t)), q=3.0)
+    clicks = np.zeros(len(t))
+    for i in range(0, len(t), int(0.045 * SR)):
+        m = min(300, len(t) - i)
+        clicks[i : i + m] += np.exp(-np.linspace(0, 8, m)) * 0.4
+    return (n * 0.7 + bp(clicks * rng.standard_normal(len(t)), 2000, 6000)) * env(d, 0.02, 0.3)
+
+
+def record_scratch(d=0.45):
+    """disco arranhado (a virada do 'Era boato')."""
+    t = tt(d)
+    f = 300 + 900 * np.abs(np.sin(2 * np.pi * 3.2 * t))
+    n = sweep_bp(rng.standard_normal(len(t)), f, q=2.5)
+    return n * env(d, 0.005, 0.12) * 1.2
+
+
+def wind_cold(d=4.0):
+    """vento frio da tundra: ruído grave com rajadas lentas e assobio leve."""
+    t = tt(d)
+    gust = 0.55 + 0.45 * np.sin(2 * np.pi * 0.35 * t) * np.sin(2 * np.pi * 0.13 * t + 1)
+    base = sweep_bp(rng.standard_normal(len(t)), 380 + 260 * gust, q=1.2) * gust
+    whistle = np.sin(2 * np.pi * np.cumsum(900 + 160 * gust) / SR) * 0.03 * gust
+    return (base + whistle) * env(d, 0.6, 1.0)
+
+
+def power_down(d=1.8):
+    """energia caindo: zumbido que desce de tom e apaga."""
+    t = tt(d)
+    f = 120 * np.exp(-t / 0.8) + 30
+    hum = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.4 * np.sin(2 * np.pi * np.cumsum(f * 2) / SR)
+    return np.tanh(hum * 1.5) * np.clip(1 - t / d, 0, 1) ** 1.5 * 0.6
+
+
+save("screams-fake", screams_fake())
+save("cable", cable())
+save("record-scratch", record_scratch())
+save("wind-cold", wind_cold())
+save("power-down", power_down())
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))
