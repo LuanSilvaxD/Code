@@ -1,0 +1,2283 @@
+{
+  "s1": {
+    "text": "Pedras de vinte e cinco toneladas, de pé, em círculo, com outras deitadas por cima. E tudo isso há quatro mil e quinhentos anos, só com pedra, madeira e corda. Como construíram Stonehenge?",
+    "seconds": 12.913,
+    "words": [
+      {
+        "text": "Pedras",
+        "start": 0,
+        "end": 0.32
+      },
+      {
+        "text": "de",
+        "start": 0.332,
+        "end": 0.416
+      },
+      {
+        "text": "vinte",
+        "start": 0.428,
+        "end": 0.668
+      },
+      {
+        "text": "e",
+        "start": 0.68,
+        "end": 0.704
+      },
+      {
+        "text": "cinco",
+        "start": 0.716,
+        "end": 0.993
+      },
+      {
+        "text": "toneladas",
+        "start": 1.005,
+        "end": 1.666
+      },
+      {
+        "text": "de",
+        "start": 1.918,
+        "end": 2.038
+      },
+      {
+        "text": "pé",
+        "start": 2.05,
+        "end": 2.339
+      },
+      {
+        "text": "em",
+        "start": 2.435,
+        "end": 2.543
+      },
+      {
+        "text": "círculo",
+        "start": 2.555,
+        "end": 3.06
+      },
+      {
+        "text": "com",
+        "start": 3.349,
+        "end": 3.577
+      },
+      {
+        "text": "outras",
+        "start": 3.589,
+        "end": 3.889
+      },
+      {
+        "text": "deitadas",
+        "start": 3.901,
+        "end": 4.454
+      },
+      {
+        "text": "por",
+        "start": 4.466,
+        "end": 4.623
+      },
+      {
+        "text": "cima",
+        "start": 4.635,
+        "end": 5.019
+      },
+      {
+        "text": "E",
+        "start": 5.847,
+        "end": 5.967
+      },
+      {
+        "text": "tudo",
+        "start": 5.979,
+        "end": 6.291
+      },
+      {
+        "text": "isso",
+        "start": 6.303,
+        "end": 6.532
+      },
+      {
+        "text": "há",
+        "start": 6.544,
+        "end": 6.58
+      },
+      {
+        "text": "quatro",
+        "start": 6.592,
+        "end": 6.94
+      },
+      {
+        "text": "mil",
+        "start": 6.952,
+        "end": 7.109
+      },
+      {
+        "text": "e",
+        "start": 7.121,
+        "end": 7.157
+      },
+      {
+        "text": "quinhentos",
+        "start": 7.169,
+        "end": 7.674
+      },
+      {
+        "text": "anos",
+        "start": 7.686,
+        "end": 8.13
+      },
+      {
+        "text": "só",
+        "start": 8.359,
+        "end": 8.575
+      },
+      {
+        "text": "com",
+        "start": 8.587,
+        "end": 8.779
+      },
+      {
+        "text": "pedra",
+        "start": 8.791,
+        "end": 9.164
+      },
+      {
+        "text": "madeira",
+        "start": 9.38,
+        "end": 9.777
+      },
+      {
+        "text": "e",
+        "start": 9.789,
+        "end": 9.837
+      },
+      {
+        "text": "corda",
+        "start": 9.849,
+        "end": 10.258
+      },
+      {
+        "text": "Como",
+        "start": 11.087,
+        "end": 11.436
+      },
+      {
+        "text": "construíram",
+        "start": 11.448,
+        "end": 12.085
+      },
+      {
+        "text": "Stonehenge",
+        "start": 12.097,
+        "end": 12.842
+      }
+    ]
+  },
+  "s2": {
+    "text": "No começo, por volta de três mil anos antes de Cristo, era só uma vala redonda com um barranco de terra, no sul da Inglaterra. E ali já se enterravam as cinzas dos mortos.",
+    "seconds": 10.699,
+    "words": [
+      {
+        "text": "No",
+        "start": 0,
+        "end": 0.143
+      },
+      {
+        "text": "começo",
+        "start": 0.155,
+        "end": 0.648
+      },
+      {
+        "text": "por",
+        "start": 0.937,
+        "end": 1.081
+      },
+      {
+        "text": "volta",
+        "start": 1.093,
+        "end": 1.441
+      },
+      {
+        "text": "de",
+        "start": 1.453,
+        "end": 1.586
+      },
+      {
+        "text": "três",
+        "start": 1.598,
+        "end": 1.886
+      },
+      {
+        "text": "mil",
+        "start": 1.898,
+        "end": 2.127
+      },
+      {
+        "text": "anos",
+        "start": 2.139,
+        "end": 2.355
+      },
+      {
+        "text": "antes",
+        "start": 2.367,
+        "end": 2.679
+      },
+      {
+        "text": "de",
+        "start": 2.691,
+        "end": 2.776
+      },
+      {
+        "text": "Cristo",
+        "start": 2.788,
+        "end": 3.256
+      },
+      {
+        "text": "era",
+        "start": 3.557,
+        "end": 3.725
+      },
+      {
+        "text": "só",
+        "start": 3.737,
+        "end": 3.893
+      },
+      {
+        "text": "uma",
+        "start": 3.905,
+        "end": 4.062
+      },
+      {
+        "text": "vala",
+        "start": 4.074,
+        "end": 4.278
+      },
+      {
+        "text": "redonda",
+        "start": 4.29,
+        "end": 4.735
+      },
+      {
+        "text": "com",
+        "start": 4.747,
+        "end": 4.879
+      },
+      {
+        "text": "um",
+        "start": 4.891,
+        "end": 4.951
+      },
+      {
+        "text": "barranco",
+        "start": 4.963,
+        "end": 5.408
+      },
+      {
+        "text": "de",
+        "start": 5.42,
+        "end": 5.564
+      },
+      {
+        "text": "terra",
+        "start": 5.576,
+        "end": 5.864
+      },
+      {
+        "text": "no",
+        "start": 6.117,
+        "end": 6.225
+      },
+      {
+        "text": "sul",
+        "start": 6.237,
+        "end": 6.49
+      },
+      {
+        "text": "da",
+        "start": 6.502,
+        "end": 6.598
+      },
+      {
+        "text": "Inglaterra",
+        "start": 6.61,
+        "end": 7.211
+      },
+      {
+        "text": "E",
+        "start": 8.038,
+        "end": 8.158
+      },
+      {
+        "text": "ali",
+        "start": 8.17,
+        "end": 8.435
+      },
+      {
+        "text": "já",
+        "start": 8.447,
+        "end": 8.615
+      },
+      {
+        "text": "se",
+        "start": 8.627,
+        "end": 8.747
+      },
+      {
+        "text": "enterravam",
+        "start": 8.759,
+        "end": 9.324
+      },
+      {
+        "text": "as",
+        "start": 9.336,
+        "end": 9.468
+      },
+      {
+        "text": "cinzas",
+        "start": 9.48,
+        "end": 9.865
+      },
+      {
+        "text": "dos",
+        "start": 9.877,
+        "end": 10.069
+      },
+      {
+        "text": "mortos",
+        "start": 10.081,
+        "end": 10.61
+      }
+    ]
+  },
+  "s3": {
+    "text": "Uns quinhentos anos depois, começa o difícil. Primeiro problema: de onde tirar pedras tão grandes? As gigantes, chamadas sarsens, vieram de uns vinte e cinco quilômetros ao norte.",
+    "seconds": 12.419,
+    "words": [
+      {
+        "text": "Uns",
+        "start": 0,
+        "end": 0.182
+      },
+      {
+        "text": "quinhentos",
+        "start": 0.194,
+        "end": 0.747
+      },
+      {
+        "text": "anos",
+        "start": 0.759,
+        "end": 1.072
+      },
+      {
+        "text": "depois",
+        "start": 1.084,
+        "end": 1.553
+      },
+      {
+        "text": "começa",
+        "start": 1.769,
+        "end": 2.25
+      },
+      {
+        "text": "o",
+        "start": 2.262,
+        "end": 2.286
+      },
+      {
+        "text": "difícil",
+        "start": 2.298,
+        "end": 2.839
+      },
+      {
+        "text": "Primeiro",
+        "start": 3.666,
+        "end": 4.039
+      },
+      {
+        "text": "problema",
+        "start": 4.051,
+        "end": 4.543
+      },
+      {
+        "text": "de",
+        "start": 4.796,
+        "end": 4.94
+      },
+      {
+        "text": "onde",
+        "start": 4.952,
+        "end": 5.229
+      },
+      {
+        "text": "tirar",
+        "start": 5.241,
+        "end": 5.541
+      },
+      {
+        "text": "pedras",
+        "start": 5.553,
+        "end": 5.938
+      },
+      {
+        "text": "tão",
+        "start": 5.95,
+        "end": 6.13
+      },
+      {
+        "text": "grandes",
+        "start": 6.142,
+        "end": 6.695
+      },
+      {
+        "text": "As",
+        "start": 7.524,
+        "end": 7.717
+      },
+      {
+        "text": "gigantes",
+        "start": 7.729,
+        "end": 8.354
+      },
+      {
+        "text": "chamadas",
+        "start": 8.57,
+        "end": 9.123
+      },
+      {
+        "text": "sarsens",
+        "start": 9.135,
+        "end": 9.676
+      },
+      {
+        "text": "vieram",
+        "start": 9.88,
+        "end": 10.313
+      },
+      {
+        "text": "de",
+        "start": 10.325,
+        "end": 10.421
+      },
+      {
+        "text": "uns",
+        "start": 10.433,
+        "end": 10.637
+      },
+      {
+        "text": "vinte",
+        "start": 10.649,
+        "end": 10.878
+      },
+      {
+        "text": "e",
+        "start": 10.89,
+        "end": 10.914
+      },
+      {
+        "text": "cinco",
+        "start": 10.926,
+        "end": 11.202
+      },
+      {
+        "text": "quilômetros",
+        "start": 11.214,
+        "end": 11.743
+      },
+      {
+        "text": "ao",
+        "start": 11.755,
+        "end": 11.899
+      },
+      {
+        "text": "norte",
+        "start": 11.911,
+        "end": 12.344
+      }
+    ]
+  },
+  "s4": {
+    "text": "Já as pedras azuis, menores, vieram das colinas de Preseli, no País de Gales: mais de duzentos quilômetros. Cada uma pesa de duas a cinco toneladas.",
+    "seconds": 10.141,
+    "words": [
+      {
+        "text": "Já",
+        "start": 0,
+        "end": 0.171
+      },
+      {
+        "text": "as",
+        "start": 0.183,
+        "end": 0.328
+      },
+      {
+        "text": "pedras",
+        "start": 0.34,
+        "end": 0.628
+      },
+      {
+        "text": "azuis",
+        "start": 0.64,
+        "end": 1.193
+      },
+      {
+        "text": "menores",
+        "start": 1.385,
+        "end": 1.962
+      },
+      {
+        "text": "vieram",
+        "start": 2.203,
+        "end": 2.551
+      },
+      {
+        "text": "das",
+        "start": 2.563,
+        "end": 2.731
+      },
+      {
+        "text": "colinas",
+        "start": 2.744,
+        "end": 3.14
+      },
+      {
+        "text": "de",
+        "start": 3.152,
+        "end": 3.224
+      },
+      {
+        "text": "Preseli",
+        "start": 3.236,
+        "end": 3.741
+      },
+      {
+        "text": "no",
+        "start": 3.994,
+        "end": 4.114
+      },
+      {
+        "text": "País",
+        "start": 4.126,
+        "end": 4.462
+      },
+      {
+        "text": "de",
+        "start": 4.474,
+        "end": 4.558
+      },
+      {
+        "text": "Gales",
+        "start": 4.57,
+        "end": 5.027
+      },
+      {
+        "text": "mais",
+        "start": 5.244,
+        "end": 5.472
+      },
+      {
+        "text": "de",
+        "start": 5.484,
+        "end": 5.544
+      },
+      {
+        "text": "duzentos",
+        "start": 5.556,
+        "end": 6.073
+      },
+      {
+        "text": "quilômetros",
+        "start": 6.085,
+        "end": 6.734
+      },
+      {
+        "text": "Cada",
+        "start": 7.561,
+        "end": 7.826
+      },
+      {
+        "text": "uma",
+        "start": 7.838,
+        "end": 8.066
+      },
+      {
+        "text": "pesa",
+        "start": 8.078,
+        "end": 8.427
+      },
+      {
+        "text": "de",
+        "start": 8.439,
+        "end": 8.547
+      },
+      {
+        "text": "duas",
+        "start": 8.559,
+        "end": 8.823
+      },
+      {
+        "text": "a",
+        "start": 8.835,
+        "end": 8.968
+      },
+      {
+        "text": "cinco",
+        "start": 8.98,
+        "end": 9.328
+      },
+      {
+        "text": "toneladas",
+        "start": 9.34,
+        "end": 10.049
+      }
+    ]
+  },
+  "s5": {
+    "text": "E em 2024 descobriram que a Pedra do Altar, de umas seis toneladas, veio do norte da Escócia: no mínimo setecentos e cinquenta quilômetros.",
+    "seconds": 8.653,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.042
+      },
+      {
+        "text": "em",
+        "start": 0.054,
+        "end": 0.595
+      },
+      {
+        "text": "2024",
+        "start": 0.595,
+        "end": 1.136
+      },
+      {
+        "text": "descobriram",
+        "start": 1.148,
+        "end": 1.749
+      },
+      {
+        "text": "que",
+        "start": 1.761,
+        "end": 1.845
+      },
+      {
+        "text": "a",
+        "start": 1.857,
+        "end": 1.941
+      },
+      {
+        "text": "Pedra",
+        "start": 1.953,
+        "end": 2.278
+      },
+      {
+        "text": "do",
+        "start": 2.29,
+        "end": 2.374
+      },
+      {
+        "text": "Altar",
+        "start": 2.386,
+        "end": 2.783
+      },
+      {
+        "text": "de",
+        "start": 3.023,
+        "end": 3.131
+      },
+      {
+        "text": "umas",
+        "start": 3.143,
+        "end": 3.384
+      },
+      {
+        "text": "seis",
+        "start": 3.396,
+        "end": 3.648
+      },
+      {
+        "text": "toneladas",
+        "start": 3.66,
+        "end": 4.345
+      },
+      {
+        "text": "veio",
+        "start": 4.574,
+        "end": 4.862
+      },
+      {
+        "text": "do",
+        "start": 4.874,
+        "end": 4.97
+      },
+      {
+        "text": "norte",
+        "start": 4.982,
+        "end": 5.331
+      },
+      {
+        "text": "da",
+        "start": 5.343,
+        "end": 5.415
+      },
+      {
+        "text": "Escócia",
+        "start": 5.427,
+        "end": 5.92
+      },
+      {
+        "text": "no",
+        "start": 6.196,
+        "end": 6.292
+      },
+      {
+        "text": "mínimo",
+        "start": 6.304,
+        "end": 6.665
+      },
+      {
+        "text": "setecentos",
+        "start": 6.677,
+        "end": 7.314
+      },
+      {
+        "text": "e",
+        "start": 7.326,
+        "end": 7.422
+      },
+      {
+        "text": "cinquenta",
+        "start": 7.434,
+        "end": 7.879
+      },
+      {
+        "text": "quilômetros",
+        "start": 7.891,
+        "end": 8.564
+      }
+    ]
+  },
+  "s6": {
+    "text": "Segundo problema: como arrastar vinte e cinco toneladas? A hipótese mais aceita é um trenó de madeira deslizando sobre trilhos de troncos, puxado com cordas por muita gente.",
+    "seconds": 10.36,
+    "words": [
+      {
+        "text": "Segundo",
+        "start": 0,
+        "end": 0.453
+      },
+      {
+        "text": "problema",
+        "start": 0.465,
+        "end": 0.934
+      },
+      {
+        "text": "como",
+        "start": 1.246,
+        "end": 1.499
+      },
+      {
+        "text": "arrastar",
+        "start": 1.511,
+        "end": 1.967
+      },
+      {
+        "text": "vinte",
+        "start": 1.979,
+        "end": 2.22
+      },
+      {
+        "text": "e",
+        "start": 2.232,
+        "end": 2.256
+      },
+      {
+        "text": "cinco",
+        "start": 2.268,
+        "end": 2.568
+      },
+      {
+        "text": "toneladas",
+        "start": 2.58,
+        "end": 3.277
+      },
+      {
+        "text": "A",
+        "start": 4.105,
+        "end": 4.225
+      },
+      {
+        "text": "hipótese",
+        "start": 4.237,
+        "end": 4.718
+      },
+      {
+        "text": "mais",
+        "start": 4.73,
+        "end": 4.898
+      },
+      {
+        "text": "aceita",
+        "start": 4.91,
+        "end": 5.355
+      },
+      {
+        "text": "é",
+        "start": 5.367,
+        "end": 5.391
+      },
+      {
+        "text": "um",
+        "start": 5.403,
+        "end": 5.475
+      },
+      {
+        "text": "trenó",
+        "start": 5.487,
+        "end": 5.788
+      },
+      {
+        "text": "de",
+        "start": 5.8,
+        "end": 5.908
+      },
+      {
+        "text": "madeira",
+        "start": 5.92,
+        "end": 6.28
+      },
+      {
+        "text": "deslizando",
+        "start": 6.292,
+        "end": 6.809
+      },
+      {
+        "text": "sobre",
+        "start": 6.821,
+        "end": 7.11
+      },
+      {
+        "text": "trilhos",
+        "start": 7.122,
+        "end": 7.446
+      },
+      {
+        "text": "de",
+        "start": 7.458,
+        "end": 7.566
+      },
+      {
+        "text": "troncos",
+        "start": 7.578,
+        "end": 8.011
+      },
+      {
+        "text": "puxado",
+        "start": 8.263,
+        "end": 8.732
+      },
+      {
+        "text": "com",
+        "start": 8.744,
+        "end": 8.913
+      },
+      {
+        "text": "cordas",
+        "start": 8.925,
+        "end": 9.345
+      },
+      {
+        "text": "por",
+        "start": 9.357,
+        "end": 9.526
+      },
+      {
+        "text": "muita",
+        "start": 9.538,
+        "end": 9.886
+      },
+      {
+        "text": "gente",
+        "start": 9.898,
+        "end": 10.283
+      }
+    ]
+  },
+  "s7": {
+    "text": "Testes modernos mostram que funciona, mas sempre com pedras bem menores que as maiores de lá. Quantas pessoas e quanto tempo, ninguém sabe ao certo.",
+    "seconds": 9.085,
+    "words": [
+      {
+        "text": "Testes",
+        "start": 0,
+        "end": 0.321
+      },
+      {
+        "text": "modernos",
+        "start": 0.333,
+        "end": 0.85
+      },
+      {
+        "text": "mostram",
+        "start": 0.862,
+        "end": 1.306
+      },
+      {
+        "text": "que",
+        "start": 1.318,
+        "end": 1.414
+      },
+      {
+        "text": "funciona",
+        "start": 1.426,
+        "end": 1.979
+      },
+      {
+        "text": "mas",
+        "start": 2.268,
+        "end": 2.448
+      },
+      {
+        "text": "sempre",
+        "start": 2.46,
+        "end": 2.821
+      },
+      {
+        "text": "com",
+        "start": 2.833,
+        "end": 3.001
+      },
+      {
+        "text": "pedras",
+        "start": 3.013,
+        "end": 3.386
+      },
+      {
+        "text": "bem",
+        "start": 3.398,
+        "end": 3.59
+      },
+      {
+        "text": "menores",
+        "start": 3.602,
+        "end": 4.071
+      },
+      {
+        "text": "que",
+        "start": 4.083,
+        "end": 4.155
+      },
+      {
+        "text": "as",
+        "start": 4.167,
+        "end": 4.263
+      },
+      {
+        "text": "maiores",
+        "start": 4.275,
+        "end": 4.696
+      },
+      {
+        "text": "de",
+        "start": 4.708,
+        "end": 4.804
+      },
+      {
+        "text": "lá",
+        "start": 4.816,
+        "end": 5.068
+      },
+      {
+        "text": "Quantas",
+        "start": 5.896,
+        "end": 6.292
+      },
+      {
+        "text": "pessoas",
+        "start": 6.304,
+        "end": 6.725
+      },
+      {
+        "text": "e",
+        "start": 6.737,
+        "end": 6.845
+      },
+      {
+        "text": "quanto",
+        "start": 6.857,
+        "end": 7.122
+      },
+      {
+        "text": "tempo",
+        "start": 7.134,
+        "end": 7.506
+      },
+      {
+        "text": "ninguém",
+        "start": 7.747,
+        "end": 8.107
+      },
+      {
+        "text": "sabe",
+        "start": 8.119,
+        "end": 8.42
+      },
+      {
+        "text": "ao",
+        "start": 8.432,
+        "end": 8.528
+      },
+      {
+        "text": "certo",
+        "start": 8.54,
+        "end": 8.997
+      }
+    ]
+  },
+  "s8": {
+    "text": "Terceiro problema: a pedra chegava bruta. Eles batiam nela com martelos de pedra: os grandes lascavam, os pequenos alisavam. Esses martelos foram achados no próprio local.",
+    "seconds": 11.584,
+    "words": [
+      {
+        "text": "Terceiro",
+        "start": 0,
+        "end": 0.385
+      },
+      {
+        "text": "problema",
+        "start": 0.397,
+        "end": 0.902
+      },
+      {
+        "text": "a",
+        "start": 1.13,
+        "end": 1.226
+      },
+      {
+        "text": "pedra",
+        "start": 1.238,
+        "end": 1.575
+      },
+      {
+        "text": "chegava",
+        "start": 1.587,
+        "end": 2.007
+      },
+      {
+        "text": "bruta",
+        "start": 2.019,
+        "end": 2.38
+      },
+      {
+        "text": "Eles",
+        "start": 3.207,
+        "end": 3.436
+      },
+      {
+        "text": "batiam",
+        "start": 3.448,
+        "end": 3.82
+      },
+      {
+        "text": "nela",
+        "start": 3.832,
+        "end": 4.097
+      },
+      {
+        "text": "com",
+        "start": 4.109,
+        "end": 4.229
+      },
+      {
+        "text": "martelos",
+        "start": 4.241,
+        "end": 4.758
+      },
+      {
+        "text": "de",
+        "start": 4.77,
+        "end": 4.878
+      },
+      {
+        "text": "pedra",
+        "start": 4.89,
+        "end": 5.263
+      },
+      {
+        "text": "os",
+        "start": 5.563,
+        "end": 5.719
+      },
+      {
+        "text": "grandes",
+        "start": 5.731,
+        "end": 6.152
+      },
+      {
+        "text": "lascavam",
+        "start": 6.164,
+        "end": 6.717
+      },
+      {
+        "text": "os",
+        "start": 6.969,
+        "end": 7.066
+      },
+      {
+        "text": "pequenos",
+        "start": 7.078,
+        "end": 7.462
+      },
+      {
+        "text": "alisavam",
+        "start": 7.474,
+        "end": 8.111
+      },
+      {
+        "text": "Esses",
+        "start": 8.941,
+        "end": 9.241
+      },
+      {
+        "text": "martelos",
+        "start": 9.253,
+        "end": 9.818
+      },
+      {
+        "text": "foram",
+        "start": 9.83,
+        "end": 10.082
+      },
+      {
+        "text": "achados",
+        "start": 10.094,
+        "end": 10.587
+      },
+      {
+        "text": "no",
+        "start": 10.599,
+        "end": 10.695
+      },
+      {
+        "text": "próprio",
+        "start": 10.707,
+        "end": 11.068
+      },
+      {
+        "text": "local",
+        "start": 11.08,
+        "end": 11.477
+      }
+    ]
+  },
+  "s9": {
+    "text": "Quarto problema: pôr de pé um bloco gigante. Cavava-se um buraco com um lado inclinado, a pedra escorregava para dentro, e cordas e escoras terminavam de erguer.",
+    "seconds": 10.042,
+    "words": [
+      {
+        "text": "Quarto",
+        "start": 0,
+        "end": 0.321
+      },
+      {
+        "text": "problema",
+        "start": 0.333,
+        "end": 0.837
+      },
+      {
+        "text": "pôr",
+        "start": 1.138,
+        "end": 1.318
+      },
+      {
+        "text": "de",
+        "start": 1.33,
+        "end": 1.45
+      },
+      {
+        "text": "pé",
+        "start": 1.463,
+        "end": 1.607
+      },
+      {
+        "text": "um",
+        "start": 1.619,
+        "end": 1.727
+      },
+      {
+        "text": "bloco",
+        "start": 1.739,
+        "end": 2.124
+      },
+      {
+        "text": "gigante",
+        "start": 2.136,
+        "end": 2.664
+      },
+      {
+        "text": "Cavava-se",
+        "start": 3.492,
+        "end": 4.081
+      },
+      {
+        "text": "um",
+        "start": 4.093,
+        "end": 4.141
+      },
+      {
+        "text": "buraco",
+        "start": 4.153,
+        "end": 4.586
+      },
+      {
+        "text": "com",
+        "start": 4.598,
+        "end": 4.73
+      },
+      {
+        "text": "um",
+        "start": 4.742,
+        "end": 4.826
+      },
+      {
+        "text": "lado",
+        "start": 4.838,
+        "end": 5.054
+      },
+      {
+        "text": "inclinado",
+        "start": 5.066,
+        "end": 5.631
+      },
+      {
+        "text": "a",
+        "start": 5.836,
+        "end": 5.944
+      },
+      {
+        "text": "pedra",
+        "start": 5.956,
+        "end": 6.256
+      },
+      {
+        "text": "escorregava",
+        "start": 6.268,
+        "end": 6.893
+      },
+      {
+        "text": "para",
+        "start": 6.905,
+        "end": 7.11
+      },
+      {
+        "text": "dentro",
+        "start": 7.122,
+        "end": 7.494
+      },
+      {
+        "text": "e",
+        "start": 7.819,
+        "end": 7.927
+      },
+      {
+        "text": "cordas",
+        "start": 7.939,
+        "end": 8.312
+      },
+      {
+        "text": "e",
+        "start": 8.324,
+        "end": 8.42
+      },
+      {
+        "text": "escoras",
+        "start": 8.432,
+        "end": 8.864
+      },
+      {
+        "text": "terminavam",
+        "start": 8.876,
+        "end": 9.465
+      },
+      {
+        "text": "de",
+        "start": 9.477,
+        "end": 9.55
+      },
+      {
+        "text": "erguer",
+        "start": 9.562,
+        "end": 9.886
+      }
+    ]
+  },
+  "s10": {
+    "text": "Quinto problema: a pedra deitada, de umas sete toneladas, vai lá em cima. O mais provável é uma plataforma de madeira: sobe a pedra um pouco, põe madeira embaixo, e repete até o topo.",
+    "seconds": 11.775,
+    "words": [
+      {
+        "text": "Quinto",
+        "start": 0,
+        "end": 0.263
+      },
+      {
+        "text": "problema",
+        "start": 0.275,
+        "end": 0.767
+      },
+      {
+        "text": "a",
+        "start": 1.008,
+        "end": 1.116
+      },
+      {
+        "text": "pedra",
+        "start": 1.128,
+        "end": 1.441
+      },
+      {
+        "text": "deitada",
+        "start": 1.453,
+        "end": 1.945
+      },
+      {
+        "text": "de",
+        "start": 2.162,
+        "end": 2.246
+      },
+      {
+        "text": "umas",
+        "start": 2.258,
+        "end": 2.486
+      },
+      {
+        "text": "sete",
+        "start": 2.498,
+        "end": 2.763
+      },
+      {
+        "text": "toneladas",
+        "start": 2.775,
+        "end": 3.436
+      },
+      {
+        "text": "vai",
+        "start": 3.616,
+        "end": 3.832
+      },
+      {
+        "text": "lá",
+        "start": 3.844,
+        "end": 4.001
+      },
+      {
+        "text": "em",
+        "start": 4.013,
+        "end": 4.109
+      },
+      {
+        "text": "cima",
+        "start": 4.121,
+        "end": 4.553
+      },
+      {
+        "text": "O",
+        "start": 5.381,
+        "end": 5.477
+      },
+      {
+        "text": "mais",
+        "start": 5.489,
+        "end": 5.741
+      },
+      {
+        "text": "provável",
+        "start": 5.753,
+        "end": 6.306
+      },
+      {
+        "text": "é",
+        "start": 6.318,
+        "end": 6.354
+      },
+      {
+        "text": "uma",
+        "start": 6.366,
+        "end": 6.499
+      },
+      {
+        "text": "plataforma",
+        "start": 6.511,
+        "end": 7.148
+      },
+      {
+        "text": "de",
+        "start": 7.16,
+        "end": 7.232
+      },
+      {
+        "text": "madeira",
+        "start": 7.244,
+        "end": 7.64
+      },
+      {
+        "text": "sobe",
+        "start": 7.917,
+        "end": 8.145
+      },
+      {
+        "text": "a",
+        "start": 8.157,
+        "end": 8.229
+      },
+      {
+        "text": "pedra",
+        "start": 8.241,
+        "end": 8.518
+      },
+      {
+        "text": "um",
+        "start": 8.53,
+        "end": 8.614
+      },
+      {
+        "text": "pouco",
+        "start": 8.626,
+        "end": 8.987
+      },
+      {
+        "text": "põe",
+        "start": 9.275,
+        "end": 9.455
+      },
+      {
+        "text": "madeira",
+        "start": 9.467,
+        "end": 9.78
+      },
+      {
+        "text": "embaixo",
+        "start": 9.792,
+        "end": 10.285
+      },
+      {
+        "text": "e",
+        "start": 10.537,
+        "end": 10.597
+      },
+      {
+        "text": "repete",
+        "start": 10.609,
+        "end": 11.042
+      },
+      {
+        "text": "até",
+        "start": 11.054,
+        "end": 11.222
+      },
+      {
+        "text": "o",
+        "start": 11.234,
+        "end": 11.318
+      },
+      {
+        "text": "topo",
+        "start": 11.33,
+        "end": 11.667
+      }
+    ]
+  },
+  "s11": {
+    "text": "E para nada escorregar, copiaram a marcenaria: buracos na pedra de cima encaixam em pinos das pedras em pé, e as pontas se encaixam umas nas outras, como num móvel.",
+    "seconds": 9.725,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.054
+      },
+      {
+        "text": "para",
+        "start": 0.066,
+        "end": 0.307
+      },
+      {
+        "text": "nada",
+        "start": 0.319,
+        "end": 0.559
+      },
+      {
+        "text": "escorregar",
+        "start": 0.571,
+        "end": 1.184
+      },
+      {
+        "text": "copiaram",
+        "start": 1.4,
+        "end": 1.905
+      },
+      {
+        "text": "a",
+        "start": 1.917,
+        "end": 1.941
+      },
+      {
+        "text": "marcenaria",
+        "start": 1.953,
+        "end": 2.602
+      },
+      {
+        "text": "buracos",
+        "start": 2.939,
+        "end": 3.432
+      },
+      {
+        "text": "na",
+        "start": 3.444,
+        "end": 3.564
+      },
+      {
+        "text": "pedra",
+        "start": 3.576,
+        "end": 3.888
+      },
+      {
+        "text": "de",
+        "start": 3.9,
+        "end": 4.021
+      },
+      {
+        "text": "cima",
+        "start": 4.033,
+        "end": 4.273
+      },
+      {
+        "text": "encaixam",
+        "start": 4.285,
+        "end": 4.754
+      },
+      {
+        "text": "em",
+        "start": 4.766,
+        "end": 4.862
+      },
+      {
+        "text": "pinos",
+        "start": 4.874,
+        "end": 5.174
+      },
+      {
+        "text": "das",
+        "start": 5.186,
+        "end": 5.379
+      },
+      {
+        "text": "pedras",
+        "start": 5.391,
+        "end": 5.691
+      },
+      {
+        "text": "em",
+        "start": 5.703,
+        "end": 5.884
+      },
+      {
+        "text": "pé",
+        "start": 5.896,
+        "end": 6.16
+      },
+      {
+        "text": "e",
+        "start": 6.485,
+        "end": 6.569
+      },
+      {
+        "text": "as",
+        "start": 6.581,
+        "end": 6.737
+      },
+      {
+        "text": "pontas",
+        "start": 6.749,
+        "end": 7.134
+      },
+      {
+        "text": "se",
+        "start": 7.146,
+        "end": 7.242
+      },
+      {
+        "text": "encaixam",
+        "start": 7.254,
+        "end": 7.783
+      },
+      {
+        "text": "umas",
+        "start": 7.795,
+        "end": 7.999
+      },
+      {
+        "text": "nas",
+        "start": 8.011,
+        "end": 8.107
+      },
+      {
+        "text": "outras",
+        "start": 8.119,
+        "end": 8.624
+      },
+      {
+        "text": "como",
+        "start": 8.84,
+        "end": 9.093
+      },
+      {
+        "text": "num",
+        "start": 9.105,
+        "end": 9.273
+      },
+      {
+        "text": "móvel",
+        "start": 9.285,
+        "end": 9.646
+      }
+    ]
+  },
+  "s12": {
+    "text": "As pedras de cima são até levemente curvas, formando um anel de trinta metros, suspenso a quatro metros do chão.",
+    "seconds": 6.699,
+    "words": [
+      {
+        "text": "As",
+        "start": 0,
+        "end": 0.145
+      },
+      {
+        "text": "pedras",
+        "start": 0.157,
+        "end": 0.554
+      },
+      {
+        "text": "de",
+        "start": 0.566,
+        "end": 0.674
+      },
+      {
+        "text": "cima",
+        "start": 0.686,
+        "end": 0.987
+      },
+      {
+        "text": "são",
+        "start": 0.999,
+        "end": 1.239
+      },
+      {
+        "text": "até",
+        "start": 1.251,
+        "end": 1.431
+      },
+      {
+        "text": "levemente",
+        "start": 1.444,
+        "end": 2.008
+      },
+      {
+        "text": "curvas",
+        "start": 2.02,
+        "end": 2.501
+      },
+      {
+        "text": "formando",
+        "start": 2.766,
+        "end": 3.222
+      },
+      {
+        "text": "um",
+        "start": 3.234,
+        "end": 3.331
+      },
+      {
+        "text": "anel",
+        "start": 3.343,
+        "end": 3.595
+      },
+      {
+        "text": "de",
+        "start": 3.607,
+        "end": 3.739
+      },
+      {
+        "text": "trinta",
+        "start": 3.751,
+        "end": 4.064
+      },
+      {
+        "text": "metros",
+        "start": 4.076,
+        "end": 4.556
+      },
+      {
+        "text": "suspenso",
+        "start": 4.809,
+        "end": 5.386
+      },
+      {
+        "text": "a",
+        "start": 5.398,
+        "end": 5.446
+      },
+      {
+        "text": "quatro",
+        "start": 5.458,
+        "end": 5.794
+      },
+      {
+        "text": "metros",
+        "start": 5.807,
+        "end": 6.167
+      },
+      {
+        "text": "do",
+        "start": 6.179,
+        "end": 6.275
+      },
+      {
+        "text": "chão",
+        "start": 6.287,
+        "end": 6.636
+      }
+    ]
+  },
+  "s13": {
+    "text": "Mas por que tanto trabalho? O monumento está alinhado com o Sol. No dia mais longo do ano, o Sol nasce perto da Pedra do Calcanhar. No mais curto, se põe do lado oposto.",
+    "seconds": 12.126,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.223
+      },
+      {
+        "text": "por",
+        "start": 0.235,
+        "end": 0.403
+      },
+      {
+        "text": "que",
+        "start": 0.415,
+        "end": 0.619
+      },
+      {
+        "text": "tanto",
+        "start": 0.631,
+        "end": 0.968
+      },
+      {
+        "text": "trabalho",
+        "start": 0.98,
+        "end": 1.449
+      },
+      {
+        "text": "O",
+        "start": 2.276,
+        "end": 2.348
+      },
+      {
+        "text": "monumento",
+        "start": 2.36,
+        "end": 2.901
+      },
+      {
+        "text": "está",
+        "start": 2.913,
+        "end": 3.117
+      },
+      {
+        "text": "alinhado",
+        "start": 3.129,
+        "end": 3.61
+      },
+      {
+        "text": "com",
+        "start": 3.622,
+        "end": 3.79
+      },
+      {
+        "text": "o",
+        "start": 3.802,
+        "end": 3.838
+      },
+      {
+        "text": "Sol",
+        "start": 3.85,
+        "end": 4.175
+      },
+      {
+        "text": "No",
+        "start": 5.004,
+        "end": 5.173
+      },
+      {
+        "text": "dia",
+        "start": 5.185,
+        "end": 5.377
+      },
+      {
+        "text": "mais",
+        "start": 5.389,
+        "end": 5.629
+      },
+      {
+        "text": "longo",
+        "start": 5.641,
+        "end": 5.978
+      },
+      {
+        "text": "do",
+        "start": 5.99,
+        "end": 6.158
+      },
+      {
+        "text": "ano",
+        "start": 6.17,
+        "end": 6.423
+      },
+      {
+        "text": "o",
+        "start": 6.711,
+        "end": 6.771
+      },
+      {
+        "text": "Sol",
+        "start": 6.783,
+        "end": 7.035
+      },
+      {
+        "text": "nasce",
+        "start": 7.047,
+        "end": 7.3
+      },
+      {
+        "text": "perto",
+        "start": 7.312,
+        "end": 7.624
+      },
+      {
+        "text": "da",
+        "start": 7.636,
+        "end": 7.757
+      },
+      {
+        "text": "Pedra",
+        "start": 7.769,
+        "end": 8.117
+      },
+      {
+        "text": "do",
+        "start": 8.129,
+        "end": 8.273
+      },
+      {
+        "text": "Calcanhar",
+        "start": 8.286,
+        "end": 8.85
+      },
+      {
+        "text": "No",
+        "start": 9.68,
+        "end": 9.848
+      },
+      {
+        "text": "mais",
+        "start": 9.86,
+        "end": 10.136
+      },
+      {
+        "text": "curto",
+        "start": 10.148,
+        "end": 10.521
+      },
+      {
+        "text": "se",
+        "start": 10.737,
+        "end": 10.882
+      },
+      {
+        "text": "põe",
+        "start": 10.894,
+        "end": 11.122
+      },
+      {
+        "text": "do",
+        "start": 11.134,
+        "end": 11.242
+      },
+      {
+        "text": "lado",
+        "start": 11.254,
+        "end": 11.567
+      },
+      {
+        "text": "oposto",
+        "start": 11.579,
+        "end": 12.06
+      }
+    ]
+  },
+  "s14": {
+    "text": "Para muitos arqueólogos, esse pôr do sol de inverno era o grande momento: dali em diante, os dias voltam a crescer.",
+    "seconds": 6.726,
+    "words": [
+      {
+        "text": "Para",
+        "start": 0,
+        "end": 0.163
+      },
+      {
+        "text": "muitos",
+        "start": 0.175,
+        "end": 0.536
+      },
+      {
+        "text": "arqueólogos",
+        "start": 0.548,
+        "end": 1.281
+      },
+      {
+        "text": "esse",
+        "start": 1.546,
+        "end": 1.738
+      },
+      {
+        "text": "pôr",
+        "start": 1.75,
+        "end": 1.942
+      },
+      {
+        "text": "do",
+        "start": 1.954,
+        "end": 2.05
+      },
+      {
+        "text": "sol",
+        "start": 2.062,
+        "end": 2.327
+      },
+      {
+        "text": "de",
+        "start": 2.339,
+        "end": 2.411
+      },
+      {
+        "text": "inverno",
+        "start": 2.423,
+        "end": 2.844
+      },
+      {
+        "text": "era",
+        "start": 2.856,
+        "end": 2.94
+      },
+      {
+        "text": "o",
+        "start": 2.952,
+        "end": 2.988
+      },
+      {
+        "text": "grande",
+        "start": 3.0,
+        "end": 3.361
+      },
+      {
+        "text": "momento",
+        "start": 3.373,
+        "end": 3.805
+      },
+      {
+        "text": "dali",
+        "start": 4.106,
+        "end": 4.394
+      },
+      {
+        "text": "em",
+        "start": 4.406,
+        "end": 4.502
+      },
+      {
+        "text": "diante",
+        "start": 4.514,
+        "end": 5.019
+      },
+      {
+        "text": "os",
+        "start": 5.26,
+        "end": 5.416
+      },
+      {
+        "text": "dias",
+        "start": 5.428,
+        "end": 5.728
+      },
+      {
+        "text": "voltam",
+        "start": 5.74,
+        "end": 6.101
+      },
+      {
+        "text": "a",
+        "start": 6.113,
+        "end": 6.149
+      },
+      {
+        "text": "crescer",
+        "start": 6.161,
+        "end": 6.582
+      }
+    ]
+  },
+  "s15": {
+    "text": "Hoje, muitas pedras caíram ou sumiram. E do primeiro buraco à última pedra mexida, foram mais de mil anos de obra. Pronto: agora você sabe como se ergueu Stonehenge, só com pedra, madeira e corda.",
+    "seconds": 13.321,
+    "words": [
+      {
+        "text": "Hoje",
+        "start": 0,
+        "end": 0.314
+      },
+      {
+        "text": "muitas",
+        "start": 0.542,
+        "end": 0.915
+      },
+      {
+        "text": "pedras",
+        "start": 0.927,
+        "end": 1.275
+      },
+      {
+        "text": "caíram",
+        "start": 1.287,
+        "end": 1.672
+      },
+      {
+        "text": "ou",
+        "start": 1.684,
+        "end": 1.768
+      },
+      {
+        "text": "sumiram",
+        "start": 1.78,
+        "end": 2.249
+      },
+      {
+        "text": "E",
+        "start": 3.076,
+        "end": 3.184
+      },
+      {
+        "text": "do",
+        "start": 3.196,
+        "end": 3.329
+      },
+      {
+        "text": "primeiro",
+        "start": 3.341,
+        "end": 3.701
+      },
+      {
+        "text": "buraco",
+        "start": 3.713,
+        "end": 4.182
+      },
+      {
+        "text": "à",
+        "start": 4.194,
+        "end": 4.278
+      },
+      {
+        "text": "última",
+        "start": 4.29,
+        "end": 4.687
+      },
+      {
+        "text": "pedra",
+        "start": 4.699,
+        "end": 5.011
+      },
+      {
+        "text": "mexida",
+        "start": 5.023,
+        "end": 5.468
+      },
+      {
+        "text": "foram",
+        "start": 5.72,
+        "end": 5.961
+      },
+      {
+        "text": "mais",
+        "start": 5.973,
+        "end": 6.213
+      },
+      {
+        "text": "de",
+        "start": 6.225,
+        "end": 6.309
+      },
+      {
+        "text": "mil",
+        "start": 6.321,
+        "end": 6.622
+      },
+      {
+        "text": "anos",
+        "start": 6.634,
+        "end": 6.898
+      },
+      {
+        "text": "de",
+        "start": 6.91,
+        "end": 7.006
+      },
+      {
+        "text": "obra",
+        "start": 7.018,
+        "end": 7.355
+      },
+      {
+        "text": "Pronto",
+        "start": 8.184,
+        "end": 8.581
+      },
+      {
+        "text": "agora",
+        "start": 8.845,
+        "end": 9.182
+      },
+      {
+        "text": "você",
+        "start": 9.194,
+        "end": 9.422
+      },
+      {
+        "text": "sabe",
+        "start": 9.434,
+        "end": 9.723
+      },
+      {
+        "text": "como",
+        "start": 9.735,
+        "end": 9.951
+      },
+      {
+        "text": "se",
+        "start": 9.963,
+        "end": 10.071
+      },
+      {
+        "text": "ergueu",
+        "start": 10.083,
+        "end": 10.348
+      },
+      {
+        "text": "Stonehenge",
+        "start": 10.36,
+        "end": 10.985
+      },
+      {
+        "text": "só",
+        "start": 11.213,
+        "end": 11.466
+      },
+      {
+        "text": "com",
+        "start": 11.478,
+        "end": 11.658
+      },
+      {
+        "text": "pedra",
+        "start": 11.67,
+        "end": 12.042
+      },
+      {
+        "text": "madeira",
+        "start": 12.271,
+        "end": 12.704
+      },
+      {
+        "text": "e",
+        "start": 12.716,
+        "end": 12.776
+      },
+      {
+        "text": "corda",
+        "start": 12.788,
+        "end": 13.22
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}

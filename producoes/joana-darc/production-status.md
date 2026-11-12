@@ -1,7 +1,7 @@
 # Status de produção — Quem foi ela? | Gigantes da Humanidade #2 (Joana d'Arc)
 
-- **Fase atual:** 1 — roteiro entregue.
-- **Status:** AGUARDANDO APROVAÇÃO — implementação e renderização não iniciadas.
+- **Fase atual:** 2 — passo 1 (folha de design).
+- **Status:** roteiro v1 APROVADO ("Aprovado"); AGUARDANDO APROVAÇÃO DOS DESIGNS NOVOS antes de animar.
 - **Versão do roteiro:** v1 (2026-11-12). Skill v2.0 + chamada final nova (comentar tema).
 - **Formato:** história/biografia com mistério do nome (formato do quadro).
 
@@ -25,3 +25,4 @@
 
 ## Histórico
 - 2026-11-12 — v1 entregue, aguardando aprovação.
+- 2026-11-12 — v1 aprovada ("Aprovado"). Projeto em video/ (copiado do Stonehenge). Folhas de design: video/src/JoanaSheet.tsx (JoanaSheet1–3); componentes novos em video/src/components/{Medieval,FranceMap}.tsx; Person.tsx ganhou armadura, elmo, batina, mitra, coroa, capa, sobreveste, estandarte, espada e lança; mapa em src/data/france.json (Natural Earth, gerado por script).
