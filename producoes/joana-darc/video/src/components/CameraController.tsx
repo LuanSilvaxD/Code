@@ -80,7 +80,8 @@ export const usePose = (pose: CameraPose) => {
   useLayoutEffect(() => {
     camera.position.set(...pose.position);
     camera.fov = pose.fov;
-    camera.near = CAMERA.near;
+    // plano "near" proporcional à distância: precisão de profundidade boa no mapa inteiro e nos closes
+    camera.near = Math.max(0.006, Math.min(1, Math.hypot(pose.position[0] - pose.target[0], pose.position[1] - pose.target[1], pose.position[2] - pose.target[2]) * 0.03));
     camera.far = CAMERA.far;
     camera.lookAt(...pose.target);
     camera.updateProjectionMatrix();

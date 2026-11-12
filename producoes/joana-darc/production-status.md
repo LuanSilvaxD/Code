@@ -1,7 +1,7 @@
 # Status de produção — Quem foi ela? | Gigantes da Humanidade #2 (Joana d'Arc)
 
-- **Fase atual:** 2 — passo 1 (folha de design).
-- **Status:** roteiro v1 APROVADO ("Aprovado"); AGUARDANDO APROVAÇÃO DOS DESIGNS NOVOS antes de animar.
+- **Fase atual:** 2 — render.
+- **Status:** roteiro v1 APROVADO; designs APROVADOS (com ajuste: cavaleiros sentados na sela). Render em trechos em andamento.
 - **Versão do roteiro:** v1 (2026-11-12). Skill v2.0 + chamada final nova (comentar tema).
 - **Formato:** história/biografia com mistério do nome (formato do quadro).
 
@@ -26,3 +26,9 @@
 ## Histórico
 - 2026-11-12 — v1 entregue, aguardando aprovação.
 - 2026-11-12 — v1 aprovada ("Aprovado"). Projeto em video/ (copiado do Stonehenge). Folhas de design: video/src/JoanaSheet.tsx (JoanaSheet1–3); componentes novos em video/src/components/{Medieval,FranceMap}.tsx; Person.tsx ganhou armadura, elmo, batina, mitra, coroa, capa, sobreveste, estandarte, espada e lança; mapa em src/data/france.json (Natural Earth, gerado por script).
+- 2026-11-12 — designs aprovados ("Sim… cavaleiros precisam estar sentados corretamente"); Rider com pose de montaria (coxa+canela por fora do lombo, sela). Bretanha sem cor no mapa.
+- 2026-11-12 — TTS real (rate +4%, cta +0%; fonética só no áudio: Rãns, Jâne, Dárc, Orleãns; ":"→","): fala 158,6 s.
+  GAPS 0,55 s (0,8 s nas viradas) para caber em 175 s; última fala termina em 169,4 s; encerramento 5,17 s.
+- Ajustes técnicos (sem mudar conteúdo): régua das estações 1 m = 0,04 u3d (o roteiro dizia 0,06; ficou menor
+  para as miniaturas caberem no mapa); estações sobre bases de miniatura acima das camadas do mapa; luzes pontuais em
+  unidades do mundo; rota some nos closes; câmeras recalibradas pela regra 0,24·d; câmera da viagem acompanha os cavaleiros.

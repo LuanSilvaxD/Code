@@ -80,7 +80,7 @@ const CHARS: Tile[] = [
     scene: (f) => (<><Floor w={10} />{[0, 1].map((i) => <Person key={`f${i}`} frame={f} position={[-1.6 + i * 0.8, 0, 0]} rotY={0.4} scale={PS} {...SOLDIER("fr", i)} seed={10 + i} />)}{[0, 1].map((i) => <Person key={`e${i}`} frame={f} position={[0.8 + i * 0.8, 0, 0]} rotY={-0.4} scale={PS} {...SOLDIER("en", i)} seed={20 + i} />)}</>),
   },
   {
-    name: "CAVALEIROS (CAVALO APROVADO)", size: "escolta de 6 · viagem noturna (s6)", target: [0, 1.3, 0], fit: 7, az: 70, el: 8, bg: NIGHT,
+    name: "CAVALEIROS (CAVALO APROVADO)", size: "sentados na sela · pernas por fora", target: [0, 1.4, 0], fit: 6.4, az: 25, el: 10, bg: NIGHT,
     scene: (f) => (<><Floor w={14} c="#3d4a3a" /><Rider f={f} p={[-1.4, 0, 0.6]} walk={1} horse="#e9e4da" person={{ ...HER.male, skin: sil("#eac3a2", 0), hair: sil("#5a3b26", 0), shirt: sil("#6b5a43", 0), pants: sil("#3f3a52", 0), shoes: sil("#3a2a1e", 0), scale: PS }} /><Rider f={f} p={[1.4, 0, -0.6]} walk={1} horse="#6b4a33" seed={4} person={{ ...SOLDIER("fr", 2), scale: PS }} /></>),
   },
   {

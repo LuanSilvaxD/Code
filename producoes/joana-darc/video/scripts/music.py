@@ -273,8 +273,8 @@ def groove(start, end, kick_g, hat_g, clap_g=0.0):
 #   "resolve" Fadd9 longo, sinos no FINAL_HIT (encerramento)
 n_sc = len(S)
 # Stonehenge: gancho misterioso → passado → mapa → obra (problemas/soluções) → anel completo → Sol → final
-INTENTS = ["calm", "calm", "curious", "curious", "build", "tense", "calm", "groove", "tense", "groove", "curious", "reveal", "build", "reveal", "resolve"]
-HITS: list[float] = [word("s5", 20), word("s9", 24), word("s12", 10)]
+INTENTS = ["tense", "calm", "curious", "curious", "tense", "build", "reveal", "tense", "build", "calm", "reveal", "tense", "tense", "reveal", "calm", "build", "reveal", "resolve"]
+HITS: list[float] = [word("s1", 20), word("s9", 31), word("s11", 19), word("s17", 21)]
 
 for i, intent in enumerate(INTENTS):
     a, b = S[i], (S[i + 1] if i + 1 < n_sc else DUR)

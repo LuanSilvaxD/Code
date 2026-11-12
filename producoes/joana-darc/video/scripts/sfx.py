@@ -459,4 +459,75 @@ def dig(d=0.9):
 
 save("dig", dig())
 
+
+# ---------------------------------------------------------------- EP. 02 (medieval)
+def gallop(d=3.0, bpm=330):
+    """Galope de vários cavalos ao longe: batidas graves de casco em grupos de 3."""
+    t = tt(d)
+    out = np.zeros(len(t))
+    step = 60 / bpm
+    k = 0
+    while k * step < d - 0.1:
+        for j, off in enumerate((0, 0.06, 0.12)):
+            i = int((k * step + off + rng.uniform(0, 0.012)) * SR)
+            n = int(0.07 * SR)
+            if i + n >= len(out):
+                continue
+            seg = (lp(rng.standard_normal(n), 900) * 0.7 + np.sin(2 * np.pi * (110 - j * 12) * np.arange(n) / SR) * 0.6) * np.exp(-np.linspace(0, 8, n))
+            out[i : i + n] += seg * (0.9 - 0.15 * j)
+        k += 1
+    return out * env(d, 0.4, 0.8) * 0.8
+
+
+def bells(d=3.2):
+    """Sinos de catedral: 3 badaladas com parciais inarmônicos e cauda longa."""
+    t = tt(d)
+    out = np.zeros(len(t))
+    for k, (t0, f0) in enumerate(((0.0, 392.0), (0.75, 329.6), (1.5, 261.6))):
+        i = int(t0 * SR)
+        tk = t[: len(t) - i]
+        partials = [(0.5, 0.5), (1.0, 1.0), (1.19, 0.6), (1.5, 0.45), (2.0, 0.35), (2.74, 0.2)]
+        seg = sum(a * np.sin(2 * np.pi * f0 * r * tk) * np.exp(-tk / (1.4 / r)) for r, a in partials)
+        out[i:] += seg * 0.22
+    return out
+
+
+def fire(d=4.0):
+    """Fogo: ruído grave filtrado + estalos aleatórios."""
+    t = tt(d)
+    base = lp(rng.standard_normal(len(t)), 700) * 0.5 * (0.8 + 0.2 * np.sin(2 * np.pi * 0.7 * t))
+    crack = np.zeros(len(t))
+    for _ in range(int(d * 9)):
+        i = rng.integers(0, len(t) - 600)
+        n = rng.integers(80, 500)
+        crack[i : i + n] += hp(rng.standard_normal(n), 2000) * np.exp(-np.linspace(0, 6, n)) * rng.uniform(0.3, 0.9)
+    return (base + crack * 0.5) * env(d, 0.6, 1.2)
+
+
+def chains(d=1.2):
+    """Correntes: cliques metálicos agudos com ressonância curta."""
+    t = tt(d)
+    out = np.zeros(len(t))
+    for _ in range(14):
+        i = rng.integers(0, int(0.9 * SR))
+        n = int(0.06 * SR)
+        f0 = rng.uniform(2400, 4200)
+        seg = np.sin(2 * np.pi * f0 * np.arange(n) / SR) * np.exp(-np.linspace(0, 9, n)) + hp(rng.standard_normal(n), 3000) * np.exp(-np.linspace(0, 14, n)) * 0.4
+        out[i : i + n] += seg * rng.uniform(0.3, 0.8)
+    return out * env(d, 0.01, 0.3) * 0.7
+
+
+def murmur(d=5.0):
+    """Burburinho de sala cheia: ruído na faixa da voz com modulação lenta (sem palavras)."""
+    t = tt(d)
+    x = bp(rng.standard_normal(len(t)), 250, 1400) * (0.6 + 0.4 * np.abs(np.sin(2 * np.pi * 1.7 * t + 0.3 * np.sin(2 * np.pi * 0.31 * t))))
+    return x * env(d, 0.8, 1.2) * 0.5
+
+
+save("gallop", gallop())
+save("bells", bells())
+save("fire", fire())
+save("chains", chains())
+save("murmur", murmur())
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

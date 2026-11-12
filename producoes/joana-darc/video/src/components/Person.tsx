@@ -48,6 +48,8 @@ export type PersonLook = {
   sword?: boolean;
   /** lança na mão direita (soldados) */
   spear?: boolean;
+  /** montado a cavalo: coxas abertas por fora do lombo, canelas penduradas, mãos à frente (rédeas) */
+  ride?: boolean;
   shirt?: string;
   sleeves?: "short" | "long";
   pants?: string;
@@ -144,6 +146,7 @@ export const Person: React.FC<PersonPose> = ({
   bannerWave = 1,
   sword = false,
   spear = false,
+  ride = false,
   skin = "#e8b48f",
   hair = "#3b2a22",
   hairStyle = "short",
@@ -190,7 +193,18 @@ export const Person: React.FC<PersonPose> = ({
         </>
       ) : null}
       {/* pernas (calça + sapato) */}
-      {longSkirt ? null : [-1, 1].map((s) => (
+      {ride && !longSkirt ? [-1, 1].map((s) => (
+        // coxa abre para fora (em z do mundo = lados do cavalo) e um pouco para a frente; canela desce vertical
+        <group key={`rleg${s}`} position={[0.095 * s, 0.82, 0]} rotation={[-0.35, 0, s * 0.95]}>
+          <group position={[0, -0.21, 0]}>{rb([0.15, 0.44, 0.16], pants)}</group>
+          {armor ? <group position={[0, -0.21, 0.012]}>{rb([0.165, 0.32, 0.175], armor, 0.04)}</group> : null}
+          <group position={[0, -0.42, 0]} rotation={[0.35, 0, -s * 0.95]}>
+            <group position={[0, -0.19, 0]}>{rb([0.135, 0.4, 0.15], armor ?? pants)}</group>
+            <group position={[0, -0.41, 0.04]}>{rb([0.145, 0.08, 0.25], armor ?? shoes, 0.03)}</group>
+          </group>
+        </group>
+      )) : null}
+      {longSkirt || ride ? null : [-1, 1].map((s) => (
         <group key={`leg${s}`} position={[0.095 * s, 0.82, 0]} rotation={[s * legSwing, 0, 0]}>
           <group position={[0, -0.38, 0]}>{rb([0.135, 0.76, 0.15], pants)}</group>
           {armor ? <group position={[0, -0.52, 0.012]}>{rb([0.15, 0.36, 0.165], armor, 0.04)}</group> : null}
@@ -225,7 +239,7 @@ export const Person: React.FC<PersonPose> = ({
       {/* braços: manga + antebraço + mão */}
       {[-1, 1].map((s) => {
         const right = s > 0;
-        const rx = right && holding ? -0.55 : (right ? -armSwing - pt * 1.45 : armSwing);
+        const rx = right && holding ? -0.55 : ride ? -0.75 : (right ? -armSwing - pt * 1.45 : armSwing);
         const rz = (right ? waveZ : 0) * s + s * 0.06;
         return (
           <group key={`arm${s}`} position={[0.245 * s, 1.33, 0]} rotation={[rx, 0, rz]}>

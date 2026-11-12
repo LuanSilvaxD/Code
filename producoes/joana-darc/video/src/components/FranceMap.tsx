@@ -34,7 +34,7 @@ const Tint: React.FC<{ rings: P2[][]; color: string; k: number }> = ({ rings, co
   const geos = useMemo(() => rings.map((r) => new ShapeGeometry(toShape(r))), [rings]);
   if (k < 0.01) return null;
   return (
-    <group position={[0, LAND_H + 0.03, 0]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={2}>
+    <group position={[0, LAND_H + 0.014, 0]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={2}>
       {geos.map((g, i) => (
         <mesh key={i} geometry={g} receiveShadow>
           <meshStandardMaterial color={color} transparent opacity={0.55 * clamp(k, 0, 1)} roughness={1} depthWrite={false} polygonOffset polygonOffsetFactor={-4} polygonOffsetUnits={-4} />
@@ -45,29 +45,29 @@ const Tint: React.FC<{ rings: P2[][]; color: string; k: number }> = ({ rings, co
 };
 
 const River: React.FC<{ pts: P2[] }> = ({ pts }) => {
-  const curve = useMemo(() => new CatmullRomCurve3(pts.map(([x, z]) => new Vector3(x, LAND_H + 0.05, z))), [pts]);
+  const curve = useMemo(() => new CatmullRomCurve3(pts.map(([x, z]) => new Vector3(x, LAND_H + 0.0, z))), [pts]);
   return (
-    <mesh>
-      <tubeGeometry args={[curve, 80, 0.07, 5, false]} />
+    <mesh scale={[1, 0.4, 1]} position={[0, LAND_H * 0.6, 0]}>
+      <tubeGeometry args={[curve, 80, 0.06, 5, false]} />
       <meshStandardMaterial color="#5d9cc9" roughness={0.4} emissive="#2d5d8a" emissiveIntensity={0.2} />
     </mesh>
   );
 };
 
 /** Rota da viagem (fenda de luz roxa) desenhada até a fração `draw` (0..1) da lista de pontos. */
-export const Route: React.FC<{ pts: Vec3[]; draw: number; color?: string; glow?: number; dashed?: boolean }> = ({ pts, draw, color = "#a78bfa", glow = 0, dashed = false }) => {
+export const Route: React.FC<{ pts: Vec3[]; draw: number; color?: string; glow?: number; dashed?: boolean; opacity?: number }> = ({ pts, draw, color = "#a78bfa", glow = 0, dashed = false, opacity = 1 }) => {
   const curve = useMemo(() => new CatmullRomCurve3(pts.map((p) => new Vector3(p[0], p[1] + 0.06, p[2])), false, "centripetal"), [pts]);
   const d = clamp(draw, 0, 1);
-  if (d < 0.005) return null;
+  if (d < 0.005 || opacity < 0.02) return null;
   const n = Math.max(2, Math.round(160 * d));
   const line = Array.from({ length: n + 1 }, (_, i) => curve.getPoint((i / n) * d));
   return (
     <group renderOrder={5}>
-      <Line points={line} color={color} lineWidth={7 + glow * 5} dashed={dashed} dashSize={0.35} gapSize={0.22} transparent opacity={0.95} depthTest={false} renderOrder={5} />
-      <Line points={line} color="#f5f0ff" lineWidth={2.4} transparent opacity={0.9} depthTest={false} renderOrder={6} />
+      <Line points={line} color={color} lineWidth={7 + glow * 5} dashed={dashed} dashSize={0.35} gapSize={0.22} transparent opacity={0.95 * opacity} depthTest={false} renderOrder={5} />
+      <Line points={line} color="#f5f0ff" lineWidth={2.4} transparent opacity={0.9 * opacity} depthTest={false} renderOrder={6} />
       <mesh position={line[line.length - 1]}>
-        <sphereGeometry args={[0.16 + glow * 0.08, 12, 8]} />
-        <meshStandardMaterial color="#f5f0ff" emissive="#a78bfa" emissiveIntensity={1.6} />
+        <sphereGeometry args={[0.07 + glow * 0.03, 12, 8]} />
+        <meshStandardMaterial color="#f5f0ff" emissive="#a78bfa" emissiveIntensity={1.6} transparent opacity={opacity} />
       </mesh>
     </group>
   );
@@ -106,7 +106,7 @@ export const FranceMap: React.FC<{ eng?: number; fra?: number; border?: number }
         ))}
       </group>
       {/* França por cima, em verde-campo */}
-      <group position={[0, LAND_H + 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <group position={[0, LAND_H + 0.006, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         {frGeos.map((g, i) => (
           <mesh key={i} geometry={g} receiveShadow>
             <meshStandardMaterial color="#9bb377" roughness={1} polygonOffset polygonOffsetFactor={-2} polygonOffsetUnits={-2} />
@@ -116,7 +116,7 @@ export const FranceMap: React.FC<{ eng?: number; fra?: number; border?: number }
       <Tint rings={map.tintEng as P2[][]} color={ENG} k={eng} />
       <Tint rings={map.tintFr as P2[][]} color={FRA} k={fra} />
       {border > 0.01
-        ? fr.map((r, i) => <Line key={i} points={r.map(([x, z]) => [x, LAND_H + 0.045, z] as [number, number, number])} color="#f3ead2" lineWidth={2.2} transparent opacity={0.8 * border} />)
+        ? fr.map((r, i) => <Line key={i} points={r.map(([x, z]) => [x, LAND_H + 0.022, z] as [number, number, number])} color="#f3ead2" lineWidth={2.2} transparent opacity={0.8 * border} />)
         : null}
       <River pts={map.loire as P2[]} />
       <River pts={map.seine as P2[]} />

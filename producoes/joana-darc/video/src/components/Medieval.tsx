@@ -405,7 +405,7 @@ export const OrleansCity: React.FC<{ f: number; R?: number; forts?: number; tour
 };
 
 /** Fogueira estilizada: plataforma de reboco, estaca, feixes de lenha e chamas/fumaça (fire 0..1). Sem corpo. */
-export const Pyre: React.FC<{ p?: Vec3; fire?: number; f: number }> = ({ p = [0, 0, 0], fire = 0, f }) => {
+export const Pyre: React.FC<{ p?: Vec3; fire?: number; f: number; u?: number }> = ({ p = [0, 0, 0], fire = 0, f, u = 1 }) => {
   const k = clamp(fire, 0, 1);
   return (
     <group position={p}>
@@ -439,26 +439,26 @@ export const Pyre: React.FC<{ p?: Vec3; fire?: number; f: number }> = ({ p = [0,
             );
           })
         : null}
-      {k > 0.01 ? <pointLight position={[0, 3, 1.5]} intensity={4 * k} distance={18} color="#ff9a4a" /> : null}
+      {k > 0.01 ? <pointLight position={[0, 3, 1.5]} intensity={2.4 * k} distance={16 * u} decay={0} color="#ff9a4a" /> : null}
     </group>
   );
 };
 
-const GOLD = "#c9962f";
+const GOLD = "#b8862a";
 /** Estátua equestre dourada sobre pedestal (homenagem — aparece no fim). */
-export const Statue: React.FC<{ p?: Vec3; f: number; glow?: number; rider?: React.ReactNode }> = ({ p = [0, 0, 0], f, glow = 0, rider }) => (
+export const Statue: React.FC<{ p?: Vec3; f: number; glow?: number; rider?: React.ReactNode; u?: number }> = ({ p = [0, 0, 0], f, glow = 0, rider, u = 1 }) => (
   <group position={p}>
     <Box p={[0, 1.6, 0]} s={[4.2, 3.2, 2.4]} c={STONE} />
     <Box p={[0, 3.3, 0]} s={[4.6, 0.3, 2.8]} c={STONE_D} />
     <group position={[0, 3.45, 0]}>
       <Horse frame={0} color={GOLD} scale={1} />
       {rider ?? (
-        <group position={[-0.05, 0.72, 0]} rotation={[0, Math.PI / 2, 0]}>
-          <Person frame={f} skin={GOLD} hair={GOLD} armor={GOLD} pants={GOLD} shoes={GOLD} shirt={GOLD} banner={GOLD} bannerWave={0} seed={4} scale={0.94} />
+        <group position={[-0.06, SADDLE_Y - 0.82 * 0.94, 0]} rotation={[0, Math.PI / 2, 0]}>
+          <Person frame={f} skin={GOLD} hair={GOLD} armor={GOLD} pants={GOLD} shoes={GOLD} shirt={GOLD} banner={GOLD} bannerWave={0} seed={4} scale={0.94} ride />
         </group>
       )}
     </group>
-    {glow > 0.01 ? <pointLight position={[0, 6, 4]} intensity={3 * glow} distance={14} color="#ffe2a0" /> : null}
+    {glow > 0.01 ? <pointLight position={[0, 6, 4]} intensity={1.6 * glow} distance={12 * u} decay={0} color="#ffe2a0" /> : null}
   </group>
 );
 
@@ -493,12 +493,21 @@ export const Arrow: React.FC<{ p?: Vec3; rot?: Vec3 }> = ({ p = [0, 0, 0], rot }
   </group>
 );
 
-/** Cavaleiro: cavalo (aprovado) + pessoa montada (pernas escondidas no corpo do cavalo). Frente para +x. */
-export const Rider: React.FC<{ p?: Vec3; rotY?: number; f: number; walk?: number; horse?: string; seed?: number; person: Omit<React.ComponentProps<typeof Person>, "frame"> }> = ({ p = [0, 0, 0], rotY = 0, f, walk = 0, horse, seed = 0, person }) => (
-  <group position={p} rotation={[0, rotY, 0]}>
-    <Horse frame={f} walk={walk} color={horse} seed={seed} />
-    <group position={[-0.05, 0.72 + walk * 0.04 * Math.abs(Math.sin(f * 0.25)), 0]} rotation={[0, Math.PI / 2, 0]}>
-      <Person {...person} frame={f} seed={seed} />
+/** Cavaleiro: cavalo (aprovado) + pessoa SENTADA na sela (quadril no lombo, pernas por fora). Frente para +x. */
+export const SADDLE_Y = 1.6; // topo do lombo do cavalo (scale 1) + sela
+export const Rider: React.FC<{ p?: Vec3; rotY?: number; f: number; walk?: number; horse?: string; seed?: number; person: Omit<React.ComponentProps<typeof Person>, "frame"> }> = ({ p = [0, 0, 0], rotY = 0, f, walk = 0, horse, seed = 0, person }) => {
+  const ps = person.scale ?? 1;
+  const bob = walk * 0.035 * Math.abs(Math.sin(f * 0.25));
+  return (
+    <group position={p} rotation={[0, rotY, 0]}>
+      <Horse frame={f} walk={walk} color={horse} seed={seed} />
+      {/* sela + manta */}
+      <Box p={[-0.02, 1.56 + bob, 0]} s={[0.62, 0.08, 0.66]} c="#5a3b28" />
+      <Box p={[-0.02, 1.5 + bob, 0]} s={[0.78, 0.04, 0.72]} c={person.tabard ?? "#8a2f3a"} />
+      <Box p={[0.24, 1.66 + bob, 0]} s={[0.08, 0.14, 0.3]} c="#4a3322" />
+      <group position={[-0.06, SADDLE_Y - 0.82 * ps + bob, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <Person {...person} ride frame={f} seed={seed} />
+      </group>
     </group>
-  </group>
-);
+  );
+};
