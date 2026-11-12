@@ -1,0 +1,1496 @@
+{
+  "s1": {
+    "text": "Os soviéticos cavaram um buraco de doze quilômetros para dentro da Terra. Dizem que pararam porque ouviram gritos. A verdade é mais estranha.",
+    "seconds": 9.086,
+    "words": [
+      {
+        "text": "Os",
+        "start": 0,
+        "end": 0.102
+      },
+      {
+        "text": "soviéticos",
+        "start": 0.114,
+        "end": 0.787
+      },
+      {
+        "text": "cavaram",
+        "start": 0.799,
+        "end": 1.172
+      },
+      {
+        "text": "um",
+        "start": 1.184,
+        "end": 1.244
+      },
+      {
+        "text": "buraco",
+        "start": 1.256,
+        "end": 1.677
+      },
+      {
+        "text": "de",
+        "start": 1.689,
+        "end": 1.797
+      },
+      {
+        "text": "doze",
+        "start": 1.809,
+        "end": 2.158
+      },
+      {
+        "text": "quilômetros",
+        "start": 2.17,
+        "end": 2.723
+      },
+      {
+        "text": "para",
+        "start": 2.735,
+        "end": 2.927
+      },
+      {
+        "text": "dentro",
+        "start": 2.939,
+        "end": 3.251
+      },
+      {
+        "text": "da",
+        "start": 3.263,
+        "end": 3.372
+      },
+      {
+        "text": "Terra",
+        "start": 3.384,
+        "end": 3.744
+      },
+      {
+        "text": "Dizem",
+        "start": 4.572,
+        "end": 4.992
+      },
+      {
+        "text": "que",
+        "start": 5.004,
+        "end": 5.1
+      },
+      {
+        "text": "pararam",
+        "start": 5.112,
+        "end": 5.485
+      },
+      {
+        "text": "porque",
+        "start": 5.497,
+        "end": 5.761
+      },
+      {
+        "text": "ouviram",
+        "start": 5.774,
+        "end": 6.17
+      },
+      {
+        "text": "gritos",
+        "start": 6.182,
+        "end": 6.675
+      },
+      {
+        "text": "A",
+        "start": 7.504,
+        "end": 7.612
+      },
+      {
+        "text": "verdade",
+        "start": 7.624,
+        "end": 8.141
+      },
+      {
+        "text": "é",
+        "start": 8.153,
+        "end": 8.189
+      },
+      {
+        "text": "mais",
+        "start": 8.201,
+        "end": 8.418
+      },
+      {
+        "text": "estranha",
+        "start": 8.43,
+        "end": 8.983
+      }
+    ]
+  },
+  "s2": {
+    "text": "Em 1989, rodou o mundo a história do poço para o inferno, microfone no fundo, gritos, calor de mais de mil graus.",
+    "seconds": 8.073,
+    "words": [
+      {
+        "text": "Em",
+        "start": 0,
+        "end": 0.771
+      },
+      {
+        "text": "1989",
+        "start": 0.771,
+        "end": 1.595
+      },
+      {
+        "text": "rodou",
+        "start": 1.895,
+        "end": 2.22
+      },
+      {
+        "text": "o",
+        "start": 2.232,
+        "end": 2.256
+      },
+      {
+        "text": "mundo",
+        "start": 2.268,
+        "end": 2.58
+      },
+      {
+        "text": "a",
+        "start": 2.592,
+        "end": 2.616
+      },
+      {
+        "text": "história",
+        "start": 2.628,
+        "end": 2.977
+      },
+      {
+        "text": "do",
+        "start": 2.989,
+        "end": 3.097
+      },
+      {
+        "text": "poço",
+        "start": 3.109,
+        "end": 3.458
+      },
+      {
+        "text": "para",
+        "start": 3.47,
+        "end": 3.638
+      },
+      {
+        "text": "o",
+        "start": 3.65,
+        "end": 3.662
+      },
+      {
+        "text": "inferno",
+        "start": 3.674,
+        "end": 4.179
+      },
+      {
+        "text": "microfone",
+        "start": 4.443,
+        "end": 5.02
+      },
+      {
+        "text": "no",
+        "start": 5.032,
+        "end": 5.128
+      },
+      {
+        "text": "fundo",
+        "start": 5.14,
+        "end": 5.477
+      },
+      {
+        "text": "gritos",
+        "start": 5.681,
+        "end": 6.126
+      },
+      {
+        "text": "calor",
+        "start": 6.318,
+        "end": 6.751
+      },
+      {
+        "text": "de",
+        "start": 6.763,
+        "end": 6.871
+      },
+      {
+        "text": "mais",
+        "start": 6.883,
+        "end": 7.184
+      },
+      {
+        "text": "de",
+        "start": 7.196,
+        "end": 7.292
+      },
+      {
+        "text": "mil",
+        "start": 7.304,
+        "end": 7.508
+      },
+      {
+        "text": "graus",
+        "start": 7.52,
+        "end": 7.989
+      }
+    ]
+  },
+  "s3": {
+    "text": "Era boato. O áudio era uma montagem de efeitos sonoros, e o poço nem ficava na Sibéria.",
+    "seconds": 5.871,
+    "words": [
+      {
+        "text": "Era",
+        "start": 0,
+        "end": 0.174
+      },
+      {
+        "text": "boato",
+        "start": 0.186,
+        "end": 0.655
+      },
+      {
+        "text": "O",
+        "start": 1.483,
+        "end": 1.639
+      },
+      {
+        "text": "áudio",
+        "start": 1.651,
+        "end": 1.987
+      },
+      {
+        "text": "era",
+        "start": 1.999,
+        "end": 2.096
+      },
+      {
+        "text": "uma",
+        "start": 2.108,
+        "end": 2.192
+      },
+      {
+        "text": "montagem",
+        "start": 2.204,
+        "end": 2.721
+      },
+      {
+        "text": "de",
+        "start": 2.733,
+        "end": 2.805
+      },
+      {
+        "text": "efeitos",
+        "start": 2.817,
+        "end": 3.213
+      },
+      {
+        "text": "sonoros",
+        "start": 3.225,
+        "end": 3.706
+      },
+      {
+        "text": "e",
+        "start": 3.959,
+        "end": 4.031
+      },
+      {
+        "text": "o",
+        "start": 4.043,
+        "end": 4.115
+      },
+      {
+        "text": "poço",
+        "start": 4.127,
+        "end": 4.547
+      },
+      {
+        "text": "nem",
+        "start": 4.56,
+        "end": 4.752
+      },
+      {
+        "text": "ficava",
+        "start": 4.764,
+        "end": 5.173
+      },
+      {
+        "text": "na",
+        "start": 5.185,
+        "end": 5.281
+      },
+      {
+        "text": "Sibéria",
+        "start": 5.293,
+        "end": 5.773
+      }
+    ]
+  },
+  "s4": {
+    "text": "O de verdade fica em Kola, no extremo norte da Rússia. Começou em 1970, com uma missão, furar a crosta e ver o que tem lá dentro.",
+    "seconds": 9.034,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.051
+      },
+      {
+        "text": "de",
+        "start": 0.063,
+        "end": 0.147
+      },
+      {
+        "text": "verdade",
+        "start": 0.159,
+        "end": 0.664
+      },
+      {
+        "text": "fica",
+        "start": 0.676,
+        "end": 0.881
+      },
+      {
+        "text": "em",
+        "start": 0.893,
+        "end": 0.977
+      },
+      {
+        "text": "Kola",
+        "start": 0.989,
+        "end": 1.301
+      },
+      {
+        "text": "no",
+        "start": 1.554,
+        "end": 1.626
+      },
+      {
+        "text": "extremo",
+        "start": 1.638,
+        "end": 2.034
+      },
+      {
+        "text": "norte",
+        "start": 2.046,
+        "end": 2.383
+      },
+      {
+        "text": "da",
+        "start": 2.395,
+        "end": 2.503
+      },
+      {
+        "text": "Rússia",
+        "start": 2.515,
+        "end": 2.924
+      },
+      {
+        "text": "Começou",
+        "start": 3.751,
+        "end": 4.244
+      },
+      {
+        "text": "em",
+        "start": 4.256,
+        "end": 4.959
+      },
+      {
+        "text": "1970",
+        "start": 4.959,
+        "end": 5.662
+      },
+      {
+        "text": "com",
+        "start": 5.951,
+        "end": 6.071
+      },
+      {
+        "text": "uma",
+        "start": 6.083,
+        "end": 6.191
+      },
+      {
+        "text": "missão",
+        "start": 6.203,
+        "end": 6.588
+      },
+      {
+        "text": "furar",
+        "start": 6.936,
+        "end": 7.225
+      },
+      {
+        "text": "a",
+        "start": 7.237,
+        "end": 7.309
+      },
+      {
+        "text": "crosta",
+        "start": 7.321,
+        "end": 7.706
+      },
+      {
+        "text": "e",
+        "start": 7.718,
+        "end": 7.766
+      },
+      {
+        "text": "ver",
+        "start": 7.778,
+        "end": 7.994
+      },
+      {
+        "text": "o",
+        "start": 8.006,
+        "end": 8.054
+      },
+      {
+        "text": "que",
+        "start": 8.066,
+        "end": 8.198
+      },
+      {
+        "text": "tem",
+        "start": 8.21,
+        "end": 8.367
+      },
+      {
+        "text": "lá",
+        "start": 8.379,
+        "end": 8.523
+      },
+      {
+        "text": "dentro",
+        "start": 8.535,
+        "end": 8.956
+      }
+    ]
+  },
+  "s5": {
+    "text": "O furo tem só vinte e três centímetros de largura. Mas foi descendo.",
+    "seconds": 4.525,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.062
+      },
+      {
+        "text": "furo",
+        "start": 0.074,
+        "end": 0.423
+      },
+      {
+        "text": "tem",
+        "start": 0.435,
+        "end": 0.591
+      },
+      {
+        "text": "só",
+        "start": 0.603,
+        "end": 0.795
+      },
+      {
+        "text": "vinte",
+        "start": 0.807,
+        "end": 1.048
+      },
+      {
+        "text": "e",
+        "start": 1.06,
+        "end": 1.096
+      },
+      {
+        "text": "três",
+        "start": 1.108,
+        "end": 1.312
+      },
+      {
+        "text": "centímetros",
+        "start": 1.324,
+        "end": 1.961
+      },
+      {
+        "text": "de",
+        "start": 1.973,
+        "end": 2.033
+      },
+      {
+        "text": "largura",
+        "start": 2.045,
+        "end": 2.562
+      },
+      {
+        "text": "Mas",
+        "start": 3.39,
+        "end": 3.69
+      },
+      {
+        "text": "foi",
+        "start": 3.702,
+        "end": 3.87
+      },
+      {
+        "text": "descendo",
+        "start": 3.882,
+        "end": 4.411
+      }
+    ]
+  },
+  "s6": {
+    "text": "Com oito quilômetros e meio, já era mais fundo que o Everest é alto. Com onze, mais fundo que a Fossa das Marianas.",
+    "seconds": 7.278,
+    "words": [
+      {
+        "text": "Com",
+        "start": 0,
+        "end": 0.176
+      },
+      {
+        "text": "oito",
+        "start": 0.188,
+        "end": 0.429
+      },
+      {
+        "text": "quilômetros",
+        "start": 0.441,
+        "end": 0.946
+      },
+      {
+        "text": "e",
+        "start": 0.958,
+        "end": 1.066
+      },
+      {
+        "text": "meio",
+        "start": 1.078,
+        "end": 1.39
+      },
+      {
+        "text": "já",
+        "start": 1.679,
+        "end": 1.823
+      },
+      {
+        "text": "era",
+        "start": 1.835,
+        "end": 1.991
+      },
+      {
+        "text": "mais",
+        "start": 2.003,
+        "end": 2.232
+      },
+      {
+        "text": "fundo",
+        "start": 2.244,
+        "end": 2.544
+      },
+      {
+        "text": "que",
+        "start": 2.556,
+        "end": 2.652
+      },
+      {
+        "text": "o",
+        "start": 2.664,
+        "end": 2.749
+      },
+      {
+        "text": "Everest",
+        "start": 2.761,
+        "end": 3.253
+      },
+      {
+        "text": "é",
+        "start": 3.265,
+        "end": 3.325
+      },
+      {
+        "text": "alto",
+        "start": 3.337,
+        "end": 3.698
+      },
+      {
+        "text": "Com",
+        "start": 4.526,
+        "end": 4.766
+      },
+      {
+        "text": "onze",
+        "start": 4.778,
+        "end": 5.078
+      },
+      {
+        "text": "mais",
+        "start": 5.307,
+        "end": 5.535
+      },
+      {
+        "text": "fundo",
+        "start": 5.547,
+        "end": 5.86
+      },
+      {
+        "text": "que",
+        "start": 5.872,
+        "end": 5.944
+      },
+      {
+        "text": "a",
+        "start": 5.956,
+        "end": 6.028
+      },
+      {
+        "text": "Fossa",
+        "start": 6.04,
+        "end": 6.364
+      },
+      {
+        "text": "das",
+        "start": 6.376,
+        "end": 6.545
+      },
+      {
+        "text": "Marianas",
+        "start": 6.557,
+        "end": 7.194
+      }
+    ]
+  },
+  "s7": {
+    "text": "Em 1989, chegou a 12.262 metros. Poços de petróleo já foram mais compridos, mas inclinados. Na vertical, ninguém desceu tanto.",
+    "seconds": 11.819,
+    "words": [
+      {
+        "text": "Em",
+        "start": 0,
+        "end": 0.753
+      },
+      {
+        "text": "1989",
+        "start": 0.753,
+        "end": 1.559
+      },
+      {
+        "text": "chegou",
+        "start": 1.835,
+        "end": 2.196
+      },
+      {
+        "text": "a",
+        "start": 2.208,
+        "end": 2.28
+      },
+      {
+        "text": "12.262",
+        "start": 2.292,
+        "end": 3.439
+      },
+      {
+        "text": "metros",
+        "start": 3.439,
+        "end": 4.587
+      },
+      {
+        "text": "Poços",
+        "start": 5.415,
+        "end": 5.775
+      },
+      {
+        "text": "de",
+        "start": 5.788,
+        "end": 5.86
+      },
+      {
+        "text": "petróleo",
+        "start": 5.872,
+        "end": 6.328
+      },
+      {
+        "text": "já",
+        "start": 6.34,
+        "end": 6.461
+      },
+      {
+        "text": "foram",
+        "start": 6.473,
+        "end": 6.725
+      },
+      {
+        "text": "mais",
+        "start": 6.737,
+        "end": 6.953
+      },
+      {
+        "text": "compridos",
+        "start": 6.965,
+        "end": 7.59
+      },
+      {
+        "text": "mas",
+        "start": 7.807,
+        "end": 7.951
+      },
+      {
+        "text": "inclinados",
+        "start": 7.963,
+        "end": 8.804
+      },
+      {
+        "text": "Na",
+        "start": 9.634,
+        "end": 9.802
+      },
+      {
+        "text": "vertical",
+        "start": 9.814,
+        "end": 10.355
+      },
+      {
+        "text": "ninguém",
+        "start": 10.631,
+        "end": 10.968
+      },
+      {
+        "text": "desceu",
+        "start": 10.98,
+        "end": 11.316
+      },
+      {
+        "text": "tanto",
+        "start": 11.328,
+        "end": 11.725
+      }
+    ]
+  },
+  "s8": {
+    "text": "Lá embaixo, surpresas, rocha rachada e cheia de água, onde ninguém esperava. E fósseis microscópicos de plâncton, com uns dois bilhões de anos.",
+    "seconds": 9.81,
+    "words": [
+      {
+        "text": "Lá",
+        "start": 0,
+        "end": 0.151
+      },
+      {
+        "text": "embaixo",
+        "start": 0.163,
+        "end": 0.704
+      },
+      {
+        "text": "surpresas",
+        "start": 0.933,
+        "end": 1.618
+      },
+      {
+        "text": "rocha",
+        "start": 1.87,
+        "end": 2.195
+      },
+      {
+        "text": "rachada",
+        "start": 2.207,
+        "end": 2.76
+      },
+      {
+        "text": "e",
+        "start": 2.772,
+        "end": 2.832
+      },
+      {
+        "text": "cheia",
+        "start": 2.844,
+        "end": 3.144
+      },
+      {
+        "text": "de",
+        "start": 3.156,
+        "end": 3.276
+      },
+      {
+        "text": "água",
+        "start": 3.288,
+        "end": 3.613
+      },
+      {
+        "text": "onde",
+        "start": 3.841,
+        "end": 4.082
+      },
+      {
+        "text": "ninguém",
+        "start": 4.094,
+        "end": 4.43
+      },
+      {
+        "text": "esperava",
+        "start": 4.442,
+        "end": 4.995
+      },
+      {
+        "text": "E",
+        "start": 5.823,
+        "end": 5.931
+      },
+      {
+        "text": "fósseis",
+        "start": 5.943,
+        "end": 6.4
+      },
+      {
+        "text": "microscópicos",
+        "start": 6.412,
+        "end": 7.217
+      },
+      {
+        "text": "de",
+        "start": 7.229,
+        "end": 7.325
+      },
+      {
+        "text": "plâncton",
+        "start": 7.337,
+        "end": 7.794
+      },
+      {
+        "text": "com",
+        "start": 8.058,
+        "end": 8.214
+      },
+      {
+        "text": "uns",
+        "start": 8.226,
+        "end": 8.335
+      },
+      {
+        "text": "dois",
+        "start": 8.347,
+        "end": 8.659
+      },
+      {
+        "text": "bilhões",
+        "start": 8.671,
+        "end": 9.188
+      },
+      {
+        "text": "de",
+        "start": 9.2,
+        "end": 9.32
+      },
+      {
+        "text": "anos",
+        "start": 9.332,
+        "end": 9.717
+      }
+    ]
+  },
+  "s9": {
+    "text": "Então por que pararam? Esperavam cem graus no fundo. Encontraram cento e oitenta.",
+    "seconds": 6.297,
+    "words": [
+      {
+        "text": "Então",
+        "start": 0,
+        "end": 0.375
+      },
+      {
+        "text": "por",
+        "start": 0.387,
+        "end": 0.531
+      },
+      {
+        "text": "que",
+        "start": 0.543,
+        "end": 0.687
+      },
+      {
+        "text": "pararam",
+        "start": 0.699,
+        "end": 1.216
+      },
+      {
+        "text": "Esperavam",
+        "start": 2.044,
+        "end": 2.644
+      },
+      {
+        "text": "cem",
+        "start": 2.656,
+        "end": 2.909
+      },
+      {
+        "text": "graus",
+        "start": 2.921,
+        "end": 3.221
+      },
+      {
+        "text": "no",
+        "start": 3.233,
+        "end": 3.33
+      },
+      {
+        "text": "fundo",
+        "start": 3.342,
+        "end": 3.726
+      },
+      {
+        "text": "Encontraram",
+        "start": 4.556,
+        "end": 5.265
+      },
+      {
+        "text": "cento",
+        "start": 5.277,
+        "end": 5.649
+      },
+      {
+        "text": "e",
+        "start": 5.661,
+        "end": 5.685
+      },
+      {
+        "text": "oitenta",
+        "start": 5.697,
+        "end": 6.202
+      }
+    ]
+  },
+  "s10": {
+    "text": "Nesse calor, a rocha fica mole, quase massinha, e vai fechando o furo atrás da broca.",
+    "seconds": 5.157,
+    "words": [
+      {
+        "text": "Nesse",
+        "start": 0,
+        "end": 0.302
+      },
+      {
+        "text": "calor",
+        "start": 0.314,
+        "end": 0.71
+      },
+      {
+        "text": "a",
+        "start": 0.963,
+        "end": 1.035
+      },
+      {
+        "text": "rocha",
+        "start": 1.047,
+        "end": 1.419
+      },
+      {
+        "text": "fica",
+        "start": 1.431,
+        "end": 1.672
+      },
+      {
+        "text": "mole",
+        "start": 1.684,
+        "end": 2.044
+      },
+      {
+        "text": "quase",
+        "start": 2.225,
+        "end": 2.537
+      },
+      {
+        "text": "massinha",
+        "start": 2.549,
+        "end": 3.042
+      },
+      {
+        "text": "e",
+        "start": 3.294,
+        "end": 3.391
+      },
+      {
+        "text": "vai",
+        "start": 3.403,
+        "end": 3.547
+      },
+      {
+        "text": "fechando",
+        "start": 3.559,
+        "end": 3.931
+      },
+      {
+        "text": "o",
+        "start": 3.943,
+        "end": 3.967
+      },
+      {
+        "text": "furo",
+        "start": 3.98,
+        "end": 4.208
+      },
+      {
+        "text": "atrás",
+        "start": 4.22,
+        "end": 4.556
+      },
+      {
+        "text": "da",
+        "start": 4.568,
+        "end": 4.665
+      },
+      {
+        "text": "broca",
+        "start": 4.677,
+        "end": 5.073
+      }
+    ]
+  },
+  "s11": {
+    "text": "Tentaram até 1992 e não passaram dos doze quilômetros. Aí a União Soviética acabou, e o dinheiro também.",
+    "seconds": 7.949,
+    "words": [
+      {
+        "text": "Tentaram",
+        "start": 0,
+        "end": 0.491
+      },
+      {
+        "text": "até",
+        "start": 0.503,
+        "end": 0.683
+      },
+      {
+        "text": "1992",
+        "start": 0.695,
+        "end": 1.435
+      },
+      {
+        "text": "e",
+        "start": 1.435,
+        "end": 2.174
+      },
+      {
+        "text": "não",
+        "start": 2.186,
+        "end": 2.354
+      },
+      {
+        "text": "passaram",
+        "start": 2.366,
+        "end": 2.763
+      },
+      {
+        "text": "dos",
+        "start": 2.775,
+        "end": 2.955
+      },
+      {
+        "text": "doze",
+        "start": 2.967,
+        "end": 3.279
+      },
+      {
+        "text": "quilômetros",
+        "start": 3.291,
+        "end": 3.964
+      },
+      {
+        "text": "Aí",
+        "start": 4.792,
+        "end": 5.08
+      },
+      {
+        "text": "a",
+        "start": 5.092,
+        "end": 5.201
+      },
+      {
+        "text": "União",
+        "start": 5.213,
+        "end": 5.537
+      },
+      {
+        "text": "Soviética",
+        "start": 5.549,
+        "end": 6.162
+      },
+      {
+        "text": "acabou",
+        "start": 6.174,
+        "end": 6.619
+      },
+      {
+        "text": "e",
+        "start": 6.907,
+        "end": 6.979
+      },
+      {
+        "text": "o",
+        "start": 6.991,
+        "end": 7.039
+      },
+      {
+        "text": "dinheiro",
+        "start": 7.051,
+        "end": 7.436
+      },
+      {
+        "text": "também",
+        "start": 7.448,
+        "end": 7.869
+      }
+    ]
+  },
+  "s12": {
+    "text": "E o mais estranho, isso é menos de 0,2% do caminho até o centro da Terra. Nem a casca do planeta foi furada.",
+    "seconds": 8.006,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.066
+      },
+      {
+        "text": "o",
+        "start": 0.078,
+        "end": 0.126
+      },
+      {
+        "text": "mais",
+        "start": 0.138,
+        "end": 0.391
+      },
+      {
+        "text": "estranho",
+        "start": 0.403,
+        "end": 0.908
+      },
+      {
+        "text": "isso",
+        "start": 1.208,
+        "end": 1.388
+      },
+      {
+        "text": "é",
+        "start": 1.4,
+        "end": 1.448
+      },
+      {
+        "text": "menos",
+        "start": 1.461,
+        "end": 1.821
+      },
+      {
+        "text": "de",
+        "start": 1.833,
+        "end": 1.929
+      },
+      {
+        "text": "0,2%",
+        "start": 1.941,
+        "end": 3.323
+      },
+      {
+        "text": "do",
+        "start": 3.335,
+        "end": 3.42
+      },
+      {
+        "text": "caminho",
+        "start": 3.432,
+        "end": 3.828
+      },
+      {
+        "text": "até",
+        "start": 3.84,
+        "end": 4.093
+      },
+      {
+        "text": "o",
+        "start": 4.105,
+        "end": 4.165
+      },
+      {
+        "text": "centro",
+        "start": 4.177,
+        "end": 4.597
+      },
+      {
+        "text": "da",
+        "start": 4.61,
+        "end": 4.706
+      },
+      {
+        "text": "Terra",
+        "start": 4.718,
+        "end": 5.078
+      },
+      {
+        "text": "Nem",
+        "start": 5.906,
+        "end": 6.194
+      },
+      {
+        "text": "a",
+        "start": 6.206,
+        "end": 6.278
+      },
+      {
+        "text": "casca",
+        "start": 6.29,
+        "end": 6.639
+      },
+      {
+        "text": "do",
+        "start": 6.651,
+        "end": 6.735
+      },
+      {
+        "text": "planeta",
+        "start": 6.747,
+        "end": 7.24
+      },
+      {
+        "text": "foi",
+        "start": 7.252,
+        "end": 7.408
+      },
+      {
+        "text": "furada",
+        "start": 7.42,
+        "end": 7.901
+      }
+    ]
+  },
+  "s13": {
+    "text": "Hoje, o buraco mais fundo do mundo é uma tampa de metal enferrujada. Pronto, agora você sabe. No fundo do poço não tinha inferno. Tinha calor, rocha mole e falta de dinheiro.",
+    "seconds": 12.572,
+    "words": [
+      {
+        "text": "Hoje",
+        "start": 0,
+        "end": 0.361
+      },
+      {
+        "text": "o",
+        "start": 0.625,
+        "end": 0.685
+      },
+      {
+        "text": "buraco",
+        "start": 0.697,
+        "end": 1.13
+      },
+      {
+        "text": "mais",
+        "start": 1.142,
+        "end": 1.322
+      },
+      {
+        "text": "fundo",
+        "start": 1.334,
+        "end": 1.623
+      },
+      {
+        "text": "do",
+        "start": 1.635,
+        "end": 1.731
+      },
+      {
+        "text": "mundo",
+        "start": 1.743,
+        "end": 2.079
+      },
+      {
+        "text": "é",
+        "start": 2.091,
+        "end": 2.128
+      },
+      {
+        "text": "uma",
+        "start": 2.14,
+        "end": 2.332
+      },
+      {
+        "text": "tampa",
+        "start": 2.344,
+        "end": 2.692
+      },
+      {
+        "text": "de",
+        "start": 2.704,
+        "end": 2.789
+      },
+      {
+        "text": "metal",
+        "start": 2.801,
+        "end": 3.137
+      },
+      {
+        "text": "enferrujada",
+        "start": 3.149,
+        "end": 3.882
+      },
+      {
+        "text": "Pronto",
+        "start": 4.71,
+        "end": 5.106
+      },
+      {
+        "text": "agora",
+        "start": 5.371,
+        "end": 5.707
+      },
+      {
+        "text": "você",
+        "start": 5.719,
+        "end": 5.948
+      },
+      {
+        "text": "sabe",
+        "start": 5.96,
+        "end": 6.38
+      },
+      {
+        "text": "No",
+        "start": 7.21,
+        "end": 7.354
+      },
+      {
+        "text": "fundo",
+        "start": 7.366,
+        "end": 7.715
+      },
+      {
+        "text": "do",
+        "start": 7.727,
+        "end": 7.835
+      },
+      {
+        "text": "poço",
+        "start": 7.847,
+        "end": 8.183
+      },
+      {
+        "text": "não",
+        "start": 8.195,
+        "end": 8.376
+      },
+      {
+        "text": "tinha",
+        "start": 8.388,
+        "end": 8.616
+      },
+      {
+        "text": "inferno",
+        "start": 8.628,
+        "end": 9.121
+      },
+      {
+        "text": "Tinha",
+        "start": 9.95,
+        "end": 10.215
+      },
+      {
+        "text": "calor",
+        "start": 10.227,
+        "end": 10.635
+      },
+      {
+        "text": "rocha",
+        "start": 10.876,
+        "end": 11.248
+      },
+      {
+        "text": "mole",
+        "start": 11.26,
+        "end": 11.573
+      },
+      {
+        "text": "e",
+        "start": 11.585,
+        "end": 11.633
+      },
+      {
+        "text": "falta",
+        "start": 11.645,
+        "end": 11.969
+      },
+      {
+        "text": "de",
+        "start": 11.981,
+        "end": 12.078
+      },
+      {
+        "text": "dinheiro",
+        "start": 12.09,
+        "end": 12.474
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
