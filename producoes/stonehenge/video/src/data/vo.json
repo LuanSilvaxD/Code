@@ -2215,58 +2215,68 @@
     ]
   },
   "cta": {
-    "text": "Segue a Fenda Umbra e compartilha pra mais vídeos assim!",
-    "seconds": 3.188,
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
     "words": [
       {
-        "text": "Segue",
+        "text": "Comenta",
         "start": 0,
-        "end": 0.335
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
       },
       {
         "text": "a",
-        "start": 0.348,
-        "end": 0.411
+        "start": 2.292,
+        "end": 2.355
       },
       {
         "text": "Fenda",
-        "start": 0.423,
-        "end": 0.761
+        "start": 2.368,
+        "end": 2.73
       },
       {
         "text": "Umbra",
-        "start": 0.773,
-        "end": 1.073
+        "start": 2.743,
+        "end": 3.068
       },
       {
         "text": "e",
-        "start": 1.085,
-        "end": 1.11
+        "start": 3.08,
+        "end": 3.118
       },
       {
         "text": "compartilha",
-        "start": 1.123,
-        "end": 1.761
-      },
-      {
-        "text": "pra",
-        "start": 1.773,
-        "end": 1.935
-      },
-      {
-        "text": "mais",
-        "start": 1.948,
-        "end": 2.261
-      },
-      {
-        "text": "vídeos",
-        "start": 2.273,
-        "end": 2.611
-      },
-      {
-        "text": "assim",
-        "start": 2.623,
-        "end": 3.11
+        "start": 3.13,
+        "end": 3.855
       }
     ]
   }

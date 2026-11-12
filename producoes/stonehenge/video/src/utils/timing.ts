@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 175;
+export const SECONDS = 175.8; // 5274 frames: +0,8 s para a chamada nova (comentar tema)
 export const DURATION = SECONDS * FPS;
 
 export const f = (seconds: number) => Math.round(seconds * FPS);

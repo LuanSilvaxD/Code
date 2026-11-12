@@ -8,13 +8,13 @@ import { OUTRO_SECONDS } from "./utils/timing";
 export const BRAND = {
   name: "FENDA UMBRA",
   /** chamada escrita no encerramento */
-  cta: "Siga e compartilhe para abrir a próxima fenda",
+  cta: "Comente o próximo tema · siga e compartilhe",
   /**
    * Chamada FALADA pelo narrador no encerramento (a "propaganda" do canal). Vai em scripts/narration.json
    * com a chave "cta" — sempre este texto, igual em todo vídeo, para virar a assinatura sonora do canal.
    * Curta de propósito (~3 s): cada segundo aqui sai do tempo da explicação.
    */
-  ctaVoice: "Segue a Fenda Umbra e compartilha pra mais vídeos assim!",
+  ctaVoice: "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
   // paleta do logo (public/brand/logo.png): sombra arroxeada + fenda de luz roxa com núcleo quase branco
   colors: {
     umbra: "#0b0812", // sombra (fundo da marca, abertura/encerramento)
