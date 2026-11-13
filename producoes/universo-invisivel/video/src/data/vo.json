@@ -1,1340 +1,875 @@
 {
   "s1": {
-    "text": "Acharam sangue de dinossauro aqui no Brasil, num osso de cento e quinze milhões de anos. Então dá pra clonar um dinossauro?",
-    "seconds": 7.4,
+    "text": "Tudo o que você enxerga no universo, estrelas, planetas e galáxias, é só cinco por cento dele. O resto é invisível.",
+    "seconds": 7.87,
     "words": [
       {
-        "text": "Acharam",
+        "text": "Tudo",
         "start": 0,
-        "end": 0.434
+        "end": 0.16
       },
       {
-        "text": "sangue",
-        "start": 0.446,
-        "end": 0.77
+        "text": "o",
+        "start": 0.172,
+        "end": 0.208
       },
       {
-        "text": "de",
-        "start": 0.782,
-        "end": 0.879
+        "text": "que",
+        "start": 0.22,
+        "end": 0.329
       },
       {
-        "text": "dinossauro",
-        "start": 0.891,
-        "end": 1.419
+        "text": "você",
+        "start": 0.341,
+        "end": 0.569
       },
       {
-        "text": "aqui",
-        "start": 1.431,
-        "end": 1.612
+        "text": "enxerga",
+        "start": 0.581,
+        "end": 1.026
       },
       {
         "text": "no",
-        "start": 1.624,
-        "end": 1.72
+        "start": 1.038,
+        "end": 1.098
       },
       {
-        "text": "Brasil",
-        "start": 1.732,
-        "end": 2.165
+        "text": "universo",
+        "start": 1.11,
+        "end": 1.711
       },
       {
-        "text": "num",
-        "start": 2.489,
-        "end": 2.657
+        "text": "estrelas",
+        "start": 1.963,
+        "end": 2.564
       },
       {
-        "text": "osso",
-        "start": 2.669,
-        "end": 2.934
-      },
-      {
-        "text": "de",
-        "start": 2.946,
-        "end": 3.066
-      },
-      {
-        "text": "cento",
-        "start": 3.078,
-        "end": 3.379
+        "text": "planetas",
+        "start": 2.757,
+        "end": 3.213
       },
       {
         "text": "e",
-        "start": 3.391,
-        "end": 3.427
+        "start": 3.225,
+        "end": 3.321
       },
       {
-        "text": "quinze",
-        "start": 3.439,
-        "end": 3.739
+        "text": "galáxias",
+        "start": 3.333,
+        "end": 3.934
       },
       {
-        "text": "milhões",
-        "start": 3.751,
-        "end": 4.148
+        "text": "é",
+        "start": 4.187,
+        "end": 4.259
       },
       {
-        "text": "de",
-        "start": 4.16,
-        "end": 4.268
+        "text": "só",
+        "start": 4.271,
+        "end": 4.451
       },
       {
-        "text": "anos",
-        "start": 4.28,
-        "end": 4.665
+        "text": "cinco",
+        "start": 4.463,
+        "end": 4.848
       },
       {
-        "text": "Então",
-        "start": 5.492,
-        "end": 5.889
+        "text": "por",
+        "start": 4.86,
+        "end": 5.016
       },
       {
-        "text": "dá",
-        "start": 5.901,
-        "end": 5.997
+        "text": "cento",
+        "start": 5.028,
+        "end": 5.353
       },
       {
-        "text": "pra",
-        "start": 6.009,
-        "end": 6.141
+        "text": "dele",
+        "start": 5.365,
+        "end": 5.689
       },
       {
-        "text": "clonar",
-        "start": 6.153,
-        "end": 6.55
+        "text": "O",
+        "start": 6.517,
+        "end": 6.637
       },
       {
-        "text": "um",
-        "start": 6.562,
-        "end": 6.646
+        "text": "resto",
+        "start": 6.649,
+        "end": 7.034
       },
       {
-        "text": "dinossauro",
-        "start": 6.658,
-        "end": 7.295
+        "text": "é",
+        "start": 7.045,
+        "end": 7.082
+      },
+      {
+        "text": "invisível",
+        "start": 7.094,
+        "end": 7.803
       }
     ]
   },
   "s2": {
-    "text": "Este é o Boato ou Verdade.",
-    "seconds": 1.511,
+    "text": "Uns vinte e sete por cento são matéria escura. Ela não brilha, mas puxa tudo em volta.",
+    "seconds": 5.685,
     "words": [
       {
-        "text": "Este",
+        "text": "Uns",
         "start": 0,
-        "end": 0.273
+        "end": 0.175
       },
       {
-        "text": "é",
-        "start": 0.285,
-        "end": 0.321
+        "text": "vinte",
+        "start": 0.187,
+        "end": 0.416
       },
       {
-        "text": "o",
-        "start": 0.333,
-        "end": 0.369
+        "text": "e",
+        "start": 0.428,
+        "end": 0.452
       },
       {
-        "text": "Boato",
-        "start": 0.381,
-        "end": 0.801
+        "text": "sete",
+        "start": 0.464,
+        "end": 0.752
       },
       {
-        "text": "ou",
-        "start": 0.813,
-        "end": 0.862
+        "text": "por",
+        "start": 0.764,
+        "end": 0.897
       },
       {
-        "text": "Verdade",
-        "start": 0.874,
-        "end": 1.414
+        "text": "cento",
+        "start": 0.909,
+        "end": 1.257
+      },
+      {
+        "text": "são",
+        "start": 1.269,
+        "end": 1.437
+      },
+      {
+        "text": "matéria",
+        "start": 1.45,
+        "end": 1.846
+      },
+      {
+        "text": "escura",
+        "start": 1.858,
+        "end": 2.315
+      },
+      {
+        "text": "Ela",
+        "start": 3.142,
+        "end": 3.407
+      },
+      {
+        "text": "não",
+        "start": 3.419,
+        "end": 3.575
+      },
+      {
+        "text": "brilha",
+        "start": 3.587,
+        "end": 3.96
+      },
+      {
+        "text": "mas",
+        "start": 4.224,
+        "end": 4.476
+      },
+      {
+        "text": "puxa",
+        "start": 4.488,
+        "end": 4.861
+      },
+      {
+        "text": "tudo",
+        "start": 4.873,
+        "end": 5.113
+      },
+      {
+        "text": "em",
+        "start": 5.125,
+        "end": 5.198
+      },
+      {
+        "text": "volta",
+        "start": 5.21,
+        "end": 5.582
       }
     ]
   },
   "s3": {
-    "text": "O dono do osso é o Aratassauro, um jovem caçador de uns três metros, que viveu onde hoje fica o Ceará.",
-    "seconds": 6.279,
+    "text": "Sem ela, as galáxias giram tão rápido que deveriam se desmanchar.",
+    "seconds": 3.973,
     "words": [
       {
-        "text": "O",
+        "text": "Sem",
         "start": 0,
-        "end": 0.074
+        "end": 0.267
       },
       {
-        "text": "dono",
-        "start": 0.086,
-        "end": 0.387
+        "text": "ela",
+        "start": 0.279,
+        "end": 0.579
       },
       {
-        "text": "do",
-        "start": 0.399,
-        "end": 0.519
-      },
-      {
-        "text": "osso",
-        "start": 0.531,
-        "end": 0.819
-      },
-      {
-        "text": "é",
+        "text": "as",
         "start": 0.832,
-        "end": 0.88
+        "end": 0.952
       },
       {
-        "text": "o",
-        "start": 0.892,
-        "end": 0.94
+        "text": "galáxias",
+        "start": 0.964,
+        "end": 1.541
       },
       {
-        "text": "Aratassauro",
-        "start": 0.952,
-        "end": 1.625
+        "text": "giram",
+        "start": 1.553,
+        "end": 1.853
       },
       {
-        "text": "um",
-        "start": 1.961,
-        "end": 2.118
+        "text": "tão",
+        "start": 1.865,
+        "end": 2.081
       },
       {
-        "text": "jovem",
-        "start": 2.13,
-        "end": 2.526
-      },
-      {
-        "text": "caçador",
-        "start": 2.538,
-        "end": 3.031
-      },
-      {
-        "text": "de",
-        "start": 3.043,
-        "end": 3.127
-      },
-      {
-        "text": "uns",
-        "start": 3.139,
-        "end": 3.307
-      },
-      {
-        "text": "três",
-        "start": 3.319,
-        "end": 3.62
-      },
-      {
-        "text": "metros",
-        "start": 3.632,
-        "end": 4.137
+        "text": "rápido",
+        "start": 2.094,
+        "end": 2.502
       },
       {
         "text": "que",
-        "start": 4.341,
-        "end": 4.485
+        "start": 2.514,
+        "end": 2.61
       },
       {
-        "text": "viveu",
-        "start": 4.497,
-        "end": 4.822
+        "text": "deveriam",
+        "start": 2.622,
+        "end": 3.031
       },
       {
-        "text": "onde",
-        "start": 4.834,
-        "end": 5.098
+        "text": "se",
+        "start": 3.043,
+        "end": 3.187
       },
       {
-        "text": "hoje",
-        "start": 5.11,
-        "end": 5.411
-      },
-      {
-        "text": "fica",
-        "start": 5.423,
-        "end": 5.675
-      },
-      {
-        "text": "o",
-        "start": 5.687,
-        "end": 5.723
-      },
-      {
-        "text": "Ceará",
-        "start": 5.735,
-        "end": 6.204
+        "text": "desmanchar",
+        "start": 3.199,
+        "end": 3.824
       }
     ]
   },
   "s4": {
-    "text": "O nome quer dizer nascido do fogo, uma homenagem ao Museu Nacional, que pegou fogo em 2018.",
-    "seconds": 5.875,
+    "text": "E sessenta e oito por cento é energia escura, algo que faz o universo se expandir cada vez mais rápido.",
+    "seconds": 5.623,
     "words": [
       {
-        "text": "O",
+        "text": "E",
         "start": 0,
-        "end": 0.049
+        "end": 0.067
       },
       {
-        "text": "nome",
-        "start": 0.061,
-        "end": 0.374
+        "text": "sessenta",
+        "start": 0.079,
+        "end": 0.5
       },
       {
-        "text": "quer",
-        "start": 0.386,
-        "end": 0.554
+        "text": "e",
+        "start": 0.512,
+        "end": 0.536
       },
       {
-        "text": "dizer",
-        "start": 0.566,
-        "end": 0.879
+        "text": "oito",
+        "start": 0.548,
+        "end": 0.776
       },
       {
-        "text": "nascido",
-        "start": 0.891,
-        "end": 1.299
+        "text": "por",
+        "start": 0.788,
+        "end": 0.945
       },
       {
-        "text": "do",
-        "start": 1.311,
-        "end": 1.407
+        "text": "cento",
+        "start": 0.957,
+        "end": 1.305
       },
       {
-        "text": "fogo",
-        "start": 1.419,
-        "end": 1.828
+        "text": "é",
+        "start": 1.317,
+        "end": 1.353
       },
       {
-        "text": "uma",
-        "start": 2.08,
-        "end": 2.237
+        "text": "energia",
+        "start": 1.365,
+        "end": 1.786
       },
       {
-        "text": "homenagem",
-        "start": 2.249,
-        "end": 2.826
+        "text": "escura",
+        "start": 1.798,
+        "end": 2.219
       },
       {
-        "text": "ao",
-        "start": 2.838,
-        "end": 2.934
-      },
-      {
-        "text": "Museu",
-        "start": 2.946,
-        "end": 3.234
-      },
-      {
-        "text": "Nacional",
-        "start": 3.246,
-        "end": 3.763
+        "text": "algo",
+        "start": 2.495,
+        "end": 2.748
       },
       {
         "text": "que",
-        "start": 4.004,
-        "end": 4.124
+        "start": 2.76,
+        "end": 2.88
       },
       {
-        "text": "pegou",
-        "start": 4.136,
-        "end": 4.436
+        "text": "faz",
+        "start": 2.892,
+        "end": 3.084
       },
       {
-        "text": "fogo",
-        "start": 4.448,
-        "end": 4.797
+        "text": "o",
+        "start": 3.096,
+        "end": 3.192
       },
       {
-        "text": "em",
-        "start": 4.809,
-        "end": 5.302
+        "text": "universo",
+        "start": 3.204,
+        "end": 3.709
       },
       {
-        "text": "2018",
-        "start": 5.302,
-        "end": 5.794
+        "text": "se",
+        "start": 3.721,
+        "end": 3.805
+      },
+      {
+        "text": "expandir",
+        "start": 3.817,
+        "end": 4.286
+      },
+      {
+        "text": "cada",
+        "start": 4.298,
+        "end": 4.55
+      },
+      {
+        "text": "vez",
+        "start": 4.562,
+        "end": 4.827
+      },
+      {
+        "text": "mais",
+        "start": 4.839,
+        "end": 5.079
+      },
+      {
+        "text": "rápido",
+        "start": 5.091,
+        "end": 5.524
       }
     ]
   },
   "s5": {
-    "text": "O fóssil é um pedaço da perna, achado numa mina de gesso em Santana do Cariri.",
-    "seconds": 4.393,
+    "text": "Ninguém sabe o que elas são. Por isso, em 2023, a Europa lançou o Euclid.",
+    "seconds": 5.9,
     "words": [
       {
-        "text": "O",
+        "text": "Ninguém",
         "start": 0,
-        "end": 0.037
+        "end": 0.427
       },
       {
-        "text": "fóssil",
-        "start": 0.049,
-        "end": 0.494
+        "text": "sabe",
+        "start": 0.439,
+        "end": 0.751
       },
       {
-        "text": "é",
-        "start": 0.506,
-        "end": 0.53
+        "text": "o",
+        "start": 0.763,
+        "end": 0.799
       },
       {
-        "text": "um",
-        "start": 0.542,
-        "end": 0.626
+        "text": "que",
+        "start": 0.811,
+        "end": 0.932
       },
       {
-        "text": "pedaço",
-        "start": 0.638,
-        "end": 1.047
+        "text": "elas",
+        "start": 0.944,
+        "end": 1.184
       },
       {
-        "text": "da",
-        "start": 1.059,
-        "end": 1.179
+        "text": "são",
+        "start": 1.196,
+        "end": 1.46
       },
       {
-        "text": "perna",
-        "start": 1.191,
-        "end": 1.564
+        "text": "Por",
+        "start": 2.288,
+        "end": 2.48
       },
       {
-        "text": "achado",
-        "start": 1.804,
-        "end": 2.201
-      },
-      {
-        "text": "numa",
-        "start": 2.213,
-        "end": 2.405
-      },
-      {
-        "text": "mina",
-        "start": 2.417,
-        "end": 2.669
-      },
-      {
-        "text": "de",
-        "start": 2.681,
-        "end": 2.778
-      },
-      {
-        "text": "gesso",
-        "start": 2.79,
-        "end": 3.138
+        "text": "isso",
+        "start": 2.492,
+        "end": 2.817
       },
       {
         "text": "em",
-        "start": 3.15,
-        "end": 3.198
+        "start": 2.997,
+        "end": 3.562
       },
       {
-        "text": "Santana",
-        "start": 3.21,
-        "end": 3.715
+        "text": "2023",
+        "start": 3.562,
+        "end": 4.127
       },
       {
-        "text": "do",
-        "start": 3.727,
-        "end": 3.835
+        "text": "a",
+        "start": 4.319,
+        "end": 4.367
       },
       {
-        "text": "Cariri",
-        "start": 3.847,
-        "end": 4.304
+        "text": "Europa",
+        "start": 4.379,
+        "end": 4.812
+      },
+      {
+        "text": "lançou",
+        "start": 4.824,
+        "end": 5.257
+      },
+      {
+        "text": "o",
+        "start": 5.269,
+        "end": 5.341
+      },
+      {
+        "text": "Euclid",
+        "start": 5.353,
+        "end": 5.785
       }
     ]
   },
   "s6": {
-    "text": "Dentro do osso, há canais finíssimos por onde o sangue passava. Foi ali que os cientistas procuraram.",
-    "seconds": 6.338,
+    "text": "Ele fica a um milhão e meio de quilômetros da Terra e vai mapear um terço do céu.",
+    "seconds": 4.271,
     "words": [
       {
-        "text": "Dentro",
+        "text": "Ele",
         "start": 0,
-        "end": 0.326
+        "end": 0.155
+      },
+      {
+        "text": "fica",
+        "start": 0.167,
+        "end": 0.456
+      },
+      {
+        "text": "a",
+        "start": 0.468,
+        "end": 0.504
+      },
+      {
+        "text": "um",
+        "start": 0.516,
+        "end": 0.684
+      },
+      {
+        "text": "milhão",
+        "start": 0.696,
+        "end": 1.045
+      },
+      {
+        "text": "e",
+        "start": 1.057,
+        "end": 1.117
+      },
+      {
+        "text": "meio",
+        "start": 1.129,
+        "end": 1.393
+      },
+      {
+        "text": "de",
+        "start": 1.405,
+        "end": 1.502
+      },
+      {
+        "text": "quilômetros",
+        "start": 1.514,
+        "end": 2.054
+      },
+      {
+        "text": "da",
+        "start": 2.066,
+        "end": 2.199
+      },
+      {
+        "text": "Terra",
+        "start": 2.211,
+        "end": 2.571
+      },
+      {
+        "text": "e",
+        "start": 2.583,
+        "end": 2.643
+      },
+      {
+        "text": "vai",
+        "start": 2.655,
+        "end": 2.788
+      },
+      {
+        "text": "mapear",
+        "start": 2.8,
+        "end": 3.22
+      },
+      {
+        "text": "um",
+        "start": 3.232,
+        "end": 3.365
+      },
+      {
+        "text": "terço",
+        "start": 3.377,
+        "end": 3.713
       },
       {
         "text": "do",
-        "start": 0.338,
-        "end": 0.47
+        "start": 3.725,
+        "end": 3.821
       },
       {
-        "text": "osso",
-        "start": 0.482,
-        "end": 0.806
-      },
-      {
-        "text": "há",
-        "start": 0.999,
-        "end": 1.083
-      },
-      {
-        "text": "canais",
-        "start": 1.095,
-        "end": 1.516
-      },
-      {
-        "text": "finíssimos",
-        "start": 1.528,
-        "end": 2.129
-      },
-      {
-        "text": "por",
-        "start": 2.141,
-        "end": 2.297
-      },
-      {
-        "text": "onde",
-        "start": 2.309,
-        "end": 2.513
-      },
-      {
-        "text": "o",
-        "start": 2.525,
-        "end": 2.549
-      },
-      {
-        "text": "sangue",
-        "start": 2.561,
-        "end": 2.874
-      },
-      {
-        "text": "passava",
-        "start": 2.886,
-        "end": 3.427
-      },
-      {
-        "text": "Foi",
-        "start": 4.254,
-        "end": 4.494
-      },
-      {
-        "text": "ali",
-        "start": 4.506,
-        "end": 4.807
-      },
-      {
-        "text": "que",
-        "start": 4.819,
-        "end": 4.891
-      },
-      {
-        "text": "os",
-        "start": 4.903,
-        "end": 4.975
-      },
-      {
-        "text": "cientistas",
-        "start": 4.987,
-        "end": 5.636
-      },
-      {
-        "text": "procuraram",
-        "start": 5.648,
-        "end": 6.249
+        "text": "céu",
+        "start": 3.833,
+        "end": 4.206
       }
     ]
   },
   "s7": {
-    "text": "E acharam bolinhas de mineral do tamanho de glóbulos vermelhos. Nelas, sinais químicos do heme, a parte do sangue que segura o oxigênio.",
-    "seconds": 8.775,
+    "text": "O truque, a matéria escura entorta a luz das galáxias que estão atrás, como uma lente. Medindo essa distorção, dá pra desenhar onde ela está.",
+    "seconds": 8.873,
     "words": [
       {
-        "text": "E",
+        "text": "O",
         "start": 0,
         "end": 0.074
       },
       {
-        "text": "acharam",
+        "text": "truque",
         "start": 0.086,
-        "end": 0.507
-      },
-      {
-        "text": "bolinhas",
-        "start": 0.519,
-        "end": 0.976
-      },
-      {
-        "text": "de",
-        "start": 0.988,
-        "end": 1.06
-      },
-      {
-        "text": "mineral",
-        "start": 1.072,
-        "end": 1.481
-      },
-      {
-        "text": "do",
-        "start": 1.493,
-        "end": 1.589
-      },
-      {
-        "text": "tamanho",
-        "start": 1.601,
-        "end": 1.985
-      },
-      {
-        "text": "de",
-        "start": 1.997,
-        "end": 2.093
-      },
-      {
-        "text": "glóbulos",
-        "start": 2.105,
-        "end": 2.61
-      },
-      {
-        "text": "vermelhos",
-        "start": 2.622,
-        "end": 3.271
-      },
-      {
-        "text": "Nelas",
-        "start": 4.099,
-        "end": 4.652
-      },
-      {
-        "text": "sinais",
-        "start": 4.856,
-        "end": 5.277
-      },
-      {
-        "text": "químicos",
-        "start": 5.289,
-        "end": 5.745
-      },
-      {
-        "text": "do",
-        "start": 5.757,
-        "end": 5.89
-      },
-      {
-        "text": "heme",
-        "start": 5.902,
-        "end": 6.202
+        "end": 0.435
       },
       {
         "text": "a",
-        "start": 6.467,
-        "end": 6.599
+        "start": 0.663,
+        "end": 0.723
       },
       {
-        "text": "parte",
-        "start": 6.611,
-        "end": 6.947
+        "text": "matéria",
+        "start": 0.735,
+        "end": 1.156
       },
       {
-        "text": "do",
-        "start": 6.959,
-        "end": 7.056
+        "text": "escura",
+        "start": 1.168,
+        "end": 1.505
       },
       {
-        "text": "sangue",
-        "start": 7.068,
-        "end": 7.392
+        "text": "entorta",
+        "start": 1.517,
+        "end": 1.985
+      },
+      {
+        "text": "a",
+        "start": 1.997,
+        "end": 2.009
+      },
+      {
+        "text": "luz",
+        "start": 2.021,
+        "end": 2.238
+      },
+      {
+        "text": "das",
+        "start": 2.25,
+        "end": 2.406
+      },
+      {
+        "text": "galáxias",
+        "start": 2.418,
+        "end": 2.935
       },
       {
         "text": "que",
-        "start": 7.404,
-        "end": 7.5
+        "start": 2.947,
+        "end": 3.031
       },
       {
-        "text": "segura",
-        "start": 7.512,
-        "end": 7.909
+        "text": "estão",
+        "start": 3.043,
+        "end": 3.307
       },
       {
-        "text": "o",
-        "start": 7.921,
-        "end": 7.957
+        "text": "atrás",
+        "start": 3.319,
+        "end": 3.752
       },
       {
-        "text": "oxigênio",
-        "start": 7.969,
-        "end": 8.69
+        "text": "como",
+        "start": 3.981,
+        "end": 4.233
+      },
+      {
+        "text": "uma",
+        "start": 4.245,
+        "end": 4.425
+      },
+      {
+        "text": "lente",
+        "start": 4.437,
+        "end": 4.834
+      },
+      {
+        "text": "Medindo",
+        "start": 5.661,
+        "end": 6.166
+      },
+      {
+        "text": "essa",
+        "start": 6.178,
+        "end": 6.358
+      },
+      {
+        "text": "distorção",
+        "start": 6.37,
+        "end": 6.983
+      },
+      {
+        "text": "dá",
+        "start": 7.248,
+        "end": 7.404
+      },
+      {
+        "text": "pra",
+        "start": 7.416,
+        "end": 7.572
+      },
+      {
+        "text": "desenhar",
+        "start": 7.584,
+        "end": 8.053
+      },
+      {
+        "text": "onde",
+        "start": 8.065,
+        "end": 8.269
+      },
+      {
+        "text": "ela",
+        "start": 8.282,
+        "end": 8.402
+      },
+      {
+        "text": "está",
+        "start": 8.414,
+        "end": 8.786
       }
     ]
   },
   "s8": {
-    "text": "Só que não é sangue líquido. É uma marca química, uma sombra do sangue que virou pedra junto com o osso.",
-    "seconds": 6.551,
+    "text": "E já saiu o primeiro grande pacote, mais de novecentos milhões de galáxias, pra montar o mapa 3D do universo invisível.",
+    "seconds": 7.092,
     "words": [
       {
-        "text": "Só",
+        "text": "E",
         "start": 0,
-        "end": 0.243
+        "end": 0.021
       },
       {
-        "text": "que",
-        "start": 0.255,
-        "end": 0.375
+        "text": "já",
+        "start": 0.033,
+        "end": 0.201
       },
       {
-        "text": "não",
-        "start": 0.387,
-        "end": 0.567
-      },
-      {
-        "text": "é",
-        "start": 0.579,
-        "end": 0.639
-      },
-      {
-        "text": "sangue",
-        "start": 0.651,
-        "end": 1.06
-      },
-      {
-        "text": "líquido",
-        "start": 1.072,
-        "end": 1.505
-      },
-      {
-        "text": "É",
-        "start": 2.332,
-        "end": 2.464
-      },
-      {
-        "text": "uma",
-        "start": 2.476,
-        "end": 2.693
-      },
-      {
-        "text": "marca",
-        "start": 2.705,
-        "end": 3.053
-      },
-      {
-        "text": "química",
-        "start": 3.065,
-        "end": 3.474
-      },
-      {
-        "text": "uma",
-        "start": 3.738,
-        "end": 3.943
-      },
-      {
-        "text": "sombra",
-        "start": 3.955,
-        "end": 4.327
-      },
-      {
-        "text": "do",
-        "start": 4.339,
-        "end": 4.435
-      },
-      {
-        "text": "sangue",
-        "start": 4.447,
-        "end": 4.82
-      },
-      {
-        "text": "que",
-        "start": 4.832,
-        "end": 4.916
-      },
-      {
-        "text": "virou",
-        "start": 4.928,
-        "end": 5.181
-      },
-      {
-        "text": "pedra",
-        "start": 5.193,
-        "end": 5.517
-      },
-      {
-        "text": "junto",
-        "start": 5.529,
-        "end": 5.866
-      },
-      {
-        "text": "com",
-        "start": 5.878,
-        "end": 6.106
+        "text": "saiu",
+        "start": 0.213,
+        "end": 0.538
       },
       {
         "text": "o",
-        "start": 6.118,
-        "end": 6.142
+        "start": 0.55,
+        "end": 0.586
       },
       {
-        "text": "osso",
-        "start": 6.154,
-        "end": 6.491
+        "text": "primeiro",
+        "start": 0.598,
+        "end": 0.923
+      },
+      {
+        "text": "grande",
+        "start": 0.935,
+        "end": 1.259
+      },
+      {
+        "text": "pacote",
+        "start": 1.271,
+        "end": 1.776
+      },
+      {
+        "text": "mais",
+        "start": 2.052,
+        "end": 2.293
+      },
+      {
+        "text": "de",
+        "start": 2.305,
+        "end": 2.377
+      },
+      {
+        "text": "novecentos",
+        "start": 2.389,
+        "end": 3.002
+      },
+      {
+        "text": "milhões",
+        "start": 3.014,
+        "end": 3.411
+      },
+      {
+        "text": "de",
+        "start": 3.423,
+        "end": 3.483
+      },
+      {
+        "text": "galáxias",
+        "start": 3.495,
+        "end": 4.12
+      },
+      {
+        "text": "pra",
+        "start": 4.336,
+        "end": 4.468
+      },
+      {
+        "text": "montar",
+        "start": 4.48,
+        "end": 4.865
+      },
+      {
+        "text": "o",
+        "start": 4.877,
+        "end": 4.925
+      },
+      {
+        "text": "mapa",
+        "start": 4.937,
+        "end": 5.262
+      },
+      {
+        "text": "3D",
+        "start": 5.274,
+        "end": 5.79
+      },
+      {
+        "text": "do",
+        "start": 5.802,
+        "end": 5.887
+      },
+      {
+        "text": "universo",
+        "start": 5.899,
+        "end": 6.415
+      },
+      {
+        "text": "invisível",
+        "start": 6.427,
+        "end": 7.028
       }
     ]
   },
   "s9": {
-    "text": "E nem todo mundo está convencido, uma paleontóloga lembra que hemácias de dinossauro deviam ser abauladas, e essas parecem côncavas.",
-    "seconds": 7.282,
+    "text": "Pronto, agora você sabe. O universo que a gente vê é só a pontinha do iceberg.",
+    "seconds": 5.496,
     "words": [
-      {
-        "text": "E",
-        "start": 0,
-        "end": 0.043
-      },
-      {
-        "text": "nem",
-        "start": 0.055,
-        "end": 0.296
-      },
-      {
-        "text": "todo",
-        "start": 0.308,
-        "end": 0.584
-      },
-      {
-        "text": "mundo",
-        "start": 0.596,
-        "end": 0.861
-      },
-      {
-        "text": "está",
-        "start": 0.873,
-        "end": 1.053
-      },
-      {
-        "text": "convencido",
-        "start": 1.065,
-        "end": 1.666
-      },
-      {
-        "text": "uma",
-        "start": 1.918,
-        "end": 2.123
-      },
-      {
-        "text": "paleontóloga",
-        "start": 2.135,
-        "end": 2.796
-      },
-      {
-        "text": "lembra",
-        "start": 2.808,
-        "end": 3.12
-      },
-      {
-        "text": "que",
-        "start": 3.132,
-        "end": 3.216
-      },
-      {
-        "text": "hemácias",
-        "start": 3.228,
-        "end": 3.697
-      },
-      {
-        "text": "de",
-        "start": 3.709,
-        "end": 3.793
-      },
-      {
-        "text": "dinossauro",
-        "start": 3.805,
-        "end": 4.37
-      },
-      {
-        "text": "deviam",
-        "start": 4.382,
-        "end": 4.707
-      },
-      {
-        "text": "ser",
-        "start": 4.719,
-        "end": 4.875
-      },
-      {
-        "text": "abauladas",
-        "start": 4.887,
-        "end": 5.512
-      },
-      {
-        "text": "e",
-        "start": 5.752,
-        "end": 5.812
-      },
-      {
-        "text": "essas",
-        "start": 5.825,
-        "end": 6.113
-      },
-      {
-        "text": "parecem",
-        "start": 6.125,
-        "end": 6.558
-      },
-      {
-        "text": "côncavas",
-        "start": 6.57,
-        "end": 7.195
-      }
-    ]
-  },
-  "s10": {
-    "text": "Primeira parte, achar sangue de dinossauro? Meia verdade.",
-    "seconds": 4.143,
-    "words": [
-      {
-        "text": "Primeira",
-        "start": 0,
-        "end": 0.309
-      },
-      {
-        "text": "parte",
-        "start": 0.321,
-        "end": 0.729
-      },
-      {
-        "text": "achar",
-        "start": 0.922,
-        "end": 1.246
-      },
-      {
-        "text": "sangue",
-        "start": 1.258,
-        "end": 1.571
-      },
-      {
-        "text": "de",
-        "start": 1.583,
-        "end": 1.667
-      },
-      {
-        "text": "dinossauro",
-        "start": 1.679,
-        "end": 2.328
-      },
-      {
-        "text": "Meia",
-        "start": 3.155,
-        "end": 3.48
-      },
-      {
-        "text": "verdade",
-        "start": 3.492,
-        "end": 4.057
-      }
-    ]
-  },
-  "s11": {
-    "text": "Agora, o clone. Pra isso, precisaria de DNA. E no osso o DNA se desfaz rápido, metade some a cada uns quinhentos anos.",
-    "seconds": 9.674,
-    "words": [
-      {
-        "text": "Agora",
-        "start": 0,
-        "end": 0.495
-      },
-      {
-        "text": "o",
-        "start": 0.615,
-        "end": 0.711
-      },
-      {
-        "text": "clone",
-        "start": 0.723,
-        "end": 1.18
-      },
-      {
-        "text": "Pra",
-        "start": 2.007,
-        "end": 2.248
-      },
-      {
-        "text": "isso",
-        "start": 2.26,
-        "end": 2.62
-      },
-      {
-        "text": "precisaria",
-        "start": 2.849,
-        "end": 3.51
-      },
-      {
-        "text": "de",
-        "start": 3.522,
-        "end": 3.606
-      },
-      {
-        "text": "DNA",
-        "start": 3.618,
-        "end": 4.159
-      },
-      {
-        "text": "E",
-        "start": 4.988,
-        "end": 5.084
-      },
-      {
-        "text": "no",
-        "start": 5.096,
-        "end": 5.229
-      },
-      {
-        "text": "osso",
-        "start": 5.241,
-        "end": 5.493
-      },
-      {
-        "text": "o",
-        "start": 5.505,
-        "end": 5.529
-      },
-      {
-        "text": "DNA",
-        "start": 5.541,
-        "end": 5.95
-      },
-      {
-        "text": "se",
-        "start": 5.962,
-        "end": 6.082
-      },
-      {
-        "text": "desfaz",
-        "start": 6.094,
-        "end": 6.491
-      },
-      {
-        "text": "rápido",
-        "start": 6.503,
-        "end": 6.899
-      },
-      {
-        "text": "metade",
-        "start": 7.164,
-        "end": 7.596
-      },
-      {
-        "text": "some",
-        "start": 7.608,
-        "end": 7.945
-      },
-      {
-        "text": "a",
-        "start": 7.957,
-        "end": 8.017
-      },
-      {
-        "text": "cada",
-        "start": 8.029,
-        "end": 8.281
-      },
-      {
-        "text": "uns",
-        "start": 8.294,
-        "end": 8.522
-      },
-      {
-        "text": "quinhentos",
-        "start": 8.534,
-        "end": 9.087
-      },
-      {
-        "text": "anos",
-        "start": 9.099,
-        "end": 9.592
-      }
-    ]
-  },
-  "s12": {
-    "text": "Mesmo no frio ideal, depois de um milhão e meio de anos ele vira picadinho ilegível. Esse osso tem cento e quinze milhões.",
-    "seconds": 7.809,
-    "words": [
-      {
-        "text": "Mesmo",
-        "start": 0,
-        "end": 0.375
-      },
-      {
-        "text": "no",
-        "start": 0.387,
-        "end": 0.483
-      },
-      {
-        "text": "frio",
-        "start": 0.495,
-        "end": 0.747
-      },
-      {
-        "text": "ideal",
-        "start": 0.759,
-        "end": 1.156
-      },
-      {
-        "text": "depois",
-        "start": 1.444,
-        "end": 1.805
-      },
-      {
-        "text": "de",
-        "start": 1.817,
-        "end": 1.889
-      },
-      {
-        "text": "um",
-        "start": 1.901,
-        "end": 1.961
-      },
-      {
-        "text": "milhão",
-        "start": 1.973,
-        "end": 2.298
-      },
-      {
-        "text": "e",
-        "start": 2.31,
-        "end": 2.358
-      },
-      {
-        "text": "meio",
-        "start": 2.37,
-        "end": 2.61
-      },
-      {
-        "text": "de",
-        "start": 2.622,
-        "end": 2.767
-      },
-      {
-        "text": "anos",
-        "start": 2.779,
-        "end": 3.019
-      },
-      {
-        "text": "ele",
-        "start": 3.031,
-        "end": 3.235
-      },
-      {
-        "text": "vira",
-        "start": 3.247,
-        "end": 3.476
-      },
-      {
-        "text": "picadinho",
-        "start": 3.488,
-        "end": 4.029
-      },
-      {
-        "text": "ilegível",
-        "start": 4.041,
-        "end": 4.618
-      },
-      {
-        "text": "Esse",
-        "start": 5.445,
-        "end": 5.793
-      },
-      {
-        "text": "osso",
-        "start": 5.805,
-        "end": 6.118
-      },
-      {
-        "text": "tem",
-        "start": 6.13,
-        "end": 6.298
-      },
-      {
-        "text": "cento",
-        "start": 6.31,
-        "end": 6.647
-      },
-      {
-        "text": "e",
-        "start": 6.659,
-        "end": 6.707
-      },
-      {
-        "text": "quinze",
-        "start": 6.719,
-        "end": 7.056
-      },
-      {
-        "text": "milhões",
-        "start": 7.068,
-        "end": 7.729
-      }
-    ]
-  },
-  "s13": {
-    "text": "E o mosquito no âmbar, do filme? Nunca acharam DNA de dinossauro em âmbar.",
-    "seconds": 5.358,
-    "words": [
-      {
-        "text": "E",
-        "start": 0,
-        "end": 0.063
-      },
-      {
-        "text": "o",
-        "start": 0.075,
-        "end": 0.099
-      },
-      {
-        "text": "mosquito",
-        "start": 0.111,
-        "end": 0.616
-      },
-      {
-        "text": "no",
-        "start": 0.628,
-        "end": 0.772
-      },
-      {
-        "text": "âmbar",
-        "start": 0.784,
-        "end": 1.085
-      },
-      {
-        "text": "do",
-        "start": 1.349,
-        "end": 1.494
-      },
-      {
-        "text": "filme",
-        "start": 1.506,
-        "end": 1.95
-      },
-      {
-        "text": "Nunca",
-        "start": 2.778,
-        "end": 3.174
-      },
-      {
-        "text": "acharam",
-        "start": 3.186,
-        "end": 3.547
-      },
-      {
-        "text": "DNA",
-        "start": 3.559,
-        "end": 4.052
-      },
-      {
-        "text": "de",
-        "start": 4.064,
-        "end": 4.172
-      },
-      {
-        "text": "dinossauro",
-        "start": 4.184,
-        "end": 4.773
-      },
-      {
-        "text": "em",
-        "start": 4.785,
-        "end": 4.893
-      },
-      {
-        "text": "âmbar",
-        "start": 4.905,
-        "end": 5.206
-      }
-    ]
-  },
-  "s14": {
-    "text": "Veredito, clonar o Aratassauro? Boato. Pronto, agora você sabe. Acharam a sombra do sangue, não um dinossauro pronto pra voltar.",
-    "seconds": 10.53,
-    "words": [
-      {
-        "text": "Veredito",
-        "start": 0,
-        "end": 0.585
-      },
-      {
-        "text": "clonar",
-        "start": 0.91,
-        "end": 1.342
-      },
-      {
-        "text": "o",
-        "start": 1.354,
-        "end": 1.414
-      },
-      {
-        "text": "Aratassauro",
-        "start": 1.426,
-        "end": 2.111
-      },
-      {
-        "text": "Boato",
-        "start": 2.939,
-        "end": 3.492
-      },
       {
         "text": "Pronto",
-        "start": 4.321,
-        "end": 4.718
+        "start": 0,
+        "end": 0.33
       },
       {
         "text": "agora",
-        "start": 4.982,
-        "end": 5.319
+        "start": 0.594,
+        "end": 0.931
       },
       {
         "text": "você",
-        "start": 5.331,
-        "end": 5.559
+        "start": 0.943,
+        "end": 1.171
       },
       {
         "text": "sabe",
-        "start": 5.571,
-        "end": 5.992
+        "start": 1.183,
+        "end": 1.604
       },
       {
-        "text": "Acharam",
-        "start": 6.821,
-        "end": 7.29
+        "text": "O",
+        "start": 2.431,
+        "end": 2.539
+      },
+      {
+        "text": "universo",
+        "start": 2.551,
+        "end": 3.128
+      },
+      {
+        "text": "que",
+        "start": 3.14,
+        "end": 3.212
       },
       {
         "text": "a",
-        "start": 7.302,
-        "end": 7.338
+        "start": 3.224,
+        "end": 3.284
       },
       {
-        "text": "sombra",
-        "start": 7.35,
-        "end": 7.735
+        "text": "gente",
+        "start": 3.297,
+        "end": 3.597
+      },
+      {
+        "text": "vê",
+        "start": 3.609,
+        "end": 3.741
+      },
+      {
+        "text": "é",
+        "start": 3.753,
+        "end": 3.837
+      },
+      {
+        "text": "só",
+        "start": 3.849,
+        "end": 4.078
+      },
+      {
+        "text": "a",
+        "start": 4.09,
+        "end": 4.138
+      },
+      {
+        "text": "pontinha",
+        "start": 4.15,
+        "end": 4.607
       },
       {
         "text": "do",
-        "start": 7.747,
-        "end": 7.831
+        "start": 4.619,
+        "end": 4.727
       },
       {
-        "text": "sangue",
-        "start": 7.843,
-        "end": 8.239
-      },
-      {
-        "text": "não",
-        "start": 8.516,
-        "end": 8.732
-      },
-      {
-        "text": "um",
-        "start": 8.744,
-        "end": 8.816
-      },
-      {
-        "text": "dinossauro",
-        "start": 8.828,
-        "end": 9.405
-      },
-      {
-        "text": "pronto",
-        "start": 9.417,
-        "end": 9.778
-      },
-      {
-        "text": "pra",
-        "start": 9.79,
-        "end": 9.934
-      },
-      {
-        "text": "voltar",
-        "start": 9.946,
-        "end": 10.367
+        "text": "iceberg",
+        "start": 4.739,
+        "end": 5.4
       }
     ]
   },

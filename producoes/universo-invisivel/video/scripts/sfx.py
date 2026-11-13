@@ -692,12 +692,23 @@ def amber_ring(d=1.6):
     return x * env(d, 0.005, 0.6) * 0.5
 
 
-save("dino-step", dino_step())
-save("dino-call", dino_call())
-save("microscope", microscope())
-save("drip", drip())
-save("dust", dust())
-save("hourglass", hourglass())
-save("amber-ring", amber_ring())
+def launch(d=2.4):
+    """lançamento: estrondo grave crescente + sopro subindo."""
+    t = tt(d)
+    rumble_ = lp(rng.standard_normal(len(t)), 180) * 2.5 * env(d, 0.3, 0.8)
+    roar = sweep_bp(rng.standard_normal(len(t)), np.geomspace(300, 2500, len(t)), q=1.6) * env(d, 0.5, 0.9) * 0.6
+    return np.tanh(rumble_ + roar) * 0.8
+
+
+def warp(d=1.6):
+    """luz entortando: glissando suave com batimento."""
+    t = tt(d)
+    f = 400 + 500 * np.sin(np.pi * t / d)
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) + np.sin(2 * np.pi * np.cumsum(f * 1.01) / SR)
+    return x * 0.3 * env(d, 0.3, 0.6)
+
+
+save("launch", launch())
+save("warp", warp())
 
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

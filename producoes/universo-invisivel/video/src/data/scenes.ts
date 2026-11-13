@@ -1,16 +1,14 @@
-// scenes.ts — "Acharam sangue de dinossauro no Brasil. Dá pra clonar?" — Boato ou Verdade? EP. 02
-// Roteiro v1 APROVADO (2026-11-13); designs aprovados (Aratassauro versão B, com penugem); cortes derivados da voz real.
+// scenes.ts — "95% do universo é invisível" (Euclid). Roteiro v1 e designs APROVADOS (13/11/2026); cortes da voz real.
 // Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN. Linha do tempo determinística.
 
-import { brPos } from "../components/Apagao";
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
-import { add, AMBER, BONE, CANAL, DINO_Z, DIORAMA, DNA, HEME, MAP, MINE, MS_DIO, MUSEUM, SECTION, SPLIT } from "./sangue";
+import { add, EUCLID_P, FIELD, GAL, ICE, LENS, PIE, SOLAR, SPLIT_A, SPLIT_B, SUN_P, WEB } from "./cosmos";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
-export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-natureza", language: "pt-BR" };
+export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-espaco", language: "pt-BR" };
 
 export type BadgeVariant = "positive" | "negative" | "info" | "warning";
 export type CameraKey = { at: number; position: Vec3; target: Vec3; zoom?: number; easing?: EaseName };
@@ -27,7 +25,6 @@ export type ScenePlan = {
 
 const sc = (i: number) => ({ startFrame: SCENE_FRAMES[i].from, durationInFrames: SCENE_FRAMES[i].durationInFrames });
 const end = (i: number) => SCENE_FRAMES[i].durationInFrames;
-const c = (i: number, f: number, margin = 2) => Math.min(f, end(i) - margin);
 const W = wordLocal;
 type Pose = { position: Vec3; target: Vec3 };
 const key = (at: number, pose: Pose, easing?: EaseName): CameraKey => ({ at, ...pose, easing });
@@ -39,282 +36,175 @@ const lin = (target: string, a: number, b: number, from: number | undefined, to:
 const set = (target: string, at: number, v: number): TrackAnimation => lin(target, at, at + 1, v, v, "linear");
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(target, at, at + len, undefined, 0, "in");
-const WORLDS = ["diorama", "map", "mine", "museum", "bone", "dna"] as const;
+const WORLDS = ["cosmos", "solar", "lens", "web", "ice"] as const;
 const world = (at: number, w: (typeof WORLDS)[number]): TrackAnimation[] => WORLDS.map((k) => set(`${k}.show`, at, k === w ? 1 : 0));
 
 // câmera (9:16: largura visível ≈ 0,237·d)
 const P = {
-  boneClose: orbit(add(BONE, [0.1, 0.1, 0]), 14, 22, 18),
-  boneClose2: orbit(add(BONE, [0.1, 0.1, 0]), 12.5, 30, 20),
-  mapCeara: orbit(add(MAP, add(brPos("CE"), [0, 0, 0.3])), 17, 15, 48),
-  dinoA: orbit(add(DIORAMA, [-1.4, 0.75, DINO_Z]), 17, 18, 8),
-  dinoA2: orbit(add(DIORAMA, [-1.4, 0.8, DINO_Z]), 15.5, 24, 9),
-  dinoB: orbit(add(DIORAMA, [2.0, 0.75, DINO_Z]), 17, 34, 10),
-  museum: orbit(add(MUSEUM, [0, 3.6, 0]), 50, 12, 8),
-  museum2: orbit(add(MUSEUM, [0, 4.0, 0]), 56, 18, 10),
-  mine: orbit(add(MINE, [0, -1.5, 0.6]), 40, 28, 46),
-  mine2: orbit(add(MINE, [0.4, -3.2, 0.4]), 13, 34, 38),
-  boneWide: orbit(add(BONE, [1.8, 0.1, 0]), 26, 14, 14),
-  section: orbit(SECTION, 12, 0, 6),
-  section2: orbit(SECTION, 9, 6, 8),
-  canal: orbit(CANAL, 22, 18, 8),
-  micro: orbit(add(CANAL, [0.2, 0, 0.3]), 8.5, 18, 6),
-  heme: orbit(HEME, 17, 8, 6),
-  heme2: orbit(HEME, 15, 18, 8),
-  canalOut: orbit(CANAL, 18, 20, 8),
-  split: orbit(SPLIT, 29, 0, 26),
-  split2: orbit(SPLIT, 28, 6, 28),
-  verdict: orbit(add(BONE, [-0.5, 0.3, 0]), 16, 40, 18),
-  verdict2: orbit(add(BONE, [-0.5, 0.3, 0]), 16, 62, 18),
-  dna: orbit(add(DNA, [0.9, 0, 0]), 22, 8, 6),
-  dna2: orbit(add(DNA, [0.9, 0, 0]), 24, 22, 8),
-  dna3: orbit(add(DNA, [0.9, 0, 0]), 28, 34, 10),
-  amber: orbit(AMBER, 12, 12, 8),
-  amber2: orbit(AMBER, 10.5, 28, 10),
-  final0: orbit(add(DIORAMA, [0.3, 1.0, 0]), 30, 0, 12),
-  final1: orbit(add(DIORAMA, [0.3, 1.0, 0]), 32, 30, 14),
+  gal: orbit(GAL, 36, 10, 24),
+  gal2: orbit(GAL, 30, 18, 28),
+  galClose: orbit(GAL, 27, 14, 30),
+  pie: orbit(PIE, 26, 0, 14),
+  pie2: orbit(PIE, 24, 12, 16),
+  split: orbit(add(SPLIT_A, [4.2, 0, 0]), 64, 0, 26),
+  split2: orbit(add(SPLIT_A, [4.2, 0, 0]), 60, 6, 28),
+  field: orbit(FIELD, 44, 0, 6),
+  field2: orbit(FIELD, 52, 8, 8),
+  earth: orbit(add(SOLAR, [2.6, 0.5, 0]), 34, 18, 12),
+  earth2: orbit(add(SOLAR, [3.2, 0.8, 0]), 32, 24, 14),
+  solarWide: orbit(add(SOLAR, [-2.6, 0, 0]), 104, 0, 14),
+  solarWide2: orbit(add(SOLAR, [-2.6, 0, 0]), 100, 6, 16),
+  lens: orbit(LENS, 46, 0, 0),
+  lens2: orbit(LENS, 42, 4, 3),
+  web: orbit(WEB, 34, 0, 10),
+  web2: orbit(WEB, 30, 40, 16),
+  iceTop: orbit(add(ICE, [0, 0.5, 0]), 13, 18, 10),
+  iceDeep: orbit(add(ICE, [0, -2.4, 0]), 21, 26, 2),
 };
-const M_DIO: Vec3 = add(DIORAMA, [2.9, 0, 1.9]);
-const M_BONE: Vec3 = add(BONE, [2.0, -0.45, 1.6]);
+const M_PIE: Vec3 = add(PIE, [3.4, -1.6, 1.4]);
 
 export const scenes: ScenePlan[] = [
   {
     id: "s1", ...sc(0), voKey: "s1",
-    narration: "Acharam sangue de dinossauro aqui no Brasil, num osso de cento e quinze milhões de anos. Então dá pra clonar um dinossauro?",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.boneClose), ...cut(W("s1", 5), P.boneClose2, P.mapCeara), ...cut(W("s1", 16), add3(P.mapCeara), P.dinoA), key(end(0), P.dinoA2, "linear")] },
-    objects: [{ id: "fossil", type: "FossilLeg", visible: true }, { id: "map", type: "BrazilMap(Ceará)", visible: true }, { id: "dino", type: "Aratasaurus(B)", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
+    narration: "Tudo o que você enxerga no universo, estrelas, planetas e galáxias, é só cinco por cento dele. O resto é invisível.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.galClose), key(W("s1", 10), P.gal, "inOut"), ...cut(W("s1", 11), P.gal, P.pie), key(end(0), P.pie2, "linear")] },
+    objects: [{ id: "galaxy", type: "SpiralGalaxy", visible: true }, { id: "pie", type: "UniversePie(5% + contorno)", visible: true }, { id: "mascot", type: "Mascot(float)", visible: true }],
     animations: [
-      ...fx.flash(0), ...world(0, "bone"), set("dino.reveal", 0, 0), set("dino.walk", 0, 0), set("dino.x", 0, -1.4), set("person.show", 0, 0), set("section.show", 0, 0), set("canals.flow", 0, 0),
-      set("rbc.show", 0, 0), set("rbc.stone", 0, 0), set("heme.show", 0, 0), set("heme.ghost", 0, 0), set("o2.dock", 0, 0), set("drop.show", 0, 0), set("drop.break", 0, 0), set("micro.zoom", 0, 0),
-      set("dna.show", 0, 0), set("dna.decay", 0, 0), set("hourglass.flip", 0, 0), set("amber.show", 0, 0), set("amber.cross", 0, 0), set("fire.level", 0, 0), set("fossil.rise", 0, 0), set("bg.warm", 0, 0), set("bg.inside", 0, 0),
-      set("verdict.show", 0, 0), set("verdict.big", 0, 0), set("verdict.needle", 0, 0), set("dino.ghost", 0, 0), set("ce.pulse", 0, 0), set("frost.show", 0, 0), set("timeline.k", 0, 0),
-      pop("bone.glow", W("s1", 1)), ...world(W("s1", 5), "map"), pop("ce.pulse", W("s1", 6)), ...world(W("s1", 16), "diorama"),
-      ...mascot.place(M_DIO, -0.8, MS_DIO, W("s1", 16)), ...mascot.float(0, false, 1), set("mascot.sit", 0, 0),
-      lin("dino.reveal", W("s1", 19), W("s1", 19) + 18, 0, 1, "out"), ...fx.punch(W("s1", 20)), ...mascot.jump(W("s1", 20)),
+      ...fx.flash(0), ...world(0, "cosmos"), set("pie.show", 0, 0), set("pie.k5", 0, 0), set("pie.k27", 0, 0), set("pie.k68", 0, 0), set("pie.outline", 0, 0), set("pie.q", 0, 0), set("halo.k", 0, 0), set("pull.k", 0, 0),
+      set("split.show", 0, 0), set("scatter", 0, 0), set("field.show", 0, 0), set("expand.t", 0, 0), set("euclid.launch", 0, 0), set("dist.k", 0, 0), set("sky.k", 0, 0), set("lens.pass", 0, 0), set("lens.arcs", 0, 0),
+      set("lens.field", 0, 0), set("lens.trace", 0, 0), set("web.light", 0, 0), set("counter", 0, 0), set("label.5", 0, 0), set("label.95", 0, 0), set("legend.k", 0, 0), set("galaxy.show", 0, 1), set("mascot.sit", 0, 0),
+      ...mascot.place(add(GAL, [5.2, -2.6, 3]), -0.5, 1.1, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 1), 34),
+      set("galaxy.show", W("s1", 11), 0), set("pie.show", W("s1", 11), 1), ...fx.whipIn(), ...mascot.place(M_PIE, -0.6, 0.75, W("s1", 11)),
+      pop("pie.k5", W("s1", 13)), lin("legend.k", W("s1", 13), W("s1", 13) + 10, 0, 1), pop("pie.outline", W("s1", 17)), ...fx.punch(W("s1", 20)),
     ],
     badges: [
-      { text: "SANGUE DE DINOSSAURO?", variant: "warning", icon: "?", appearAt: W("s1", 1), disappearAt: W("s1", 10) },
-      { text: "115 MILHÕES DE ANOS", variant: "info", appearAt: W("s1", 10), disappearAt: W("s1", 17) },
-      { text: "DÁ PRA CLONAR?", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 17) },
+      { text: "SÓ 5% É VISÍVEL", variant: "warning", appearAt: W("s1", 13), disappearAt: W("s1", 18) },
+      { text: "O RESTO? INVISÍVEL", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 18) },
     ],
-    highlights: ["SANGUE", "DINOSSAURO", "BRASIL", "QUINZE", "MILHÕES", "CLONAR"],
-    captions: [cap("s1", 0, "Acharam sangue de dinossauro aqui no Brasil, num osso de cento e quinze milhões de anos. Então dá pra clonar um dinossauro?")],
-    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("drip", W("s1", 1), 0.4), sfx("whoosh", W("s1", 5), 0.4), sfx("whoosh-soft", W("s1", 16), 0.35), sfx("dino-call", W("s1", 19), 0.45)],
+    highlights: ["ENXERGA", "UNIVERSO", "CINCO", "CENTO", "INVISÍVEL"],
+    captions: [cap("s1", 0, "Tudo o que você enxerga no universo, estrelas, planetas e galáxias, é só cinco por cento dele. O resto é invisível.")],
+    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("shimmer", W("s1", 13), 0.35), sfx("thud", W("s1", 20), 0.45)],
   },
   {
     id: "s2", ...sc(1), voKey: "s2",
-    narration: "Este é o Boato ou Verdade.",
-    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.dinoA2), key(end(1), P.dinoA, "linear")] },
-    objects: [{ id: "seriesCard", type: "SeriesCard(EP. 02)", visible: true }, { id: "verdict", type: "VerdictMeter2D", visible: true }],
+    narration: "Uns vinte e sete por cento são matéria escura. Ela não brilha, mas puxa tudo em volta.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.pie2), ...cut(W("s2", 7), P.pie2, P.gal2), key(end(1), P.galClose, "linear")] },
+    objects: [{ id: "pie", type: "UniversePie(+27%)", visible: true }, { id: "galaxy", type: "SpiralGalaxy(halo)", visible: true }, { id: "seal", type: "Seal(ILUSTRAÇÃO)", visible: true }],
     animations: [
-      lin("series.card", 0, 10, 0, 1, "out"), lin("verdict.show", W("s2", 2), W("s2", 2) + 10, 0, 1, "out"), lin("verdict.wobble", W("s2", 3), W("s2", 3) + 8, 0, 1),
-      lin("series.card", end(1) - 8, end(1), 1, 0, "in"), lin("verdict.show", end(1) - 8, end(1), 1, 0, "in"), lin("verdict.wobble", end(1) - 1, end(1), 1, 0), lin("bg.blur", 0, 8, 0, 1), lin("bg.blur", end(1) - 8, end(1), 1, 0),
+      pop("pie.k27", W("s2", 1)), popOut("pie.outline", W("s2", 1), 10), set("pie.show", W("s2", 7), 0), set("galaxy.show", W("s2", 7), 1), lin("legend.k", W("s2", 7) - 6, W("s2", 7), undefined, 0),
+      ...mascot.hide(W("s2", 7) - 4, 4), lin("halo.k", W("s2", 7), W("s2", 9) + 8, 0, 1), pop("pull.k", W("s2", 13)),
     ],
-    badges: [],
-    highlights: ["BOATO", "VERDADE"],
-    captions: [cap("s2", 1, "Este é o Boato ou Verdade.")],
-    audioCues: [narration("s2"), sfx("badge", 0, 0.5), sfx("tick", W("s2", 3), 0.3), sfx("whoosh-soft", end(1) - 8, 0.35)],
+    badges: [
+      { text: "MATÉRIA ESCURA: 27%", variant: "info", appearAt: W("s2", 1), disappearAt: W("s2", 10) },
+      { text: "NÃO BRILHA, MAS PUXA", variant: "info", appearAt: W("s2", 10) },
+    ],
+    highlights: ["VINTE", "SETE", "MATÉRIA", "ESCURA", "BRILHA", "PUXA"],
+    captions: [cap("s2", 1, "Uns vinte e sete por cento são matéria escura. Ela não brilha, mas puxa tudo em volta.")],
+    audioCues: [narration("s2"), sfx("glow", W("s2", 1), 0.4), sfx("whoosh-soft", W("s2", 7), 0.3), sfx("rumble-soft", W("s2", 13), 0.35)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
-    narration: "O dono do osso é o Aratassauro: um jovem caçador de uns três metros, que viveu onde hoje fica o Ceará.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.dinoA), key(end(2), P.dinoB, "linear")] },
-    objects: [{ id: "dino", type: "Aratasaurus(walk)", visible: true }, { id: "person", type: "Person(1,7 m, escala)", visible: true }, { id: "seal", type: "Seal(RECONSTRUÇÃO ARTÍSTICA)", visible: true }],
-    animations: [
-      lin("dino.walk", 0, 8, 0, 1), lin("dino.x", 0, end(2), -1.4, 2.2, "linear", "u3d"), pop("person.show", W("s3", 12)),
-      ...mascot.jump(W("s3", 8)), ...mascot.walk(W("s3", 8), W("s3", 8) + 20, M_DIO, add(M_DIO, [0.5, 0, 0.25])),
-    ],
-    badges: [
-      { text: "ARATASSAURO", subtitle: "Aratasaurus museunacionali", variant: "info", appearAt: W("s3", 6), disappearAt: W("s3", 12) },
-      { text: "~3 METROS · JOVEM CAÇADOR", variant: "info", appearAt: W("s3", 12) },
-    ],
-    highlights: ["ARATASSAURO", "CAÇADOR", "TRÊS", "METROS", "CEARÁ"],
-    captions: [cap("s3", 2, "O dono do osso é o Aratassauro: um jovem caçador de uns três metros, que viveu onde hoje fica o Ceará.")],
-    audioCues: [narration("s3"), sfx("dino-step", 4, 0.4), sfx("dino-step", W("s3", 9), 0.35)],
+    narration: "Sem ela, as galáxias giram tão rápido que deveriam se desmanchar.",
+    camera: { projection: "perspective", movement: "split", keys: [key(0, P.split), key(end(2), P.split2, "linear")] },
+    objects: [{ id: "galA", type: "SpiralGalaxy(halo)", visible: true }, { id: "galB", type: "SpiralGalaxy(scatter)", visible: true }],
+    animations: [...fx.whipIn(), set("galaxy.show", 0, 0), set("split.show", 0, 1), lin("scatter", W("s3", 6), W("s3", 10) + 10, 0, 1, "in"), ...mascot.place(add(SPLIT_A, [4.2, -5.2, 6]), 0, 1.4, 0, 8), ...mascot.jump(W("s3", 8))],
+    badges: [{ text: "SEM ELA, A GALÁXIA SE DESMANCHA", variant: "negative", appearAt: W("s3", 8) }],
+    highlights: ["SEM", "GIRAM", "RÁPIDO", "DESMANCHAR"],
+    captions: [cap("s3", 2, "Sem ela, as galáxias giram tão rápido que deveriam se desmanchar.")],
+    audioCues: [narration("s3"), sfx("whoosh", 0, 0.35), sfx("whoosh-big", W("s3", 8), 0.4)],
   },
   {
     id: "s4", ...sc(3), voKey: "s4",
-    narration: "O nome quer dizer nascido do fogo, uma homenagem ao Museu Nacional, que pegou fogo em 2018.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.dinoB), ...cut(W("s4", 8), P.dinoB, P.museum), key(end(3), P.museum2, "linear")] },
-    objects: [{ id: "name", type: "Overlay(ARA + ATÁ)", visible: true }, { id: "museum", type: "MuseumFacade", visible: true }],
+    narration: "E sessenta e oito por cento é energia escura: algo que faz o universo se expandir cada vez mais rápido.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.pie), ...cut(W("s4", 12), P.pie2, P.field), key(end(3), P.field2, "in")] },
+    objects: [{ id: "pie", type: "UniversePie(completa)", visible: true }, { id: "field", type: "ExpandingField", visible: true }],
     animations: [
-      lin("dino.walk", 0, 10, undefined, 0), pop("name.split", W("s4", 4)), popOut("name.split", W("s4", 8), 6), ...world(W("s4", 8), "museum"),
-      lin("fire.level", W("s4", 12), W("s4", 16), 0, 1), lin("bg.warm", W("s4", 12), W("s4", 16), 0, 1), ...fx.shake(W("s4", 13), 8), popOut("person.show", 0, 6),
+      ...fx.whipIn(), ...mascot.hide(0, 4), set("split.show", 0, 0), set("pie.show", 0, 1), set("pie.k5", 0, 1), set("pie.k27", 0, 1), lin("legend.k", 0, 8, 0, 1), pop("pie.k68", W("s4", 1)), ...fx.flash(W("s4", 3), 6),
+      set("pie.show", W("s4", 12), 0), lin("legend.k", W("s4", 12) - 6, W("s4", 12), undefined, 0), set("field.show", W("s4", 12), 1), lin("expand.t", W("s4", 13), end(3), 0, 1, "in"),
     ],
     badges: [
-      { text: "\"ARA\" + \"ATÁ\" = NASCIDO DO FOGO", subtitle: "em tupi", variant: "info", appearAt: W("s4", 4), disappearAt: W("s4", 10) },
-      { text: "MUSEU NACIONAL · INCÊNDIO DE 2018", variant: "warning", appearAt: W("s4", 10) },
+      { text: "ENERGIA ESCURA: 68%", variant: "info", size: "large", appearAt: W("s4", 1), disappearAt: W("s4", 15) },
+      { text: "EXPANSÃO ACELERADA", variant: "warning", appearAt: W("s4", 15) },
     ],
-    highlights: ["NASCIDO", "FOGO", "MUSEU", "NACIONAL", "2018"],
-    captions: [cap("s4", 3, "O nome quer dizer nascido do fogo, uma homenagem ao Museu Nacional, que pegou fogo em 2018.")],
-    audioCues: [narration("s4"), sfx("shimmer", W("s4", 4), 0.3), sfx("whoosh", W("s4", 8), 0.35), sfx("fire", W("s4", 12), 0.35)],
+    highlights: ["SESSENTA", "OITO", "ENERGIA", "ESCURA", "EXPANDIR", "RÁPIDO"],
+    captions: [cap("s4", 3, "E sessenta e oito por cento é energia escura: algo que faz o universo se expandir cada vez mais rápido.")],
+    audioCues: [narration("s4"), sfx("whoosh-soft", 0, 0.3), sfx("ding", W("s4", 1), 0.4), sfx("solar-whoosh", W("s4", 13), 0.4)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",
-    narration: "O fóssil é um pedaço da perna, achado numa mina de gesso em Santana do Cariri.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.mine), key(end(4), P.mine2, "inOut")] },
-    objects: [{ id: "mine", type: "GypsumMine", visible: true }, { id: "fossil", type: "FossilLeg(emerge)", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
-    animations: [...fx.whipIn(), ...world(0, "mine"), set("bg.warm", 0, 0), lin("fossil.rise", W("s5", 4), W("s5", 7), 0, 1)],
-    badges: [
-      { text: "PEDAÇO DA PERNA", variant: "info", appearAt: W("s5", 4), disappearAt: W("s5", 13) },
-      { text: "SANTANA DO CARIRI · CE", variant: "info", appearAt: W("s5", 13) },
+    narration: "Ninguém sabe o que elas são. Por isso, em 2023, a Europa lançou o Euclid.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.pie2), ...cut(W("s5", 6), P.pie, P.earth), key(end(4), P.earth2, "linear")] },
+    objects: [{ id: "pie", type: "UniversePie(?)", visible: true }, { id: "earth", type: "NightGlobe", visible: true }, { id: "euclid", type: "Euclid(lançamento)", visible: true }],
+    animations: [
+      ...fx.whipIn(), set("field.show", 0, 0), set("pie.show", 0, 1), lin("legend.k", 0, 8, 0, 1), pop("pie.q", W("s5", 1)), lin("screen.whip", W("s5", 6), W("s5", 6) + 7, -1, 0, "out"), set("pie.show", W("s5", 6), 0),
+      ...world(W("s5", 6), "solar"), lin("legend.k", W("s5", 6) - 6, W("s5", 6), undefined, 0), lin("euclid.launch", W("s5", 11), W("s5", 14) + 18, 0, 1, "out"),
+      ...mascot.place(add(SOLAR, [-1.6, -1.6, 3.2]), 0.4, 0.75, W("s5", 6)), ...mascot.point(W("s5", 13), 40, 1.2),
     ],
-    highlights: ["PERNA", "MINA", "GESSO", "SANTANA", "CARIRI"],
-    captions: [cap("s5", 4, "O fóssil é um pedaço da perna, achado numa mina de gesso em Santana do Cariri.")],
-    audioCues: [narration("s5"), sfx("whoosh", 0, 0.4), sfx("crumble", W("s5", 4), 0.35), sfx("pop", W("s5", 13), 0.3)],
+    badges: [
+      { text: "NINGUÉM SABE O QUE SÃO", variant: "warning", icon: "?", appearAt: W("s5", 1), disappearAt: W("s5", 11) },
+      { text: "EUCLID · LANÇADO EM 2023", variant: "info", appearAt: W("s5", 11) },
+    ],
+    highlights: ["NINGUÉM", "SABE", "2023", "EUROPA", "EUCLID"],
+    captions: [cap("s5", 4, "Ninguém sabe o que elas são. Por isso, em 2023, a Europa lançou o Euclid.")],
+    audioCues: [narration("s5"), sfx("tick", W("s5", 1), 0.3), sfx("whoosh", W("s5", 6), 0.4), sfx("launch", W("s5", 11), 0.5)],
   },
   {
     id: "s6", ...sc(5), voKey: "s6",
-    narration: "Dentro do osso, há canais finíssimos por onde o sangue passava. Foi ali que os cientistas procuraram.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.boneWide), key(W("s6", 3), P.section, "inOut"), key(W("s6", 11), P.section), key(end(5), P.section2, "inOut")] },
-    objects: [{ id: "fossil", type: "FossilLeg", visible: true }, { id: "section", type: "BoneSection(flow)", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "bone"), set("bone.glow", 0, 0), pop("section.show", 4), lin("canals.flow", W("s6", 8), W("s6", 10), 0, 1), lin("canals.flow", W("s6", 11), W("s6", 11) + 12, 1, 0),
-      lin("bg.inside", W("s6", 11), end(5), 0, 0.6), ...mascot.place(M_BONE, -0.6, 0.7, W("s6", 11), 10), ...mascot.point(W("s6", 13), 40, -0.9),
-    ],
+    narration: "Ele fica a um milhão e meio de quilômetros da Terra e vai mapear um terço do céu.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.earth2), key(W("s6", 3), P.solarWide, "inOut"), key(end(5), P.solarWide2, "linear")] },
+    objects: [{ id: "sun", type: "Sun", visible: true }, { id: "earth", type: "NightGlobe", visible: true }, { id: "euclid", type: "Euclid(L2)", visible: true }, { id: "sky", type: "SkyThird", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
+    animations: [set("euclid.launch", 0, 1), ...mascot.hide(0, 8), lin("dist.k", W("s6", 3), W("s6", 8), 0, 1), lin("sky.k", W("s6", 13), W("s6", 17) + 8, 0, 1)],
     badges: [
-      { text: "CANAIS DO SANGUE", variant: "info", appearAt: W("s6", 4), disappearAt: W("s6", 12) },
-      { text: "AQUI DENTRO", variant: "info", appearAt: W("s6", 12) },
+      { text: "1,5 MILHÃO DE KM DA TERRA", variant: "info", appearAt: W("s6", 4), disappearAt: W("s6", 13) },
+      { text: "MAPA DE 1/3 DO CÉU", variant: "info", appearAt: W("s6", 13) },
     ],
-    highlights: ["CANAIS", "FINÍSSIMOS", "SANGUE", "CIENTISTAS"],
-    captions: [cap("s6", 5, "Dentro do osso, há canais finíssimos por onde o sangue passava. Foi ali que os cientistas procuraram.")],
-    audioCues: [narration("s6"), sfx("whoosh-soft", 0, 0.3), sfx("glow", W("s6", 8), 0.3), sfx("microscope", W("s6", 13), 0.4)],
+    highlights: ["MILHÃO", "MEIO", "TERRA", "TERÇO", "CÉU"],
+    captions: [cap("s6", 5, "Ele fica a um milhão e meio de quilômetros da Terra e vai mapear um terço do céu.")],
+    audioCues: [narration("s6"), sfx("pop", W("s6", 4), 0.3), sfx("shimmer", W("s6", 13), 0.35)],
   },
   {
     id: "s7", ...sc(6), voKey: "s7",
-    narration: "E acharam bolinhas de mineral do tamanho de glóbulos vermelhos. Nelas, sinais químicos do heme, a parte do sangue que segura o oxigênio.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.canal), key(W("s7", 2), P.micro, "in"), ...cut(W("s7", 14), P.micro, P.heme), key(end(6), P.heme2, "linear")] },
-    objects: [{ id: "canal", type: "CanalClose", visible: true }, { id: "heme", type: "Heme", visible: true }, { id: "vignette", type: "MicroscopeVignette2D", visible: true }],
-    animations: [
-      ...mascot.hide(0, 8), set("bg.inside", 0, 1), lin("micro.zoom", 0, W("s7", 2), 0, 1, "in"), pop("rbc.show", W("s7", 2)), lin("micro.zoom", W("s7", 13), W("s7", 14), 1, 0),
-      pop("heme.show", W("s7", 14)), ...fx.punch(W("s7", 14)), lin("o2.dock", W("s7", 20), W("s7", 22) + 6, 0, 1),
-    ],
+    narration: "O truque: a matéria escura entorta a luz das galáxias que estão atrás, como uma lente. Medindo essa distorção, dá pra desenhar onde ela está.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.lens), key(end(6), P.lens2, "linear")] },
+    objects: [{ id: "lens", type: "Lens", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
+    animations: [...fx.whipIn(), ...world(0, "lens"), lin("lens.pass", W("s7", 2), W("s7", 7), 0, 1), lin("lens.arcs", W("s7", 5), W("s7", 9) + 8, 0, 1), pop("lens.field", W("s7", 16)), lin("lens.trace", W("s7", 19), W("s7", 24) + 6, 0, 1)],
     badges: [
-      { text: "\"HEMÁCIAS\" MINERAIS", variant: "info", appearAt: W("s7", 2), disappearAt: W("s7", 14) },
-      { text: "HEME: SEGURA O OXIGÊNIO", variant: "info", appearAt: W("s7", 14) },
+      { text: "LENTE GRAVITACIONAL", variant: "info", appearAt: W("s7", 13), disappearAt: W("s7", 19) },
+      { text: "A DISTORÇÃO REVELA A MATÉRIA ESCURA", variant: "positive", appearAt: W("s7", 19) },
     ],
-    highlights: ["BOLINHAS", "GLÓBULOS", "VERMELHOS", "HEME", "OXIGÊNIO"],
-    captions: [cap("s7", 6, "E acharam bolinhas de mineral do tamanho de glóbulos vermelhos. Nelas, sinais químicos do heme, a parte do sangue que segura o oxigênio.")],
-    audioCues: [narration("s7"), sfx("microscope", 0, 0.35), sfx("pop", W("s7", 2), 0.3), sfx("ding", W("s7", 14), 0.35), sfx("pop-high", W("s7", 21), 0.3)],
+    highlights: ["TRUQUE", "ENTORTA", "LUZ", "LENTE", "DISTORÇÃO", "DESENHAR"],
+    captions: [cap("s7", 6, "O truque: a matéria escura entorta a luz das galáxias que estão atrás, como uma lente. Medindo essa distorção, dá pra desenhar onde ela está.")],
+    audioCues: [narration("s7"), sfx("whoosh", 0, 0.35), sfx("warp", W("s7", 5), 0.45), sfx("glow", W("s7", 19), 0.4)],
   },
   {
     id: "s8", ...sc(7), voKey: "s8",
-    narration: "Só que não é sangue líquido. É uma marca química, uma sombra do sangue que virou pedra junto com o osso.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.heme2), ...cut(W("s8", 2), P.heme2, P.canalOut), key(end(7), P.canal, "linear")] },
-    objects: [{ id: "drop", type: "BloodDrop", visible: true }, { id: "canal", type: "CanalClose(→ pedra)", visible: true }, { id: "heme", type: "Heme(fantasma)", visible: true }],
-    animations: [pop("drop.show", W("s8", 2)), lin("drop.break", W("s8", 5), W("s8", 6) + 8, 0, 1), lin("rbc.stone", W("s8", 10), W("s8", 16), 0, 1), lin("heme.ghost", 0, 10, 0, 0.8), lin("bg.inside", W("s8", 16), end(7), 1, 0.4)],
+    narration: "E já saiu o primeiro grande pacote: mais de novecentos milhões de galáxias, pra montar o mapa 3D do universo invisível.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.web), key(end(7), P.web2, "inOut")] },
+    objects: [{ id: "web", type: "CosmicWeb", visible: true }, { id: "counter", type: "Counter2D", visible: true }],
+    animations: [...fx.whipIn(), ...world(0, "web"), lin("web.light", W("s8", 2), W("s8", 12) + 10, 0, 1), lin("counter", W("s8", 7), W("s8", 12), 0, 900, "out", "count")],
     badges: [
-      { text: "NÃO É SANGUE LÍQUIDO", variant: "negative", appearAt: W("s8", 2), disappearAt: W("s8", 8) },
-      { text: "SÓ UMA MARCA QUÍMICA", variant: "info", appearAt: W("s8", 8) },
+      { text: "1º PACOTE DE DADOS", variant: "info", appearAt: W("s8", 4), disappearAt: W("s8", 9) },
+      { text: "+900 MILHÕES DE GALÁXIAS", variant: "positive", appearAt: W("s8", 9) },
     ],
-    highlights: ["LÍQUIDO", "MARCA", "QUÍMICA", "SOMBRA", "PEDRA"],
-    captions: [cap("s8", 7, "Só que não é sangue líquido. É uma marca química, uma sombra do sangue que virou pedra junto com o osso.")],
-    audioCues: [narration("s8"), sfx("drip", W("s8", 2), 0.35), sfx("dust", W("s8", 5), 0.35), sfx("crumble", W("s8", 15), 0.25)],
+    highlights: ["PRIMEIRO", "PACOTE", "NOVECENTOS", "MILHÕES", "MAPA", "INVISÍVEL"],
+    captions: [cap("s8", 7, "E já saiu o primeiro grande pacote: mais de novecentos milhões de galáxias, pra montar o mapa 3D do universo invisível.")],
+    audioCues: [narration("s8"), sfx("whoosh", 0, 0.35), sfx("shimmer", W("s8", 2), 0.35), sfx("ding", W("s8", 9), 0.35)],
   },
   {
     id: "s9", ...sc(8), voKey: "s9",
-    narration: "E nem todo mundo está convencido: uma paleontóloga lembra que hemácias de dinossauro deviam ser abauladas, e essas parecem côncavas.",
-    camera: { projection: "perspective", movement: "split", keys: [key(0, P.split), key(end(8), P.split2, "linear")] },
-    objects: [{ id: "rbcA", type: "RBC(abaulada)", visible: true }, { id: "rbcB", type: "RBC(côncava)", visible: true }, { id: "verdict", type: "VerdictMeter2D", visible: true }],
+    narration: "Pronto: agora você sabe. O universo que a gente vê é só a pontinha do iceberg.",
+    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.iceTop), key(W("s9", 4), P.iceTop), key(W("s9", 14), P.iceDeep, "inOut"), key(end(8), orbit(add(ICE, [0, -2.4, 0]), 22, 34, 3), "linear")] },
+    objects: [{ id: "iceberg", type: "Iceberg", visible: true }, { id: "labels", type: "Labels(5% / 95%)", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
     animations: [
-      pop("split.show", 0), lin("verdict.show", W("s9", 1), W("s9", 1) + 10, 0, 1, "out"), lin("verdict.wobble", W("s9", 1), W("s9", 1) + 8, 0, 0.6),
-      pop("label.a", W("s9", 14)), pop("label.b", W("s9", 18)), lin("rbcA.spin", W("s9", 14), W("s9", 14) + 30, 0, 1), lin("rbcB.spin", W("s9", 18), W("s9", 18) + 30, 0, 1),
+      ...fx.whipIn(), ...world(0, "ice"), ...mascot.place(add(ICE, [2.1, 0.5, 1.6]), -0.6, 0.55, 0), ...mascot.float(0, true, 1), ...mascot.cheer(W("s9", 1), 40), ...mascot.wave(W("s9", 13), 36),
+      pop("label.5", W("s9", 11)), pop("label.95", W("s9", 14)), popOut("label.5", end(8) - s(5.3)), popOut("label.95", end(8) - s(5.3)),
     ],
-    badges: [
-      { text: "NEM TODOS CONCORDAM", variant: "warning", appearAt: W("s9", 1), disappearAt: W("s9", 14) },
-      { text: "ABAULADA × CÔNCAVA", variant: "warning", appearAt: W("s9", 14) },
-    ],
-    highlights: ["CONVENCIDO", "PALEONTÓLOGA", "ABAULADAS", "CÔNCAVAS"],
-    captions: [cap("s9", 8, "E nem todo mundo está convencido: uma paleontóloga lembra que hemácias de dinossauro deviam ser abauladas, e essas parecem côncavas.")],
-    audioCues: [narration("s9"), sfx("whoosh", 0, 0.35), sfx("tick", W("s9", 1), 0.3), sfx("pop", W("s9", 14), 0.25), sfx("pop", W("s9", 18), 0.25)],
-  },
-  {
-    id: "s10", ...sc(9), voKey: "s10",
-    narration: "Primeira parte: achar sangue de dinossauro? Meia verdade.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.verdict), key(end(9), P.verdict2, "linear")] },
-    objects: [{ id: "verdict", type: "VerdictMeter2D(grande)", visible: true }, { id: "fossil", type: "FossilLeg", visible: true }],
-    animations: [
-      lin("verdict.show", 0, 6, undefined, 0), set("bg.inside", 0, 0.2), set("verdict.needle", 0, 30), lin("verdict.big", 0, 12, 0, 1, "out"),
-      { type: "spring", target: "verdict.needle", startFrame: W("s10", 6), endFrame: W("s10", 6) + 24, from: 30, to: 0, damping: 10, unit: "deg" },
-      ...fx.flash(W("s10", 6), 6), lin("verdict.big", end(9) - 10, end(9), 1, 0),
-    ],
-    badges: [
-      { text: "1ª CHECAGEM", variant: "info", appearAt: 0, disappearAt: W("s10", 6) },
-      { text: "MEIA VERDADE", variant: "warning", size: "large", appearAt: W("s10", 6) },
-    ],
-    highlights: ["SANGUE", "DINOSSAURO?", "MEIA", "VERDADE"],
-    captions: [cap("s10", 9, "Primeira parte: achar sangue de dinossauro? Meia verdade.")],
-    audioCues: [narration("s10"), sfx("tick", 0, 0.3), sfx("thud", W("s10", 6), 0.45)],
-  },
-  {
-    id: "s11", ...sc(10), voKey: "s11",
-    narration: "Agora, o clone. Pra isso, precisaria de DNA. E no osso o DNA se desfaz rápido: metade some a cada uns quinhentos anos.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.dna), key(end(10), P.dna2, "inOut")] },
-    objects: [{ id: "dna", type: "DNAHelix", visible: true }, { id: "hourglass", type: "Hourglass", visible: true }],
-    animations: [...fx.whipIn(), ...world(0, "dna"), set("bg.inside", 0, 0), pop("dna.show", W("s11", 2)), lin("dna.decay", W("s11", 16), W("s11", 22), 0, 0.5), pop("hourglass.show", W("s11", 16)), lin("hourglass.flip", W("s11", 16) + 6, W("s11", 16) + 26, 0, 1)],
-    badges: [
-      { text: "PRECISARIA DE DNA", variant: "info", appearAt: W("s11", 7), disappearAt: W("s11", 16) },
-      { text: "METADE SOME A CADA ~500 ANOS", variant: "negative", appearAt: W("s11", 16) },
-    ],
-    highlights: ["CLONE", "DNA", "DESFAZ", "METADE", "QUINHENTOS"],
-    captions: [cap("s11", 10, "Agora, o clone. Pra isso, precisaria de DNA. E no osso o DNA se desfaz rápido: metade some a cada uns quinhentos anos.")],
-    audioCues: [narration("s11"), sfx("whoosh", 0, 0.4), sfx("shimmer", W("s11", 2), 0.3), sfx("hourglass", W("s11", 16), 0.35), sfx("dust", W("s11", 18), 0.3)],
-  },
-  {
-    id: "s12", ...sc(11), voKey: "s12",
-    narration: "Mesmo no frio ideal, depois de um milhão e meio de anos ele vira picadinho ilegível. Esse osso tem cento e quinze milhões.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.dna2), key(end(11), P.dna3, "linear")] },
-    objects: [{ id: "frost", type: "Frost", visible: true }, { id: "timeline", type: "Timeline2D", visible: true }, { id: "dna", type: "DNAHelix(→ pó)", visible: true }],
-    animations: [pop("frost.show", W("s12", 2)), lin("timeline.show", W("s12", 5), W("s12", 5) + 8, 0, 1), lin("timeline.k", W("s12", 6), W("s12", 11), 0, 0.013), lin("dna.decay", W("s12", 13), W("s12", 15) + 6, 0.5, 1), lin("timeline.k", W("s12", 19), W("s12", 22), 0.013, 1, "in"), ...fx.shake(W("s12", 21), 8)],
-    badges: [
-      { text: "ATÉ NO FRIO: ~1,5 MILHÃO DE ANOS", variant: "info", appearAt: W("s12", 6), disappearAt: W("s12", 19) },
-      { text: "ESTE OSSO: 115 MILHÕES", variant: "negative", appearAt: W("s12", 19) },
-    ],
-    highlights: ["FRIO", "MILHÃO", "MEIO", "ILEGÍVEL", "QUINZE", "MILHÕES"],
-    captions: [cap("s12", 11, "Mesmo no frio ideal, depois de um milhão e meio de anos ele vira picadinho ilegível. Esse osso tem cento e quinze milhões.")],
-    audioCues: [narration("s12"), sfx("shimmer", W("s12", 2), 0.25), sfx("dust", W("s12", 13), 0.35), sfx("rewind", W("s12", 19), 0.3)],
-  },
-  {
-    id: "s13", ...sc(12), voKey: "s13",
-    narration: "E o mosquito no âmbar, do filme? Nunca acharam DNA de dinossauro em âmbar.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.dna3), key(W("s13", 2), P.amber, "inOut"), key(end(12), P.amber2, "linear")] },
-    objects: [{ id: "amber", type: "AmberMosquito", visible: true }, { id: "cross", type: "Cross2D", visible: true }],
-    animations: [lin("timeline.show", 0, 8, undefined, 0), lin("frost.show", 0, 10, undefined, 0), pop("amber.show", W("s13", 1)), pop("amber.cross", W("s13", 7))],
-    badges: [
-      { text: "E O MOSQUITO?", variant: "warning", icon: "?", appearAt: W("s13", 2), disappearAt: W("s13", 8) },
-      { text: "NUNCA ACHARAM DNA NO ÂMBAR", variant: "negative", appearAt: W("s13", 8) },
-    ],
-    highlights: ["MOSQUITO", "ÂMBAR", "FILME?", "NUNCA"],
-    captions: [cap("s13", 12, "E o mosquito no âmbar, do filme? Nunca acharam DNA de dinossauro em âmbar.")],
-    audioCues: [narration("s13"), sfx("amber-ring", W("s13", 1), 0.35), sfx("buzz", W("s13", 7), 0.35)],
-  },
-  {
-    id: "s14", ...sc(13), voKey: "s14",
-    narration: "Veredito: clonar o Aratassauro? Boato. Pronto: agora você sabe. Acharam a sombra do sangue, não um dinossauro pronto pra voltar.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.amber2), ...cut(W("s14", 5), P.amber2, P.final0), key(end(13), P.final1, "inOut")] },
-    objects: [{ id: "verdict", type: "VerdictMeter2D(grande)", visible: true }, { id: "dino", type: "Aratasaurus(fantasma, andando)", visible: true }, { id: "summary", type: "Overlay(2 ícones)", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
-    animations: [
-      lin("amber.cross", 0, 8, undefined, 0), set("verdict.needle", 0, 0), lin("verdict.big", 0, 12, 0, 1, "out"),
-      { type: "spring", target: "verdict.needle", startFrame: W("s14", 4), endFrame: W("s14", 4) + 24, from: 0, to: -82, damping: 9, unit: "deg" },
-      pop("verdict.hit", W("s14", 4)), ...fx.shake(W("s14", 4), 12), ...fx.flash(W("s14", 4)), lin("verdict.big", W("s14", 5), W("s14", 5) + 10, 1, 0),
-      ...world(W("s14", 5), "diorama"), set("dino.x", W("s14", 5), -2.2), lin("dino.x", W("s14", 5), end(13) - s(4), -2.2, 2.4, "linear", "u3d"), lin("dino.walk", W("s14", 5), W("s14", 5) + 8, 0, 1),
-      lin("dino.ghost", W("s14", 9), W("s14", 19), 0, 0.35), pop("summary.a", W("s14", 9)), pop("summary.b", W("s14", 13)), popOut("summary.a", end(13) - s(5.3)), popOut("summary.b", end(13) - s(5.3)),
-      ...mascot.place(M_DIO, -0.8, MS_DIO, W("s14", 5)), ...mascot.cheer(W("s14", 5), 40), ...mascot.wave(W("s14", 16), 36),
-    ],
-    badges: [
-      { text: "VEREDITO: BOATO", variant: "negative", size: "large", appearAt: W("s14", 4), disappearAt: W("s14", 11) },
-      { text: "ACHARAM A SOMBRA DO SANGUE", variant: "positive", appearAt: W("s14", 11), disappearAt: end(13) - s(5.3) },
-    ],
-    highlights: ["VEREDITO", "BOATO", "PRONTO", "SOMBRA", "VOLTAR"],
-    captions: [cap("s14", 13, "Veredito: clonar o Aratassauro? Boato. Pronto: agora você sabe. Acharam a sombra do sangue, não um dinossauro pronto pra voltar.")],
-    audioCues: [narration("s14"), sfx("tick", 0, 0.3), sfx("thud", W("s14", 4), 0.55), sfx("final", W("s14", 5), 0.45), sfx("dino-step", W("s14", 9), 0.3)],
+    badges: [{ text: "SÓ A PONTINHA: 5%", variant: "positive", appearAt: W("s9", 11), disappearAt: end(8) - s(5.3) }],
+    highlights: ["PRONTO", "UNIVERSO", "VÊ", "PONTINHA", "ICEBERG"],
+    captions: [cap("s9", 8, "Pronto: agora você sabe. O universo que a gente vê é só a pontinha do iceberg.")],
+    audioCues: [narration("s9"), sfx("whoosh", 0, 0.35), sfx("ocean-amb", 0, 0.25), sfx("final", W("s9", 11), 0.45)],
   },
 ];
-
-function add3(p: Pose): Pose {
-  return p;
-}
-void c;
 
 export const track = (target: string, frame: number, fallback = 0) => evaluateTrack(scenes, target, frame, FPS, fallback);
 export const sceneAt = (frame: number) => {
@@ -323,6 +213,7 @@ export const sceneAt = (frame: number) => {
 };
 export const sceneIndexAt = (frame: number) => scenes.indexOf(sceneAt(frame));
 export const isVisible = (id: string, frame: number) => sceneAt(frame).objects.some((o) => o.id === id && o.visible);
+export { SUN_P, EUCLID_P, SPLIT_B };
 
 scenes.forEach((cur, i) => {
   const prev = scenes[i - 1];
