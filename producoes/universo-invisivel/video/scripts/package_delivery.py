@@ -1,5 +1,5 @@
 """Monta a entrega final (pedido do usuário): 3 arquivos AVULSOS + 1 zip com o resto.
-    avulsos:  <vídeo>.mp4 · publicacao.md · thumb-youtube.png   (copiados para a pasta de --out)
+    avulsos:  <vídeo>.mp4 · publicacao.md · capa-vertical.png (thumb horizontal só com --thumb-youtube)   (copiados para a pasta de --out)
     <nome>-arquivos.zip  LEIA-ME + capa vertical + 02-DOCUMENTOS (roteiro, status...) + 03-PROJETO (código)
 --single gera o zip único antigo (com tudo).
 
@@ -43,6 +43,7 @@ def main() -> None:
     ap.add_argument("--title", required=True)
     ap.add_argument("--out", required=True, help="caminho base: <dir>/<nome>-entrega.zip")
     ap.add_argument("--single", action="store_true", help="um zip só (formato antigo)")
+    ap.add_argument("--thumb-youtube", action="store_true", help="inclui a thumbnail horizontal (só quando o usuário pedir)")
     a = ap.parse_args()
 
     prod = Path(a.prod)
@@ -57,7 +58,7 @@ def main() -> None:
         d.mkdir(parents=True)
 
     shutil.copy2(video, pub / video.name)
-    for f in ("capa-vertical.png", "thumb-youtube.png"):
+    for f in ("capa-vertical.png",) + (("thumb-youtube.png",) if a.thumb_youtube else ()):
         if (project / "out" / f).exists():
             shutil.copy2(project / "out" / f, pub / f)
     if (prod / "publicacao.md").exists():
@@ -104,7 +105,7 @@ def main() -> None:
         # Padrão (pedido do usuário): MP4, publicacao.md e thumbnail vão AVULSOS; todo o resto num zip só.
         base = out.with_suffix("")
         base = base.with_name(base.name.removesuffix("-entrega"))
-        loose = [pub / video.name, pub / "publicacao.md", pub / "thumb-youtube.png"]
+        loose = [pub / video.name, pub / "publicacao.md", pub / "capa-vertical.png"]
         rest = [p for p in sorted(stage.rglob("*")) if p.is_file() and p not in loose]
         pack(base.with_name(base.name + "-arquivos.zip"), rest)
         for p in loose:
