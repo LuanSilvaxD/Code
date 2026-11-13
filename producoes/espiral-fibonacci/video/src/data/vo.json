@@ -1,795 +1,816 @@
 {
   "s1": {
-    "text": "Tudo o que você enxerga no universo, estrelas, planetas e galáxias, é só cinco por cento dele. O resto é invisível.",
-    "seconds": 7.87,
+    "text": "Conte as espirais de um girassol, trinta e quatro num sentido, cinquenta e cinco no outro. Não é coincidência.",
+    "seconds": 6.75,
     "words": [
       {
-        "text": "Tudo",
+        "text": "Conte",
         "start": 0,
-        "end": 0.16
+        "end": 0.272
       },
       {
-        "text": "o",
-        "start": 0.172,
-        "end": 0.208
+        "text": "as",
+        "start": 0.284,
+        "end": 0.32
       },
       {
-        "text": "que",
-        "start": 0.22,
-        "end": 0.329
+        "text": "espirais",
+        "start": 0.332,
+        "end": 0.921
       },
       {
-        "text": "você",
-        "start": 0.341,
-        "end": 0.569
+        "text": "de",
+        "start": 0.933,
+        "end": 1.005
       },
       {
-        "text": "enxerga",
-        "start": 0.581,
-        "end": 1.026
+        "text": "um",
+        "start": 1.017,
+        "end": 1.077
       },
       {
-        "text": "no",
-        "start": 1.038,
-        "end": 1.098
+        "text": "girassol",
+        "start": 1.089,
+        "end": 1.666
       },
       {
-        "text": "universo",
-        "start": 1.11,
-        "end": 1.711
-      },
-      {
-        "text": "estrelas",
-        "start": 1.963,
-        "end": 2.564
-      },
-      {
-        "text": "planetas",
-        "start": 2.757,
-        "end": 3.213
+        "text": "trinta",
+        "start": 1.822,
+        "end": 2.074
       },
       {
         "text": "e",
-        "start": 3.225,
-        "end": 3.321
+        "start": 2.086,
+        "end": 2.123
       },
       {
-        "text": "galáxias",
-        "start": 3.333,
-        "end": 3.934
+        "text": "quatro",
+        "start": 2.135,
+        "end": 2.471
       },
       {
-        "text": "é",
-        "start": 4.187,
-        "end": 4.259
+        "text": "num",
+        "start": 2.483,
+        "end": 2.615
       },
       {
-        "text": "só",
-        "start": 4.271,
-        "end": 4.451
+        "text": "sentido",
+        "start": 2.627,
+        "end": 3.144
+      },
+      {
+        "text": "cinquenta",
+        "start": 3.385,
+        "end": 3.865
+      },
+      {
+        "text": "e",
+        "start": 3.877,
+        "end": 3.913
       },
       {
         "text": "cinco",
-        "start": 4.463,
-        "end": 4.848
+        "start": 3.925,
+        "end": 4.214
       },
       {
-        "text": "por",
-        "start": 4.86,
-        "end": 5.016
+        "text": "no",
+        "start": 4.226,
+        "end": 4.322
       },
       {
-        "text": "cento",
-        "start": 5.028,
-        "end": 5.353
+        "text": "outro",
+        "start": 4.334,
+        "end": 4.659
       },
       {
-        "text": "dele",
-        "start": 5.365,
-        "end": 5.689
-      },
-      {
-        "text": "O",
-        "start": 6.517,
-        "end": 6.637
-      },
-      {
-        "text": "resto",
-        "start": 6.649,
-        "end": 7.034
+        "text": "Não",
+        "start": 5.486,
+        "end": 5.762
       },
       {
         "text": "é",
-        "start": 7.045,
-        "end": 7.082
+        "start": 5.775,
+        "end": 5.871
       },
       {
-        "text": "invisível",
-        "start": 7.094,
-        "end": 7.803
+        "text": "coincidência",
+        "start": 5.883,
+        "end": 6.64
       }
     ]
   },
   "s2": {
-    "text": "Uns vinte e sete por cento são matéria escura. Ela não brilha, mas puxa tudo em volta.",
-    "seconds": 5.685,
+    "text": "São números de Fibonacci, cada um é a soma dos dois anteriores. Um, um, dois, três, cinco, oito, treze.",
+    "seconds": 8.931,
     "words": [
       {
-        "text": "Uns",
+        "text": "São",
         "start": 0,
-        "end": 0.175
+        "end": 0.246
       },
       {
-        "text": "vinte",
-        "start": 0.187,
-        "end": 0.416
+        "text": "números",
+        "start": 0.258,
+        "end": 0.642
       },
       {
-        "text": "e",
-        "start": 0.428,
-        "end": 0.452
+        "text": "de",
+        "start": 0.654,
+        "end": 0.75
       },
       {
-        "text": "sete",
-        "start": 0.464,
-        "end": 0.752
+        "text": "Fibonacci",
+        "start": 0.762,
+        "end": 1.363
       },
       {
-        "text": "por",
-        "start": 0.764,
-        "end": 0.897
+        "text": "cada",
+        "start": 1.568,
+        "end": 1.82
       },
       {
-        "text": "cento",
-        "start": 0.909,
-        "end": 1.257
+        "text": "um",
+        "start": 1.832,
+        "end": 2.061
       },
       {
-        "text": "são",
-        "start": 1.269,
-        "end": 1.437
+        "text": "é",
+        "start": 2.072,
+        "end": 2.181
       },
       {
-        "text": "matéria",
-        "start": 1.45,
-        "end": 1.846
+        "text": "a",
+        "start": 2.193,
+        "end": 2.241
       },
       {
-        "text": "escura",
-        "start": 1.858,
-        "end": 2.315
+        "text": "soma",
+        "start": 2.253,
+        "end": 2.565
       },
       {
-        "text": "Ela",
-        "start": 3.142,
-        "end": 3.407
+        "text": "dos",
+        "start": 2.577,
+        "end": 2.734
       },
       {
-        "text": "não",
-        "start": 3.419,
-        "end": 3.575
+        "text": "dois",
+        "start": 2.746,
+        "end": 2.986
       },
       {
-        "text": "brilha",
-        "start": 3.587,
-        "end": 3.96
+        "text": "anteriores",
+        "start": 2.998,
+        "end": 3.755
       },
       {
-        "text": "mas",
-        "start": 4.224,
-        "end": 4.476
+        "text": "Um",
+        "start": 4.583,
+        "end": 4.859
       },
       {
-        "text": "puxa",
-        "start": 4.488,
-        "end": 4.861
+        "text": "um",
+        "start": 5.087,
+        "end": 5.316
       },
       {
-        "text": "tudo",
-        "start": 4.873,
-        "end": 5.113
+        "text": "dois",
+        "start": 5.592,
+        "end": 6.037
       },
       {
-        "text": "em",
-        "start": 5.125,
-        "end": 5.198
+        "text": "três",
+        "start": 6.337,
+        "end": 6.758
       },
       {
-        "text": "volta",
-        "start": 5.21,
-        "end": 5.582
+        "text": "cinco",
+        "start": 6.998,
+        "end": 7.455
+      },
+      {
+        "text": "oito",
+        "start": 7.732,
+        "end": 8.14
+      },
+      {
+        "text": "treze",
+        "start": 8.429,
+        "end": 8.873
       }
     ]
   },
   "s3": {
-    "text": "Sem ela, as galáxias giram tão rápido que deveriam se desmanchar.",
-    "seconds": 3.973,
+    "text": "A sequência ficou famosa em 1202, num problema sobre coelhos. Na Índia, já era conhecida séculos antes.",
+    "seconds": 7.915,
     "words": [
       {
-        "text": "Sem",
+        "text": "A",
         "start": 0,
-        "end": 0.267
+        "end": 0.055
       },
       {
-        "text": "ela",
-        "start": 0.279,
-        "end": 0.579
+        "text": "sequência",
+        "start": 0.067,
+        "end": 0.572
       },
       {
-        "text": "as",
-        "start": 0.832,
-        "end": 0.952
+        "text": "ficou",
+        "start": 0.584,
+        "end": 0.836
       },
       {
-        "text": "galáxias",
-        "start": 0.964,
-        "end": 1.541
+        "text": "famosa",
+        "start": 0.849,
+        "end": 1.353
       },
       {
-        "text": "giram",
-        "start": 1.553,
-        "end": 1.853
+        "text": "em",
+        "start": 1.365,
+        "end": 1.966
       },
       {
-        "text": "tão",
-        "start": 1.865,
-        "end": 2.081
+        "text": "1202",
+        "start": 1.966,
+        "end": 2.567
       },
       {
-        "text": "rápido",
-        "start": 2.094,
-        "end": 2.502
+        "text": "num",
+        "start": 2.796,
+        "end": 2.964
       },
       {
-        "text": "que",
-        "start": 2.514,
-        "end": 2.61
+        "text": "problema",
+        "start": 2.976,
+        "end": 3.445
       },
       {
-        "text": "deveriam",
-        "start": 2.622,
-        "end": 3.031
+        "text": "sobre",
+        "start": 3.457,
+        "end": 3.721
       },
       {
-        "text": "se",
-        "start": 3.043,
-        "end": 3.187
+        "text": "coelhos",
+        "start": 3.733,
+        "end": 4.322
       },
       {
-        "text": "desmanchar",
-        "start": 3.199,
-        "end": 3.824
+        "text": "Na",
+        "start": 5.15,
+        "end": 5.342
+      },
+      {
+        "text": "Índia",
+        "start": 5.354,
+        "end": 5.726
+      },
+      {
+        "text": "já",
+        "start": 5.979,
+        "end": 6.123
+      },
+      {
+        "text": "era",
+        "start": 6.135,
+        "end": 6.339
+      },
+      {
+        "text": "conhecida",
+        "start": 6.351,
+        "end": 6.868
+      },
+      {
+        "text": "séculos",
+        "start": 6.88,
+        "end": 7.301
+      },
+      {
+        "text": "antes",
+        "start": 7.313,
+        "end": 7.83
       }
     ]
   },
   "s4": {
-    "text": "E sessenta e oito por cento é energia escura, algo que faz o universo se expandir cada vez mais rápido.",
-    "seconds": 5.623,
+    "text": "Divida um pelo anterior e o resultado se aproxima de 1,618, a proporção áurea.",
+    "seconds": 5.631,
     "words": [
       {
-        "text": "E",
+        "text": "Divida",
         "start": 0,
-        "end": 0.067
+        "end": 0.392
       },
       {
-        "text": "sessenta",
-        "start": 0.079,
-        "end": 0.5
+        "text": "um",
+        "start": 0.404,
+        "end": 0.596
+      },
+      {
+        "text": "pelo",
+        "start": 0.608,
+        "end": 0.764
+      },
+      {
+        "text": "anterior",
+        "start": 0.776,
+        "end": 1.257
       },
       {
         "text": "e",
-        "start": 0.512,
-        "end": 0.536
-      },
-      {
-        "text": "oito",
-        "start": 0.548,
-        "end": 0.776
-      },
-      {
-        "text": "por",
-        "start": 0.788,
-        "end": 0.945
-      },
-      {
-        "text": "cento",
-        "start": 0.957,
-        "end": 1.305
-      },
-      {
-        "text": "é",
-        "start": 1.317,
-        "end": 1.353
-      },
-      {
-        "text": "energia",
-        "start": 1.365,
-        "end": 1.786
-      },
-      {
-        "text": "escura",
-        "start": 1.798,
-        "end": 2.219
-      },
-      {
-        "text": "algo",
-        "start": 2.495,
-        "end": 2.748
-      },
-      {
-        "text": "que",
-        "start": 2.76,
-        "end": 2.88
-      },
-      {
-        "text": "faz",
-        "start": 2.892,
-        "end": 3.084
+        "start": 1.269,
+        "end": 1.317
       },
       {
         "text": "o",
-        "start": 3.096,
-        "end": 3.192
+        "start": 1.329,
+        "end": 1.353
       },
       {
-        "text": "universo",
-        "start": 3.204,
-        "end": 3.709
+        "text": "resultado",
+        "start": 1.365,
+        "end": 1.942
       },
       {
         "text": "se",
-        "start": 3.721,
-        "end": 3.805
+        "start": 1.954,
+        "end": 2.002
       },
       {
-        "text": "expandir",
-        "start": 3.817,
-        "end": 4.286
+        "text": "aproxima",
+        "start": 2.014,
+        "end": 2.519
       },
       {
-        "text": "cada",
-        "start": 4.298,
-        "end": 4.55
+        "text": "de",
+        "start": 2.531,
+        "end": 2.663
       },
       {
-        "text": "vez",
-        "start": 4.562,
-        "end": 4.827
+        "text": "1,618",
+        "start": 2.675,
+        "end": 4.322
       },
       {
-        "text": "mais",
-        "start": 4.839,
-        "end": 5.079
+        "text": "a",
+        "start": 4.538,
+        "end": 4.623
       },
       {
-        "text": "rápido",
-        "start": 5.091,
+        "text": "proporção",
+        "start": 4.635,
+        "end": 5.211
+      },
+      {
+        "text": "áurea",
+        "start": 5.223,
         "end": 5.524
       }
     ]
   },
   "s5": {
-    "text": "Ninguém sabe o que elas são. Por isso, em 2023, a Europa lançou o Euclid.",
-    "seconds": 5.9,
+    "text": "Com quadrados desses tamanhos, dá pra desenhar a famosa espiral.",
+    "seconds": 3.54,
     "words": [
       {
-        "text": "Ninguém",
+        "text": "Com",
         "start": 0,
-        "end": 0.427
+        "end": 0.116
       },
       {
-        "text": "sabe",
-        "start": 0.439,
-        "end": 0.751
+        "text": "quadrados",
+        "start": 0.128,
+        "end": 0.657
       },
       {
-        "text": "o",
-        "start": 0.763,
-        "end": 0.799
+        "text": "desses",
+        "start": 0.669,
+        "end": 0.946
       },
       {
-        "text": "que",
-        "start": 0.811,
-        "end": 0.932
+        "text": "tamanhos",
+        "start": 0.958,
+        "end": 1.499
       },
       {
-        "text": "elas",
-        "start": 0.944,
-        "end": 1.184
+        "text": "dá",
+        "start": 1.703,
+        "end": 1.847
       },
       {
-        "text": "são",
-        "start": 1.196,
-        "end": 1.46
+        "text": "pra",
+        "start": 1.859,
+        "end": 2.015
       },
       {
-        "text": "Por",
-        "start": 2.288,
-        "end": 2.48
-      },
-      {
-        "text": "isso",
-        "start": 2.492,
-        "end": 2.817
-      },
-      {
-        "text": "em",
-        "start": 2.997,
-        "end": 3.562
-      },
-      {
-        "text": "2023",
-        "start": 3.562,
-        "end": 4.127
+        "text": "desenhar",
+        "start": 2.027,
+        "end": 2.424
       },
       {
         "text": "a",
-        "start": 4.319,
-        "end": 4.367
+        "start": 2.436,
+        "end": 2.484
       },
       {
-        "text": "Europa",
-        "start": 4.379,
-        "end": 4.812
+        "text": "famosa",
+        "start": 2.496,
+        "end": 2.953
       },
       {
-        "text": "lançou",
-        "start": 4.824,
-        "end": 5.257
-      },
-      {
-        "text": "o",
-        "start": 5.269,
-        "end": 5.341
-      },
-      {
-        "text": "Euclid",
-        "start": 5.353,
-        "end": 5.785
+        "text": "espiral",
+        "start": 2.965,
+        "end": 3.47
       }
     ]
   },
   "s6": {
-    "text": "Ele fica a um milhão e meio de quilômetros da Terra e vai mapear um terço do céu.",
-    "seconds": 4.271,
+    "text": "Mas por que o girassol segue isso? Cada semente nova nasce girada cento e trinta e sete graus e meio, o ângulo áureo.",
+    "seconds": 7.179,
     "words": [
       {
-        "text": "Ele",
+        "text": "Mas",
         "start": 0,
-        "end": 0.155
+        "end": 0.228
       },
       {
-        "text": "fica",
-        "start": 0.167,
-        "end": 0.456
+        "text": "por",
+        "start": 0.24,
+        "end": 0.432
       },
       {
-        "text": "a",
-        "start": 0.468,
-        "end": 0.504
+        "text": "que",
+        "start": 0.444,
+        "end": 0.6
       },
       {
-        "text": "um",
-        "start": 0.516,
-        "end": 0.684
+        "text": "o",
+        "start": 0.612,
+        "end": 0.672
       },
       {
-        "text": "milhão",
-        "start": 0.696,
-        "end": 1.045
+        "text": "girassol",
+        "start": 0.684,
+        "end": 1.201
+      },
+      {
+        "text": "segue",
+        "start": 1.213,
+        "end": 1.562
+      },
+      {
+        "text": "isso",
+        "start": 1.574,
+        "end": 1.898
+      },
+      {
+        "text": "Cada",
+        "start": 2.726,
+        "end": 2.99
+      },
+      {
+        "text": "semente",
+        "start": 3.002,
+        "end": 3.459
+      },
+      {
+        "text": "nova",
+        "start": 3.471,
+        "end": 3.699
+      },
+      {
+        "text": "nasce",
+        "start": 3.711,
+        "end": 3.988
+      },
+      {
+        "text": "girada",
+        "start": 4.0,
+        "end": 4.432
+      },
+      {
+        "text": "cento",
+        "start": 4.444,
+        "end": 4.793
       },
       {
         "text": "e",
-        "start": 1.057,
-        "end": 1.117
+        "start": 4.805,
+        "end": 4.841
+      },
+      {
+        "text": "trinta",
+        "start": 4.853,
+        "end": 5.045
+      },
+      {
+        "text": "e",
+        "start": 5.057,
+        "end": 5.081
+      },
+      {
+        "text": "sete",
+        "start": 5.093,
+        "end": 5.358
+      },
+      {
+        "text": "graus",
+        "start": 5.37,
+        "end": 5.622
+      },
+      {
+        "text": "e",
+        "start": 5.634,
+        "end": 5.742
       },
       {
         "text": "meio",
-        "start": 1.129,
-        "end": 1.393
+        "start": 5.754,
+        "end": 6.019
       },
       {
-        "text": "de",
-        "start": 1.405,
-        "end": 1.502
+        "text": "o",
+        "start": 6.247,
+        "end": 6.367
       },
       {
-        "text": "quilômetros",
-        "start": 1.514,
-        "end": 2.054
+        "text": "ângulo",
+        "start": 6.379,
+        "end": 6.74
       },
       {
-        "text": "da",
-        "start": 2.066,
-        "end": 2.199
-      },
-      {
-        "text": "Terra",
-        "start": 2.211,
-        "end": 2.571
-      },
-      {
-        "text": "e",
-        "start": 2.583,
-        "end": 2.643
-      },
-      {
-        "text": "vai",
-        "start": 2.655,
-        "end": 2.788
-      },
-      {
-        "text": "mapear",
-        "start": 2.8,
-        "end": 3.22
-      },
-      {
-        "text": "um",
-        "start": 3.232,
-        "end": 3.365
-      },
-      {
-        "text": "terço",
-        "start": 3.377,
-        "end": 3.713
-      },
-      {
-        "text": "do",
-        "start": 3.725,
-        "end": 3.821
-      },
-      {
-        "text": "céu",
-        "start": 3.833,
-        "end": 4.206
+        "text": "áureo",
+        "start": 6.752,
+        "end": 7.065
       }
     ]
   },
   "s7": {
-    "text": "O truque, a matéria escura entorta a luz das galáxias que estão atrás, como uma lente. Medindo essa distorção, dá pra desenhar onde ela está.",
-    "seconds": 8.873,
+    "text": "Esse ângulo espalha as sementes sem formar raios nem deixar vazios. Com outro ângulo, sobra espaço.",
+    "seconds": 6.503,
     "words": [
       {
-        "text": "O",
+        "text": "Esse",
         "start": 0,
-        "end": 0.074
+        "end": 0.248
       },
       {
-        "text": "truque",
-        "start": 0.086,
-        "end": 0.435
+        "text": "ângulo",
+        "start": 0.26,
+        "end": 0.5
       },
       {
-        "text": "a",
-        "start": 0.663,
-        "end": 0.723
+        "text": "espalha",
+        "start": 0.512,
+        "end": 0.897
       },
       {
-        "text": "matéria",
-        "start": 0.735,
-        "end": 1.156
+        "text": "as",
+        "start": 0.909,
+        "end": 0.981
       },
       {
-        "text": "escura",
-        "start": 1.168,
-        "end": 1.505
+        "text": "sementes",
+        "start": 0.993,
+        "end": 1.522
       },
       {
-        "text": "entorta",
-        "start": 1.517,
-        "end": 1.985
+        "text": "sem",
+        "start": 1.534,
+        "end": 1.678
       },
       {
-        "text": "a",
-        "start": 1.997,
-        "end": 2.009
+        "text": "formar",
+        "start": 1.69,
+        "end": 2.062
       },
       {
-        "text": "luz",
-        "start": 2.021,
-        "end": 2.238
+        "text": "raios",
+        "start": 2.074,
+        "end": 2.459
       },
       {
-        "text": "das",
-        "start": 2.25,
-        "end": 2.406
+        "text": "nem",
+        "start": 2.471,
+        "end": 2.627
       },
       {
-        "text": "galáxias",
-        "start": 2.418,
-        "end": 2.935
+        "text": "deixar",
+        "start": 2.639,
+        "end": 2.964
       },
       {
-        "text": "que",
-        "start": 2.947,
-        "end": 3.031
+        "text": "vazios",
+        "start": 2.976,
+        "end": 3.577
       },
       {
-        "text": "estão",
-        "start": 3.043,
-        "end": 3.307
+        "text": "Com",
+        "start": 4.404,
+        "end": 4.669
       },
       {
-        "text": "atrás",
-        "start": 3.319,
-        "end": 3.752
+        "text": "outro",
+        "start": 4.681,
+        "end": 4.981
       },
       {
-        "text": "como",
-        "start": 3.981,
-        "end": 4.233
+        "text": "ângulo",
+        "start": 4.993,
+        "end": 5.354
       },
       {
-        "text": "uma",
-        "start": 4.245,
-        "end": 4.425
+        "text": "sobra",
+        "start": 5.57,
+        "end": 5.919
       },
       {
-        "text": "lente",
-        "start": 4.437,
-        "end": 4.834
-      },
-      {
-        "text": "Medindo",
-        "start": 5.661,
-        "end": 6.166
-      },
-      {
-        "text": "essa",
-        "start": 6.178,
-        "end": 6.358
-      },
-      {
-        "text": "distorção",
-        "start": 6.37,
-        "end": 6.983
-      },
-      {
-        "text": "dá",
-        "start": 7.248,
-        "end": 7.404
-      },
-      {
-        "text": "pra",
-        "start": 7.416,
-        "end": 7.572
-      },
-      {
-        "text": "desenhar",
-        "start": 7.584,
-        "end": 8.053
-      },
-      {
-        "text": "onde",
-        "start": 8.065,
-        "end": 8.269
-      },
-      {
-        "text": "ela",
-        "start": 8.282,
-        "end": 8.402
-      },
-      {
-        "text": "está",
-        "start": 8.414,
-        "end": 8.786
+        "text": "espaço",
+        "start": 5.931,
+        "end": 6.435
       }
     ]
   },
   "s8": {
-    "text": "E já saiu o primeiro grande pacote, mais de novecentos milhões de galáxias, pra montar o mapa 3D do universo invisível.",
-    "seconds": 7.092,
+    "text": "O resultado são espirais em números de Fibonacci. Nas pinhas e no abacaxi, também.",
+    "seconds": 5.507,
     "words": [
       {
-        "text": "E",
+        "text": "O",
         "start": 0,
-        "end": 0.021
+        "end": 0.039
       },
       {
-        "text": "já",
-        "start": 0.033,
-        "end": 0.201
+        "text": "resultado",
+        "start": 0.051,
+        "end": 0.628
       },
       {
-        "text": "saiu",
-        "start": 0.213,
-        "end": 0.538
+        "text": "são",
+        "start": 0.64,
+        "end": 0.796
       },
       {
-        "text": "o",
-        "start": 0.55,
-        "end": 0.586
+        "text": "espirais",
+        "start": 0.808,
+        "end": 1.265
       },
       {
-        "text": "primeiro",
-        "start": 0.598,
-        "end": 0.923
+        "text": "em",
+        "start": 1.277,
+        "end": 1.421
       },
       {
-        "text": "grande",
-        "start": 0.935,
-        "end": 1.259
-      },
-      {
-        "text": "pacote",
-        "start": 1.271,
-        "end": 1.776
-      },
-      {
-        "text": "mais",
-        "start": 2.052,
-        "end": 2.293
+        "text": "números",
+        "start": 1.433,
+        "end": 1.818
       },
       {
         "text": "de",
-        "start": 2.305,
-        "end": 2.377
+        "start": 1.83,
+        "end": 1.902
       },
       {
-        "text": "novecentos",
-        "start": 2.389,
-        "end": 3.002
+        "text": "Fibonacci",
+        "start": 1.914,
+        "end": 2.539
       },
       {
-        "text": "milhões",
-        "start": 3.014,
-        "end": 3.411
+        "text": "Nas",
+        "start": 3.367,
+        "end": 3.667
       },
       {
-        "text": "de",
-        "start": 3.423,
-        "end": 3.483
+        "text": "pinhas",
+        "start": 3.679,
+        "end": 3.98
       },
       {
-        "text": "galáxias",
-        "start": 3.495,
-        "end": 4.12
+        "text": "e",
+        "start": 3.992,
+        "end": 4.088
       },
       {
-        "text": "pra",
-        "start": 4.336,
-        "end": 4.468
+        "text": "no",
+        "start": 4.1,
+        "end": 4.184
       },
       {
-        "text": "montar",
-        "start": 4.48,
-        "end": 4.865
+        "text": "abacaxi",
+        "start": 4.196,
+        "end": 4.797
       },
       {
-        "text": "o",
-        "start": 4.877,
-        "end": 4.925
-      },
-      {
-        "text": "mapa",
-        "start": 4.937,
-        "end": 5.262
-      },
-      {
-        "text": "3D",
-        "start": 5.274,
-        "end": 5.79
-      },
-      {
-        "text": "do",
-        "start": 5.802,
-        "end": 5.887
-      },
-      {
-        "text": "universo",
-        "start": 5.899,
-        "end": 6.415
-      },
-      {
-        "text": "invisível",
-        "start": 6.427,
-        "end": 7.028
+        "text": "também",
+        "start": 5.001,
+        "end": 5.434
       }
     ]
   },
   "s9": {
-    "text": "Pronto, agora você sabe. O universo que a gente vê é só a pontinha do iceberg.",
-    "seconds": 5.496,
+    "text": "Agora, o mito, a concha do náutilo não é uma espiral áurea. Medida, ela cresce num ritmo bem diferente.",
+    "seconds": 7.291,
+    "words": [
+      {
+        "text": "Agora",
+        "start": 0,
+        "end": 0.442
+      },
+      {
+        "text": "o",
+        "start": 0.694,
+        "end": 0.778
+      },
+      {
+        "text": "mito",
+        "start": 0.79,
+        "end": 1.175
+      },
+      {
+        "text": "a",
+        "start": 1.391,
+        "end": 1.488
+      },
+      {
+        "text": "concha",
+        "start": 1.5,
+        "end": 1.848
+      },
+      {
+        "text": "do",
+        "start": 1.86,
+        "end": 1.956
+      },
+      {
+        "text": "náutilo",
+        "start": 1.968,
+        "end": 2.365
+      },
+      {
+        "text": "não",
+        "start": 2.377,
+        "end": 2.605
+      },
+      {
+        "text": "é",
+        "start": 2.617,
+        "end": 2.725
+      },
+      {
+        "text": "uma",
+        "start": 2.738,
+        "end": 2.87
+      },
+      {
+        "text": "espiral",
+        "start": 2.882,
+        "end": 3.302
+      },
+      {
+        "text": "áurea",
+        "start": 3.314,
+        "end": 3.639
+      },
+      {
+        "text": "Medida",
+        "start": 4.466,
+        "end": 5.055
+      },
+      {
+        "text": "ela",
+        "start": 5.272,
+        "end": 5.476
+      },
+      {
+        "text": "cresce",
+        "start": 5.488,
+        "end": 5.897
+      },
+      {
+        "text": "num",
+        "start": 5.909,
+        "end": 6.041
+      },
+      {
+        "text": "ritmo",
+        "start": 6.053,
+        "end": 6.401
+      },
+      {
+        "text": "bem",
+        "start": 6.413,
+        "end": 6.618
+      },
+      {
+        "text": "diferente",
+        "start": 6.63,
+        "end": 7.219
+      }
+    ]
+  },
+  "s10": {
+    "text": "Pronto, agora você sabe. Não é mágica. É só um jeito eficiente de crescer.",
+    "seconds": 6.202,
     "words": [
       {
         "text": "Pronto",
@@ -812,64 +833,54 @@
         "end": 1.604
       },
       {
-        "text": "O",
+        "text": "Não",
         "start": 2.431,
-        "end": 2.539
-      },
-      {
-        "text": "universo",
-        "start": 2.551,
-        "end": 3.128
-      },
-      {
-        "text": "que",
-        "start": 3.14,
-        "end": 3.212
-      },
-      {
-        "text": "a",
-        "start": 3.224,
-        "end": 3.284
-      },
-      {
-        "text": "gente",
-        "start": 3.297,
-        "end": 3.597
-      },
-      {
-        "text": "vê",
-        "start": 3.609,
-        "end": 3.741
+        "end": 2.72
       },
       {
         "text": "é",
-        "start": 3.753,
-        "end": 3.837
+        "start": 2.732,
+        "end": 2.792
+      },
+      {
+        "text": "mágica",
+        "start": 2.804,
+        "end": 3.333
+      },
+      {
+        "text": "É",
+        "start": 4.162,
+        "end": 4.294
       },
       {
         "text": "só",
-        "start": 3.849,
-        "end": 4.078
+        "start": 4.306,
+        "end": 4.498
       },
       {
-        "text": "a",
-        "start": 4.09,
-        "end": 4.138
+        "text": "um",
+        "start": 4.511,
+        "end": 4.631
       },
       {
-        "text": "pontinha",
-        "start": 4.15,
-        "end": 4.607
+        "text": "jeito",
+        "start": 4.643,
+        "end": 4.943
       },
       {
-        "text": "do",
-        "start": 4.619,
-        "end": 4.727
+        "text": "eficiente",
+        "start": 4.955,
+        "end": 5.508
       },
       {
-        "text": "iceberg",
-        "start": 4.739,
-        "end": 5.4
+        "text": "de",
+        "start": 5.52,
+        "end": 5.604
+      },
+      {
+        "text": "crescer",
+        "start": 5.616,
+        "end": 6.049
       }
     ]
   },

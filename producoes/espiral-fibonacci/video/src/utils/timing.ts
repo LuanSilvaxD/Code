@@ -9,26 +9,26 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 66; // 1980 frames (1:06 — meta 60–75 s)
-export const DURATION = SECONDS * FPS;
+export const SECONDS = 75.7; // 2271 frames (1:15,7 — meta 60–75 s)
+export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
 /** Segundo local (dentro da cena) -> frame local. */
 export const s = (seconds: number) => Math.round(seconds * FPS);
 
 /** Uma fala por cena, na ordem das cenas. */
-export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"] as const;
+export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [8.7, 6.4, 4.8, 7.17, 5.83, 5.03, 10.43, 8.33, 9.31];
+const PLANNED_SECONDS = [8.6, 9.47, 7.47, 5.87, 5.07, 8.27, 7.23, 6.6, 8.53, 8.59];
 /** A 1ª fala entra depois do whoosh de abertura. */
 const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// viradas (energia escura→Euclid, lente→pacote, pacote→iceberg) ganham 0,8 s
-const GAPS: number[] = [0.55, 0.55, 0.55, 0.8, 0.55, 0.55, 0.8, 0.8];
+// viradas (quadrados→"Mas por quê?", pinha→"o mito") ganham 0,6 s
+const GAPS: number[] = [0.45, 0.45, 0.45, 0.45, 0.6, 0.45, 0.45, 0.6, 0.45];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

@@ -711,4 +711,29 @@ def warp(d=1.6):
 save("launch", launch())
 save("warp", warp())
 
+
+def seed_pop(d=1.6, n=22):
+    """sementes brotando: estalinhos de madeira acelerando."""
+    t = tt(d)
+    x = np.zeros(len(t))
+    for k in range(n):
+        at = d * 0.9 * (k / n) ** 1.6
+        i = int(at * SR)
+        m = min(len(t) - i, int(0.03 * SR))
+        tk = np.arange(m) / SR
+        f = 1400 + 900 * rng.random()
+        x[i:i + m] += np.sin(2 * np.pi * f * tk) * np.exp(-tk / 0.006) * (0.5 + 0.3 * rng.random())
+    return x * 0.6
+
+
+def bunny_hop(d=0.35):
+    """pulinho: 'boing' curto e macio."""
+    t = tt(d)
+    f = 260 + 420 * np.exp(-t / 0.05)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.08) * 0.55 + lp(rng.standard_normal(len(t)), 400) * np.exp(-t / 0.01) * 0.4
+
+
+save("seed-pop", seed_pop())
+save("bunny-hop", bunny_hop())
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))
