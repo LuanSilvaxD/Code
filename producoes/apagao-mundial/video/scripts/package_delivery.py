@@ -1,7 +1,7 @@
-"""Monta a entrega final em DOIS .zip (pedido do usuário: só 2 arquivos por vídeo):
-    <nome>-publicacao.zip  LEIA-ME + 01-PUBLICAR + 02-DOCUMENTOS  (vídeo, capa, thumb, publicacao.md, roteiro)
-    <nome>-projeto.zip     LEIA-ME + 03-PROJETO                    (código para editar/renderizar de novo)
---single gera o zip único antigo.
+"""Monta a entrega final (pedido do usuário): 3 arquivos AVULSOS + 1 zip com o resto.
+    avulsos:  <vídeo>.mp4 · publicacao.md · thumb-youtube.png   (copiados para a pasta de --out)
+    <nome>-arquivos.zip  LEIA-ME + capa vertical + 02-DOCUMENTOS (roteiro, status...) + 03-PROJETO (código)
+--single gera o zip único antigo (com tudo).
 
     python scripts/package_delivery.py --prod <pasta-de-producao> --video <projeto>/out/<nome>.mp4 \\
         --title "Título do vídeo" --out <scratchpad>/<nome>-entrega.zip
@@ -101,11 +101,16 @@ def main() -> None:
     if a.single:
         pack(out, [stage])
     else:
-        # Padrão: só 2 arquivos — publicação (vídeo, capa, textos, roteiro) e projeto (código p/ editar).
+        # Padrão (pedido do usuário): MP4, publicacao.md e thumbnail vão AVULSOS; todo o resto num zip só.
         base = out.with_suffix("")
         base = base.with_name(base.name.removesuffix("-entrega"))
-        pack(base.with_name(base.name + "-publicacao.zip"), [readme, pub, docs])
-        pack(base.with_name(base.name + "-projeto.zip"), [readme, proj])
-
+        loose = [pub / video.name, pub / "publicacao.md", pub / "thumb-youtube.png"]
+        rest = [p for p in sorted(stage.rglob("*")) if p.is_file() and p not in loose]
+        pack(base.with_name(base.name + "-arquivos.zip"), rest)
+        for p in loose:
+            if p.exists():
+                dst = out.parent / p.name
+                shutil.copy2(p, dst)
+                print(f"avulso: {dst}")
 
 main()
