@@ -48,15 +48,18 @@ const Ref: React.FC<{ f: number; x: number }> = ({ f, x }) => <Person {...person
 export const DinoSheet: React.FC = () => (
   <AbsoluteFill style={{ background: BRAND.colors.umbra }}>
     <div style={{ height: 160, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: FONT, color: "#fff" }}>
-      <div style={{ fontWeight: 900, fontSize: 42, letterSpacing: 2 }}>ARATASSAURO · RECONSTRUÇÃO</div>
-      <div style={{ fontWeight: 700, fontSize: 22, color: "#c4b5fd" }}>para aprovar · ~3,1 m (jovem) · pessoa de 1,7 m · escolha A ou B</div>
+      <div style={{ fontWeight: 900, fontSize: 42, letterSpacing: 2 }}>ARATASSAURO v2 · RECONSTRUÇÃO</div>
+      <div style={{ fontWeight: 700, fontSize: 22, color: "#c4b5fd" }}>para aprovar · ~3,1 m (jovem) · versão B (penugem) · pessoa de 1,7 m</div>
     </div>
-    <TileView t={{ name: "A · ESCAMAS (PERFIL)", size: "focinho → cauda 3,1 m · quadril ~1 m", target: [0, 0.75, 0], fit: 4.2, az: 0, el: 4, scene: (f) => (<><Ground /><Aratasaurus frame={f} /><Ref f={f} x={1.9} /></>) }} w={1080} h={560} />
-    <TileView t={{ name: "B · ESCAMAS + PENUGEM LEVE (PERFIL)", size: "protopenas no dorso, pescoço, braços e cauda", target: [0, 0.75, 0], fit: 4.2, az: 0, el: 4, scene: (f) => (<><Ground /><Aratasaurus frame={f} feathers={1} /><Ref f={f} x={1.9} /></>) }} w={1080} h={560} />
+    <TileView t={{ name: "PERFIL", size: "focinho → cauda 3,1 m · quadril ~1 m", target: [0, 0.78, 0], fit: 4.2, az: 0, el: 4, scene: (f) => (<><Ground /><Aratasaurus frame={f} feathers={1} /><Ref f={f} x={1.9} /></>) }} w={1080} h={560} />
+    <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
+      <TileView t={{ name: "3/4 ANDANDO", size: "passada, cauda e pescoço em movimento", target: [0, 0.75, 0], fit: 3.4, az: 38, el: 12, scene: (f) => (<><Ground /><Aratasaurus frame={f} walk={1} feathers={1} /></>) }} w={540} h={600} />
+      <TileView t={{ name: "FRENTE, CÂMERA BAIXA", size: "peito fundo, coxas fortes", target: [0.3, 0.8, 0], fit: 2.6, az: 70, el: -4, scene: (f) => (<><Ground /><Aratasaurus frame={f} feathers={1} look={-0.6} /></>) }} w={540} h={600} />
+    </div>
     <div style={{ display: "grid", gridTemplateColumns: "360px 360px 360px" }}>
-      <TileView t={{ name: "A · 3/4", size: "andando", target: [0, 0.7, 0], fit: 3.4, az: 35, el: 12, scene: (f) => (<><Ground /><Aratasaurus frame={f} walk={1} /></>) }} w={360} h={520} />
-      <TileView t={{ name: "B · 3/4", size: "andando", target: [0, 0.7, 0], fit: 3.4, az: 35, el: 12, scene: (f) => (<><Ground /><Aratasaurus frame={f} walk={1} feathers={1} /></>) }} w={360} h={520} />
-      <TileView t={{ name: "CABEÇA", size: "olho, dentes, narina, máscara", target: [1.12, 1.38, 0], fit: 0.75, az: 30, el: 8, scene: (f) => <Aratasaurus frame={f} /> }} w={360} h={520} />
+      <TileView t={{ name: "CABEÇA", size: "sobrancelha, olho, dentes, mandíbula", target: [1.13, 1.4, 0], fit: 0.62, az: 28, el: 8, scene: (f) => <Aratasaurus frame={f} feathers={1} /> }} w={360} h={400} />
+      <TileView t={{ name: "PÉ", size: "3 dedos + dedinho de trás · garras", target: [0.08, 0.1, 0.14], fit: 0.45, az: 30, el: 18, scene: (f) => (<><Ground /><Aratasaurus frame={f} feathers={1} /></>) }} w={360} h={400} />
+      <TileView t={{ name: "MÃO", size: "3 dedos com garras · franja", target: [0.68, 0.76, 0.15], fit: 0.42, az: 25, el: 6, scene: (f) => <Aratasaurus frame={f} feathers={1} /> }} w={360} h={400} />
     </div>
   </AbsoluteFill>
 );
