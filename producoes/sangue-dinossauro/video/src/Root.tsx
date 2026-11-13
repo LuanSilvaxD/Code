@@ -12,7 +12,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="DinoSheet" component={DinoSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="SangueSheet2" component={SangueSheet2} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="SangueSheet3" component={SangueSheet3} durationInFrames={120} fps={30} width={1080} height={1920} />
-    <Composition id="Apagao" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Sangue" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
     <Composition id="ThumbYouTube" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1280} height={720} defaultProps={{ layout: "horizontal" as const }} />
   </>

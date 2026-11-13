@@ -18,13 +18,11 @@ export const Background: React.FC = () => {
     const { umbra } = BRAND.colors;
     // o estúdio ganha a cor do céu na madrugada (sun.phase 0) e no pôr do sol (sun.phase 1)
     // noite (viagem) esfria o estúdio; tribunal/fogueira escurecem (bg.dim)
-    // apagão: escurece quando as luzes caem (bg.dark), esquenta perto do Sol (bg.warm), sala um pouco mais clara (bg.room)
-    const dark = track("bg.dark", frame);
+    // sangue de dinossauro: esquenta no incêndio (bg.warm) e fica vermelho-escuro dentro do osso (bg.inside)
     const warm = track("bg.warm", frame);
-    const room = track("bg.room", frame);
-    const t0 = interpolateColors(room, [0, 1], [BACKDROP.tint, "#2a3256"]);
-    const t1 = interpolateColors(warm, [0, 1], [t0, "#3a2410"]);
-    const tint = interpolateColors(dark, [0, 1], [t1, "#0a0f20"]);
+    const inside = track("bg.inside", frame);
+    const t1 = interpolateColors(warm, [0, 1], [BACKDROP.tint, "#3a2410"]);
+    const tint = interpolateColors(inside, [0, 1], [t1, "#3a1218"]);
     return (
       <AbsoluteFill>
         <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />

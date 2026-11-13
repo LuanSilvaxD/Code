@@ -1,107 +1,117 @@
 {
   "s1": {
-    "text": "Dia 17 de novembro, o mundo inteiro vai ficar sem luz. É o que tá rodando na internet. Será verdade?",
-    "seconds": 7.953,
+    "text": "Acharam sangue de dinossauro aqui no Brasil, num osso de cento e quinze milhões de anos. Então dá pra clonar um dinossauro?",
+    "seconds": 7.4,
     "words": [
       {
-        "text": "Dia",
+        "text": "Acharam",
         "start": 0,
-        "end": 0.231
+        "end": 0.434
       },
       {
-        "text": "17",
-        "start": 0.243,
-        "end": 0.615
+        "text": "sangue",
+        "start": 0.446,
+        "end": 0.77
       },
       {
         "text": "de",
-        "start": 0.615,
-        "end": 0.988
+        "start": 0.782,
+        "end": 0.879
       },
       {
-        "text": "novembro",
-        "start": 0.988,
-        "end": 1.36
+        "text": "dinossauro",
+        "start": 0.891,
+        "end": 1.419
       },
       {
-        "text": "o",
-        "start": 1.613,
-        "end": 1.673
+        "text": "aqui",
+        "start": 1.431,
+        "end": 1.612
       },
       {
-        "text": "mundo",
-        "start": 1.685,
-        "end": 1.949
+        "text": "no",
+        "start": 1.624,
+        "end": 1.72
       },
       {
-        "text": "inteiro",
-        "start": 1.961,
-        "end": 2.346
+        "text": "Brasil",
+        "start": 1.732,
+        "end": 2.165
       },
       {
-        "text": "vai",
-        "start": 2.358,
-        "end": 2.49
+        "text": "num",
+        "start": 2.489,
+        "end": 2.657
       },
       {
-        "text": "ficar",
-        "start": 2.502,
-        "end": 2.827
+        "text": "osso",
+        "start": 2.669,
+        "end": 2.934
       },
       {
-        "text": "sem",
-        "start": 2.839,
-        "end": 3.091
+        "text": "de",
+        "start": 2.946,
+        "end": 3.066
       },
       {
-        "text": "luz",
-        "start": 3.103,
-        "end": 3.464
+        "text": "cento",
+        "start": 3.078,
+        "end": 3.379
       },
       {
-        "text": "É",
-        "start": 4.291,
-        "end": 4.423
+        "text": "e",
+        "start": 3.391,
+        "end": 3.427
       },
       {
-        "text": "o",
-        "start": 4.435,
-        "end": 4.483
+        "text": "quinze",
+        "start": 3.439,
+        "end": 3.739
       },
       {
-        "text": "que",
-        "start": 4.495,
-        "end": 4.628
+        "text": "milhões",
+        "start": 3.751,
+        "end": 4.148
       },
       {
-        "text": "tá",
-        "start": 4.64,
-        "end": 4.736
+        "text": "de",
+        "start": 4.16,
+        "end": 4.268
       },
       {
-        "text": "rodando",
-        "start": 4.748,
-        "end": 5.241
+        "text": "anos",
+        "start": 4.28,
+        "end": 4.665
       },
       {
-        "text": "na",
-        "start": 5.253,
-        "end": 5.349
+        "text": "Então",
+        "start": 5.492,
+        "end": 5.889
       },
       {
-        "text": "internet",
-        "start": 5.361,
-        "end": 6.034
+        "text": "dá",
+        "start": 5.901,
+        "end": 5.997
       },
       {
-        "text": "Será",
-        "start": 6.863,
-        "end": 7.224
+        "text": "pra",
+        "start": 6.009,
+        "end": 6.141
       },
       {
-        "text": "verdade",
-        "start": 7.236,
-        "end": 7.837
+        "text": "clonar",
+        "start": 6.153,
+        "end": 6.55
+      },
+      {
+        "text": "um",
+        "start": 6.562,
+        "end": 6.646
+      },
+      {
+        "text": "dinossauro",
+        "start": 6.658,
+        "end": 7.295
       }
     ]
   },
@@ -142,1319 +152,1189 @@
     ]
   },
   "s3": {
-    "text": "Ela junta duas coisas. Um episódio dos Simpsons, de 2023, em que a cidade fica seis dias no escuro a partir de 17 de novembro.",
-    "seconds": 9.317,
+    "text": "O dono do osso é o Aratassauro, um jovem caçador de uns três metros, que viveu onde hoje fica o Ceará.",
+    "seconds": 6.279,
     "words": [
       {
-        "text": "Ela",
+        "text": "O",
         "start": 0,
-        "end": 0.218
+        "end": 0.074
       },
       {
-        "text": "junta",
-        "start": 0.23,
-        "end": 0.578
+        "text": "dono",
+        "start": 0.086,
+        "end": 0.387
       },
       {
-        "text": "duas",
-        "start": 0.59,
-        "end": 0.903
+        "text": "do",
+        "start": 0.399,
+        "end": 0.519
       },
       {
-        "text": "coisas",
-        "start": 0.915,
-        "end": 1.456
+        "text": "osso",
+        "start": 0.531,
+        "end": 0.819
       },
       {
-        "text": "Um",
-        "start": 2.283,
-        "end": 2.427
+        "text": "é",
+        "start": 0.832,
+        "end": 0.88
       },
       {
-        "text": "episódio",
-        "start": 2.439,
-        "end": 2.944
+        "text": "o",
+        "start": 0.892,
+        "end": 0.94
       },
       {
-        "text": "dos",
-        "start": 2.956,
-        "end": 3.172
+        "text": "Aratassauro",
+        "start": 0.952,
+        "end": 1.625
       },
       {
-        "text": "Simpsons",
-        "start": 3.184,
-        "end": 3.821
+        "text": "um",
+        "start": 1.961,
+        "end": 2.118
+      },
+      {
+        "text": "jovem",
+        "start": 2.13,
+        "end": 2.526
+      },
+      {
+        "text": "caçador",
+        "start": 2.538,
+        "end": 3.031
       },
       {
         "text": "de",
-        "start": 4.026,
-        "end": 4.134
+        "start": 3.043,
+        "end": 3.127
       },
       {
-        "text": "2023",
-        "start": 4.146,
-        "end": 5.204
+        "text": "uns",
+        "start": 3.139,
+        "end": 3.307
       },
       {
-        "text": "em",
-        "start": 5.492,
-        "end": 5.564
+        "text": "três",
+        "start": 3.319,
+        "end": 3.62
+      },
+      {
+        "text": "metros",
+        "start": 3.632,
+        "end": 4.137
       },
       {
         "text": "que",
-        "start": 5.576,
-        "end": 5.648
+        "start": 4.341,
+        "end": 4.485
       },
       {
-        "text": "a",
-        "start": 5.66,
-        "end": 5.708
+        "text": "viveu",
+        "start": 4.497,
+        "end": 4.822
       },
       {
-        "text": "cidade",
-        "start": 5.72,
-        "end": 6.141
+        "text": "onde",
+        "start": 4.834,
+        "end": 5.098
+      },
+      {
+        "text": "hoje",
+        "start": 5.11,
+        "end": 5.411
       },
       {
         "text": "fica",
-        "start": 6.153,
-        "end": 6.405
+        "start": 5.423,
+        "end": 5.675
       },
       {
-        "text": "seis",
-        "start": 6.417,
-        "end": 6.718
+        "text": "o",
+        "start": 5.687,
+        "end": 5.723
       },
       {
-        "text": "dias",
-        "start": 6.73,
-        "end": 7.079
-      },
-      {
-        "text": "no",
-        "start": 7.091,
-        "end": 7.163
-      },
-      {
-        "text": "escuro",
-        "start": 7.175,
-        "end": 7.523
-      },
-      {
-        "text": "a",
-        "start": 7.535,
-        "end": 7.571
-      },
-      {
-        "text": "partir",
-        "start": 7.583,
-        "end": 7.944
-      },
-      {
-        "text": "de",
-        "start": 7.956,
-        "end": 8.052
-      },
-      {
-        "text": "17",
-        "start": 8.064,
-        "end": 8.449
-      },
-      {
-        "text": "de",
-        "start": 8.449,
-        "end": 8.833
-      },
-      {
-        "text": "novembro",
-        "start": 8.833,
-        "end": 9.218
+        "text": "Ceará",
+        "start": 5.735,
+        "end": 6.204
       }
     ]
   },
   "s4": {
-    "text": "E um teste real, nesse dia, os Estados Unidos disparam um alerta de emergência de teste nas tevês e rádios.",
-    "seconds": 6.419,
+    "text": "O nome quer dizer nascido do fogo, uma homenagem ao Museu Nacional, que pegou fogo em 2018.",
+    "seconds": 5.875,
     "words": [
       {
-        "text": "E",
+        "text": "O",
         "start": 0,
-        "end": 0.056
+        "end": 0.049
       },
       {
-        "text": "um",
-        "start": 0.068,
-        "end": 0.2
+        "text": "nome",
+        "start": 0.061,
+        "end": 0.374
       },
       {
-        "text": "teste",
-        "start": 0.212,
-        "end": 0.585
+        "text": "quer",
+        "start": 0.386,
+        "end": 0.554
       },
       {
-        "text": "real",
-        "start": 0.597,
-        "end": 0.958
+        "text": "dizer",
+        "start": 0.566,
+        "end": 0.879
       },
       {
-        "text": "nesse",
-        "start": 1.174,
-        "end": 1.475
+        "text": "nascido",
+        "start": 0.891,
+        "end": 1.299
       },
       {
-        "text": "dia",
-        "start": 1.487,
-        "end": 1.799
+        "text": "do",
+        "start": 1.311,
+        "end": 1.407
       },
       {
-        "text": "os",
-        "start": 2.063,
-        "end": 2.124
+        "text": "fogo",
+        "start": 1.419,
+        "end": 1.828
       },
       {
-        "text": "Estados",
-        "start": 2.136,
-        "end": 2.58
+        "text": "uma",
+        "start": 2.08,
+        "end": 2.237
       },
       {
-        "text": "Unidos",
-        "start": 2.592,
-        "end": 3.025
+        "text": "homenagem",
+        "start": 2.249,
+        "end": 2.826
       },
       {
-        "text": "disparam",
-        "start": 3.037,
-        "end": 3.434
+        "text": "ao",
+        "start": 2.838,
+        "end": 2.934
       },
       {
-        "text": "um",
-        "start": 3.446,
-        "end": 3.554
+        "text": "Museu",
+        "start": 2.946,
+        "end": 3.234
       },
       {
-        "text": "alerta",
-        "start": 3.566,
-        "end": 3.975
+        "text": "Nacional",
+        "start": 3.246,
+        "end": 3.763
       },
       {
-        "text": "de",
-        "start": 3.987,
-        "end": 4.047
+        "text": "que",
+        "start": 4.004,
+        "end": 4.124
       },
       {
-        "text": "emergência",
-        "start": 4.059,
-        "end": 4.624
+        "text": "pegou",
+        "start": 4.136,
+        "end": 4.436
       },
       {
-        "text": "de",
-        "start": 4.636,
-        "end": 4.78
+        "text": "fogo",
+        "start": 4.448,
+        "end": 4.797
       },
       {
-        "text": "teste",
-        "start": 4.792,
-        "end": 5.14
+        "text": "em",
+        "start": 4.809,
+        "end": 5.302
       },
       {
-        "text": "nas",
-        "start": 5.152,
-        "end": 5.297
-      },
-      {
-        "text": "tevês",
-        "start": 5.309,
-        "end": 5.669
-      },
-      {
-        "text": "e",
-        "start": 5.681,
-        "end": 5.789
-      },
-      {
-        "text": "rádios",
-        "start": 5.801,
-        "end": 6.33
+        "text": "2018",
+        "start": 5.302,
+        "end": 5.794
       }
     ]
   },
   "s5": {
-    "text": "Só que o desenho não fala de 2026, nem do mundo. E o teste não desliga nada. Mas dá pra apagar o planeta inteiro de uma vez?",
-    "seconds": 9.108,
+    "text": "O fóssil é um pedaço da perna, achado numa mina de gesso em Santana do Cariri.",
+    "seconds": 4.393,
     "words": [
       {
-        "text": "Só",
+        "text": "O",
         "start": 0,
-        "end": 0.237
+        "end": 0.037
       },
       {
-        "text": "que",
-        "start": 0.249,
-        "end": 0.333
+        "text": "fóssil",
+        "start": 0.049,
+        "end": 0.494
       },
       {
-        "text": "o",
-        "start": 0.345,
-        "end": 0.369
+        "text": "é",
+        "start": 0.506,
+        "end": 0.53
       },
       {
-        "text": "desenho",
-        "start": 0.381,
-        "end": 0.789
+        "text": "um",
+        "start": 0.542,
+        "end": 0.626
       },
       {
-        "text": "não",
-        "start": 0.801,
-        "end": 0.958
+        "text": "pedaço",
+        "start": 0.638,
+        "end": 1.047
       },
       {
-        "text": "fala",
-        "start": 0.97,
-        "end": 1.27
+        "text": "da",
+        "start": 1.059,
+        "end": 1.179
+      },
+      {
+        "text": "perna",
+        "start": 1.191,
+        "end": 1.564
+      },
+      {
+        "text": "achado",
+        "start": 1.804,
+        "end": 2.201
+      },
+      {
+        "text": "numa",
+        "start": 2.213,
+        "end": 2.405
+      },
+      {
+        "text": "mina",
+        "start": 2.417,
+        "end": 2.669
       },
       {
         "text": "de",
-        "start": 1.282,
-        "end": 1.366
+        "start": 2.681,
+        "end": 2.778
       },
       {
-        "text": "2026",
-        "start": 1.378,
-        "end": 2.472
+        "text": "gesso",
+        "start": 2.79,
+        "end": 3.138
       },
       {
-        "text": "nem",
-        "start": 2.64,
-        "end": 2.917
+        "text": "em",
+        "start": 3.15,
+        "end": 3.198
+      },
+      {
+        "text": "Santana",
+        "start": 3.21,
+        "end": 3.715
       },
       {
         "text": "do",
-        "start": 2.929,
-        "end": 3.037
+        "start": 3.727,
+        "end": 3.835
       },
       {
-        "text": "mundo",
-        "start": 3.049,
-        "end": 3.41
-      },
-      {
-        "text": "E",
-        "start": 4.237,
-        "end": 4.357
-      },
-      {
-        "text": "o",
-        "start": 4.369,
-        "end": 4.453
-      },
-      {
-        "text": "teste",
-        "start": 4.465,
-        "end": 4.862
-      },
-      {
-        "text": "não",
-        "start": 4.874,
-        "end": 5.054
-      },
-      {
-        "text": "desliga",
-        "start": 5.066,
-        "end": 5.511
-      },
-      {
-        "text": "nada",
-        "start": 5.523,
-        "end": 5.884
-      },
-      {
-        "text": "Mas",
-        "start": 6.713,
-        "end": 6.953
-      },
-      {
-        "text": "dá",
-        "start": 6.965,
-        "end": 7.074
-      },
-      {
-        "text": "pra",
-        "start": 7.086,
-        "end": 7.194
-      },
-      {
-        "text": "apagar",
-        "start": 7.206,
-        "end": 7.53
-      },
-      {
-        "text": "o",
-        "start": 7.542,
-        "end": 7.578
-      },
-      {
-        "text": "planeta",
-        "start": 7.59,
-        "end": 8.011
-      },
-      {
-        "text": "inteiro",
-        "start": 8.023,
-        "end": 8.372
-      },
-      {
-        "text": "de",
-        "start": 8.384,
-        "end": 8.444
-      },
-      {
-        "text": "uma",
-        "start": 8.456,
-        "end": 8.612
-      },
-      {
-        "text": "vez",
-        "start": 8.624,
-        "end": 9.009
+        "text": "Cariri",
+        "start": 3.847,
+        "end": 4.304
       }
     ]
   },
   "s6": {
-    "text": "Pra isso, a Terra precisaria de uma rede elétrica só. Ela não existe. Cada região tem a sua.",
-    "seconds": 7.205,
+    "text": "Dentro do osso, há canais finíssimos por onde o sangue passava. Foi ali que os cientistas procuraram.",
+    "seconds": 6.338,
     "words": [
       {
-        "text": "Pra",
+        "text": "Dentro",
         "start": 0,
-        "end": 0.178
+        "end": 0.326
       },
       {
-        "text": "isso",
-        "start": 0.19,
-        "end": 0.527
+        "text": "do",
+        "start": 0.338,
+        "end": 0.47
       },
       {
-        "text": "a",
-        "start": 0.707,
-        "end": 0.839
+        "text": "osso",
+        "start": 0.482,
+        "end": 0.806
       },
       {
-        "text": "Terra",
-        "start": 0.852,
-        "end": 1.152
+        "text": "há",
+        "start": 0.999,
+        "end": 1.083
       },
       {
-        "text": "precisaria",
-        "start": 1.164,
-        "end": 1.741
+        "text": "canais",
+        "start": 1.095,
+        "end": 1.516
       },
       {
-        "text": "de",
-        "start": 1.753,
-        "end": 1.837
+        "text": "finíssimos",
+        "start": 1.528,
+        "end": 2.129
       },
       {
-        "text": "uma",
-        "start": 1.849,
-        "end": 1.981
+        "text": "por",
+        "start": 2.141,
+        "end": 2.297
       },
       {
-        "text": "rede",
-        "start": 1.993,
-        "end": 2.258
+        "text": "onde",
+        "start": 2.309,
+        "end": 2.513
       },
       {
-        "text": "elétrica",
-        "start": 2.27,
-        "end": 2.787
+        "text": "o",
+        "start": 2.525,
+        "end": 2.549
       },
       {
-        "text": "só",
-        "start": 2.799,
-        "end": 3.099
+        "text": "sangue",
+        "start": 2.561,
+        "end": 2.874
       },
       {
-        "text": "Ela",
-        "start": 3.927,
-        "end": 4.179
+        "text": "passava",
+        "start": 2.886,
+        "end": 3.427
       },
       {
-        "text": "não",
-        "start": 4.191,
-        "end": 4.383
+        "text": "Foi",
+        "start": 4.254,
+        "end": 4.494
       },
       {
-        "text": "existe",
-        "start": 4.395,
-        "end": 4.9
+        "text": "ali",
+        "start": 4.506,
+        "end": 4.807
       },
       {
-        "text": "Cada",
-        "start": 5.729,
-        "end": 5.982
+        "text": "que",
+        "start": 4.819,
+        "end": 4.891
       },
       {
-        "text": "região",
-        "start": 5.994,
-        "end": 6.439
+        "text": "os",
+        "start": 4.903,
+        "end": 4.975
       },
       {
-        "text": "tem",
-        "start": 6.451,
-        "end": 6.619
+        "text": "cientistas",
+        "start": 4.987,
+        "end": 5.636
       },
       {
-        "text": "a",
-        "start": 6.631,
-        "end": 6.691
-      },
-      {
-        "text": "sua",
-        "start": 6.703,
-        "end": 7.112
+        "text": "procuraram",
+        "start": 5.648,
+        "end": 6.249
       }
     ]
   },
   "s7": {
-    "text": "Numa rede, todos os geradores giram no mesmo ritmo. E as redes nem combinam, o Brasil usa sessenta hertz; o Paraguai, cinquenta.",
-    "seconds": 8.985,
+    "text": "E acharam bolinhas de mineral do tamanho de glóbulos vermelhos. Nelas, sinais químicos do heme, a parte do sangue que segura o oxigênio.",
+    "seconds": 8.775,
     "words": [
       {
-        "text": "Numa",
-        "start": 0,
-        "end": 0.271
-      },
-      {
-        "text": "rede",
-        "start": 0.283,
-        "end": 0.655
-      },
-      {
-        "text": "todos",
-        "start": 0.86,
-        "end": 1.172
-      },
-      {
-        "text": "os",
-        "start": 1.184,
-        "end": 1.328
-      },
-      {
-        "text": "geradores",
-        "start": 1.34,
-        "end": 1.881
-      },
-      {
-        "text": "giram",
-        "start": 1.893,
-        "end": 2.146
-      },
-      {
-        "text": "no",
-        "start": 2.158,
-        "end": 2.23
-      },
-      {
-        "text": "mesmo",
-        "start": 2.242,
-        "end": 2.59
-      },
-      {
-        "text": "ritmo",
-        "start": 2.602,
-        "end": 3.083
-      },
-      {
         "text": "E",
-        "start": 3.911,
-        "end": 4.031
+        "start": 0,
+        "end": 0.074
       },
       {
-        "text": "as",
-        "start": 4.043,
-        "end": 4.163
+        "text": "acharam",
+        "start": 0.086,
+        "end": 0.507
       },
       {
-        "text": "redes",
-        "start": 4.175,
-        "end": 4.535
+        "text": "bolinhas",
+        "start": 0.519,
+        "end": 0.976
       },
       {
-        "text": "nem",
-        "start": 4.548,
-        "end": 4.704
+        "text": "de",
+        "start": 0.988,
+        "end": 1.06
       },
       {
-        "text": "combinam",
-        "start": 4.716,
-        "end": 5.209
+        "text": "mineral",
+        "start": 1.072,
+        "end": 1.481
+      },
+      {
+        "text": "do",
+        "start": 1.493,
+        "end": 1.589
+      },
+      {
+        "text": "tamanho",
+        "start": 1.601,
+        "end": 1.985
+      },
+      {
+        "text": "de",
+        "start": 1.997,
+        "end": 2.093
+      },
+      {
+        "text": "glóbulos",
+        "start": 2.105,
+        "end": 2.61
+      },
+      {
+        "text": "vermelhos",
+        "start": 2.622,
+        "end": 3.271
+      },
+      {
+        "text": "Nelas",
+        "start": 4.099,
+        "end": 4.652
+      },
+      {
+        "text": "sinais",
+        "start": 4.856,
+        "end": 5.277
+      },
+      {
+        "text": "químicos",
+        "start": 5.289,
+        "end": 5.745
+      },
+      {
+        "text": "do",
+        "start": 5.757,
+        "end": 5.89
+      },
+      {
+        "text": "heme",
+        "start": 5.902,
+        "end": 6.202
+      },
+      {
+        "text": "a",
+        "start": 6.467,
+        "end": 6.599
+      },
+      {
+        "text": "parte",
+        "start": 6.611,
+        "end": 6.947
+      },
+      {
+        "text": "do",
+        "start": 6.959,
+        "end": 7.056
+      },
+      {
+        "text": "sangue",
+        "start": 7.068,
+        "end": 7.392
+      },
+      {
+        "text": "que",
+        "start": 7.404,
+        "end": 7.5
+      },
+      {
+        "text": "segura",
+        "start": 7.512,
+        "end": 7.909
       },
       {
         "text": "o",
-        "start": 5.485,
-        "end": 5.533
+        "start": 7.921,
+        "end": 7.957
       },
       {
-        "text": "Brasil",
-        "start": 5.545,
-        "end": 6.05
-      },
-      {
-        "text": "usa",
-        "start": 6.062,
-        "end": 6.278
-      },
-      {
-        "text": "sessenta",
-        "start": 6.29,
-        "end": 6.759
-      },
-      {
-        "text": "hertz",
-        "start": 6.771,
-        "end": 7.252
-      },
-      {
-        "text": "o",
-        "start": 7.504,
-        "end": 7.564
-      },
-      {
-        "text": "Paraguai",
-        "start": 7.576,
-        "end": 8.069
-      },
-      {
-        "text": "cinquenta",
-        "start": 8.285,
-        "end": 8.898
+        "text": "oxigênio",
+        "start": 7.969,
+        "end": 8.69
       }
     ]
   },
   "s8": {
-    "text": "Tanto que Itaipu, dos dois países, tem metade dos geradores em cada ritmo.",
-    "seconds": 4.705,
+    "text": "Só que não é sangue líquido. É uma marca química, uma sombra do sangue que virou pedra junto com o osso.",
+    "seconds": 6.551,
     "words": [
       {
-        "text": "Tanto",
+        "text": "Só",
         "start": 0,
-        "end": 0.265
+        "end": 0.243
       },
       {
         "text": "que",
-        "start": 0.277,
-        "end": 0.361
+        "start": 0.255,
+        "end": 0.375
       },
       {
-        "text": "Itaipu",
-        "start": 0.373,
-        "end": 0.866
+        "text": "não",
+        "start": 0.387,
+        "end": 0.567
       },
       {
-        "text": "dos",
-        "start": 1.13,
-        "end": 1.346
+        "text": "é",
+        "start": 0.579,
+        "end": 0.639
       },
       {
-        "text": "dois",
-        "start": 1.358,
-        "end": 1.599
+        "text": "sangue",
+        "start": 0.651,
+        "end": 1.06
       },
       {
-        "text": "países",
-        "start": 1.611,
-        "end": 2.164
+        "text": "líquido",
+        "start": 1.072,
+        "end": 1.505
       },
       {
-        "text": "tem",
-        "start": 2.416,
-        "end": 2.524
+        "text": "É",
+        "start": 2.332,
+        "end": 2.464
       },
       {
-        "text": "metade",
-        "start": 2.536,
-        "end": 3.017
+        "text": "uma",
+        "start": 2.476,
+        "end": 2.693
       },
       {
-        "text": "dos",
-        "start": 3.029,
-        "end": 3.149
+        "text": "marca",
+        "start": 2.705,
+        "end": 3.053
       },
       {
-        "text": "geradores",
-        "start": 3.161,
-        "end": 3.654
+        "text": "química",
+        "start": 3.065,
+        "end": 3.474
       },
       {
-        "text": "em",
-        "start": 3.666,
-        "end": 3.846
+        "text": "uma",
+        "start": 3.738,
+        "end": 3.943
       },
       {
-        "text": "cada",
-        "start": 3.858,
-        "end": 4.135
+        "text": "sombra",
+        "start": 3.955,
+        "end": 4.327
       },
       {
-        "text": "ritmo",
-        "start": 4.147,
-        "end": 4.628
+        "text": "do",
+        "start": 4.339,
+        "end": 4.435
+      },
+      {
+        "text": "sangue",
+        "start": 4.447,
+        "end": 4.82
+      },
+      {
+        "text": "que",
+        "start": 4.832,
+        "end": 4.916
+      },
+      {
+        "text": "virou",
+        "start": 4.928,
+        "end": 5.181
+      },
+      {
+        "text": "pedra",
+        "start": 5.193,
+        "end": 5.517
+      },
+      {
+        "text": "junto",
+        "start": 5.529,
+        "end": 5.866
+      },
+      {
+        "text": "com",
+        "start": 5.878,
+        "end": 6.106
+      },
+      {
+        "text": "o",
+        "start": 6.118,
+        "end": 6.142
+      },
+      {
+        "text": "osso",
+        "start": 6.154,
+        "end": 6.491
       }
     ]
   },
   "s9": {
-    "text": "Apagão grande existe. Em agosto de 2023, uma linha caiu no Ceará, e a falha correu como dominó, vinte e cinco estados e o Distrito Federal no escuro.",
-    "seconds": 10.097,
+    "text": "E nem todo mundo está convencido, uma paleontóloga lembra que hemácias de dinossauro deviam ser abauladas, e essas parecem côncavas.",
+    "seconds": 7.282,
     "words": [
       {
-        "text": "Apagão",
+        "text": "E",
         "start": 0,
-        "end": 0.424
+        "end": 0.043
       },
       {
-        "text": "grande",
-        "start": 0.436,
-        "end": 0.808
+        "text": "nem",
+        "start": 0.055,
+        "end": 0.296
       },
       {
-        "text": "existe",
-        "start": 0.821,
-        "end": 1.361
+        "text": "todo",
+        "start": 0.308,
+        "end": 0.584
       },
       {
-        "text": "Em",
-        "start": 2.189,
-        "end": 2.321
+        "text": "mundo",
+        "start": 0.596,
+        "end": 0.861
       },
       {
-        "text": "agosto",
-        "start": 2.333,
-        "end": 2.826
+        "text": "está",
+        "start": 0.873,
+        "end": 1.053
       },
       {
-        "text": "de",
-        "start": 2.838,
-        "end": 2.922
-      },
-      {
-        "text": "2023",
-        "start": 2.934,
-        "end": 3.919
+        "text": "convencido",
+        "start": 1.065,
+        "end": 1.666
       },
       {
         "text": "uma",
-        "start": 4.244,
-        "end": 4.424
+        "start": 1.918,
+        "end": 2.123
       },
       {
-        "text": "linha",
-        "start": 4.436,
-        "end": 4.677
+        "text": "paleontóloga",
+        "start": 2.135,
+        "end": 2.796
       },
       {
-        "text": "caiu",
-        "start": 4.689,
-        "end": 4.917
+        "text": "lembra",
+        "start": 2.808,
+        "end": 3.12
       },
       {
-        "text": "no",
-        "start": 4.929,
-        "end": 5.025
+        "text": "que",
+        "start": 3.132,
+        "end": 3.216
       },
       {
-        "text": "Ceará",
-        "start": 5.037,
-        "end": 5.434
+        "text": "hemácias",
+        "start": 3.228,
+        "end": 3.697
       },
       {
-        "text": "e",
-        "start": 5.722,
-        "end": 5.807
+        "text": "de",
+        "start": 3.709,
+        "end": 3.793
       },
       {
-        "text": "a",
-        "start": 5.819,
-        "end": 5.915
+        "text": "dinossauro",
+        "start": 3.805,
+        "end": 4.37
       },
       {
-        "text": "falha",
-        "start": 5.927,
-        "end": 6.239
+        "text": "deviam",
+        "start": 4.382,
+        "end": 4.707
       },
       {
-        "text": "correu",
-        "start": 6.251,
-        "end": 6.576
+        "text": "ser",
+        "start": 4.719,
+        "end": 4.875
       },
       {
-        "text": "como",
-        "start": 6.588,
-        "end": 6.804
-      },
-      {
-        "text": "dominó",
-        "start": 6.816,
-        "end": 7.213
-      },
-      {
-        "text": "vinte",
-        "start": 7.561,
-        "end": 7.814
+        "text": "abauladas",
+        "start": 4.887,
+        "end": 5.512
       },
       {
         "text": "e",
-        "start": 7.826,
-        "end": 7.85
+        "start": 5.752,
+        "end": 5.812
       },
       {
-        "text": "cinco",
-        "start": 7.862,
-        "end": 8.09
+        "text": "essas",
+        "start": 5.825,
+        "end": 6.113
       },
       {
-        "text": "estados",
-        "start": 8.102,
-        "end": 8.487
+        "text": "parecem",
+        "start": 6.125,
+        "end": 6.558
       },
       {
-        "text": "e",
-        "start": 8.499,
-        "end": 8.583
-      },
-      {
-        "text": "o",
-        "start": 8.595,
-        "end": 8.643
-      },
-      {
-        "text": "Distrito",
-        "start": 8.655,
-        "end": 9.088
-      },
-      {
-        "text": "Federal",
-        "start": 9.1,
-        "end": 9.508
-      },
-      {
-        "text": "no",
-        "start": 9.52,
-        "end": 9.593
-      },
-      {
-        "text": "escuro",
-        "start": 9.605,
-        "end": 10.001
+        "text": "côncavas",
+        "start": 6.57,
+        "end": 7.195
       }
     ]
   },
   "s10": {
-    "text": "Só Roraima ficou com luz. Por quê? Ela não era ligada à rede nacional. A falha só corre até onde vão os fios.",
-    "seconds": 8.845,
+    "text": "Primeira parte, achar sangue de dinossauro? Meia verdade.",
+    "seconds": 4.143,
     "words": [
       {
-        "text": "Só",
+        "text": "Primeira",
         "start": 0,
-        "end": 0.159
+        "end": 0.309
       },
       {
-        "text": "Roraima",
-        "start": 0.171,
-        "end": 0.7
+        "text": "parte",
+        "start": 0.321,
+        "end": 0.729
       },
       {
-        "text": "ficou",
-        "start": 0.712,
-        "end": 1.025
+        "text": "achar",
+        "start": 0.922,
+        "end": 1.246
       },
       {
-        "text": "com",
-        "start": 1.037,
-        "end": 1.241
+        "text": "sangue",
+        "start": 1.258,
+        "end": 1.571
       },
       {
-        "text": "luz",
-        "start": 1.253,
-        "end": 1.59
+        "text": "de",
+        "start": 1.583,
+        "end": 1.667
       },
       {
-        "text": "Por",
-        "start": 2.417,
-        "end": 2.585
+        "text": "dinossauro",
+        "start": 1.679,
+        "end": 2.328
       },
       {
-        "text": "quê",
-        "start": 2.597,
-        "end": 2.838
+        "text": "Meia",
+        "start": 3.155,
+        "end": 3.48
       },
       {
-        "text": "Ela",
-        "start": 3.667,
-        "end": 3.895
-      },
-      {
-        "text": "não",
-        "start": 3.907,
-        "end": 4.076
-      },
-      {
-        "text": "era",
-        "start": 4.088,
-        "end": 4.22
-      },
-      {
-        "text": "ligada",
-        "start": 4.232,
-        "end": 4.677
-      },
-      {
-        "text": "à",
-        "start": 4.689,
-        "end": 4.713
-      },
-      {
-        "text": "rede",
-        "start": 4.725,
-        "end": 5.013
-      },
-      {
-        "text": "nacional",
-        "start": 5.025,
-        "end": 5.554
-      },
-      {
-        "text": "A",
-        "start": 6.384,
-        "end": 6.516
-      },
-      {
-        "text": "falha",
-        "start": 6.528,
-        "end": 6.864
-      },
-      {
-        "text": "só",
-        "start": 6.876,
-        "end": 7.081
-      },
-      {
-        "text": "corre",
-        "start": 7.093,
-        "end": 7.369
-      },
-      {
-        "text": "até",
-        "start": 7.381,
-        "end": 7.621
-      },
-      {
-        "text": "onde",
-        "start": 7.634,
-        "end": 7.934
-      },
-      {
-        "text": "vão",
-        "start": 7.946,
-        "end": 8.174
-      },
-      {
-        "text": "os",
-        "start": 8.186,
-        "end": 8.319
-      },
-      {
-        "text": "fios",
-        "start": 8.331,
-        "end": 8.763
+        "text": "verdade",
+        "start": 3.492,
+        "end": 4.057
       }
     ]
   },
   "s11": {
-    "text": "Então, algo derruba várias redes ao mesmo tempo? Tem um candidato, o Sol.",
-    "seconds": 5.424,
+    "text": "Agora, o clone. Pra isso, precisaria de DNA. E no osso o DNA se desfaz rápido, metade some a cada uns quinhentos anos.",
+    "seconds": 9.674,
     "words": [
       {
-        "text": "Então",
+        "text": "Agora",
         "start": 0,
-        "end": 0.424
-      },
-      {
-        "text": "algo",
-        "start": 0.688,
-        "end": 0.929
-      },
-      {
-        "text": "derruba",
-        "start": 0.941,
-        "end": 1.337
-      },
-      {
-        "text": "várias",
-        "start": 1.349,
-        "end": 1.686
-      },
-      {
-        "text": "redes",
-        "start": 1.698,
-        "end": 1.938
-      },
-      {
-        "text": "ao",
-        "start": 1.95,
-        "end": 2.106
-      },
-      {
-        "text": "mesmo",
-        "start": 2.118,
-        "end": 2.479
-      },
-      {
-        "text": "tempo",
-        "start": 2.491,
-        "end": 2.864
-      },
-      {
-        "text": "Tem",
-        "start": 3.691,
-        "end": 3.883
-      },
-      {
-        "text": "um",
-        "start": 3.895,
-        "end": 4.028
-      },
-      {
-        "text": "candidato",
-        "start": 4.04,
-        "end": 4.689
+        "end": 0.495
       },
       {
         "text": "o",
-        "start": 4.917,
-        "end": 5.001
+        "start": 0.615,
+        "end": 0.711
       },
       {
-        "text": "Sol",
-        "start": 5.013,
-        "end": 5.35
+        "text": "clone",
+        "start": 0.723,
+        "end": 1.18
+      },
+      {
+        "text": "Pra",
+        "start": 2.007,
+        "end": 2.248
+      },
+      {
+        "text": "isso",
+        "start": 2.26,
+        "end": 2.62
+      },
+      {
+        "text": "precisaria",
+        "start": 2.849,
+        "end": 3.51
+      },
+      {
+        "text": "de",
+        "start": 3.522,
+        "end": 3.606
+      },
+      {
+        "text": "DNA",
+        "start": 3.618,
+        "end": 4.159
+      },
+      {
+        "text": "E",
+        "start": 4.988,
+        "end": 5.084
+      },
+      {
+        "text": "no",
+        "start": 5.096,
+        "end": 5.229
+      },
+      {
+        "text": "osso",
+        "start": 5.241,
+        "end": 5.493
+      },
+      {
+        "text": "o",
+        "start": 5.505,
+        "end": 5.529
+      },
+      {
+        "text": "DNA",
+        "start": 5.541,
+        "end": 5.95
+      },
+      {
+        "text": "se",
+        "start": 5.962,
+        "end": 6.082
+      },
+      {
+        "text": "desfaz",
+        "start": 6.094,
+        "end": 6.491
+      },
+      {
+        "text": "rápido",
+        "start": 6.503,
+        "end": 6.899
+      },
+      {
+        "text": "metade",
+        "start": 7.164,
+        "end": 7.596
+      },
+      {
+        "text": "some",
+        "start": 7.608,
+        "end": 7.945
+      },
+      {
+        "text": "a",
+        "start": 7.957,
+        "end": 8.017
+      },
+      {
+        "text": "cada",
+        "start": 8.029,
+        "end": 8.281
+      },
+      {
+        "text": "uns",
+        "start": 8.294,
+        "end": 8.522
+      },
+      {
+        "text": "quinhentos",
+        "start": 8.534,
+        "end": 9.087
+      },
+      {
+        "text": "anos",
+        "start": 9.099,
+        "end": 9.592
       }
     ]
   },
   "s12": {
-    "text": "Em 1989, uma tempestade solar apagou Quebec, no Canadá, em menos de um minuto. Nove horas no escuro.",
-    "seconds": 8.012,
+    "text": "Mesmo no frio ideal, depois de um milhão e meio de anos ele vira picadinho ilegível. Esse osso tem cento e quinze milhões.",
+    "seconds": 7.809,
     "words": [
       {
-        "text": "Em",
+        "text": "Mesmo",
         "start": 0,
-        "end": 0.753
-      },
-      {
-        "text": "1989",
-        "start": 0.753,
-        "end": 1.559
-      },
-      {
-        "text": "uma",
-        "start": 1.799,
-        "end": 1.955
-      },
-      {
-        "text": "tempestade",
-        "start": 1.967,
-        "end": 2.58
-      },
-      {
-        "text": "solar",
-        "start": 2.592,
-        "end": 2.893
-      },
-      {
-        "text": "apagou",
-        "start": 2.905,
-        "end": 3.277
-      },
-      {
-        "text": "Quebec",
-        "start": 3.289,
-        "end": 3.746
+        "end": 0.375
       },
       {
         "text": "no",
-        "start": 3.951,
-        "end": 4.035
+        "start": 0.387,
+        "end": 0.483
       },
       {
-        "text": "Canadá",
-        "start": 4.047,
-        "end": 4.503
+        "text": "frio",
+        "start": 0.495,
+        "end": 0.747
       },
       {
-        "text": "em",
-        "start": 4.756,
-        "end": 4.84
+        "text": "ideal",
+        "start": 0.759,
+        "end": 1.156
       },
       {
-        "text": "menos",
-        "start": 4.852,
-        "end": 5.188
+        "text": "depois",
+        "start": 1.444,
+        "end": 1.805
       },
       {
         "text": "de",
-        "start": 5.201,
-        "end": 5.321
+        "start": 1.817,
+        "end": 1.889
       },
       {
         "text": "um",
-        "start": 5.333,
-        "end": 5.429
+        "start": 1.901,
+        "end": 1.961
       },
       {
-        "text": "minuto",
-        "start": 5.441,
-        "end": 5.85
+        "text": "milhão",
+        "start": 1.973,
+        "end": 2.298
       },
       {
-        "text": "Nove",
-        "start": 6.677,
-        "end": 7.086
+        "text": "e",
+        "start": 2.31,
+        "end": 2.358
       },
       {
-        "text": "horas",
-        "start": 7.098,
-        "end": 7.398
+        "text": "meio",
+        "start": 2.37,
+        "end": 2.61
       },
       {
-        "text": "no",
-        "start": 7.41,
-        "end": 7.482
+        "text": "de",
+        "start": 2.622,
+        "end": 2.767
       },
       {
-        "text": "escuro",
-        "start": 7.494,
-        "end": 7.915
+        "text": "anos",
+        "start": 2.779,
+        "end": 3.019
+      },
+      {
+        "text": "ele",
+        "start": 3.031,
+        "end": 3.235
+      },
+      {
+        "text": "vira",
+        "start": 3.247,
+        "end": 3.476
+      },
+      {
+        "text": "picadinho",
+        "start": 3.488,
+        "end": 4.029
+      },
+      {
+        "text": "ilegível",
+        "start": 4.041,
+        "end": 4.618
+      },
+      {
+        "text": "Esse",
+        "start": 5.445,
+        "end": 5.793
+      },
+      {
+        "text": "osso",
+        "start": 5.805,
+        "end": 6.118
+      },
+      {
+        "text": "tem",
+        "start": 6.13,
+        "end": 6.298
+      },
+      {
+        "text": "cento",
+        "start": 6.31,
+        "end": 6.647
+      },
+      {
+        "text": "e",
+        "start": 6.659,
+        "end": 6.707
+      },
+      {
+        "text": "quinze",
+        "start": 6.719,
+        "end": 7.056
+      },
+      {
+        "text": "milhões",
+        "start": 7.068,
+        "end": 7.729
       }
     ]
   },
   "s13": {
-    "text": "Só que tempestade solar não tem data marcada. A explosão é vista no Sol horas ou dias antes de chegar.",
-    "seconds": 6.703,
+    "text": "E o mosquito no âmbar, do filme? Nunca acharam DNA de dinossauro em âmbar.",
+    "seconds": 5.358,
     "words": [
       {
-        "text": "Só",
+        "text": "E",
         "start": 0,
-        "end": 0.218
+        "end": 0.063
       },
       {
-        "text": "que",
-        "start": 0.23,
-        "end": 0.338
+        "text": "o",
+        "start": 0.075,
+        "end": 0.099
       },
       {
-        "text": "tempestade",
-        "start": 0.35,
-        "end": 0.939
-      },
-      {
-        "text": "solar",
-        "start": 0.951,
-        "end": 1.371
-      },
-      {
-        "text": "não",
-        "start": 1.383,
-        "end": 1.576
-      },
-      {
-        "text": "tem",
-        "start": 1.588,
-        "end": 1.756
-      },
-      {
-        "text": "data",
-        "start": 1.768,
-        "end": 2.044
-      },
-      {
-        "text": "marcada",
-        "start": 2.056,
-        "end": 2.597
-      },
-      {
-        "text": "A",
-        "start": 3.425,
-        "end": 3.545
-      },
-      {
-        "text": "explosão",
-        "start": 3.557,
-        "end": 4.098
-      },
-      {
-        "text": "é",
-        "start": 4.11,
-        "end": 4.182
-      },
-      {
-        "text": "vista",
-        "start": 4.194,
-        "end": 4.531
+        "text": "mosquito",
+        "start": 0.111,
+        "end": 0.616
       },
       {
         "text": "no",
-        "start": 4.543,
-        "end": 4.639
+        "start": 0.628,
+        "end": 0.772
       },
       {
-        "text": "Sol",
-        "start": 4.651,
-        "end": 4.903
+        "text": "âmbar",
+        "start": 0.784,
+        "end": 1.085
       },
       {
-        "text": "horas",
-        "start": 4.915,
-        "end": 5.119
+        "text": "do",
+        "start": 1.349,
+        "end": 1.494
       },
       {
-        "text": "ou",
-        "start": 5.132,
-        "end": 5.324
+        "text": "filme",
+        "start": 1.506,
+        "end": 1.95
       },
       {
-        "text": "dias",
-        "start": 5.336,
-        "end": 5.6
+        "text": "Nunca",
+        "start": 2.778,
+        "end": 3.174
       },
       {
-        "text": "antes",
-        "start": 5.612,
-        "end": 6.033
+        "text": "acharam",
+        "start": 3.186,
+        "end": 3.547
+      },
+      {
+        "text": "DNA",
+        "start": 3.559,
+        "end": 4.052
       },
       {
         "text": "de",
-        "start": 6.045,
-        "end": 6.117
+        "start": 4.064,
+        "end": 4.172
       },
       {
-        "text": "chegar",
-        "start": 6.129,
-        "end": 6.538
+        "text": "dinossauro",
+        "start": 4.184,
+        "end": 4.773
+      },
+      {
+        "text": "em",
+        "start": 4.785,
+        "end": 4.893
+      },
+      {
+        "text": "âmbar",
+        "start": 4.905,
+        "end": 5.206
       }
     ]
   },
   "s14": {
-    "text": "Veredito, apagão no mundo inteiro, dia 17? Boato. Pronto, agora você sabe por que não existe um botão que desliga o planeta.",
-    "seconds": 9.352,
+    "text": "Veredito, clonar o Aratassauro? Boato. Pronto, agora você sabe. Acharam a sombra do sangue, não um dinossauro pronto pra voltar.",
+    "seconds": 10.53,
     "words": [
       {
         "text": "Veredito",
         "start": 0,
-        "end": 0.619
+        "end": 0.585
       },
       {
-        "text": "apagão",
-        "start": 0.727,
-        "end": 1.16
-      },
-      {
-        "text": "no",
-        "start": 1.172,
-        "end": 1.244
-      },
-      {
-        "text": "mundo",
-        "start": 1.256,
-        "end": 1.545
-      },
-      {
-        "text": "inteiro",
-        "start": 1.557,
-        "end": 1.953
-      },
-      {
-        "text": "dia",
-        "start": 2.182,
-        "end": 2.41
-      },
-      {
-        "text": "17",
-        "start": 2.422,
-        "end": 3.083
-      },
-      {
-        "text": "Boato",
-        "start": 3.91,
-        "end": 4.463
-      },
-      {
-        "text": "Pronto",
-        "start": 5.293,
-        "end": 5.689
-      },
-      {
-        "text": "agora",
-        "start": 6.002,
-        "end": 6.314
-      },
-      {
-        "text": "você",
-        "start": 6.326,
-        "end": 6.567
-      },
-      {
-        "text": "sabe",
-        "start": 6.579,
-        "end": 6.915
-      },
-      {
-        "text": "por",
-        "start": 6.927,
-        "end": 7.084
-      },
-      {
-        "text": "que",
-        "start": 7.096,
-        "end": 7.228
-      },
-      {
-        "text": "não",
-        "start": 7.24,
-        "end": 7.408
-      },
-      {
-        "text": "existe",
-        "start": 7.42,
-        "end": 7.781
-      },
-      {
-        "text": "um",
-        "start": 7.793,
-        "end": 7.853
-      },
-      {
-        "text": "botão",
-        "start": 7.865,
-        "end": 8.249
-      },
-      {
-        "text": "que",
-        "start": 8.261,
-        "end": 8.37
-      },
-      {
-        "text": "desliga",
-        "start": 8.382,
-        "end": 8.73
+        "text": "clonar",
+        "start": 0.91,
+        "end": 1.342
       },
       {
         "text": "o",
-        "start": 8.742,
-        "end": 8.766
+        "start": 1.354,
+        "end": 1.414
       },
       {
-        "text": "planeta",
-        "start": 8.778,
-        "end": 9.283
+        "text": "Aratassauro",
+        "start": 1.426,
+        "end": 2.111
+      },
+      {
+        "text": "Boato",
+        "start": 2.939,
+        "end": 3.492
+      },
+      {
+        "text": "Pronto",
+        "start": 4.321,
+        "end": 4.718
+      },
+      {
+        "text": "agora",
+        "start": 4.982,
+        "end": 5.319
+      },
+      {
+        "text": "você",
+        "start": 5.331,
+        "end": 5.559
+      },
+      {
+        "text": "sabe",
+        "start": 5.571,
+        "end": 5.992
+      },
+      {
+        "text": "Acharam",
+        "start": 6.821,
+        "end": 7.29
+      },
+      {
+        "text": "a",
+        "start": 7.302,
+        "end": 7.338
+      },
+      {
+        "text": "sombra",
+        "start": 7.35,
+        "end": 7.735
+      },
+      {
+        "text": "do",
+        "start": 7.747,
+        "end": 7.831
+      },
+      {
+        "text": "sangue",
+        "start": 7.843,
+        "end": 8.239
+      },
+      {
+        "text": "não",
+        "start": 8.516,
+        "end": 8.732
+      },
+      {
+        "text": "um",
+        "start": 8.744,
+        "end": 8.816
+      },
+      {
+        "text": "dinossauro",
+        "start": 8.828,
+        "end": 9.405
+      },
+      {
+        "text": "pronto",
+        "start": 9.417,
+        "end": 9.778
+      },
+      {
+        "text": "pra",
+        "start": 9.79,
+        "end": 9.934
+      },
+      {
+        "text": "voltar",
+        "start": 9.946,
+        "end": 10.367
       }
     ]
   },

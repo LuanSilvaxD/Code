@@ -72,7 +72,7 @@ export const SKY = {
  * o "tint" dá o clima do tema sem perder a identidade (padrão roxo da marca #2a1d48; oceano #182a4e,
  * história #2e1f3a, espaço #1f1a4d, natureza #1b2e33, tecnologia #16244a). "sky": céu/subsolo (cenas ao ar livre).
  */
-export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#16244a", halo: "#9fb4ff" };
+export const BACKDROP = { mode: "studio" as "studio" | "sky", tint: "#1b2e33", halo: "#a8d8c0" };
 
 /** Cores das palavras-chave nas legendas (as demais palavras ficam brancas). */
 export const KEYWORD_COLOR: Record<string, string> = {};

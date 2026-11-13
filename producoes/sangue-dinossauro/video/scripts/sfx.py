@@ -639,11 +639,65 @@ def solar_whoosh(d=2.6):
     return (n + sub) * env(d, 0.4, 0.9)
 
 
-save("tv-on", tv_on())
-save("alert-tone", alert_tone())
-save("spark", spark())
-save("hum", hum())
-save("domino", domino())
-save("solar-whoosh", solar_whoosh())
+def dino_step(d=0.7):
+    """passo pesado e abafado de um animal de ~30 kg em chão de lama."""
+    t = tt(d)
+    thump = np.sin(2 * np.pi * np.cumsum(70 * np.exp(-t / 0.08) + 40) / SR) * np.exp(-t / 0.09)
+    squish = bp(rng.standard_normal(len(t)), 300, 1500) * np.exp(-t / 0.05) * 0.3
+    return (thump + squish) * 0.9
+
+
+def dino_call(d=1.1):
+    """chamado curto e grave, sintetizado (não imita som de filme)."""
+    t = tt(d)
+    f = 180 + 70 * np.sin(np.pi * t / d) - 60 * t
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) + 0.5 * np.sin(2 * np.pi * np.cumsum(f * 2.01) / SR)
+    rough = 1 + 0.4 * np.sin(2 * np.pi * 31 * t)
+    breath = bp(rng.standard_normal(len(t)), 400, 2200) * 0.25
+    return np.tanh((tone * rough + breath) * 1.2) * env(d, 0.06, 0.35) * 0.6
+
+
+def microscope(d=0.6):
+    """clique de foco + zumbido baixo."""
+    t = tt(d)
+    click = np.exp(-t / 0.004) * rng.standard_normal(len(t)) * 0.8
+    hum_ = np.sin(2 * np.pi * 120 * t) * 0.08 * env(d, 0.05, 0.2)
+    return click + hum_
+
+
+def drip(d=0.45):
+    """gota: 'plip' com tom que sobe."""
+    t = tt(d)
+    f = 900 + 1800 * np.exp(-t / 0.02)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.06) * 0.7
+
+
+def dust(d=1.2):
+    """pó caindo: chiado fino que se espalha."""
+    t = tt(d)
+    return hp(rng.standard_normal(len(t)), 3000) * env(d, 0.05, 0.8) * np.exp(-t / 0.6) * 0.5
+
+
+def hourglass(d=1.8):
+    """areia escorrendo."""
+    t = tt(d)
+    grains = (rng.random(len(t)) > 0.985) * rng.standard_normal(len(t))
+    return bp(grains + 0.15 * rng.standard_normal(len(t)), 2500, 9000) * env(d, 0.2, 0.5) * 0.9
+
+
+def amber_ring(d=1.6):
+    """brilho vítreo (âmbar)."""
+    t = tt(d)
+    x = sum(np.sin(2 * np.pi * f * t) * np.exp(-t / (0.5 / k)) / k for k, f in enumerate([1568, 2349, 3136, 3951], 1))
+    return x * env(d, 0.005, 0.6) * 0.5
+
+
+save("dino-step", dino_step())
+save("dino-call", dino_call())
+save("microscope", microscope())
+save("drip", drip())
+save("dust", dust())
+save("hourglass", hourglass())
+save("amber-ring", amber_ring())
 
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

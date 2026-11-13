@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 118; // 3540 frames (1:58 — o roteiro previa 1:55; a voz real pediu +3 s)
+export const SECONDS = 106; // 3180 frames (1:46 — a voz real saiu mais curta que o planejado, 1:52)
 export const DURATION = SECONDS * FPS;
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,14 +21,14 @@ export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [8.33, 2.73, 8.23, 7.37, 8.77, 7.4, 9.5, 5.8, 10.23, 8.77, 6.53, 7.53, 7.13, 13.68];
+const PLANNED_SECONDS = [8.5, 2.73, 7.1, 6.1, 5.53, 7.3, 9.3, 7.23, 8.97, 5.83, 9.63, 8.2, 6.1, 13.48];
 /** A 1ª fala entra depois do whoosh de abertura. */
 const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// viradas (quadro→origem, pergunta→redes, Itaipu→apagão, Roraima→Sol, Sol→veredito) ganham 0,8 s
-const GAPS: number[] = [0.55, 0.8, 0.55, 0.55, 0.8, 0.55, 0.55, 0.8, 0.55, 0.8, 0.55, 0.55, 0.8];
+// viradas (quadro→história, campo→osso, meia verdade→clone, âmbar→veredito) ganham 0,8 s
+const GAPS: number[] = [0.55, 0.8, 0.55, 0.55, 0.8, 0.55, 0.55, 0.55, 0.55, 0.8, 0.55, 0.55, 0.8];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };
