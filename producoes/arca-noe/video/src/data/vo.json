@@ -1,0 +1,826 @@
+{
+  "s1": {
+    "text": "Em 2014, uns passarinhos nos Estados Unidos fugiram de uma tempestade um dia antes de ela chegar. O céu ainda estava limpo.",
+    "seconds": 8.028,
+    "words": [
+      {
+        "text": "Em",
+        "start": 0,
+        "end": 0.501
+      },
+      {
+        "text": "2014",
+        "start": 0.501,
+        "end": 1.054
+      },
+      {
+        "text": "uns",
+        "start": 1.318,
+        "end": 1.45
+      },
+      {
+        "text": "passarinhos",
+        "start": 1.463,
+        "end": 2.027
+      },
+      {
+        "text": "nos",
+        "start": 2.039,
+        "end": 2.124
+      },
+      {
+        "text": "Estados",
+        "start": 2.136,
+        "end": 2.58
+      },
+      {
+        "text": "Unidos",
+        "start": 2.592,
+        "end": 3.025
+      },
+      {
+        "text": "fugiram",
+        "start": 3.037,
+        "end": 3.434
+      },
+      {
+        "text": "de",
+        "start": 3.446,
+        "end": 3.518
+      },
+      {
+        "text": "uma",
+        "start": 3.53,
+        "end": 3.662
+      },
+      {
+        "text": "tempestade",
+        "start": 3.674,
+        "end": 4.275
+      },
+      {
+        "text": "um",
+        "start": 4.287,
+        "end": 4.395
+      },
+      {
+        "text": "dia",
+        "start": 4.407,
+        "end": 4.672
+      },
+      {
+        "text": "antes",
+        "start": 4.684,
+        "end": 5.044
+      },
+      {
+        "text": "de",
+        "start": 5.056,
+        "end": 5.128
+      },
+      {
+        "text": "ela",
+        "start": 5.14,
+        "end": 5.285
+      },
+      {
+        "text": "chegar",
+        "start": 5.297,
+        "end": 5.693
+      },
+      {
+        "text": "O",
+        "start": 6.521,
+        "end": 6.641
+      },
+      {
+        "text": "céu",
+        "start": 6.653,
+        "end": 6.989
+      },
+      {
+        "text": "ainda",
+        "start": 7.001,
+        "end": 7.254
+      },
+      {
+        "text": "estava",
+        "start": 7.266,
+        "end": 7.554
+      },
+      {
+        "text": "limpo",
+        "start": 7.566,
+        "end": 7.927
+      }
+    ]
+  },
+  "s2": {
+    "text": "Eles pesam uns dez gramas, e cientistas tinham colado neles minúsculos rastreadores.",
+    "seconds": 4.84,
+    "words": [
+      {
+        "text": "Eles",
+        "start": 0,
+        "end": 0.181
+      },
+      {
+        "text": "pesam",
+        "start": 0.193,
+        "end": 0.554
+      },
+      {
+        "text": "uns",
+        "start": 0.566,
+        "end": 0.65
+      },
+      {
+        "text": "dez",
+        "start": 0.662,
+        "end": 0.915
+      },
+      {
+        "text": "gramas",
+        "start": 0.927,
+        "end": 1.395
+      },
+      {
+        "text": "e",
+        "start": 1.696,
+        "end": 1.756
+      },
+      {
+        "text": "cientistas",
+        "start": 1.768,
+        "end": 2.441
+      },
+      {
+        "text": "tinham",
+        "start": 2.453,
+        "end": 2.645
+      },
+      {
+        "text": "colado",
+        "start": 2.657,
+        "end": 3.066
+      },
+      {
+        "text": "neles",
+        "start": 3.078,
+        "end": 3.355
+      },
+      {
+        "text": "minúsculos",
+        "start": 3.367,
+        "end": 3.943
+      },
+      {
+        "text": "rastreadores",
+        "start": 3.956,
+        "end": 4.761
+      }
+    ]
+  },
+  "s3": {
+    "text": "Os dados mostraram, eles voaram mais de mil e quinhentos quilômetros em cinco dias, saíram do caminho dos tornados e depois voltaram.",
+    "seconds": 7.478,
+    "words": [
+      {
+        "text": "Os",
+        "start": 0,
+        "end": 0.102
+      },
+      {
+        "text": "dados",
+        "start": 0.114,
+        "end": 0.463
+      },
+      {
+        "text": "mostraram",
+        "start": 0.475,
+        "end": 1.04
+      },
+      {
+        "text": "eles",
+        "start": 1.292,
+        "end": 1.497
+      },
+      {
+        "text": "voaram",
+        "start": 1.509,
+        "end": 1.869
+      },
+      {
+        "text": "mais",
+        "start": 1.881,
+        "end": 2.134
+      },
+      {
+        "text": "de",
+        "start": 2.146,
+        "end": 2.242
+      },
+      {
+        "text": "mil",
+        "start": 2.254,
+        "end": 2.434
+      },
+      {
+        "text": "e",
+        "start": 2.446,
+        "end": 2.494
+      },
+      {
+        "text": "quinhentos",
+        "start": 2.506,
+        "end": 3.059
+      },
+      {
+        "text": "quilômetros",
+        "start": 3.071,
+        "end": 3.564
+      },
+      {
+        "text": "em",
+        "start": 3.576,
+        "end": 3.744
+      },
+      {
+        "text": "cinco",
+        "start": 3.756,
+        "end": 4.105
+      },
+      {
+        "text": "dias",
+        "start": 4.117,
+        "end": 4.537
+      },
+      {
+        "text": "saíram",
+        "start": 4.838,
+        "end": 5.21
+      },
+      {
+        "text": "do",
+        "start": 5.222,
+        "end": 5.319
+      },
+      {
+        "text": "caminho",
+        "start": 5.331,
+        "end": 5.691
+      },
+      {
+        "text": "dos",
+        "start": 5.703,
+        "end": 5.871
+      },
+      {
+        "text": "tornados",
+        "start": 5.884,
+        "end": 6.352
+      },
+      {
+        "text": "e",
+        "start": 6.364,
+        "end": 6.485
+      },
+      {
+        "text": "depois",
+        "start": 6.497,
+        "end": 6.869
+      },
+      {
+        "text": "voltaram",
+        "start": 6.881,
+        "end": 7.386
+      }
+    ]
+  },
+  "s4": {
+    "text": "Mas como eles sabiam? A pista mais provável é o infrassom, um som tão grave que a gente não escuta.",
+    "seconds": 6.527,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.234
+      },
+      {
+        "text": "como",
+        "start": 0.246,
+        "end": 0.594
+      },
+      {
+        "text": "eles",
+        "start": 0.606,
+        "end": 0.786
+      },
+      {
+        "text": "sabiam",
+        "start": 0.798,
+        "end": 1.291
+      },
+      {
+        "text": "A",
+        "start": 2.119,
+        "end": 2.251
+      },
+      {
+        "text": "pista",
+        "start": 2.263,
+        "end": 2.563
+      },
+      {
+        "text": "mais",
+        "start": 2.575,
+        "end": 2.804
+      },
+      {
+        "text": "provável",
+        "start": 2.816,
+        "end": 3.345
+      },
+      {
+        "text": "é",
+        "start": 3.357,
+        "end": 3.393
+      },
+      {
+        "text": "o",
+        "start": 3.405,
+        "end": 3.441
+      },
+      {
+        "text": "infrassom",
+        "start": 3.453,
+        "end": 3.994
+      },
+      {
+        "text": "um",
+        "start": 4.33,
+        "end": 4.462
+      },
+      {
+        "text": "som",
+        "start": 4.474,
+        "end": 4.751
+      },
+      {
+        "text": "tão",
+        "start": 4.763,
+        "end": 4.955
+      },
+      {
+        "text": "grave",
+        "start": 4.967,
+        "end": 5.352
+      },
+      {
+        "text": "que",
+        "start": 5.364,
+        "end": 5.448
+      },
+      {
+        "text": "a",
+        "start": 5.46,
+        "end": 5.52
+      },
+      {
+        "text": "gente",
+        "start": 5.532,
+        "end": 5.809
+      },
+      {
+        "text": "não",
+        "start": 5.821,
+        "end": 5.989
+      },
+      {
+        "text": "escuta",
+        "start": 6.001,
+        "end": 6.446
+      }
+    ]
+  },
+  "s5": {
+    "text": "Tempestades fortes fazem o ar vibrar bem devagar, e esse som grave viaja centenas de quilômetros.",
+    "seconds": 5.638,
+    "words": [
+      {
+        "text": "Tempestades",
+        "start": 0,
+        "end": 0.621
+      },
+      {
+        "text": "fortes",
+        "start": 0.633,
+        "end": 1.078
+      },
+      {
+        "text": "fazem",
+        "start": 1.09,
+        "end": 1.414
+      },
+      {
+        "text": "o",
+        "start": 1.426,
+        "end": 1.487
+      },
+      {
+        "text": "ar",
+        "start": 1.499,
+        "end": 1.631
+      },
+      {
+        "text": "vibrar",
+        "start": 1.643,
+        "end": 1.967
+      },
+      {
+        "text": "bem",
+        "start": 1.979,
+        "end": 2.196
+      },
+      {
+        "text": "devagar",
+        "start": 2.208,
+        "end": 2.676
+      },
+      {
+        "text": "e",
+        "start": 3.013,
+        "end": 3.073
+      },
+      {
+        "text": "esse",
+        "start": 3.085,
+        "end": 3.265
+      },
+      {
+        "text": "som",
+        "start": 3.277,
+        "end": 3.446
+      },
+      {
+        "text": "grave",
+        "start": 3.458,
+        "end": 3.782
+      },
+      {
+        "text": "viaja",
+        "start": 3.794,
+        "end": 4.179
+      },
+      {
+        "text": "centenas",
+        "start": 4.191,
+        "end": 4.744
+      },
+      {
+        "text": "de",
+        "start": 4.756,
+        "end": 4.852
+      },
+      {
+        "text": "quilômetros",
+        "start": 4.864,
+        "end": 5.549
+      }
+    ]
+  },
+  "s6": {
+    "text": "A gente não ouve abaixo de umas vinte vibrações por segundo. Algumas aves percebem sons bem mais graves.",
+    "seconds": 6.566,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.067
+      },
+      {
+        "text": "gente",
+        "start": 0.079,
+        "end": 0.416
+      },
+      {
+        "text": "não",
+        "start": 0.428,
+        "end": 0.572
+      },
+      {
+        "text": "ouve",
+        "start": 0.584,
+        "end": 0.776
+      },
+      {
+        "text": "abaixo",
+        "start": 0.788,
+        "end": 1.257
+      },
+      {
+        "text": "de",
+        "start": 1.269,
+        "end": 1.329
+      },
+      {
+        "text": "umas",
+        "start": 1.341,
+        "end": 1.57
+      },
+      {
+        "text": "vinte",
+        "start": 1.582,
+        "end": 1.858
+      },
+      {
+        "text": "vibrações",
+        "start": 1.87,
+        "end": 2.411
+      },
+      {
+        "text": "por",
+        "start": 2.423,
+        "end": 2.567
+      },
+      {
+        "text": "segundo",
+        "start": 2.579,
+        "end": 3.048
+      },
+      {
+        "text": "Algumas",
+        "start": 3.875,
+        "end": 4.26
+      },
+      {
+        "text": "aves",
+        "start": 4.272,
+        "end": 4.585
+      },
+      {
+        "text": "percebem",
+        "start": 4.597,
+        "end": 5.101
+      },
+      {
+        "text": "sons",
+        "start": 5.113,
+        "end": 5.462
+      },
+      {
+        "text": "bem",
+        "start": 5.474,
+        "end": 5.678
+      },
+      {
+        "text": "mais",
+        "start": 5.69,
+        "end": 5.907
+      },
+      {
+        "text": "graves",
+        "start": 5.919,
+        "end": 6.472
+      }
+    ]
+  },
+  "s7": {
+    "text": "Ninguém mediu o som daquela tempestade, então ainda é hipótese. Mas os pássaros fugiram antes de tudo.",
+    "seconds": 6.71,
+    "words": [
+      {
+        "text": "Ninguém",
+        "start": 0,
+        "end": 0.373
+      },
+      {
+        "text": "mediu",
+        "start": 0.385,
+        "end": 0.685
+      },
+      {
+        "text": "o",
+        "start": 0.697,
+        "end": 0.733
+      },
+      {
+        "text": "som",
+        "start": 0.745,
+        "end": 0.95
+      },
+      {
+        "text": "daquela",
+        "start": 0.962,
+        "end": 1.298
+      },
+      {
+        "text": "tempestade",
+        "start": 1.31,
+        "end": 2.007
+      },
+      {
+        "text": "então",
+        "start": 2.224,
+        "end": 2.656
+      },
+      {
+        "text": "ainda",
+        "start": 2.668,
+        "end": 2.981
+      },
+      {
+        "text": "é",
+        "start": 2.993,
+        "end": 3.077
+      },
+      {
+        "text": "hipótese",
+        "start": 3.089,
+        "end": 3.702
+      },
+      {
+        "text": "Mas",
+        "start": 4.53,
+        "end": 4.734
+      },
+      {
+        "text": "os",
+        "start": 4.746,
+        "end": 4.926
+      },
+      {
+        "text": "pássaros",
+        "start": 4.938,
+        "end": 5.419
+      },
+      {
+        "text": "fugiram",
+        "start": 5.431,
+        "end": 5.864
+      },
+      {
+        "text": "antes",
+        "start": 5.876,
+        "end": 6.164
+      },
+      {
+        "text": "de",
+        "start": 6.176,
+        "end": 6.308
+      },
+      {
+        "text": "tudo",
+        "start": 6.32,
+        "end": 6.621
+      }
+    ]
+  },
+  "s8": {
+    "text": "Pronto, agora você sabe. Enquanto o céu parece calmo, a tempestade já está fazendo barulho.",
+    "seconds": 6.266,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.331
+      },
+      {
+        "text": "agora",
+        "start": 0.595,
+        "end": 0.932
+      },
+      {
+        "text": "você",
+        "start": 0.944,
+        "end": 1.172
+      },
+      {
+        "text": "sabe",
+        "start": 1.184,
+        "end": 1.605
+      },
+      {
+        "text": "Enquanto",
+        "start": 2.432,
+        "end": 2.877
+      },
+      {
+        "text": "o",
+        "start": 2.889,
+        "end": 2.913
+      },
+      {
+        "text": "céu",
+        "start": 2.925,
+        "end": 3.129
+      },
+      {
+        "text": "parece",
+        "start": 3.141,
+        "end": 3.514
+      },
+      {
+        "text": "calmo",
+        "start": 3.526,
+        "end": 3.898
+      },
+      {
+        "text": "a",
+        "start": 4.139,
+        "end": 4.223
+      },
+      {
+        "text": "tempestade",
+        "start": 4.235,
+        "end": 4.884
+      },
+      {
+        "text": "já",
+        "start": 4.896,
+        "end": 5.028
+      },
+      {
+        "text": "está",
+        "start": 5.04,
+        "end": 5.233
+      },
+      {
+        "text": "fazendo",
+        "start": 5.245,
+        "end": 5.653
+      },
+      {
+        "text": "barulho",
+        "start": 5.665,
+        "end": 6.146
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
