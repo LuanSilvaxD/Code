@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { BufferAttribute, BufferGeometry, Color } from "three";
+import { BufferAttribute, BufferGeometry, CatmullRomCurve3, Color, Vector3 } from "three";
 import { clamp, lerp, rand, type Vec3 } from "../utils/animation";
 
 // "O único anfíbio que vivia no mar" — elementos novos (aprovar na folha). METROS, de frente para +x, barriga em y = 0.
@@ -93,19 +93,55 @@ export const Gerrothorax: React.FC<{ f: number; swim?: number; armor?: number; m
       return top < 0.0 ? c.lerp(belly, 0.25 * (-top / 0.35)) : c;
     }, 80, 24, (x) => (x < -0.08 ? Math.sin(ph - x * 10) * tailK * Math.pow((-0.08 - x) / 0.38, 1.5) : 0));
   }, [ph, tailK]);
+  // ARMADURA (v2): mosaico de placas grandes e esculpidas no crânio, fileiras de osteodermos no dorso
+  // (fileira do meio maior, laterais menores), espinhos na borda e sulcos da linha lateral na cabeça.
+  const surfY = (x: number, z: number) => {
+    const q = sampleKeys(GKEYS, x);
+    const edge = Math.min(1, Math.abs(z) / q.w);
+    return q.y + q.h * Math.pow(Math.max(0, 1 - Math.pow(edge, 4)), 0.25);
+  };
   const scutes = useMemo(() => {
-    const out: { p: Vec3; s: number; r: number; dark: boolean }[] = [];
-    for (let ix = 0; ix < 22; ix++) {
-      const x = -0.22 + ix * 0.029;
+    type Sc = { p: Vec3; s: number; r: number; dark: boolean; tub: number; head: boolean; sides: number };
+    const out: Sc[] = [];
+    // crânio: placas poligonais grandes com jitter, evitando as órbitas
+    for (let ix = 0; ix < 9; ix++)
+      for (let iz = -6; iz <= 6; iz++) {
+        const x = 0.165 + ix * 0.032 + (rand(`hx${ix}${iz}`) - 0.5) * 0.01;
+        const q = sampleKeys(GKEYS, x);
+        const z = iz * 0.036 + (ix % 2) * 0.018 + (rand(`hz${ix}${iz}`) - 0.5) * 0.01;
+        if (Math.abs(z) > q.w * 0.86) continue;
+        if (Math.hypot(x - 0.29, Math.abs(z) - 0.075) < 0.04) continue;
+        out.push({ p: [x, surfY(x, z) - 0.003, z], s: 0.016 + rand(`hs${ix}${iz}`) * 0.006, r: rand(`hr${ix}${iz}`) * Math.PI, dark: rand(`hd${ix}${iz}`) > 0.7, tub: 0.2, head: true, sides: 5 + Math.floor(rand(`hn${ix}${iz}`) * 3) });
+      }
+    // dorso: fileiras de osteodermos
+    for (let ix = 0; ix < 15; ix++) {
+      const x = -0.235 + ix * 0.027;
       const q = sampleKeys(GKEYS, x);
-      const n = Math.max(2, Math.round((q.w * 1.7) / 0.03));
-      for (let iz = 0; iz < n; iz++) {
-        const z = -q.w * 0.82 + (iz / (n - 1)) * q.w * 1.64 + (ix % 2) * 0.012;
-        const edge = Math.min(1, Math.abs(z) / q.w);
-        out.push({ p: [x, q.y + q.h * Math.pow(1 - Math.pow(edge, 4), 0.25) - 0.002, z], s: 0.011 + rand(`sc${ix}${iz}`) * 0.004, r: rand(`sr${ix}${iz}`) * Math.PI, dark: rand(`sd${ix}${iz}`) > 0.55 });
+      const rows = Math.max(1, Math.round((q.w * 1.7) / 0.032));
+      for (let iz = 0; iz <= rows; iz++) {
+        const t = rows === 0 ? 0.5 : iz / rows;
+        const z = (t - 0.5) * q.w * 1.7 + (ix % 2 ? 0.008 : -0.008);
+        const mid = 1 - Math.min(1, Math.abs(z) / (q.w * 0.85));
+        out.push({ p: [x + (rand(`bx${ix}${iz}`) - 0.5) * 0.008, surfY(x, z) - 0.002, z], s: 0.009 + 0.009 * mid + rand(`bs${ix}${iz}`) * 0.003, r: rand(`br${ix}${iz}`) * Math.PI, dark: rand(`bd${ix}${iz}`) > 0.55, tub: 0.5 + 0.8 * mid * rand(`bt${ix}${iz}`), head: false, sides: 6 });
       }
     }
     return out;
+  }, []);
+  const spikes = useMemo(() => {
+    const out: { p: Vec3; ang: number; s: number }[] = [];
+    for (let i = 0; i < 18; i++) {
+      const x = -0.3 + i * 0.03;
+      const q = sampleKeys(GKEYS, x);
+      [-1, 1].forEach((z) => out.push({ p: [x, q.y + q.h * 0.15, z * q.w * 0.98], ang: z, s: 0.008 + rand(`sp${i}${z}`) * 0.006 }));
+    }
+    return out;
+  }, []);
+  const grooves = useMemo(() => {
+    const mk = (pts: [number, number][]) => new CatmullRomCurve3(pts.map(([x, z]) => new Vector3(x, surfY(x, z) + 0.003, z)));
+    return [1, -1].flatMap((sd) => [
+      mk([[0.2, sd * 0.06], [0.27, sd * 0.13], [0.36, sd * 0.17], [0.42, sd * 0.1], [0.44, sd * 0.02]]),
+      mk([[0.18, sd * 0.16], [0.24, sd * 0.2], [0.3, sd * 0.22]]),
+    ]);
   }, []);
   const k = clamp(armor, 0, 1);
   const sc = C(GERRO.scute);
@@ -119,19 +155,53 @@ export const Gerrothorax: React.FC<{ f: number; swim?: number; armor?: number; m
       </mesh>
       {/* placas de osso (armadura) */}
       {k > 0.01 && ghost < 0.5
-        ? scutes.map((s, i) => (
-            <group key={i} position={s.p} rotation={[0, s.r, 0]} scale={k}>
-              <mesh scale={[s.s * 1.1, 0.006, s.s]}>
-                <cylinderGeometry args={[1, 1.15, 1, 6]} />
-                <meshStandardMaterial color={s.dark ? sd : sc} roughness={0.9} flatShading />
+        ? scutes.map((q, i) => (
+            <group key={i} position={q.p} rotation={[0, q.r, 0]} scale={k}>
+              <mesh scale={[q.s * 1.1, q.head ? 0.005 : 0.006, q.s]}>
+                <cylinderGeometry args={[1, 1.12, 1, q.sides]} />
+                <meshStandardMaterial color={q.dark ? sd : sc} roughness={0.95} flatShading />
               </mesh>
-              <mesh position={[0, 0.004, 0]} scale={[s.s * 0.45, s.s * 0.35, s.s * 0.45]}>
-                <sphereGeometry args={[1, 6, 4]} />
-                <meshStandardMaterial color={s.dark ? sc : sd} roughness={0.9} flatShading />
-              </mesh>
+              {q.head ? (
+                [0, 1, 2].map((j) => (
+                  <mesh key={j} position={[Math.cos(j * 2.1) * q.s * 0.45, 0.003, Math.sin(j * 2.1) * q.s * 0.45]} scale={[q.s * 0.18, 0.002, q.s * 0.18]}>
+                    <cylinderGeometry args={[1, 1, 1, 5]} />
+                    <meshStandardMaterial color="#262a18" roughness={1} />
+                  </mesh>
+                ))
+              ) : (
+                <mesh position={[0, 0.003 + q.s * 0.15 * q.tub, 0]} scale={[q.s * 0.42, q.s * 0.5 * q.tub, q.s * 0.42]}>
+                  <coneGeometry args={[1, 1, 6]} />
+                  <meshStandardMaterial color={q.dark ? sc : sd} roughness={0.9} flatShading />
+                </mesh>
+              )}
             </group>
           ))
         : null}
+      {/* espinhos na borda do corpo */}
+      {k > 0.01 && ghost < 0.5
+        ? spikes.map((q, i) => (
+            <mesh key={`sp${i}`} position={q.p} rotation={[q.ang * 1.35, 0, 0]} scale={[q.s * k, q.s * 2.2 * k, q.s * k]}>
+              <coneGeometry args={[1, 1, 5]} />
+              <meshStandardMaterial color={GERRO.scuteDark} roughness={0.9} flatShading />
+            </mesh>
+          ))
+        : null}
+      {/* sulcos da linha lateral (órgãos sensoriais de animal aquático) */}
+      {ghost < 0.5
+        ? grooves.map((c, i) => (
+            <mesh key={`gr${i}`}>
+              <tubeGeometry args={[c, 24, 0.0035, 4, false]} />
+              <meshStandardMaterial color="#1e2212" roughness={1} />
+            </mesh>
+          ))
+        : null}
+      {/* linha da boca */}
+      {ghost < 0.5 ? (
+        <mesh position={[0.3, 0.03, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1.62, 1]}>
+          <torusGeometry args={[0.152, 0.004, 4, 40, Math.PI]} />
+          <meshStandardMaterial color="#1a1a10" roughness={1} />
+        </mesh>
+      ) : null}
       {/* olhos no topo da cabeça */}
       {[-1, 1].map((z) => (
         <group key={z} position={[0.29, 0.09, z * 0.075]}>
@@ -142,6 +212,10 @@ export const Gerrothorax: React.FC<{ f: number; swim?: number; armor?: number; m
           <mesh position={[0.004, 0.012, 0]} scale={[0.016, 0.012, 0.016]}>
             <sphereGeometry args={[1, 10, 8]} />
             {ghost > 0.5 ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial color={GERRO.eye} roughness={0.3} />}
+          </mesh>
+          <mesh position={[0, 0.012, 0]} rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.02, 0.005, 5, 14]} />
+            {mat(GERRO.scuteDark)}
           </mesh>
           <mesh position={[0.008, 0.02, 0]} scale={[0.004, 0.006, 0.012]}>
             <sphereGeometry args={[1, 6, 4]} />
@@ -190,6 +264,10 @@ export const Gerrothorax: React.FC<{ f: number; swim?: number; armor?: number; m
             <mesh position={[0, 0, z * 0.05]} rotation={[Math.PI / 2, 0, 0]} scale={[0.022, 0.06, 0.018]}>
               <cylinderGeometry args={[1, 0.8, 1, 6]} />
               {mat(GERRO.back)}
+            </mesh>
+            <mesh position={[0.01, -0.013, z * 0.088]} scale={[0.026, 0.002, 0.022]}>
+              <sphereGeometry args={[1, 8, 4]} />
+              {mat(GERRO.back2)}
             </mesh>
             {[-1, 0, 1].map((d) => (
               <mesh key={d} position={[d * 0.014 + 0.01, -0.012, z * 0.09]} rotation={[0, d * 0.4, 0]} scale={[0.008, 0.005, 0.022]}>

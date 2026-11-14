@@ -1,724 +1,774 @@
 {
   "s1": {
-    "text": "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.",
-    "seconds": 7.762,
+    "text": "Dos mais de oito mil anfíbios que existem hoje, nenhum vive só no mar. Mas, há 237 milhões de anos, um vivia.",
+    "seconds": 8.572,
     "words": [
       {
-        "text": "Todos",
+        "text": "Dos",
         "start": 0,
-        "end": 0.254
+        "end": 0.227
       },
       {
-        "text": "os",
-        "start": 0.266,
-        "end": 0.41
-      },
-      {
-        "text": "planetas",
-        "start": 0.422,
-        "end": 0.939
-      },
-      {
-        "text": "giram",
-        "start": 0.951,
-        "end": 1.215
-      },
-      {
-        "text": "em",
-        "start": 1.227,
-        "end": 1.311
-      },
-      {
-        "text": "volta",
-        "start": 1.323,
-        "end": 1.684
-      },
-      {
-        "text": "do",
-        "start": 1.696,
-        "end": 1.792
-      },
-      {
-        "text": "Sol",
-        "start": 1.804,
-        "end": 2.092
-      },
-      {
-        "text": "no",
-        "start": 2.105,
-        "end": 2.213
-      },
-      {
-        "text": "mesmo",
-        "start": 2.225,
-        "end": 2.597
-      },
-      {
-        "text": "sentido",
-        "start": 2.609,
-        "end": 3.138
-      },
-      {
-        "text": "Mas",
-        "start": 3.966,
-        "end": 4.47
-      },
-      {
-        "text": "depois",
-        "start": 4.639,
-        "end": 5.011
+        "text": "mais",
+        "start": 0.239,
+        "end": 0.504
       },
       {
         "text": "de",
-        "start": 5.023,
-        "end": 5.095
+        "start": 0.516,
+        "end": 0.612
       },
       {
-        "text": "Netuno",
-        "start": 5.107,
-        "end": 5.564
+        "text": "oito",
+        "start": 0.624,
+        "end": 0.853
       },
       {
-        "text": "acharam",
-        "start": 5.841,
-        "end": 6.273
+        "text": "mil",
+        "start": 0.865,
+        "end": 1.045
       },
       {
-        "text": "algo",
-        "start": 6.285,
-        "end": 6.574
+        "text": "anfíbios",
+        "start": 1.057,
+        "end": 1.598
       },
       {
-        "text": "andando",
-        "start": 6.586,
-        "end": 6.97
+        "text": "que",
+        "start": 1.61,
+        "end": 1.706
       },
       {
-        "text": "na",
-        "start": 6.982,
-        "end": 7.103
+        "text": "existem",
+        "start": 1.718,
+        "end": 2.211
       },
       {
-        "text": "contramão",
-        "start": 7.115,
-        "end": 7.68
+        "text": "hoje",
+        "start": 2.223,
+        "end": 2.511
+      },
+      {
+        "text": "nenhum",
+        "start": 2.715,
+        "end": 3.1
+      },
+      {
+        "text": "vive",
+        "start": 3.112,
+        "end": 3.401
+      },
+      {
+        "text": "só",
+        "start": 3.413,
+        "end": 3.605
+      },
+      {
+        "text": "no",
+        "start": 3.617,
+        "end": 3.713
+      },
+      {
+        "text": "mar.",
+        "start": 3.725,
+        "end": 3.953
+      },
+      {
+        "text": "Mas",
+        "start": 4.781,
+        "end": 5.25
+      },
+      {
+        "text": "há",
+        "start": 5.442,
+        "end": 5.538
+      },
+      {
+        "text": "237",
+        "start": 5.55,
+        "end": 6.704
+      },
+      {
+        "text": "milhões",
+        "start": 6.716,
+        "end": 7.052
+      },
+      {
+        "text": "de",
+        "start": 7.064,
+        "end": 7.161
+      },
+      {
+        "text": "anos",
+        "start": 7.173,
+        "end": 7.497
+      },
+      {
+        "text": "um",
+        "start": 7.822,
+        "end": 7.966
+      },
+      {
+        "text": "vivia",
+        "start": 7.978,
+        "end": 8.459
       }
     ]
   },
   "s2": {
-    "text": "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus, praticamente de ponta-cabeça.",
-    "seconds": 9.188,
+    "text": "O problema é a pele, fina, ela deixa a água passar. No mar, o sal puxa a água do corpo, e o bicho desidrata.",
+    "seconds": 7.894,
     "words": [
       {
         "text": "O",
         "start": 0,
-        "end": 0.049
+        "end": 0.065
       },
       {
-        "text": "nome",
-        "start": 0.061,
-        "end": 0.386
-      },
-      {
-        "text": "provisório",
-        "start": 0.398,
-        "end": 1.023
+        "text": "problema",
+        "start": 0.077,
+        "end": 0.594
       },
       {
         "text": "é",
-        "start": 1.035,
-        "end": 1.107
+        "start": 0.606,
+        "end": 0.714
       },
       {
-        "text": "R631",
-        "start": 1.119,
-        "end": 2.141
+        "text": "a",
+        "start": 0.726,
+        "end": 0.786
       },
       {
-        "text": "Deve",
-        "start": 2.968,
-        "end": 3.281
+        "text": "pele",
+        "start": 0.798,
+        "end": 1.147
       },
       {
-        "text": "ter",
-        "start": 3.293,
-        "end": 3.425
+        "text": "fina",
+        "start": 1.423,
+        "end": 1.748
       },
       {
-        "text": "uns",
-        "start": 3.437,
-        "end": 3.605
+        "text": "ela",
+        "start": 1.928,
+        "end": 2.133
       },
       {
-        "text": "cem",
-        "start": 3.617,
-        "end": 3.785
+        "text": "deixa",
+        "start": 2.145,
+        "end": 2.469
       },
       {
-        "text": "quilômetros",
-        "start": 3.797,
-        "end": 4.398
+        "text": "a",
+        "start": 2.481,
+        "end": 2.541
+      },
+      {
+        "text": "água",
+        "start": 2.553,
+        "end": 2.818
+      },
+      {
+        "text": "passar",
+        "start": 2.83,
+        "end": 3.238
+      },
+      {
+        "text": "No",
+        "start": 4.066,
+        "end": 4.234
+      },
+      {
+        "text": "mar",
+        "start": 4.246,
+        "end": 4.51
+      },
+      {
+        "text": "o",
+        "start": 4.823,
+        "end": 4.871
+      },
+      {
+        "text": "sal",
+        "start": 4.883,
+        "end": 5.171
+      },
+      {
+        "text": "puxa",
+        "start": 5.184,
+        "end": 5.496
+      },
+      {
+        "text": "a",
+        "start": 5.508,
+        "end": 5.544
+      },
+      {
+        "text": "água",
+        "start": 5.556,
+        "end": 5.857
+      },
+      {
+        "text": "do",
+        "start": 5.869,
+        "end": 5.965
+      },
+      {
+        "text": "corpo",
+        "start": 5.977,
+        "end": 6.373
       },
       {
         "text": "e",
-        "start": 4.651,
-        "end": 4.711
+        "start": 6.614,
+        "end": 6.722
       },
       {
-        "text": "sua",
-        "start": 4.723,
-        "end": 4.999
+        "text": "o",
+        "start": 6.734,
+        "end": 6.794
       },
       {
-        "text": "órbita",
-        "start": 5.011,
-        "end": 5.42
+        "text": "bicho",
+        "start": 6.806,
+        "end": 7.179
       },
       {
-        "text": "é",
-        "start": 5.432,
-        "end": 5.456
-      },
-      {
-        "text": "inclinada",
-        "start": 5.468,
-        "end": 6.033
-      },
-      {
-        "text": "cento",
-        "start": 6.045,
-        "end": 6.381
-      },
-      {
-        "text": "e",
-        "start": 6.394,
-        "end": 6.405
-      },
-      {
-        "text": "quarenta",
-        "start": 6.417,
-        "end": 6.706
-      },
-      {
-        "text": "e",
-        "start": 6.718,
-        "end": 6.742
-      },
-      {
-        "text": "dois",
-        "start": 6.754,
-        "end": 6.922
-      },
-      {
-        "text": "graus",
-        "start": 6.934,
-        "end": 7.331
-      },
-      {
-        "text": "praticamente",
-        "start": 7.571,
-        "end": 8.244
-      },
-      {
-        "text": "de",
-        "start": 8.256,
-        "end": 8.353
-      },
-      {
-        "text": "ponta-cabeça",
-        "start": 8.365,
-        "end": 9.098
+        "text": "desidrata",
+        "start": 7.191,
+        "end": 7.804
       }
     ]
   },
   "s3": {
-    "text": "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.",
-    "seconds": 5.765,
+    "text": "Na China, cientistas estudaram dois esqueletos quase completos. O bicho tinha quase um metro, era achatado e coberto de placas de osso.",
+    "seconds": 8.635,
     "words": [
       {
-        "text": "E",
+        "text": "Na",
         "start": 0,
-        "end": 0.043
+        "end": 0.115
       },
       {
-        "text": "quem",
-        "start": 0.055,
-        "end": 0.2
+        "text": "China",
+        "start": 0.127,
+        "end": 0.524
       },
       {
-        "text": "ligou",
-        "start": 0.211,
-        "end": 0.512
+        "text": "cientistas",
+        "start": 0.752,
+        "end": 1.341
       },
       {
-        "text": "os",
-        "start": 0.524,
-        "end": 0.656
+        "text": "estudaram",
+        "start": 1.353,
+        "end": 1.882
       },
       {
-        "text": "pontos",
-        "start": 0.668,
-        "end": 1.077
+        "text": "dois",
+        "start": 1.894,
+        "end": 2.135
       },
       {
-        "text": "foi",
-        "start": 1.089,
-        "end": 1.233
+        "text": "esqueletos",
+        "start": 2.147,
+        "end": 2.808
+      },
+      {
+        "text": "quase",
+        "start": 2.82,
+        "end": 3.156
+      },
+      {
+        "text": "completos",
+        "start": 3.168,
+        "end": 3.877
+      },
+      {
+        "text": "O",
+        "start": 4.705,
+        "end": 4.825
+      },
+      {
+        "text": "bicho",
+        "start": 4.837,
+        "end": 5.198
+      },
+      {
+        "text": "tinha",
+        "start": 5.21,
+        "end": 5.438
+      },
+      {
+        "text": "quase",
+        "start": 5.45,
+        "end": 5.762
       },
       {
         "text": "um",
-        "start": 1.245,
-        "end": 1.365
+        "start": 5.775,
+        "end": 5.847
       },
       {
-        "text": "astrônomo",
-        "start": 1.377,
-        "end": 1.846
+        "text": "metro",
+        "start": 5.859,
+        "end": 6.231
       },
       {
-        "text": "amador",
-        "start": 1.858,
-        "end": 2.255
+        "text": "era",
+        "start": 6.4,
+        "end": 6.508
       },
       {
-        "text": "usando",
-        "start": 2.687,
-        "end": 3.024
+        "text": "achatado",
+        "start": 6.52,
+        "end": 6.988
       },
       {
-        "text": "dados",
-        "start": 3.036,
-        "end": 3.385
+        "text": "e",
+        "start": 7.0,
+        "end": 7.024
       },
       {
-        "text": "públicos",
-        "start": 3.397,
-        "end": 3.853
+        "text": "coberto",
+        "start": 7.037,
+        "end": 7.541
       },
       {
-        "text": "do",
-        "start": 3.865,
-        "end": 3.973
+        "text": "de",
+        "start": 7.553,
+        "end": 7.661
       },
       {
-        "text": "novo",
-        "start": 3.986,
-        "end": 4.286
+        "text": "placas",
+        "start": 7.673,
+        "end": 8.082
       },
       {
-        "text": "observatório",
-        "start": 4.298,
-        "end": 5.043
+        "text": "de",
+        "start": 8.094,
+        "end": 8.214
       },
       {
-        "text": "Vera",
-        "start": 5.055,
-        "end": 5.296
-      },
-      {
-        "text": "Rubin",
-        "start": 5.308,
-        "end": 5.68
+        "text": "osso",
+        "start": 8.226,
+        "end": 8.563
       }
     ]
   },
   "s4": {
-    "text": "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.",
-    "seconds": 6.865,
+    "text": "O nome dele é Gerrothorax maritimus. Mas como saber que vivia no mar, e não foi só arrastado pra lá depois de morto?",
+    "seconds": 7.433,
     "words": [
       {
-        "text": "Mas",
+        "text": "O",
         "start": 0,
-        "end": 0.215
+        "end": 0.051
       },
       {
-        "text": "por",
-        "start": 0.227,
-        "end": 0.407
+        "text": "nome",
+        "start": 0.063,
+        "end": 0.352
+      },
+      {
+        "text": "dele",
+        "start": 0.364,
+        "end": 0.604
+      },
+      {
+        "text": "é",
+        "start": 0.616,
+        "end": 0.652
+      },
+      {
+        "text": "Gerrothorax",
+        "start": 0.664,
+        "end": 1.325
+      },
+      {
+        "text": "maritimus",
+        "start": 1.337,
+        "end": 2.034
+      },
+      {
+        "text": "Mas",
+        "start": 2.862,
+        "end": 3.15
+      },
+      {
+        "text": "como",
+        "start": 3.162,
+        "end": 3.427
+      },
+      {
+        "text": "saber",
+        "start": 3.439,
+        "end": 3.799
       },
       {
         "text": "que",
-        "start": 0.419,
-        "end": 0.599
+        "start": 3.811,
+        "end": 3.919
       },
       {
-        "text": "todo",
-        "start": 0.611,
-        "end": 0.936
+        "text": "vivia",
+        "start": 3.932,
+        "end": 4.256
       },
       {
-        "text": "mundo",
-        "start": 0.948,
-        "end": 1.236
+        "text": "no",
+        "start": 4.268,
+        "end": 4.376
       },
       {
-        "text": "gira",
-        "start": 1.248,
-        "end": 1.477
-      },
-      {
-        "text": "igual",
-        "start": 1.489,
-        "end": 1.837
-      },
-      {
-        "text": "O",
-        "start": 2.665,
-        "end": 2.773
-      },
-      {
-        "text": "Sistema",
-        "start": 2.785,
-        "end": 3.205
-      },
-      {
-        "text": "Solar",
-        "start": 3.217,
-        "end": 3.59
-      },
-      {
-        "text": "nasceu",
-        "start": 3.602,
-        "end": 3.915
-      },
-      {
-        "text": "de",
-        "start": 3.927,
-        "end": 3.987
-      },
-      {
-        "text": "um",
-        "start": 3.999,
-        "end": 4.095
-      },
-      {
-        "text": "disco",
-        "start": 4.107,
-        "end": 4.455
-      },
-      {
-        "text": "de",
-        "start": 4.467,
-        "end": 4.552
-      },
-      {
-        "text": "gás",
-        "start": 4.564,
-        "end": 4.768
-      },
-      {
-        "text": "girando",
-        "start": 4.78,
-        "end": 5.225
+        "text": "mar",
+        "start": 4.388,
+        "end": 4.641
       },
       {
         "text": "e",
-        "start": 5.501,
-        "end": 5.609
+        "start": 4.917,
+        "end": 4.977
       },
       {
-        "text": "tudo",
-        "start": 5.621,
-        "end": 5.874
+        "text": "não",
+        "start": 4.989,
+        "end": 5.218
       },
       {
-        "text": "herdou",
-        "start": 5.886,
-        "end": 6.222
+        "text": "foi",
+        "start": 5.23,
+        "end": 5.398
       },
       {
-        "text": "esse",
-        "start": 6.234,
-        "end": 6.402
+        "text": "só",
+        "start": 5.41,
+        "end": 5.614
       },
       {
-        "text": "giro",
-        "start": 6.414,
-        "end": 6.751
+        "text": "arrastado",
+        "start": 5.626,
+        "end": 6.131
+      },
+      {
+        "text": "pra",
+        "start": 6.143,
+        "end": 6.323
+      },
+      {
+        "text": "lá",
+        "start": 6.335,
+        "end": 6.468
+      },
+      {
+        "text": "depois",
+        "start": 6.48,
+        "end": 6.84
+      },
+      {
+        "text": "de",
+        "start": 6.852,
+        "end": 6.924
+      },
+      {
+        "text": "morto",
+        "start": 6.936,
+        "end": 7.345
       }
     ]
   },
   "s5": {
-    "text": "Pra andar ao contrário, precisa de uma história. A mais provável, ele passou perto demais de Netuno e foi arremessado.",
-    "seconds": 7.132,
+    "text": "As rochas onde ele estava se formaram longe de qualquer terra, junto com ictiossauros, répteis marinhos.",
+    "seconds": 5.691,
     "words": [
       {
-        "text": "Pra",
+        "text": "As",
         "start": 0,
-        "end": 0.102
+        "end": 0.144
       },
       {
-        "text": "andar",
-        "start": 0.114,
-        "end": 0.403
+        "text": "rochas",
+        "start": 0.156,
+        "end": 0.505
       },
       {
-        "text": "ao",
-        "start": 0.415,
-        "end": 0.499
-      },
-      {
-        "text": "contrário",
-        "start": 0.511,
-        "end": 1.04
-      },
-      {
-        "text": "precisa",
-        "start": 1.304,
-        "end": 1.749
-      },
-      {
-        "text": "de",
-        "start": 1.761,
-        "end": 1.845
-      },
-      {
-        "text": "uma",
-        "start": 1.857,
-        "end": 1.977
-      },
-      {
-        "text": "história",
-        "start": 1.989,
-        "end": 2.422
-      },
-      {
-        "text": "A",
-        "start": 3.249,
-        "end": 3.334
-      },
-      {
-        "text": "mais",
-        "start": 3.346,
-        "end": 3.598
-      },
-      {
-        "text": "provável",
-        "start": 3.61,
-        "end": 4.199
+        "text": "onde",
+        "start": 0.517,
+        "end": 0.781
       },
       {
         "text": "ele",
-        "start": 4.391,
-        "end": 4.511
+        "start": 0.793,
+        "end": 0.89
       },
       {
-        "text": "passou",
-        "start": 4.524,
-        "end": 4.836
+        "text": "estava",
+        "start": 0.902,
+        "end": 1.202
       },
       {
-        "text": "perto",
-        "start": 4.848,
-        "end": 5.148
+        "text": "se",
+        "start": 1.214,
+        "end": 1.334
       },
       {
-        "text": "demais",
-        "start": 5.16,
-        "end": 5.485
+        "text": "formaram",
+        "start": 1.346,
+        "end": 1.755
+      },
+      {
+        "text": "longe",
+        "start": 1.767,
+        "end": 2.068
       },
       {
         "text": "de",
-        "start": 5.497,
-        "end": 5.569
+        "start": 2.079,
+        "end": 2.164
       },
       {
-        "text": "Netuno",
-        "start": 5.581,
-        "end": 6.062
+        "text": "qualquer",
+        "start": 2.176,
+        "end": 2.548
       },
       {
-        "text": "e",
-        "start": 6.074,
-        "end": 6.122
+        "text": "terra",
+        "start": 2.56,
+        "end": 2.897
       },
       {
-        "text": "foi",
-        "start": 6.134,
-        "end": 6.326
+        "text": "junto",
+        "start": 3.173,
+        "end": 3.474
       },
       {
-        "text": "arremessado",
-        "start": 6.338,
-        "end": 7.023
+        "text": "com",
+        "start": 3.486,
+        "end": 3.642
+      },
+      {
+        "text": "ictiossauros",
+        "start": 3.654,
+        "end": 4.363
+      },
+      {
+        "text": "répteis",
+        "start": 4.579,
+        "end": 5.0
+      },
+      {
+        "text": "marinhos",
+        "start": 5.012,
+        "end": 5.601
       }
     ]
   },
   "s6": {
-    "text": "A mais ousada, ele veio de outra estrela e foi capturado pelo Sol.",
-    "seconds": 3.632,
+    "text": "E a prova química, o estrôncio dos ossos tem a assinatura da água do mar daquela época.",
+    "seconds": 4.872,
     "words": [
       {
-        "text": "A",
+        "text": "E",
         "start": 0,
         "end": 0.049
       },
       {
-        "text": "mais",
+        "text": "a",
         "start": 0.061,
-        "end": 0.217
+        "end": 0.157
       },
       {
-        "text": "ousada",
-        "start": 0.229,
-        "end": 0.794
+        "text": "prova",
+        "start": 0.169,
+        "end": 0.518
       },
       {
-        "text": "ele",
-        "start": 0.939,
-        "end": 1.071
+        "text": "química",
+        "start": 0.53,
+        "end": 0.963
       },
       {
-        "text": "veio",
-        "start": 1.083,
-        "end": 1.335
+        "text": "o",
+        "start": 1.263,
+        "end": 1.347
       },
       {
-        "text": "de",
-        "start": 1.347,
-        "end": 1.467
+        "text": "estrôncio",
+        "start": 1.359,
+        "end": 1.828
       },
       {
-        "text": "outra",
-        "start": 1.48,
-        "end": 1.72
+        "text": "dos",
+        "start": 1.84,
+        "end": 1.936
       },
       {
-        "text": "estrela",
-        "start": 1.732,
-        "end": 2.141
+        "text": "ossos",
+        "start": 1.948,
+        "end": 2.381
       },
       {
-        "text": "e",
-        "start": 2.153,
-        "end": 2.189
+        "text": "tem",
+        "start": 2.393,
+        "end": 2.537
       },
       {
-        "text": "foi",
-        "start": 2.201,
-        "end": 2.369
+        "text": "a",
+        "start": 2.549,
+        "end": 2.585
       },
       {
-        "text": "capturado",
-        "start": 2.381,
-        "end": 2.958
+        "text": "assinatura",
+        "start": 2.597,
+        "end": 3.162
       },
       {
-        "text": "pelo",
-        "start": 2.97,
-        "end": 3.174
+        "text": "da",
+        "start": 3.174,
+        "end": 3.282
       },
       {
-        "text": "Sol",
-        "start": 3.186,
-        "end": 3.547
+        "text": "água",
+        "start": 3.294,
+        "end": 3.583
+      },
+      {
+        "text": "do",
+        "start": 3.595,
+        "end": 3.691
+      },
+      {
+        "text": "mar",
+        "start": 3.703,
+        "end": 3.931
+      },
+      {
+        "text": "daquela",
+        "start": 3.944,
+        "end": 4.352
+      },
+      {
+        "text": "época",
+        "start": 4.364,
+        "end": 4.773
       }
     ]
   },
   "s7": {
-    "text": "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.",
-    "seconds": 7.413,
+    "text": "A hipótese é que a armadura segurava a água dentro do corpo, e que ele vivia no fundo, sugando as presas.",
+    "seconds": 5.947,
     "words": [
       {
-        "text": "Uma",
+        "text": "A",
         "start": 0,
-        "end": 0.174
+        "end": 0.067
       },
       {
-        "text": "volta",
-        "start": 0.186,
-        "end": 0.523
+        "text": "hipótese",
+        "start": 0.079,
+        "end": 0.596
       },
       {
-        "text": "dele",
-        "start": 0.535,
-        "end": 0.763
-      },
-      {
-        "text": "leva",
-        "start": 0.775,
-        "end": 1.04
-      },
-      {
-        "text": "uns",
-        "start": 1.052,
-        "end": 1.28
-      },
-      {
-        "text": "quinhentos",
-        "start": 1.292,
-        "end": 1.833
-      },
-      {
-        "text": "e",
-        "start": 1.845,
-        "end": 1.953
-      },
-      {
-        "text": "cinquenta",
-        "start": 1.965,
-        "end": 2.446
-      },
-      {
-        "text": "anos",
-        "start": 2.458,
-        "end": 2.891
-      },
-      {
-        "text": "Em",
-        "start": 3.718,
-        "end": 4.403
-      },
-      {
-        "text": "2047",
-        "start": 4.403,
-        "end": 5.088
-      },
-      {
-        "text": "ele",
-        "start": 5.293,
-        "end": 5.413
-      },
-      {
-        "text": "chega",
-        "start": 5.425,
-        "end": 5.677
-      },
-      {
-        "text": "mais",
-        "start": 5.689,
-        "end": 5.942
-      },
-      {
-        "text": "perto",
-        "start": 5.954,
-        "end": 6.326
-      },
-      {
-        "text": "do",
-        "start": 6.338,
-        "end": 6.435
-      },
-      {
-        "text": "Sol",
-        "start": 6.447,
-        "end": 6.699
+        "text": "é",
+        "start": 0.608,
+        "end": 0.668
       },
       {
         "text": "que",
-        "start": 6.711,
-        "end": 6.831
+        "start": 0.68,
+        "end": 0.776
       },
       {
-        "text": "Netuno",
-        "start": 6.843,
-        "end": 7.336
+        "text": "a",
+        "start": 0.788,
+        "end": 0.8
+      },
+      {
+        "text": "armadura",
+        "start": 0.812,
+        "end": 1.293
+      },
+      {
+        "text": "segurava",
+        "start": 1.305,
+        "end": 1.87
+      },
+      {
+        "text": "a",
+        "start": 1.882,
+        "end": 1.918
+      },
+      {
+        "text": "água",
+        "start": 1.93,
+        "end": 2.231
+      },
+      {
+        "text": "dentro",
+        "start": 2.243,
+        "end": 2.555
+      },
+      {
+        "text": "do",
+        "start": 2.567,
+        "end": 2.663
+      },
+      {
+        "text": "corpo",
+        "start": 2.675,
+        "end": 3.06
+      },
+      {
+        "text": "e",
+        "start": 3.433,
+        "end": 3.505
+      },
+      {
+        "text": "que",
+        "start": 3.517,
+        "end": 3.613
+      },
+      {
+        "text": "ele",
+        "start": 3.625,
+        "end": 3.745
+      },
+      {
+        "text": "vivia",
+        "start": 3.757,
+        "end": 4.082
+      },
+      {
+        "text": "no",
+        "start": 4.094,
+        "end": 4.202
+      },
+      {
+        "text": "fundo",
+        "start": 4.214,
+        "end": 4.574
+      },
+      {
+        "text": "sugando",
+        "start": 4.839,
+        "end": 5.199
+      },
+      {
+        "text": "as",
+        "start": 5.211,
+        "end": 5.332
+      },
+      {
+        "text": "presas",
+        "start": 5.344,
+        "end": 5.861
       }
     ]
   },
   "s8": {
-    "text": "Pronto, agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.",
-    "seconds": 7.041,
+    "text": "Pronto, agora você sabe. O único anfíbio marinho conhecido não deixou descendentes.",
+    "seconds": 5.66,
     "words": [
       {
         "text": "Pronto",
@@ -741,69 +791,44 @@
         "end": 1.604
       },
       {
-        "text": "Falta",
+        "text": "O",
         "start": 2.431,
-        "end": 2.816
+        "end": 2.515
       },
       {
-        "text": "a",
-        "start": 2.828,
+        "text": "único",
+        "start": 2.527,
         "end": 2.852
       },
       {
-        "text": "confirmação",
+        "text": "anfíbio",
         "start": 2.864,
-        "end": 3.501
+        "end": 3.284
       },
       {
-        "text": "oficial",
-        "start": 3.513,
-        "end": 4.054
+        "text": "marinho",
+        "start": 3.297,
+        "end": 3.669
       },
       {
-        "text": "mas",
-        "start": 4.354,
-        "end": 4.547
+        "text": "conhecido",
+        "start": 3.681,
+        "end": 4.198
       },
       {
-        "text": "tem",
-        "start": 4.559,
-        "end": 4.715
+        "text": "não",
+        "start": 4.21,
+        "end": 4.354
       },
       {
-        "text": "gente",
-        "start": 4.727,
-        "end": 4.991
+        "text": "deixou",
+        "start": 4.366,
+        "end": 4.739
       },
       {
-        "text": "andando",
-        "start": 5.003,
-        "end": 5.352
-      },
-      {
-        "text": "na",
-        "start": 5.364,
-        "end": 5.472
-      },
-      {
-        "text": "contramão",
-        "start": 5.484,
-        "end": 5.977
-      },
-      {
-        "text": "no",
-        "start": 5.989,
-        "end": 6.061
-      },
-      {
-        "text": "Sistema",
-        "start": 6.073,
-        "end": 6.494
-      },
-      {
-        "text": "Solar",
-        "start": 6.506,
-        "end": 6.878
+        "text": "descendentes",
+        "start": 4.751,
+        "end": 5.568
       }
     ]
   },

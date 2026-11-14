@@ -1,14 +1,14 @@
-// scenes.ts — "Tem algo andando NA CONTRAMÃO no Sistema Solar" (R631). Roteiro v1 e designs APROVADOS (14/11/2026).
+// scenes.ts — "O único anfíbio que vivia no MAR" (Gerrothorax maritimus). Roteiro v1 e designs APROVADOS (14/11/2026).
 // Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN.
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
-import { add, DISK, NEP, OBS, ROCKW, SOLAR, STAR } from "./solar";
+import { add, BONE, LAB, MAP, POND, SEA, SKIN } from "./amph";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
-export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-espaco", language: "pt-BR" };
+export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-oceano", language: "pt-BR" };
 
 export type BadgeVariant = "positive" | "negative" | "info" | "warning";
 export type CameraKey = { at: number; position: Vec3; target: Vec3; zoom?: number; easing?: EaseName };
@@ -36,161 +36,165 @@ const lin = (target: string, a: number, b: number, from: number | undefined, to:
 const set = (target: string, at: number, v: number): TrackAnimation => lin(target, at, at + 1, v, v, "linear");
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(target, at, at + len, undefined, 0, "in");
-const WORLDS = ["solar", "rock", "obs", "disk", "nep", "star"] as const;
+const WORLDS = ["pond", "skin", "lab", "sea", "map", "bone"] as const;
 const world = (at: number, w: (typeof WORLDS)[number]): TrackAnimation[] => WORLDS.map((k) => set(`${k}.show`, at, k === w ? 1 : 0));
 const whipMid = (at: number): TrackAnimation => lin("screen.whip", at, at + 7, -1, 0, "out");
 
 // câmera (9:16: largura visível ≈ 0,237·d; altura ≈ 0,42·d)
 const P = {
-  inner: orbit(add(SOLAR, [0, 0, 0]), 30, 10, 58),
-  wide: orbit(add(SOLAR, [0, -1.5, 0]), 82, 14, 52),
-  wide2: orbit(add(SOLAR, [0, -1.5, 0]), 78, 24, 48),
-  rock: orbit(add(ROCKW, [0, -0.9, 0]), 30, -10, 8),
-  rock2: orbit(add(ROCKW, [0, -0.9, 0]), 26, 15, 12),
-  side: orbit(add(SOLAR, [0, -2.2, 0]), 64, 30, 3),
-  side2: orbit(add(SOLAR, [0, -2.2, 0]), 62, 36, 5),
-  obs: orbit(add(OBS, [0, 1.6, 0]), 17, 22, 8),
-  obs2: orbit(add(OBS, [0.2, 1.4, 0]), 18, 30, 9),
-  disk: orbit(add(DISK, [0, -0.8, 0]), 30, 0, 50),
-  disk2: orbit(add(DISK, [0, -0.8, 0]), 26, 18, 40),
-  nep: orbit(add(NEP, [0, -0.5, 0]), 30, 0, 18),
-  nep2: orbit(add(NEP, [1, 0.5, 0]), 32, 18, 14),
-  star: orbit(add(STAR, [-0.5, -1.2, 0]), 72, 0, 10),
-  star2: orbit(add(STAR, [0.5, -1.2, 0]), 66, 8, 14),
-  peri: orbit(add(SOLAR, [0, -1.5, 0]), 70, -20, 42),
-  peri2: orbit(add(SOLAR, [0, -1.5, 0]), 66, -6, 38),
-  fin: orbit(add(SOLAR, [0, -2, 0]), 80, 30, 34),
-  fin2: orbit(add(SOLAR, [0, -2, 0]), 80, 70, 30),
+  pond: orbit(add(POND, [-0.3, -0.1, 0]), 6.2, -12, 24),
+  pond2: orbit(add(POND, [0.0, -0.1, 0]), 5.6, 6, 26),
+  sea: orbit(add(POND, [2.6, -0.2, 0]), 6.5, 30, 24),
+  floorSil: orbit(add(SEA, [0, 0.1, 0]), 4.8, 25, 30),
+  floorSil2: orbit(add(SEA, [0, 0.1, 0]), 4.2, 45, 26),
+  skin: orbit(add(SKIN, [0.9, -0.4, 0]), 15, 18, 22),
+  skin2: orbit(add(SKIN, [0.9, -0.4, 0]), 14, 30, 26),
+  lab: orbit(add(LAB, [0, -0.5, 0.1]), 13, 0, 58),
+  lab2: orbit(add(LAB, [-0.4, -0.25, 0.2]), 5.6, 15, 40),
+  lab3: orbit(add(LAB, [-0.45, -0.15, 0.2]), 4.8, 30, 34),
+  hero: orbit(add(SEA, [0.05, -0.1, 0]), 3.4, 35, 26),
+  hero2: orbit(add(SEA, [0.05, -0.1, 0]), 3.2, 70, 22),
+  drift: orbit(add(SEA, [0, 0.2, 0]), 16, 0, 10),
+  map: orbit(add(MAP, [-1.5, -3, 0]), 50, 0, 62),
+  map2: orbit(add(MAP, [-1, -3, 0]), 47, 10, 56),
+  bone: orbit(add(BONE, [0, 0, 1.4]), 16, 0, 82),
+  bone2: orbit(add(BONE, [0, 0, 1.4]), 15, 15, 78),
+  bury: orbit(add(SEA, [0.15, -0.15, 0]), 3.8, -30, 30),
+  bury2: orbit(add(SEA, [0.3, -0.1, 0]), 3.3, -10, 26),
+  fin: orbit(add(SEA, [0.3, -0.1, 0]), 5.5, 20, 22),
+  fin2: orbit(add(SEA, [0.3, 0.3, 0]), 11, 40, 18),
 };
-const M_SOLAR: Vec3 = add(SOLAR, [7.5, -4.5, 9.5]);
 
-const ZERO = ["arrows", "r631.k", "r631.orbit", "redArrow", "incl", "dots.k", "link.draw", "disk.form", "fly.t", "inter.t", "years", "peri.k", "seal.k", "sealI.k", "mascot.float"];
+const ZERO = ["count", "seaX", "sil", "skin.in", "skin.out", "salt", "shrink", "seal.k", "sealI.k", "fossil.k", "ruler.k", "armor.k", "drift.t", "q.k", "coast.k", "ichthy.t", "sr.glow", "match.k", "shield.k", "bury", "prey.t", "mascot.float"];
 
 export const scenes: ScenePlan[] = [
   {
     id: "s1", ...sc(0), voKey: "s1",
-    narration: "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.inner), key(W("s1", 11), orbit(SOLAR, 44, 12, 56), "linear"), key(W("s1", 15), P.wide, "inOut"), key(end(0), P.wide2, "linear")] },
-    objects: [{ id: "solar", type: "SolarSystem(8 planetas, setas)", visible: true }, { id: "r631", type: "Rock + órbita retrógrada", visible: true }, { id: "mascot", type: "Mascot(float)", visible: true }],
+    narration: "Dos mais de oito mil anfíbios que existem hoje, nenhum vive só no mar. Mas, há 237 milhões de anos, um vivia.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.pond), key(W("s1", 9) - 4, P.pond2, "linear"), key(W("s1", 12), P.sea, "inOut"), ...cut(W("s1", 14), P.sea, P.floorSil), key(end(0), P.floorSil2, "linear")] },
+    objects: [{ id: "pond", type: "Lagoa + sapo, salamandra", visible: true }, { id: "sea", type: "Mar", visible: true }, { id: "silhouette", type: "Gerrothorax(silhueta)", visible: true }],
     animations: [
-      ...fx.flash(0), ...world(0, "solar"), ...ZERO.map((t) => set(t, 0, 0)), set("incl", 0, 142), set("seal.k", 0, 1),
-      lin("arrows", W("s1", 3), W("s1", 3) + 12, 0, 1),
-      ...mascot.place(M_SOLAR, -0.5, 2.4, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 4, 34),
-      pop("r631.k", W("s1", 16)), lin("r631.orbit", W("s1", 16), W("s1", 19) + 16, 0, 1, "inOut"), pop("redArrow", W("s1", 18)), ...fx.punch(W("s1", 19)), ...mascot.jump(W("s1", 19)),
+      ...fx.flash(0), ...world(0, "pond"), ...ZERO.map((t) => set(t, 0, 0)), set("shrink", 0, 1), set("gerro.ghost", 0, 1),
+      lin("count", W("s1", 1), W("s1", 5) + 6, 0, 8000, "out", "count"), pop("seaX", W("s1", 12)), ...fx.punch(W("s1", 12)), popOut("count", W("s1", 12), 8),
+      whipMid(W("s1", 14)), popOut("seaX", W("s1", 14), 4), ...world(W("s1", 14), "sea"), ...fx.desaturate(W("s1", 14), W("s1", 20), 0.4), lin("sil", W("s1", 16), W("s1", 20), 0, 1), lin("gerro.ghost", W("s1", 20), W("s1", 21) + 8, 1, 0),
     ],
     badges: [
-      { text: "TODOS NO MESMO SENTIDO", variant: "positive", appearAt: W("s1", 8), disappearAt: W("s1", 17) },
-      { text: "NA CONTRAMÃO!", variant: "negative", size: "large", appearAt: W("s1", 18) },
+      { text: "+8.000 ANFÍBIOS HOJE", variant: "info", appearAt: W("s1", 2), disappearAt: W("s1", 9) },
+      { text: "NENHUM SÓ NO MAR", variant: "negative", appearAt: W("s1", 9), disappearAt: W("s1", 15) },
+      { text: "HÁ 237 MILHÕES DE ANOS", variant: "warning", size: "large", appearAt: W("s1", 15) },
     ],
-    highlights: ["PLANETAS", "SOL", "MESMO", "SENTIDO", "NETUNO", "CONTRAMÃO"],
-    captions: [cap("s1", 0, "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.")],
-    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("shimmer", W("s1", 3), 0.3), sfx("alert-tone", W("s1", 18), 0.25), sfx("thud", W("s1", 19), 0.4)],
+    highlights: ["OITO", "MIL", "ANFÍBIOS", "NENHUM", "MAR.", "237", "MILHÕES", "VIVIA"],
+    captions: [cap("s1", 0, "Dos mais de oito mil anfíbios que existem hoje, nenhum vive só no mar. Mas, há 237 milhões de anos, um vivia.")],
+    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("ocean-amb", W("s1", 10), 0.2), sfx("buzz", W("s1", 12), 0.25), sfx("rewind", W("s1", 14), 0.3), sfx("deep-amb", W("s1", 14), 0.25)],
   },
   {
     id: "s2", ...sc(1), voKey: "s2",
-    narration: "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus: praticamente de ponta-cabeça.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.rock), ...cut(W("s2", 11), P.rock2, P.side), key(end(1), P.side2, "linear")] },
-    objects: [{ id: "rock", type: "Rock(close)", visible: true }, { id: "solar", type: "SolarSystem(de lado)", visible: true }, { id: "incl", type: "Órbita inclinando 0→142°", visible: true }],
+    narration: "O problema é a pele: fina, ela deixa a água passar. No mar, o sal puxa a água do corpo, e o bicho desidrata.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.skin), key(end(1), P.skin2, "linear")] },
+    objects: [{ id: "skin", type: "SkinBlock(corte)", visible: true }, { id: "frog", type: "Frog(murchando)", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "rock"), ...mascot.hide(0, 4), set("seal.k", 0, 0),
-      whipMid(W("s2", 11)), ...world(W("s2", 11), "solar"), set("incl", W("s2", 11), 0), set("seal.k", W("s2", 11), 1), lin("incl", W("s2", 15), W("s2", 20) + 6, 0, 142, "inOut", "deg"),
+      ...fx.whipIn(), ...world(0, "skin"), set("seal.k", 0, 1), lin("skin.in", W("s2", 6), W("s2", 10), 0, 1), popOut("skin.in", W("s2", 12), 6),
+      lin("salt", W("s2", 13), W("s2", 15), 0, 1), lin("skin.out", W("s2", 15), W("s2", 17), 0, 1), lin("shrink", W("s2", 17), W("s2", 23) + 6, 1, 0.72, "inOut"), ...fx.shake(W("s2", 23), 14),
     ],
     badges: [
-      { text: "R631 · NOME PROVISÓRIO", variant: "info", appearAt: W("s2", 2), disappearAt: W("s2", 5) },
-      { text: "~100 KM (ESTIMATIVA)", variant: "info", appearAt: W("s2", 5), disappearAt: W("s2", 15) },
-      { text: "142°: DE PONTA-CABEÇA", variant: "warning", size: "large", appearAt: W("s2", 21) },
+      { text: "PELE QUE DEIXA A ÁGUA PASSAR", variant: "info", appearAt: W("s2", 4), disappearAt: W("s2", 13) },
+      { text: "O SAL PUXA A ÁGUA", variant: "negative", appearAt: W("s2", 13) },
     ],
-    highlights: ["PROVISÓRIO", "R631", "CEM", "QUILÔMETROS", "INCLINADA", "QUARENTA", "DOIS", "GRAUS", "PONTA-CABEÇA"],
-    captions: [cap("s2", 1, "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus: praticamente de ponta-cabeça.")],
-    audioCues: [narration("s2"), sfx("whoosh", 0, 0.35), sfx("rumble-soft", 4, 0.25), sfx("whoosh-soft", W("s2", 11), 0.3), sfx("warp", W("s2", 15), 0.35)],
+    highlights: ["PELE", "FINA", "ÁGUA", "PASSAR", "SAL", "PUXA", "DESIDRATA"],
+    captions: [cap("s2", 1, "O problema é a pele: fina, ela deixa a água passar. No mar, o sal puxa a água do corpo, e o bicho desidrata.")],
+    audioCues: [narration("s2"), sfx("whoosh", 0, 0.35), sfx("drip", W("s2", 7), 0.35), sfx("dust", W("s2", 14), 0.3), sfx("drain", W("s2", 17), 0.3)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
-    narration: "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.obs), key(end(2), P.obs2, "inOut")] },
-    objects: [{ id: "obs", type: "Observatory(estilo Rubin)", visible: true }, { id: "dots", type: "Dots2D + linha", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
+    narration: "Na China, cientistas estudaram dois esqueletos quase completos. O bicho tinha quase um metro, era achatado e coberto de placas de osso.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.lab), key(W("s3", 8), P.lab2, "inOut"), key(end(2), P.lab3, "linear")] },
+    objects: [{ id: "fossils", type: "FossilSlab×2", visible: true }, { id: "ruler", type: "Régua 1 m", visible: true }, { id: "model", type: "Gerrothorax(montando sobre o fóssil)", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "obs"), set("seal.k", 0, 0), set("incl", 0, 142), lin("dots.k", W("s3", 1), W("s3", 4) + 6, 0, 1), lin("link.draw", W("s3", 2), W("s3", 7), 0, 1, "inOut"), popOut("dots.k", W("s3", 13), 10), popOut("link.draw", W("s3", 13), 10),
-      ...mascot.place(add(OBS, [-0.2, 0.05, 1.5]), 0.5, 0.34, 0), ...mascot.float(0, false, 1), ...mascot.point(W("s3", 7), 40, 0.2),
+      ...fx.whipIn(), ...world(0, "lab"), set("seal.k", 0, 0), set("shrink", 0, 1), pop("fossil.k", 2), pop("ruler.k", W("s3", 11)), lin("armor.k", W("s3", 14), W("s3", 21) + 8, 0, 1, "inOut"),
+      ...mascot.place(add(LAB, [0.55, 0, 0.6]), -0.6, 0.5, 0), ...mascot.float(0, false, 1), ...mascot.wave(4, 30), ...mascot.point(W("s3", 12), 40, -1.2),
     ],
     badges: [
-      { text: "ASTRÔNOMO AMADOR", variant: "positive", appearAt: W("s3", 7), disappearAt: W("s3", 11) },
-      { text: "DADOS PÚBLICOS DO RUBIN", variant: "info", appearAt: W("s3", 11) },
+      { text: "CHINA · 2 ESQUELETOS", variant: "info", appearAt: W("s3", 1), disappearAt: W("s3", 11) },
+      { text: "QUASE 1 METRO", variant: "info", appearAt: W("s3", 11), disappearAt: W("s3", 17) },
+      { text: "ARMADURA DE OSSO", variant: "positive", appearAt: W("s3", 17) },
     ],
-    highlights: ["LIGOU", "PONTOS", "ASTRÔNOMO", "AMADOR", "PÚBLICOS", "VERA", "RUBIN"],
-    captions: [cap("s3", 2, "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.")],
-    audioCues: [narration("s3"), sfx("whoosh", 0, 0.35), sfx("tick", W("s3", 2), 0.25), sfx("shimmer", W("s3", 5), 0.3), sfx("ding", W("s3", 7), 0.3)],
+    highlights: ["CHINA", "DOIS", "ESQUELETOS", "METRO", "ACHATADO", "PLACAS", "OSSO"],
+    captions: [cap("s3", 2, "Na China, cientistas estudaram dois esqueletos quase completos. O bicho tinha quase um metro, era achatado e coberto de placas de osso.")],
+    audioCues: [narration("s3"), sfx("whoosh", 0, 0.35), sfx("clunk", 4, 0.3), sfx("tick", W("s3", 11), 0.3), sfx("shimmer", W("s3", 17), 0.35)],
   },
   {
     id: "s4", ...sc(3), voKey: "s4",
-    narration: "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.disk), key(end(3), P.disk2, "inOut")] },
-    objects: [{ id: "disk", type: "ProtoDisk", visible: true }, { id: "seal", type: "Seal(ILUSTRAÇÃO)", visible: true }],
-    animations: [...fx.whipIn(-1), ...world(0, "disk"), ...mascot.hide(0, 4), ...fx.desaturate(W("s4", 7), end(3), 0.55), set("sealI.k", 0, 1), lin("disk.form", W("s4", 17), end(3), 0, 1, "inOut")],
-    badges: [
-      { text: "POR QUÊ?", variant: "warning", icon: "?", appearAt: W("s4", 0), disappearAt: W("s4", 13) },
-      { text: "HERANÇA DO DISCO DE GÁS", variant: "info", appearAt: W("s4", 13) },
+    narration: "O nome dele é Gerrothorax maritimus. Mas como saber que vivia no mar, e não foi só arrastado pra lá depois de morto?",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.hero), key(W("s4", 6) - 1, P.hero2, "linear"), key(W("s4", 6), P.drift), key(end(3), orbit(add(SEA, [0.6, 0.2, 0]), 15, 6, 12), "linear")] },
+    objects: [{ id: "gerro", type: "Gerrothorax", visible: true }, { id: "drift", type: "Corpo levado pela correnteza (flashback)", visible: true }, { id: "q", type: "?2D", visible: true }],
+    animations: [
+      ...fx.whipIn(), ...world(0, "sea"), ...mascot.hide(0, 4), set("armor.k", 0, 1), set("sealI.k", 0, 1), set("gerro.ghost", 0, 0),
+      whipMid(W("s4", 6)), ...fx.desaturate(W("s4", 6), end(3), 0.3), lin("drift.t", W("s4", 6), end(3), 0, 1, "linear"), pop("q.k", W("s4", 17)),
     ],
-    highlights: ["IGUAL", "NASCEU", "DISCO", "GÁS", "GIRANDO", "HERDOU", "GIRO"],
-    captions: [cap("s4", 3, "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.")],
-    audioCues: [narration("s4"), sfx("rewind", 0, 0.35), sfx("glow", W("s4", 13), 0.35)],
+    badges: [
+      { text: "GERROTHORAX MARITIMUS", variant: "info", size: "large", appearAt: W("s4", 4), disappearAt: W("s4", 7) },
+      { text: "OU FOI ARRASTADO?", variant: "warning", icon: "?", appearAt: W("s4", 15) },
+    ],
+    highlights: ["GERROTHORAX", "MARITIMUS", "SABER", "MAR", "ARRASTADO", "MORTO"],
+    captions: [cap("s4", 3, "O nome dele é Gerrothorax maritimus. Mas como saber que vivia no mar, e não foi só arrastado pra lá depois de morto?")],
+    audioCues: [narration("s4"), sfx("whoosh", 0, 0.35), sfx("glow", W("s4", 4), 0.35), sfx("rush", W("s4", 6), 0.25), sfx("tick", W("s4", 17), 0.3)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",
-    narration: "Pra andar ao contrário, precisa de uma história. A mais provável: ele passou perto demais de Netuno e foi arremessado.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.nep), key(end(4), P.nep2, "inOut")] },
-    objects: [{ id: "neptune", type: "Netuno + cinturão de Kuiper", visible: true }, { id: "fly", type: "Rock(estilingue)", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "nep"), set("sealI.k", 0, 0), set("seal.k", 0, 1), lin("fly.t", W("s5", 9), end(4) - 6, 0, 1, "inOut"), ...fx.shake(W("s5", 19), 16),
-      ...mascot.place(add(NEP, [-5.5, -4.2, 6]), 0.6, 1.0, 0), ...mascot.float(0, true, 1), ...mascot.point(W("s5", 16), 36, 0.9),
-    ],
+    narration: "As rochas onde ele estava se formaram longe de qualquer terra, junto com ictiossauros, répteis marinhos.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.map), key(end(4), P.map2, "linear")] },
+    objects: [{ id: "map", type: "Mapa esquemático (costa longe)", visible: true }, { id: "ichthy", type: "Ichthyosaur", visible: true }],
+    animations: [...fx.whipIn(), ...world(0, "map"), set("q.k", 0, 0), set("sealI.k", 0, 0), set("seal.k", 0, 1), lin("coast.k", W("s5", 1), W("s5", 10), 0, 1, "inOut"), lin("ichthy.t", W("s5", 11), end(4), 0, 1, "linear"), ...fx.flash(W("s5", 13), 6)],
     badges: [
-      { text: "HIPÓTESE 1: NETUNO", variant: "info", appearAt: W("s5", 8), disappearAt: W("s5", 10) + 8 },
-      { text: "A MAIS PROVÁVEL", variant: "positive", appearAt: W("s5", 10) + 8 },
+      { text: "PISTA 1: LONGE DA TERRA", variant: "positive", appearAt: W("s5", 1), disappearAt: W("s5", 12) },
+      { text: "VIZINHOS: ICTIOSSAUROS", variant: "info", appearAt: W("s5", 12) },
     ],
-    highlights: ["CONTRÁRIO", "HISTÓRIA", "PROVÁVEL", "PERTO", "NETUNO", "ARREMESSADO"],
-    captions: [cap("s5", 4, "Pra andar ao contrário, precisa de uma história. A mais provável: ele passou perto demais de Netuno e foi arremessado.")],
-    audioCues: [narration("s5"), sfx("whoosh", 0, 0.35), sfx("solar-whoosh", W("s5", 13), 0.4), sfx("whoosh-big", W("s5", 19), 0.4)],
+    highlights: ["ROCHAS", "LONGE", "TERRA", "ICTIOSSAUROS", "MARINHOS"],
+    captions: [cap("s5", 4, "As rochas onde ele estava se formaram longe de qualquer terra, junto com ictiossauros, répteis marinhos.")],
+    audioCues: [narration("s5"), sfx("whoosh", 0, 0.35), sfx("ding", W("s5", 7), 0.3), sfx("bubbles", W("s5", 12), 0.35)],
   },
   {
     id: "s6", ...sc(5), voKey: "s6",
-    narration: "A mais ousada: ele veio de outra estrela e foi capturado pelo Sol.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.star), key(end(5), P.star2, "inOut")] },
-    objects: [{ id: "star", type: "AlienStar", visible: true }, { id: "sun", type: "Sun", visible: true }, { id: "inter", type: "Rock(viagem + captura)", visible: true }],
-    animations: [...fx.whipIn(), ...world(0, "star"), ...mascot.hide(0, 4), lin("inter.t", W("s6", 3), end(5) - 2, 0, 1, "inOut"), ...fx.flash(W("s6", 10), 8)],
-    badges: [{ text: "HIPÓTESE 2: OUTRA ESTRELA", variant: "warning", icon: "?", appearAt: W("s6", 2) }],
-    highlights: ["OUSADA", "OUTRA", "ESTRELA", "CAPTURADO", "SOL"],
-    captions: [cap("s6", 5, "A mais ousada: ele veio de outra estrela e foi capturado pelo Sol.")],
-    audioCues: [narration("s6"), sfx("whoosh", 0, 0.35), sfx("warp", W("s6", 4), 0.35), sfx("pop", W("s6", 10), 0.3)],
+    narration: "E a prova química: o estrôncio dos ossos tem a assinatura da água do mar daquela época.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.bone), key(end(5), P.bone2, "linear")] },
+    objects: [{ id: "bone", type: "BoneSection + átomos de estrôncio", visible: true }, { id: "match", type: "Assinaturas 2D que coincidem", visible: true }],
+    animations: [...fx.whipIn(), ...world(0, "bone"), lin("sr.glow", W("s6", 4), W("s6", 6) + 6, 0, 1), lin("match.k", W("s6", 9), W("s6", 14), 0, 1, "inOut"), ...fx.flash(W("s6", 14), 6)],
+    badges: [
+      { text: "PISTA 2: ESTRÔNCIO", variant: "info", appearAt: W("s6", 3), disappearAt: W("s6", 12) },
+      { text: "= ÁGUA DO MAR", variant: "positive", size: "large", appearAt: W("s6", 12) },
+    ],
+    highlights: ["PROVA", "QUÍMICA", "ESTRÔNCIO", "OSSOS", "ASSINATURA", "MAR"],
+    captions: [cap("s6", 5, "E a prova química: o estrôncio dos ossos tem a assinatura da água do mar daquela época.")],
+    audioCues: [narration("s6"), sfx("whoosh", 0, 0.35), sfx("glow", W("s6", 5), 0.35), sfx("ding", W("s6", 14), 0.4)],
   },
   {
     id: "s7", ...sc(6), voKey: "s7",
-    narration: "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.peri), key(end(6), P.peri2, "linear")] },
-    objects: [{ id: "solar", type: "SolarSystem + órbita R631", visible: true }, { id: "years", type: "Counter2D(anos)", visible: true }, { id: "peri", type: "Marcador 2047 no periélio", visible: true }],
+    narration: "A hipótese é que a armadura segurava a água dentro do corpo, e que ele vivia no fundo, sugando as presas.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.bury), key(end(6), P.bury2, "linear")] },
+    objects: [{ id: "gerro", type: "Gerrothorax(semi-enterrado)", visible: true }, { id: "shield", type: "Escudo de água", visible: true }, { id: "prey", type: "Fish(presa)", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "solar"), set("arrows", 0, 1), set("r631.k", 0, 1), set("r631.orbit", 0, 1), set("redArrow", 0, 1), set("incl", 0, 142),
-      lin("years", W("s7", 1), W("s7", 8), 0, 550, "out", "count"), popOut("years", W("s7", 10) - 4, 8), pop("peri.k", W("s7", 10)),
+      ...fx.whipIn(), ...world(0, "sea"), set("seal.k", 0, 0), set("sealI.k", 0, 1), set("drift.t", 0, 0), set("gerro.ghost", 0, 0), pop("shield.k", W("s7", 5)), popOut("shield.k", W("s7", 12), 10),
+      lin("bury", W("s7", 13), W("s7", 17), 0, 1, "inOut"), lin("prey.t", W("s7", 16), W("s7", 18) + 10, 0, 1, "in"), ...fx.punch(W("s7", 18) + 8),
     ],
     badges: [
-      { text: "~550 ANOS POR VOLTA", variant: "info", appearAt: W("s7", 5), disappearAt: W("s7", 10) },
-      { text: "2047: MAIS PERTO QUE NETUNO", variant: "warning", appearAt: W("s7", 10) },
+      { text: "HIPÓTESE: ARMADURA = ESCUDO", variant: "warning", appearAt: W("s7", 1), disappearAt: W("s7", 15) },
+      { text: "CAÇAVA POR SUCÇÃO", variant: "info", appearAt: W("s7", 15) },
     ],
-    highlights: ["VOLTA", "QUINHENTOS", "CINQUENTA", "ANOS", "2047", "PERTO", "NETUNO"],
-    captions: [cap("s7", 6, "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.")],
-    audioCues: [narration("s7"), sfx("whoosh", 0, 0.35), sfx("hourglass", W("s7", 1), 0.25), sfx("ding", W("s7", 10), 0.35)],
+    highlights: ["HIPÓTESE", "ARMADURA", "ÁGUA", "CORPO", "FUNDO", "SUGANDO", "PRESAS"],
+    captions: [cap("s7", 6, "A hipótese é que a armadura segurava a água dentro do corpo, e que ele vivia no fundo, sugando as presas.")],
+    audioCues: [narration("s7"), sfx("whoosh", 0, 0.35), sfx("glow", W("s7", 5), 0.3), sfx("bubbles", W("s7", 18), 0.35), sfx("pop", W("s7", 18) + 8, 0.35)],
   },
   {
     id: "s8", ...sc(7), voKey: "s8",
-    narration: "Pronto: agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
-    objects: [{ id: "solar", type: "SolarSystem + R631", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
+    narration: "Pronto: agora você sabe. O único anfíbio marinho conhecido não deixou descendentes.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
+    objects: [{ id: "gerro", type: "Gerrothorax", visible: true }, { id: "mascot", type: "Mascot(float)", visible: true }],
     animations: [
-      popOut("peri.k", 0, 10), ...mascot.place(add(SOLAR, [6.5, -3.2, 8.5]), -0.3, 2.4, 0, 10), ...mascot.float(0, true, 1), ...mascot.cheer(W("s8", 1), 40), ...mascot.wave(W("s8", 11), 40),
+      ...fx.whipIn(), lin("bury", 0, 20, undefined, 0.3), set("prey.t", 0, 0), ...mascot.place(add(SEA, [1.3, 0.5, -0.9]), -0.7, 0.38, 0, 10), ...mascot.float(0, true, 1), ...mascot.cheer(W("s8", 1), 40), ...mascot.wave(W("s8", 9), 40),
     ],
-    badges: [{ text: "FALTA CONFIRMAÇÃO OFICIAL", variant: "warning", appearAt: W("s8", 4), disappearAt: end(7) - s(5.3) }],
-    highlights: ["PRONTO", "CONFIRMAÇÃO", "OFICIAL", "CONTRAMÃO", "SISTEMA", "SOLAR"],
-    captions: [cap("s8", 7, "Pronto: agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.")],
+    badges: [{ text: "LINHAGEM SEM DESCENDENTES", variant: "info", appearAt: W("s8", 5), disappearAt: end(7) - s(5.3) }],
+    highlights: ["PRONTO", "ÚNICO", "ANFÍBIO", "MARINHO", "DESCENDENTES"],
+    captions: [cap("s8", 7, "Pronto: agora você sabe. O único anfíbio marinho conhecido não deixou descendentes.")],
     audioCues: [narration("s8"), sfx("final", W("s8", 0), 0.4)],
   },
 ];
@@ -209,3 +213,4 @@ scenes.forEach((cur, i) => {
 });
 const total = scenes.reduce((acc, cur) => acc + cur.durationInFrames, 0);
 if (total !== DURATION || scenes[0].startFrame !== 0) throw new Error(`As cenas somam ${total} frames (esperado ${DURATION})`);
+void cut;
