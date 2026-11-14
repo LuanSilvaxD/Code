@@ -169,7 +169,7 @@ const SeaWorld: React.FC<{ f: number }> = ({ f }) => {
   const deco = useMemo(() => ({
     rocks: Array.from({ length: 22 }, (_, i) => ({ p: [(rand(`sx${i}`) - 0.5) * 10, 0, -1 - rand(`sz${i}`) * 6] as Vec3, s: 0.1 + rand(`ss${i}`) * 0.35 })),
     weeds: Array.from({ length: 26 }, (_, i) => ({ p: [(rand(`wx${i}`) - 0.5) * 9, 0, -0.6 - rand(`wz${i}`) * 5] as Vec3, h: 0.4 + rand(`wh${i}`) * 0.9 })),
-    motes: Array.from({ length: 60 }, (_, i) => ({ p: [(rand(`mx${i}`) - 0.5) * 8, 0.2 + rand(`my${i}`) * 3, (rand(`mz${i}`) - 0.5) * 6] as Vec3 })),
+    motes: Array.from({ length: 60 }, (_, i) => ({ p: [(rand(`mx${i}`) - 0.5) * 8, 0.3 + rand(`my${i}`) * 3, -0.8 - rand(`mz${i}`) * 4] as Vec3 })),
   }), []);
   const showMain = drift < 0.01 && (ghost < 0.5 || sil > 0.01);
   return (
