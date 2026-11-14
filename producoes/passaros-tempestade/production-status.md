@@ -1,2 +1,2 @@
 # Status — Os pássaros que ouviram a tempestade
-- **Fase:** 1 — roteiro v1 entregue (14/11), aguardando aprovação. Folha de design antes do vídeo (pedido do usuário).
+- **Fase:** 2 — ENTREGUE (14/11). MP4 1:02.
