@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AdditiveBlending, Color, DoubleSide, LatheGeometry, Vector2 } from "three";
+import { AdditiveBlending, Color, DoubleSide } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 import { loft } from "./Amphibia";
 
@@ -298,6 +298,94 @@ export const Branch: React.FC<{ f: number; len?: number }> = ({ f, len = 3 }) =>
   </group>
 );
 
+/* ------------------------------------------------------------------ TORNADO v2 */
+
+/** Tornado: funil de condensação curvado (loft com bandas em espiral que sobem girando, escuro em cima e
+ *  marrom de poeira embaixo), capa translúcida externa, nuvem de detritos girando na base e destroços voando.
+ *  Altura ~3,1 u; k 0..1 = força (largura). */
+export const Tornado: React.FC<{ f: number; k?: number; h?: number }> = ({ f, k = 1, h = 3.1 }) => {
+  const spin = f * 0.22;
+  const keys = useMemo(() => {
+    const out = [];
+    for (let i = 0; i <= 12; i++) {
+      const t = i / 12;
+      const r = (0.1 + 1.0 * Math.pow(t, 2.2) + 0.05 * Math.sin(t * 9)) * k;
+      out.push({ x: t * h, y: 0, w: r, h: r, sq: 2 });
+    }
+    return out;
+  }, [k, h]);
+  const geo = useMemo(() => {
+    const top = new Color("#4a4e5c");
+    const mid = new Color("#7a7c86");
+    const dust = new Color("#8a7458");
+    return loft(
+      keys,
+      (x, a) => {
+        const t = x / h;
+        const base = t > 0.35 ? mid.clone().lerp(top, (t - 0.35) / 0.65) : dust.clone().lerp(mid, t / 0.35);
+        const band = Math.sin(a * 3 + x * 5 - spin * 3);
+        return band > 0.55 ? base.clone().multiplyScalar(0.72) : band < -0.6 ? base.clone().lerp(new Color("#b8bcc8"), 0.25) : base;
+      },
+      48,
+      20,
+      (x) => 0.35 * Math.sin((x / h) * Math.PI * 0.9) - 0.15 * (x / h),
+    );
+  }, [keys, h, spin]);
+  const puffs = useMemo(() => Array.from({ length: 40 }, (_, i) => ({ a: rand(`tp${i}`) * Math.PI * 2, r: 0.25 + rand(`tr${i}`) * 0.9, y: rand(`ty${i}`) * 0.45, s: 0.08 + rand(`tsz${i}`) * 0.13 })), []);
+  return (
+    <group>
+      {/* funil (loft feito ao longo de x; giramos para ficar em pé) */}
+      <group rotation={[0, Math.PI / 2, 0]}>
+      <group rotation={[0, 0, Math.PI / 2]}>
+        <group>
+          <mesh geometry={geo}>
+            <meshStandardMaterial vertexColors roughness={1} side={DoubleSide} />
+          </mesh>
+          {/* capa translúcida externa */}
+          <mesh geometry={geo} scale={[1, 1.35, 1.35]}>
+            <meshBasicMaterial color="#9aa0ae" transparent opacity={0.16} side={DoubleSide} depthWrite={false} />
+          </mesh>
+        </group>
+      </group>
+      </group>
+      {/* nuvem de detritos girando na base */}
+      {puffs.map((p, i) => {
+        const a = p.a + spin * (1.4 - p.r * 0.5);
+        return (
+          <mesh key={i} position={[Math.cos(a) * p.r * k, 0.08 + p.y * k, Math.sin(a) * p.r * k]} scale={[p.s * k * 1.4, p.s * k * 0.8, p.s * k * 1.4]}>
+            <icosahedronGeometry args={[1, 1]} />
+            <meshStandardMaterial color={i % 3 ? "#a08c70" : "#b8a488"} roughness={1} transparent opacity={0.55} depthWrite={false} />
+          </mesh>
+        );
+      })}
+      {/* destroços voando em espiral para cima */}
+      {Array.from({ length: 18 }, (_, i) => {
+        const t = ((f * 0.008 + i / 18) % 1);
+        const a = i * 1.7 + spin * 2;
+        const r = (0.3 + t * 0.9) * k;
+        return (
+          <mesh key={`d${i}`} position={[Math.cos(a) * r, 0.2 + t * 1.8, Math.sin(a) * r]} rotation={[a, a * 1.3, t * 5]} scale={0.045 + (i % 3) * 0.02}>
+            <boxGeometry args={[1, 0.3, 1.6]} />
+            <meshStandardMaterial color={i % 2 ? "#5a4632" : "#6a6e74"} roughness={1} flatShading />
+          </mesh>
+        );
+      })}
+      {/* nuvem de poeira difusa */}
+      {[0.9, 1.3].map((r, i) => (
+        <mesh key={`dc${i}`} position={[0, 0.3 + i * 0.15, 0]} scale={[r * k * 1.2, 0.45 + i * 0.1, r * k * 1.2]}>
+          <sphereGeometry args={[1, 20, 10]} />
+          <meshBasicMaterial color="#a8967a" transparent opacity={0.2} depthWrite={false} />
+        </mesh>
+      ))}
+      {/* anel de poeira no chão */}
+      <mesh position={[0, 0.03, 0]} rotation={[-Math.PI / 2, 0, spin]}>
+        <ringGeometry args={[0.6 * k, 1.6 * k, 32]} />
+        <meshBasicMaterial color="#8a7458" transparent opacity={0.35} depthWrite={false} side={DoubleSide} />
+      </mesh>
+    </group>
+  );
+};
+
 /* ------------------------------------------------------------------ SUPERCÉLULA v2 */
 
 /** Supercélula: bigorna larga e chata com topo saliente, corpo em torres, base girando com estrias, nuvem-parede,
@@ -313,15 +401,6 @@ export const Supercell: React.FC<{ f: number; tornado?: number; s?: number; flas
     const r = 3.2 + rand(`ar${i}`) * 2.6;
     return { p: [Math.cos(a) * r + 1.2, 6.4 + rand(`ay${i}`) * 0.4, Math.sin(a) * r * 0.6] as Vec3, s: 1.2 + rand(`as${i}`) * 1.0 };
   }), []);
-  const funnel = useMemo(() => {
-    const pts: Vector2[] = [];
-    for (let i = 0; i <= 24; i++) {
-      const t = i / 24; // 0 = chão, 1 = nuvem
-      const r = 0.12 + 0.95 * Math.pow(t, 2.4) + 0.04 * Math.sin(t * 22);
-      pts.push(new Vector2(r, t * 3.1));
-    }
-    return new LatheGeometry(pts, 20);
-  }, []);
   const lit = (c: string, k = 1) => new Color(c).lerp(new Color("#d8deff"), flash * k);
   const tk = clamp(tornado, 0, 1);
   return (
@@ -379,31 +458,8 @@ export const Supercell: React.FC<{ f: number; tornado?: number; s?: number; flas
         : null}
       {/* tornado */}
       {tk > 0.01 ? (
-        <group position={[0.2, 0, 0]} rotation={[0, f * 0.3, 0.08]} scale={[1.7 * tk, 0.97, 1.7 * tk]}>
-          <mesh geometry={funnel}>
-            <meshStandardMaterial color="#6a6e7c" roughness={1} transparent opacity={0.9} side={DoubleSide} flatShading />
-          </mesh>
-          {[0.4, 1.1, 1.8, 2.4].map((y, i) => (
-            <mesh key={i} position={[0, y, 0]} rotation={[Math.PI / 2, 0, 0]}>
-              <torusGeometry args={[0.13 + 0.95 * Math.pow(y / 3.1, 2.4) + 0.04, 0.03, 4, 18]} />
-              <meshStandardMaterial color="#4e525e" roughness={1} />
-            </mesh>
-          ))}
-          {/* cinta de detritos e poeira */}
-          {Array.from({ length: 22 }, (_, i) => {
-            const a = i * 0.29 + f * 0.05;
-            const r = 0.35 + (i % 5) * 0.12;
-            return (
-              <mesh key={`d${i}`} position={[Math.cos(a) * r, 0.1 + (i % 6) * 0.1, Math.sin(a) * r]} rotation={[a, a * 1.7, 0]} scale={i % 3 ? 0.05 : 0.09}>
-                {i % 3 ? <boxGeometry args={[1, 0.4, 1.5]} /> : <icosahedronGeometry args={[1, 0]} />}
-                <meshStandardMaterial color={i % 3 ? "#5a4632" : "#8a7a62"} roughness={1} flatShading />
-              </mesh>
-            );
-          })}
-          <mesh position={[0, 0.15, 0]} scale={[1.2, 0.25, 1.2]}>
-            <sphereGeometry args={[1, 16, 8]} />
-            <meshBasicMaterial color="#8a7a62" transparent opacity={0.35} depthWrite={false} />
-          </mesh>
+        <group position={[0.2, 0, 0]}>
+          <Tornado f={f} k={tk} />
         </group>
       ) : null}
     </group>
