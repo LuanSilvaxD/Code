@@ -1,0 +1,901 @@
+{
+  "s1": {
+    "text": "Dos mais de oito mil anfíbios que existem hoje, nenhum vive só no mar. Mas, há 237 milhões de anos, um vivia.",
+    "seconds": 8.572,
+    "words": [
+      {
+        "text": "Dos",
+        "start": 0,
+        "end": 0.227
+      },
+      {
+        "text": "mais",
+        "start": 0.239,
+        "end": 0.504
+      },
+      {
+        "text": "de",
+        "start": 0.516,
+        "end": 0.612
+      },
+      {
+        "text": "oito",
+        "start": 0.624,
+        "end": 0.853
+      },
+      {
+        "text": "mil",
+        "start": 0.865,
+        "end": 1.045
+      },
+      {
+        "text": "anfíbios",
+        "start": 1.057,
+        "end": 1.598
+      },
+      {
+        "text": "que",
+        "start": 1.61,
+        "end": 1.706
+      },
+      {
+        "text": "existem",
+        "start": 1.718,
+        "end": 2.211
+      },
+      {
+        "text": "hoje",
+        "start": 2.223,
+        "end": 2.511
+      },
+      {
+        "text": "nenhum",
+        "start": 2.715,
+        "end": 3.1
+      },
+      {
+        "text": "vive",
+        "start": 3.112,
+        "end": 3.401
+      },
+      {
+        "text": "só",
+        "start": 3.413,
+        "end": 3.605
+      },
+      {
+        "text": "no",
+        "start": 3.617,
+        "end": 3.713
+      },
+      {
+        "text": "mar.",
+        "start": 3.725,
+        "end": 3.953
+      },
+      {
+        "text": "Mas",
+        "start": 4.781,
+        "end": 5.25
+      },
+      {
+        "text": "há",
+        "start": 5.442,
+        "end": 5.538
+      },
+      {
+        "text": "237",
+        "start": 5.55,
+        "end": 6.704
+      },
+      {
+        "text": "milhões",
+        "start": 6.716,
+        "end": 7.052
+      },
+      {
+        "text": "de",
+        "start": 7.064,
+        "end": 7.161
+      },
+      {
+        "text": "anos",
+        "start": 7.173,
+        "end": 7.497
+      },
+      {
+        "text": "um",
+        "start": 7.822,
+        "end": 7.966
+      },
+      {
+        "text": "vivia",
+        "start": 7.978,
+        "end": 8.459
+      }
+    ]
+  },
+  "s2": {
+    "text": "O problema é a pele, fina, ela deixa a água passar. No mar, o sal puxa a água do corpo, e o bicho desidrata.",
+    "seconds": 7.894,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.065
+      },
+      {
+        "text": "problema",
+        "start": 0.077,
+        "end": 0.594
+      },
+      {
+        "text": "é",
+        "start": 0.606,
+        "end": 0.714
+      },
+      {
+        "text": "a",
+        "start": 0.726,
+        "end": 0.786
+      },
+      {
+        "text": "pele",
+        "start": 0.798,
+        "end": 1.147
+      },
+      {
+        "text": "fina",
+        "start": 1.423,
+        "end": 1.748
+      },
+      {
+        "text": "ela",
+        "start": 1.928,
+        "end": 2.133
+      },
+      {
+        "text": "deixa",
+        "start": 2.145,
+        "end": 2.469
+      },
+      {
+        "text": "a",
+        "start": 2.481,
+        "end": 2.541
+      },
+      {
+        "text": "água",
+        "start": 2.553,
+        "end": 2.818
+      },
+      {
+        "text": "passar",
+        "start": 2.83,
+        "end": 3.238
+      },
+      {
+        "text": "No",
+        "start": 4.066,
+        "end": 4.234
+      },
+      {
+        "text": "mar",
+        "start": 4.246,
+        "end": 4.51
+      },
+      {
+        "text": "o",
+        "start": 4.823,
+        "end": 4.871
+      },
+      {
+        "text": "sal",
+        "start": 4.883,
+        "end": 5.171
+      },
+      {
+        "text": "puxa",
+        "start": 5.184,
+        "end": 5.496
+      },
+      {
+        "text": "a",
+        "start": 5.508,
+        "end": 5.544
+      },
+      {
+        "text": "água",
+        "start": 5.556,
+        "end": 5.857
+      },
+      {
+        "text": "do",
+        "start": 5.869,
+        "end": 5.965
+      },
+      {
+        "text": "corpo",
+        "start": 5.977,
+        "end": 6.373
+      },
+      {
+        "text": "e",
+        "start": 6.614,
+        "end": 6.722
+      },
+      {
+        "text": "o",
+        "start": 6.734,
+        "end": 6.794
+      },
+      {
+        "text": "bicho",
+        "start": 6.806,
+        "end": 7.179
+      },
+      {
+        "text": "desidrata",
+        "start": 7.191,
+        "end": 7.804
+      }
+    ]
+  },
+  "s3": {
+    "text": "Na China, cientistas estudaram dois esqueletos quase completos. O bicho tinha quase um metro, era achatado e coberto de placas de osso.",
+    "seconds": 8.635,
+    "words": [
+      {
+        "text": "Na",
+        "start": 0,
+        "end": 0.115
+      },
+      {
+        "text": "China",
+        "start": 0.127,
+        "end": 0.524
+      },
+      {
+        "text": "cientistas",
+        "start": 0.752,
+        "end": 1.341
+      },
+      {
+        "text": "estudaram",
+        "start": 1.353,
+        "end": 1.882
+      },
+      {
+        "text": "dois",
+        "start": 1.894,
+        "end": 2.135
+      },
+      {
+        "text": "esqueletos",
+        "start": 2.147,
+        "end": 2.808
+      },
+      {
+        "text": "quase",
+        "start": 2.82,
+        "end": 3.156
+      },
+      {
+        "text": "completos",
+        "start": 3.168,
+        "end": 3.877
+      },
+      {
+        "text": "O",
+        "start": 4.705,
+        "end": 4.825
+      },
+      {
+        "text": "bicho",
+        "start": 4.837,
+        "end": 5.198
+      },
+      {
+        "text": "tinha",
+        "start": 5.21,
+        "end": 5.438
+      },
+      {
+        "text": "quase",
+        "start": 5.45,
+        "end": 5.762
+      },
+      {
+        "text": "um",
+        "start": 5.775,
+        "end": 5.847
+      },
+      {
+        "text": "metro",
+        "start": 5.859,
+        "end": 6.231
+      },
+      {
+        "text": "era",
+        "start": 6.4,
+        "end": 6.508
+      },
+      {
+        "text": "achatado",
+        "start": 6.52,
+        "end": 6.988
+      },
+      {
+        "text": "e",
+        "start": 7.0,
+        "end": 7.024
+      },
+      {
+        "text": "coberto",
+        "start": 7.037,
+        "end": 7.541
+      },
+      {
+        "text": "de",
+        "start": 7.553,
+        "end": 7.661
+      },
+      {
+        "text": "placas",
+        "start": 7.673,
+        "end": 8.082
+      },
+      {
+        "text": "de",
+        "start": 8.094,
+        "end": 8.214
+      },
+      {
+        "text": "osso",
+        "start": 8.226,
+        "end": 8.563
+      }
+    ]
+  },
+  "s4": {
+    "text": "O nome dele é Gerrothorax maritimus. Mas como saber que vivia no mar, e não foi só arrastado pra lá depois de morto?",
+    "seconds": 7.433,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.051
+      },
+      {
+        "text": "nome",
+        "start": 0.063,
+        "end": 0.352
+      },
+      {
+        "text": "dele",
+        "start": 0.364,
+        "end": 0.604
+      },
+      {
+        "text": "é",
+        "start": 0.616,
+        "end": 0.652
+      },
+      {
+        "text": "Gerrothorax",
+        "start": 0.664,
+        "end": 1.325
+      },
+      {
+        "text": "maritimus",
+        "start": 1.337,
+        "end": 2.034
+      },
+      {
+        "text": "Mas",
+        "start": 2.862,
+        "end": 3.15
+      },
+      {
+        "text": "como",
+        "start": 3.162,
+        "end": 3.427
+      },
+      {
+        "text": "saber",
+        "start": 3.439,
+        "end": 3.799
+      },
+      {
+        "text": "que",
+        "start": 3.811,
+        "end": 3.919
+      },
+      {
+        "text": "vivia",
+        "start": 3.932,
+        "end": 4.256
+      },
+      {
+        "text": "no",
+        "start": 4.268,
+        "end": 4.376
+      },
+      {
+        "text": "mar",
+        "start": 4.388,
+        "end": 4.641
+      },
+      {
+        "text": "e",
+        "start": 4.917,
+        "end": 4.977
+      },
+      {
+        "text": "não",
+        "start": 4.989,
+        "end": 5.218
+      },
+      {
+        "text": "foi",
+        "start": 5.23,
+        "end": 5.398
+      },
+      {
+        "text": "só",
+        "start": 5.41,
+        "end": 5.614
+      },
+      {
+        "text": "arrastado",
+        "start": 5.626,
+        "end": 6.131
+      },
+      {
+        "text": "pra",
+        "start": 6.143,
+        "end": 6.323
+      },
+      {
+        "text": "lá",
+        "start": 6.335,
+        "end": 6.468
+      },
+      {
+        "text": "depois",
+        "start": 6.48,
+        "end": 6.84
+      },
+      {
+        "text": "de",
+        "start": 6.852,
+        "end": 6.924
+      },
+      {
+        "text": "morto",
+        "start": 6.936,
+        "end": 7.345
+      }
+    ]
+  },
+  "s5": {
+    "text": "As rochas onde ele estava se formaram longe de qualquer terra, junto com ictiossauros, répteis marinhos.",
+    "seconds": 5.691,
+    "words": [
+      {
+        "text": "As",
+        "start": 0,
+        "end": 0.144
+      },
+      {
+        "text": "rochas",
+        "start": 0.156,
+        "end": 0.505
+      },
+      {
+        "text": "onde",
+        "start": 0.517,
+        "end": 0.781
+      },
+      {
+        "text": "ele",
+        "start": 0.793,
+        "end": 0.89
+      },
+      {
+        "text": "estava",
+        "start": 0.902,
+        "end": 1.202
+      },
+      {
+        "text": "se",
+        "start": 1.214,
+        "end": 1.334
+      },
+      {
+        "text": "formaram",
+        "start": 1.346,
+        "end": 1.755
+      },
+      {
+        "text": "longe",
+        "start": 1.767,
+        "end": 2.068
+      },
+      {
+        "text": "de",
+        "start": 2.079,
+        "end": 2.164
+      },
+      {
+        "text": "qualquer",
+        "start": 2.176,
+        "end": 2.548
+      },
+      {
+        "text": "terra",
+        "start": 2.56,
+        "end": 2.897
+      },
+      {
+        "text": "junto",
+        "start": 3.173,
+        "end": 3.474
+      },
+      {
+        "text": "com",
+        "start": 3.486,
+        "end": 3.642
+      },
+      {
+        "text": "ictiossauros",
+        "start": 3.654,
+        "end": 4.363
+      },
+      {
+        "text": "répteis",
+        "start": 4.579,
+        "end": 5.0
+      },
+      {
+        "text": "marinhos",
+        "start": 5.012,
+        "end": 5.601
+      }
+    ]
+  },
+  "s6": {
+    "text": "E a prova química, o estrôncio dos ossos tem a assinatura da água do mar daquela época.",
+    "seconds": 4.872,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.049
+      },
+      {
+        "text": "a",
+        "start": 0.061,
+        "end": 0.157
+      },
+      {
+        "text": "prova",
+        "start": 0.169,
+        "end": 0.518
+      },
+      {
+        "text": "química",
+        "start": 0.53,
+        "end": 0.963
+      },
+      {
+        "text": "o",
+        "start": 1.263,
+        "end": 1.347
+      },
+      {
+        "text": "estrôncio",
+        "start": 1.359,
+        "end": 1.828
+      },
+      {
+        "text": "dos",
+        "start": 1.84,
+        "end": 1.936
+      },
+      {
+        "text": "ossos",
+        "start": 1.948,
+        "end": 2.381
+      },
+      {
+        "text": "tem",
+        "start": 2.393,
+        "end": 2.537
+      },
+      {
+        "text": "a",
+        "start": 2.549,
+        "end": 2.585
+      },
+      {
+        "text": "assinatura",
+        "start": 2.597,
+        "end": 3.162
+      },
+      {
+        "text": "da",
+        "start": 3.174,
+        "end": 3.282
+      },
+      {
+        "text": "água",
+        "start": 3.294,
+        "end": 3.583
+      },
+      {
+        "text": "do",
+        "start": 3.595,
+        "end": 3.691
+      },
+      {
+        "text": "mar",
+        "start": 3.703,
+        "end": 3.931
+      },
+      {
+        "text": "daquela",
+        "start": 3.944,
+        "end": 4.352
+      },
+      {
+        "text": "época",
+        "start": 4.364,
+        "end": 4.773
+      }
+    ]
+  },
+  "s7": {
+    "text": "A hipótese é que a armadura segurava a água dentro do corpo, e que ele vivia no fundo, sugando as presas.",
+    "seconds": 5.947,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.067
+      },
+      {
+        "text": "hipótese",
+        "start": 0.079,
+        "end": 0.596
+      },
+      {
+        "text": "é",
+        "start": 0.608,
+        "end": 0.668
+      },
+      {
+        "text": "que",
+        "start": 0.68,
+        "end": 0.776
+      },
+      {
+        "text": "a",
+        "start": 0.788,
+        "end": 0.8
+      },
+      {
+        "text": "armadura",
+        "start": 0.812,
+        "end": 1.293
+      },
+      {
+        "text": "segurava",
+        "start": 1.305,
+        "end": 1.87
+      },
+      {
+        "text": "a",
+        "start": 1.882,
+        "end": 1.918
+      },
+      {
+        "text": "água",
+        "start": 1.93,
+        "end": 2.231
+      },
+      {
+        "text": "dentro",
+        "start": 2.243,
+        "end": 2.555
+      },
+      {
+        "text": "do",
+        "start": 2.567,
+        "end": 2.663
+      },
+      {
+        "text": "corpo",
+        "start": 2.675,
+        "end": 3.06
+      },
+      {
+        "text": "e",
+        "start": 3.433,
+        "end": 3.505
+      },
+      {
+        "text": "que",
+        "start": 3.517,
+        "end": 3.613
+      },
+      {
+        "text": "ele",
+        "start": 3.625,
+        "end": 3.745
+      },
+      {
+        "text": "vivia",
+        "start": 3.757,
+        "end": 4.082
+      },
+      {
+        "text": "no",
+        "start": 4.094,
+        "end": 4.202
+      },
+      {
+        "text": "fundo",
+        "start": 4.214,
+        "end": 4.574
+      },
+      {
+        "text": "sugando",
+        "start": 4.839,
+        "end": 5.199
+      },
+      {
+        "text": "as",
+        "start": 5.211,
+        "end": 5.332
+      },
+      {
+        "text": "presas",
+        "start": 5.344,
+        "end": 5.861
+      }
+    ]
+  },
+  "s8": {
+    "text": "Pronto, agora você sabe. O único anfíbio marinho conhecido não deixou descendentes.",
+    "seconds": 5.66,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.33
+      },
+      {
+        "text": "agora",
+        "start": 0.594,
+        "end": 0.931
+      },
+      {
+        "text": "você",
+        "start": 0.943,
+        "end": 1.171
+      },
+      {
+        "text": "sabe",
+        "start": 1.183,
+        "end": 1.604
+      },
+      {
+        "text": "O",
+        "start": 2.431,
+        "end": 2.515
+      },
+      {
+        "text": "único",
+        "start": 2.527,
+        "end": 2.852
+      },
+      {
+        "text": "anfíbio",
+        "start": 2.864,
+        "end": 3.284
+      },
+      {
+        "text": "marinho",
+        "start": 3.297,
+        "end": 3.669
+      },
+      {
+        "text": "conhecido",
+        "start": 3.681,
+        "end": 4.198
+      },
+      {
+        "text": "não",
+        "start": 4.21,
+        "end": 4.354
+      },
+      {
+        "text": "deixou",
+        "start": 4.366,
+        "end": 4.739
+      },
+      {
+        "text": "descendentes",
+        "start": 4.751,
+        "end": 5.568
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
