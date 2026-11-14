@@ -1,7 +1,5 @@
 import { Composition } from "remotion";
 import { DinoSheet } from "./DinoSheet";
-import { AmphSheet } from "./AmphSheet";
-import { GerroSheet } from "./GerroSheet";
 import { BirdSheet } from "./BirdSheet";
 import { MainSequence } from "./MainSequence";
 import { Thumbnail } from "./Thumbnail";
@@ -12,10 +10,8 @@ import { DURATION } from "./utils/timing";
 export const RemotionRoot: React.FC = () => (
   <>
     <Composition id="DinoSheet" component={DinoSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
-    <Composition id="AmphSheet" component={AmphSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
-    <Composition id="GerroSheet" component={GerroSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="BirdSheet" component={BirdSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
-    <Composition id="Anfibio" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Passaros" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
     <Composition id="ThumbYouTube" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1280} height={720} defaultProps={{ layout: "horizontal" as const }} />
   </>

@@ -1,663 +1,497 @@
 {
   "s1": {
-    "text": "Dos mais de oito mil anfíbios que existem hoje, nenhum vive só no mar. Mas, há 237 milhões de anos, um vivia.",
-    "seconds": 8.572,
+    "text": "Em 2014, uns passarinhos nos Estados Unidos fugiram de uma tempestade um dia antes de ela chegar. O céu ainda estava limpo.",
+    "seconds": 8.028,
     "words": [
       {
-        "text": "Dos",
+        "text": "Em",
         "start": 0,
-        "end": 0.227
+        "end": 0.501
       },
       {
-        "text": "mais",
-        "start": 0.239,
-        "end": 0.504
+        "text": "2014",
+        "start": 0.501,
+        "end": 1.054
       },
       {
-        "text": "de",
-        "start": 0.516,
-        "end": 0.612
+        "text": "uns",
+        "start": 1.318,
+        "end": 1.45
       },
       {
-        "text": "oito",
-        "start": 0.624,
-        "end": 0.853
+        "text": "passarinhos",
+        "start": 1.463,
+        "end": 2.027
       },
       {
-        "text": "mil",
-        "start": 0.865,
-        "end": 1.045
+        "text": "nos",
+        "start": 2.039,
+        "end": 2.124
       },
       {
-        "text": "anfíbios",
-        "start": 1.057,
-        "end": 1.598
+        "text": "Estados",
+        "start": 2.136,
+        "end": 2.58
       },
       {
-        "text": "que",
-        "start": 1.61,
-        "end": 1.706
+        "text": "Unidos",
+        "start": 2.592,
+        "end": 3.025
       },
       {
-        "text": "existem",
-        "start": 1.718,
-        "end": 2.211
-      },
-      {
-        "text": "hoje",
-        "start": 2.223,
-        "end": 2.511
-      },
-      {
-        "text": "nenhum",
-        "start": 2.715,
-        "end": 3.1
-      },
-      {
-        "text": "vive",
-        "start": 3.112,
-        "end": 3.401
-      },
-      {
-        "text": "só",
-        "start": 3.413,
-        "end": 3.605
-      },
-      {
-        "text": "no",
-        "start": 3.617,
-        "end": 3.713
-      },
-      {
-        "text": "mar.",
-        "start": 3.725,
-        "end": 3.953
-      },
-      {
-        "text": "Mas",
-        "start": 4.781,
-        "end": 5.25
-      },
-      {
-        "text": "há",
-        "start": 5.442,
-        "end": 5.538
-      },
-      {
-        "text": "237",
-        "start": 5.55,
-        "end": 6.704
-      },
-      {
-        "text": "milhões",
-        "start": 6.716,
-        "end": 7.052
+        "text": "fugiram",
+        "start": 3.037,
+        "end": 3.434
       },
       {
         "text": "de",
-        "start": 7.064,
-        "end": 7.161
+        "start": 3.446,
+        "end": 3.518
       },
       {
-        "text": "anos",
-        "start": 7.173,
-        "end": 7.497
+        "text": "uma",
+        "start": 3.53,
+        "end": 3.662
+      },
+      {
+        "text": "tempestade",
+        "start": 3.674,
+        "end": 4.275
       },
       {
         "text": "um",
-        "start": 7.822,
-        "end": 7.966
+        "start": 4.287,
+        "end": 4.395
       },
       {
-        "text": "vivia",
-        "start": 7.978,
-        "end": 8.459
+        "text": "dia",
+        "start": 4.407,
+        "end": 4.672
+      },
+      {
+        "text": "antes",
+        "start": 4.684,
+        "end": 5.044
+      },
+      {
+        "text": "de",
+        "start": 5.056,
+        "end": 5.128
+      },
+      {
+        "text": "ela",
+        "start": 5.14,
+        "end": 5.285
+      },
+      {
+        "text": "chegar",
+        "start": 5.297,
+        "end": 5.693
+      },
+      {
+        "text": "O",
+        "start": 6.521,
+        "end": 6.641
+      },
+      {
+        "text": "céu",
+        "start": 6.653,
+        "end": 6.989
+      },
+      {
+        "text": "ainda",
+        "start": 7.001,
+        "end": 7.254
+      },
+      {
+        "text": "estava",
+        "start": 7.266,
+        "end": 7.554
+      },
+      {
+        "text": "limpo",
+        "start": 7.566,
+        "end": 7.927
       }
     ]
   },
   "s2": {
-    "text": "O problema é a pele, fina, ela deixa a água passar. No mar, o sal puxa a água do corpo, e o bicho desidrata.",
-    "seconds": 7.894,
+    "text": "Eles pesam uns dez gramas, e cientistas tinham colado neles minúsculos rastreadores.",
+    "seconds": 4.84,
     "words": [
       {
-        "text": "O",
+        "text": "Eles",
         "start": 0,
-        "end": 0.065
+        "end": 0.181
       },
       {
-        "text": "problema",
-        "start": 0.077,
-        "end": 0.594
+        "text": "pesam",
+        "start": 0.193,
+        "end": 0.554
       },
       {
-        "text": "é",
-        "start": 0.606,
-        "end": 0.714
+        "text": "uns",
+        "start": 0.566,
+        "end": 0.65
       },
       {
-        "text": "a",
-        "start": 0.726,
-        "end": 0.786
+        "text": "dez",
+        "start": 0.662,
+        "end": 0.915
       },
       {
-        "text": "pele",
-        "start": 0.798,
-        "end": 1.147
-      },
-      {
-        "text": "fina",
-        "start": 1.423,
-        "end": 1.748
-      },
-      {
-        "text": "ela",
-        "start": 1.928,
-        "end": 2.133
-      },
-      {
-        "text": "deixa",
-        "start": 2.145,
-        "end": 2.469
-      },
-      {
-        "text": "a",
-        "start": 2.481,
-        "end": 2.541
-      },
-      {
-        "text": "água",
-        "start": 2.553,
-        "end": 2.818
-      },
-      {
-        "text": "passar",
-        "start": 2.83,
-        "end": 3.238
-      },
-      {
-        "text": "No",
-        "start": 4.066,
-        "end": 4.234
-      },
-      {
-        "text": "mar",
-        "start": 4.246,
-        "end": 4.51
-      },
-      {
-        "text": "o",
-        "start": 4.823,
-        "end": 4.871
-      },
-      {
-        "text": "sal",
-        "start": 4.883,
-        "end": 5.171
-      },
-      {
-        "text": "puxa",
-        "start": 5.184,
-        "end": 5.496
-      },
-      {
-        "text": "a",
-        "start": 5.508,
-        "end": 5.544
-      },
-      {
-        "text": "água",
-        "start": 5.556,
-        "end": 5.857
-      },
-      {
-        "text": "do",
-        "start": 5.869,
-        "end": 5.965
-      },
-      {
-        "text": "corpo",
-        "start": 5.977,
-        "end": 6.373
+        "text": "gramas",
+        "start": 0.927,
+        "end": 1.395
       },
       {
         "text": "e",
-        "start": 6.614,
-        "end": 6.722
+        "start": 1.696,
+        "end": 1.756
       },
       {
-        "text": "o",
-        "start": 6.734,
-        "end": 6.794
+        "text": "cientistas",
+        "start": 1.768,
+        "end": 2.441
       },
       {
-        "text": "bicho",
-        "start": 6.806,
-        "end": 7.179
+        "text": "tinham",
+        "start": 2.453,
+        "end": 2.645
       },
       {
-        "text": "desidrata",
-        "start": 7.191,
-        "end": 7.804
+        "text": "colado",
+        "start": 2.657,
+        "end": 3.066
+      },
+      {
+        "text": "neles",
+        "start": 3.078,
+        "end": 3.355
+      },
+      {
+        "text": "minúsculos",
+        "start": 3.367,
+        "end": 3.943
+      },
+      {
+        "text": "rastreadores",
+        "start": 3.956,
+        "end": 4.761
       }
     ]
   },
   "s3": {
-    "text": "Na China, cientistas estudaram dois esqueletos quase completos. O bicho tinha quase um metro, era achatado e coberto de placas de osso.",
-    "seconds": 8.635,
+    "text": "Os dados mostraram, eles voaram mais de mil e quinhentos quilômetros em cinco dias, saíram do caminho dos tornados e depois voltaram.",
+    "seconds": 7.478,
     "words": [
       {
-        "text": "Na",
+        "text": "Os",
         "start": 0,
-        "end": 0.115
+        "end": 0.102
       },
       {
-        "text": "China",
-        "start": 0.127,
-        "end": 0.524
+        "text": "dados",
+        "start": 0.114,
+        "end": 0.463
       },
       {
-        "text": "cientistas",
-        "start": 0.752,
-        "end": 1.341
+        "text": "mostraram",
+        "start": 0.475,
+        "end": 1.04
       },
       {
-        "text": "estudaram",
-        "start": 1.353,
-        "end": 1.882
+        "text": "eles",
+        "start": 1.292,
+        "end": 1.497
       },
       {
-        "text": "dois",
-        "start": 1.894,
-        "end": 2.135
+        "text": "voaram",
+        "start": 1.509,
+        "end": 1.869
       },
       {
-        "text": "esqueletos",
-        "start": 2.147,
-        "end": 2.808
+        "text": "mais",
+        "start": 1.881,
+        "end": 2.134
       },
       {
-        "text": "quase",
-        "start": 2.82,
-        "end": 3.156
+        "text": "de",
+        "start": 2.146,
+        "end": 2.242
       },
       {
-        "text": "completos",
-        "start": 3.168,
-        "end": 3.877
-      },
-      {
-        "text": "O",
-        "start": 4.705,
-        "end": 4.825
-      },
-      {
-        "text": "bicho",
-        "start": 4.837,
-        "end": 5.198
-      },
-      {
-        "text": "tinha",
-        "start": 5.21,
-        "end": 5.438
-      },
-      {
-        "text": "quase",
-        "start": 5.45,
-        "end": 5.762
-      },
-      {
-        "text": "um",
-        "start": 5.775,
-        "end": 5.847
-      },
-      {
-        "text": "metro",
-        "start": 5.859,
-        "end": 6.231
-      },
-      {
-        "text": "era",
-        "start": 6.4,
-        "end": 6.508
-      },
-      {
-        "text": "achatado",
-        "start": 6.52,
-        "end": 6.988
+        "text": "mil",
+        "start": 2.254,
+        "end": 2.434
       },
       {
         "text": "e",
-        "start": 7.0,
-        "end": 7.024
+        "start": 2.446,
+        "end": 2.494
       },
       {
-        "text": "coberto",
-        "start": 7.037,
-        "end": 7.541
+        "text": "quinhentos",
+        "start": 2.506,
+        "end": 3.059
       },
       {
-        "text": "de",
-        "start": 7.553,
-        "end": 7.661
+        "text": "quilômetros",
+        "start": 3.071,
+        "end": 3.564
       },
       {
-        "text": "placas",
-        "start": 7.673,
-        "end": 8.082
+        "text": "em",
+        "start": 3.576,
+        "end": 3.744
       },
       {
-        "text": "de",
-        "start": 8.094,
-        "end": 8.214
+        "text": "cinco",
+        "start": 3.756,
+        "end": 4.105
       },
       {
-        "text": "osso",
-        "start": 8.226,
-        "end": 8.563
+        "text": "dias",
+        "start": 4.117,
+        "end": 4.537
+      },
+      {
+        "text": "saíram",
+        "start": 4.838,
+        "end": 5.21
+      },
+      {
+        "text": "do",
+        "start": 5.222,
+        "end": 5.319
+      },
+      {
+        "text": "caminho",
+        "start": 5.331,
+        "end": 5.691
+      },
+      {
+        "text": "dos",
+        "start": 5.703,
+        "end": 5.871
+      },
+      {
+        "text": "tornados",
+        "start": 5.884,
+        "end": 6.352
+      },
+      {
+        "text": "e",
+        "start": 6.364,
+        "end": 6.485
+      },
+      {
+        "text": "depois",
+        "start": 6.497,
+        "end": 6.869
+      },
+      {
+        "text": "voltaram",
+        "start": 6.881,
+        "end": 7.386
       }
     ]
   },
   "s4": {
-    "text": "O nome dele é Gerrothorax maritimus. Mas como saber que vivia no mar, e não foi só arrastado pra lá depois de morto?",
-    "seconds": 7.433,
+    "text": "Mas como eles sabiam? A pista mais provável é o infrassom, um som tão grave que a gente não escuta.",
+    "seconds": 6.527,
     "words": [
       {
-        "text": "O",
-        "start": 0,
-        "end": 0.051
-      },
-      {
-        "text": "nome",
-        "start": 0.063,
-        "end": 0.352
-      },
-      {
-        "text": "dele",
-        "start": 0.364,
-        "end": 0.604
-      },
-      {
-        "text": "é",
-        "start": 0.616,
-        "end": 0.652
-      },
-      {
-        "text": "Gerrothorax",
-        "start": 0.664,
-        "end": 1.325
-      },
-      {
-        "text": "maritimus",
-        "start": 1.337,
-        "end": 2.034
-      },
-      {
         "text": "Mas",
-        "start": 2.862,
-        "end": 3.15
+        "start": 0,
+        "end": 0.234
       },
       {
         "text": "como",
-        "start": 3.162,
-        "end": 3.427
+        "start": 0.246,
+        "end": 0.594
       },
       {
-        "text": "saber",
-        "start": 3.439,
-        "end": 3.799
+        "text": "eles",
+        "start": 0.606,
+        "end": 0.786
+      },
+      {
+        "text": "sabiam",
+        "start": 0.798,
+        "end": 1.291
+      },
+      {
+        "text": "A",
+        "start": 2.119,
+        "end": 2.251
+      },
+      {
+        "text": "pista",
+        "start": 2.263,
+        "end": 2.563
+      },
+      {
+        "text": "mais",
+        "start": 2.575,
+        "end": 2.804
+      },
+      {
+        "text": "provável",
+        "start": 2.816,
+        "end": 3.345
+      },
+      {
+        "text": "é",
+        "start": 3.357,
+        "end": 3.393
+      },
+      {
+        "text": "o",
+        "start": 3.405,
+        "end": 3.441
+      },
+      {
+        "text": "infrassom",
+        "start": 3.453,
+        "end": 3.994
+      },
+      {
+        "text": "um",
+        "start": 4.33,
+        "end": 4.462
+      },
+      {
+        "text": "som",
+        "start": 4.474,
+        "end": 4.751
+      },
+      {
+        "text": "tão",
+        "start": 4.763,
+        "end": 4.955
+      },
+      {
+        "text": "grave",
+        "start": 4.967,
+        "end": 5.352
       },
       {
         "text": "que",
-        "start": 3.811,
-        "end": 3.919
+        "start": 5.364,
+        "end": 5.448
       },
       {
-        "text": "vivia",
-        "start": 3.932,
-        "end": 4.256
+        "text": "a",
+        "start": 5.46,
+        "end": 5.52
       },
       {
-        "text": "no",
-        "start": 4.268,
-        "end": 4.376
-      },
-      {
-        "text": "mar",
-        "start": 4.388,
-        "end": 4.641
-      },
-      {
-        "text": "e",
-        "start": 4.917,
-        "end": 4.977
+        "text": "gente",
+        "start": 5.532,
+        "end": 5.809
       },
       {
         "text": "não",
-        "start": 4.989,
-        "end": 5.218
+        "start": 5.821,
+        "end": 5.989
       },
       {
-        "text": "foi",
-        "start": 5.23,
-        "end": 5.398
-      },
-      {
-        "text": "só",
-        "start": 5.41,
-        "end": 5.614
-      },
-      {
-        "text": "arrastado",
-        "start": 5.626,
-        "end": 6.131
-      },
-      {
-        "text": "pra",
-        "start": 6.143,
-        "end": 6.323
-      },
-      {
-        "text": "lá",
-        "start": 6.335,
-        "end": 6.468
-      },
-      {
-        "text": "depois",
-        "start": 6.48,
-        "end": 6.84
-      },
-      {
-        "text": "de",
-        "start": 6.852,
-        "end": 6.924
-      },
-      {
-        "text": "morto",
-        "start": 6.936,
-        "end": 7.345
+        "text": "escuta",
+        "start": 6.001,
+        "end": 6.446
       }
     ]
   },
   "s5": {
-    "text": "As rochas onde ele estava se formaram longe de qualquer terra, junto com ictiossauros, répteis marinhos.",
-    "seconds": 5.691,
+    "text": "Tempestades fortes fazem o ar vibrar bem devagar, e esse som grave viaja centenas de quilômetros.",
+    "seconds": 5.638,
     "words": [
       {
-        "text": "As",
+        "text": "Tempestades",
         "start": 0,
-        "end": 0.144
+        "end": 0.621
       },
       {
-        "text": "rochas",
-        "start": 0.156,
-        "end": 0.505
+        "text": "fortes",
+        "start": 0.633,
+        "end": 1.078
       },
       {
-        "text": "onde",
-        "start": 0.517,
-        "end": 0.781
+        "text": "fazem",
+        "start": 1.09,
+        "end": 1.414
       },
       {
-        "text": "ele",
-        "start": 0.793,
-        "end": 0.89
+        "text": "o",
+        "start": 1.426,
+        "end": 1.487
       },
       {
-        "text": "estava",
-        "start": 0.902,
-        "end": 1.202
+        "text": "ar",
+        "start": 1.499,
+        "end": 1.631
       },
       {
-        "text": "se",
-        "start": 1.214,
-        "end": 1.334
+        "text": "vibrar",
+        "start": 1.643,
+        "end": 1.967
       },
       {
-        "text": "formaram",
-        "start": 1.346,
-        "end": 1.755
+        "text": "bem",
+        "start": 1.979,
+        "end": 2.196
       },
       {
-        "text": "longe",
-        "start": 1.767,
-        "end": 2.068
+        "text": "devagar",
+        "start": 2.208,
+        "end": 2.676
+      },
+      {
+        "text": "e",
+        "start": 3.013,
+        "end": 3.073
+      },
+      {
+        "text": "esse",
+        "start": 3.085,
+        "end": 3.265
+      },
+      {
+        "text": "som",
+        "start": 3.277,
+        "end": 3.446
+      },
+      {
+        "text": "grave",
+        "start": 3.458,
+        "end": 3.782
+      },
+      {
+        "text": "viaja",
+        "start": 3.794,
+        "end": 4.179
+      },
+      {
+        "text": "centenas",
+        "start": 4.191,
+        "end": 4.744
       },
       {
         "text": "de",
-        "start": 2.079,
-        "end": 2.164
+        "start": 4.756,
+        "end": 4.852
       },
       {
-        "text": "qualquer",
-        "start": 2.176,
-        "end": 2.548
-      },
-      {
-        "text": "terra",
-        "start": 2.56,
-        "end": 2.897
-      },
-      {
-        "text": "junto",
-        "start": 3.173,
-        "end": 3.474
-      },
-      {
-        "text": "com",
-        "start": 3.486,
-        "end": 3.642
-      },
-      {
-        "text": "ictiossauros",
-        "start": 3.654,
-        "end": 4.363
-      },
-      {
-        "text": "répteis",
-        "start": 4.579,
-        "end": 5.0
-      },
-      {
-        "text": "marinhos",
-        "start": 5.012,
-        "end": 5.601
+        "text": "quilômetros",
+        "start": 4.864,
+        "end": 5.549
       }
     ]
   },
   "s6": {
-    "text": "E a prova química, o estrôncio dos ossos tem a assinatura da água do mar daquela época.",
-    "seconds": 4.872,
-    "words": [
-      {
-        "text": "E",
-        "start": 0,
-        "end": 0.049
-      },
-      {
-        "text": "a",
-        "start": 0.061,
-        "end": 0.157
-      },
-      {
-        "text": "prova",
-        "start": 0.169,
-        "end": 0.518
-      },
-      {
-        "text": "química",
-        "start": 0.53,
-        "end": 0.963
-      },
-      {
-        "text": "o",
-        "start": 1.263,
-        "end": 1.347
-      },
-      {
-        "text": "estrôncio",
-        "start": 1.359,
-        "end": 1.828
-      },
-      {
-        "text": "dos",
-        "start": 1.84,
-        "end": 1.936
-      },
-      {
-        "text": "ossos",
-        "start": 1.948,
-        "end": 2.381
-      },
-      {
-        "text": "tem",
-        "start": 2.393,
-        "end": 2.537
-      },
-      {
-        "text": "a",
-        "start": 2.549,
-        "end": 2.585
-      },
-      {
-        "text": "assinatura",
-        "start": 2.597,
-        "end": 3.162
-      },
-      {
-        "text": "da",
-        "start": 3.174,
-        "end": 3.282
-      },
-      {
-        "text": "água",
-        "start": 3.294,
-        "end": 3.583
-      },
-      {
-        "text": "do",
-        "start": 3.595,
-        "end": 3.691
-      },
-      {
-        "text": "mar",
-        "start": 3.703,
-        "end": 3.931
-      },
-      {
-        "text": "daquela",
-        "start": 3.944,
-        "end": 4.352
-      },
-      {
-        "text": "época",
-        "start": 4.364,
-        "end": 4.773
-      }
-    ]
-  },
-  "s7": {
-    "text": "A hipótese é que a armadura segurava a água dentro do corpo, e que ele vivia no fundo, sugando as presas.",
-    "seconds": 5.947,
+    "text": "A gente não ouve abaixo de umas vinte vibrações por segundo. Algumas aves percebem sons bem mais graves.",
+    "seconds": 6.566,
     "words": [
       {
         "text": "A",
@@ -665,170 +499,261 @@
         "end": 0.067
       },
       {
-        "text": "hipótese",
+        "text": "gente",
         "start": 0.079,
-        "end": 0.596
+        "end": 0.416
       },
       {
-        "text": "é",
-        "start": 0.608,
-        "end": 0.668
+        "text": "não",
+        "start": 0.428,
+        "end": 0.572
       },
       {
-        "text": "que",
-        "start": 0.68,
+        "text": "ouve",
+        "start": 0.584,
         "end": 0.776
       },
       {
-        "text": "a",
+        "text": "abaixo",
         "start": 0.788,
-        "end": 0.8
+        "end": 1.257
       },
       {
-        "text": "armadura",
-        "start": 0.812,
-        "end": 1.293
+        "text": "de",
+        "start": 1.269,
+        "end": 1.329
       },
       {
-        "text": "segurava",
-        "start": 1.305,
-        "end": 1.87
+        "text": "umas",
+        "start": 1.341,
+        "end": 1.57
       },
       {
-        "text": "a",
-        "start": 1.882,
-        "end": 1.918
+        "text": "vinte",
+        "start": 1.582,
+        "end": 1.858
       },
       {
-        "text": "água",
-        "start": 1.93,
-        "end": 2.231
+        "text": "vibrações",
+        "start": 1.87,
+        "end": 2.411
       },
       {
-        "text": "dentro",
-        "start": 2.243,
-        "end": 2.555
+        "text": "por",
+        "start": 2.423,
+        "end": 2.567
       },
       {
-        "text": "do",
-        "start": 2.567,
-        "end": 2.663
+        "text": "segundo",
+        "start": 2.579,
+        "end": 3.048
       },
       {
-        "text": "corpo",
-        "start": 2.675,
-        "end": 3.06
+        "text": "Algumas",
+        "start": 3.875,
+        "end": 4.26
       },
       {
-        "text": "e",
-        "start": 3.433,
-        "end": 3.505
+        "text": "aves",
+        "start": 4.272,
+        "end": 4.585
       },
       {
-        "text": "que",
-        "start": 3.517,
-        "end": 3.613
+        "text": "percebem",
+        "start": 4.597,
+        "end": 5.101
       },
       {
-        "text": "ele",
-        "start": 3.625,
-        "end": 3.745
+        "text": "sons",
+        "start": 5.113,
+        "end": 5.462
       },
       {
-        "text": "vivia",
-        "start": 3.757,
-        "end": 4.082
+        "text": "bem",
+        "start": 5.474,
+        "end": 5.678
       },
       {
-        "text": "no",
-        "start": 4.094,
-        "end": 4.202
+        "text": "mais",
+        "start": 5.69,
+        "end": 5.907
       },
       {
-        "text": "fundo",
-        "start": 4.214,
-        "end": 4.574
+        "text": "graves",
+        "start": 5.919,
+        "end": 6.472
+      }
+    ]
+  },
+  "s7": {
+    "text": "Ninguém mediu o som daquela tempestade, então ainda é hipótese. Mas os pássaros fugiram antes de tudo.",
+    "seconds": 6.71,
+    "words": [
+      {
+        "text": "Ninguém",
+        "start": 0,
+        "end": 0.373
       },
       {
-        "text": "sugando",
-        "start": 4.839,
-        "end": 5.199
+        "text": "mediu",
+        "start": 0.385,
+        "end": 0.685
       },
       {
-        "text": "as",
-        "start": 5.211,
-        "end": 5.332
+        "text": "o",
+        "start": 0.697,
+        "end": 0.733
       },
       {
-        "text": "presas",
-        "start": 5.344,
-        "end": 5.861
+        "text": "som",
+        "start": 0.745,
+        "end": 0.95
+      },
+      {
+        "text": "daquela",
+        "start": 0.962,
+        "end": 1.298
+      },
+      {
+        "text": "tempestade",
+        "start": 1.31,
+        "end": 2.007
+      },
+      {
+        "text": "então",
+        "start": 2.224,
+        "end": 2.656
+      },
+      {
+        "text": "ainda",
+        "start": 2.668,
+        "end": 2.981
+      },
+      {
+        "text": "é",
+        "start": 2.993,
+        "end": 3.077
+      },
+      {
+        "text": "hipótese",
+        "start": 3.089,
+        "end": 3.702
+      },
+      {
+        "text": "Mas",
+        "start": 4.53,
+        "end": 4.734
+      },
+      {
+        "text": "os",
+        "start": 4.746,
+        "end": 4.926
+      },
+      {
+        "text": "pássaros",
+        "start": 4.938,
+        "end": 5.419
+      },
+      {
+        "text": "fugiram",
+        "start": 5.431,
+        "end": 5.864
+      },
+      {
+        "text": "antes",
+        "start": 5.876,
+        "end": 6.164
+      },
+      {
+        "text": "de",
+        "start": 6.176,
+        "end": 6.308
+      },
+      {
+        "text": "tudo",
+        "start": 6.32,
+        "end": 6.621
       }
     ]
   },
   "s8": {
-    "text": "Pronto, agora você sabe. O único anfíbio marinho conhecido não deixou descendentes.",
-    "seconds": 5.66,
+    "text": "Pronto, agora você sabe. Enquanto o céu parece calmo, a tempestade já está fazendo barulho.",
+    "seconds": 6.266,
     "words": [
       {
         "text": "Pronto",
         "start": 0,
-        "end": 0.33
+        "end": 0.331
       },
       {
         "text": "agora",
-        "start": 0.594,
-        "end": 0.931
+        "start": 0.595,
+        "end": 0.932
       },
       {
         "text": "você",
-        "start": 0.943,
-        "end": 1.171
+        "start": 0.944,
+        "end": 1.172
       },
       {
         "text": "sabe",
-        "start": 1.183,
-        "end": 1.604
+        "start": 1.184,
+        "end": 1.605
       },
       {
-        "text": "O",
-        "start": 2.431,
-        "end": 2.515
+        "text": "Enquanto",
+        "start": 2.432,
+        "end": 2.877
       },
       {
-        "text": "único",
-        "start": 2.527,
-        "end": 2.852
+        "text": "o",
+        "start": 2.889,
+        "end": 2.913
       },
       {
-        "text": "anfíbio",
-        "start": 2.864,
-        "end": 3.284
+        "text": "céu",
+        "start": 2.925,
+        "end": 3.129
       },
       {
-        "text": "marinho",
-        "start": 3.297,
-        "end": 3.669
+        "text": "parece",
+        "start": 3.141,
+        "end": 3.514
       },
       {
-        "text": "conhecido",
-        "start": 3.681,
-        "end": 4.198
+        "text": "calmo",
+        "start": 3.526,
+        "end": 3.898
       },
       {
-        "text": "não",
-        "start": 4.21,
-        "end": 4.354
+        "text": "a",
+        "start": 4.139,
+        "end": 4.223
       },
       {
-        "text": "deixou",
-        "start": 4.366,
-        "end": 4.739
+        "text": "tempestade",
+        "start": 4.235,
+        "end": 4.884
       },
       {
-        "text": "descendentes",
-        "start": 4.751,
-        "end": 5.568
+        "text": "já",
+        "start": 4.896,
+        "end": 5.028
+      },
+      {
+        "text": "está",
+        "start": 5.04,
+        "end": 5.233
+      },
+      {
+        "text": "fazendo",
+        "start": 5.245,
+        "end": 5.653
+      },
+      {
+        "text": "barulho",
+        "start": 5.665,
+        "end": 6.146
       }
     ]
   },

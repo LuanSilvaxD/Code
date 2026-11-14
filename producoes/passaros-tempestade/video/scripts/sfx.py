@@ -736,4 +736,30 @@ def bunny_hop(d=0.35):
 save("seed-pop", seed_pop())
 save("bunny-hop", bunny_hop())
 
+
+def bird_chirp(d=0.9):
+    """canto curto de passarinho: 3 notas agudas com glissando."""
+    t = tt(d)
+    x = np.zeros(len(t))
+    for k, (t0, f0, f1) in enumerate([(0.0, 5200, 6800), (0.18, 6000, 4800), (0.36, 5600, 7200)]):
+        i = int(t0 * SR); m = int(0.12 * SR)
+        tk = np.arange(m) / SR
+        f = np.linspace(f0, f1, m)
+        x[i:i + m] += np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * tk / 0.12) * 0.35
+    return x
+
+
+def wing_flap(d=0.8, n=7):
+    """bater de asas: sopros curtos ritmados."""
+    t = tt(d)
+    x = np.zeros(len(t))
+    for k in range(n):
+        i = int(k * d / n * SR); m = int(0.05 * SR)
+        x[i:i + m] += bp(rng.standard_normal(m), 400, 2500) * np.hanning(m) * 0.6
+    return x
+
+
+save("bird-chirp", bird_chirp())
+save("wing-flap", wing_flap())
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))
