@@ -36,7 +36,7 @@ export const loft = (keys: Key[], color: (x: number, ang: number, u: number) => 
       const yy = Math.sign(c) * Math.pow(Math.abs(c), e) * q.h;
       const zz = Math.sign(s) * Math.pow(Math.abs(s), e) * q.w;
       pos.push(x, q.y + yy, zc + zz);
-      const cc = color(x, a, u).clone().convertSRGBToLinear();
+      const cc = color(x, a, u);
       col.push(cc.r, cc.g, cc.b);
     }
   }
@@ -46,7 +46,7 @@ export const loft = (keys: Key[], color: (x: number, ang: number, u: number) => 
       const b = i * nR + ((j + 1) % nR);
       const c = (i + 1) * nR + j;
       const d = (i + 1) * nR + ((j + 1) % nR);
-      idx.push(a, c, b, b, c, d);
+      idx.push(a, b, c, b, d, c);
     }
   const g = new BufferGeometry();
   g.setAttribute("position", new BufferAttribute(new Float32Array(pos), 3));
@@ -59,225 +59,260 @@ export const loft = (keys: Key[], color: (x: number, ang: number, u: number) => 
 const C = (h: string) => new Color(h);
 const M = { roughness: 0.75, metalness: 0, flatShading: true } as const;
 
-/* ------------------------------------------------------------------ GERROTHORAX */
+/* ------------------------------------------------------------------ GERROTHORAX (v2) */
 
-export const GERRO = { back: "#56603e", back2: "#343c26", belly: "#c9bf92", scute: "#6e7248", scuteDark: "#3e4228", eye: "#f2b23a", gill: "#d86a6a" };
+export const GERRO = { back: "#5b5a3a", back2: "#3a3a24", blotch: "#2e2e1c", belly: "#d6c99a", lip: "#8a7e52", plate: "#6a6646", plateDark: "#4a4830", eye: "#e8a62a", gill: "#b8605a", gillTip: "#e09080" };
+// Corpo: cabeça em meia-lua mais larga que longa, pescoço mais estreito, ombros, cintura, quadril e cauda achatada lateralmente (remo).
 const GKEYS: Key[] = [
-  { x: -0.46, y: 0.05, w: 0.01, h: 0.012, sq: 2 },
-  { x: -0.36, y: 0.05, w: 0.035, h: 0.03, sq: 2.2 },
-  { x: -0.24, y: 0.055, w: 0.09, h: 0.045, sq: 2.8 },
-  { x: -0.1, y: 0.06, w: 0.15, h: 0.06, sq: 3.2 },
-  { x: 0.05, y: 0.06, w: 0.165, h: 0.062, sq: 3.4 },
-  { x: 0.13, y: 0.055, w: 0.18, h: 0.052, sq: 3.6 },
-  { x: 0.2, y: 0.05, w: 0.245, h: 0.045, sq: 4 },
-  { x: 0.3, y: 0.048, w: 0.25, h: 0.042, sq: 4 },
-  { x: 0.38, y: 0.045, w: 0.22, h: 0.036, sq: 3.6 },
-  { x: 0.43, y: 0.042, w: 0.15, h: 0.03, sq: 3 },
-  { x: 0.455, y: 0.04, w: 0.06, h: 0.02, sq: 2.4 },
+  { x: -0.48, y: 0.06, w: 0.004, h: 0.012, sq: 2 },
+  { x: -0.43, y: 0.062, w: 0.007, h: 0.04, sq: 2 },
+  { x: -0.35, y: 0.064, w: 0.016, h: 0.058, sq: 2.1 },
+  { x: -0.27, y: 0.064, w: 0.045, h: 0.06, sq: 2.3 },
+  { x: -0.2, y: 0.066, w: 0.105, h: 0.064, sq: 2.6 },
+  { x: -0.15, y: 0.066, w: 0.125, h: 0.066, sq: 2.8 },
+  { x: -0.07, y: 0.064, w: 0.112, h: 0.06, sq: 2.8 },
+  { x: 0.03, y: 0.066, w: 0.135, h: 0.066, sq: 2.9 },
+  { x: 0.1, y: 0.062, w: 0.125, h: 0.056, sq: 3 },
+  { x: 0.15, y: 0.058, w: 0.19, h: 0.05, sq: 3.4 },
+  { x: 0.21, y: 0.055, w: 0.235, h: 0.046, sq: 3.8 },
+  { x: 0.28, y: 0.052, w: 0.232, h: 0.043, sq: 3.8 },
+  { x: 0.35, y: 0.049, w: 0.2, h: 0.038, sq: 3.6 },
+  { x: 0.41, y: 0.046, w: 0.14, h: 0.031, sq: 3.2 },
+  { x: 0.445, y: 0.043, w: 0.075, h: 0.024, sq: 2.8 },
+  { x: 0.46, y: 0.042, w: 0.02, h: 0.014, sq: 2.4 },
 ];
+const gTop = (x: number, z: number) => {
+  const q = sampleKeys(GKEYS, x);
+  const e = Math.min(1, Math.abs(z) / q.w);
+  return q.y + q.h * Math.pow(Math.max(0, 1 - Math.pow(e, q.sq)), 1 / q.sq);
+};
 
-/** Gerrothorax maritimus (~0,9 m). swim 0..1 ondula a cauda; armor 0..1 acende as placas; mouth 0..1 abre a boca;
- *  gills 0..1 brânquias externas (o gênero tinha; incerto na espécie); ghost 0..1 vira silhueta escura. */
+/** Gerrothorax maritimus (~0,94 m), v2. swim 0..1 ondula a cauda-remo; armor 0..1 mostra as fileiras de placas;
+ *  mouth 0..1 abre a boca; gills 0..1 brânquias externas (o gênero tinha; incerto na espécie); ghost 0..1 silhueta. */
 export const Gerrothorax: React.FC<{ f: number; swim?: number; armor?: number; mouth?: number; gills?: number; ghost?: number }> = ({ f, swim = 0, armor = 1, mouth = 0, gills = 1, ghost = 0 }) => {
-  const ph = f * 0.18;
-  const tailK = swim * 0.06;
+  const ph = f * 0.16;
+  const tailA = swim * 0.07;
+  const bend = (x: number) => (x < -0.12 ? Math.sin(ph - x * 9) * tailA * Math.pow((-0.12 - x) / 0.36, 1.6) : 0);
   const geo = useMemo(() => {
     const back = C(GERRO.back);
     const back2 = C(GERRO.back2);
+    const blotch = C(GERRO.blotch);
     const belly = C(GERRO.belly);
-    return loft(GKEYS, (x, a) => {
-      const top = Math.cos(a); // 1 topo, -1 barriga
-      if (top < -0.35) return belly.clone();
-      const spot = rand(`gs${Math.round(x * 40)}${Math.round(a * 4)}`) > 0.72;
-      const c = back.clone().lerp(back2, spot ? 0.75 : 0.2 + 0.15 * Math.sin(x * 30));
-      return top < 0.0 ? c.lerp(belly, 0.25 * (-top / 0.35)) : c;
-    }, 80, 24, (x) => (x < -0.08 ? Math.sin(ph - x * 10) * tailK * Math.pow((-0.08 - x) / 0.38, 1.5) : 0));
-  }, [ph, tailK]);
-  // ARMADURA (v2): mosaico de placas grandes e esculpidas no crânio, fileiras de osteodermos no dorso
-  // (fileira do meio maior, laterais menores), espinhos na borda e sulcos da linha lateral na cabeça.
-  const surfY = (x: number, z: number) => {
-    const q = sampleKeys(GKEYS, x);
-    const edge = Math.min(1, Math.abs(z) / q.w);
-    return q.y + q.h * Math.pow(Math.max(0, 1 - Math.pow(edge, 4)), 0.25);
-  };
-  const scutes = useMemo(() => {
-    type Sc = { p: Vec3; s: number; r: number; dark: boolean; tub: number; head: boolean; sides: number };
-    const out: Sc[] = [];
-    // crânio: placas poligonais grandes com jitter, evitando as órbitas
-    for (let ix = 0; ix < 9; ix++)
-      for (let iz = -6; iz <= 6; iz++) {
-        const x = 0.165 + ix * 0.032 + (rand(`hx${ix}${iz}`) - 0.5) * 0.01;
-        const q = sampleKeys(GKEYS, x);
-        const z = iz * 0.036 + (ix % 2) * 0.018 + (rand(`hz${ix}${iz}`) - 0.5) * 0.01;
-        if (Math.abs(z) > q.w * 0.86) continue;
-        if (Math.hypot(x - 0.29, Math.abs(z) - 0.075) < 0.04) continue;
-        out.push({ p: [x, surfY(x, z) - 0.003, z], s: 0.016 + rand(`hs${ix}${iz}`) * 0.006, r: rand(`hr${ix}${iz}`) * Math.PI, dark: rand(`hd${ix}${iz}`) > 0.7, tub: 0.2, head: true, sides: 5 + Math.floor(rand(`hn${ix}${iz}`) * 3) });
-      }
-    // dorso: fileiras de osteodermos
-    for (let ix = 0; ix < 15; ix++) {
-      const x = -0.235 + ix * 0.027;
+    const lip = C(GERRO.lip);
+    return loft(
+      GKEYS,
+      (x, a) => {
+        const top = Math.cos(a);
+        if (top < -0.3) return belly.clone();
+        const n = rand(`gb${Math.round(x * 22)}${Math.round(Math.sin(a) * 6)}`);
+        let c = back.clone().lerp(back2, 0.25 + 0.25 * Math.sin(x * 18 + a));
+        if (n > 0.78) c = c.lerp(blotch, 0.65);
+        if (x > 0.15 && top < 0.15 && top > -0.3) c = c.lerp(lip, 0.5);
+        return top < 0.05 ? c.lerp(belly, 0.3 * ((0.05 - top) / 0.35)) : c;
+      },
+      96,
+      28,
+      bend,
+    );
+  }, [ph, tailA]);
+  // fileiras de placas só no dorso: central maior, paramedianas médias, laterais pequenas
+  const plates = useMemo(() => {
+    const out: { p: Vec3; sx: number; sz: number; dark: boolean }[] = [];
+    for (let i = 0; i < 13; i++) {
+      const x = -0.22 + i * 0.027;
       const q = sampleKeys(GKEYS, x);
-      const rows = Math.max(1, Math.round((q.w * 1.7) / 0.032));
-      for (let iz = 0; iz <= rows; iz++) {
-        const t = rows === 0 ? 0.5 : iz / rows;
-        const z = (t - 0.5) * q.w * 1.7 + (ix % 2 ? 0.008 : -0.008);
-        const mid = 1 - Math.min(1, Math.abs(z) / (q.w * 0.85));
-        out.push({ p: [x + (rand(`bx${ix}${iz}`) - 0.5) * 0.008, surfY(x, z) - 0.002, z], s: 0.009 + 0.009 * mid + rand(`bs${ix}${iz}`) * 0.003, r: rand(`br${ix}${iz}`) * Math.PI, dark: rand(`bd${ix}${iz}`) > 0.55, tub: 0.5 + 0.8 * mid * rand(`bt${ix}${iz}`), head: false, sides: 6 });
-      }
+      [
+        { z: 0, s: 0.017 },
+        { z: 0.32, s: 0.013 },
+        { z: -0.32, s: 0.013 },
+        { z: 0.6, s: 0.009 },
+        { z: -0.6, s: 0.009 },
+      ].forEach((r, j) => {
+        const z = r.z * q.w;
+        out.push({ p: [x, gTop(x, z) - 0.002, z], sx: r.s * (1 + 0.15 * rand(`pl${i}${j}`)), sz: r.s * 0.8, dark: (i + j) % 3 === 0 });
+      });
     }
     return out;
   }, []);
-  const spikes = useMemo(() => {
-    const out: { p: Vec3; ang: number; s: number }[] = [];
-    for (let i = 0; i < 18; i++) {
-      const x = -0.3 + i * 0.03;
+  // placas do crânio: poucas, grandes e de baixo contraste
+  const skull = useMemo(() => {
+    const out: { p: Vec3; s: number; r: number; n: number }[] = [];
+    for (let i = 0; i < 26; i++) {
+      const x = 0.17 + rand(`skx${i}`) * 0.26;
       const q = sampleKeys(GKEYS, x);
-      [-1, 1].forEach((z) => out.push({ p: [x, q.y + q.h * 0.15, z * q.w * 0.98], ang: z, s: 0.008 + rand(`sp${i}${z}`) * 0.006 }));
+      const z = (rand(`skz${i}`) - 0.5) * q.w * 1.6;
+      if (Math.hypot(x - 0.27, Math.abs(z) - 0.08) < 0.05) continue;
+      out.push({ p: [x, gTop(x, z) - 0.0015, z], s: 0.02 + rand(`sks${i}`) * 0.012, r: rand(`skr${i}`) * 3, n: 5 + Math.floor(rand(`skn${i}`) * 3) });
     }
     return out;
+  }, []);
+  // lábio: contorno da cabeça um pouco abaixo da linha lateral
+  const lipCurve = useMemo(() => {
+    const pts: Vector3[] = [];
+    for (let i = 0; i <= 40; i++) {
+      const t = i / 40;
+      const x = 0.16 + (0.455 - 0.16) * Math.sin(t * Math.PI);
+      const side = t < 0.5 ? 1 : -1;
+      const q = sampleKeys(GKEYS, x);
+      pts.push(new Vector3(x, q.y - q.h * 0.25, side * q.w * 0.985 * (t === 0.5 ? 0 : 1)));
+    }
+    return new CatmullRomCurve3(pts);
   }, []);
   const grooves = useMemo(() => {
-    const mk = (pts: [number, number][]) => new CatmullRomCurve3(pts.map(([x, z]) => new Vector3(x, surfY(x, z) + 0.003, z)));
-    return [1, -1].flatMap((sd) => [
-      mk([[0.2, sd * 0.06], [0.27, sd * 0.13], [0.36, sd * 0.17], [0.42, sd * 0.1], [0.44, sd * 0.02]]),
-      mk([[0.18, sd * 0.16], [0.24, sd * 0.2], [0.3, sd * 0.22]]),
-    ]);
+    const mk = (pts: [number, number][]) => new CatmullRomCurve3(pts.map(([x, z]) => new Vector3(x, gTop(x, z) + 0.0015, z)));
+    return [1, -1].map((sd) => mk([[0.2, sd * 0.13], [0.27, sd * 0.16], [0.35, sd * 0.14], [0.41, sd * 0.07]]));
   }, []);
   const k = clamp(armor, 0, 1);
-  const sc = C(GERRO.scute);
-  const sd = C(GERRO.scuteDark);
+  const G = ghost > 0.5;
   const ghostC = "#0e1424";
-  const mat = (c: string) => (ghost > 0.5 ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial color={c} {...M} />);
+  const mat = (c: string, rough = 0.8) => (G ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial color={c} roughness={rough} flatShading />);
+  const limb = (x: number, z: number, big: number, i: number) => {
+    const q = sampleKeys(GKEYS, x);
+    const st = Math.sin(ph + i * 1.7) * 0.3 * swim;
+    return (
+      <group key={`limb${i}`} position={[x, 0.05, z * q.w * 0.92]} rotation={[0, z * (0.25 + st) - (x < 0 ? 0.35 * z : -0.2 * z), 0]}>
+        {/* braço/coxa: sai para o lado e desce */}
+        <group rotation={[z * 0.55, 0, 0]}>
+          <mesh position={[0, 0, z * 0.035 * big]} rotation={[Math.PI / 2, 0, 0]} scale={[0.026 * big, 0.075 * big, 0.022 * big]}>
+            <cylinderGeometry args={[1, 0.75, 1, 8]} />
+            {mat(GERRO.back)}
+          </mesh>
+          {/* antebraço/canela: dobra para baixo */}
+          <group position={[0, 0, z * 0.072 * big]} rotation={[-z * 1.0, 0, 0]}>
+            <mesh position={[0, 0, z * 0.025 * big]} rotation={[Math.PI / 2, 0, 0]} scale={[0.018 * big, 0.055 * big, 0.016 * big]}>
+              <cylinderGeometry args={[1, 0.8, 1, 8]} />
+              {mat(GERRO.back2)}
+            </mesh>
+            {/* mão/pé com membrana */}
+            <group position={[0.006, 0, z * 0.052 * big]} rotation={[z * 0.5, 0, 0]}>
+              <mesh scale={[0.03 * big, 0.004, 0.026 * big]}>
+                <sphereGeometry args={[1, 10, 6]} />
+                {mat(GERRO.back2)}
+              </mesh>
+              {[-1.2, -0.4, 0.4, 1.2].map((d) => (
+                <mesh key={d} position={[Math.cos(d * 0.5) * 0.03 * big, -0.001, z * (0.012 + Math.abs(d) * 0.004) * big + Math.sin(d * 0.5) * 0.02 * big]} rotation={[0, -d * 0.45, 0]} scale={[0.022 * big, 0.005, 0.006 * big]}>
+                  <sphereGeometry args={[1, 8, 4]} />
+                  {mat(GERRO.back)}
+                </mesh>
+              ))}
+            </group>
+          </group>
+        </group>
+      </group>
+    );
+  };
   return (
     <group>
       <mesh geometry={geo} castShadow receiveShadow>
-        {ghost > 0.5 ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial vertexColors {...M} />}
+        {G ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial vertexColors roughness={0.72} flatShading />}
       </mesh>
-      {/* placas de osso (armadura) */}
-      {k > 0.01 && ghost < 0.5
-        ? scutes.map((q, i) => (
-            <group key={i} position={q.p} rotation={[0, q.r, 0]} scale={k}>
-              <mesh scale={[q.s * 1.1, q.head ? 0.005 : 0.006, q.s]}>
-                <cylinderGeometry args={[1, 1.12, 1, q.sides]} />
-                <meshStandardMaterial color={q.dark ? sd : sc} roughness={0.95} flatShading />
-              </mesh>
-              {q.head ? (
-                [0, 1, 2].map((j) => (
-                  <mesh key={j} position={[Math.cos(j * 2.1) * q.s * 0.45, 0.003, Math.sin(j * 2.1) * q.s * 0.45]} scale={[q.s * 0.18, 0.002, q.s * 0.18]}>
-                    <cylinderGeometry args={[1, 1, 1, 5]} />
-                    <meshStandardMaterial color="#262a18" roughness={1} />
-                  </mesh>
-                ))
-              ) : (
-                <mesh position={[0, 0.003 + q.s * 0.15 * q.tub, 0]} scale={[q.s * 0.42, q.s * 0.5 * q.tub, q.s * 0.42]}>
-                  <coneGeometry args={[1, 1, 6]} />
-                  <meshStandardMaterial color={q.dark ? sc : sd} roughness={0.9} flatShading />
-                </mesh>
-              )}
-            </group>
-          ))
-        : null}
-      {/* espinhos na borda do corpo */}
-      {k > 0.01 && ghost < 0.5
-        ? spikes.map((q, i) => (
-            <mesh key={`sp${i}`} position={q.p} rotation={[q.ang * 1.35, 0, 0]} scale={[q.s * k, q.s * 2.2 * k, q.s * k]}>
-              <coneGeometry args={[1, 1, 5]} />
-              <meshStandardMaterial color={GERRO.scuteDark} roughness={0.9} flatShading />
+      {/* fileiras de placas (dorso) */}
+      {k > 0.01 && !G
+        ? plates.map((q, i) => (
+            <mesh key={`p${i}`} position={[q.p[0] + bend(q.p[0]) * 0, q.p[1], q.p[2] + bend(q.p[0])]} scale={[q.sx * k, 0.006 * k + 0.001, q.sz * k]}>
+              <sphereGeometry args={[1, 7, 4]} />
+              <meshStandardMaterial color={q.dark ? GERRO.plateDark : GERRO.plate} roughness={0.9} flatShading />
             </mesh>
           ))
         : null}
-      {/* sulcos da linha lateral (órgãos sensoriais de animal aquático) */}
-      {ghost < 0.5
+      {/* placas do crânio (relevo sutil) */}
+      {k > 0.01 && !G
+        ? skull.map((q, i) => (
+            <mesh key={`sk${i}`} position={q.p} rotation={[0, q.r, 0]} scale={[q.s * k, 0.0022, q.s * 0.85 * k]}>
+              <cylinderGeometry args={[1, 1.1, 1, q.n]} />
+              <meshStandardMaterial color={i % 2 ? GERRO.back : GERRO.back2} roughness={0.95} flatShading />
+            </mesh>
+          ))
+        : null}
+      {/* sulcos sensoriais (bem sutis) */}
+      {!G
         ? grooves.map((c, i) => (
             <mesh key={`gr${i}`}>
-              <tubeGeometry args={[c, 24, 0.0035, 4, false]} />
-              <meshStandardMaterial color="#1e2212" roughness={1} />
+              <tubeGeometry args={[c, 20, 0.0022, 4, false]} />
+              <meshStandardMaterial color={GERRO.back2} roughness={1} />
             </mesh>
           ))
         : null}
-      {/* linha da boca */}
-      {ghost < 0.5 ? (
-        <mesh position={[0.3, 0.03, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1.62, 1]}>
-          <torusGeometry args={[0.152, 0.004, 4, 40, Math.PI]} />
-          <meshStandardMaterial color="#1a1a10" roughness={1} />
+      {/* lábio */}
+      {!G ? (
+        <mesh>
+          <tubeGeometry args={[lipCurve, 60, 0.0045, 5, false]} />
+          <meshStandardMaterial color={GERRO.lip} roughness={0.8} />
         </mesh>
       ) : null}
-      {/* olhos no topo da cabeça */}
+      {/* olhos grandes no topo, com pálpebra */}
       {[-1, 1].map((z) => (
-        <group key={z} position={[0.29, 0.09, z * 0.075]}>
-          <mesh scale={[0.028, 0.02, 0.026]}>
-            <sphereGeometry args={[1, 10, 8]} />
+        <group key={`e${z}`} position={[0.27, gTop(0.27, z * 0.08) - 0.004, z * 0.08]}>
+          <mesh scale={[0.034, 0.024, 0.032]}>
+            <sphereGeometry args={[1, 14, 10]} />
             {mat(GERRO.back2)}
           </mesh>
-          <mesh position={[0.004, 0.012, 0]} scale={[0.016, 0.012, 0.016]}>
-            <sphereGeometry args={[1, 10, 8]} />
-            {ghost > 0.5 ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial color={GERRO.eye} roughness={0.3} />}
+          <mesh position={[0.004, 0.012, 0]} scale={[0.024, 0.017, 0.023]}>
+            <sphereGeometry args={[1, 14, 10]} />
+            {G ? <meshBasicMaterial color={ghostC} /> : <meshStandardMaterial color={GERRO.eye} roughness={0.25} />}
           </mesh>
-          <mesh position={[0, 0.012, 0]} rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.02, 0.005, 5, 14]} />
-            {mat(GERRO.scuteDark)}
-          </mesh>
-          <mesh position={[0.008, 0.02, 0]} scale={[0.004, 0.006, 0.012]}>
-            <sphereGeometry args={[1, 6, 4]} />
+          <mesh position={[0.008, 0.026, 0]} scale={[0.004, 0.004, 0.014]}>
+            <sphereGeometry args={[1, 8, 4]} />
             <meshBasicMaterial color="#0b0812" />
+          </mesh>
+          <mesh position={[0.012, 0.024, z * 0.006]}>
+            <sphereGeometry args={[0.003, 6, 4]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+          {/* pálpebra superior (meio anel) */}
+          <mesh position={[-0.002, 0.016, 0]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={[1, 1, 0.6]}>
+            <torusGeometry args={[0.024, 0.006, 6, 16, Math.PI]} />
+            {mat(GERRO.back)}
           </mesh>
         </group>
       ))}
       {/* narinas */}
       {[-1, 1].map((z) => (
-        <mesh key={`n${z}`} position={[0.43, 0.065, z * 0.05]} scale={[0.008, 0.004, 0.008]}>
+        <mesh key={`n${z}`} position={[0.43, gTop(0.43, z * 0.045) - 0.001, z * 0.045]} scale={[0.007, 0.003, 0.005]}>
           <sphereGeometry args={[1, 6, 4]} />
-          <meshBasicMaterial color="#141008" />
+          <meshBasicMaterial color="#14100a" />
         </mesh>
       ))}
-      {/* mandíbula (abre para sugar) */}
-      <group position={[0.17, 0.02, 0]} rotation={[0, 0, -0.35 * clamp(mouth, 0, 1)]}>
-        <mesh position={[0.12, 0.004, 0]} scale={[0.14, 0.012, 0.2]}>
+      {/* boca: interior escuro + mandíbula que desce para sugar */}
+      {mouth > 0.02 ? (
+        <mesh position={[0.32, 0.03, 0]} scale={[0.12, 0.012, 0.19]}>
           <sphereGeometry args={[1, 16, 6]} />
+          <meshBasicMaterial color="#3a1416" />
+        </mesh>
+      ) : null}
+      <group position={[0.17, 0.028, 0]} rotation={[0, 0, -0.5 * clamp(mouth, 0, 1)]}>
+        <mesh position={[0.135, -0.004, 0]} scale={[0.14, 0.012, 0.215]}>
+          <sphereGeometry args={[1, 18, 6]} />
           {mat(GERRO.belly)}
         </mesh>
       </group>
-      {/* brânquias externas (penachos atrás da cabeça) */}
+      {/* brânquias externas: 3 hastes plumosas de cada lado, viradas para trás */}
       {gills > 0.01
         ? [-1, 1].flatMap((z) =>
-            [0, 1, 2].map((j) => (
-              <group key={`g${z}${j}`} position={[0.15 - j * 0.02, 0.06, z * (0.2 - j * 0.01)]} rotation={[0, z * (0.5 + j * 0.35) + 0.12 * Math.sin(f / 9 + j), 0]}>
-                <mesh position={[-0.05 * gills, 0, 0]} scale={[0.05 * gills, 0.008, 0.012]}>
-                  <sphereGeometry args={[1, 8, 4]} />
-                  {mat(GERRO.gill)}
-                </mesh>
-              </group>
-            )),
+            [0, 1, 2].map((j) => {
+              const sway = 0.15 * Math.sin(f / 10 + j + z);
+              return (
+                <group key={`g${z}${j}`} position={[0.135 - j * 0.012, 0.072 - j * 0.006, z * (0.15 - j * 0.004)]} rotation={[z * (0.35 + j * 0.15), z * (0.9 + j * 0.3) + sway, -0.15]} scale={gills}>
+                  <mesh position={[-0.03, 0, 0]} rotation={[0, 0, Math.PI / 2]} scale={[0.004, 0.06, 0.004]}>
+                    <cylinderGeometry args={[0.6, 1, 1, 5]} />
+                    {mat(GERRO.gill)}
+                  </mesh>
+                  {[0, 1, 2, 3, 4, 5].map((m) => (
+                    <mesh key={m} position={[-0.012 - m * 0.009, 0.003, (m % 2 ? 1 : -1) * 0.006]} rotation={[0, (m % 2 ? 1 : -1) * 0.8, 0]} scale={[0.004, 0.003, 0.012 - m * 0.0012]}>
+                      <sphereGeometry args={[1, 6, 4]} />
+                      {mat(m > 3 ? GERRO.gillTip : GERRO.gill)}
+                    </mesh>
+                  ))}
+                </group>
+              );
+            }),
           )
         : null}
-      {/* patas curtas e abertas */}
-      {[
-        [0.08, 1],
-        [0.08, -1],
-        [-0.17, 1],
-        [-0.17, -1],
-      ].map(([x, z], i) => {
-        const q = sampleKeys(GKEYS, x);
-        const st = Math.sin(ph + i * 1.6) * 0.25 * swim;
-        return (
-          <group key={`l${i}`} position={[x, 0.03, z * q.w * 0.9]} rotation={[z * 0.15, z * (0.4 + st), 0]}>
-            <mesh position={[0, 0, z * 0.05]} rotation={[Math.PI / 2, 0, 0]} scale={[0.022, 0.06, 0.018]}>
-              <cylinderGeometry args={[1, 0.8, 1, 6]} />
-              {mat(GERRO.back)}
-            </mesh>
-            <mesh position={[0.01, -0.013, z * 0.088]} scale={[0.026, 0.002, 0.022]}>
-              <sphereGeometry args={[1, 8, 4]} />
-              {mat(GERRO.back2)}
-            </mesh>
-            {[-1, 0, 1].map((d) => (
-              <mesh key={d} position={[d * 0.014 + 0.01, -0.012, z * 0.09]} rotation={[0, d * 0.4, 0]} scale={[0.008, 0.005, 0.022]}>
-                <sphereGeometry args={[1, 6, 4]} />
-                {mat(GERRO.back2)}
-              </mesh>
-            ))}
-          </group>
-        );
-      })}
+      {/* patas: dianteiras menores, traseiras maiores */}
+      {limb(0.055, 1, 0.9, 0)}
+      {limb(0.055, -1, 0.9, 1)}
+      {limb(-0.17, 1, 1.1, 2)}
+      {limb(-0.17, -1, 1.1, 3)}
     </group>
   );
 };

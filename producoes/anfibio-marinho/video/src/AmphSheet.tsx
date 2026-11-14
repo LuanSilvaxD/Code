@@ -22,8 +22,8 @@ const Sand: React.FC<{ w?: number }> = ({ w = 2.4 }) => (
 
 export const AmphSheet: React.FC = () => (
   <AbsoluteFill style={{ background: BRAND.colors.umbra }}>
-    <Header title="ANFÍBIO MARINHO · DESIGNS" sub="para aprovar · Gerrothorax maritimus (reconstrução artística) e o resto" />
-    <TileView t={{ name: "GERROTHORAX MARITIMUS · 3/4", size: "~0,9 m · cabeça larga e achatada · olhos no topo · placas de osso · brânquias (incerto)", target: [0.02, 0.05, 0], fit: 1.25, az: 35, el: 28, scene: (f) => (<><Sand /><Gerrothorax f={f} swim={1} /></>) }} w={1080} h={640} bg={SEA} />
+    <Header title="GERROTHORAX · v2" sub="para aprovar · corpo com volume, armadura em fileiras, cabeça em meia-lua" />
+    <TileView t={{ name: "GERROTHORAX MARITIMUS · 3/4", size: "~0,9 m · cabeça em meia-lua · olhos no topo · placas em fileiras · cauda-remo · brânquias (incerto)", target: [0.0, 0.06, 0], fit: 1.15, az: 38, el: 26, scene: (f) => (<><Sand /><Gerrothorax f={f} swim={1} /></>) }} w={1080} h={640} bg={SEA} />
     <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
       <TileView t={{ name: "DE CIMA", size: "formato de pá · armadura", target: [0, 0.05, 0], fit: 1.15, az: 0, el: 88, scene: (f) => <Gerrothorax f={f} /> }} w={540} h={430} bg={SEA} />
       <TileView t={{ name: "DE LADO + MASCOTE (escala)", size: "bicho de ~0,9 m × pessoa", target: [0.3, 0.45, 0], fit: 2.4, az: 0, el: 6, scene: (f) => (<><Sand w={3.2} /><Gerrothorax f={f} mouth={0.8} /><Mascot frame={f} position={[1.0, 0, 0]} scale={0.55} rotY={-0.4} /></>) }} w={540} h={430} bg={SEA} />
