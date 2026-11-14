@@ -31,7 +31,7 @@ export const ArkSheet: React.FC = () => (
       <TileView t={{ name: "DOBRA DE ROCHA (CORTE)", size: "camadas em U (sinclinal) · erosão = casco", target: [0, 0.4, 0], fit: 7.5, az: 0, el: 8, scene: () => <SynclineBlock fold={1} erode={0.5} /> }} w={540} h={330} bg={STUDIO} />
       <TileView t={{ name: "SONDA + TESTEMUNHO", size: "perfuração · amostra com camada escura", target: [0.3, 1.3, 0], fit: 4, az: 25, el: 10, scene: (f) => (<><DrillRig f={f} depth={0.5} core={1} /><Person frame={f} position={[-1, 0, 0.6]} rotY={0.6} seed={3} /></>) }} w={540} h={330} bg={SKY} />
       <TileView t={{ name: "FOGUEIRA + PASTOR + OVELHAS", size: "a hipótese do próprio líder da equipe", target: [0.3, 0.7, 0], fit: 4.2, az: 15, el: 12, scene: (f) => (<><Ground w={6} /><Campfire f={f} /><Person frame={f} position={[-0.9, 0, -0.2]} rotY={0.8} seed={11} robe="#7a5a3a" /><group position={[1.1, 0, 0.3]} rotation={[0, 2.6, 0]}><Sheep f={f} graze={1} /></group><group position={[0.9, 0, -0.9]} rotation={[0, -2.2, 0]}><Sheep f={f + 20} /></group></>) }} w={540} h={330} bg={SKY} />
-      <TileView t={{ name: "OVELHA (CLOSE) + MASCOTE", size: "lã em tufos · cara escura · patas com casco", target: [0.1, 0.55, 0], fit: 2.2, az: 30, el: 12, scene: (f) => (<><Ground w={3} /><Sheep f={f} /><Mascot frame={f} position={[-0.9, 0, 0.3]} scale={0.6} rotY={0.4} /></>) }} w={540} h={330} bg={SKY} />
+      <TileView t={{ name: "OVELHA v2 (CLOSE) + MASCOTE", size: "lã encaracolada · cara preta · orelhas · casco fendido", target: [0.1, 0.6, 0], fit: 2.4, az: 30, el: 12, scene: (f) => (<><Ground w={3} /><Sheep f={f} /><Mascot frame={f} position={[-0.9, 0, 0.3]} scale={0.6} rotY={0.4} /></>) }} w={540} h={330} bg={SKY} />
     </div>
   </AbsoluteFill>
 );

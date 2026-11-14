@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AdditiveBlending, BoxGeometry, CatmullRomCurve3, Color, DoubleSide, ExtrudeGeometry, Shape, Vector3 } from "three";
+import { AdditiveBlending, BoxGeometry, BufferGeometry, CatmullRomCurve3, Color, DoubleSide, ExtrudeGeometry, Shape, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 import { loft } from "./Amphibia";
 
@@ -334,105 +334,161 @@ export const Campfire: React.FC<{ f: number; s?: number }> = ({ f, s = 1 }) => (
   </group>
 );
 
-/* ------------------------------------------------------------------ OVELHA (metros, padrão novo) */
+/* ------------------------------------------------------------------ OVELHA v2 (metros, padrão novo) */
 
-/** Ovelha: corpo em loft com lã em tufos, cabeça escura com olhos e orelhas, patas articuladas. walk 0..1. */
-export const Sheep: React.FC<{ f: number; walk?: number; graze?: number; wool?: string }> = ({ f, walk = 0, graze = 0, wool = "#ece6d8" }) => {
-  const body = useMemo(
+/** Desloca os vértices ao longo da normal com "ruído" de bolinhas: vira lã encaracolada contínua (sem bolas soltas). */
+const fleece = (g: BufferGeometry, amp: number, freq: number, seed: string) => {
+  g.computeVertexNormals();
+  const pos = g.attributes.position;
+  const nor = g.attributes.normal;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
+    const n = Math.sin(x * freq + Math.sin(z * freq * 0.7)) * Math.cos(y * freq * 1.1 + x * 0.5) * 0.5 + (rand(`${seed}${Math.round(x * 40)},${Math.round(y * 40)},${Math.round(z * 40)}`) - 0.5) * 0.6;
+    const d = amp * (0.6 + n);
+    pos.setXYZ(i, x + nor.getX(i) * d, y + nor.getY(i) * d, z + nor.getZ(i) * d);
+  }
+  g.computeVertexNormals();
+  return g;
+};
+
+/** Ovelha (tipo cara-preta, ~1,1 m de comprimento): tronco de lã encaracolada contínua que segue até o pescoço,
+ *  cabeça alongada escura com focinho, orelhas na horizontal, olhos laterais com brilho; pernas com lã até o joelho
+ *  e canela escura com casco fendido. walk 0..1 anda; graze 0..1 abaixa a cabeça para pastar. */
+export const Sheep: React.FC<{ f: number; walk?: number; graze?: number; wool?: string; face?: string }> = ({ f, walk = 0, graze = 0, wool = "#e9e2d2", face = "#24201c" }) => {
+  const body = useMemo(() => {
+    const g = loft(
+      [
+        { x: -0.58, y: 0.66, w: 0.04, h: 0.04, sq: 2 },
+        { x: -0.53, y: 0.66, w: 0.2, h: 0.2, sq: 2 },
+        { x: -0.38, y: 0.65, w: 0.29, h: 0.26, sq: 2.2 },
+        { x: -0.05, y: 0.65, w: 0.31, h: 0.27, sq: 2.3 },
+        { x: 0.25, y: 0.67, w: 0.29, h: 0.26, sq: 2.2 },
+        { x: 0.42, y: 0.73, w: 0.19, h: 0.2, sq: 2 },
+        { x: 0.52, y: 0.82, w: 0.12, h: 0.14, sq: 2 },
+        { x: 0.58, y: 0.86, w: 0.07, h: 0.09, sq: 2 },
+      ],
+      (x, a) => {
+        const c = C(wool);
+        const top = Math.cos(a);
+        return c.lerp(C("#cfc6b2"), top < -0.4 ? 0.35 : 0.05).offsetHSL(0, 0, (rand(`sw${Math.round(x * 30)}${Math.round(a * 7)}`) - 0.5) * 0.05);
+      },
+      70,
+      32,
+    );
+    return fleece(g, 0.018, 38, "sb");
+  }, [wool]);
+  const head = useMemo(
     () =>
       loft(
         [
-          { x: -0.44, y: 0.6, w: 0.05, h: 0.05, sq: 2 },
-          { x: -0.38, y: 0.6, w: 0.2, h: 0.21, sq: 2 },
-          { x: -0.15, y: 0.6, w: 0.27, h: 0.28, sq: 2.1 },
-          { x: 0.12, y: 0.62, w: 0.27, h: 0.28, sq: 2.1 },
-          { x: 0.3, y: 0.66, w: 0.2, h: 0.23, sq: 2 },
-          { x: 0.4, y: 0.72, w: 0.09, h: 0.11, sq: 2 },
+          { x: -0.02, y: 0, w: 0.06, h: 0.07, sq: 2 },
+          { x: 0.06, y: 0.005, w: 0.075, h: 0.085, sq: 2 },
+          { x: 0.15, y: -0.005, w: 0.06, h: 0.07, sq: 2 },
+          { x: 0.22, y: -0.02, w: 0.045, h: 0.055, sq: 2 },
+          { x: 0.26, y: -0.03, w: 0.035, h: 0.04, sq: 2 },
+          { x: 0.275, y: -0.035, w: 0.01, h: 0.012, sq: 2 },
         ],
-        (x, a) => C(wool).offsetHSL(0, 0, (rand(`sh${Math.round(x * 30)}${Math.round(a * 6)}`) - 0.5) * 0.05),
-        40,
-        20,
+        (x) => C(face).offsetHSL(0, 0, x > 0.22 ? 0.04 : 0),
+        30,
+        18,
       ),
-    [wool],
+    [face],
   );
-  const tufts = useMemo(() => Array.from({ length: 34 }, (_, i) => {
-    const x = -0.36 + rand(`tx${i}`) * 0.68;
-    const a = rand(`ta${i}`) * Math.PI * 1.6 - Math.PI * 0.8;
-    return { p: [x, 0.62 + Math.cos(a) * 0.24, Math.sin(a) * 0.25] as Vec3, s: 0.05 + rand(`ts${i}`) * 0.03 };
-  }), []);
-  const ph = f * 0.25;
-  const head = graze * 0.9;
-  return (
-    <group>
-      <mesh geometry={body} castShadow>
-        <meshStandardMaterial vertexColors roughness={0.95} />
-      </mesh>
-      {tufts.map((t, i) => (
-        <mesh key={i} position={t.p} scale={t.s}>
-          <icosahedronGeometry args={[1, 1]} />
-          <meshStandardMaterial color={C(wool).offsetHSL(0, 0, (rand(`tc${i}`) - 0.5) * 0.06)} roughness={0.95} />
-        </mesh>
-      ))}
-      {/* cabeça escura */}
-      <group position={[0.42, 0.8, 0]} rotation={[0, 0, -0.35 - head]} scale={1.45}>
-        <mesh position={[0.1, 0, 0]} scale={[0.13, 0.085, 0.075]}>
-          <sphereGeometry args={[1, 14, 10]} />
-          <meshStandardMaterial color="#2a2420" roughness={0.8} />
-        </mesh>
-        <mesh position={[0.02, 0.05, 0]} scale={[0.09, 0.07, 0.085]}>
-          <icosahedronGeometry args={[1, 1]} />
+  const ph = f * 0.22;
+  const g = clamp(graze, 0, 1);
+  // pescoço/cabeça: pivô no fim do pescoço; pastar = gira para baixo
+  const headRot = -0.45 - g * 1.0 + 0.04 * Math.sin(f / 18);
+  const leg = (x: number, z: number, i: number) => {
+    const sw = walk * 0.35 * Math.sin(ph + (i === 0 || i === 3 ? 0 : Math.PI));
+    return (
+      <group key={i} position={[x, 0.5, z]} rotation={[0, 0, sw]}>
+        {/* coxa com lã */}
+        <mesh position={[0, 0.0, 0]} scale={[0.09, 0.15, 0.085]}>
+          <sphereGeometry args={[1, 12, 8]} />
           <meshStandardMaterial color={wool} roughness={0.95} />
         </mesh>
+        {/* canela escura, joelho e casco fendido */}
+        <mesh position={[0, -0.27, 0]}>
+          <cylinderGeometry args={[0.024, 0.02, 0.32, 7]} />
+          <meshStandardMaterial color={face} roughness={0.8} />
+        </mesh>
+        <mesh position={[0, -0.2, 0]}>
+          <sphereGeometry args={[0.027, 8, 6]} />
+          <meshStandardMaterial color={face} roughness={0.8} />
+        </mesh>
+        {[-1, 1].map((k) => (
+          <mesh key={k} position={[0.012, -0.44, k * 0.011]} scale={[0.022, 0.025, 0.011]}>
+            <sphereGeometry args={[1, 6, 4]} />
+            <meshStandardMaterial color="#121010" roughness={0.6} />
+          </mesh>
+        ))}
+      </group>
+    );
+  };
+  return (
+    <group>
+      <mesh geometry={body} castShadow receiveShadow>
+        <meshStandardMaterial vertexColors roughness={0.98} flatShading />
+      </mesh>
+      {/* topete de lã na nuca */}
+      <mesh position={[0.56, 0.93, 0]} scale={[0.07, 0.05, 0.075]}>
+        <icosahedronGeometry args={[1, 2]} />
+        <meshStandardMaterial color={wool} roughness={0.98} flatShading />
+      </mesh>
+      <group position={[0.57, 0.88, 0]} rotation={[0, 0, headRot]}>
+        <mesh geometry={head} castShadow>
+          <meshStandardMaterial vertexColors roughness={0.75} />
+        </mesh>
+        {/* orelhas na horizontal */}
         {[-1, 1].map((z) => (
-          <group key={z}>
-            <mesh position={[0.1, 0.03, z * 0.06]}>
-              <sphereGeometry args={[0.014, 8, 6]} />
-              <meshStandardMaterial color="#0a0806" roughness={0.2} />
+          <group key={`ear${z}`} position={[0.03, 0.04, z * 0.06]} rotation={[z * -1.2, z * 0.3 + 0.08 * Math.sin(f / 22 + z), 0.2]}>
+            <mesh position={[0, 0, z * 0.06]} scale={[0.03, 0.008, 0.065]}>
+              <sphereGeometry args={[1, 10, 6]} />
+              <meshStandardMaterial color={face} roughness={0.8} />
             </mesh>
-            <mesh position={[0.105, 0.036, z * 0.068]}>
-              <sphereGeometry args={[0.004, 4, 3]} />
-              <meshBasicMaterial color="#ffffff" />
-            </mesh>
-            <mesh position={[0.03, 0.02, z * 0.1]} rotation={[z * 0.9, 0, -0.3]} scale={[0.06, 0.015, 0.03]}>
-              <sphereGeometry args={[1, 8, 5]} />
-              <meshStandardMaterial color="#2a2420" roughness={0.8} />
+            <mesh position={[0, 0.004, z * 0.06]} scale={[0.02, 0.005, 0.05]}>
+              <sphereGeometry args={[1, 10, 6]} />
+              <meshStandardMaterial color="#5a3a34" roughness={0.8} />
             </mesh>
           </group>
         ))}
-      </group>
-      {/* patas escuras com joelho e casco */}
-      {[
-        [0.22, 0.13],
-        [0.22, -0.13],
-        [-0.25, 0.13],
-        [-0.25, -0.13],
-      ].map(([x, z], i) => {
-        const sw = walk * 0.4 * Math.sin(ph + (i % 2 ? Math.PI : 0) + (i > 1 ? Math.PI / 2 : 0));
-        return (
-          <group key={i} position={[x, 0.42, z]} rotation={[0, 0, sw]} scale={[1.5, 0.92, 1.5]}>
-            <mesh position={[0, -0.12, 0]}>
-              <cylinderGeometry args={[0.03, 0.025, 0.24, 6]} />
-              <meshStandardMaterial color="#2a2420" roughness={0.8} />
+        {/* olhos laterais */}
+        {[-1, 1].map((z) => (
+          <group key={`eye${z}`} position={[0.095, 0.035, z * 0.068]}>
+            <mesh>
+              <sphereGeometry args={[0.014, 10, 8]} />
+              <meshStandardMaterial color="#c8a050" roughness={0.3} />
             </mesh>
-            <mesh position={[0, -0.25, 0]}>
-              <sphereGeometry args={[0.026, 6, 5]} />
-              <meshStandardMaterial color="#2a2420" roughness={0.8} />
+            <mesh position={[0.003, 0, z * 0.009]} scale={[0.5, 0.25, 0.4]}>
+              <sphereGeometry args={[0.014, 8, 6]} />
+              <meshStandardMaterial color="#080606" roughness={0.2} />
             </mesh>
-            <mesh position={[0, -0.36, 0]}>
-              <cylinderGeometry args={[0.022, 0.02, 0.2, 6]} />
-              <meshStandardMaterial color="#2a2420" roughness={0.8} />
-            </mesh>
-            <mesh position={[0.008, -0.455, 0]}>
-              <cylinderGeometry args={[0.024, 0.028, 0.03, 6]} />
-              <meshStandardMaterial color="#141210" />
+            <mesh position={[0.007, 0.006, z * 0.011]}>
+              <sphereGeometry args={[0.003, 4, 3]} />
+              <meshBasicMaterial color="#ffffff" />
             </mesh>
           </group>
-        );
-      })}
-      {/* rabinho */}
-      <mesh position={[-0.44, 0.66, 0]} scale={[0.05, 0.07, 0.05]}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color={wool} roughness={0.95} />
+        ))}
+        {/* narinas e boca */}
+        {[-1, 1].map((z) => (
+          <mesh key={`n${z}`} position={[0.268, -0.022, z * 0.016]} scale={[0.004, 0.007, 0.006]}>
+            <sphereGeometry args={[1, 6, 4]} />
+            <meshBasicMaterial color="#080606" />
+          </mesh>
+        ))}
+        <mesh position={[0.25, -0.06, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1, 0.6]}>
+          <torusGeometry args={[0.02, 0.003, 4, 10, Math.PI]} />
+          <meshBasicMaterial color="#0a0808" />
+        </mesh>
+      </group>
+      {leg(0.3, 0.14, 0)}
+      {leg(0.3, -0.14, 1)}
+      {leg(-0.36, 0.15, 2)}
+      {leg(-0.36, -0.15, 3)}
+      {/* rabo curto de lã */}
+      <mesh position={[-0.6, 0.6, 0]} rotation={[0, 0, -0.6]} scale={[0.045, 0.1, 0.05]}>
+        <icosahedronGeometry args={[1, 2]} />
+        <meshStandardMaterial color={wool} roughness={0.98} flatShading />
       </mesh>
     </group>
   );
