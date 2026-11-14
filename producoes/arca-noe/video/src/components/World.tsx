@@ -120,7 +120,7 @@ const WoodWorld: React.FC<{ f: number }> = ({ f }) => (
     <Sky center={WOOD} r={60} />
     <Ground w={20} c="#8a7a58" />
     {Array.from({ length: 12 }, (_, i) => (
-      <mesh key={i} position={[(rand(`wr${i}`) - 0.5) * 3, 0.02, (rand(`wz${i}`) - 0.5) * 2 - 0.4]} scale={0.03 + rand(`ws${i}`) * 0.05}>
+      <mesh key={i} position={[(rand(`wr${i}`) - 0.5) * 3, -0.01, (rand(`wz${i}`) - 0.5) * 2 - 0.9]} scale={[0.03 + rand(`ws${i}`) * 0.05, 0.02 + rand(`ws${i}`) * 0.02, 0.03 + rand(`ws${i}`) * 0.05]}>
         <icosahedronGeometry args={[1, 0]} />
         <meshStandardMaterial color="#7a6a54" roughness={1} flatShading />
       </mesh>

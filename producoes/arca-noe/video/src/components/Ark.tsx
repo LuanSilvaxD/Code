@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AdditiveBlending, BoxGeometry, BufferGeometry, CatmullRomCurve3, Color, DoubleSide, ExtrudeGeometry, Shape, Vector3 } from "three";
+import { AdditiveBlending, BoxGeometry, BufferAttribute, BufferGeometry, PlaneGeometry, CatmullRomCurve3, Color, DoubleSide, ExtrudeGeometry, Shape, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 import { loft } from "./Amphibia";
 
@@ -45,19 +45,57 @@ export const Ararat: React.FC<{ s?: number }> = ({ s = 1 }) => {
   );
 };
 
-/** Planalto com morrinhos baixos. */
-export const Plateau: React.FC<{ w?: number; color?: string }> = ({ w = 220, color = "#9a8a62" }) => {
-  const hills = useMemo(() => Array.from({ length: 26 }, (_, i) => ({ p: [(rand(`hx${i}`) - 0.5) * w, -1, -20 - rand(`hz${i}`) * w * 0.4] as Vec3, s: [6 + rand(`hs${i}`) * 14, 2 + rand(`hh${i}`) * 5, 6 + rand(`hd${i}`) * 12] as Vec3 })), [w]);
+/** Altura do terreno (u3d, 1 u = 10 m): ondulações suaves + morros; achata perto da formação (origem). */
+export const terrainH = (x: number, z: number) => {
+  let h = 1.6 * Math.sin(x * 0.045 + 1.3) * Math.cos(z * 0.05 + 0.4) + 0.9 * Math.sin(x * 0.11 + z * 0.07) + 0.35 * Math.sin(x * 0.31 - z * 0.23);
+  h += Math.max(0, -z - 40) * 0.06; // sobe em direção às montanhas
+  const d = Math.hypot(x / 1.6, z) / 14; // área plana em volta do Durupinar
+  const flat = Math.min(1, Math.max(0, (d - 0.6) / 0.9));
+  return h * flat * flat * (3 - 2 * flat) - 0.2;
+};
+
+/** Planalto: terreno contínuo com relevo, cores de terra, mato e pedra; pedras e arbustos espalhados. */
+export const Plateau: React.FC<{ w?: number; color?: string }> = ({ w = 220 }) => {
+  const geo = useMemo(() => {
+    const g = new PlaneGeometry(w, w, 110, 110);
+    g.rotateX(-Math.PI / 2);
+    const pos = g.attributes.position;
+    const cols = new Float32Array(pos.count * 3);
+    const dirt = C("#9a8662"), dry = C("#b0a070"), grass = C("#7a8a4a"), rock = C("#7a7266");
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i), z = pos.getZ(i) - w * 0.2;
+      const h = terrainH(x, z);
+      pos.setY(i, h);
+      pos.setZ(i, z);
+      const n = rand(`tc${Math.round(x)},${Math.round(z)}`);
+      let c = dirt.clone().lerp(dry, 0.5 + 0.5 * Math.sin(x * 0.07 + z * 0.05));
+      if (n > 0.55) c = c.lerp(grass, 0.45);
+      if (h > 2.2) c = c.lerp(rock, Math.min(1, (h - 2.2) / 3));
+      cols[i * 3] = c.r; cols[i * 3 + 1] = c.g; cols[i * 3 + 2] = c.b;
+    }
+    g.setAttribute("color", new BufferAttribute(cols, 3));
+    g.computeVertexNormals();
+    return g;
+  }, [w]);
+  const props = useMemo(
+    () =>
+      Array.from({ length: 140 }, (_, i) => {
+        const x = (rand(`px${i}`) - 0.5) * 120;
+        const z = (rand(`pz${i}`) - 0.5) * 110 - 10;
+        if (Math.hypot(x / 1.6, z) < 9) return null;
+        return { p: [x, terrainH(x, z), z] as Vec3, s: 0.15 + rand(`ps${i}`) * 0.5, bush: rand(`pb${i}`) > 0.55, r: rand(`pr${i}`) * 3 };
+      }).filter(Boolean) as { p: Vec3; s: number; bush: boolean; r: number }[],
+    [],
+  );
   return (
     <group>
-      <mesh position={[0, -0.1, -w * 0.2]} receiveShadow>
-        <boxGeometry args={[w, 0.2, w]} />
-        <meshStandardMaterial color={color} roughness={1} />
+      <mesh geometry={geo} receiveShadow>
+        <meshStandardMaterial vertexColors roughness={1} flatShading />
       </mesh>
-      {hills.map((h, i) => (
-        <mesh key={i} position={h.p} scale={h.s} receiveShadow>
-          <icosahedronGeometry args={[1, 1]} />
-          <meshStandardMaterial color={C(color).offsetHSL(0, 0, (rand(`hc${i}`) - 0.5) * 0.08)} {...M} />
+      {props.map((q, i) => (
+        <mesh key={i} position={q.p} rotation={[0, q.r, 0]} scale={q.bush ? [q.s, q.s * 0.7, q.s] : [q.s * 1.2, q.s * 0.6, q.s]} castShadow>
+          <icosahedronGeometry args={[1, 0]} />
+          <meshStandardMaterial color={q.bush ? (i % 2 ? "#5a6a32" : "#6a7a3a") : "#8a8274"} roughness={1} flatShading />
         </mesh>
       ))}
     </group>
@@ -104,6 +142,20 @@ export const Durupinar: React.FC<{ glow?: number }> = ({ glow = 0 }) => {
       <mesh geometry={geo} castShadow receiveShadow position={[0, -0.45, 0]}>
         <meshStandardMaterial vertexColors roughness={1} flatShading />
       </mesh>
+      {/* "avental" de lama/terra em volta: a formação nasce do terreno */}
+      <mesh position={[0, -0.12, 0]} scale={[9.6, 0.5, 3.4]}>
+        <sphereGeometry args={[1, 40, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color="#8e7c58" roughness={1} flatShading />
+      </mesh>
+      {Array.from({ length: 22 }, (_, i) => {
+        const a = (i / 22) * Math.PI * 2;
+        return (
+          <mesh key={`g${i}`} position={[Math.cos(a) * (8.6 + rand(`dg${i}`) * 1.5), 0.05, Math.sin(a) * (2.9 + rand(`dz${i}`) * 0.8)]} scale={[0.6 + rand(`ds${i}`) * 0.6, 0.12, 0.4]}>
+            <icosahedronGeometry args={[1, 0]} />
+            <meshStandardMaterial color={i % 3 ? "#7a8a4a" : "#8a7a5a"} roughness={1} flatShading />
+          </mesh>
+        );
+      })}
       {/* borda elevada (a "amurada") ao redor */}
       <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[7.7, 2.15, 1]}>
         <ringGeometry args={[0.93, 1.0, 64]} />
@@ -165,13 +217,13 @@ export const CharredWood: React.FC<{ f: number; n?: number }> = ({ f, n = 5 }) =
           pos.setXYZ(k, x + (end ? j : 0), pos.getY(k) + j * 0.5, pos.getZ(k) + (end ? j * 0.6 : 0));
         }
         g.computeVertexNormals();
-        return { g, p: [(i - (n - 1) / 2) * 0.17 + (rand(`cw${i}`) - 0.5) * 0.04, 0.02, (rand(`cz${i}`) - 0.5) * 0.14] as Vec3, r: (rand(`cr${i}`) - 0.5) * 1.2, L };
+        return { g, p: [(i - (n - 1) / 2) * 0.17 + (rand(`cw${i}`) - 0.5) * 0.04, 0.026, (rand(`cz${i}`) - 0.5) * 0.14] as Vec3, r: (rand(`cr${i}`) - 0.5) * 1.2, L };
       }),
     [n],
   );
   return (
     <group>
-      <mesh rotation={[-Math.PI / 2, 0, 0.05]}>
+      <mesh position={[0, 0.006, 0]} rotation={[-Math.PI / 2, 0, 0.05]}>
         <planeGeometry args={[1.0, 0.55]} />
         <meshStandardMaterial color="#3a5a8a" roughness={0.8} side={DoubleSide} />
       </mesh>
@@ -194,7 +246,7 @@ export const CharredWood: React.FC<{ f: number; n?: number }> = ({ f, n = 5 }) =
           </mesh>
         </group>
       ))}
-      <mesh position={[0.36, 0.005, 0.18]} rotation={[-Math.PI / 2, 0, 0.1]}>
+      <mesh position={[0.36, 0.012, 0.18]} rotation={[-Math.PI / 2, 0, 0.1]}>
         <planeGeometry args={[0.12, 0.06]} />
         <meshStandardMaterial color="#f2eedc" />
       </mesh>
