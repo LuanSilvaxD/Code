@@ -9,20 +9,26 @@ import { loft } from "./Amphibia";
 const C = (h: string) => new Color(h);
 export const WARBLER = { grey: "#8f97a1", greyDark: "#5b616a", greyLight: "#b4bac2", belly: "#eeede8", yellow: "#f4c830", black: "#141418", white: "#f8f8f4", beak: "#26262a", leg: "#6a5e54", edge: "#e2e4e6" };
 
-// corpo esguio de mariquita
+// corpo de mariquita (v3, mais realista): cabeça redonda e grande, pescoço curto que se funde ao peito,
+// peito cheio um pouco à frente, barriga mais baixa, uropígio afinando para a cauda.
 const BKEYS = [
-  { x: -0.34, y: 0.43, w: 0.004, h: 0.004, sq: 2 },
-  { x: -0.31, y: 0.43, w: 0.04, h: 0.045, sq: 2 },
-  { x: -0.24, y: 0.42, w: 0.095, h: 0.11, sq: 2 },
-  { x: -0.11, y: 0.41, w: 0.15, h: 0.18, sq: 2.05 },
-  { x: 0.03, y: 0.43, w: 0.158, h: 0.19, sq: 2.05 },
-  { x: 0.15, y: 0.49, w: 0.13, h: 0.15, sq: 2 },
-  { x: 0.23, y: 0.56, w: 0.11, h: 0.12, sq: 2 },
-  { x: 0.31, y: 0.61, w: 0.12, h: 0.125, sq: 2 },
-  { x: 0.4, y: 0.615, w: 0.1, h: 0.105, sq: 2 },
-  { x: 0.46, y: 0.6, w: 0.055, h: 0.065, sq: 2 },
-  { x: 0.485, y: 0.595, w: 0.018, h: 0.024, sq: 2 },
+  { x: -0.33, y: 0.44, w: 0.004, h: 0.004, sq: 2 },
+  { x: -0.3, y: 0.44, w: 0.04, h: 0.04, sq: 2 },
+  { x: -0.22, y: 0.43, w: 0.085, h: 0.1, sq: 2 },
+  { x: -0.1, y: 0.415, w: 0.135, h: 0.165, sq: 2 },
+  { x: 0.03, y: 0.425, w: 0.15, h: 0.182, sq: 2 },
+  { x: 0.13, y: 0.47, w: 0.14, h: 0.165, sq: 2 },
+  { x: 0.21, y: 0.53, w: 0.125, h: 0.14, sq: 2 },
+  { x: 0.29, y: 0.585, w: 0.13, h: 0.135, sq: 2 },
+  { x: 0.37, y: 0.6, w: 0.118, h: 0.122, sq: 2 },
+  { x: 0.44, y: 0.595, w: 0.075, h: 0.08, sq: 2 },
+  { x: 0.475, y: 0.59, w: 0.028, h: 0.032, sq: 2 },
 ];
+/** transição suave 0→1 entre a e b */
+const ss = (a: number, b: number, v: number) => {
+  const t = Math.min(1, Math.max(0, (v - a) / (b - a)));
+  return t * t * (3 - 2 * t);
+};
 
 const Feather: React.FC<{ p: Vec3; r?: Vec3; s: Vec3; c: string; smooth?: boolean }> = ({ p, r = [0, 0, 0], s, c, smooth }) => (
   <mesh position={p} rotation={r} scale={s} castShadow>
@@ -38,25 +44,25 @@ const Wing: React.FC<{ side: 1 | -1; open: number; flap: number }> = ({ side, op
   const tilt = (1 - o) * (Math.PI / 2 - 0.3) + o * -flap;
   const N = 9;
   return (
-    <group position={[0.12 - 0.02 * o, 0.52 + 0.03 * o, side * (0.13 - 0.01 * o)]} rotation={[side * tilt, 0, (1 - o) * -0.16]}>
+    <group position={[0.11 - 0.02 * o, 0.53 + 0.03 * o, side * (0.122 - 0.01 * o)]} rotation={[side * tilt, 0, (1 - o) * -0.16]}>
       {Array.from({ length: N }, (_, i) => {
         const t = i / (N - 1);
-        const fan = (1 - o) * (Math.PI - 0.03 + t * 0.07) + o * (Math.PI / 2 + 1.0 - t * 1.45);
+        const fan = (1 - o) * (Math.PI - 0.02 + t * 0.05) + o * (Math.PI / 2 + 1.0 - t * 1.45);
         const len = (0.2 + 0.16 * (1 - t)) * (1 + o * 0.15);
         const prim = i < 4;
         return (
           <group key={i} rotation={[0, -side * fan, 0]}>
-            <Feather p={[len * 0.55, -0.003 * i, 0]} s={[len * 0.55, 0.009, 0.055]} c={prim ? WARBLER.greyDark : WARBLER.grey} />
+            <Feather p={[len * 0.55, -0.0015 * i, 0]} s={[len * 0.55, 0.008, 0.06 + o * 0.01]} c={prim ? WARBLER.greyDark : WARBLER.grey} smooth />
             {prim ? <Feather p={[len * 0.62, -0.003 * i - 0.002, side * 0.012]} s={[len * 0.42, 0.006, 0.02]} c={WARBLER.edge} /> : null}
           </group>
         );
       })}
       {/* coberturas maiores (mancha amarela) e menores (cinza) */}
-      {[0, 1].map((row) => (
+      {[0].map((row) => (
         <group key={row} rotation={[0, -side * (Math.PI - 0.08 * (1 - o) - o * (1.05 + row * 0.15)), 0]}>
           {Array.from({ length: 5 }, (_, j) => (
             <group key={j} rotation={[0, -side * (j - 2) * (0.06 + 0.12 * o), 0]}>
-              <Feather p={[0.1 - row * 0.035, 0.01 + row * 0.008, 0]} s={[0.09 - row * 0.02, 0.01, 0.038]} c={row === 0 ? WARBLER.yellow : WARBLER.grey} />
+              <Feather p={[0.085 - row * 0.035, 0.01 + row * 0.008, 0]} s={[0.07 - row * 0.02, 0.009, 0.03]} c={row === 0 ? WARBLER.yellow : WARBLER.grey} smooth />
             </group>
           ))}
         </group>
@@ -68,37 +74,41 @@ const Wing: React.FC<{ side: 1 | -1; open: number; flap: number }> = ({ side, op
 /** Mariquita v2 (~12 cm, ~10 g). fly 0..1 em voo; tracker rastreador; sing abre o bico; look gira o corpo. */
 export const Warbler: React.FC<{ f: number; fly?: number; tracker?: number; sing?: number; look?: number }> = ({ f, fly = 0, tracker = 0, sing = 0, look = 0 }) => {
   const geo = useMemo(
-    () =>
-      loft(
+    () => {
+      const grey = C(WARBLER.grey), greyD = C(WARBLER.greyDark), greyL = C(WARBLER.greyLight), belly = C(WARBLER.belly);
+      const yellow = C(WARBLER.yellow), black = C(WARBLER.black), white = C(WARBLER.white);
+      return loft(
         BKEYS,
         (x, a) => {
           const top = Math.cos(a);
           const side = Math.abs(Math.sin(a));
-          if (x > 0.27 && top > 0.5) return C(WARBLER.yellow); // coroa
-          if (x > 0.3 && x < 0.47 && side > 0.62 && top >= 0.38 && top <= 0.5) return C(WARBLER.white); // sobrancelha branca
-          if (x > 0.31 && x < 0.48 && side > 0.7 && top > -0.15 && top < 0.38) return C(WARBLER.black); // máscara
-          if (x > 0.3 && x < 0.46 && side > 0.55 && top >= -0.42 && top <= -0.15) return C(WARBLER.white); // bigode branco
-          if (x > 0.2 && x < 0.44 && top < -0.42) return C(WARBLER.black); // garganta
-          if (top < -0.25) return C(WARBLER.belly).lerp(C(WARBLER.greyLight), x < -0.1 ? 0.25 : 0);
-          const c = C(WARBLER.grey).lerp(C(WARBLER.greyDark), top > 0.6 ? 0.3 : 0.1);
-          return top < 0.15 ? c.lerp(C(WARBLER.belly), 0.45) : c;
+          const n = (rand(`wn${Math.round(x * 90)}${Math.round(a * 9)}`) - 0.5) * 0.05;
+          let c = grey.clone().lerp(greyD, ss(0.6, 1, top) * 0.25);
+          c.lerp(greyL, ss(0.2, -0.2, top) * 0.6);
+          c.lerp(belly, ss(-0.1, -0.5, top));
+          if (top > 0.55 && x < 0.2 && Math.sin(a * 14 + x * 30) > 0.75) c.lerp(greyD, 0.35);
+          const head = ss(0.22, 0.3, x);
+          if (head > 0) {
+            const crown = ss(0.42, 0.62, top) * ss(0.25, 0.32, x);
+            const brow = ss(0.28, 0.4, top) * (1 - ss(0.42, 0.55, top)) * ss(0.55, 0.75, side);
+            const mask = ss(-0.12, 0.0, top) * (1 - ss(0.26, 0.36, top)) * ss(0.62, 0.8, side) * ss(0.3, 0.34, x);
+            const malar = ss(-0.38, -0.28, top) * (1 - ss(-0.14, -0.06, top)) * ss(0.5, 0.7, side) * ss(0.3, 0.34, x);
+            c = c.lerp(grey, head * 0.5);
+            c.lerp(white, brow * head);
+            c.lerp(white, malar * head);
+            c.lerp(black, mask * head);
+            c.lerp(yellow, crown);
+          }
+          const bib = ss(-0.38, -0.55, top) * ss(0.19, 0.24, x) * (1 - ss(0.44, 0.47, x));
+          c.lerp(black, bib);
+          return c.offsetHSL(0, 0, n);
         },
-        72,
-        24,
-      ),
+        110,
+        40,
+      );
+    },
     [],
   );
-  // penas de contorno (escamas sobrepostas, baixo contraste) no dorso e no peito
-  const contour = useMemo(() => {
-    const out: { p: Vec3; r: Vec3; c: string }[] = [];
-    for (let i = 0; i < 9; i++)
-      for (let j = -2; j <= 2; j++) {
-        const x = -0.2 + i * 0.045;
-        const ang = j * 0.32 + (i % 2) * 0.16;
-        out.push({ p: [x, 0.41 + 0.17 * Math.cos(ang) + (x > 0.1 ? (x - 0.1) * 0.5 : 0), 0.16 * Math.sin(ang) * (1 - Math.max(0, x - 0.05) * 1.2)], r: [ang, 0, 0.25], c: (i + j) % 3 ? "#8a929c" : "#969ea8" });
-      }
-    return out;
-  }, []);
   const flapA = fly > 0.01 ? Math.sin(f * 0.9) * 0.75 : 0;
   const breathe = 1 + 0.015 * Math.sin(f / 9);
   const beakOpen = sing * (0.5 + 0.5 * Math.sin(f * 0.8)) * 0.22;
@@ -108,18 +118,12 @@ export const Warbler: React.FC<{ f: number; fly?: number; tracker?: number; sing
         <mesh geometry={geo} castShadow>
           <meshStandardMaterial vertexColors roughness={0.72} />
         </mesh>
-        {contour.map((q, i) => (
-          <mesh key={i} position={q.p} rotation={q.r} scale={[0.026, 0.004, 0.02]}>
-            <sphereGeometry args={[1, 8, 4]} />
-            <meshStandardMaterial color={q.c} roughness={0.75} />
-          </mesh>
-        ))}
       </group>
       {/* olhos com anel fino e brilho */}
       {[-1, 1].map((z) => (
-        <group key={z} position={[0.39, 0.635, z * 0.093]}>
+        <group key={z} position={[0.385, 0.625, z * 0.098]}>
           <mesh>
-            <sphereGeometry args={[0.027, 14, 10]} />
+            <sphereGeometry args={[0.025, 16, 12]} />
             <meshStandardMaterial color="#050507" roughness={0.1} />
           </mesh>
           <mesh position={[0.01, 0.011, z * 0.02]}>
@@ -129,13 +133,13 @@ export const Warbler: React.FC<{ f: number; fly?: number; tracker?: number; sing
         </group>
       ))}
       {/* bico fino e pontudo (duas metades) */}
-      <group position={[0.48, 0.597, 0]}>
-        <mesh position={[0.065, 0.006, 0]} rotation={[0, 0, -Math.PI / 2 + 0.04 + beakOpen]} scale={[1, 1, 0.8]}>
-          <coneGeometry args={[0.019, 0.14, 10]} />
+      <group position={[0.465, 0.59, 0]}>
+        <mesh position={[0.052, 0.006, 0]} rotation={[0, 0, -Math.PI / 2 + 0.04 + beakOpen]} scale={[1, 1, 0.8]}>
+          <coneGeometry args={[0.02, 0.115, 12]} />
           <meshStandardMaterial color={WARBLER.beak} roughness={0.35} />
         </mesh>
-        <mesh position={[0.058, -0.007, 0]} rotation={[0, 0, -Math.PI / 2 - 0.04 - beakOpen]} scale={[0.85, 0.9, 0.75]}>
-          <coneGeometry args={[0.017, 0.125, 10]} />
+        <mesh position={[0.046, -0.007, 0]} rotation={[0, 0, -Math.PI / 2 - 0.04 - beakOpen]} scale={[0.85, 0.9, 0.75]}>
+          <coneGeometry args={[0.018, 0.1, 12]} />
           <meshStandardMaterial color="#3a3a40" roughness={0.35} />
         </mesh>
       </group>
@@ -143,8 +147,8 @@ export const Warbler: React.FC<{ f: number; fly?: number; tracker?: number; sing
       {Array.from({ length: 6 }, (_, i) => {
         const t = (i - 2.5) / 2.5;
         return (
-          <group key={`t${i}`} position={[-0.28, 0.43, 0]} rotation={[0, t * (0.12 + fly * 0.3), 0.12 - fly * 0.12]}>
-            <Feather p={[-0.15, 0.002 * Math.abs(t), 0]} s={[0.17, 0.008, 0.032]} c={Math.abs(t) < 0.3 ? WARBLER.greyDark : WARBLER.grey} />
+          <group key={`t${i}`} position={[-0.27, 0.445, 0]} rotation={[0, t * (0.08 + fly * 0.3), 0.1 - fly * 0.1]}>
+            <Feather p={[-0.14, 0.002 * Math.abs(t), 0]} s={[0.155, 0.007, 0.03]} c={Math.abs(t) > 0.8 ? WARBLER.greyLight : WARBLER.greyDark} smooth />
           </group>
         );
       })}

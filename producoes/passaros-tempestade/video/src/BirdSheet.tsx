@@ -23,11 +23,11 @@ const Ground: React.FC<{ w?: number }> = ({ w = 6 }) => (
 export const BirdSheet: React.FC = () => (
   <AbsoluteFill style={{ background: BRAND.colors.umbra }}>
     <Header />
-    <TileView t={{ name: "MARIQUITA NO GALHO · 3/4", size: "~12 cm, ~10 g · coroa e asa amarelas · máscara e garganta pretas", target: [0.05, 0.4, 0], fit: 1.6, az: 35, el: 12, scene: (f) => (<><group position={[0, 0.01, 0]}><Branch f={f} len={2.4} /></group><group position={[0, 0.25, 0]}><Warbler f={f} sing={1} /></group></>) }} w={1080} h={480} bg={SKY} />
+    <TileView t={{ name: "MARIQUITA NO GALHO · 3/4", size: "~12 cm, ~10 g · coroa e asa amarelas · máscara e garganta pretas", target: [0.08, 0.48, 0], fit: 1.15, az: 35, el: 12, scene: (f) => (<><group position={[0, 0.01, 0]}><Branch f={f} len={2.4} /></group><group position={[0, 0.25, 0]}><Warbler f={f} sing={1} /></group></>) }} w={1080} h={480} bg={SKY} />
     <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
-      <TileView t={{ name: "DE LADO", size: "perfil", target: [0.05, 0.4, 0], fit: 1.5, az: 0, el: 4, scene: (f) => <Warbler f={f} /> }} w={540} h={290} bg={SKY} />
-      <TileView t={{ name: "EM VOO", size: "asas abertas batendo", target: [0, 0.5, 0], fit: 1.9, az: 25, el: 30, scene: (f) => <Warbler f={f} fly={1} /> }} w={540} h={290} bg={SKY} />
-      <TileView t={{ name: "RASTREADOR NAS COSTAS", size: "geolocalizador leve com haste", target: [-0.05, 0.5, 0], fit: 1.1, az: -40, el: 25, scene: (f) => <Warbler f={f} tracker={1} /> }} w={540} h={290} bg={SKY} />
+      <TileView t={{ name: "DE LADO", size: "perfil", target: [0.05, 0.45, 0], fit: 1.05, az: 0, el: 4, scene: (f) => <Warbler f={f} /> }} w={540} h={290} bg={SKY} />
+      <TileView t={{ name: "EM VOO", size: "asas abertas batendo", target: [0, 0.5, 0], fit: 1.3, az: 25, el: 30, scene: (f) => <Warbler f={f} fly={1} /> }} w={540} h={290} bg={SKY} />
+      <TileView t={{ name: "RASTREADOR NAS COSTAS", size: "geolocalizador leve com haste", target: [-0.02, 0.5, 0], fit: 0.85, az: -40, el: 25, scene: (f) => <Warbler f={f} tracker={1} /> }} w={540} h={290} bg={SKY} />
       <TileView t={{ name: "ÁRVORE + MASCOTE", size: "floresta low-poly · escala", target: [0, 1.8, 0], fit: 7, az: 15, el: 8, scene: (f) => (<><Ground /><group position={[-1.1, 0, 0]}><Tree f={f} /></group><group position={[1.7, 0, -1.2]}><Pine f={f} s={0.9} /></group><group position={[2.4, 0, 0.6]}><Tree f={f} seed="c" s={0.6} /></group><Mascot frame={f} position={[0.6, 0, 1]} scale={0.9} rotY={-0.4} /></>) }} w={540} h={290} bg={SKY} />
       <TileView t={{ name: "SUPERCÉLULA + TORNADO", size: "bigorna, base escura, funil girando", target: [0.8, 3.4, 0], fit: 13, az: 10, el: 6, scene: (f) => (<><Ground w={16} /><Supercell f={f} /></>) }} w={540} h={330} bg={STORM} />
       <TileView t={{ name: "TORNADO (CLOSE)", size: "funil curvo com bandas girando · poeira e destroços", target: [0.2, 1.5, 0], fit: 5, az: 15, el: 6, scene: (f) => (<><Ground w={8} /><Tornado f={f} /></>) }} w={540} h={330} bg={STORM} />
