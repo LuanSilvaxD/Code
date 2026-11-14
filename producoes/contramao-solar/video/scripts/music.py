@@ -60,11 +60,11 @@ def word(k, i):
 OUTRO = max(2.6, 0.6 + _VO["cta"]["seconds"] + 0.6) if "cta" in _VO else 2.6
 
 # ------------------------------------------------------------------ edite por vídeo
-PALETTE = "natureza"
+PALETTE = "espaco"
 VARIANT = ROOT.parent.name  # slug da produção
 n_sc = len(S)
-INTENTS = ["curious", "curious", "calm", "build", "reveal", "curious", "tense", "reveal", "tense", "resolve"]
-HITS: list[float] = [word("s1", 18), word("s4", 12), word("s6", 21), word("s9", 11)]
+INTENTS = ["tense", "curious", "groove", "calm", "build", "tense", "reveal", "resolve"]
+HITS: list[float] = [word("s1", 19), word("s2", 21), word("s5", 19), word("s7", 10)]
 
 mix = fm.render(S, INTENTS, DUR, PALETTE, hits=HITS, outro=OUTRO, variant=VARIANT)
 OUT.parent.mkdir(parents=True, exist_ok=True)

@@ -1,15 +1,17 @@
-import { Color } from "three";
+import { useMemo } from "react";
+import { CatmullRomCurve3, Color, Quaternion, Vector3 } from "three";
 import { useCurrentFrame } from "remotion";
 import { track } from "../data/scenes";
-import { add, ANANAS_P, CMP_120, CMP_90, CMP_BIG, FLOWER, FLOWER_TILT, NAUTILUS, PAIR_POS, PAIRS, PINE_P, RABBITS, SQUARES } from "../data/fibo";
+import { DISK, NEP, OBS, r631U, ROCKW, SOLAR, STAR, sysT } from "../data/solar";
 import { LIGHTING } from "../theme";
 import { clamp, rand, type Vec3 } from "../utils/animation";
+import { Sun } from "./Apagao";
 import { cameraPoseAt } from "./CameraController";
-import { FibSquares, Nautilus, Pineapple, PineCone, Rabbit, SeedHead, Sunflower } from "./Fibo";
 import { MascotFromTracks } from "./Mascot";
+import { AlienStar, NEPTUNE_A, Observatory, OrbitRing, Planet, PLANETS, ProtoDisk, r631Orbit, R631Orbit, Rock, SolarSystem } from "./Solar";
+import { Stars } from "./SpaceScene";
 
-// Mundos da "espiral de Fibonacci": girassol, coelhos, quadrados, comparação de ângulos, pinha/abacaxi e náutilo.
-// Tudo lê track("alvo.prop", frameGlobal). Posições em data/fibo.ts.
+// Mundos da "contramão no Sistema Solar". Tudo lê track("alvo.prop", frameGlobal). Posições em data/solar.ts.
 
 /** Luz que acompanha o alvo da câmera (a sombra cobre só o que está em quadro). */
 export const KolaLighting: React.FC = () => {
@@ -51,138 +53,160 @@ export const KolaLighting: React.FC = () => {
 
 
 const show = (k: string, f: number) => track(`${k}.show`, f) > 0.5;
-const M = { roughness: 0.8, metalness: 0, flatShading: true } as const;
 
-/** Girassol de frente com caule e folhas no mundo. */
-const FlowerWorld: React.FC<{ f: number }> = ({ f }) => {
-  const sway = Math.sin(f / 70) * 0.03;
+/** Setas vermelhas ao longo da órbita da R631 (sentido do movimento). */
+const RedArrows: React.FC<{ incl: number; v: number }> = ({ incl, v }) => {
+  if (v <= 0.01) return null;
   return (
-    <group position={FLOWER} rotation={[0, 0, sway]}>
-      <group rotation={[FLOWER_TILT, 0, 0]}>
-        <group rotation={[0, f * 0.0025, 0]}>
-          <Sunflower f={f} stem={false} grow={track("flower.grow", f, 1)} famA={track("flower.famA", f)} famB={track("flower.famB", f)} />
-        </group>
-      </group>
-      <mesh position={[0, -6.2, -0.7]} rotation={[0.04, 0, 0]}>
-        <cylinderGeometry args={[0.16, 0.22, 11, 10]} />
-        <meshStandardMaterial color="#4a8a3a" {...M} />
-      </mesh>
-      {[-1, 1].map((k) => (
-        <mesh key={k} position={[k * 1.25, -5.4 - (k + 1) * 0.6, -0.55]} rotation={[0.1, 0, k * -0.55]} scale={[1.3, 0.55, 0.06]}>
-          <sphereGeometry args={[1, 12, 8]} />
-          <meshStandardMaterial color="#3f7a32" {...M} />
-        </mesh>
-      ))}
-    </group>
-  );
-};
-
-/** Gramado com os casais de coelhos (1, 1, 2, 3, 5). rabbits.n = etapa 1..5. */
-const RabbitWorld: React.FC<{ f: number }> = ({ f }) => {
-  const stage = clamp(track("rabbits.n", f), 0, 5);
-  // casal i aparece na etapa (1-based) em que PAIRS passa de i
-  const appear = (i: number) => clamp(stage - PAIRS.findIndex((p) => p > i), 0, 1);
-  return (
-    <group position={RABBITS}>
-      <mesh position={[0, -0.08, 0.4]} receiveShadow>
-        <cylinderGeometry args={[3.6, 3.8, 0.16, 40]} />
-        <meshStandardMaterial color="#5a8a3a" {...M} />
-      </mesh>
-      {Array.from({ length: 26 }, (_, i) => {
-        const a = rand(`ga${i}`) * Math.PI * 2;
-        const r = 0.8 + rand(`gr${i}`) * 2.7;
+    <>
+      {[0.5, 2.1, 3.7, 5.2].map((u, i) => {
+        const p = r631Orbit(u, undefined, undefined, incl);
+        const q = r631Orbit(u + 0.05, undefined, undefined, incl);
+        const d = new Vector3(q[0] - p[0], q[1] - p[1], q[2] - p[2]).normalize();
+        const quat = new Quaternion().setFromUnitVectors(new Vector3(0, 1, 0), d);
         return (
-          <mesh key={i} position={[Math.cos(a) * r, 0.05, 0.4 + Math.sin(a) * r]} rotation={[0, a, 0]}>
-            <coneGeometry args={[0.05, 0.22, 4]} />
-            <meshStandardMaterial color={i % 3 ? "#6fa04a" : "#86b85a"} {...M} />
-          </mesh>
-        );
-      })}
-      {[[-2.6, 0.2, -1.6], [2.7, 0.2, -1.2], [2.5, 0.2, 2.2]].map((p, i) => (
-        <mesh key={`b${i}`} position={p as Vec3} scale={[0.55, 0.45, 0.55]} castShadow>
-          <icosahedronGeometry args={[1, 0]} />
-          <meshStandardMaterial color="#3f7a32" {...M} />
-        </mesh>
-      ))}
-      {PAIR_POS.map((p, i) => {
-        const g = appear(i);
-        if (g <= 0.01) return null;
-        const sc = Math.min(1, g * 1.25) * (1 + 0.15 * Math.sin(g * Math.PI));
-        return (
-          <group key={i} position={p} scale={sc * 0.8} rotation={[0, rand(`rr${i}`) * 1.2 - 0.6, 0]}>
-            <group position={[-0.32, 0, 0.1]}>
-              <Rabbit f={f + i * 7} hop={g < 1 ? 1 : 0} />
-            </group>
-            <group position={[0.38, 0, -0.12]} rotation={[0, Math.PI - 0.4, 0]}>
-              <Rabbit f={f + i * 11} color="#b88a5a" hop={g < 1 ? 1 : 0} />
-            </group>
+          <group key={i} position={p} quaternion={quat} scale={clamp(v, 0, 1.2)}>
+            <mesh position={[0, -0.25, 0]}>
+              <cylinderGeometry args={[0.09, 0.09, 0.6, 6]} />
+              <meshBasicMaterial color="#ff4a3a" toneMapped={false} />
+            </mesh>
+            <mesh position={[0, 0.2, 0]}>
+              <coneGeometry args={[0.26, 0.5, 8]} />
+              <meshBasicMaterial color="#ff4a3a" toneMapped={false} />
+            </mesh>
           </group>
         );
       })}
-    </group>
+    </>
   );
 };
 
-const Plinth: React.FC<{ p: Vec3; r?: number }> = ({ p, r = 0.9 }) => (
-  <mesh position={p} receiveShadow castShadow>
-    <cylinderGeometry args={[r, r * 1.08, 0.3, 32]} />
-    <meshStandardMaterial color="#1c1630" roughness={0.6} />
-  </mesh>
-);
-
-const CompareWorld: React.FC<{ f: number }> = ({ f }) => {
-  const k = clamp(track("cmp.k", f), 0, 1);
-  const bad = clamp(track("cmp.bad", f), 0, 1);
-  const head = (p: Vec3, R: number, n: number, deg: number, red: number) => (
-    <group position={p} rotation={[Math.PI / 2, 0, 0]} scale={0.4 + 0.6 * k}>
-      <mesh position={[0, -0.06, 0]}>
-        <cylinderGeometry args={[R * 1.08, R * 1.08, 0.08, 48]} />
-        <meshStandardMaterial color={new Color("#1e1208").lerp(new Color("#8a1a14"), red * 0.85)} roughness={0.8} />
-      </mesh>
-      <SeedHead n={n} R={R} angle={(deg * Math.PI) / 180} dome={0.1} />
-    </group>
-  );
+const SolarWorld: React.FC<{ f: number }> = ({ f }) => {
+  const incl = track("incl", f, 142);
+  const k = clamp(track("r631.k", f), 0, 1.3);
+  const u = r631U(f);
   return (
-    <group>
-      {head(CMP_BIG, 1.5, 500, 137.50776, 0)}
-      {head(CMP_120, 1.05, 260, 120, bad)}
-      {head(CMP_90, 1.05, 260, 90, bad)}
+    <group position={SOLAR}>
+      <Stars count={1400} radius={170} frame={f} />
+      <SolarSystem f={f} t={sysT(f)} arrows={track("arrows", f)} sunR={1.0} />
+      {track("r631.orbit", f) > 0.01 ? <R631Orbit incl={incl} draw={track("r631.orbit", f)} /> : null}
+      <RedArrows incl={incl} v={track("redArrow", f)} />
+      {k > 0.01 ? (
+        <group position={r631Orbit(u, undefined, undefined, incl)}>
+          <Rock s={0.55 * k} spin={f * 0.03} />
+          <mesh scale={1.3 * k}>
+            <sphereGeometry args={[0.55, 16, 12]} />
+            <meshBasicMaterial color="#ff5a4a" transparent opacity={0.18} depthWrite={false} toneMapped={false} />
+          </mesh>
+        </group>
+      ) : null}
+      {/* plano dos planetas (visível na vista de lado) */}
+      {track("incl", f, 142) < 141.9 || f < 0 ? (
+        <mesh rotation={[-Math.PI / 2, 0, 0]}>
+          <circleGeometry args={[NEPTUNE_A + 0.6, 64]} />
+          <meshBasicMaterial color="#8f86c8" transparent opacity={0.08} depthWrite={false} side={2} />
+        </mesh>
+      ) : null}
     </group>
   );
 };
 
-const PlantsWorld: React.FC<{ f: number }> = ({ f }) => (
-  <group>
-    <Plinth p={add(PINE_P, [0, -1.45, 0])} r={0.95} />
-    <Plinth p={add(ANANAS_P, [0, -1.35, 0])} r={1.0} />
-    <group position={PINE_P} rotation={[0, f * 0.012, 0]}>
-      <PineCone hi={track("plant.hiA", f)} s={0.95} />
+/** Hipótese 1: cinturão de Kuiper + Netuno; a rocha faz um estilingue e sai num plano virado. */
+const NepWorld: React.FC<{ f: number }> = ({ f }) => {
+  const t = clamp(track("fly.t", f), 0, 1);
+  const curve = useMemo(() => new CatmullRomCurve3([new Vector3(-11, 0, 3), new Vector3(-5, 0, 2.2), new Vector3(-1.6, 0, 1.3), new Vector3(0.3, 0.2, 1.9), new Vector3(1.2, 1.4, 0.6), new Vector3(3.5, 4.5, -2), new Vector3(7, 8.5, -5)]), []);
+  const belt = useMemo(() => Array.from({ length: 160 }, (_, i) => {
+    const a = rand(`kb${i}`) * Math.PI * 2;
+    const r = 6.5 + rand(`kr${i}`) * 6;
+    return { p: [Math.cos(a) * r - 4, (rand(`ky${i}`) - 0.5) * 0.6, -Math.sin(a) * r * 0.5 - 2] as Vec3, s: 0.06 + rand(`ks${i}`) * 0.12 };
+  }), []);
+  const n = Math.round(80 * t);
+  const p = curve.getPointAt(Math.max(0.0001, t));
+  return (
+    <group position={NEP}>
+      <Stars count={1000} radius={120} frame={f} />
+      {belt.map((b, i) => (
+        <mesh key={i} position={b.p} scale={b.s}>
+          <icosahedronGeometry args={[1, 0]} />
+          <meshStandardMaterial color="#8a7a6a" roughness={1} flatShading />
+        </mesh>
+      ))}
+      <Planet r={1.6} color="#4a6ae0" spin={f * 0.01} />
+      <OrbitRing a={2.6} opacity={0.0} />
+      {Array.from({ length: n }, (_, i) => {
+        const q = curve.getPointAt(i / 80);
+        return (
+          <mesh key={i} position={q}>
+            <sphereGeometry args={[0.07, 6, 4]} />
+            <meshBasicMaterial color={i / 80 > 0.5 ? "#ff5a4a" : "#c4b5fd"} toneMapped={false} />
+          </mesh>
+        );
+      })}
+      <group position={[p.x, p.y, p.z]}>
+        <Rock s={0.5} spin={f * 0.05} />
+      </group>
     </group>
-    <group position={ANANAS_P} rotation={[0, -f * 0.012, 0]}>
-      <Pineapple hi={track("plant.hiB", f)} f={f} s={0.95} />
+  );
+};
+
+/** Hipótese 2: viaja de outra estrela até o Sol e entra numa órbita invertida. */
+const StarWorld: React.FC<{ f: number }> = ({ f }) => {
+  const t = clamp(track("inter.t", f), 0, 1);
+  const from = new Vector3(-6.5, 3.4, -4);
+  const sunP = new Vector3(5, -1, 0);
+  const curve = useMemo(() => new CatmullRomCurve3([new Vector3(-5.2, 2.8, -3.4), new Vector3(-1.5, 1.6, -1.6), new Vector3(2.5, 0.2, 0.6), new Vector3(5.4, -0.6, 2.1), new Vector3(7.3, -1, 0), new Vector3(5.4, -1.5, -2.1), new Vector3(3.2, -1, 0), new Vector3(5, -0.5, 2.1)]), []);
+  const n = Math.round(110 * t);
+  const p = curve.getPointAt(Math.max(0.0001, t));
+  return (
+    <group position={STAR}>
+      <Stars count={1400} radius={140} frame={f} />
+      <group position={from.toArray() as Vec3}>
+        <AlienStar f={f} r={1.3} />
+      </group>
+      <group position={sunP.toArray() as Vec3}>
+        <Sun r={1.3} f={f} />
+      </group>
+      {Array.from({ length: n }, (_, i) => (
+        <mesh key={i} position={curve.getPointAt(i / 110)}>
+          <sphereGeometry args={[0.06, 6, 4]} />
+          <meshBasicMaterial color={new Color("#7ab8ff").lerp(new Color("#ff5a4a"), i / 110)} toneMapped={false} />
+        </mesh>
+      ))}
+      <group position={[p.x, p.y, p.z]}>
+        <Rock s={0.45} spin={f * 0.05} />
+      </group>
     </group>
-  </group>
-);
+  );
+};
 
 export const World: React.FC = () => {
   const f = useCurrentFrame();
   return (
     <>
-      {show("flower", f) ? <FlowerWorld f={f} /> : null}
-      {show("rabbits", f) ? <RabbitWorld f={f} /> : null}
-      {show("squares", f) ? (
-        <group position={SQUARES}>
-          <FibSquares n={track("squares.n", f)} draw={track("spiral.draw", f)} k={0.3} />
+      {show("solar", f) ? <SolarWorld f={f} /> : null}
+      {show("rock", f) ? (
+        <group position={ROCKW}>
+          <Stars count={900} radius={80} frame={f} />
+          <Rock s={1.6} spin={f * 0.012} />
         </group>
       ) : null}
-      {show("compare", f) ? <CompareWorld f={f} /> : null}
-      {show("plants", f) ? <PlantsWorld f={f} /> : null}
-      {show("nautilus", f) ? (
-        <group position={NAUTILUS} rotation={[0, Math.sin(f / 60) * 0.12, 0]}>
-          <Nautilus golden={track("golden", f)} s={1.05} />
+      {show("obs", f) ? (
+        <group position={OBS}>
+          <Stars count={1600} radius={90} frame={f} />
+          <Observatory f={f} open={1.2} />
         </group>
       ) : null}
+      {show("disk", f) ? (
+        <group position={DISK}>
+          <Stars count={900} radius={120} frame={f} />
+          <Sun r={0.75} f={f} />
+          <ProtoDisk f={f * 6} form={track("disk.form", f)} R={7} n={1800} />
+        </group>
+      ) : null}
+      {show("nep", f) ? <NepWorld f={f} /> : null}
+      {show("star", f) ? <StarWorld f={f} /> : null}
       <MascotFromTracks />
     </>
   );
 };
+export { PLANETS };

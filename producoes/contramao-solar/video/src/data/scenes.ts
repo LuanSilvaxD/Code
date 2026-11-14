@@ -1,14 +1,14 @@
-// scenes.ts — "A espiral de Fibonacci". Roteiro v1 e designs APROVADOS (13/11/2026); cortes da voz real.
-// Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN. Linha do tempo determinística.
+// scenes.ts — "Tem algo andando NA CONTRAMÃO no Sistema Solar" (R631). Roteiro v1 e designs APROVADOS (14/11/2026).
+// Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN.
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
-import { add, COMPARE, FLOWER, NAUTILUS, PLANTS, RABBITS, SQUARES } from "./fibo";
+import { add, DISK, NEP, OBS, ROCKW, SOLAR, STAR } from "./solar";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
-export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-natureza", language: "pt-BR" };
+export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-espaco", language: "pt-BR" };
 
 export type BadgeVariant = "positive" | "negative" | "info" | "warning";
 export type CameraKey = { at: number; position: Vec3; target: Vec3; zoom?: number; easing?: EaseName };
@@ -28,6 +28,7 @@ const end = (i: number) => SCENE_FRAMES[i].durationInFrames;
 const W = wordLocal;
 type Pose = { position: Vec3; target: Vec3 };
 const key = (at: number, pose: Pose, easing?: EaseName): CameraKey => ({ at, ...pose, easing });
+const cut = (at: number, hold: Pose, next: Pose): CameraKey[] => [key(at - 1, hold), key(at, next)];
 const narration = (k: VoKey): AudioCue => ({ kind: "narration", src: `audio/vo/${k}.wav`, at: voLocal(k), volume: 1, status: "ready" });
 const sfx = (name: string, at: number, volume: number): AudioCue => ({ kind: "sfx", src: `audio/sfx/${name}.wav`, at, volume, status: "ready" });
 const cap = (k: VoKey, i: number, text: string): CaptionBlock => ({ text, from: voLocal(k), to: end(i) });
@@ -35,213 +36,162 @@ const lin = (target: string, a: number, b: number, from: number | undefined, to:
 const set = (target: string, at: number, v: number): TrackAnimation => lin(target, at, at + 1, v, v, "linear");
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(target, at, at + len, undefined, 0, "in");
-const WORLDS = ["flower", "rabbits", "squares", "compare", "plants", "nautilus"] as const;
+const WORLDS = ["solar", "rock", "obs", "disk", "nep", "star"] as const;
 const world = (at: number, w: (typeof WORLDS)[number]): TrackAnimation[] => WORLDS.map((k) => set(`${k}.show`, at, k === w ? 1 : 0));
-/** Degraus: o alvo vale i+1 a partir do frame frames[i]. */
-const steps = (target: string, frames: number[]): TrackAnimation[] => frames.map((at, i) => lin(target, at, at + 4, i, i + 1, "out", "count"));
-/** Chicote de entrada sem deixar listras: use no meio da cena (fx.whipIn é só para o frame 0). */
 const whipMid = (at: number): TrackAnimation => lin("screen.whip", at, at + 7, -1, 0, "out");
 
 // câmera (9:16: largura visível ≈ 0,237·d; altura ≈ 0,42·d)
-const FL = add(FLOWER, [0, -1.1, 0]);
 const P = {
-  fl: orbit(FL, 30, -8, 6),
-  fl2: orbit(FL, 27, 4, 8),
-  flWide: orbit(add(FLOWER, [0, -1.6, 0]), 38, 10, 8),
-  flWide2: orbit(add(FLOWER, [0, -1.6, 0]), 36, 22, 10),
-  core: orbit(add(FLOWER, [0, 0.1, 0]), 7.5, 0, 6),
-  coreOut: orbit(add(FLOWER, [0, -0.9, 0]), 26, -6, 6),
-  fl3: orbit(FL, 28, -14, 6),
-  end1: orbit(add(FLOWER, [0, -1.4, 0]), 31, -28, 10),
-  end2: orbit(add(FLOWER, [0, -1.4, 0]), 30, 24, 8),
-  rab: orbit(add(RABBITS, [0, -0.4, 0.5]), 21, -12, 28),
-  rab2: orbit(add(RABBITS, [0, -0.4, 0.5]), 19.5, 12, 32),
-  sqTop: orbit(add(SQUARES, [0, -4.1, 0]), 52, 0, 0),
-  sqTop2: orbit(add(SQUARES, [0, -4.1, 0]), 51, 3, 0),
-  sq: orbit(add(SQUARES, [0, -0.8, 0]), 29, -4, 2),
-  sq2: orbit(add(SQUARES, [0, -0.9, 0]), 33, 6, 4),
-  cmp: orbit(add(COMPARE, [0, -0.6, 0]), 30, 0, 0),
-  cmp2: orbit(add(COMPARE, [0, -0.6, 0]), 29, 5, 2),
-  plants: orbit(add(PLANTS, [0, -0.2, 0]), 21, -10, 10),
-  plants2: orbit(add(PLANTS, [0, -0.2, 0]), 20, 10, 12),
-  naut: orbit(add(NAUTILUS, [0.5, -0.9, 0]), 24, -6, 0),
-  naut2: orbit(add(NAUTILUS, [0.5, -0.9, 0]), 23, 6, 3),
+  inner: orbit(add(SOLAR, [0, 0, 0]), 30, 10, 58),
+  wide: orbit(add(SOLAR, [0, -1.5, 0]), 82, 14, 52),
+  wide2: orbit(add(SOLAR, [0, -1.5, 0]), 78, 24, 48),
+  rock: orbit(add(ROCKW, [0, -0.9, 0]), 30, -10, 8),
+  rock2: orbit(add(ROCKW, [0, -0.9, 0]), 26, 15, 12),
+  side: orbit(add(SOLAR, [0, -2.2, 0]), 64, 30, 3),
+  side2: orbit(add(SOLAR, [0, -2.2, 0]), 62, 36, 5),
+  obs: orbit(add(OBS, [0, 1.6, 0]), 17, 22, 8),
+  obs2: orbit(add(OBS, [0.2, 1.4, 0]), 18, 30, 9),
+  disk: orbit(add(DISK, [0, -0.8, 0]), 30, 0, 50),
+  disk2: orbit(add(DISK, [0, -0.8, 0]), 26, 18, 40),
+  nep: orbit(add(NEP, [0, -0.5, 0]), 30, 0, 18),
+  nep2: orbit(add(NEP, [1, 0.5, 0]), 32, 18, 14),
+  star: orbit(add(STAR, [-0.5, -1.2, 0]), 72, 0, 10),
+  star2: orbit(add(STAR, [0.5, -1.2, 0]), 66, 8, 14),
+  peri: orbit(add(SOLAR, [0, -1.5, 0]), 70, -20, 42),
+  peri2: orbit(add(SOLAR, [0, -1.5, 0]), 66, -6, 38),
+  fin: orbit(add(SOLAR, [0, -2, 0]), 80, 30, 34),
+  fin2: orbit(add(SOLAR, [0, -2, 0]), 80, 70, 30),
 };
-const M_FLOWER: Vec3 = add(FLOWER, [2.3, -3.6, 2.6]);
-const M_PLANTS: Vec3 = add(PLANTS, [2.4, -1.9, 1.6]);
-const M_NAUT: Vec3 = add(NAUTILUS, [2.6, -2.8, 1.4]);
+const M_SOLAR: Vec3 = add(SOLAR, [7.5, -4.5, 9.5]);
 
-const ZERO = [
-  "flower.famA", "flower.famB", "dim", "countA", "countB", "seq.step", "seq.sum", "seq.more", "rabbits.n", "casais.k", "ratio.step", "ratio.lock", "squares.n", "spiral.draw", "seal.k",
-  "proto.k", "cmp.k", "cmp.bad", "plant.hiA", "plant.hiB", "golden", "cross", "nlabels", "sum1", "sum2", "sum3", "mascot.float",
-];
+const ZERO = ["arrows", "r631.k", "r631.orbit", "redArrow", "incl", "dots.k", "link.draw", "disk.form", "fly.t", "inter.t", "years", "peri.k", "seal.k", "sealI.k", "mascot.float"];
 
 export const scenes: ScenePlan[] = [
   {
     id: "s1", ...sc(0), voKey: "s1",
-    narration: "Conte as espirais de um girassol: trinta e quatro num sentido, cinquenta e cinco no outro. Não é coincidência.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.fl), key(end(0), P.fl2, "linear")] },
-    objects: [{ id: "sunflower", type: "Sunflower(900 sementes, 137,5°)", visible: true }, { id: "counters", type: "Counter2D(34, 55)", visible: true }, { id: "mascot", type: "Mascot(float)", visible: true }],
+    narration: "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.inner), key(W("s1", 11), orbit(SOLAR, 44, 12, 56), "linear"), key(W("s1", 15), P.wide, "inOut"), key(end(0), P.wide2, "linear")] },
+    objects: [{ id: "solar", type: "SolarSystem(8 planetas, setas)", visible: true }, { id: "r631", type: "Rock + órbita retrógrada", visible: true }, { id: "mascot", type: "Mascot(float)", visible: true }],
     animations: [
-      ...fx.flash(0), ...world(0, "flower"), ...ZERO.map((t) => set(t, 0, 0)), set("flower.grow", 0, 1),
-      ...mascot.place(M_FLOWER, -0.5, 0.6, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 1), 34),
-      lin("flower.famA", W("s1", 6), W("s1", 8) + 6, 0, 1), lin("countA", W("s1", 6), W("s1", 9) + 4, 0, 34, "out", "count"), ...mascot.point(W("s1", 6), 44, -0.9),
-      lin("flower.famB", W("s1", 11), W("s1", 13) + 6, 0, 1), lin("countB", W("s1", 11), W("s1", 14) + 4, 0, 55, "out", "count"),
-      ...fx.punch(W("s1", 18)),
+      ...fx.flash(0), ...world(0, "solar"), ...ZERO.map((t) => set(t, 0, 0)), set("incl", 0, 142), set("seal.k", 0, 1),
+      lin("arrows", W("s1", 3), W("s1", 3) + 12, 0, 1),
+      ...mascot.place(M_SOLAR, -0.5, 2.4, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 4, 34),
+      pop("r631.k", W("s1", 16)), lin("r631.orbit", W("s1", 16), W("s1", 19) + 16, 0, 1, "inOut"), pop("redArrow", W("s1", 18)), ...fx.punch(W("s1", 19)), ...mascot.jump(W("s1", 19)),
     ],
     badges: [
-      { text: "34 E 55", variant: "info", appearAt: W("s1", 11), disappearAt: W("s1", 16) },
-      { text: "NÃO É COINCIDÊNCIA", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 16) },
+      { text: "TODOS NO MESMO SENTIDO", variant: "positive", appearAt: W("s1", 8), disappearAt: W("s1", 17) },
+      { text: "NA CONTRAMÃO!", variant: "negative", size: "large", appearAt: W("s1", 18) },
     ],
-    highlights: ["ESPIRAIS", "GIRASSOL", "TRINTA", "QUATRO", "CINQUENTA", "CINCO", "COINCIDÊNCIA"],
-    captions: [cap("s1", 0, "Conte as espirais de um girassol: trinta e quatro num sentido, cinquenta e cinco no outro. Não é coincidência.")],
-    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("shimmer", W("s1", 6), 0.35), sfx("shimmer", W("s1", 11), 0.35), sfx("thud", W("s1", 18), 0.45)],
+    highlights: ["PLANETAS", "SOL", "MESMO", "SENTIDO", "NETUNO", "CONTRAMÃO"],
+    captions: [cap("s1", 0, "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.")],
+    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("shimmer", W("s1", 3), 0.3), sfx("alert-tone", W("s1", 18), 0.25), sfx("thud", W("s1", 19), 0.4)],
   },
   {
     id: "s2", ...sc(1), voKey: "s2",
-    narration: "São números de Fibonacci: cada um é a soma dos dois anteriores. Um, um, dois, três, cinco, oito, treze.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.fl2), key(end(1), P.flWide, "linear")] },
-    objects: [{ id: "sunflower", type: "Sunflower(ao fundo)", visible: true }, { id: "sequence", type: "Sequence2D", visible: true }],
+    narration: "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus: praticamente de ponta-cabeça.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.rock), ...cut(W("s2", 11), P.rock2, P.side), key(end(1), P.side2, "linear")] },
+    objects: [{ id: "rock", type: "Rock(close)", visible: true }, { id: "solar", type: "SolarSystem(de lado)", visible: true }, { id: "incl", type: "Órbita inclinando 0→142°", visible: true }],
     animations: [
-      lin("dim", 0, 10, 0, 1), popOut("countA", 0, 8), popOut("countB", 0, 8), ...mascot.hide(0, 8), pop("seq.sum", W("s2", 8)), popOut("seq.sum", W("s2", 12) - 4, 6),
-      ...steps("seq.step", [12, 13, 14, 15, 16, 17, 18].map((i) => W("s2", i))), pop("seq.more", W("s2", 18) + 14),
+      ...fx.whipIn(), ...world(0, "rock"), ...mascot.hide(0, 4), set("seal.k", 0, 0),
+      whipMid(W("s2", 11)), ...world(W("s2", 11), "solar"), set("incl", W("s2", 11), 0), set("seal.k", W("s2", 11), 1), lin("incl", W("s2", 15), W("s2", 20) + 6, 0, 142, "inOut", "deg"),
     ],
     badges: [
-      { text: "SEQUÊNCIA DE FIBONACCI", variant: "info", appearAt: W("s2", 3), disappearAt: W("s2", 8) },
-      { text: "SOMA DOS DOIS ANTERIORES", variant: "info", appearAt: W("s2", 8) },
+      { text: "R631 · NOME PROVISÓRIO", variant: "info", appearAt: W("s2", 2), disappearAt: W("s2", 5) },
+      { text: "~100 KM (ESTIMATIVA)", variant: "info", appearAt: W("s2", 5), disappearAt: W("s2", 15) },
+      { text: "142°: DE PONTA-CABEÇA", variant: "warning", size: "large", appearAt: W("s2", 21) },
     ],
-    highlights: ["FIBONACCI", "SOMA", "ANTERIORES", "UM", "DOIS", "TRÊS", "CINCO", "OITO", "TREZE"],
-    captions: [cap("s2", 1, "São números de Fibonacci: cada um é a soma dos dois anteriores. Um, um, dois, três, cinco, oito, treze.")],
-    audioCues: [narration("s2"), sfx("whoosh-soft", 0, 0.3), sfx("ding", W("s2", 8), 0.3), ...[12, 13, 14, 15, 16, 17, 18].map((i, k) => sfx(k % 2 ? "pop-high" : "pop", W("s2", i), 0.3)), sfx("shimmer", W("s2", 18) + 14, 0.3)],
+    highlights: ["PROVISÓRIO", "R631", "CEM", "QUILÔMETROS", "INCLINADA", "QUARENTA", "DOIS", "GRAUS", "PONTA-CABEÇA"],
+    captions: [cap("s2", 1, "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus: praticamente de ponta-cabeça.")],
+    audioCues: [narration("s2"), sfx("whoosh", 0, 0.35), sfx("rumble-soft", 4, 0.25), sfx("whoosh-soft", W("s2", 11), 0.3), sfx("warp", W("s2", 15), 0.35)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
-    narration: "A sequência ficou famosa em 1202, num problema sobre coelhos. Na Índia, já era conhecida séculos antes.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.rab), key(end(2), P.rab2, "linear")] },
-    objects: [{ id: "meadow", type: "Gramado", visible: true }, { id: "rabbits", type: "Rabbit×casais(1,1,2,3,5)", visible: true }, { id: "pairs", type: "Counter2D(casais)", visible: true }],
+    narration: "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.obs), key(end(2), P.obs2, "inOut")] },
+    objects: [{ id: "obs", type: "Observatory(estilo Rubin)", visible: true }, { id: "dots", type: "Dots2D + linha", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "rabbits"), set("dim", 0, 0), set("seq.step", 0, 0), set("seq.more", 0, 0), set("rabbits.n", 0, 1), pop("casais.k", W("s3", 5)),
-      ...[W("s3", 7), W("s3", 8), W("s3", 9), W("s3", 9) + 12].map((a, k) => lin("rabbits.n", a, a + 4, k + 1, k + 2, "out", "count")),
-      popOut("casais.k", W("s3", 11) - 2, 8),
+      ...fx.whipIn(), ...world(0, "obs"), set("seal.k", 0, 0), set("incl", 0, 142), lin("dots.k", W("s3", 1), W("s3", 4) + 6, 0, 1), lin("link.draw", W("s3", 2), W("s3", 7), 0, 1, "inOut"), popOut("dots.k", W("s3", 13), 10), popOut("link.draw", W("s3", 13), 10),
+      ...mascot.place(add(OBS, [-0.2, 0.05, 1.5]), 0.5, 0.34, 0), ...mascot.float(0, false, 1), ...mascot.point(W("s3", 7), 40, 0.2),
     ],
     badges: [
-      { text: "1202 · O PROBLEMA DOS COELHOS", variant: "info", appearAt: W("s3", 5), disappearAt: W("s3", 11) },
-      { text: "ÍNDIA: SÉCULOS ANTES", variant: "info", appearAt: W("s3", 11) },
+      { text: "ASTRÔNOMO AMADOR", variant: "positive", appearAt: W("s3", 7), disappearAt: W("s3", 11) },
+      { text: "DADOS PÚBLICOS DO RUBIN", variant: "info", appearAt: W("s3", 11) },
     ],
-    highlights: ["SEQUÊNCIA", "1202", "COELHOS", "ÍNDIA", "SÉCULOS"],
-    captions: [cap("s3", 2, "A sequência ficou famosa em 1202, num problema sobre coelhos. Na Índia, já era conhecida séculos antes.")],
-    audioCues: [narration("s3"), sfx("whoosh", 0, 0.35), ...[7, 8, 9].map((i) => sfx("bunny-hop", W("s3", i), 0.4)), sfx("bunny-hop", W("s3", 9) + 12, 0.4), sfx("bells", W("s3", 11), 0.18)],
+    highlights: ["LIGOU", "PONTOS", "ASTRÔNOMO", "AMADOR", "PÚBLICOS", "VERA", "RUBIN"],
+    captions: [cap("s3", 2, "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.")],
+    audioCues: [narration("s3"), sfx("whoosh", 0, 0.35), sfx("tick", W("s3", 2), 0.25), sfx("shimmer", W("s3", 5), 0.3), sfx("ding", W("s3", 7), 0.3)],
   },
   {
     id: "s4", ...sc(3), voKey: "s4",
-    narration: "Divida um pelo anterior e o resultado se aproxima de 1,618: a proporção áurea.",
-    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.sqTop), key(end(3), P.sqTop2, "linear")] },
-    objects: [{ id: "squares", type: "FibSquares(crescendo)", visible: true }, { id: "ratios", type: "Ratios2D", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "squares"), set("rabbits.n", 0, 0), set("squares.n", 0, 2), set("spiral.draw", 0, 0),
-      ...steps("ratio.step", [0, 1, 3, 5, 7, 8].map((i) => W("s4", i))), ...[0, 1, 3, 5, 7].map((i, k) => lin("squares.n", W("s4", i), W("s4", i) + 8, 2 + k, 3 + k, "out", "count")),
-      pop("ratio.lock", W("s4", 10)), ...fx.flash(W("s4", 12), 6),
-    ],
+    narration: "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.disk), key(end(3), P.disk2, "inOut")] },
+    objects: [{ id: "disk", type: "ProtoDisk", visible: true }, { id: "seal", type: "Seal(ILUSTRAÇÃO)", visible: true }],
+    animations: [...fx.whipIn(-1), ...world(0, "disk"), ...mascot.hide(0, 4), ...fx.desaturate(W("s4", 7), end(3), 0.55), set("sealI.k", 0, 1), lin("disk.form", W("s4", 17), end(3), 0, 1, "inOut")],
     badges: [
-      { text: "→ 1,618…", variant: "warning", appearAt: W("s4", 10), disappearAt: W("s4", 12) },
-      { text: "PROPORÇÃO ÁUREA", variant: "info", size: "large", appearAt: W("s4", 12) },
+      { text: "POR QUÊ?", variant: "warning", icon: "?", appearAt: W("s4", 0), disappearAt: W("s4", 13) },
+      { text: "HERANÇA DO DISCO DE GÁS", variant: "info", appearAt: W("s4", 13) },
     ],
-    highlights: ["DIVIDA", "ANTERIOR", "1,618", "PROPORÇÃO", "ÁUREA"],
-    captions: [cap("s4", 3, "Divida um pelo anterior e o resultado se aproxima de 1,618: a proporção áurea.")],
-    audioCues: [narration("s4"), sfx("whoosh-soft", 0, 0.3), ...[0, 1, 3, 5, 7, 8].map((i) => sfx("tick", W("s4", i), 0.3)), sfx("ding", W("s4", 10), 0.4), sfx("glow", W("s4", 12), 0.35)],
+    highlights: ["IGUAL", "NASCEU", "DISCO", "GÁS", "GIRANDO", "HERDOU", "GIRO"],
+    captions: [cap("s4", 3, "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.")],
+    audioCues: [narration("s4"), sfx("rewind", 0, 0.35), sfx("glow", W("s4", 13), 0.35)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",
-    narration: "Com quadrados desses tamanhos, dá pra desenhar a famosa espiral.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.sqTop2), key(W("s5", 1) + 10, P.sq, "inOut"), key(end(4), P.sq2, "inOut")] },
-    objects: [{ id: "squares", type: "FibSquares(7)", visible: true }, { id: "spiral", type: "Espiral dourada", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
-    animations: [popOut("ratio.lock", 0, 8), popOut("ratio.step", 0, 8), set("squares.n", 0, 7), lin("seal.k", 0, 8, 0, 1), lin("spiral.draw", W("s5", 6), W("s5", 9) + 16, 0, 1, "inOut")],
-    badges: [{ text: "A ESPIRAL DE FIBONACCI", variant: "info", appearAt: W("s5", 8) }],
-    highlights: ["QUADRADOS", "TAMANHOS", "DESENHAR", "ESPIRAL"],
-    captions: [cap("s5", 4, "Com quadrados desses tamanhos, dá pra desenhar a famosa espiral.")],
-    audioCues: [narration("s5"), sfx("shimmer", W("s5", 6), 0.35)],
+    narration: "Pra andar ao contrário, precisa de uma história. A mais provável: ele passou perto demais de Netuno e foi arremessado.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.nep), key(end(4), P.nep2, "inOut")] },
+    objects: [{ id: "neptune", type: "Netuno + cinturão de Kuiper", visible: true }, { id: "fly", type: "Rock(estilingue)", visible: true }],
+    animations: [
+      ...fx.whipIn(), ...world(0, "nep"), set("sealI.k", 0, 0), set("seal.k", 0, 1), lin("fly.t", W("s5", 9), end(4) - 6, 0, 1, "inOut"), ...fx.shake(W("s5", 19), 16),
+      ...mascot.place(add(NEP, [-5.5, -4.2, 6]), 0.6, 1.0, 0), ...mascot.float(0, true, 1), ...mascot.point(W("s5", 16), 36, 0.9),
+    ],
+    badges: [
+      { text: "HIPÓTESE 1: NETUNO", variant: "info", appearAt: W("s5", 8), disappearAt: W("s5", 10) + 8 },
+      { text: "A MAIS PROVÁVEL", variant: "positive", appearAt: W("s5", 10) + 8 },
+    ],
+    highlights: ["CONTRÁRIO", "HISTÓRIA", "PROVÁVEL", "PERTO", "NETUNO", "ARREMESSADO"],
+    captions: [cap("s5", 4, "Pra andar ao contrário, precisa de uma história. A mais provável: ele passou perto demais de Netuno e foi arremessado.")],
+    audioCues: [narration("s5"), sfx("whoosh", 0, 0.35), sfx("solar-whoosh", W("s5", 13), 0.4), sfx("whoosh-big", W("s5", 19), 0.4)],
   },
   {
     id: "s6", ...sc(5), voKey: "s6",
-    narration: "Mas por que o girassol segue isso? Cada semente nova nasce girada cento e trinta e sete graus e meio: o ângulo áureo.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.fl3), key(W("s6", 7) - 1, P.fl3), key(W("s6", 7), P.core), key(W("s6", 12), P.core), key(end(5), P.coreOut, "inOut")] },
-    objects: [{ id: "sunflower", type: "Sunflower(miolo nascendo)", visible: true }, { id: "protractor", type: "Protractor2D(137,5°)", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "flower"), set("seal.k", 0, 0), set("squares.n", 0, 0), set("flower.famA", 0, 0), set("flower.famB", 0, 0), set("flower.grow", 0, 1),
-      lin("flower.grow", W("s6", 7) - 4, W("s6", 7), undefined, 0.004, "in"), lin("flower.grow", W("s6", 8), end(5) - 4, 0.004, 1, "in"),
-      pop("proto.k", W("s6", 11)), popOut("proto.k", W("s6", 22) + 12, 8), ...fx.punch(W("s6", 21)),
-    ],
-    badges: [
-      { text: "POR QUÊ?", variant: "warning", icon: "?", appearAt: W("s6", 0), disappearAt: W("s6", 7) },
-      { text: "137,5°: O ÂNGULO ÁUREO", variant: "info", size: "large", appearAt: W("s6", 20) },
-    ],
-    highlights: ["GIRASSOL", "SEMENTE", "NOVA", "CENTO", "TRINTA", "SETE", "GRAUS", "ÂNGULO", "ÁUREO"],
-    captions: [cap("s6", 5, "Mas por que o girassol segue isso? Cada semente nova nasce girada cento e trinta e sete graus e meio: o ângulo áureo.")],
-    audioCues: [narration("s6"), sfx("whoosh", 0, 0.35), sfx("seed-pop", W("s6", 8), 0.45), sfx("glow", W("s6", 20), 0.35)],
+    narration: "A mais ousada: ele veio de outra estrela e foi capturado pelo Sol.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.star), key(end(5), P.star2, "inOut")] },
+    objects: [{ id: "star", type: "AlienStar", visible: true }, { id: "sun", type: "Sun", visible: true }, { id: "inter", type: "Rock(viagem + captura)", visible: true }],
+    animations: [...fx.whipIn(), ...world(0, "star"), ...mascot.hide(0, 4), lin("inter.t", W("s6", 3), end(5) - 2, 0, 1, "inOut"), ...fx.flash(W("s6", 10), 8)],
+    badges: [{ text: "HIPÓTESE 2: OUTRA ESTRELA", variant: "warning", icon: "?", appearAt: W("s6", 2) }],
+    highlights: ["OUSADA", "OUTRA", "ESTRELA", "CAPTURADO", "SOL"],
+    captions: [cap("s6", 5, "A mais ousada: ele veio de outra estrela e foi capturado pelo Sol.")],
+    audioCues: [narration("s6"), sfx("whoosh", 0, 0.35), sfx("warp", W("s6", 4), 0.35), sfx("pop", W("s6", 10), 0.3)],
   },
   {
     id: "s7", ...sc(6), voKey: "s7",
-    narration: "Esse ângulo espalha as sementes sem formar raios nem deixar vazios. Com outro ângulo, sobra espaço.",
-    camera: { projection: "perspective", movement: "hold", keys: [key(0, P.cmp), key(end(6), P.cmp2, "linear")] },
-    objects: [{ id: "heads", type: "SeedHead×3 (137,5° / 120° / 90°)", visible: true }, { id: "labels", type: "Labels(ângulos)", visible: true }, { id: "seal", type: "Seal(ESQUEMA)", visible: true }],
-    animations: [...fx.whipIn(), ...world(0, "compare"), lin("cmp.k", 0, 10, 0, 1), pop("cmp.bad", W("s7", 13))],
-    badges: [
-      { text: "137,5°: SEM VAZIOS", variant: "positive", appearAt: W("s7", 2), disappearAt: W("s7", 11) },
-      { text: "OUTRO ÂNGULO: ESPAÇO PERDIDO", variant: "negative", appearAt: W("s7", 11) },
+    narration: "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.peri), key(end(6), P.peri2, "linear")] },
+    objects: [{ id: "solar", type: "SolarSystem + órbita R631", visible: true }, { id: "years", type: "Counter2D(anos)", visible: true }, { id: "peri", type: "Marcador 2047 no periélio", visible: true }],
+    animations: [
+      ...fx.whipIn(), ...world(0, "solar"), set("arrows", 0, 1), set("r631.k", 0, 1), set("r631.orbit", 0, 1), set("redArrow", 0, 1), set("incl", 0, 142),
+      lin("years", W("s7", 1), W("s7", 8), 0, 550, "out", "count"), popOut("years", W("s7", 10) - 4, 8), pop("peri.k", W("s7", 10)),
     ],
-    highlights: ["ÂNGULO", "ESPALHA", "RAIOS", "VAZIOS", "OUTRO", "SOBRA", "ESPAÇO"],
-    captions: [cap("s7", 6, "Esse ângulo espalha as sementes sem formar raios nem deixar vazios. Com outro ângulo, sobra espaço.")],
-    audioCues: [narration("s7"), sfx("whoosh", 0, 0.35), sfx("buzz", W("s7", 14), 0.3)],
+    badges: [
+      { text: "~550 ANOS POR VOLTA", variant: "info", appearAt: W("s7", 5), disappearAt: W("s7", 10) },
+      { text: "2047: MAIS PERTO QUE NETUNO", variant: "warning", appearAt: W("s7", 10) },
+    ],
+    highlights: ["VOLTA", "QUINHENTOS", "CINQUENTA", "ANOS", "2047", "PERTO", "NETUNO"],
+    captions: [cap("s7", 6, "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.")],
+    audioCues: [narration("s7"), sfx("whoosh", 0, 0.35), sfx("hourglass", W("s7", 1), 0.25), sfx("ding", W("s7", 10), 0.35)],
   },
   {
     id: "s8", ...sc(7), voKey: "s8",
-    narration: "O resultado são espirais em números de Fibonacci. Nas pinhas e no abacaxi, também.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.flWide), key(W("s8", 8) - 1, P.flWide2, "linear"), key(W("s8", 8), P.plants), key(end(7), P.plants2, "linear")] },
-    objects: [{ id: "sunflower", type: "Sunflower(espirais acesas)", visible: true }, { id: "pine", type: "PineCone", visible: true }, { id: "ananas", type: "Pineapple", visible: true }],
+    narration: "Pronto: agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
+    objects: [{ id: "solar", type: "SolarSystem + R631", visible: true }, { id: "mascot", type: "Mascot", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "flower"), set("cmp.k", 0, 0), set("cmp.bad", 0, 0), set("flower.grow", 0, 1), lin("flower.famA", 2, 14, 0, 1), lin("flower.famB", 8, 20, 0, 1),
-      ...mascot.place(add(FLOWER, [3.6, -4.2, 2.4]), -0.5, 0.7, 0, 8), ...mascot.cheer(W("s8", 3), 40),
-      whipMid(W("s8", 8)), ...world(W("s8", 8), "plants"), ...mascot.place(M_PLANTS, -0.5, 0.5, W("s8", 8)), lin("plant.hiA", W("s8", 9), W("s8", 9) + 10, 0, 1), lin("plant.hiB", W("s8", 12), W("s8", 12) + 10, 0, 1), ...mascot.point(W("s8", 9), 40, -0.9),
+      popOut("peri.k", 0, 10), ...mascot.place(add(SOLAR, [6.5, -3.2, 8.5]), -0.3, 2.4, 0, 10), ...mascot.float(0, true, 1), ...mascot.cheer(W("s8", 1), 40), ...mascot.wave(W("s8", 11), 40),
     ],
-    badges: [
-      { text: "ESPIRAIS DE FIBONACCI", variant: "positive", appearAt: W("s8", 3), disappearAt: W("s8", 8) },
-      { text: "PINHA · ABACAXI: 8 E 13", variant: "info", appearAt: W("s8", 9) },
-    ],
-    highlights: ["RESULTADO", "ESPIRAIS", "FIBONACCI", "PINHAS", "ABACAXI"],
-    captions: [cap("s8", 7, "O resultado são espirais em números de Fibonacci. Nas pinhas e no abacaxi, também.")],
-    audioCues: [narration("s8"), sfx("whoosh", 0, 0.35), sfx("shimmer", 4, 0.35), sfx("whoosh", W("s8", 8), 0.35), sfx("pop", W("s8", 9), 0.3), sfx("pop-high", W("s8", 12), 0.3)],
-  },
-  {
-    id: "s9", ...sc(8), voKey: "s9",
-    narration: "Agora, o mito: a concha do náutilo não é uma espiral áurea. Medida, ela cresce num ritmo bem diferente.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.naut), key(end(8), P.naut2, "linear")] },
-    objects: [{ id: "nautilus", type: "Nautilus(corte)", visible: true }, { id: "golden", type: "Espiral áurea sobreposta", visible: true }, { id: "cross", type: "X2D", visible: true }, { id: "labels", type: "Ratios(1,33 × 1,618)", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "nautilus"), set("plant.hiA", 0, 0), set("plant.hiB", 0, 0), ...mascot.place(M_NAUT, -0.5, 0.5, 0), ...mascot.jump(W("s9", 7)),
-      lin("golden", W("s9", 8), W("s9", 11) + 6, 0, 1, "inOut"), pop("cross", W("s9", 11)), ...fx.shake(W("s9", 11), 14), popOut("cross", W("s9", 12) + 2, 6), pop("nlabels", W("s9", 13)),
-    ],
-    badges: [
-      { text: "O MITO DO NÁUTILO", variant: "warning", icon: "?", appearAt: W("s9", 1), disappearAt: W("s9", 8) },
-      { text: "NÃO É ESPIRAL ÁUREA", variant: "negative", appearAt: W("s9", 8) },
-    ],
-    highlights: ["MITO", "CONCHA", "NÁUTILO", "ESPIRAL", "ÁUREA", "MEDIDA", "DIFERENTE"],
-    captions: [cap("s9", 8, "Agora, o mito: a concha do náutilo não é uma espiral áurea. Medida, ela cresce num ritmo bem diferente.")],
-    audioCues: [narration("s9"), sfx("whoosh", 0, 0.35), sfx("record-scratch", W("s9", 2), 0.3), sfx("buzz", W("s9", 11), 0.35), sfx("tick", W("s9", 13), 0.3)],
-  },
-  {
-    id: "s10", ...sc(9), voKey: "s10",
-    narration: "Pronto: agora você sabe. Não é mágica. É só um jeito eficiente de crescer.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.end1), key(end(9), P.end2, "inOut")] },
-    objects: [{ id: "sunflower", type: "Sunflower(espirais acesas)", visible: true }, { id: "mascot", type: "Mascot", visible: true }, { id: "summary", type: "Summary2D(3 itens)", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "flower"), set("golden", 0, 0), set("nlabels", 0, 0), set("flower.famA", 0, 1), set("flower.famB", 0, 1),
-      ...mascot.place(add(FLOWER, [3.4, -4.3, 2.4]), -0.4, 0.7, 0), ...mascot.cheer(W("s10", 1), 40), ...mascot.wave(W("s10", 10), 36),
-      pop("sum1", W("s10", 4)), pop("sum2", W("s10", 7)), pop("sum3", W("s10", 10)), ...["sum1", "sum2", "sum3"].map((t) => popOut(t, end(9) - s(5.3))),
-    ],
-    badges: [{ text: "NÃO É MÁGICA: É EFICIÊNCIA", variant: "positive", appearAt: W("s10", 7), disappearAt: end(9) - s(5.3) }],
-    highlights: ["PRONTO", "MÁGICA", "EFICIENTE", "CRESCER"],
-    captions: [cap("s10", 9, "Pronto: agora você sabe. Não é mágica. É só um jeito eficiente de crescer.")],
-    audioCues: [narration("s10"), sfx("whoosh", 0, 0.35), sfx("final", W("s10", 6), 0.4)],
+    badges: [{ text: "FALTA CONFIRMAÇÃO OFICIAL", variant: "warning", appearAt: W("s8", 4), disappearAt: end(7) - s(5.3) }],
+    highlights: ["PRONTO", "CONFIRMAÇÃO", "OFICIAL", "CONTRAMÃO", "SISTEMA", "SOLAR"],
+    captions: [cap("s8", 7, "Pronto: agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.")],
+    audioCues: [narration("s8"), sfx("final", W("s8", 0), 0.4)],
   },
 ];
 
