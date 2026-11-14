@@ -1,15 +1,16 @@
 import { useMemo } from "react";
-import { BackSide, BufferAttribute, CatmullRomCurve3, Color, SphereGeometry, Vector3 } from "three";
+import { BackSide, BufferAttribute, Color, SphereGeometry } from "three";
 import { useCurrentFrame } from "remotion";
 import { track } from "../data/scenes";
-import { add, BRANCH_Y, FOREST, HIT, MAP, PERCH, STORM, VIEW } from "../data/birds";
+import { ARARAT_P, DRILL, FIRE, GEO, LAND, WOOD } from "../data/ark";
 import { LIGHTING } from "../theme";
 import { clamp, rand, type Vec3 } from "../utils/animation";
-import { Branch, InfraWaves, Pine, Supercell, Tree, Warbler } from "./Birds";
+import { Ararat, ArkOutline, Campfire, CharredWood, DrillRig, Durupinar, Plateau, Sheep, SynclineBlock } from "./Ark";
 import { cameraPoseAt } from "./CameraController";
 import { MascotFromTracks } from "./Mascot";
+import { Person } from "./Person";
 
-// Mundos dos "pássaros que ouviram a tempestade". Tudo lê track("alvo.prop", frameGlobal). Posições em data/birds.ts.
+// Mundos do "Acharam a Arca de Noé?". Tudo lê track("alvo.prop", frameGlobal). Posições em data/ark.ts.
 
 /** Luz que acompanha o alvo da câmera (a sombra cobre só o que está em quadro). */
 export const KolaLighting: React.FC = () => {
@@ -52,203 +53,131 @@ export const KolaLighting: React.FC = () => {
 
 const show = (k: string, f: number) => track(`${k}.show`, f) > 0.5;
 
-/** Céu em degradê (cúpula). dark 0 = azul limpo, 1 = tempestade. */
-const Sky: React.FC<{ dark: number; center: Vec3 }> = ({ dark, center }) => {
-  const geo = useMemo(() => new SphereGeometry(180, 32, 16), []);
-  const d = clamp(dark, 0, 1);
-  const top = new Color("#4a9ad8").lerp(new Color("#262a3a"), d);
-  const bot = new Color("#d4ecf6").lerp(new Color("#5a6072"), d);
-  const pos = geo.attributes.position;
-  const cols = new Float32Array(pos.count * 3);
-  for (let i = 0; i < pos.count; i++) {
-    const t = clamp((pos.getY(i) / 180 + 0.1) / 0.7, 0, 1);
-    const c = bot.clone().lerp(top, t);
-    cols[i * 3] = c.r; cols[i * 3 + 1] = c.g; cols[i * 3 + 2] = c.b;
-  }
-  geo.setAttribute("color", new BufferAttribute(cols, 3));
+const Sky: React.FC<{ center: Vec3; r?: number; warm?: number }> = ({ center, r = 180, warm = 0 }) => {
+  const geo = useMemo(() => {
+    const g = new SphereGeometry(r, 32, 16);
+    const top = new Color("#4a8ad0");
+    const bot = new Color("#cfe2ee").lerp(new Color("#f2c8a0"), warm);
+    const pos = g.attributes.position;
+    const cols = new Float32Array(pos.count * 3);
+    for (let i = 0; i < pos.count; i++) {
+      const t = clamp((pos.getY(i) / r + 0.01) / 0.22, 0, 1);
+      const c = bot.clone().lerp(top, t);
+      cols[i * 3] = c.r; cols[i * 3 + 1] = c.g; cols[i * 3 + 2] = c.b;
+    }
+    g.setAttribute("color", new BufferAttribute(cols, 3));
+    return g;
+  }, [r, warm]);
   return (
     <mesh geometry={geo} position={center}>
-      <meshBasicMaterial vertexColors side={BackSide} depthWrite={false} fog={false} />
+      <meshBasicMaterial vertexColors side={BackSide} depthWrite={false} />
     </mesh>
   );
 };
 
-/** Chão + floresta ao fundo (árvores e pinheiros em fileiras). */
-const Woods: React.FC<{ f: number; dark?: number; wind?: number }> = ({ f, dark = 0, wind = 0 }) => {
-  const trees = useMemo(() => Array.from({ length: 20 }, (_, i) => ({ p: [(rand(`wx${i}`) - 0.5) * 60, 0, -14 - rand(`wz${i}`) * 34] as Vec3, s: 1.6 + rand(`ws${i}`) * 1.4, pine: rand(`wp${i}`) > 0.6, seed: `w${i}` })), []);
-  return (
-    <group>
-      <mesh position={[0, -0.05, -10]} receiveShadow>
-        <boxGeometry args={[80, 0.1, 60]} />
-        <meshStandardMaterial color={new Color("#5a8a3a").lerp(new Color("#2a3a24"), dark * 0.6)} roughness={1} />
-      </mesh>
-      {trees.map((t, i) => (
-        <group key={i} position={t.p}>
-          {t.pine ? <Pine f={f} s={t.s} dark={dark} /> : <Tree f={f} s={t.s} seed={t.seed} dark={dark} wind={wind} />}
-        </group>
-      ))}
-    </group>
-  );
-};
-
-/** Bando no galho: t 0 = pousados, 1 = longe (voando para cima e à direita). */
-const Flock: React.FC<{ f: number; t: number; tracker?: number; sing?: number; dir?: number }> = ({ f, t, tracker = 0, sing = 0, dir = 1 }) => (
-  <>
-    {PERCH.map((x, i) => {
-      const d = clamp(t * 1.25 - i * 0.07, 0, 1);
-      const e = d * d;
-      const p: Vec3 = [x + e * (3 + i * 0.6) * dir, BRANCH_Y + 0.07 + e * (2.2 + i * 0.35), e * (-1 - i * 0.4)];
-      const flying = d > 0.02;
-      return (
-        <group key={i} position={p} rotation={[flying ? -0.25 * dir : 0, i % 2 ? 0.35 : -0.25, 0]}>
-          <Warbler f={f + i * 7} fly={flying ? 1 : 0} tracker={i === 2 ? tracker : 0} sing={i === 1 ? sing : 0} look={0} />
-        </group>
-      );
-    })}
-  </>
+const Ground: React.FC<{ w?: number; c?: string }> = ({ w = 40, c = "#9a8a62" }) => (
+  <mesh position={[0, -0.05, 0]} receiveShadow>
+    <boxGeometry args={[w, 0.1, w]} />
+    <meshStandardMaterial color={c} roughness={1} />
+  </mesh>
 );
 
-const ForestWorld: React.FC<{ f: number }> = ({ f }) => {
-  const t = Math.max(track("flock.t", f), track("ret.t", f));
+const LandWorld: React.FC<{ f: number }> = ({ f }) => {
+  const rk = clamp(track("ruler.k", f), 0, 1.2);
   return (
-    <group position={FOREST}>
-      <Sky dark={track("sky.dark", f)} center={FOREST} />
-      <Woods f={f} />
-      <group position={[0, BRANCH_Y, 0]}>
-        <Branch f={f} len={3.6} />
-      </group>
-      <mesh position={[-1.9, BRANCH_Y / 2, -0.1]}>
-        <cylinderGeometry args={[0.12, 0.18, BRANCH_Y + 0.4, 8]} />
-        <meshStandardMaterial color="#6a4a30" roughness={0.95} flatShading />
-      </mesh>
-      <Flock f={f} t={t} tracker={track("tracker.k", f)} sing={track("sing", f)} />
-      {track("waves.k", f) > 0.01 ? (
-        <group position={[0, 0, -60]}>
-          <InfraWaves f={f} k={track("waves.k", f)} speed={0.6} maxR={70} n={4} />
+    <group position={LAND}>
+      <Sky center={LAND} r={230} />
+      <Plateau w={320} />
+      <Durupinar glow={track("glow", f)} />
+      {track("ark.draw", f) > 0.01 ? (
+        <group position={[0, 0.5, 0]}>
+          <ArkOutline draw={track("ark.draw", f)} len={15} />
         </group>
       ) : null}
+      {rk > 0.01 ? (
+        <group position={[0, 1.3, 3.1]} scale={[rk, 1, 1]}>
+          <mesh>
+            <boxGeometry args={[15.7, 0.12, 0.12]} />
+            <meshBasicMaterial color="#ffffff" toneMapped={false} />
+          </mesh>
+          {[-1, 1].map((k) => (
+            <mesh key={k} position={[k * 7.85, 0, 0]}>
+              <boxGeometry args={[0.12, 0.9, 0.12]} />
+              <meshBasicMaterial color="#ffffff" toneMapped={false} />
+            </mesh>
+          ))}
+        </group>
+      ) : null}
+      <group position={ARARAT_P}>
+        <Ararat />
+      </group>
     </group>
   );
 };
 
-const MapWorld: React.FC<{ f: number }> = ({ f }) => {
-  const draw = clamp(track("route.draw", f), 0, 1);
-  const band = clamp(track("band.k", f), 0, 1);
-  const curve = useMemo(() => new CatmullRomCurve3([new Vector3(0, 0.3, -3), new Vector3(-1.5, 0.3, 0), new Vector3(-0.5, 0.3, 3.8), new Vector3(1.6, 0.3, 4.5), new Vector3(2.6, 0.3, 1.5), new Vector3(1.2, 0.3, -1.6), new Vector3(0, 0.3, -3)], false), []);
-  const n = Math.round(90 * draw);
-  return (
-    <group position={MAP}>
-      <mesh position={[0, -0.15, 0]}>
-        <boxGeometry args={[20, 0.3, 16]} />
-        <meshStandardMaterial color="#6a8a4a" roughness={1} />
+const WoodWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={WOOD}>
+    <Sky center={WOOD} r={60} />
+    <Ground w={20} c="#8a7a58" />
+    {Array.from({ length: 12 }, (_, i) => (
+      <mesh key={i} position={[(rand(`wr${i}`) - 0.5) * 3, 0.02, (rand(`wz${i}`) - 0.5) * 2 - 0.4]} scale={0.03 + rand(`ws${i}`) * 0.05}>
+        <icosahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#7a6a54" roughness={1} flatShading />
       </mesh>
-      <mesh position={[0, -0.05, 7]}>
-        <boxGeometry args={[20, 0.3, 4]} />
-        <meshStandardMaterial color="#2a6aa8" roughness={0.3} />
-      </mesh>
-      {/* faixa da tempestade (passa pelo ponto de partida) */}
-      {band > 0.01 ? (
-        <mesh position={[-6 + band * 6, 0.12, -3]} rotation={[0, 0.5, 0]}>
-          <boxGeometry args={[3, 0.06, 18]} />
-          <meshBasicMaterial color="#ff4a3a" transparent opacity={0.45} />
-        </mesh>
-      ) : null}
-      {/* pino de partida */}
-      <group position={[0, 0, -3]}>
-        <mesh position={[0, 0.7, 0]}>
-          <sphereGeometry args={[0.32, 16, 12]} />
-          <meshStandardMaterial color="#f4c830" roughness={0.4} />
-        </mesh>
-        <mesh position={[0, 0.3, 0]}>
-          <coneGeometry args={[0.16, 0.6, 12]} />
-          <meshStandardMaterial color="#f4c830" roughness={0.4} />
-        </mesh>
-      </group>
-      {Array.from({ length: n }, (_, i) => (
-        <mesh key={i} position={curve.getPointAt(i / 90)}>
-          <sphereGeometry args={[0.1, 6, 4]} />
-          <meshBasicMaterial color={i / 90 < 0.55 ? "#ffffff" : "#4ade80"} toneMapped={false} />
-        </mesh>
-      ))}
-      {n > 0 ? (
-        <group position={curve.getPointAt(Math.max(0, (n - 1) / 90)).toArray() as Vec3} rotation={[0, Math.PI / 2, 0]} scale={0.6}>
-          <Warbler f={f} fly={1} />
-        </group>
-      ) : null}
-    </group>
-  );
-};
-
-const ViewWorld: React.FC<{ f: number }> = ({ f }) => (
-  <group position={VIEW}>
-    <Sky dark={track("sky.dark", f)} center={VIEW} />
-    <Woods f={f} dark={0.15} />
-    <group position={[0, -0.4, -75]}>
-      <Supercell f={f} s={3} tornado={0} rain={0.6} />
-    </group>
-    <group position={[0, 0, -75]}>
-      <InfraWaves f={f} k={track("waves.k", f)} speed={0.9} maxR={85} n={5} />
-    </group>
-    <group position={[0, BRANCH_Y, 0]}>
-      <Branch f={f} len={3.6} />
-    </group>
-    <group position={[0.45, BRANCH_Y + 0.07, 0]} rotation={[0, -0.6, 0]}>
-      <Warbler f={f} look={0} />
+    ))}
+    <group scale={clamp(track("wood.k", f), 0, 1.2)}>
+      <CharredWood f={f} />
     </group>
   </group>
 );
 
-const StormWorld: React.FC<{ f: number }> = ({ f }) => (
-  <group position={STORM}>
-    <Sky dark={0.85} center={STORM} />
-    <Woods f={f} dark={0.6} wind={0.6} />
-    <group position={[0, 0, -2]} scale={1.5}>
-      <Supercell f={f} tornado={1} rain={1} />
-    </group>
-    <InfraWaves f={f} k={track("waves.k", f)} speed={0.25} maxR={40} n={4} />
+const GeoWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={GEO}>
+    <SynclineBlock fold={track("fold.k", f, 1)} erode={track("erode.t", f)} />
   </group>
 );
 
-const HitWorld: React.FC<{ f: number }> = ({ f }) => {
-  const r = clamp(track("rain.k", f), 0, 1);
-  return (
-    <group position={HIT}>
-      <Sky dark={1} center={HIT} />
-      <Woods f={f} dark={0.9} wind={1} />
-      <group position={[3, 0, -24]} scale={1.6}>
-        <Supercell f={f} tornado={1} rain={1} />
-      </group>
-      <group position={[0, BRANCH_Y, 0]} rotation={[0.05 * Math.sin(f / 4), 0, 0.03 * Math.sin(f / 5)]}>
-        <Branch f={f * 4} len={3.6} />
-      </group>
-      {r > 0.01
-        ? Array.from({ length: 140 }, (_, i) => {
-            const x = (rand(`hx${i}`) - 0.5) * 12;
-            const z = 2 - rand(`hz${i}`) * 10;
-            const y = 7 - ((f * 0.4 + rand(`hy${i}`) * 8) % 8);
-            return (
-              <mesh key={i} position={[x, y, z]} rotation={[0, 0, 0.18]}>
-                <boxGeometry args={[0.02, 0.5, 0.02]} />
-                <meshBasicMaterial color="#c0c8dc" transparent opacity={0.5 * r} />
-              </mesh>
-            );
-          })
-        : null}
+const DrillWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={DRILL}>
+    <Sky center={DRILL} r={80} />
+    <Ground w={40} c="#9a8a62" />
+    <DrillRig f={f} depth={track("drill.t", f)} core={track("core.k", f)} />
+    <Person frame={f} position={[-1.1, 0, 0.7]} rotY={0.7} seed={3} />
+    <Person frame={f + 30} position={[1.6, 0, -0.8]} rotY={-0.9} seed={8} />
+  </group>
+);
+
+const FireWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={FIRE}>
+    <Sky center={FIRE} r={300} warm={0.35} />
+    <Ground w={120} c="#9a8a62" />
+    <group position={[-70, 0, -260]} scale={1.2}>
+      <Ararat />
     </group>
-  );
-};
+    <Campfire f={f} />
+    <Person frame={f} position={[-0.9, 0, -0.25]} rotY={0.8} seed={11} robe="#7a5a3a" />
+    <group position={[1.2, 0, 0.3]} rotation={[0, 2.6, 0]}>
+      <Sheep f={f} graze={1} />
+    </group>
+    <group position={[1.0, 0, -1.1]} rotation={[0, -2.2, 0]}>
+      <Sheep f={f + 20} graze={0.3} />
+    </group>
+    <group position={[2.4, 0, -0.4]} rotation={[0, 3.4, 0]}>
+      <Sheep f={f + 40} graze={0.8} wool="#e2d8c4" />
+    </group>
+  </group>
+);
 
 export const World: React.FC = () => {
   const f = useCurrentFrame();
   return (
     <>
-      {show("forest", f) ? <ForestWorld f={f} /> : null}
-      {show("map", f) ? <MapWorld f={f} /> : null}
-      {show("view", f) ? <ViewWorld f={f} /> : null}
-      {show("storm", f) ? <StormWorld f={f} /> : null}
-      {show("hit", f) ? <HitWorld f={f} /> : null}
+      {show("land", f) ? <LandWorld f={f} /> : null}
+      {show("wood", f) ? <WoodWorld f={f} /> : null}
+      {show("geo", f) ? <GeoWorld f={f} /> : null}
+      {show("drill", f) ? <DrillWorld f={f} /> : null}
+      {show("fire", f) ? <FireWorld f={f} /> : null}
       <MascotFromTracks />
     </>
   );
 };
-export const _w = add;

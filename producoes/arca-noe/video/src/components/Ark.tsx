@@ -71,27 +71,28 @@ export const Plateau: React.FC<{ w?: number; color?: string }> = ({ w = 220, col
 export const Durupinar: React.FC<{ glow?: number }> = ({ glow = 0 }) => {
   const geo = useMemo(() => {
     const keys = [
-      { x: -7.85, y: 0.0, w: 0.3, h: 0.35, sq: 2.5 },
-      { x: -7.0, y: 0.0, w: 1.4, h: 1.1, sq: 2.6 },
-      { x: -4.0, y: 0.0, w: 2.1, h: 1.6, sq: 2.8 },
-      { x: 0.0, y: 0.0, w: 2.15, h: 1.7, sq: 2.8 },
-      { x: 4.0, y: 0.0, w: 2.0, h: 1.6, sq: 2.8 },
-      { x: 6.8, y: 0.0, w: 1.3, h: 1.1, sq: 2.6 },
-      { x: 7.85, y: 0.0, w: 0.25, h: 0.3, sq: 2.5 },
+      { x: -7.85, y: 0.0, w: 0.3, h: 0.3, sq: 3 },
+      { x: -7.0, y: 0.0, w: 1.4, h: 0.9, sq: 3.4 },
+      { x: -4.0, y: 0.0, w: 2.1, h: 1.15, sq: 3.8 },
+      { x: 0.0, y: 0.0, w: 2.15, h: 1.2, sq: 3.8 },
+      { x: 4.0, y: 0.0, w: 2.0, h: 1.15, sq: 3.8 },
+      { x: 6.8, y: 0.0, w: 1.3, h: 0.9, sq: 3.4 },
+      { x: 7.85, y: 0.0, w: 0.25, h: 0.25, sq: 3 },
     ];
-    const base = C("#8a7452");
-    const dark = C("#6a5638");
-    const light = C("#b09670");
+    const base = C("#8a7a54");
+    const dark = C("#6a5a3a");
+    const light = C("#a8986a");
+    const grass = C("#7a8a4a");
     return loft(
       keys,
       (x, a) => {
         const top = Math.cos(a);
         const side = Math.sin(a);
         // estrias paralelas ao casco (camadas expostas) + manchas
-        const stripe = Math.sin(Math.abs(side) * 14 + top * 4);
+        const stripe = Math.sin(Math.abs(side) * 9 + top * 3 + x * 0.3);
         let c = base.clone().lerp(stripe > 0.6 ? dark : light, 0.35);
-        if (top > 0.85) c = c.lerp(light, 0.25);
-        if (rand(`dp${Math.round(x * 3)}${Math.round(a * 5)}`) > 0.8) c = c.lerp(dark, 0.4);
+        if (top > 0.85) c = c.lerp(grass, 0.35);
+        if (rand(`dp${Math.round(x * 3)}${Math.round(a * 5)}`) > 0.75) c = c.lerp(grass, 0.45);
         return c;
       },
       90,
@@ -100,7 +101,7 @@ export const Durupinar: React.FC<{ glow?: number }> = ({ glow = 0 }) => {
   }, []);
   return (
     <group>
-      <mesh geometry={geo} castShadow receiveShadow position={[0, -0.6, 0]}>
+      <mesh geometry={geo} castShadow receiveShadow position={[0, -0.45, 0]}>
         <meshStandardMaterial vertexColors roughness={1} flatShading />
       </mesh>
       {/* borda elevada (a "amurada") ao redor */}

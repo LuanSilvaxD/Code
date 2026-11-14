@@ -14,11 +14,10 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "ELES OUVIRAM", color: "#ffffff", scale: 0.56 },
-  { text: "A TEMPESTADE", color: "#f4c830", scale: 0.66 },
-  { text: "1 DIA ANTES", color: "#c4b5fd", scale: 0.62 },
+  { text: "ACHARAM A", color: "#ffffff", scale: 0.62 },
+  { text: "ARCA DE NOÉ?", color: "#ffcf3a", scale: 0.72 },
 ];
-export const THUMB_TAG = "PÁSSAROS × TORNADOS";
+export const THUMB_TAG = "BOATO OU VERDADE? · EP. 03";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>
@@ -36,7 +35,7 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
         <KolaLighting />
-        <group position={[0, v ? -0.55 : 0, 0]}>
+        <group position={[0, 0, 0]}>
           <World />
         </group>
       </ThreeCanvas>
