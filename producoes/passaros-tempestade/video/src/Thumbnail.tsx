@@ -36,7 +36,7 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
         <KolaLighting />
-        <group position={[0, 0, 0]}>
+        <group position={[0, v ? -0.55 : 0, 0]}>
           <World />
         </group>
       </ThreeCanvas>
