@@ -36,7 +36,9 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
         <KolaLighting />
-        <World />
+        <group position={[0, v ? -0.42 : 0, 0]}>
+          <World />
+        </group>
       </ThreeCanvas>
       <PostFx />
       <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(11,8,18,0.88) 0%, rgba(11,8,18,0.55) 34%, rgba(0,0,0,0) 50%)" : "linear-gradient(90deg, rgba(11,8,18,0.9) 0%, rgba(11,8,18,0.45) 50%, rgba(0,0,0,0) 72%)" }} />
