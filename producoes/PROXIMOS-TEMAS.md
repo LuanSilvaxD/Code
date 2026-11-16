@@ -11,3 +11,6 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 3. As 5 "letras" do DNA num asteroide de 4,5 bi de anos
 4. Por que aprendemos a gostar de café amargo (checar se estudo é em humanos)
 5. Felino novo (Leopardus tilcayo) — checar a alegação "1º em 100 anos" (possível Boato ou Verdade)
+
+## Pendência de formato (16/11)
+- A partir dos próximos vídeos: animação "curtir + inscrever" com cursor clicando, perto da metade do vídeo, em área que não atrapalhe (regra registrada na skill).
