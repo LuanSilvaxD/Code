@@ -1,0 +1,1101 @@
+{
+  "s1": {
+    "text": "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?",
+    "seconds": 8.398,
+    "words": [
+      {
+        "text": "Outubro",
+        "start": 0,
+        "end": 0.415
+      },
+      {
+        "text": "de",
+        "start": 0.427,
+        "end": 0.486
+      },
+      {
+        "text": "2026",
+        "start": 0.497,
+        "end": 1.028
+      },
+      {
+        "text": "foi",
+        "start": 1.028,
+        "end": 1.559
+      },
+      {
+        "text": "o",
+        "start": 1.571,
+        "end": 1.618
+      },
+      {
+        "text": "mais",
+        "start": 1.63,
+        "end": 1.889
+      },
+      {
+        "text": "quente",
+        "start": 1.901,
+        "end": 2.219
+      },
+      {
+        "text": "já",
+        "start": 2.231,
+        "end": 2.372
+      },
+      {
+        "text": "medido",
+        "start": 2.384,
+        "end": 2.726
+      },
+      {
+        "text": "no",
+        "start": 2.738,
+        "end": 2.809
+      },
+      {
+        "text": "planeta",
+        "start": 2.821,
+        "end": 3.304
+      },
+      {
+        "text": "E",
+        "start": 4.115,
+        "end": 4.233
+      },
+      {
+        "text": "o",
+        "start": 4.245,
+        "end": 4.374
+      },
+      {
+        "text": "ano",
+        "start": 4.386,
+        "end": 4.598
+      },
+      {
+        "text": "deve",
+        "start": 4.61,
+        "end": 4.799
+      },
+      {
+        "text": "fechar",
+        "start": 4.811,
+        "end": 5.223
+      },
+      {
+        "text": "como",
+        "start": 5.235,
+        "end": 5.436
+      },
+      {
+        "text": "o",
+        "start": 5.447,
+        "end": 5.471
+      },
+      {
+        "text": "segundo",
+        "start": 5.483,
+        "end": 5.907
+      },
+      {
+        "text": "mais",
+        "start": 5.919,
+        "end": 6.19
+      },
+      {
+        "text": "quente",
+        "start": 6.202,
+        "end": 6.509
+      },
+      {
+        "text": "da",
+        "start": 6.521,
+        "end": 6.603
+      },
+      {
+        "text": "história",
+        "start": 6.615,
+        "end": 7.051
+      },
+      {
+        "text": "Por",
+        "start": 7.865,
+        "end": 8.03
+      },
+      {
+        "text": "quê",
+        "start": 8.042,
+        "end": 8.278
+      }
+    ]
+  },
+  "s2": {
+    "text": "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.",
+    "seconds": 9.109,
+    "words": [
+      {
+        "text": "Pensa",
+        "start": 0,
+        "end": 0.278
+      },
+      {
+        "text": "na",
+        "start": 0.29,
+        "end": 0.42
+      },
+      {
+        "text": "Terra",
+        "start": 0.431,
+        "end": 0.691
+      },
+      {
+        "text": "debaixo",
+        "start": 0.703,
+        "end": 1.163
+      },
+      {
+        "text": "de",
+        "start": 1.174,
+        "end": 1.245
+      },
+      {
+        "text": "um",
+        "start": 1.257,
+        "end": 1.328
+      },
+      {
+        "text": "cobertor",
+        "start": 1.339,
+        "end": 1.894
+      },
+      {
+        "text": "Os",
+        "start": 2.705,
+        "end": 2.87
+      },
+      {
+        "text": "gases",
+        "start": 2.881,
+        "end": 3.306
+      },
+      {
+        "text": "que",
+        "start": 3.318,
+        "end": 3.4
+      },
+      {
+        "text": "a",
+        "start": 3.412,
+        "end": 3.459
+      },
+      {
+        "text": "gente",
+        "start": 3.471,
+        "end": 3.766
+      },
+      {
+        "text": "solta",
+        "start": 3.778,
+        "end": 4.167
+      },
+      {
+        "text": "como",
+        "start": 4.414,
+        "end": 4.638
+      },
+      {
+        "text": "o",
+        "start": 4.65,
+        "end": 4.686
+      },
+      {
+        "text": "gás",
+        "start": 4.698,
+        "end": 4.922
+      },
+      {
+        "text": "carbônico",
+        "start": 4.933,
+        "end": 5.558
+      },
+      {
+        "text": "engrossam",
+        "start": 5.771,
+        "end": 6.301
+      },
+      {
+        "text": "esse",
+        "start": 6.313,
+        "end": 6.478
+      },
+      {
+        "text": "cobertor",
+        "start": 6.49,
+        "end": 7.044
+      },
+      {
+        "text": "e",
+        "start": 7.386,
+        "end": 7.445
+      },
+      {
+        "text": "o",
+        "start": 7.457,
+        "end": 7.492
+      },
+      {
+        "text": "calor",
+        "start": 7.504,
+        "end": 7.905
+      },
+      {
+        "text": "não",
+        "start": 7.917,
+        "end": 8.117
+      },
+      {
+        "text": "consegue",
+        "start": 8.129,
+        "end": 8.577
+      },
+      {
+        "text": "sair",
+        "start": 8.589,
+        "end": 8.966
+      }
+    ]
+  },
+  "s3": {
+    "text": "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.",
+    "seconds": 4.534,
+    "words": [
+      {
+        "text": "Isso",
+        "start": 0,
+        "end": 0.275
+      },
+      {
+        "text": "faz",
+        "start": 0.286,
+        "end": 0.463
+      },
+      {
+        "text": "a",
+        "start": 0.475,
+        "end": 0.593
+      },
+      {
+        "text": "temperatura",
+        "start": 0.605,
+        "end": 1.159
+      },
+      {
+        "text": "subir",
+        "start": 1.171,
+        "end": 1.466
+      },
+      {
+        "text": "devagar",
+        "start": 1.477,
+        "end": 1.914
+      },
+      {
+        "text": "ano",
+        "start": 2.15,
+        "end": 2.303
+      },
+      {
+        "text": "após",
+        "start": 2.315,
+        "end": 2.55
+      },
+      {
+        "text": "ano",
+        "start": 2.562,
+        "end": 2.881
+      },
+      {
+        "text": "como",
+        "start": 3.164,
+        "end": 3.388
+      },
+      {
+        "text": "numa",
+        "start": 3.4,
+        "end": 3.541
+      },
+      {
+        "text": "escada",
+        "start": 3.553,
+        "end": 3.918
+      },
+      {
+        "text": "rolante",
+        "start": 3.93,
+        "end": 4.461
+      }
+    ]
+  },
+  "s4": {
+    "text": "Mas em 2026 apareceu um empurrão extra, o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.",
+    "seconds": 8.155,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.125
+      },
+      {
+        "text": "em",
+        "start": 0.137,
+        "end": 0.62
+      },
+      {
+        "text": "2026",
+        "start": 0.62,
+        "end": 1.104
+      },
+      {
+        "text": "apareceu",
+        "start": 1.116,
+        "end": 1.587
+      },
+      {
+        "text": "um",
+        "start": 1.599,
+        "end": 1.682
+      },
+      {
+        "text": "empurrão",
+        "start": 1.693,
+        "end": 2.153
+      },
+      {
+        "text": "extra",
+        "start": 2.165,
+        "end": 2.543
+      },
+      {
+        "text": "o",
+        "start": 2.755,
+        "end": 2.884
+      },
+      {
+        "text": "El",
+        "start": 2.896,
+        "end": 3.014
+      },
+      {
+        "text": "Niño",
+        "start": 3.026,
+        "end": 3.356
+      },
+      {
+        "text": "A",
+        "start": 4.167,
+        "end": 4.309
+      },
+      {
+        "text": "água",
+        "start": 4.32,
+        "end": 4.592
+      },
+      {
+        "text": "do",
+        "start": 4.603,
+        "end": 4.698
+      },
+      {
+        "text": "Pacífico",
+        "start": 4.71,
+        "end": 5.228
+      },
+      {
+        "text": "esquenta",
+        "start": 5.24,
+        "end": 5.606
+      },
+      {
+        "text": "muito",
+        "start": 5.617,
+        "end": 5.948
+      },
+      {
+        "text": "e",
+        "start": 5.96,
+        "end": 5.995
+      },
+      {
+        "text": "solta",
+        "start": 6.007,
+        "end": 6.313
+      },
+      {
+        "text": "esse",
+        "start": 6.325,
+        "end": 6.478
+      },
+      {
+        "text": "calor",
+        "start": 6.49,
+        "end": 6.856
+      },
+      {
+        "text": "no",
+        "start": 6.867,
+        "end": 6.974
+      },
+      {
+        "text": "ar",
+        "start": 6.985,
+        "end": 7.115
+      },
+      {
+        "text": "do",
+        "start": 7.127,
+        "end": 7.221
+      },
+      {
+        "text": "planeta",
+        "start": 7.233,
+        "end": 7.669
+      },
+      {
+        "text": "inteiro",
+        "start": 7.681,
+        "end": 8.059
+      }
+    ]
+  },
+  "s5": {
+    "text": "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.",
+    "seconds": 7.915,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.101
+      },
+      {
+        "text": "este",
+        "start": 0.113,
+        "end": 0.42
+      },
+      {
+        "text": "El",
+        "start": 0.432,
+        "end": 0.502
+      },
+      {
+        "text": "Niño",
+        "start": 0.514,
+        "end": 0.797
+      },
+      {
+        "text": "é",
+        "start": 0.809,
+        "end": 0.833
+      },
+      {
+        "text": "um",
+        "start": 0.844,
+        "end": 0.915
+      },
+      {
+        "text": "dos",
+        "start": 0.927,
+        "end": 1.104
+      },
+      {
+        "text": "mais",
+        "start": 1.116,
+        "end": 1.34
+      },
+      {
+        "text": "fortes",
+        "start": 1.351,
+        "end": 1.764
+      },
+      {
+        "text": "já",
+        "start": 1.776,
+        "end": 1.918
+      },
+      {
+        "text": "vistos",
+        "start": 1.929,
+        "end": 2.484
+      },
+      {
+        "text": "Em",
+        "start": 3.294,
+        "end": 3.448
+      },
+      {
+        "text": "outubro",
+        "start": 3.459,
+        "end": 3.978
+      },
+      {
+        "text": "a",
+        "start": 4.12,
+        "end": 4.226
+      },
+      {
+        "text": "Terra",
+        "start": 4.238,
+        "end": 4.556
+      },
+      {
+        "text": "ficou",
+        "start": 4.568,
+        "end": 4.792
+      },
+      {
+        "text": "um",
+        "start": 4.804,
+        "end": 4.898
+      },
+      {
+        "text": "grau",
+        "start": 4.91,
+        "end": 5.158
+      },
+      {
+        "text": "e",
+        "start": 5.169,
+        "end": 5.205
+      },
+      {
+        "text": "setenta",
+        "start": 5.217,
+        "end": 5.57
+      },
+      {
+        "text": "e",
+        "start": 5.582,
+        "end": 5.606
+      },
+      {
+        "text": "cinco",
+        "start": 5.617,
+        "end": 5.842
+      },
+      {
+        "text": "acima",
+        "start": 5.853,
+        "end": 6.207
+      },
+      {
+        "text": "da",
+        "start": 6.219,
+        "end": 6.325
+      },
+      {
+        "text": "época",
+        "start": 6.337,
+        "end": 6.726
+      },
+      {
+        "text": "antes",
+        "start": 6.738,
+        "end": 7.044
+      },
+      {
+        "text": "das",
+        "start": 7.056,
+        "end": 7.221
+      },
+      {
+        "text": "fábricas",
+        "start": 7.233,
+        "end": 7.834
+      }
+    ]
+  },
+  "s6": {
+    "text": "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.",
+    "seconds": 8.922,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.228
+      },
+      {
+        "text": "que",
+        "start": 0.24,
+        "end": 0.322
+      },
+      {
+        "text": "o",
+        "start": 0.334,
+        "end": 0.369
+      },
+      {
+        "text": "calor",
+        "start": 0.381,
+        "end": 0.747
+      },
+      {
+        "text": "do",
+        "start": 0.759,
+        "end": 0.853
+      },
+      {
+        "text": "El",
+        "start": 0.865,
+        "end": 0.947
+      },
+      {
+        "text": "Niño",
+        "start": 0.959,
+        "end": 1.242
+      },
+      {
+        "text": "chega",
+        "start": 1.254,
+        "end": 1.525
+      },
+      {
+        "text": "no",
+        "start": 1.537,
+        "end": 1.655
+      },
+      {
+        "text": "ar",
+        "start": 1.667,
+        "end": 1.844
+      },
+      {
+        "text": "com",
+        "start": 1.855,
+        "end": 2.032
+      },
+      {
+        "text": "uns",
+        "start": 2.044,
+        "end": 2.162
+      },
+      {
+        "text": "meses",
+        "start": 2.174,
+        "end": 2.504
+      },
+      {
+        "text": "de",
+        "start": 2.516,
+        "end": 2.575
+      },
+      {
+        "text": "atraso",
+        "start": 2.586,
+        "end": 3.058
+      },
+      {
+        "text": "Por",
+        "start": 3.869,
+        "end": 4.058
+      },
+      {
+        "text": "isso",
+        "start": 4.07,
+        "end": 4.388
+      },
+      {
+        "text": "uma",
+        "start": 4.624,
+        "end": 4.765
+      },
+      {
+        "text": "análise",
+        "start": 4.777,
+        "end": 5.19
+      },
+      {
+        "text": "dá",
+        "start": 5.202,
+        "end": 5.296
+      },
+      {
+        "text": "96%",
+        "start": 5.308,
+        "end": 6.369
+      },
+      {
+        "text": "de",
+        "start": 6.381,
+        "end": 6.475
+      },
+      {
+        "text": "chance",
+        "start": 6.487,
+        "end": 6.853
+      },
+      {
+        "text": "de",
+        "start": 6.864,
+        "end": 6.959
+      },
+      {
+        "text": "2027",
+        "start": 6.97,
+        "end": 7.613
+      },
+      {
+        "text": "bater",
+        "start": 7.613,
+        "end": 8.256
+      },
+      {
+        "text": "o",
+        "start": 8.268,
+        "end": 8.303
+      },
+      {
+        "text": "recorde",
+        "start": 8.315,
+        "end": 8.845
+      }
+    ]
+  },
+  "s7": {
+    "text": "Calma, um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.",
+    "seconds": 9.074,
+    "words": [
+      {
+        "text": "Calma",
+        "start": 0,
+        "end": 0.292
+      },
+      {
+        "text": "um",
+        "start": 0.54,
+        "end": 0.705
+      },
+      {
+        "text": "ano",
+        "start": 0.716,
+        "end": 0.882
+      },
+      {
+        "text": "acima",
+        "start": 0.893,
+        "end": 1.259
+      },
+      {
+        "text": "de",
+        "start": 1.271,
+        "end": 1.353
+      },
+      {
+        "text": "um",
+        "start": 1.365,
+        "end": 1.448
+      },
+      {
+        "text": "grau",
+        "start": 1.459,
+        "end": 1.719
+      },
+      {
+        "text": "e",
+        "start": 1.731,
+        "end": 1.79
+      },
+      {
+        "text": "meio",
+        "start": 1.801,
+        "end": 2.049
+      },
+      {
+        "text": "ainda",
+        "start": 2.061,
+        "end": 2.297
+      },
+      {
+        "text": "não",
+        "start": 2.308,
+        "end": 2.521
+      },
+      {
+        "text": "rompe",
+        "start": 2.533,
+        "end": 2.863
+      },
+      {
+        "text": "o",
+        "start": 2.875,
+        "end": 2.922
+      },
+      {
+        "text": "Acordo",
+        "start": 2.933,
+        "end": 3.323
+      },
+      {
+        "text": "de",
+        "start": 3.334,
+        "end": 3.429
+      },
+      {
+        "text": "Paris",
+        "start": 3.441,
+        "end": 3.889
+      },
+      {
+        "text": "A",
+        "start": 4.7,
+        "end": 4.817
+      },
+      {
+        "text": "conta",
+        "start": 4.829,
+        "end": 5.218
+      },
+      {
+        "text": "usa",
+        "start": 5.23,
+        "end": 5.431
+      },
+      {
+        "text": "a",
+        "start": 5.442,
+        "end": 5.466
+      },
+      {
+        "text": "média",
+        "start": 5.478,
+        "end": 5.832
+      },
+      {
+        "text": "de",
+        "start": 5.843,
+        "end": 5.949
+      },
+      {
+        "text": "vinte",
+        "start": 5.961,
+        "end": 6.327
+      },
+      {
+        "text": "anos",
+        "start": 6.339,
+        "end": 6.716
+      },
+      {
+        "text": "Mas",
+        "start": 7.53,
+        "end": 7.73
+      },
+      {
+        "text": "ela",
+        "start": 7.742,
+        "end": 8.084
+      },
+      {
+        "text": "está",
+        "start": 8.096,
+        "end": 8.273
+      },
+      {
+        "text": "chegando",
+        "start": 8.284,
+        "end": 8.733
+      },
+      {
+        "text": "lá",
+        "start": 8.744,
+        "end": 8.98
+      }
+    ]
+  },
+  "s8": {
+    "text": "Pronto, agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.",
+    "seconds": 8.903,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.327
+      },
+      {
+        "text": "agora",
+        "start": 0.587,
+        "end": 0.917
+      },
+      {
+        "text": "você",
+        "start": 0.929,
+        "end": 1.153
+      },
+      {
+        "text": "sabe",
+        "start": 1.165,
+        "end": 1.577
+      },
+      {
+        "text": "O",
+        "start": 2.388,
+        "end": 2.482
+      },
+      {
+        "text": "cobertor",
+        "start": 2.494,
+        "end": 3.06
+      },
+      {
+        "text": "sobe",
+        "start": 3.072,
+        "end": 3.32
+      },
+      {
+        "text": "a",
+        "start": 3.332,
+        "end": 3.355
+      },
+      {
+        "text": "escada",
+        "start": 3.367,
+        "end": 3.815
+      },
+      {
+        "text": "e",
+        "start": 4.075,
+        "end": 4.181
+      },
+      {
+        "text": "o",
+        "start": 4.192,
+        "end": 4.251
+      },
+      {
+        "text": "El",
+        "start": 4.263,
+        "end": 4.369
+      },
+      {
+        "text": "Niño",
+        "start": 4.381,
+        "end": 4.676
+      },
+      {
+        "text": "dá",
+        "start": 4.688,
+        "end": 4.817
+      },
+      {
+        "text": "o",
+        "start": 4.829,
+        "end": 4.9
+      },
+      {
+        "text": "pulo",
+        "start": 4.912,
+        "end": 5.254
+      },
+      {
+        "text": "E",
+        "start": 6.067,
+        "end": 6.162
+      },
+      {
+        "text": "2027",
+        "start": 6.174,
+        "end": 6.905
+      },
+      {
+        "text": "promete",
+        "start": 6.905,
+        "end": 7.636
+      },
+      {
+        "text": "ser",
+        "start": 7.648,
+        "end": 7.813
+      },
+      {
+        "text": "ainda",
+        "start": 7.825,
+        "end": 8.131
+      },
+      {
+        "text": "mais",
+        "start": 8.143,
+        "end": 8.426
+      },
+      {
+        "text": "quente",
+        "start": 8.438,
+        "end": 8.827
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
