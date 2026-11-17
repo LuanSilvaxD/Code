@@ -21,3 +21,13 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - **Onda de calor:** 2026 já figura como o 2º ano mais quente da história (checar fonte: OMM/Copernicus).
 - **El Niño 2027** (checar previsões NOAA/INMET).
 - **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
+
+## Quadro Filme × Realidade (ideia do usuário, 17/11/2026)
+"Isso funcionaria na vida real?" — #1 Interestelar (planeta de Miller). Ideias para os próximos (cada uma precisa de checagem de fatos antes do roteiro):
+- Jurassic Park — dá pra clonar dinossauro com DNA preso no âmbar?
+- Perdido em Marte — dá pra plantar batata no solo de Marte?
+- Armageddon — explodir um asteroide com bomba salvaria a Terra?
+- Titanic — cabiam os dois na porta?
+- Procurando Nemo — peixe-palhaço muda de sexo?
+- Up — quantos balões levantariam uma casa?
+- O Dia Depois de Amanhã — dá pra congelar o mundo em dias?
