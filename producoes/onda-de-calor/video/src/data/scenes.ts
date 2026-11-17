@@ -1,4 +1,4 @@
-// scenes.ts — Filme × Realidade #1: o planeta do Interestelar. Roteiro v1.1 e designs APROVADOS (17/11/2026).
+// scenes.ts — "Por que 2026 está tão quente?". Roteiro v1.1 e designs APROVADOS (17/11/2026).
 // Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN.
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
@@ -6,7 +6,8 @@ import { LS_LEN, likeSubscribeSfx } from "../components/LikeSubscribe";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
-import { add, CMB, GPS, GRID, planetPos, SEA, SPACE } from "./is";
+import { escalatorTop } from "../components/Heat";
+import { add, EARTH, ESC, PAC } from "./heat";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
 export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-espaco", language: "pt-BR" };
@@ -29,7 +30,7 @@ const end = (i: number) => SCENE_FRAMES[i].durationInFrames;
 const W = wordLocal;
 type Pose = { position: Vec3; target: Vec3 };
 const key = (at: number, pose: Pose, easing?: EaseName): CameraKey => ({ at, ...pose, easing });
-const cut = (at: number, hold: Pose, next: Pose): CameraKey[] => [key(at - 1, hold), key(at, next)];
+export const cut = (at: number, hold: Pose, next: Pose): CameraKey[] => [key(at - 1, hold), key(at, next)];
 const narration = (k: VoKey): AudioCue => ({ kind: "narration", src: `audio/vo/${k}.wav`, at: voLocal(k), volume: 1, status: "ready" });
 const sfx = (name: string, at: number, volume: number): AudioCue => ({ kind: "sfx", src: `audio/sfx/${name}.wav`, at, volume, status: "ready" });
 const cap = (k: VoKey, i: number, text: string): CaptionBlock => ({ text, from: voLocal(k), to: end(i) });
@@ -37,176 +38,178 @@ const lin = (target: string, a: number, b: number, from: number | undefined, to:
 const set = (target: string, at: number, v: number): TrackAnimation => lin(target, at, at + 1, v, v, "linear");
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(target, at, at + len, undefined, 0, "in");
-const WORLDS = ["space", "grid", "gps", "sea", "cmb"] as const;
+const WORLDS = ["earth", "esc", "pac"] as const;
 const world = (at: number, w: (typeof WORLDS)[number]): TrackAnimation[] => WORLDS.map((k) => set(`${k}.show`, at, k === w ? 1 : 0));
-const whipMid = (at: number): TrackAnimation => lin("screen.whip", at, at + 7, -1, 0, "out");
+export const whipMid = (at: number): TrackAnimation => lin("screen.whip", at, at + 7, -1, 0, "out");
 
 // câmera (9:16: largura visível ≈ 0,237·d; altura ≈ 0,42·d)
-const PL = planetPos(6);
 const P = {
-  open: orbit(add(SPACE, [1.2, 0.4, 1.0]), 46, 28, 14),
-  open2: orbit(add(SPACE, [2.6, 0.3, 2.4]), 22, 36, 10),
-  pl: orbit(add(SPACE, PL), 5.2, 34, 8),
-  pl2: orbit(add(SPACE, PL), 4.6, 26, 6),
-  bh: orbit(add(SPACE, [0.6, 0, 0.6]), 30, 18, 12),
-  bh2: orbit(add(SPACE, [0.6, 0, 0.6]), 40, 8, 16),
-  grid: orbit(add(GRID, [2.2, -2.6, 0.6]), 27, 25, 40),
-  grid2: orbit(add(GRID, [2.2, -2.8, 0.6]), 25, 15, 36),
-  gps: orbit(add(GPS, [0.4, 0.9, 0.5]), 21, 25, 12),
-  gps2: orbit(add(GPS, [0.4, 0.7, 0.4]), 23, 10, 10),
-  orb: orbit(add(SPACE, [0.4, 0, 0.4]), 38, 20, 52),
-  orb2: orbit(add(SPACE, [0.4, 0, 0.4]), 30, 30, 46),
-  sea: orbit(add(SEA, [0, 4.0, -12]), 30, 0, -4),
-  sea2: orbit(add(SEA, [0, 5.0, -12]), 36, 4, -3),
-  cmb: orbit(add(CMB, [0, 0, 0]), 15, 15, 8),
-  cmb2: orbit(add(CMB, [0, 0, 0]), 11.5, 30, 10),
-  fin: orbit(add(SPACE, [1.4, 0.2, 1.2]), 30, 40, 20),
-  fin2: orbit(add(SPACE, [1.4, 0.2, 1.2]), 36, 60, 24),
+  e1: orbit(add(EARTH, [0, -0.6, 0]), 24, 20, 12),
+  e2: orbit(add(EARTH, [0, -0.5, 0]), 20, 34, 10),
+  e3: orbit(add(EARTH, [-0.6, 0.0, 0]), 22, 40, 8),
+  e4: orbit(add(EARTH, [-0.6, 0.0, 0]), 20, 52, 12),
+  esc: orbit(add(ESC, [2.3, 2.3, -0.8]), 25, 24, 16),
+  esc2: orbit(add(ESC, [2.5, 2.4, -0.8]), 23, 32, 13),
+  pac: orbit(add(PAC, [0.4, 0.2, 0]), 30, 68, 30),
+  pac2: orbit(add(PAC, [0.8, 0.3, 0]), 27, 58, 26),
+  pacB: orbit(add(PAC, [0.8, 0.4, 0]), 28, 62, 30),
+  pacB2: orbit(add(PAC, [0.8, 0.4, 0]), 30, 72, 26),
+  graph: orbit(add(EARTH, [0, 0, 0]), 16, 60, 6),
+  graph2: orbit(add(EARTH, [0, 0, 0]), 16, 80, 6),
+  fin: orbit(add(ESC, [2.3, 2.4, -0.8]), 25, 16, 14),
+  fin2: orbit(add(ESC, [2.5, 2.6, -0.8]), 23, 34, 12),
+};
+/** Mascote parado num degrau: sobe junto (0,01 u3d/frame em x com speed 0,02). */
+const ride = (k0: number, from: number, to: number, rotY = 1.2, scale = 0.8): TrackAnimation[] => {
+  const a = add(ESC, escalatorTop(k0));
+  const b = add(a, [(to - from) * 0.5 * 0.02, (to - from) * 0.36 * 0.02, 0]);
+  return [...mascot.place(a, rotY, scale, from), lin("mascot.x", from + 1, to, a[0], b[0], "linear"), lin("mascot.y", from + 1, to, a[1], b[1], "linear")];
 };
 
-const ZERO = ["series.card", "split", "years", "ticks.k", "grid.depth", "clocks.k", "gps.glow", "phone", "drift", "gauge", "orbit.k", "wave.k", "inset", "cmb.k", "thermo", "verdict", "needle", "seal.k", "sealI.k", "mascot.float", "ls"];
+const ZERO = ["blanket.k", "smoke", "sun", "heat", "trapped", "hot", "cal", "podium", "y2027", "thermo.glow", "warm", "plumes", "temp", "bars", "avg", "graph", "seal.k", "sealI.k", "mascot.float", "ls", "years.k", "blink"];
 const sealOnly = (at: number, which: "seal.k" | "sealI.k" | "none"): TrackAnimation[] => [set("seal.k", at, which === "seal.k" ? 1 : 0), set("sealI.k", at, which === "sealI.k" ? 1 : 0)];
-const M_PL = add(SPACE, add(PL, [-0.9, 0.55, 0.9]));
+const M_EARTH = add(EARTH, [1.9, 0.2, 2.2]);
 
 export const scenes: ScenePlan[] = [
   {
     id: "s1", ...sc(0), voKey: "s1",
-    narration: "Filme ou realidade? Em Interestelar, uma hora num planeta vale sete anos na Terra. Isso é possível?",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.open), key(W("s1", 5), P.open, "linear"), key(end(0), P.open2, "inOut")] },
-    objects: [{ id: "space", type: "BlackHole + OceanPlanet", visible: true }, { id: "series", type: "SeriesCard FILME × REALIDADE #1", visible: true }, { id: "split", type: "Clock2D × YearsCard", visible: true }],
+    narration: "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.e1), key(end(0), P.e2, "inOut")] },
+    objects: [{ id: "earth", type: "Terra quente", visible: true }, { id: "cal", type: "RecordCalendar", visible: true }, { id: "podium", type: "HeatPodium", visible: true }],
     animations: [
-      ...fx.flash(0), ...world(0, "space"), ...ZERO.map((t) => set(t, 0, 0)), set("orbit.r", 0, 6), set("bh.spin", 0, 0.35),
-      lin("series.card", W("s1", 0), W("s1", 0) + 10, 0, 1, "out"), popOut("series.card", W("s1", 3) - 2, 8),
-      pop("split", W("s1", 5)), lin("years", W("s1", 10), W("s1", 13) + 6, 0, 7, "out", "count"), popOut("split", end(0) - 6, 6), ...fx.punch(W("s1", 16)),
-      ...mascot.place(M_PL, 0.6, 0.32, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 6, 40), ...mascot.jump(W("s1", 13)),
+      ...fx.flash(0), ...world(0, "earth"), ...ZERO.map((t) => set(t, 0, 0)), set("hot", 0, 0.6), set("thermo.v", 0, 0.3),
+      pop("cal", W("s1", 0)), lin("cal.stamp", W("s1", 5), W("s1", 5) + 8, 0, 1, "out"), ...fx.punch(W("s1", 5)), popOut("cal", W("s1", 11), 8),
+      pop("podium", W("s1", 13)), lin("podium.k", W("s1", 13), W("s1", 20), 0, 1, "out"), popOut("podium", W("s1", 23) - 4, 8), ...fx.shake(W("s1", 23), 12),
+      ...mascot.place(M_EARTH, -0.6, 0.45, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 4, 36), ...mascot.jump(W("s1", 23)),
     ],
-    badges: [{ text: "1 HORA = 7 ANOS?", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 14) }],
-    highlights: ["FILME", "REALIDADE", "INTERESTELAR", "UMA", "HORA", "SETE", "ANOS", "TERRA", "POSSÍVEL"],
-    captions: [cap("s1", 0, "Filme ou realidade? Em Interestelar, uma hora num planeta vale sete anos na Terra. Isso é possível?")],
-    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("badge", W("s1", 0), 0.35), sfx("pop", W("s1", 5), 0.3), sfx("hourglass", W("s1", 10), 0.25), sfx("alert-tone", W("s1", 14), 0.2)],
+    badges: [
+      { text: "OUTUBRO/2026: RECORDE", variant: "negative", appearAt: W("s1", 5), disappearAt: W("s1", 13) },
+      { text: "2026: 2º MAIS QUENTE (PREVISÃO)", variant: "warning", appearAt: W("s1", 18) },
+    ],
+    highlights: ["OUTUBRO", "2026", "QUENTE", "MEDIDO", "SEGUNDO", "HISTÓRIA", "POR", "QUÊ"],
+    captions: [cap("s1", 0, "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?")],
+    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("pop", W("s1", 0), 0.3), sfx("thud", W("s1", 5), 0.35), sfx("badge", W("s1", 13), 0.3), sfx("alert-tone", W("s1", 23), 0.2)],
   },
   {
     id: "s2", ...sc(1), voKey: "s2",
-    narration: "Escuta esse tic-tac: a cada tic, passa quase um dia inteiro na Terra.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.pl), key(end(1), P.pl2, "linear")] },
-    objects: [{ id: "space", type: "Planeta de perto", visible: true }, { id: "clock", type: "Clock2D + DayCounter (1 tic = 1 dia)", visible: true }],
-    animations: [...fx.whipIn(), ...world(0, "space"), ...mascot.hide(0, 4), lin("ticks.k", 0, 10, 0, 1, "out"), popOut("ticks.k", end(1) - 6, 6), ...fx.shake(W("s2", 9), 12)],
-    badges: [{ text: "CADA TIC ≈ 1 DIA NA TERRA", variant: "info", appearAt: W("s2", 3) }],
-    highlights: ["TIC-TAC", "TIC", "DIA", "INTEIRO", "TERRA"],
-    captions: [cap("s2", 1, "Escuta esse tic-tac: a cada tic, passa quase um dia inteiro na Terra.")],
-    audioCues: [narration("s2"), sfx("whoosh-soft", 0, 0.3)],
+    narration: "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.e3), key(end(1), P.e4, "inOut")] },
+    objects: [{ id: "earth", type: "Terra + cobertor + setas + fumaça", visible: true }],
+    animations: [
+      ...fx.whipIn(), ...world(0, "earth"), ...sealOnly(0, "seal.k"), set("hot", 0, 0.6),
+      lin("blanket.k", W("s2", 5), W("s2", 6) + 10, 0, 0.3, "out"), lin("sun", W("s2", 3), W("s2", 6), 0, 1, "inOut"), lin("heat", W("s2", 6), W("s2", 8) + 8, 0, 1, "inOut"),
+      lin("smoke", W("s2", 12), W("s2", 16), 0, 1, "inOut"), lin("blanket.k", W("s2", 17), W("s2", 19) + 12, 0.3, 1, "inOut"), lin("trapped", W("s2", 22), W("s2", 25) + 6, 0, 1, "inOut"), lin("hot", W("s2", 22), end(1), 0.6, 1, "inOut"),
+      ...mascot.place(add(EARTH, [1.9, -0.9, 2.2]), -0.6, 0.45, 0), ...mascot.float(0, true, 1), ...mascot.point(W("s2", 16), 40, -0.9),
+    ],
+    badges: [
+      { text: "EFEITO ESTUFA", variant: "info", subtitle: "OS GASES FUNCIONAM COMO UM COBERTOR", appearAt: W("s2", 5), disappearAt: W("s2", 15) },
+      { text: "MAIS CO₂ = COBERTOR MAIS GROSSO", variant: "negative", appearAt: W("s2", 17) },
+    ],
+    highlights: ["TERRA", "COBERTOR", "GASES", "GÁS", "CARBÔNICO", "ENGROSSAM", "CALOR", "SAIR"],
+    captions: [cap("s2", 1, "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.")],
+    audioCues: [narration("s2"), sfx("whoosh", 0, 0.3), sfx("shimmer", W("s2", 3), 0.25), sfx("dust", W("s2", 12), 0.3), sfx("glow", W("s2", 22), 0.3)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
-    narration: "O segredo é Gargântua, um buraco negro gigante. Perto de uma gravidade enorme, o tempo passa mais devagar.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.bh), ...cut(W("s3", 8), P.bh2, P.grid), key(end(2), P.grid2, "linear")] },
-    objects: [{ id: "space", type: "BlackHole inteiro", visible: true }, { id: "grid", type: "SpacetimeGrid + relógios", visible: true }],
+    narration: "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.esc), key(end(2), P.esc2, "linear")] },
+    objects: [{ id: "esc", type: "Escalator + Thermometer3D + mascote no degrau", visible: true }],
     animations: [
-      ...fx.whipIn(-1), ...world(0, "space"), ...sealOnly(0, "none"), ...mascot.place(M_PL, 0.9, 0.5, 0), ...mascot.float(0, true, 1), ...mascot.point(W("s3", 3), 40, 1.6),
-      whipMid(W("s3", 8)), ...world(W("s3", 8), "grid"), ...mascot.hide(W("s3", 8), 1), ...sealOnly(W("s3", 8), "seal.k"), set("grid.t0", W("s3", 8), 0),
-      lin("grid.depth", W("s3", 11), W("s3", 12) + 12, 0, 1, "inOut"), pop("clocks.k", W("s3", 13)),
+      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.08, 0, end(2)),
+      lin("thermo.v", 0, end(2), 0.3, 0.5, "linear"), lin("years.k", W("s3", 6), W("s3", 8) + 10, 0, 3, "linear", "count"),
     ],
-    badges: [
-      { text: "GARGÂNTUA", variant: "info", subtitle: "BURACO NEGRO SUPERMASSIVO", appearAt: W("s3", 3), disappearAt: W("s3", 8) },
-      { text: "PERTO = TEMPO MAIS LENTO", variant: "warning", appearAt: W("s3", 14) },
-    ],
-    highlights: ["SEGREDO", "GARGÂNTUA", "BURACO", "NEGRO", "GIGANTE", "GRAVIDADE", "ENORME", "TEMPO", "DEVAGAR"],
-    captions: [cap("s3", 2, "O segredo é Gargântua, um buraco negro gigante. Perto de uma gravidade enorme, o tempo passa mais devagar.")],
-    audioCues: [narration("s3"), sfx("whoosh", 0, 0.3), sfx("rumble-soft", W("s3", 5), 0.3), sfx("whoosh-soft", W("s3", 8), 0.3), sfx("warp", W("s3", 11), 0.35)],
+    badges: [{ text: "AQUECIMENTO = ESCADA ROLANTE", variant: "warning", appearAt: W("s3", 9) }],
+    highlights: ["TEMPERATURA", "SUBIR", "DEVAGAR", "ANO", "ESCADA", "ROLANTE"],
+    captions: [cap("s3", 2, "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.")],
+    audioCues: [narration("s3"), sfx("whoosh", 0, 0.3), sfx("hum", 0, 0.25), sfx("tick", W("s3", 6), 0.25), sfx("tick", W("s3", 8), 0.25)],
   },
   {
     id: "s4", ...sc(3), voKey: "s4",
-    narration: "Parece ficção, mas é Einstein. Os relógios dos satélites de GPS são corrigidos por causa disso, senão o mapa errava quilômetros por dia.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.gps), key(end(3), P.gps2, "inOut")] },
-    objects: [{ id: "gps", type: "Earth + GpsSat", visible: true }, { id: "phone", type: "PhoneMap (pino escorrega)", visible: true }],
+    narration: "Mas em 2026 apareceu um empurrão extra: o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.pac), key(end(3), P.pac2, "inOut")] },
+    objects: [{ id: "pac", type: "PacificSlice (normal → El Niño)", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "gps"), ...sealOnly(0, "none"),
-      lin("gps.glow", W("s4", 12), W("s4", 12) + 6, 0, 1, "out"), lin("gps.glow", W("s4", 12) + 20, W("s4", 12) + 30, 1, 0.3, "in"),
-      pop("phone", W("s4", 16)), lin("drift", W("s4", 18), W("s4", 22), 0, 1, "inOut"), ...fx.shake(W("s4", 20), 14),
+      ...fx.whipIn(-1), ...world(0, "pac"), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k"),
+      lin("warm", W("s4", 8), W("s4", 15) + 10, 0, 1, "inOut"), lin("plumes", W("s4", 17), W("s4", 21), 0, 1, "inOut"), ...fx.punch(W("s4", 8)),
     ],
     badges: [
-      { text: "EINSTEIN", variant: "info", subtitle: "A GRAVIDADE MUDA O RITMO DO TEMPO", appearAt: W("s4", 4), disappearAt: W("s4", 10) },
-      { text: "GPS: ~38 MICROSSEGUNDOS/DIA", variant: "info", appearAt: W("s4", 10), disappearAt: W("s4", 16) },
-      { text: "SEM CORREÇÃO: ~10 KM/DIA", variant: "negative", appearAt: W("s4", 19) },
+      { text: "EL NIÑO", variant: "warning", subtitle: "VENTOS FRACOS · ÁGUA QUENTE VAI PARA LESTE", appearAt: W("s4", 8), disappearAt: W("s4", 17) },
+      { text: "PACÍFICO SOLTA CALOR NO AR", variant: "negative", appearAt: W("s4", 17) },
     ],
-    highlights: ["FICÇÃO", "EINSTEIN", "RELÓGIOS", "SATÉLITES", "GPS", "CORRIGIDOS", "MAPA", "ERRAVA", "QUILÔMETROS"],
-    captions: [cap("s4", 3, "Parece ficção, mas é Einstein. Os relógios dos satélites de GPS são corrigidos por causa disso, senão o mapa errava quilômetros por dia.")],
-    audioCues: [narration("s4"), sfx("whoosh", 0, 0.35), sfx("ding", W("s4", 4), 0.25), sfx("spark", W("s4", 12), 0.3), sfx("pop", W("s4", 16), 0.3), sfx("buzz", W("s4", 19), 0.3)],
+    highlights: ["2026", "EMPURRÃO", "EXTRA", "EL", "NIÑO", "PACÍFICO", "ESQUENTA", "CALOR", "PLANETA"],
+    captions: [cap("s4", 3, "Mas em 2026 apareceu um empurrão extra: o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.")],
+    audioCues: [narration("s4"), sfx("whoosh", 0, 0.3), sfx("ocean-amb", 0, 0.25), sfx("alert-tone", W("s4", 8), 0.2), sfx("fire", W("s4", 14), 0.25), sfx("rush", W("s4", 17), 0.3)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",
-    narration: "Só que, pra chegar a sete anos por hora, o buraco negro teria que girar quase no limite, e o planeta, orbitar colado nele.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.orb), key(end(4), P.orb2, "inOut")] },
-    objects: [{ id: "space", type: "BlackHole girando + órbita encolhendo", visible: true }, { id: "gauge", type: "SpinGauge", visible: true }, { id: "ls", type: "LikeSubscribe (lento)", visible: true }],
+    narration: "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.esc), key(end(4), P.esc2, "inOut")] },
+    objects: [{ id: "esc", type: "Escada + PULO do mascote + termômetro dispara", visible: true }, { id: "temp", type: "TempCounter", visible: true }, { id: "ls", type: "LikeSubscribe", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "space"), ...mascot.hide(0, 1), set("orbit.r", 0, 6), set("bh.spin", 0, 0.35), lin("ls", 10, 10 + LS_LEN, 0, LS_LEN, "linear", "count"),
-      lin("orbit.k", 4, 30, 0, 1, "inOut"), pop("gauge", W("s5", 10)), lin("bh.spin", W("s5", 14), W("s5", 17) + 10, 0.35, 1.3, "in"), lin("gauge.v", W("s5", 14), W("s5", 17) + 10, 0.3, 1, "out"),
-      popOut("gauge", W("s5", 20), 8), lin("orbit.r", W("s5", 20), W("s5", 23) + 12, 6, 2.9, "inOut"), ...fx.punch(W("s5", 22)),
+      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.2, 0, end(4)), lin("ls", 10, 10 + LS_LEN, 0, LS_LEN, "linear", "count"),
+      set("thermo.v", 0, 0.5), lin("mascot.jump", W("s5", 8), W("s5", 8) + 9, 0, 1.6, "out"), lin("mascot.jump", W("s5", 8) + 9, W("s5", 8) + 20, 1.6, 0, "in"), ...mascot.cheer(W("s5", 8), 30),
+      lin("thermo.v", W("s5", 8), W("s5", 8) + 14, 0.5, 0.95, "out"), lin("thermo.v", W("s5", 8) + 14, W("s5", 8) + 26, 0.95, 0.88, "inOut"), lin("thermo.glow", W("s5", 8), W("s5", 8) + 10, 0, 1, "out"), ...fx.shake(W("s5", 8) + 6, 16),
+      pop("temp", W("s5", 16)), lin("temp.v", W("s5", 16), W("s5", 21) + 6, 1.0, 1.75, "out"),
     ],
     badges: [
-      { text: "GIRANDO QUASE NO MÁXIMO", variant: "warning", appearAt: W("s5", 14), disappearAt: W("s5", 20) },
-      { text: "ÓRBITA COLADA NO HORIZONTE", variant: "warning", appearAt: W("s5", 21) },
+      { text: "UM DOS EL NIÑOS MAIS FORTES", variant: "warning", appearAt: W("s5", 5), disappearAt: W("s5", 16) },
+      { text: "VS. ANTES DAS FÁBRICAS (PRÉ-INDUSTRIAL)", variant: "info", appearAt: W("s5", 23) },
     ],
-    highlights: ["SETE", "ANOS", "HORA", "GIRAR", "LIMITE", "ORBITAR", "COLADO"],
-    captions: [cap("s5", 4, "Só que, pra chegar a sete anos por hora, o buraco negro teria que girar quase no limite, e o planeta, orbitar colado nele.")],
-    audioCues: [narration("s5"), sfx("whoosh", 0, 0.3), ...likeSubscribeSfx(10).map((c) => sfx(c.name, c.at, c.volume)), sfx("warp", W("s5", 14), 0.35), sfx("solar-whoosh", W("s5", 20), 0.35)],
+    highlights: ["EL", "NIÑO", "FORTES", "OUTUBRO", "GRAU", "SETENTA", "CINCO", "FÁBRICAS"],
+    captions: [cap("s5", 4, "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.")],
+    audioCues: [narration("s5"), sfx("whoosh", 0, 0.3), sfx("hum", 0, 0.2), ...likeSubscribeSfx(10).map((c) => sfx(c.name, c.at, c.volume)), sfx("launch", W("s5", 8), 0.35), sfx("ding", W("s5", 16), 0.3)],
   },
   {
     id: "s6", ...sc(5), voKey: "s6",
-    narration: "E as ondas gigantes? A gravidade do buraco negro puxa o oceano, o planeta balança, e surgem ondas do tamanho de montanhas.",
-    camera: { projection: "perspective", movement: "vertical", keys: [key(0, P.sea), key(W("s6", 15), P.sea, "linear"), key(end(5), P.sea2, "inOut")] },
-    objects: [{ id: "sea", type: "OceanSurface + GiantWave + BH no céu", visible: true }, { id: "inset", type: "Inset 2D: maré + planeta balançando", visible: true }, { id: "mascot", type: "Mascot na água", visible: true }],
+    narration: "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.pacB), key(end(5), P.pacB2, "inOut")] },
+    objects: [{ id: "pac", type: "Pacífico El Niño (calor subindo devagar)", visible: true }, { id: "podium", type: "HeatPodium + 2027?", visible: true }],
     animations: [
-      ...fx.whipIn(-1), ...world(0, "sea"), ...sealOnly(0, "none"), set("wave.k", 0, 0.18),
-      pop("inset", W("s6", 4)), popOut("inset", W("s6", 15), 8),
-      lin("wave.k", W("s6", 15), W("s6", 21) + 8, 0.18, 1, "inOut"), ...fx.shake(W("s6", 21), 22),
-      ...mascot.place(add(SEA, [0.9, -0.04, -1]), 2.9, 0.55, 0), ...mascot.float(0, false, 1), ...mascot.look(W("s6", 2), 0.4), ...mascot.jump(W("s6", 17)), ...mascot.jump(W("s6", 21)),
+      ...fx.whipIn(), ...world(0, "pac"), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k"), set("warm", 0, 1), set("plumes", 0, 0.6), lin("plumes", W("s6", 7), W("s6", 14), 0.6, 1, "inOut"),
+      pop("podium", W("s6", 15)), set("podium.k", W("s6", 15), 1), lin("y2027", W("s6", 24), W("s6", 24) + 18, 0, 1, "out"), ...fx.punch(W("s6", 20)),
     ],
     badges: [
-      { text: "MARÉ DO BURACO NEGRO", variant: "info", subtitle: "+ O PLANETA BALANÇANDO", appearAt: W("s6", 4), disappearAt: W("s6", 15) },
-      { text: "ONDAS DO TAMANHO DE MONTANHAS", variant: "warning", appearAt: W("s6", 17) },
+      { text: "⏳ O CALOR CHEGA COM ATRASO", variant: "info", appearAt: W("s6", 10), disappearAt: W("s6", 15) },
+      { text: "2027: 96% DE CHANCE DE RECORDE", variant: "warning", subtitle: "ANÁLISE DA CARBON BRIEF", appearAt: W("s6", 20) },
     ],
-    highlights: ["ONDAS", "GIGANTES", "GRAVIDADE", "PUXA", "OCEANO", "BALANÇA", "MONTANHAS"],
-    captions: [cap("s6", 5, "E as ondas gigantes? A gravidade do buraco negro puxa o oceano, o planeta balança, e surgem ondas do tamanho de montanhas.")],
-    audioCues: [narration("s6"), sfx("dive", 0, 0.3), sfx("ocean-amb", 0, 0.25), sfx("rumble", W("s6", 15), 0.35), sfx("gush", W("s6", 18), 0.35), sfx("thud", W("s6", 21), 0.35)],
+    highlights: ["CALOR", "ATRASO", "96%", "CHANCE", "2027", "RECORDE"],
+    captions: [cap("s6", 5, "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.")],
+    audioCues: [narration("s6"), sfx("whoosh", 0, 0.3), sfx("hourglass", W("s6", 10), 0.25), sfx("pop", W("s6", 15), 0.3), sfx("alert-tone", W("s6", 24), 0.22)],
   },
   {
     id: "s7", ...sc(6), voKey: "s7",
-    narration: "Sem sol, o calor viria do brilho que sobrou do Big Bang, esquentado perto do buraco negro. Um estudo de 2020 fez essa conta.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.cmb), key(end(6), P.cmb2, "inOut")] },
-    objects: [{ id: "cmb", type: "OceanPlanet + CmbParticles", visible: true }, { id: "thermo", type: "Thermo2D", visible: true }],
+    narration: "Calma: um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.graph), key(end(6), P.graph2, "linear")] },
+    objects: [{ id: "earth", type: "Terra (fundo)", visible: true }, { id: "graph", type: "ParisGraph", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "cmb"), ...sealOnly(0, "sealI.k"), ...mascot.hide(0, 1), lin("cmb.k", W("s7", 6), W("s7", 6) + 8, 0, 1, "out"), set("cmb.t0", W("s7", 6), 0),
-      pop("thermo", W("s7", 12)), lin("thermo.v", W("s7", 12), W("s7", 16) + 10, 0, 0.72, "inOut"),
+      ...fx.whipIn(-1), ...world(0, "earth"), ...sealOnly(0, "none"), set("blanket.k", 0, 1), set("hot", 0, 1), set("smoke", 0, 0), set("sun", 0, 0), set("heat", 0, 0),
+      pop("graph", W("s7", 0)), lin("bars", W("s7", 1), W("s7", 8) + 6, 0, 1, "linear"), lin("avg", W("s7", 19), W("s7", 23) + 8, 0, 1, "inOut"), ...fx.punch(W("s7", 27)),
+      ...mascot.place(add(EARTH, [2.4, -1.6, 2.6]), -0.5, 0.42, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s7", 0), 30),
     ],
     badges: [
-      { text: "SEM SOL?", variant: "warning", icon: "?", appearAt: W("s7", 0), disappearAt: W("s7", 6) },
-      { text: "BRILHO DO BIG BANG", variant: "info", subtitle: "RADIAÇÃO CÓSMICA DE FUNDO", appearAt: W("s7", 6), disappearAt: W("s7", 17) },
-      { text: "ESTUDO DE 2020 · HIPÓTESE", variant: "info", appearAt: W("s7", 17) },
+      { text: "ACORDO DE PARIS = MÉDIA DE 20 ANOS", variant: "info", appearAt: W("s7", 13) },
+      { text: "AINDA ABAIXO… POR POUCO", variant: "warning", appearAt: W("s7", 24) },
     ],
-    highlights: ["SOL", "CALOR", "BRILHO", "BIG", "BANG", "ESQUENTADO", "ESTUDO", "2020", "CONTA"],
-    captions: [cap("s7", 6, "Sem sol, o calor viria do brilho que sobrou do Big Bang, esquentado perto do buraco negro. Um estudo de 2020 fez essa conta.")],
-    audioCues: [narration("s7"), sfx("whoosh", 0, 0.3), sfx("shimmer", W("s7", 6), 0.3), sfx("glow", W("s7", 12), 0.3), sfx("ding", W("s7", 17), 0.25)],
+    highlights: ["CALMA", "GRAU", "MEIO", "ACORDO", "PARIS", "MÉDIA", "VINTE", "CHEGANDO"],
+    captions: [cap("s7", 6, "Calma: um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.")],
+    audioCues: [narration("s7"), sfx("whoosh-soft", 0, 0.3), sfx("badge", W("s7", 13), 0.3), sfx("strain", W("s7", 24), 0.25)],
   },
   {
     id: "s8", ...sc(7), voKey: "s8",
-    narration: "Veredito: funciona, com asterisco. A física permite, mas nunca acharam um planeta assim. Pronto: agora você sabe o que vale cada tic.",
+    narration: "Pronto: agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.",
     camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
-    objects: [{ id: "space", type: "BlackHole + planeta + mascote", visible: true }, { id: "verdict", type: "VerdictMeter (NÃO FUNCIONA ↔ FUNCIONA)", visible: true }],
+    objects: [{ id: "esc", type: "Escada + pulo final + termômetro 2027?", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "space"), ...sealOnly(0, "none"), set("orbit.r", 0, 2.9), set("orbit.k", 0, 0), set("bh.spin", 0, 0.6),
-      pop("verdict", W("s8", 0)), lin("needle", W("s8", 0), W("s8", 1) + 14, -90, 58, "out", "deg"), ...fx.flash(W("s8", 1) + 4, 8),
-      popOut("verdict", end(7) - s(5.2), 8),
-      ...mascot.place(add(SPACE, add(planetPos(2.9), [-0.8, 0.9, 1.2])), 0.6, 0.38, 0), ...mascot.float(0, true, 1), ...mascot.cheer(W("s8", 1) + 4, 40), ...mascot.wave(W("s8", 14), 40),
-      ...fx.punch(W("s8", 21)),
+      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.42, 0, end(7)), set("thermo.v", 0, 0.88), set("thermo.glow", 0, 0.5),
+      lin("mascot.jump", W("s8", 15), W("s8", 15) + 9, 0, 1.6, "out"), lin("mascot.jump", W("s8", 15) + 9, W("s8", 15) + 20, 1.6, 0, "in"), ...mascot.cheer(W("s8", 0), 36),
+      lin("blink", W("s8", 17), W("s8", 17) + 10, 0, 1, "out"), lin("thermo.v", W("s8", 17), W("s8", 21), 0.88, 1.0, "out"), popOut("blink", end(7) - s(5.2), 8),
     ],
     badges: [
-      { text: "VEREDITO: FUNCIONA*", variant: "positive", size: "large", appearAt: W("s8", 1), disappearAt: end(7) - s(5.2) },
-      { text: "*FÍSICA PERMITE · NUNCA ACHARAM", variant: "warning", appearAt: W("s8", 4), disappearAt: end(7) - s(5.2) },
+      { text: "COBERTOR = ESCADA · EL NIÑO = PULO", variant: "info", appearAt: W("s8", 4), disappearAt: end(7) - s(5.2) },
     ],
-    highlights: ["VEREDITO", "FUNCIONA", "ASTERISCO", "FÍSICA", "PERMITE", "NUNCA", "PRONTO", "TIC"],
-    captions: [cap("s8", 7, "Veredito: funciona, com asterisco. A física permite, mas nunca acharam um planeta assim. Pronto: agora você sabe o que vale cada tic.")],
-    audioCues: [narration("s8"), sfx("whoosh", 0, 0.3), sfx("final", W("s8", 1), 0.4), sfx("tick", W("s8", 21), 0.6)],
+    highlights: ["PRONTO", "COBERTOR", "ESCADA", "EL", "NIÑO", "PULO", "2027", "QUENTE"],
+    captions: [cap("s8", 7, "Pronto: agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.")],
+    audioCues: [narration("s8"), sfx("whoosh", 0, 0.3), sfx("final", W("s8", 0), 0.4), sfx("launch", W("s8", 15), 0.3), sfx("alert-tone", W("s8", 17), 0.2)],
   },
 ];
 

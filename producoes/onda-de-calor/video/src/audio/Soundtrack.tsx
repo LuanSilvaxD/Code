@@ -13,9 +13,7 @@ import { CTA_OFFSET, CTA_SECONDS, DURATION, f, HAS_CTA, OUTRO_SECONDS, VO } from
  */
 const HAS_MUSIC = true;
 // ctaDucked: no encerramento o TEMA da marca toca inteiro — a trilha abaixa menos sob a chamada falada.
-const MUSIC = { base: 0.36, ducked: 0.13, ctaDucked: 0.3, ramp: 8 };
-/** Tic-tac original (scripts/ticktock.py): toca o vídeo todo; abaixa um pouco sob a voz. */
-const TICK = { base: 0.55, ducked: 0.32 };
+const MUSIC = { base: 0.5, ducked: 0.17, ctaDucked: 0.3, ramp: 8 };
 /** Segundo absoluto em que a chamada falada começa (logo depois de a fenda fechar). */
 const SECONDS_CTA_AT = () => DURATION / 30 - OUTRO_SECONDS + CTA_OFFSET;
 
@@ -51,7 +49,6 @@ export const Soundtrack: React.FC = () => (
         ) : null}
       </>
     ) : null}
-    <Audio name="Tic-tac" src={staticFile("audio/ticktock.wav")} volume={(fr) => Math.max(0, TICK.ducked + (TICK.base - TICK.ducked) * ((musicVolume(fr) - MUSIC.ducked) / (MUSIC.base - MUSIC.ducked)))} />
     {HAS_MUSIC ? <Audio name="Trilha instrumental" src={staticFile("audio/music.wav")} volume={musicVolume} /> : null}
     {scenes.map((sc) => (
       <Sequence key={sc.id} name={`Áudio · ${sc.id}`} from={sc.startFrame} durationInFrames={sc.durationInFrames + 120} layout="none">

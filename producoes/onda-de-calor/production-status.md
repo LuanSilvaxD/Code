@@ -1,2 +1,3 @@
 # Status — Por que 2026 está tão quente? (onda de calor)
-- **Fase:** 2 — roteiro v1.1 APROVADO (17/11). Final sem "próximo vídeo" (o do El Niño vai linkar este). Folha de design em andamento.
+- Roteiro v1.1 e designs APROVADOS (17/11; Pacífico v2). Voz +6%. 74,4 s.
+- Render em 2 partes → montagem → entrega.
