@@ -83,7 +83,6 @@ export const Mascot: React.FC<MascotPose & { hat?: number }> = ({ frame, positio
   const leftArmZ = -(armFloatZ + cheerZ);
   return (
     <group position={[position[0], position[1] + bob - 0.47 * clamp(sit, 0, 1) * scale, position[2]]} rotation={[tiltX, rotY + drift, tiltZ]} scale={scale}>
-      {hat > 0.01 ? <group position={[0, 1.85, 0]} rotation={[0.08, 0, -0.1]} scale={clamp(hat, 0, 1)}><StrawHat s={1} /></group> : null}
       {/* pernas */}
       {[-1, 1].map((s) => (
         <group key={`leg${s}`} position={[0.095 * s, 0.55, 0]} rotation={[s * legSwing + legFloat * (s > 0 ? 1 : -0.6) - 1.5 * clamp(sit, 0, 1), 0, s * 0.06 * fl]}>
@@ -130,6 +129,8 @@ export const Mascot: React.FC<MascotPose & { hat?: number }> = ({ frame, positio
       {/* cabeça (capacete) */}
       <group position={[0, 1.15, 0]} rotation={[0.05 * Math.sin(frame / 31) * (1 - w), look + 0.08 * Math.sin(frame / 47), wv * 0.12]}>
         <group position={[0, 0.25, 0]}>{box([0.5, 0.5, 0.47], C.suit, { radius: 0.12 })}</group>
+        {/* chapéu de palha (só quando pedido): apoiado no topo do capacete, acompanha a cabeça */}
+        {hat > 0.01 ? <group position={[0, 0.46, -0.01]} rotation={[0.06, 0, -0.08]} scale={0.78 * clamp(hat, 0, 1)}><StrawHat s={1} /></group> : null}
         {/* visor */}
         <group position={[0, 0.24, 0.225]}>{box([0.37, 0.29, 0.06], C.visor, { emissive: accentDeep, emissiveIntensity: 0.28, radius: 0.09 })}</group>
         {/* reflexo do visor */}

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { BufferAttribute, CatmullRomCurve3, Color, DoubleSide, EdgesGeometry, IcosahedronGeometry, PlaneGeometry, Vector3 } from "three";
+import { BufferAttribute, BufferGeometry, CatmullRomCurve3, Color, DoubleSide, EdgesGeometry, IcosahedronGeometry, PlaneGeometry, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 
 // "Por que 2026 está tão quente?" — elementos novos (aprovar na folha). Low-poly, cores de vértice, esquemático.
@@ -365,28 +365,57 @@ export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number;
   col.needsUpdate = true;
   geo.computeVertexNormals();
 
-  // corte frontal: camada quente acima da termoclina, fria abaixo
-  const NX = 120, NY = 60;
+  // corte frontal: geometria exata — camada quente (topo → termoclina) e fria (termoclina → fundo), divisa lisa
+  const NXS = 90, ROWS = 6;
   const sec = useMemo(() => {
-    const g = new PlaneGeometry(w, depth, NX, NY);
-    g.setAttribute("color", new BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3));
+    const g = new BufferGeometry();
+    const nv = (NXS + 1) * (2 + ROWS + 1) ;
+    g.setAttribute("position", new BufferAttribute(new Float32Array(nv * 3), 3));
+    g.setAttribute("color", new BufferAttribute(new Float32Array(nv * 3), 3));
+    const idx: number[] = [];
+    const R = 2 + ROWS + 1; // vértices por coluna: topo, termoclina(quente), termoclina(fria), ROWS intermediários, fundo
+    for (let i = 0; i < NXS; i++)
+      for (let r = 0; r < R - 1; r++) {
+        if (r === 1) continue; // sem face entre as duas cópias da termoclina (borda nítida)
+        const a0 = i * R + r, b0 = (i + 1) * R + r, c0 = a0 + 1, d0 = b0 + 1;
+        idx.push(a0, c0, b0, b0, c0, d0);
+      }
+    g.setIndex(idx);
     return g;
-  }, [w]);
-  const sp = sec.attributes.position, sc = sec.attributes.color;
-  const warmL = C("#2fa6b4"), warmLn = C("#ff7a3a"), deep = C("#0d2a5a"), deep2 = C("#081a3a");
-  for (let i = 0; i < sp.count; i++) {
-    const x = sp.getX(i), yy = sp.getY(i) - depth / 2; // y de 0 (topo) a −depth
-    const th = thermo(x, w, wk, depth);
-    const above = yy > th;
-    let c: Color;
-    if (above) {
+  }, []);
+  const warmL = C("#2fa6b4"), warmLn = C("#ff7a3a"), deep = C("#123a6a"), deep2 = C("#081a3a");
+  {
+    const R = 2 + ROWS + 1;
+    const sp = sec.attributes.position, sc = sec.attributes.color;
+    for (let i = 0; i <= NXS; i++) {
+      const x = -w / 2 + (i / NXS) * w;
+      const th = thermo(x, w, wk, depth);
       const g = Math.exp(-((x - 1.0) ** 2) / (2 * 2.6 ** 2)) * wk;
-      c = lerpC(warmL, warmLn, g);
-    } else c = lerpC(deep, deep2, clamp(-yy / depth, 0, 1));
-    if (Math.abs(yy - th) < depth / NY * 1.1) c = C("#e8f6fa");
-    sc.setXYZ(i, c.r, c.g, c.b);
+      const cw = lerpC(warmL, warmLn, g);
+      const set = (r: number, y: number, c: Color) => {
+        sp.setXYZ(i * R + r, x, y, 0);
+        sc.setXYZ(i * R + r, c.r, c.g, c.b);
+      };
+      set(0, 0, cw.clone().multiplyScalar(1.08));
+      set(1, th, cw);
+      for (let r = 0; r <= ROWS; r++) {
+        const y = th + (-depth - th) * (r / ROWS);
+        set(2 + r, y, lerpC(deep, deep2, clamp(-y / depth, 0, 1)));
+      }
+    }
+    sp.needsUpdate = true;
+    sc.needsUpdate = true;
+    sec.computeBoundingSphere();
   }
-  sc.needsUpdate = true;
+  // linha da termoclina (fita lisa e fina)
+  const thLine = (() => {
+    const pts: number[] = [];
+    for (let i = 0; i <= NXS; i++) {
+      const x = -w / 2 + (i / NXS) * w;
+      pts.push(x, thermo(x, w, wk, depth));
+    }
+    return pts;
+  })();
   const ph = f * 0.12;
   const wind = (1 - 0.85 * clamp(wk, 0, 1)) * clamp(winds, 0, 1);
   const cloudX = -3.2 + 4.4 * clamp(wk, 0, 1);
@@ -396,9 +425,21 @@ export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number;
         <meshStandardMaterial vertexColors roughness={0.3} metalness={0.05} />
       </mesh>
       {/* corte frontal e lateral */}
-      <mesh geometry={sec} position={[0, -depth / 2, d / 2]}>
+      <mesh geometry={sec} position={[0, 0, d / 2]}>
         <meshStandardMaterial vertexColors roughness={0.6} />
       </mesh>
+      {thLine.length > 2
+        ? Array.from({ length: thLine.length / 2 - 1 }, (_, i) => {
+            const x0 = thLine[i * 2], y0 = thLine[i * 2 + 1], x1 = thLine[i * 2 + 2], y1 = thLine[i * 2 + 3];
+            const len = Math.hypot(x1 - x0, y1 - y0);
+            return (
+              <mesh key={i} position={[(x0 + x1) / 2, (y0 + y1) / 2, d / 2 + 0.004]} rotation={[0, 0, Math.atan2(y1 - y0, x1 - x0)]}>
+                <planeGeometry args={[len * 1.02, 0.035]} />
+                <meshBasicMaterial color="#e8f6fa" />
+              </mesh>
+            );
+          })
+        : null}
       <mesh position={[0, -depth / 2, -d / 2]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[w, depth]} />
         <meshStandardMaterial color="#0a2048" />
@@ -408,15 +449,24 @@ export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number;
         <boxGeometry args={[w + 0.1, 0.12, d + 0.1]} />
         <meshStandardMaterial color="#3a3242" {...M} />
       </mesh>
-      {/* ressurgência (água fria subindo perto da América do Sul) — some no El Niño */}
+      {/* ressurgência: setas de água fria subindo perto da América do Sul (no corte) — somem no El Niño */}
       {wk < 0.95
         ? [0, 1].map((i) => {
-            const ph2 = (f * 0.012 + i * 0.5) % 1;
+            const ph2 = (f * 0.01 + i * 0.5) % 1;
+            const x = w / 2 - 0.55 - i * 0.6;
+            const y = -depth + 0.35 + ph2 * (depth - 0.7);
+            const op = (1 - wk) * Math.sin(ph2 * Math.PI) * 0.95;
             return (
-              <mesh key={i} position={[w / 2 - 0.6 - i * 0.5, -depth + 0.3 + ph2 * (depth - 0.5), d / 2 + 0.02]} rotation={[0, 0, 0]}>
-                <coneGeometry args={[0.12, 0.3, 8]} />
-                <meshBasicMaterial color="#9fd8ff" transparent opacity={(1 - wk) * (1 - ph2) * 0.9} />
-              </mesh>
+              <group key={i} position={[x, y, d / 2 + 0.008]}>
+                <mesh position={[0, -0.12, 0]}>
+                  <planeGeometry args={[0.07, 0.26]} />
+                  <meshBasicMaterial color="#9fd8ff" transparent opacity={op} />
+                </mesh>
+                <mesh position={[0, 0.04, 0]} rotation={[0, 0, Math.PI / 2]}>
+                  <circleGeometry args={[0.13, 3]} />
+                  <meshBasicMaterial color="#9fd8ff" transparent opacity={op} />
+                </mesh>
+              </group>
             );
           })
         : null}
