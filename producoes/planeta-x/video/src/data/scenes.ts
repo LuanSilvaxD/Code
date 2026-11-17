@@ -2,6 +2,7 @@
 // Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN.
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
+import { LS_LEN, likeSubscribeSfx } from "../components/LikeSubscribe";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
@@ -132,7 +133,7 @@ export const scenes: ScenePlan[] = [
     camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.p9), ...cut(W("s4", 8), P.p9b, P.sol), key(W("s4", 22), P.sol, "linear"), key(end(3), P.sol2, "inOut")] },
     objects: [{ id: "p9", type: "PlanetNine (ilustração)", visible: true }, { id: "sol", type: "SolarSystem + AlignedOrbits + puxão", visible: true }, { id: "ls", type: "LikeSubscribe (lateral)", visible: true }],
     animations: [
-      ...fx.whipIn(-1), ...world(0, "p9"), set("p9.dark", 0, 0), set("earth.k", 0, 0), set("farsun.k", 0, 0), ...sealOnly(0, "sealI.k"), lin("ls", 10, 90, 0, 80, "linear", "count"),
+      ...fx.whipIn(-1), ...world(0, "p9"), set("p9.dark", 0, 0), set("earth.k", 0, 0), set("farsun.k", 0, 0), ...sealOnly(0, "sealI.k"), lin("ls", 10, 10 + LS_LEN, 0, LS_LEN, "linear", "count"),
       whipMid(W("s4", 8)), ...world(W("s4", 8), "sol"), ...sealOnly(W("s4", 8), "seal.k"),
       lin("orb.k", W("s4", 14), W("s4", 20) + 10, 0, 1, "inOut"), pop("p9.k", W("s4", 23)), lin("pull", W("s4", 23), W("s4", 23) + 12, 0, 1, "out"), ...fx.punch(W("s4", 23)),
     ],
@@ -144,7 +145,7 @@ export const scenes: ScenePlan[] = [
     ],
     highlights: ["SÉRIA", "PLANETA", "NOVE", "2016", "ASTRÔNOMOS", "OBJETOS", "NETUNO", "ÓRBITAS", "ALINHADAS", "PUXASSE"],
     captions: [cap("s4", 3, "Mas existe uma versão séria: o Planeta Nove. Em 2016, dois astrônomos notaram que objetos depois de Netuno têm órbitas alinhadas, como se algo puxasse.")],
-    audioCues: [narration("s4"), sfx("rewind", 0, 0.3), sfx("click", 10 + 18, 0.3), sfx("click", 10 + 38, 0.3), sfx("whoosh-soft", W("s4", 8), 0.3), sfx("shimmer", W("s4", 14), 0.3), sfx("warp", W("s4", 23), 0.35)],
+    audioCues: [narration("s4"), sfx("rewind", 0, 0.3), ...likeSubscribeSfx(10).map((c) => sfx(c.name, c.at, c.volume)), sfx("whoosh-soft", W("s4", 8), 0.3), sfx("shimmer", W("s4", 14), 0.3), sfx("warp", W("s4", 23), 0.35)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",

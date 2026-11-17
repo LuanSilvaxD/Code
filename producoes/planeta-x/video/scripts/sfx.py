@@ -762,4 +762,30 @@ def wing_flap(d=0.8, n=7):
 save("bird-chirp", bird_chirp())
 save("wing-flap", wing_flap())
 
+def ui_click():
+    """Clique de mouse nítido e mais alto (curtir/inscrever): estalo duplo (aperta + solta)."""
+    t = tt(0.12)
+    y = np.zeros(len(t))
+    for dl, g in [(0.0, 1.0), (0.055, 0.55)]:
+        u = np.clip(t - dl, 0, None)
+        hit = np.sin(2 * np.pi * 3200 * u) * np.exp(-u / 0.004) + np.sin(2 * np.pi * 1100 * u) * np.exp(-u / 0.009) * 0.8
+        hit = hit + hp(rng.standard_normal(len(t)), 4000) * np.exp(-u / 0.0025) * 0.9
+        y += np.where(t >= dl, hit, 0) * g
+    return y
+
+
+def sub_bell(d=1.6):
+    """Sininho de notificação (inscrito): duas batidas de sino agudo com parciais inarmônicos."""
+    t = tt(d)
+    y = np.zeros(len(t))
+    for dl, f, g in [(0.0, 1568.0, 1.0), (0.14, 2093.0, 0.85)]:
+        u = np.clip(t - dl, 0, None)
+        tone = sum(a * np.sin(2 * np.pi * f * r * u) * np.exp(-u / (0.55 / r ** 0.6)) for r, a in [(1.0, 1.0), (2.76, 0.45), (5.4, 0.25), (8.93, 0.12)])
+        y += np.where(t >= dl, tone, 0) * g
+    return y
+
+
+save("ui-click", ui_click(), peak=0.95)
+save("sub-bell", sub_bell(), peak=0.9)
+
 print("sfx:", sorted(p.name for p in OUT.glob("*.wav")))

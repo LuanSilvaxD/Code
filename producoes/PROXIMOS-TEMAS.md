@@ -13,7 +13,7 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 5. Felino novo (Leopardus tilcayo) — checar a alegação "1º em 100 anos" (possível Boato ou Verdade)
 
 ## Pendência de formato (16/11)
-- A partir dos próximos vídeos: animação "curtir + inscrever" com cursor clicando, perto da metade do vídeo, em área que não atrapalhe (regra registrada na skill).
+- A partir dos próximos vídeos: animação "curtir + inscrever" com cursor clicando, perto da metade do vídeo, em área que não atrapalhe (regra registrada na skill). Ajuste 17/11: mais lenta (~4,3 s), clique mais alto e sininho ao se inscrever (já implementado em planeta-x/video, base dos próximos).
 
 ## Temas anotados em 16/11/2026 (pedidos do Luan)
 - **Planeta X** — 1ª sugestão de inscrito do canal → EM PRODUÇÃO (17/11).
