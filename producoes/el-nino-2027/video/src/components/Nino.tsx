@@ -55,7 +55,6 @@ export const FishingBoat: React.FC<{ f: number; s?: number; rock?: number }> = (
       <mesh geometry={hull} castShadow>
         <meshStandardMaterial vertexColors roughness={0.6} side={2} />
       </mesh>
-      <Hull42 />
       {/* convés de tábuas */}
       {Array.from({ length: 6 }, (_, i) => (
         <mesh key={i} position={[-0.6 + i * 0.22, 0.33, 0]} receiveShadow>
@@ -77,9 +76,6 @@ export const FishingBoat: React.FC<{ f: number; s?: number; rock?: number }> = (
           <boxGeometry args={[0.01, 0.13, 0.32]} />
           <meshStandardMaterial color="#9fd8ff" emissive="#9fd8ff" emissiveIntensity={0.2} />
         </mesh>
-        <group position={[-0.1, 0.47, -0.12]} rotation={[0, 0.6, 0]}>
-          <RubberDuck s={0.5} />
-        </group>
         {/* lampião */}
         <mesh position={[0.2, 0.3, 0.27]}>
           <sphereGeometry args={[0.04, 8, 6]} />

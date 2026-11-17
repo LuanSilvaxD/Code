@@ -1,3 +1,4 @@
+import { StrawHat } from "./Nino";
 import { RoundedBox } from "@react-three/drei";
 import { useCurrentFrame } from "remotion";
 import { BRAND } from "../brand";
@@ -46,7 +47,7 @@ const box = (args: [number, number, number], color: string, extra?: { emissive?:
   </RoundedBox>
 );
 
-export const Mascot: React.FC<MascotPose> = ({ frame, position = [0, 0, 0], rotY = 0, scale = 1, walk = 0, float = 0, wave = 0, point = 0, jump = 0, cheer = 0, look = 0, sit = 0 }) => {
+export const Mascot: React.FC<MascotPose & { hat?: number }> = ({ frame, position = [0, 0, 0], rotY = 0, scale = 1, walk = 0, float = 0, wave = 0, point = 0, jump = 0, cheer = 0, look = 0, sit = 0, hat = 0 }) => {
   const { accent, accentDeep } = BRAND.colors;
   const w = clamp(walk, 0, 1);
   const fl = clamp(float, 0, 1);
@@ -82,6 +83,7 @@ export const Mascot: React.FC<MascotPose> = ({ frame, position = [0, 0, 0], rotY
   const leftArmZ = -(armFloatZ + cheerZ);
   return (
     <group position={[position[0], position[1] + bob - 0.47 * clamp(sit, 0, 1) * scale, position[2]]} rotation={[tiltX, rotY + drift, tiltZ]} scale={scale}>
+      {hat > 0.01 ? <group position={[0, 1.85, 0]} rotation={[0.08, 0, -0.1]} scale={clamp(hat, 0, 1)}><StrawHat s={1} /></group> : null}
       {/* pernas */}
       {[-1, 1].map((s) => (
         <group key={`leg${s}`} position={[0.095 * s, 0.55, 0]} rotation={[s * legSwing + legFloat * (s > 0 ? 1 : -0.6) - 1.5 * clamp(sit, 0, 1), 0, s * 0.06 * fl]}>
@@ -189,6 +191,7 @@ export const MascotFromTracks: React.FC = () => {
       cheer={t("cheer")}
       sit={t("sit")}
       look={t("look")}
+      hat={t("hat")}
     />
   );
 };

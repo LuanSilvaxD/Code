@@ -334,7 +334,7 @@ const WindArrow: React.FC<{ len?: number; v?: number; ph: number }> = ({ len = 2
  * América do Sul, nuvens/chuva a oeste. El Niño (warm 1): ventos fracos, a camada quente "escorrega" para leste,
  * mancha quente no Pacífico central/leste, nuvens vão junto. plumes 0..1: ondas de calor subindo.
  */
-export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number; w?: number; d?: number }> = ({ f, warm = 0, plumes = 0, w = 10, d = 4 }) => {
+export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number; w?: number; d?: number; winds?: number }> = ({ f, warm = 0, plumes = 0, w = 10, d = 4, winds = 1 }) => {
   const wk = clamp(warm, 0, 1.2);
   const depth = 2.0;
   // superfície
@@ -388,7 +388,7 @@ export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number;
   }
   sc.needsUpdate = true;
   const ph = f * 0.12;
-  const wind = 1 - 0.85 * clamp(wk, 0, 1);
+  const wind = (1 - 0.85 * clamp(wk, 0, 1)) * clamp(winds, 0, 1);
   const cloudX = -3.2 + 4.4 * clamp(wk, 0, 1);
   return (
     <group>

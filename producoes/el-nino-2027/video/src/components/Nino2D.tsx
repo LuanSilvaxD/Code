@@ -94,7 +94,7 @@ export const NinoTimeline: React.FC<{ draw: number; peak?: number; neutral?: num
 /** Legenda de região no mapa (balão). */
 export const RegionTag: React.FC<{ title: string; sub: string; color: string; icon: string }> = ({ title, sub, color, icon }) => (
   <div style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "10px 18px", borderRadius: 18, background: "rgba(11,8,18,0.85)", border: `3px solid ${color}`, fontFamily: FONT, boxShadow: "0 8px 20px rgba(0,0,0,0.5)" }}>
-    <div style={{ fontSize: 40 }}>{icon}</div>
+    {icon ? <div style={{ fontSize: 40 }}>{icon}</div> : null}
     <div>
       <div style={{ fontWeight: 900, fontSize: 30, color }}>{title}</div>
       <div style={{ fontWeight: 800, fontSize: 20, color: "#e3dcff" }}>{sub}</div>

@@ -1,4 +1,4 @@
-// scenes.ts — "Por que 2026 está tão quente?". Roteiro v1.1 e designs APROVADOS (17/11/2026).
+// scenes.ts — "El Niño 2026–2027". Roteiro v1 e designs APROVADOS (17/11/2026; mascote com chapéu de palha).
 // Frames LOCAIS à cena; startFrame global. W("sN", i) = frame local da palavra i da fala sN.
 
 import { evaluateTrack, orbit, type EaseName, type TrackAnimation, type Vec3 } from "../utils/animation";
@@ -6,8 +6,8 @@ import { LS_LEN, likeSubscribeSfx } from "../components/LikeSubscribe";
 import { fx } from "../utils/fx";
 import { mascot } from "../utils/mascot";
 import { DURATION, FPS, HEIGHT, s, SCENE_FRAMES, voLocal, WIDTH, wordLocal, type VoKey } from "../utils/timing";
-import { escalatorTop } from "../components/Heat";
-import { add, EARTH, ESC, PAC } from "./heat";
+import { ll2, regionCenter } from "../components/Nino";
+import { add, BOAT, BR, PAC } from "./nino";
 
 export type VideoConfig = { width: number; height: number; fps: number; durationInFrames: number; theme: string; language: string };
 export const VIDEO: VideoConfig = { width: WIDTH, height: HEIGHT, fps: FPS, durationInFrames: DURATION, theme: "fenda-umbra-espaco", language: "pt-BR" };
@@ -38,178 +38,167 @@ const lin = (target: string, a: number, b: number, from: number | undefined, to:
 const set = (target: string, at: number, v: number): TrackAnimation => lin(target, at, at + 1, v, v, "linear");
 const pop = (target: string, at: number): TrackAnimation => ({ type: "spring", target, startFrame: at, endFrame: at + 30, from: 0, to: 1, damping: 12, unit: "0-1" });
 const popOut = (target: string, at: number, len = 8): TrackAnimation => lin(target, at, at + len, undefined, 0, "in");
-const WORLDS = ["earth", "esc", "pac"] as const;
+const WORLDS = ["pac", "br"] as const;
 const world = (at: number, w: (typeof WORLDS)[number]): TrackAnimation[] => WORLDS.map((k) => set(`${k}.show`, at, k === w ? 1 : 0));
 export const whipMid = (at: number): TrackAnimation => lin("screen.whip", at, at + 7, -1, 0, "out");
 
 // câmera (9:16: largura visível ≈ 0,237·d; altura ≈ 0,42·d)
+const NE_N = (() => { const a = regionCenter("N", 0.2), b = regionCenter("NE", 0.2); return [(a[0] + b[0]) / 2, 0.2, (a[2] + b[2]) / 2] as Vec3; })();
+const SUL = ll2(-52, -28, 0.3);
 const P = {
-  e1: orbit(add(EARTH, [0, -0.6, 0]), 24, 20, 12),
-  e2: orbit(add(EARTH, [0, -0.5, 0]), 20, 34, 10),
-  e3: orbit(add(EARTH, [-0.6, 0.0, 0]), 22, 40, 8),
-  e4: orbit(add(EARTH, [-0.6, 0.0, 0]), 20, 52, 12),
-  esc: orbit(add(ESC, [2.3, 2.3, -0.8]), 25, 24, 16),
-  esc2: orbit(add(ESC, [2.5, 2.4, -0.8]), 23, 32, 13),
+  open: orbit(add(PAC, [0.8, 0.4, 0]), 34, 70, 34),
+  open2: orbit(add(PAC, [1.0, 0.4, 0]), 28, 60, 26),
+  boat: orbit(add(PAC, add(BOAT, [0, 0.45, 0])), 6.5, 30, 14),
+  boat2: orbit(add(PAC, add(BOAT, [0, 0.45, 0])), 5.5, 48, 12),
+  west: orbit(add(PAC, [-2.2, 0.2, 0]), 22, 58, 28),
+  east: orbit(add(PAC, [2.6, 0.2, 0]), 22, 72, 26),
   pac: orbit(add(PAC, [0.4, 0.2, 0]), 30, 68, 30),
-  pac2: orbit(add(PAC, [0.8, 0.3, 0]), 27, 58, 26),
-  pacB: orbit(add(PAC, [0.8, 0.4, 0]), 28, 62, 30),
-  pacB2: orbit(add(PAC, [0.8, 0.4, 0]), 30, 72, 26),
-  graph: orbit(add(EARTH, [0, 0, 0]), 16, 60, 6),
-  graph2: orbit(add(EARTH, [0, 0, 0]), 16, 80, 6),
-  fin: orbit(add(ESC, [2.3, 2.4, -0.8]), 25, 16, 14),
-  fin2: orbit(add(ESC, [2.5, 2.6, -0.8]), 23, 34, 12),
-};
-/** Mascote parado num degrau: sobe junto (0,01 u3d/frame em x com speed 0,02). */
-const ride = (k0: number, from: number, to: number, rotY = 1.2, scale = 0.8): TrackAnimation[] => {
-  const a = add(ESC, escalatorTop(k0));
-  const b = add(a, [(to - from) * 0.5 * 0.02, (to - from) * 0.36 * 0.02, 0]);
-  return [...mascot.place(a, rotY, scale, from), lin("mascot.x", from + 1, to, a[0], b[0], "linear"), lin("mascot.y", from + 1, to, a[1], b[1], "linear")];
+  pac2: orbit(add(PAC, [0.8, 0.3, 0]), 34, 60, 34),
+  br: orbit(add(BR, [0, 0, 0.4]), 24, 0, 56),
+  nne: orbit(add(BR, NE_N), 16, -8, 48),
+  nne2: orbit(add(BR, NE_N), 14, 6, 42),
+  sul: orbit(add(BR, SUL), 9.5, -14, 30),
+  sul2: orbit(add(BR, SUL), 8.5, 10, 26),
+  tl: orbit(add(PAC, [0.6, 0.2, 0]), 36, 64, 40),
+  tl2: orbit(add(PAC, [0.6, 0.2, 0]), 36, 76, 40),
+  fin: orbit(add(PAC, add(BOAT, [-1.0, 0.4, 0])), 16, 50, 20),
+  fin2: orbit(add(PAC, add(BOAT, [-1.6, 0.4, 0])), 22, 66, 26),
 };
 
-const ZERO = ["blanket.k", "smoke", "sun", "heat", "trapped", "hot", "cal", "podium", "y2027", "thermo.glow", "warm", "plumes", "temp", "bars", "avg", "graph", "seal.k", "sealI.k", "mascot.float", "ls", "years.k", "blink"];
+const ZERO = ["meter", "meter.v", "cal", "boatwarm", "plumes", "dryN", "dryNE", "wetS", "fire", "storm", "bolt", "tagN", "tagS", "tl", "tl.draw", "tl.peak", "tl.neutral", "seal.k", "sealI.k", "mascot.float", "ls"];
 const sealOnly = (at: number, which: "seal.k" | "sealI.k" | "none"): TrackAnimation[] => [set("seal.k", at, which === "seal.k" ? 1 : 0), set("sealI.k", at, which === "sealI.k" ? 1 : 0)];
-const M_EARTH = add(EARTH, [1.9, 0.2, 2.2]);
+const M_BOAT = add(PAC, add(BOAT, [0.12, 0.25, 0.02]));
+const M_FLY = add(PAC, [2.6, 2.2, 2.0]);
 
 export const scenes: ScenePlan[] = [
   {
     id: "s1", ...sc(0), voKey: "s1",
-    narration: "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.e1), key(end(0), P.e2, "inOut")] },
-    objects: [{ id: "earth", type: "Terra quente", visible: true }, { id: "cal", type: "RecordCalendar", visible: true }, { id: "podium", type: "HeatPodium", visible: true }],
+    narration: "O El Niño de 2026 é um dos mais fortes já medidos, e vai mexer com o tempo no Brasil até 2027. Mas o que ele é, afinal?",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.open), key(end(0), P.open2, "inOut")] },
+    objects: [{ id: "pac", type: "PacificSlice em El Niño", visible: true }, { id: "meter", type: "IntensityMeter", visible: true }],
     animations: [
-      ...fx.flash(0), ...world(0, "earth"), ...ZERO.map((t) => set(t, 0, 0)), set("hot", 0, 0.6), set("thermo.v", 0, 0.3),
-      pop("cal", W("s1", 0)), lin("cal.stamp", W("s1", 5), W("s1", 5) + 8, 0, 1, "out"), ...fx.punch(W("s1", 5)), popOut("cal", W("s1", 11), 8),
-      pop("podium", W("s1", 13)), lin("podium.k", W("s1", 13), W("s1", 20), 0, 1, "out"), popOut("podium", W("s1", 23) - 4, 8), ...fx.shake(W("s1", 23), 12),
-      ...mascot.place(M_EARTH, -0.6, 0.45, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 4, 36), ...mascot.jump(W("s1", 23)),
+      ...fx.flash(0), ...world(0, "pac"), ...ZERO.map((t) => set(t, 0, 0)), set("warm", 0, 1), set("plumes", 0, 0.8), set("mascot.hat", 0, 1),
+      pop("meter", W("s1", 6)), lin("meter.v", W("s1", 6), W("s1", 11) + 8, 0, 0.97, "out"), popOut("meter", W("s1", 22) - 4, 8), ...fx.punch(W("s1", 27)),
+      ...mascot.place(M_FLY, -0.4, 0.55, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s1", 0) + 4, 36), ...mascot.look(W("s1", 22), 0.4),
     ],
     badges: [
-      { text: "OUTUBRO/2026: RECORDE", variant: "negative", appearAt: W("s1", 5), disappearAt: W("s1", 13) },
-      { text: "2026: 2º MAIS QUENTE (PREVISÃO)", variant: "warning", appearAt: W("s1", 18) },
+      { text: "EL NIÑO 2026", variant: "warning", subtitle: "UM DOS MAIS FORTES JÁ MEDIDOS", appearAt: W("s1", 6), disappearAt: W("s1", 22) },
+      { text: "O QUE ELE É?", variant: "warning", icon: "?", size: "large", appearAt: W("s1", 22) },
     ],
-    highlights: ["OUTUBRO", "2026", "QUENTE", "MEDIDO", "SEGUNDO", "HISTÓRIA", "POR", "QUÊ"],
-    captions: [cap("s1", 0, "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?")],
-    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("pop", W("s1", 0), 0.3), sfx("thud", W("s1", 5), 0.35), sfx("badge", W("s1", 13), 0.3), sfx("alert-tone", W("s1", 23), 0.2)],
+    highlights: ["EL", "NIÑO", "2026", "FORTES", "BRASIL", "2027", "AFINAL"],
+    captions: [cap("s1", 0, "O El Niño de 2026 é um dos mais fortes já medidos, e vai mexer com o tempo no Brasil até 2027. Mas o que ele é, afinal?")],
+    audioCues: [narration("s1"), sfx("fenda-open", 0, 0.7), sfx("ocean-amb", 0, 0.2), sfx("badge", W("s1", 6), 0.3), sfx("alert-tone", W("s1", 22), 0.2)],
   },
   {
     id: "s2", ...sc(1), voKey: "s2",
-    narration: "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.e3), key(end(1), P.e4, "inOut")] },
-    objects: [{ id: "earth", type: "Terra + cobertor + setas + fumaça", visible: true }],
+    narration: "O nome veio de pescadores do Peru. A água quente aparecia perto do Natal, e eles chamaram de El Niño: o Menino Jesus.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.boat), key(end(1), P.boat2, "inOut")] },
+    objects: [{ id: "boat", type: "FishingBoat + mascote (chapéu de palha)", visible: true }, { id: "cal", type: "XmasCalendar", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "earth"), ...sealOnly(0, "seal.k"), set("hot", 0, 0.6),
-      lin("blanket.k", W("s2", 5), W("s2", 6) + 10, 0, 0.3, "out"), lin("sun", W("s2", 3), W("s2", 6), 0, 1, "inOut"), lin("heat", W("s2", 6), W("s2", 8) + 8, 0, 1, "inOut"),
-      lin("smoke", W("s2", 12), W("s2", 16), 0, 1, "inOut"), lin("blanket.k", W("s2", 17), W("s2", 19) + 12, 0.3, 1, "inOut"), lin("trapped", W("s2", 22), W("s2", 25) + 6, 0, 1, "inOut"), lin("hot", W("s2", 22), end(1), 0.6, 1, "inOut"),
-      ...mascot.place(add(EARTH, [1.9, -0.9, 2.2]), -0.6, 0.45, 0), ...mascot.float(0, true, 1), ...mascot.point(W("s2", 16), 40, -0.9),
+      ...fx.whipIn(), ...world(0, "pac"), set("warm", 0, 0), set("plumes", 0, 0), set("winds", 0, 0), ...sealOnly(0, "none"),
+      ...mascot.place(M_BOAT, 1.6, 0.18, 0), ...mascot.float(0, false, 1),
+      lin("boatwarm", W("s2", 7), W("s2", 9) + 12, 0, 1, "out"), pop("cal", W("s2", 13)), ...fx.punch(W("s2", 21)), ...mascot.cheer(W("s2", 21), 30),
     ],
     badges: [
-      { text: "EFEITO ESTUFA", variant: "info", subtitle: "OS GASES FUNCIONAM COMO UM COBERTOR", appearAt: W("s2", 5), disappearAt: W("s2", 15) },
-      { text: "MAIS CO₂ = COBERTOR MAIS GROSSO", variant: "negative", appearAt: W("s2", 17) },
+      { text: "PESCADORES DO PERU", variant: "info", appearAt: W("s2", 4), disappearAt: W("s2", 18) },
+      { text: "EL NIÑO = O MENINO JESUS", variant: "positive", appearAt: W("s2", 18) },
     ],
-    highlights: ["TERRA", "COBERTOR", "GASES", "GÁS", "CARBÔNICO", "ENGROSSAM", "CALOR", "SAIR"],
-    captions: [cap("s2", 1, "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.")],
-    audioCues: [narration("s2"), sfx("whoosh", 0, 0.3), sfx("shimmer", W("s2", 3), 0.25), sfx("dust", W("s2", 12), 0.3), sfx("glow", W("s2", 22), 0.3)],
+    highlights: ["NOME", "PESCADORES", "PERU", "ÁGUA", "QUENTE", "NATAL", "MENINO", "JESUS"],
+    captions: [cap("s2", 1, "O nome veio de pescadores do Peru. A água quente aparecia perto do Natal, e eles chamaram de El Niño: o Menino Jesus.")],
+    audioCues: [narration("s2"), sfx("whoosh", 0, 0.3), sfx("ocean-amb", 0, 0.3), sfx("bells", W("s2", 13), 0.3), sfx("ding", W("s2", 21), 0.3)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
-    narration: "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.esc), key(end(2), P.esc2, "linear")] },
-    objects: [{ id: "esc", type: "Escalator + Thermometer3D + mascote no degrau", visible: true }],
-    animations: [
-      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.08, 0, end(2)),
-      lin("thermo.v", 0, end(2), 0.3, 0.5, "linear"), lin("years.k", W("s3", 6), W("s3", 8) + 10, 0, 3, "linear", "count"),
+    narration: "Normalmente, ventos sopram de leste pra oeste no Pacífico e empurram a água quente pra perto da Ásia. Perto da América do Sul, sobe água fria do fundo.",
+    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.west), key(W("s3", 17), P.west, "linear"), key(W("s3", 22), P.east, "inOut"), key(end(2), P.east, "linear")] },
+    objects: [{ id: "pac", type: "PacificSlice normal (ventos, termoclina, ressurgência)", visible: true }],
+    animations: [...fx.whipIn(-1), ...world(0, "pac"), set("warm", 0, 0), set("boatwarm", 0, 0), set("winds", 0, 1), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k")],
+    badges: [
+      { text: "NORMAL: VENTOS PARA OESTE", variant: "info", appearAt: W("s3", 1), disappearAt: W("s3", 18) },
+      { text: "ÁGUA FRIA SOBE DO FUNDO", variant: "info", appearAt: W("s3", 23) },
     ],
-    badges: [{ text: "AQUECIMENTO = ESCADA ROLANTE", variant: "warning", appearAt: W("s3", 9) }],
-    highlights: ["TEMPERATURA", "SUBIR", "DEVAGAR", "ANO", "ESCADA", "ROLANTE"],
-    captions: [cap("s3", 2, "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.")],
-    audioCues: [narration("s3"), sfx("whoosh", 0, 0.3), sfx("hum", 0, 0.25), sfx("tick", W("s3", 6), 0.25), sfx("tick", W("s3", 8), 0.25)],
+    highlights: ["NORMALMENTE", "VENTOS", "LESTE", "OESTE", "ÁGUA", "QUENTE", "ÁSIA", "FRIA", "FUNDO"],
+    captions: [cap("s3", 2, "Normalmente, ventos sopram de leste pra oeste no Pacífico e empurram a água quente pra perto da Ásia. Perto da América do Sul, sobe água fria do fundo.")],
+    audioCues: [narration("s3"), sfx("whoosh", 0, 0.3), sfx("wind-cold", W("s3", 1), 0.3), sfx("bubbles", W("s3", 23), 0.3)],
   },
   {
     id: "s4", ...sc(3), voKey: "s4",
-    narration: "Mas em 2026 apareceu um empurrão extra: o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.",
-    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.pac), key(end(3), P.pac2, "inOut")] },
-    objects: [{ id: "pac", type: "PacificSlice (normal → El Niño)", visible: true }],
+    narration: "Quando esses ventos enfraquecem, a água quente volta, se espalha até a América do Sul e muda a chuva no planeta inteiro.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.pac), key(end(3), P.pac2, "inOut")] },
+    objects: [{ id: "pac", type: "PacificSlice (warm 0→1)", visible: true }],
     animations: [
-      ...fx.whipIn(-1), ...world(0, "pac"), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k"),
-      lin("warm", W("s4", 8), W("s4", 15) + 10, 0, 1, "inOut"), lin("plumes", W("s4", 17), W("s4", 21), 0, 1, "inOut"), ...fx.punch(W("s4", 8)),
+      ...fx.whipIn(), ...world(0, "pac"), ...sealOnly(0, "seal.k"),
+      lin("warm", W("s4", 3), W("s4", 14) + 6, 0, 1, "inOut"), lin("plumes", W("s4", 16), W("s4", 18) + 10, 0, 1, "inOut"), ...fx.punch(W("s4", 3)),
     ],
     badges: [
-      { text: "EL NIÑO", variant: "warning", subtitle: "VENTOS FRACOS · ÁGUA QUENTE VAI PARA LESTE", appearAt: W("s4", 8), disappearAt: W("s4", 17) },
-      { text: "PACÍFICO SOLTA CALOR NO AR", variant: "negative", appearAt: W("s4", 17) },
+      { text: "VENTOS FRACOS", variant: "warning", appearAt: W("s4", 2), disappearAt: W("s4", 9) },
+      { text: "ÁGUA QUENTE VAI PARA LESTE", variant: "negative", appearAt: W("s4", 9) },
     ],
-    highlights: ["2026", "EMPURRÃO", "EXTRA", "EL", "NIÑO", "PACÍFICO", "ESQUENTA", "CALOR", "PLANETA"],
-    captions: [cap("s4", 3, "Mas em 2026 apareceu um empurrão extra: o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.")],
-    audioCues: [narration("s4"), sfx("whoosh", 0, 0.3), sfx("ocean-amb", 0, 0.25), sfx("alert-tone", W("s4", 8), 0.2), sfx("fire", W("s4", 14), 0.25), sfx("rush", W("s4", 17), 0.3)],
+    highlights: ["VENTOS", "ENFRAQUECEM", "QUENTE", "VOLTA", "ESPALHA", "CHUVA", "PLANETA"],
+    captions: [cap("s4", 3, "Quando esses ventos enfraquecem, a água quente volta, se espalha até a América do Sul e muda a chuva no planeta inteiro.")],
+    audioCues: [narration("s4"), sfx("whoosh", 0, 0.3), sfx("power-down", W("s4", 3), 0.3), sfx("rush", W("s4", 7), 0.3), sfx("rain", W("s4", 16), 0.2)],
   },
   {
     id: "s5", ...sc(4), voKey: "s5",
-    narration: "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.",
-    camera: { projection: "perspective", movement: "tracking", keys: [key(0, P.esc), key(end(4), P.esc2, "inOut")] },
-    objects: [{ id: "esc", type: "Escada + PULO do mascote + termômetro dispara", visible: true }, { id: "temp", type: "TempCounter", visible: true }, { id: "ls", type: "LikeSubscribe", visible: true }],
+    narration: "No Brasil, o efeito muda de região pra região. Norte e Nordeste ficam mais secos e quentes, com risco de seca e queimadas.",
+    camera: { projection: "perspective", movement: "dolly-in", keys: [key(0, P.br), key(W("s5", 9), P.br, "linear"), key(W("s5", 13), P.nne, "inOut"), key(end(4), P.nne2, "linear")] },
+    objects: [{ id: "br", type: "BrazilMap (N/NE secando, fogo)", visible: true }, { id: "ls", type: "LikeSubscribe", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.2, 0, end(4)), lin("ls", 10, 10 + LS_LEN, 0, LS_LEN, "linear", "count"),
-      set("thermo.v", 0, 0.5), lin("mascot.jump", W("s5", 8), W("s5", 8) + 9, 0, 1.6, "out"), lin("mascot.jump", W("s5", 8) + 9, W("s5", 8) + 20, 1.6, 0, "in"), ...mascot.cheer(W("s5", 8), 30),
-      lin("thermo.v", W("s5", 8), W("s5", 8) + 14, 0.5, 0.95, "out"), lin("thermo.v", W("s5", 8) + 14, W("s5", 8) + 26, 0.95, 0.88, "inOut"), lin("thermo.glow", W("s5", 8), W("s5", 8) + 10, 0, 1, "out"), ...fx.shake(W("s5", 8) + 6, 16),
-      pop("temp", W("s5", 16)), lin("temp.v", W("s5", 16), W("s5", 21) + 6, 1.0, 1.75, "out"),
+      ...fx.whipIn(-1), ...world(0, "br"), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k"), lin("ls", 10, 10 + LS_LEN, 0, LS_LEN, "linear", "count"),
+      lin("dryN", W("s5", 9), W("s5", 14) + 10, 0, 0.75, "inOut"), lin("dryNE", W("s5", 11), W("s5", 16) + 10, 0, 1, "inOut"), lin("fire", W("s5", 20), W("s5", 22) + 10, 0, 1, "out"), ...fx.shake(W("s5", 22), 14),
+      pop("tagN", W("s5", 12)),
     ],
-    badges: [
-      { text: "UM DOS EL NIÑOS MAIS FORTES", variant: "warning", appearAt: W("s5", 5), disappearAt: W("s5", 16) },
-      { text: "VS. ERA PRÉ-INDUSTRIAL", variant: "info", appearAt: W("s5", 23) },
-    ],
-    highlights: ["EL", "NIÑO", "FORTES", "OUTUBRO", "GRAU", "SETENTA", "CINCO", "FÁBRICAS"],
-    captions: [cap("s5", 4, "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.")],
-    audioCues: [narration("s5"), sfx("whoosh", 0, 0.3), sfx("hum", 0, 0.2), ...likeSubscribeSfx(10).map((c) => sfx(c.name, c.at, c.volume)), sfx("launch", W("s5", 8), 0.35), sfx("ding", W("s5", 16), 0.3)],
+    badges: [{ text: "EFEITO MUDA POR REGIÃO", variant: "info", appearAt: W("s5", 1), disappearAt: W("s5", 9) }],
+    highlights: ["BRASIL", "REGIÃO", "NORTE", "NORDESTE", "SECOS", "QUENTES", "SECA", "QUEIMADAS"],
+    captions: [cap("s5", 4, "No Brasil, o efeito muda de região pra região. Norte e Nordeste ficam mais secos e quentes, com risco de seca e queimadas.")],
+    audioCues: [narration("s5"), sfx("whoosh", 0, 0.3), ...likeSubscribeSfx(10).map((c) => sfx(c.name, c.at, c.volume)), sfx("crumble", W("s5", 14), 0.3), sfx("fire", W("s5", 20), 0.35)],
   },
   {
     id: "s6", ...sc(5), voKey: "s6",
-    narration: "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.pacB), key(end(5), P.pacB2, "inOut")] },
-    objects: [{ id: "pac", type: "Pacífico El Niño (calor subindo devagar)", visible: true }, { id: "podium", type: "HeatPodium + 2027?", visible: true }],
+    narration: "Já o Sul recebe chuva acima da média, com risco de enchentes e temporais.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.sul), key(end(5), P.sul2, "inOut")] },
+    objects: [{ id: "br", type: "BrazilMap (Sul azul + temporal)", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "pac"), ...mascot.hide(0, 1), ...sealOnly(0, "seal.k"), set("warm", 0, 1), set("plumes", 0, 0.6), lin("plumes", W("s6", 7), W("s6", 14), 0.6, 1, "inOut"),
-      pop("podium", W("s6", 15)), set("podium.k", W("s6", 15), 1), lin("y2027", W("s6", 24), W("s6", 24) + 18, 0, 1, "out"), ...fx.punch(W("s6", 20)),
+      ...fx.whipIn(), ...world(0, "br"), ...sealOnly(0, "seal.k"), set("dryN", 0, 0.75), set("dryNE", 0, 1), set("fire", 0, 1),
+      pop("storm", W("s6", 3)), lin("wetS", W("s6", 4), W("s6", 7) + 8, 0, 1, "inOut"), lin("bolt", W("s6", 13), W("s6", 13) + 3, 0, 1, "linear"), lin("bolt", W("s6", 13) + 6, W("s6", 13) + 12, 1, 0, "linear"), ...fx.flash(W("s6", 13), 6),
+      pop("tagS", W("s6", 4)),
     ],
-    badges: [
-      { text: "⏳ O CALOR CHEGA COM ATRASO", variant: "info", appearAt: W("s6", 10), disappearAt: W("s6", 15) },
-      { text: "2027: 96% DE CHANCE DE RECORDE", variant: "warning", subtitle: "ANÁLISE DA CARBON BRIEF", appearAt: W("s6", 20) },
-    ],
-    highlights: ["CALOR", "ATRASO", "96%", "CHANCE", "2027", "RECORDE"],
-    captions: [cap("s6", 5, "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.")],
-    audioCues: [narration("s6"), sfx("whoosh", 0, 0.3), sfx("hourglass", W("s6", 10), 0.25), sfx("pop", W("s6", 15), 0.3), sfx("alert-tone", W("s6", 24), 0.22)],
+    badges: [],
+    highlights: ["SUL", "CHUVA", "ACIMA", "MÉDIA", "ENCHENTES", "TEMPORAIS"],
+    captions: [cap("s6", 5, "Já o Sul recebe chuva acima da média, com risco de enchentes e temporais.")],
+    audioCues: [narration("s6"), sfx("whoosh", 0, 0.3), sfx("rain", W("s6", 3), 0.35), sfx("thud", W("s6", 13), 0.4)],
   },
   {
     id: "s7", ...sc(6), voKey: "s7",
-    narration: "Calma: um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.graph), key(end(6), P.graph2, "linear")] },
-    objects: [{ id: "earth", type: "Terra (fundo)", visible: true }, { id: "graph", type: "ParisGraph", visible: true }],
+    narration: "Pela NOAA e pelo INMET, o pico deve ser entre novembro e janeiro. Depois ele perde força, e lá pelo meio de 2027 o Pacífico deve voltar ao normal.",
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.tl), key(end(6), P.tl2, "linear")] },
+    objects: [{ id: "pac", type: "Pacífico ao fundo (esfriando)", visible: true }, { id: "tl", type: "NinoTimeline", visible: true }],
     animations: [
-      ...fx.whipIn(-1), ...world(0, "earth"), ...sealOnly(0, "none"), set("blanket.k", 0, 1), set("hot", 0, 1), set("smoke", 0, 0), set("sun", 0, 0), set("heat", 0, 0),
-      pop("graph", W("s7", 0)), lin("bars", W("s7", 1), W("s7", 8) + 6, 0, 1, "linear"), lin("avg", W("s7", 19), W("s7", 23) + 8, 0, 1, "inOut"), ...fx.punch(W("s7", 27)),
-      ...mascot.place(add(EARTH, [2.4, -1.6, 2.6]), -0.5, 0.42, 0), ...mascot.float(0, true, 1), ...mascot.wave(W("s7", 0), 30),
+      ...fx.whipIn(-1), ...world(0, "pac"), ...sealOnly(0, "none"), set("warm", 0, 1), set("plumes", 0, 0.6),
+      pop("tl", W("s7", 0)), lin("tl.draw", W("s7", 1), W("s7", 12) + 6, 0, 0.42, "inOut"), pop("tl.peak", W("s7", 6)), lin("tl.draw", W("s7", 13), W("s7", 22) + 8, 0.42, 1, "inOut"), pop("tl.neutral", W("s7", 26)),
+      lin("warm", W("s7", 15), end(6), 1, 0.15, "inOut"), lin("plumes", W("s7", 15), W("s7", 22), 0.6, 0, "inOut"),
     ],
     badges: [
-      { text: "ACORDO DE PARIS = MÉDIA DE 20 ANOS", variant: "info", appearAt: W("s7", 13) },
-      { text: "AINDA ABAIXO… POR POUCO", variant: "warning", appearAt: W("s7", 24) },
+      { text: "PICO: NOV/2026 – JAN/2027", variant: "warning", appearAt: W("s7", 6), disappearAt: W("s7", 22) },
+      { text: "NORMAL LÁ PELO MEIO DE 2027", variant: "positive", subtitle: "PREVISÃO NOAA / INMET", appearAt: W("s7", 22) },
     ],
-    highlights: ["CALMA", "GRAU", "MEIO", "ACORDO", "PARIS", "MÉDIA", "VINTE", "CHEGANDO"],
-    captions: [cap("s7", 6, "Calma: um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.")],
-    audioCues: [narration("s7"), sfx("whoosh-soft", 0, 0.3), sfx("badge", W("s7", 13), 0.3), sfx("strain", W("s7", 24), 0.25)],
+    highlights: ["NOAA", "INMET", "PICO", "NOVEMBRO", "JANEIRO", "FORÇA", "2027", "NORMAL"],
+    captions: [cap("s7", 6, "Pela NOAA e pelo INMET, o pico deve ser entre novembro e janeiro. Depois ele perde força, e lá pelo meio de 2027 o Pacífico deve voltar ao normal.")],
+    audioCues: [narration("s7"), sfx("whoosh-soft", 0, 0.3), sfx("pop", W("s7", 6), 0.3), sfx("glow", W("s7", 26), 0.3)],
   },
   {
     id: "s8", ...sc(7), voKey: "s8",
-    narration: "Pronto: agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
-    objects: [{ id: "esc", type: "Escada + pulo final + termômetro 2027?", visible: true }],
+    narration: "Pronto: agora você sabe. O El Niño não é uma tempestade: é o oceano mudando o calor de lugar, e o mundo inteiro sentindo.",
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.fin), key(end(7), P.fin2, "inOut")] },
+    objects: [{ id: "pac", type: "Pacífico + barco + mascote", visible: true }],
     animations: [
-      ...fx.whipIn(), ...world(0, "esc"), ...sealOnly(0, "none"), ...mascot.float(0, false, 1), ...ride(0.42, 0, end(7)), set("thermo.v", 0, 0.88), set("thermo.glow", 0, 0.5),
-      lin("mascot.jump", W("s8", 15), W("s8", 15) + 9, 0, 1.6, "out"), lin("mascot.jump", W("s8", 15) + 9, W("s8", 15) + 20, 1.6, 0, "in"), ...mascot.cheer(W("s8", 0), 36),
-      lin("blink", W("s8", 17), W("s8", 17) + 10, 0, 1, "out"), lin("thermo.v", W("s8", 17), W("s8", 21), 0.88, 1.0, "out"), popOut("blink", end(7) - s(5.2), 8),
+      ...fx.whipIn(), ...world(0, "pac"), ...sealOnly(0, "none"), set("winds", 0, 0.4), set("warm", 0, 0), lin("warm", W("s8", 11), W("s8", 18), 0, 1, "inOut"), lin("plumes", W("s8", 15), W("s8", 20), 0, 1, "inOut"),
+      ...mascot.place(M_BOAT, 1.6, 0.18, 0), ...mascot.float(0, false, 1), ...mascot.cheer(W("s8", 0), 36), ...mascot.wave(W("s8", 19), 40),
     ],
-    badges: [
-      { text: "COBERTOR = ESCADA · EL NIÑO = PULO", variant: "info", appearAt: W("s8", 4), disappearAt: end(7) - s(5.2) },
-    ],
-    highlights: ["PRONTO", "COBERTOR", "ESCADA", "EL", "NIÑO", "PULO", "2027", "QUENTE"],
-    captions: [cap("s8", 7, "Pronto: agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.")],
-    audioCues: [narration("s8"), sfx("whoosh", 0, 0.3), sfx("final", W("s8", 0), 0.4), sfx("launch", W("s8", 15), 0.3), sfx("alert-tone", W("s8", 17), 0.2)],
+    badges: [{ text: "OCEANO MUDANDO O CALOR DE LUGAR", variant: "info", appearAt: W("s8", 11), disappearAt: end(7) - s(5.2) }],
+    highlights: ["PRONTO", "TEMPESTADE", "OCEANO", "CALOR", "LUGAR", "MUNDO"],
+    captions: [cap("s8", 7, "Pronto: agora você sabe. O El Niño não é uma tempestade: é o oceano mudando o calor de lugar, e o mundo inteiro sentindo.")],
+    audioCues: [narration("s8"), sfx("whoosh", 0, 0.3), sfx("final", W("s8", 0), 0.4), sfx("ocean-amb", 0, 0.25)],
   },
 ];
 

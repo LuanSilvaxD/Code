@@ -1,919 +1,884 @@
 {
   "s1": {
-    "text": "Outubro de 2026 foi o mais quente já medido no planeta. E o ano deve fechar como o segundo mais quente da história. Por quê?",
-    "seconds": 8.398,
+    "text": "O El Niño de 2026 é um dos mais fortes já medidos, e vai mexer com o tempo no Brasil até 2027. Mas o que ele é, afinal?",
+    "seconds": 8.811,
     "words": [
       {
-        "text": "Outubro",
+        "text": "O",
         "start": 0,
-        "end": 0.415
+        "end": 0.061
+      },
+      {
+        "text": "El",
+        "start": 0.073,
+        "end": 0.179
+      },
+      {
+        "text": "Niño",
+        "start": 0.191,
+        "end": 0.509
       },
       {
         "text": "de",
-        "start": 0.427,
-        "end": 0.486
+        "start": 0.521,
+        "end": 0.592
       },
       {
         "text": "2026",
-        "start": 0.497,
-        "end": 1.028
+        "start": 0.604,
+        "end": 1.046
       },
       {
-        "text": "foi",
-        "start": 1.028,
-        "end": 1.559
+        "text": "é",
+        "start": 1.046,
+        "end": 1.488
       },
       {
-        "text": "o",
-        "start": 1.571,
-        "end": 1.618
+        "text": "um",
+        "start": 1.5,
+        "end": 1.582
+      },
+      {
+        "text": "dos",
+        "start": 1.594,
+        "end": 1.747
       },
       {
         "text": "mais",
-        "start": 1.63,
-        "end": 1.889
+        "start": 1.759,
+        "end": 1.971
       },
       {
-        "text": "quente",
-        "start": 1.901,
-        "end": 2.219
+        "text": "fortes",
+        "start": 1.983,
+        "end": 2.384
       },
       {
         "text": "já",
-        "start": 2.231,
-        "end": 2.372
+        "start": 2.396,
+        "end": 2.49
       },
       {
-        "text": "medido",
-        "start": 2.384,
-        "end": 2.726
+        "text": "medidos",
+        "start": 2.502,
+        "end": 2.974
+      },
+      {
+        "text": "e",
+        "start": 3.28,
+        "end": 3.351
+      },
+      {
+        "text": "vai",
+        "start": 3.363,
+        "end": 3.505
+      },
+      {
+        "text": "mexer",
+        "start": 3.516,
+        "end": 3.87
+      },
+      {
+        "text": "com",
+        "start": 3.882,
+        "end": 4.035
+      },
+      {
+        "text": "o",
+        "start": 4.047,
+        "end": 4.094
+      },
+      {
+        "text": "tempo",
+        "start": 4.106,
+        "end": 4.412
       },
       {
         "text": "no",
-        "start": 2.738,
-        "end": 2.809
+        "start": 4.424,
+        "end": 4.495
       },
       {
-        "text": "planeta",
-        "start": 2.821,
-        "end": 3.304
+        "text": "Brasil",
+        "start": 4.507,
+        "end": 4.908
       },
       {
-        "text": "E",
-        "start": 4.115,
-        "end": 4.233
+        "text": "até",
+        "start": 4.92,
+        "end": 5.096
       },
       {
-        "text": "o",
-        "start": 4.245,
-        "end": 4.374
+        "text": "2027",
+        "start": 5.108,
+        "end": 6.181
       },
       {
-        "text": "ano",
-        "start": 4.386,
-        "end": 4.598
-      },
-      {
-        "text": "deve",
-        "start": 4.61,
-        "end": 4.799
-      },
-      {
-        "text": "fechar",
-        "start": 4.811,
-        "end": 5.223
-      },
-      {
-        "text": "como",
-        "start": 5.235,
-        "end": 5.436
+        "text": "Mas",
+        "start": 6.992,
+        "end": 7.204
       },
       {
         "text": "o",
-        "start": 5.447,
-        "end": 5.471
+        "start": 7.216,
+        "end": 7.37
       },
       {
-        "text": "segundo",
-        "start": 5.483,
-        "end": 5.907
+        "text": "que",
+        "start": 7.381,
+        "end": 7.535
       },
       {
-        "text": "mais",
-        "start": 5.919,
-        "end": 6.19
+        "text": "ele",
+        "start": 7.546,
+        "end": 7.77
       },
       {
-        "text": "quente",
-        "start": 6.202,
-        "end": 6.509
+        "text": "é",
+        "start": 7.782,
+        "end": 7.971
       },
       {
-        "text": "da",
-        "start": 6.521,
-        "end": 6.603
-      },
-      {
-        "text": "história",
-        "start": 6.615,
-        "end": 7.051
-      },
-      {
-        "text": "Por",
-        "start": 7.865,
-        "end": 8.03
-      },
-      {
-        "text": "quê",
-        "start": 8.042,
-        "end": 8.278
+        "text": "afinal",
+        "start": 8.242,
+        "end": 8.737
       }
     ]
   },
   "s2": {
-    "text": "Pensa na Terra debaixo de um cobertor. Os gases que a gente solta, como o gás carbônico, engrossam esse cobertor, e o calor não consegue sair.",
-    "seconds": 9.109,
+    "text": "O nome veio de pescadores do Peru. A água quente aparecia perto do Natal, e eles chamaram de El Niño, o Menino Jesus.",
+    "seconds": 7.544,
     "words": [
       {
-        "text": "Pensa",
+        "text": "O",
         "start": 0,
-        "end": 0.278
+        "end": 0.061
       },
       {
-        "text": "na",
-        "start": 0.29,
-        "end": 0.42
+        "text": "nome",
+        "start": 0.073,
+        "end": 0.391
       },
       {
-        "text": "Terra",
-        "start": 0.431,
-        "end": 0.691
-      },
-      {
-        "text": "debaixo",
-        "start": 0.703,
-        "end": 1.163
+        "text": "veio",
+        "start": 0.403,
+        "end": 0.698
       },
       {
         "text": "de",
-        "start": 1.174,
-        "end": 1.245
+        "start": 0.71,
+        "end": 0.792
       },
       {
-        "text": "um",
-        "start": 1.257,
-        "end": 1.328
+        "text": "pescadores",
+        "start": 0.804,
+        "end": 1.417
       },
       {
-        "text": "cobertor",
-        "start": 1.339,
-        "end": 1.894
+        "text": "do",
+        "start": 1.429,
+        "end": 1.524
       },
       {
-        "text": "Os",
-        "start": 2.705,
-        "end": 2.87
+        "text": "Peru",
+        "start": 1.535,
+        "end": 1.854
       },
       {
-        "text": "gases",
-        "start": 2.881,
-        "end": 3.306
+        "text": "A",
+        "start": 2.665,
+        "end": 2.794
       },
       {
-        "text": "que",
-        "start": 3.318,
-        "end": 3.4
+        "text": "água",
+        "start": 2.806,
+        "end": 3.148
       },
       {
-        "text": "a",
-        "start": 3.412,
-        "end": 3.459
+        "text": "quente",
+        "start": 3.16,
+        "end": 3.419
       },
       {
-        "text": "gente",
-        "start": 3.471,
-        "end": 3.766
+        "text": "aparecia",
+        "start": 3.431,
+        "end": 3.903
       },
       {
-        "text": "solta",
-        "start": 3.778,
-        "end": 4.167
+        "text": "perto",
+        "start": 3.915,
+        "end": 4.209
       },
       {
-        "text": "como",
-        "start": 4.414,
-        "end": 4.638
+        "text": "do",
+        "start": 4.221,
+        "end": 4.304
       },
       {
-        "text": "o",
-        "start": 4.65,
-        "end": 4.686
-      },
-      {
-        "text": "gás",
-        "start": 4.698,
-        "end": 4.922
-      },
-      {
-        "text": "carbônico",
-        "start": 4.933,
-        "end": 5.558
-      },
-      {
-        "text": "engrossam",
-        "start": 5.771,
-        "end": 6.301
-      },
-      {
-        "text": "esse",
-        "start": 6.313,
-        "end": 6.478
-      },
-      {
-        "text": "cobertor",
-        "start": 6.49,
-        "end": 7.044
+        "text": "Natal",
+        "start": 4.316,
+        "end": 4.74
       },
       {
         "text": "e",
-        "start": 7.386,
-        "end": 7.445
+        "start": 5.082,
+        "end": 5.176
+      },
+      {
+        "text": "eles",
+        "start": 5.188,
+        "end": 5.365
+      },
+      {
+        "text": "chamaram",
+        "start": 5.377,
+        "end": 5.731
+      },
+      {
+        "text": "de",
+        "start": 5.742,
+        "end": 5.825
+      },
+      {
+        "text": "El",
+        "start": 5.837,
+        "end": 5.919
+      },
+      {
+        "text": "Niño",
+        "start": 5.931,
+        "end": 6.238
       },
       {
         "text": "o",
-        "start": 7.457,
-        "end": 7.492
+        "start": 6.485,
+        "end": 6.544
       },
       {
-        "text": "calor",
-        "start": 7.504,
-        "end": 7.905
+        "text": "Menino",
+        "start": 6.556,
+        "end": 6.898
       },
       {
-        "text": "não",
-        "start": 7.917,
-        "end": 8.117
-      },
-      {
-        "text": "consegue",
-        "start": 8.129,
-        "end": 8.577
-      },
-      {
-        "text": "sair",
-        "start": 8.589,
-        "end": 8.966
+        "text": "Jesus",
+        "start": 6.91,
+        "end": 7.464
       }
     ]
   },
   "s3": {
-    "text": "Isso faz a temperatura subir devagar, ano após ano, como numa escada rolante.",
-    "seconds": 4.534,
+    "text": "Normalmente, ventos sopram de leste pra oeste no Pacífico e empurram a água quente pra perto da Ásia. Perto da América do Sul, sobe água fria do fundo.",
+    "seconds": 9.348,
     "words": [
       {
-        "text": "Isso",
+        "text": "Normalmente",
         "start": 0,
-        "end": 0.275
+        "end": 0.684
       },
       {
-        "text": "faz",
-        "start": 0.286,
-        "end": 0.463
+        "text": "ventos",
+        "start": 0.932,
+        "end": 1.274
+      },
+      {
+        "text": "sopram",
+        "start": 1.286,
+        "end": 1.604
+      },
+      {
+        "text": "de",
+        "start": 1.616,
+        "end": 1.71
+      },
+      {
+        "text": "leste",
+        "start": 1.722,
+        "end": 2.052
+      },
+      {
+        "text": "pra",
+        "start": 2.064,
+        "end": 2.241
+      },
+      {
+        "text": "oeste",
+        "start": 2.253,
+        "end": 2.654
+      },
+      {
+        "text": "no",
+        "start": 2.666,
+        "end": 2.748
+      },
+      {
+        "text": "Pacífico",
+        "start": 2.76,
+        "end": 3.291
+      },
+      {
+        "text": "e",
+        "start": 3.302,
+        "end": 3.326
+      },
+      {
+        "text": "empurram",
+        "start": 3.338,
+        "end": 3.786
       },
       {
         "text": "a",
-        "start": 0.475,
-        "end": 0.593
+        "start": 3.798,
+        "end": 3.845
       },
       {
-        "text": "temperatura",
-        "start": 0.605,
-        "end": 1.159
+        "text": "água",
+        "start": 3.857,
+        "end": 4.14
       },
       {
-        "text": "subir",
-        "start": 1.171,
-        "end": 1.466
+        "text": "quente",
+        "start": 4.152,
+        "end": 4.47
       },
       {
-        "text": "devagar",
-        "start": 1.477,
-        "end": 1.914
+        "text": "pra",
+        "start": 4.482,
+        "end": 4.659
       },
       {
-        "text": "ano",
-        "start": 2.15,
-        "end": 2.303
+        "text": "perto",
+        "start": 4.67,
+        "end": 4.989
       },
       {
-        "text": "após",
-        "start": 2.315,
-        "end": 2.55
+        "text": "da",
+        "start": 5.001,
+        "end": 5.107
       },
       {
-        "text": "ano",
-        "start": 2.562,
-        "end": 2.881
+        "text": "Ásia",
+        "start": 5.118,
+        "end": 5.472
       },
       {
-        "text": "como",
-        "start": 3.164,
-        "end": 3.388
+        "text": "Perto",
+        "start": 6.283,
+        "end": 6.625
       },
       {
-        "text": "numa",
-        "start": 3.4,
-        "end": 3.541
+        "text": "da",
+        "start": 6.637,
+        "end": 6.708
       },
       {
-        "text": "escada",
-        "start": 3.553,
-        "end": 3.918
+        "text": "América",
+        "start": 6.719,
+        "end": 7.12
       },
       {
-        "text": "rolante",
-        "start": 3.93,
-        "end": 4.461
+        "text": "do",
+        "start": 7.132,
+        "end": 7.226
+      },
+      {
+        "text": "Sul",
+        "start": 7.238,
+        "end": 7.498
+      },
+      {
+        "text": "sobe",
+        "start": 7.757,
+        "end": 8.099
+      },
+      {
+        "text": "água",
+        "start": 8.111,
+        "end": 8.417
+      },
+      {
+        "text": "fria",
+        "start": 8.429,
+        "end": 8.736
+      },
+      {
+        "text": "do",
+        "start": 8.748,
+        "end": 8.842
+      },
+      {
+        "text": "fundo",
+        "start": 8.854,
+        "end": 9.29
       }
     ]
   },
   "s4": {
-    "text": "Mas em 2026 apareceu um empurrão extra, o El Niño. A água do Pacífico esquenta muito e solta esse calor no ar do planeta inteiro.",
-    "seconds": 8.155,
+    "text": "Quando esses ventos enfraquecem, a água quente volta, se espalha até a América do Sul e muda a chuva no planeta inteiro.",
+    "seconds": 6.377,
     "words": [
       {
-        "text": "Mas",
+        "text": "Quando",
         "start": 0,
-        "end": 0.125
+        "end": 0.213
       },
       {
-        "text": "em",
-        "start": 0.137,
-        "end": 0.62
+        "text": "esses",
+        "start": 0.225,
+        "end": 0.485
       },
       {
-        "text": "2026",
-        "start": 0.62,
-        "end": 1.104
+        "text": "ventos",
+        "start": 0.496,
+        "end": 0.803
       },
       {
-        "text": "apareceu",
-        "start": 1.116,
-        "end": 1.587
+        "text": "enfraquecem",
+        "start": 0.815,
+        "end": 1.499
       },
       {
-        "text": "um",
-        "start": 1.599,
-        "end": 1.682
-      },
-      {
-        "text": "empurrão",
-        "start": 1.693,
-        "end": 2.153
-      },
-      {
-        "text": "extra",
-        "start": 2.165,
-        "end": 2.543
-      },
-      {
-        "text": "o",
-        "start": 2.755,
-        "end": 2.884
-      },
-      {
-        "text": "El",
-        "start": 2.896,
-        "end": 3.014
-      },
-      {
-        "text": "Niño",
-        "start": 3.026,
-        "end": 3.356
-      },
-      {
-        "text": "A",
-        "start": 4.167,
-        "end": 4.309
+        "text": "a",
+        "start": 1.723,
+        "end": 1.817
       },
       {
         "text": "água",
-        "start": 4.32,
-        "end": 4.592
+        "start": 1.829,
+        "end": 2.136
+      },
+      {
+        "text": "quente",
+        "start": 2.147,
+        "end": 2.454
+      },
+      {
+        "text": "volta",
+        "start": 2.466,
+        "end": 2.831
+      },
+      {
+        "text": "se",
+        "start": 3.055,
+        "end": 3.138
+      },
+      {
+        "text": "espalha",
+        "start": 3.15,
+        "end": 3.574
+      },
+      {
+        "text": "até",
+        "start": 3.586,
+        "end": 3.763
+      },
+      {
+        "text": "a",
+        "start": 3.775,
+        "end": 3.798
+      },
+      {
+        "text": "América",
+        "start": 3.81,
+        "end": 4.176
       },
       {
         "text": "do",
-        "start": 4.603,
-        "end": 4.698
+        "start": 4.187,
+        "end": 4.282
       },
       {
-        "text": "Pacífico",
-        "start": 4.71,
-        "end": 5.228
-      },
-      {
-        "text": "esquenta",
-        "start": 5.24,
-        "end": 5.606
-      },
-      {
-        "text": "muito",
-        "start": 5.617,
-        "end": 5.948
+        "text": "Sul",
+        "start": 4.294,
+        "end": 4.565
       },
       {
         "text": "e",
-        "start": 5.96,
-        "end": 5.995
+        "start": 4.577,
+        "end": 4.636
       },
       {
-        "text": "solta",
-        "start": 6.007,
-        "end": 6.313
+        "text": "muda",
+        "start": 4.647,
+        "end": 4.942
       },
       {
-        "text": "esse",
-        "start": 6.325,
-        "end": 6.478
+        "text": "a",
+        "start": 4.954,
+        "end": 4.978
       },
       {
-        "text": "calor",
-        "start": 6.49,
-        "end": 6.856
+        "text": "chuva",
+        "start": 4.989,
+        "end": 5.331
       },
       {
         "text": "no",
-        "start": 6.867,
-        "end": 6.974
-      },
-      {
-        "text": "ar",
-        "start": 6.985,
-        "end": 7.115
-      },
-      {
-        "text": "do",
-        "start": 7.127,
-        "end": 7.221
+        "start": 5.343,
+        "end": 5.437
       },
       {
         "text": "planeta",
-        "start": 7.233,
-        "end": 7.669
+        "start": 5.449,
+        "end": 5.85
       },
       {
         "text": "inteiro",
-        "start": 7.681,
-        "end": 8.059
+        "start": 5.862,
+        "end": 6.287
       }
     ]
   },
   "s5": {
-    "text": "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.",
-    "seconds": 7.915,
+    "text": "No Brasil, o efeito muda de região pra região. Norte e Nordeste ficam mais secos e quentes, com risco de seca e queimadas.",
+    "seconds": 7.863,
     "words": [
       {
-        "text": "E",
+        "text": "No",
         "start": 0,
-        "end": 0.101
+        "end": 0.113
       },
       {
-        "text": "este",
-        "start": 0.113,
-        "end": 0.42
+        "text": "Brasil",
+        "start": 0.125,
+        "end": 0.609
       },
       {
-        "text": "El",
-        "start": 0.432,
-        "end": 0.502
+        "text": "o",
+        "start": 0.797,
+        "end": 0.88
       },
       {
-        "text": "Niño",
-        "start": 0.514,
-        "end": 0.797
+        "text": "efeito",
+        "start": 0.892,
+        "end": 1.245
       },
       {
-        "text": "é",
-        "start": 0.809,
-        "end": 0.833
+        "text": "muda",
+        "start": 1.257,
+        "end": 1.599
       },
       {
-        "text": "um",
-        "start": 0.844,
-        "end": 0.915
+        "text": "de",
+        "start": 1.611,
+        "end": 1.693
       },
       {
-        "text": "dos",
-        "start": 0.927,
-        "end": 1.104
+        "text": "região",
+        "start": 1.705,
+        "end": 2.083
+      },
+      {
+        "text": "pra",
+        "start": 2.094,
+        "end": 2.224
+      },
+      {
+        "text": "região",
+        "start": 2.236,
+        "end": 2.684
+      },
+      {
+        "text": "Norte",
+        "start": 3.495,
+        "end": 3.872
+      },
+      {
+        "text": "e",
+        "start": 3.884,
+        "end": 3.896
+      },
+      {
+        "text": "Nordeste",
+        "start": 3.908,
+        "end": 4.391
+      },
+      {
+        "text": "ficam",
+        "start": 4.403,
+        "end": 4.662
       },
       {
         "text": "mais",
-        "start": 1.116,
-        "end": 1.34
+        "start": 4.674,
+        "end": 4.863
       },
       {
-        "text": "fortes",
-        "start": 1.351,
-        "end": 1.764
-      },
-      {
-        "text": "já",
-        "start": 1.776,
-        "end": 1.918
-      },
-      {
-        "text": "vistos",
-        "start": 1.929,
-        "end": 2.484
-      },
-      {
-        "text": "Em",
-        "start": 3.294,
-        "end": 3.448
-      },
-      {
-        "text": "outubro",
-        "start": 3.459,
-        "end": 3.978
-      },
-      {
-        "text": "a",
-        "start": 4.12,
-        "end": 4.226
-      },
-      {
-        "text": "Terra",
-        "start": 4.238,
-        "end": 4.556
-      },
-      {
-        "text": "ficou",
-        "start": 4.568,
-        "end": 4.792
-      },
-      {
-        "text": "um",
-        "start": 4.804,
-        "end": 4.898
-      },
-      {
-        "text": "grau",
-        "start": 4.91,
+        "text": "secos",
+        "start": 4.875,
         "end": 5.158
       },
       {
         "text": "e",
         "start": 5.169,
-        "end": 5.205
+        "end": 5.287
       },
       {
-        "text": "setenta",
-        "start": 5.217,
-        "end": 5.57
+        "text": "quentes",
+        "start": 5.299,
+        "end": 5.747
+      },
+      {
+        "text": "com",
+        "start": 6.007,
+        "end": 6.195
+      },
+      {
+        "text": "risco",
+        "start": 6.207,
+        "end": 6.584
+      },
+      {
+        "text": "de",
+        "start": 6.596,
+        "end": 6.702
+      },
+      {
+        "text": "seca",
+        "start": 6.714,
+        "end": 7.068
       },
       {
         "text": "e",
-        "start": 5.582,
-        "end": 5.606
+        "start": 7.08,
+        "end": 7.115
       },
       {
-        "text": "cinco",
-        "start": 5.617,
-        "end": 5.842
-      },
-      {
-        "text": "acima",
-        "start": 5.853,
-        "end": 6.207
-      },
-      {
-        "text": "da",
-        "start": 6.219,
-        "end": 6.325
-      },
-      {
-        "text": "época",
-        "start": 6.337,
-        "end": 6.726
-      },
-      {
-        "text": "antes",
-        "start": 6.738,
-        "end": 7.044
-      },
-      {
-        "text": "das",
-        "start": 7.056,
-        "end": 7.221
-      },
-      {
-        "text": "fábricas",
-        "start": 7.233,
-        "end": 7.834
+        "text": "queimadas",
+        "start": 7.127,
+        "end": 7.776
       }
     ]
   },
   "s6": {
-    "text": "Só que o calor do El Niño chega no ar com uns meses de atraso. Por isso, uma análise dá 96% de chance de 2027 bater o recorde.",
-    "seconds": 8.922,
+    "text": "Já o Sul recebe chuva acima da média, com risco de enchentes e temporais.",
+    "seconds": 4.376,
     "words": [
       {
-        "text": "Só",
+        "text": "Já",
         "start": 0,
-        "end": 0.228
-      },
-      {
-        "text": "que",
-        "start": 0.24,
-        "end": 0.322
+        "end": 0.191
       },
       {
         "text": "o",
-        "start": 0.334,
-        "end": 0.369
+        "start": 0.203,
+        "end": 0.25
       },
       {
-        "text": "calor",
-        "start": 0.381,
-        "end": 0.747
+        "text": "Sul",
+        "start": 0.262,
+        "end": 0.486
       },
       {
-        "text": "do",
-        "start": 0.759,
-        "end": 0.853
+        "text": "recebe",
+        "start": 0.498,
+        "end": 0.887
       },
       {
-        "text": "El",
-        "start": 0.865,
-        "end": 0.947
+        "text": "chuva",
+        "start": 0.899,
+        "end": 1.241
       },
       {
-        "text": "Niño",
-        "start": 0.959,
-        "end": 1.242
+        "text": "acima",
+        "start": 1.252,
+        "end": 1.618
       },
       {
-        "text": "chega",
-        "start": 1.254,
-        "end": 1.525
+        "text": "da",
+        "start": 1.63,
+        "end": 1.724
       },
       {
-        "text": "no",
-        "start": 1.537,
-        "end": 1.655
-      },
-      {
-        "text": "ar",
-        "start": 1.667,
-        "end": 1.844
+        "text": "média",
+        "start": 1.736,
+        "end": 2.09
       },
       {
         "text": "com",
-        "start": 1.855,
-        "end": 2.032
+        "start": 2.396,
+        "end": 2.573
       },
       {
-        "text": "uns",
-        "start": 2.044,
-        "end": 2.162
-      },
-      {
-        "text": "meses",
-        "start": 2.174,
-        "end": 2.504
+        "text": "risco",
+        "start": 2.585,
+        "end": 2.95
       },
       {
         "text": "de",
-        "start": 2.516,
-        "end": 2.575
+        "start": 2.962,
+        "end": 3.045
       },
       {
-        "text": "atraso",
-        "start": 2.586,
-        "end": 3.058
+        "text": "enchentes",
+        "start": 3.057,
+        "end": 3.516
       },
       {
-        "text": "Por",
-        "start": 3.869,
-        "end": 4.058
+        "text": "e",
+        "start": 3.528,
+        "end": 3.658
       },
       {
-        "text": "isso",
-        "start": 4.07,
-        "end": 4.388
-      },
-      {
-        "text": "uma",
-        "start": 4.624,
-        "end": 4.765
-      },
-      {
-        "text": "análise",
-        "start": 4.777,
-        "end": 5.19
-      },
-      {
-        "text": "dá",
-        "start": 5.202,
-        "end": 5.296
-      },
-      {
-        "text": "96%",
-        "start": 5.308,
-        "end": 6.369
-      },
-      {
-        "text": "de",
-        "start": 6.381,
-        "end": 6.475
-      },
-      {
-        "text": "chance",
-        "start": 6.487,
-        "end": 6.853
-      },
-      {
-        "text": "de",
-        "start": 6.864,
-        "end": 6.959
-      },
-      {
-        "text": "2027",
-        "start": 6.97,
-        "end": 7.613
-      },
-      {
-        "text": "bater",
-        "start": 7.613,
-        "end": 8.256
-      },
-      {
-        "text": "o",
-        "start": 8.268,
-        "end": 8.303
-      },
-      {
-        "text": "recorde",
-        "start": 8.315,
-        "end": 8.845
+        "text": "temporais",
+        "start": 3.67,
+        "end": 4.295
       }
     ]
   },
   "s7": {
-    "text": "Calma, um ano acima de um grau e meio ainda não rompe o Acordo de Paris. A conta usa a média de vinte anos. Mas ela está chegando lá.",
-    "seconds": 9.074,
+    "text": "Pela NOAA e pelo INMET, o pico deve ser entre novembro e janeiro. Depois ele perde força, e lá pelo meio de 2027 o Pacífico deve voltar ao normal.",
+    "seconds": 9.369,
     "words": [
       {
-        "text": "Calma",
+        "text": "Pela",
         "start": 0,
-        "end": 0.292
+        "end": 0.17
       },
       {
-        "text": "um",
-        "start": 0.54,
-        "end": 0.705
-      },
-      {
-        "text": "ano",
-        "start": 0.716,
-        "end": 0.882
-      },
-      {
-        "text": "acima",
-        "start": 0.893,
-        "end": 1.259
-      },
-      {
-        "text": "de",
-        "start": 1.271,
-        "end": 1.353
-      },
-      {
-        "text": "um",
-        "start": 1.365,
-        "end": 1.448
-      },
-      {
-        "text": "grau",
-        "start": 1.459,
-        "end": 1.719
+        "text": "NOAA",
+        "start": 0.182,
+        "end": 0.453
       },
       {
         "text": "e",
-        "start": 1.731,
-        "end": 1.79
+        "start": 0.465,
+        "end": 0.489
       },
       {
-        "text": "meio",
-        "start": 1.801,
-        "end": 2.049
+        "text": "pelo",
+        "start": 0.5,
+        "end": 0.677
       },
       {
-        "text": "ainda",
-        "start": 2.061,
-        "end": 2.297
-      },
-      {
-        "text": "não",
-        "start": 2.308,
-        "end": 2.521
-      },
-      {
-        "text": "rompe",
-        "start": 2.533,
-        "end": 2.863
+        "text": "INMET",
+        "start": 0.689,
+        "end": 1.114
       },
       {
         "text": "o",
-        "start": 2.875,
-        "end": 2.922
+        "start": 1.326,
+        "end": 1.432
       },
       {
-        "text": "Acordo",
-        "start": 2.933,
-        "end": 3.323
+        "text": "pico",
+        "start": 1.444,
+        "end": 1.739
       },
       {
-        "text": "de",
-        "start": 3.334,
-        "end": 3.429
+        "text": "deve",
+        "start": 1.75,
+        "end": 1.939
       },
       {
-        "text": "Paris",
-        "start": 3.441,
-        "end": 3.889
+        "text": "ser",
+        "start": 1.951,
+        "end": 2.104
       },
       {
-        "text": "A",
-        "start": 4.7,
-        "end": 4.817
+        "text": "entre",
+        "start": 2.116,
+        "end": 2.328
       },
       {
-        "text": "conta",
-        "start": 4.829,
-        "end": 5.218
+        "text": "novembro",
+        "start": 2.34,
+        "end": 2.871
       },
       {
-        "text": "usa",
-        "start": 5.23,
-        "end": 5.431
+        "text": "e",
+        "start": 2.883,
+        "end": 2.918
       },
       {
-        "text": "a",
-        "start": 5.442,
-        "end": 5.466
+        "text": "janeiro",
+        "start": 2.93,
+        "end": 3.354
       },
       {
-        "text": "média",
-        "start": 5.478,
-        "end": 5.832
+        "text": "Depois",
+        "start": 4.165,
+        "end": 4.578
       },
       {
-        "text": "de",
-        "start": 5.843,
-        "end": 5.949
+        "text": "ele",
+        "start": 4.59,
+        "end": 4.802
       },
       {
-        "text": "vinte",
-        "start": 5.961,
-        "end": 6.327
+        "text": "perde",
+        "start": 4.814,
+        "end": 5.12
       },
       {
-        "text": "anos",
-        "start": 6.339,
-        "end": 6.716
+        "text": "força",
+        "start": 5.132,
+        "end": 5.545
       },
       {
-        "text": "Mas",
-        "start": 7.53,
-        "end": 7.73
-      },
-      {
-        "text": "ela",
-        "start": 7.742,
-        "end": 8.084
-      },
-      {
-        "text": "está",
-        "start": 8.096,
-        "end": 8.273
-      },
-      {
-        "text": "chegando",
-        "start": 8.284,
-        "end": 8.733
+        "text": "e",
+        "start": 5.733,
+        "end": 5.828
       },
       {
         "text": "lá",
-        "start": 8.744,
-        "end": 8.98
+        "start": 5.84,
+        "end": 6.016
+      },
+      {
+        "text": "pelo",
+        "start": 6.028,
+        "end": 6.252
+      },
+      {
+        "text": "meio",
+        "start": 6.264,
+        "end": 6.535
+      },
+      {
+        "text": "de",
+        "start": 6.547,
+        "end": 6.63
+      },
+      {
+        "text": "2027",
+        "start": 6.641,
+        "end": 7.095
+      },
+      {
+        "text": "o",
+        "start": 7.095,
+        "end": 7.549
+      },
+      {
+        "text": "Pacífico",
+        "start": 7.561,
+        "end": 8.104
+      },
+      {
+        "text": "deve",
+        "start": 8.116,
+        "end": 8.328
+      },
+      {
+        "text": "voltar",
+        "start": 8.34,
+        "end": 8.729
+      },
+      {
+        "text": "ao",
+        "start": 8.741,
+        "end": 8.811
+      },
+      {
+        "text": "normal",
+        "start": 8.823,
+        "end": 9.283
       }
     ]
   },
   "s8": {
-    "text": "Pronto, agora você sabe. O cobertor sobe a escada, e o El Niño dá o pulo. E 2027 promete ser ainda mais quente.",
-    "seconds": 8.903,
+    "text": "Pronto, agora você sabe. O El Niño não é uma tempestade, é o oceano mudando o calor de lugar, e o mundo inteiro sentindo.",
+    "seconds": 7.886,
     "words": [
       {
         "text": "Pronto",
@@ -938,97 +903,102 @@
       {
         "text": "O",
         "start": 2.388,
-        "end": 2.482
-      },
-      {
-        "text": "cobertor",
-        "start": 2.494,
-        "end": 3.06
-      },
-      {
-        "text": "sobe",
-        "start": 3.072,
-        "end": 3.32
-      },
-      {
-        "text": "a",
-        "start": 3.332,
-        "end": 3.355
-      },
-      {
-        "text": "escada",
-        "start": 3.367,
-        "end": 3.815
-      },
-      {
-        "text": "e",
-        "start": 4.075,
-        "end": 4.181
-      },
-      {
-        "text": "o",
-        "start": 4.192,
-        "end": 4.251
+        "end": 2.518
       },
       {
         "text": "El",
-        "start": 4.263,
-        "end": 4.369
+        "start": 2.53,
+        "end": 2.648
       },
       {
         "text": "Niño",
-        "start": 4.381,
-        "end": 4.676
+        "start": 2.659,
+        "end": 2.942
       },
       {
-        "text": "dá",
-        "start": 4.688,
-        "end": 4.817
+        "text": "não",
+        "start": 2.954,
+        "end": 3.166
+      },
+      {
+        "text": "é",
+        "start": 3.178,
+        "end": 3.284
+      },
+      {
+        "text": "uma",
+        "start": 3.296,
+        "end": 3.461
+      },
+      {
+        "text": "tempestade",
+        "start": 3.473,
+        "end": 4.122
+      },
+      {
+        "text": "é",
+        "start": 4.346,
+        "end": 4.44
       },
       {
         "text": "o",
-        "start": 4.829,
-        "end": 4.9
+        "start": 4.452,
+        "end": 4.475
       },
       {
-        "text": "pulo",
-        "start": 4.912,
+        "text": "oceano",
+        "start": 4.487,
+        "end": 4.876
+      },
+      {
+        "text": "mudando",
+        "start": 4.888,
         "end": 5.254
       },
       {
-        "text": "E",
-        "start": 6.067,
-        "end": 6.162
+        "text": "o",
+        "start": 5.266,
+        "end": 5.289
       },
       {
-        "text": "2027",
-        "start": 6.174,
-        "end": 6.905
+        "text": "calor",
+        "start": 5.301,
+        "end": 5.631
       },
       {
-        "text": "promete",
-        "start": 6.905,
-        "end": 7.636
+        "text": "de",
+        "start": 5.643,
+        "end": 5.714
       },
       {
-        "text": "ser",
-        "start": 7.648,
-        "end": 7.813
+        "text": "lugar",
+        "start": 5.725,
+        "end": 6.091
       },
       {
-        "text": "ainda",
-        "start": 7.825,
-        "end": 8.131
+        "text": "e",
+        "start": 6.433,
+        "end": 6.516
       },
       {
-        "text": "mais",
-        "start": 8.143,
-        "end": 8.426
+        "text": "o",
+        "start": 6.527,
+        "end": 6.551
       },
       {
-        "text": "quente",
-        "start": 8.438,
-        "end": 8.827
+        "text": "mundo",
+        "start": 6.563,
+        "end": 6.869
+      },
+      {
+        "text": "inteiro",
+        "start": 6.881,
+        "end": 7.188
+      },
+      {
+        "text": "sentindo",
+        "start": 7.2,
+        "end": 7.801
       }
     ]
   },

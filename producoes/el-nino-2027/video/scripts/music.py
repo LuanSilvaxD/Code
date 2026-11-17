@@ -63,8 +63,8 @@ OUTRO = max(2.6, 0.6 + _VO["cta"]["seconds"] + 0.6) if "cta" in _VO else 2.6
 PALETTE = "natureza"
 VARIANT = ROOT.parent.name  # slug da produção
 n_sc = len(S)
-INTENTS = ["tense", "curious", "groove", "build", "reveal", "tense", "calm", "resolve"]
-HITS: list[float] = [word("s1", 2), word("s4", 8), word("s5", 8), word("s6", 24)]
+INTENTS = ["tense", "calm", "curious", "build", "tense", "tense", "groove", "resolve"]
+HITS: list[float] = [word("s1", 9), word("s4", 3), word("s5", 9), word("s7", 6)]
 
 mix = fm.render(S, INTENTS, DUR, PALETTE, hits=HITS, outro=OUTRO, variant=VARIANT)
 OUT.parent.mkdir(parents=True, exist_ok=True)

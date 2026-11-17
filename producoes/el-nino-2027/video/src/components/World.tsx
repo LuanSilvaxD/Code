@@ -1,16 +1,16 @@
 import { Color } from "three";
 import { useCurrentFrame } from "remotion";
 import { track } from "../data/scenes";
-import { EARTH, ESC, PAC, THERMO_AT } from "../data/heat";
+import { BOAT, BR, PAC } from "../data/nino";
 import { LIGHTING } from "../theme";
 import { clamp, type Vec3 } from "../utils/animation";
 import { cameraPoseAt } from "./CameraController";
 import { MascotFromTracks } from "./Mascot";
-import { BlanketShell, Escalator, GreenhouseArrows, PacificSlice, SmokePuffs, Thermometer3D } from "./Heat";
-import { Earth } from "./Interstellar";
+import { PacificSlice } from "./Heat";
+import { BrazilMap, FishingBoat } from "./Nino";
 import { Stars } from "./SpaceScene";
 
-// Mundos do "Por que 2026 está tão quente?". Tudo lê track("alvo.prop", frameGlobal). Posições em data/heat.ts.
+// Mundos do "El Niño 2026–2027". Tudo lê track("alvo.prop", frameGlobal). Posições em data/nino.ts.
 
 /** Luz que acompanha o alvo da câmera (a sombra cobre só o que está em quadro). */
 export const KolaLighting: React.FC = () => {
@@ -53,44 +53,29 @@ export const KolaLighting: React.FC = () => {
 
 const show = (k: string, f: number) => track(`${k}.show`, f) > 0.5;
 
-/** s1/s2/s7: Terra + cobertor + setas + fumaça. */
-const EarthWorld: React.FC<{ f: number }> = ({ f }) => {
-  const k = clamp(track("blanket.k", f), 0, 1.2);
-  const shell = 1.4 * (1.12 + 0.16 * k);
-  return (
-    <group position={EARTH}>
-      <Stars count={1400} radius={120} frame={f} />
-      <Earth f={f} r={1.4} />
-      {k > 0.01 ? <BlanketShell f={f} r={1.4} k={k} /> : null}
-      {track("smoke", f) > 0.01 ? <SmokePuffs f={f} r={1.4} k={track("smoke", f)} /> : null}
-      <group scale={1.4}>
-        <GreenhouseArrows r={1} shell={shell / 1.4} sun={track("sun", f)} heat={track("heat", f)} trapped={track("trapped", f)} />
-      </group>
-      {/* brilho quente em volta (temperatura) */}
-      <mesh scale={1.4 * 1.32}>
-        <sphereGeometry args={[1, 32, 20]} />
-        <meshBasicMaterial color={new Color("#ff7a3a")} transparent opacity={0.06 + 0.1 * clamp(track("hot", f), 0, 1)} depthWrite={false} />
+/** Pacífico em corte + barco de pesca perto da América do Sul. */
+const PacWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={PAC}>
+    <Stars count={1000} radius={90} frame={f} />
+    <PacificSlice f={f} warm={track("warm", f)} plumes={track("plumes", f)} winds={track("winds", f, 1)} />
+    <group position={BOAT} rotation={[0, 0.6, 0]}>
+      <FishingBoat f={f} s={0.7} />
+    </group>
+    {/* água quente em volta do barco (cena do nome) */}
+    {track("boatwarm", f) > 0.01 ? (
+      <mesh position={[BOAT[0], 0.03, BOAT[2]]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[1.1 * clamp(track("boatwarm", f), 0, 1), 32]} />
+        <meshBasicMaterial color={new Color("#ff8a4a")} transparent opacity={0.45} depthWrite={false} />
       </mesh>
-    </group>
-  );
-};
-
-/** s3/s5/s8: escada rolante + termômetro gigante. */
-const EscWorld: React.FC<{ f: number }> = ({ f }) => (
-  <group position={ESC}>
-    <Stars count={700} radius={80} frame={f} />
-    <Escalator f={f} speed={0.02} />
-    <group position={THERMO_AT}>
-      <Thermometer3D v={track("thermo.v", f, 0.3)} h={3.8} glow={track("thermo.glow", f)} />
-    </group>
+    ) : null}
   </group>
 );
 
-/** s4/s6: Pacífico em corte. */
-const PacWorld: React.FC<{ f: number }> = ({ f }) => (
-  <group position={PAC}>
+/** Mapa do Brasil 3D. */
+const BrWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={BR}>
     <Stars count={900} radius={80} frame={f} />
-    <PacificSlice f={f} warm={track("warm", f)} plumes={track("plumes", f)} />
+    <BrazilMap f={f} dryN={track("dryN", f)} dryNE={track("dryNE", f)} wetS={track("wetS", f)} fire={track("fire", f)} storm={track("storm", f)} bolt={track("bolt", f)} />
   </group>
 );
 
@@ -98,9 +83,8 @@ export const World: React.FC = () => {
   const f = useCurrentFrame();
   return (
     <>
-      {show("earth", f) ? <EarthWorld f={f} /> : null}
-      {show("esc", f) ? <EscWorld f={f} /> : null}
       {show("pac", f) ? <PacWorld f={f} /> : null}
+      {show("br", f) ? <BrWorld f={f} /> : null}
       <MascotFromTracks />
     </>
   );
