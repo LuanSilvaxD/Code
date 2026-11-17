@@ -18,7 +18,7 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 ## Temas anotados em 16/11/2026 (pedidos do Luan)
 - ~~**Planeta X**~~ — ENTREGUE (17/11).
 - ~~**Planeta do filme Interestelar**~~ — ENTREGUE (17/11) como Filme × Realidade #1.
-- **Onda de calor:** 2026 já figura como o 2º ano mais quente da história (checar fonte: OMM/Copernicus).
+- ~~**Onda de calor**~~ — ENTREGUE (17/11). O vídeo do El Niño deve linkar este (não é continuação).
 - **El Niño 2027** (checar previsões NOAA/INMET).
 - **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
 
