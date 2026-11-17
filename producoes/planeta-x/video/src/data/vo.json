@@ -1,0 +1,876 @@
+{
+  "s1": {
+    "text": "Todos os planetas giram em volta do Sol no mesmo sentido. Mas, depois de Netuno, acharam algo andando na contramão.",
+    "seconds": 7.762,
+    "words": [
+      {
+        "text": "Todos",
+        "start": 0,
+        "end": 0.254
+      },
+      {
+        "text": "os",
+        "start": 0.266,
+        "end": 0.41
+      },
+      {
+        "text": "planetas",
+        "start": 0.422,
+        "end": 0.939
+      },
+      {
+        "text": "giram",
+        "start": 0.951,
+        "end": 1.215
+      },
+      {
+        "text": "em",
+        "start": 1.227,
+        "end": 1.311
+      },
+      {
+        "text": "volta",
+        "start": 1.323,
+        "end": 1.684
+      },
+      {
+        "text": "do",
+        "start": 1.696,
+        "end": 1.792
+      },
+      {
+        "text": "Sol",
+        "start": 1.804,
+        "end": 2.092
+      },
+      {
+        "text": "no",
+        "start": 2.105,
+        "end": 2.213
+      },
+      {
+        "text": "mesmo",
+        "start": 2.225,
+        "end": 2.597
+      },
+      {
+        "text": "sentido",
+        "start": 2.609,
+        "end": 3.138
+      },
+      {
+        "text": "Mas",
+        "start": 3.966,
+        "end": 4.47
+      },
+      {
+        "text": "depois",
+        "start": 4.639,
+        "end": 5.011
+      },
+      {
+        "text": "de",
+        "start": 5.023,
+        "end": 5.095
+      },
+      {
+        "text": "Netuno",
+        "start": 5.107,
+        "end": 5.564
+      },
+      {
+        "text": "acharam",
+        "start": 5.841,
+        "end": 6.273
+      },
+      {
+        "text": "algo",
+        "start": 6.285,
+        "end": 6.574
+      },
+      {
+        "text": "andando",
+        "start": 6.586,
+        "end": 6.97
+      },
+      {
+        "text": "na",
+        "start": 6.982,
+        "end": 7.103
+      },
+      {
+        "text": "contramão",
+        "start": 7.115,
+        "end": 7.68
+      }
+    ]
+  },
+  "s2": {
+    "text": "O nome provisório é R631. Deve ter uns cem quilômetros, e sua órbita é inclinada cento e quarenta e dois graus, praticamente de ponta-cabeça.",
+    "seconds": 9.188,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.049
+      },
+      {
+        "text": "nome",
+        "start": 0.061,
+        "end": 0.386
+      },
+      {
+        "text": "provisório",
+        "start": 0.398,
+        "end": 1.023
+      },
+      {
+        "text": "é",
+        "start": 1.035,
+        "end": 1.107
+      },
+      {
+        "text": "R631",
+        "start": 1.119,
+        "end": 2.141
+      },
+      {
+        "text": "Deve",
+        "start": 2.968,
+        "end": 3.281
+      },
+      {
+        "text": "ter",
+        "start": 3.293,
+        "end": 3.425
+      },
+      {
+        "text": "uns",
+        "start": 3.437,
+        "end": 3.605
+      },
+      {
+        "text": "cem",
+        "start": 3.617,
+        "end": 3.785
+      },
+      {
+        "text": "quilômetros",
+        "start": 3.797,
+        "end": 4.398
+      },
+      {
+        "text": "e",
+        "start": 4.651,
+        "end": 4.711
+      },
+      {
+        "text": "sua",
+        "start": 4.723,
+        "end": 4.999
+      },
+      {
+        "text": "órbita",
+        "start": 5.011,
+        "end": 5.42
+      },
+      {
+        "text": "é",
+        "start": 5.432,
+        "end": 5.456
+      },
+      {
+        "text": "inclinada",
+        "start": 5.468,
+        "end": 6.033
+      },
+      {
+        "text": "cento",
+        "start": 6.045,
+        "end": 6.381
+      },
+      {
+        "text": "e",
+        "start": 6.394,
+        "end": 6.405
+      },
+      {
+        "text": "quarenta",
+        "start": 6.417,
+        "end": 6.706
+      },
+      {
+        "text": "e",
+        "start": 6.718,
+        "end": 6.742
+      },
+      {
+        "text": "dois",
+        "start": 6.754,
+        "end": 6.922
+      },
+      {
+        "text": "graus",
+        "start": 6.934,
+        "end": 7.331
+      },
+      {
+        "text": "praticamente",
+        "start": 7.571,
+        "end": 8.244
+      },
+      {
+        "text": "de",
+        "start": 8.256,
+        "end": 8.353
+      },
+      {
+        "text": "ponta-cabeça",
+        "start": 8.365,
+        "end": 9.098
+      }
+    ]
+  },
+  "s3": {
+    "text": "E quem ligou os pontos foi um astrônomo amador, usando dados públicos do novo observatório Vera Rubin.",
+    "seconds": 5.765,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.043
+      },
+      {
+        "text": "quem",
+        "start": 0.055,
+        "end": 0.2
+      },
+      {
+        "text": "ligou",
+        "start": 0.211,
+        "end": 0.512
+      },
+      {
+        "text": "os",
+        "start": 0.524,
+        "end": 0.656
+      },
+      {
+        "text": "pontos",
+        "start": 0.668,
+        "end": 1.077
+      },
+      {
+        "text": "foi",
+        "start": 1.089,
+        "end": 1.233
+      },
+      {
+        "text": "um",
+        "start": 1.245,
+        "end": 1.365
+      },
+      {
+        "text": "astrônomo",
+        "start": 1.377,
+        "end": 1.846
+      },
+      {
+        "text": "amador",
+        "start": 1.858,
+        "end": 2.255
+      },
+      {
+        "text": "usando",
+        "start": 2.687,
+        "end": 3.024
+      },
+      {
+        "text": "dados",
+        "start": 3.036,
+        "end": 3.385
+      },
+      {
+        "text": "públicos",
+        "start": 3.397,
+        "end": 3.853
+      },
+      {
+        "text": "do",
+        "start": 3.865,
+        "end": 3.973
+      },
+      {
+        "text": "novo",
+        "start": 3.986,
+        "end": 4.286
+      },
+      {
+        "text": "observatório",
+        "start": 4.298,
+        "end": 5.043
+      },
+      {
+        "text": "Vera",
+        "start": 5.055,
+        "end": 5.296
+      },
+      {
+        "text": "Rubin",
+        "start": 5.308,
+        "end": 5.68
+      }
+    ]
+  },
+  "s4": {
+    "text": "Mas por que todo mundo gira igual? O Sistema Solar nasceu de um disco de gás girando, e tudo herdou esse giro.",
+    "seconds": 6.865,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.215
+      },
+      {
+        "text": "por",
+        "start": 0.227,
+        "end": 0.407
+      },
+      {
+        "text": "que",
+        "start": 0.419,
+        "end": 0.599
+      },
+      {
+        "text": "todo",
+        "start": 0.611,
+        "end": 0.936
+      },
+      {
+        "text": "mundo",
+        "start": 0.948,
+        "end": 1.236
+      },
+      {
+        "text": "gira",
+        "start": 1.248,
+        "end": 1.477
+      },
+      {
+        "text": "igual",
+        "start": 1.489,
+        "end": 1.837
+      },
+      {
+        "text": "O",
+        "start": 2.665,
+        "end": 2.773
+      },
+      {
+        "text": "Sistema",
+        "start": 2.785,
+        "end": 3.205
+      },
+      {
+        "text": "Solar",
+        "start": 3.217,
+        "end": 3.59
+      },
+      {
+        "text": "nasceu",
+        "start": 3.602,
+        "end": 3.915
+      },
+      {
+        "text": "de",
+        "start": 3.927,
+        "end": 3.987
+      },
+      {
+        "text": "um",
+        "start": 3.999,
+        "end": 4.095
+      },
+      {
+        "text": "disco",
+        "start": 4.107,
+        "end": 4.455
+      },
+      {
+        "text": "de",
+        "start": 4.467,
+        "end": 4.552
+      },
+      {
+        "text": "gás",
+        "start": 4.564,
+        "end": 4.768
+      },
+      {
+        "text": "girando",
+        "start": 4.78,
+        "end": 5.225
+      },
+      {
+        "text": "e",
+        "start": 5.501,
+        "end": 5.609
+      },
+      {
+        "text": "tudo",
+        "start": 5.621,
+        "end": 5.874
+      },
+      {
+        "text": "herdou",
+        "start": 5.886,
+        "end": 6.222
+      },
+      {
+        "text": "esse",
+        "start": 6.234,
+        "end": 6.402
+      },
+      {
+        "text": "giro",
+        "start": 6.414,
+        "end": 6.751
+      }
+    ]
+  },
+  "s5": {
+    "text": "Pra andar ao contrário, precisa de uma história. A mais provável, ele passou perto demais de Netuno e foi arremessado.",
+    "seconds": 7.132,
+    "words": [
+      {
+        "text": "Pra",
+        "start": 0,
+        "end": 0.102
+      },
+      {
+        "text": "andar",
+        "start": 0.114,
+        "end": 0.403
+      },
+      {
+        "text": "ao",
+        "start": 0.415,
+        "end": 0.499
+      },
+      {
+        "text": "contrário",
+        "start": 0.511,
+        "end": 1.04
+      },
+      {
+        "text": "precisa",
+        "start": 1.304,
+        "end": 1.749
+      },
+      {
+        "text": "de",
+        "start": 1.761,
+        "end": 1.845
+      },
+      {
+        "text": "uma",
+        "start": 1.857,
+        "end": 1.977
+      },
+      {
+        "text": "história",
+        "start": 1.989,
+        "end": 2.422
+      },
+      {
+        "text": "A",
+        "start": 3.249,
+        "end": 3.334
+      },
+      {
+        "text": "mais",
+        "start": 3.346,
+        "end": 3.598
+      },
+      {
+        "text": "provável",
+        "start": 3.61,
+        "end": 4.199
+      },
+      {
+        "text": "ele",
+        "start": 4.391,
+        "end": 4.511
+      },
+      {
+        "text": "passou",
+        "start": 4.524,
+        "end": 4.836
+      },
+      {
+        "text": "perto",
+        "start": 4.848,
+        "end": 5.148
+      },
+      {
+        "text": "demais",
+        "start": 5.16,
+        "end": 5.485
+      },
+      {
+        "text": "de",
+        "start": 5.497,
+        "end": 5.569
+      },
+      {
+        "text": "Netuno",
+        "start": 5.581,
+        "end": 6.062
+      },
+      {
+        "text": "e",
+        "start": 6.074,
+        "end": 6.122
+      },
+      {
+        "text": "foi",
+        "start": 6.134,
+        "end": 6.326
+      },
+      {
+        "text": "arremessado",
+        "start": 6.338,
+        "end": 7.023
+      }
+    ]
+  },
+  "s6": {
+    "text": "A mais ousada, ele veio de outra estrela e foi capturado pelo Sol.",
+    "seconds": 3.632,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.049
+      },
+      {
+        "text": "mais",
+        "start": 0.061,
+        "end": 0.217
+      },
+      {
+        "text": "ousada",
+        "start": 0.229,
+        "end": 0.794
+      },
+      {
+        "text": "ele",
+        "start": 0.939,
+        "end": 1.071
+      },
+      {
+        "text": "veio",
+        "start": 1.083,
+        "end": 1.335
+      },
+      {
+        "text": "de",
+        "start": 1.347,
+        "end": 1.467
+      },
+      {
+        "text": "outra",
+        "start": 1.48,
+        "end": 1.72
+      },
+      {
+        "text": "estrela",
+        "start": 1.732,
+        "end": 2.141
+      },
+      {
+        "text": "e",
+        "start": 2.153,
+        "end": 2.189
+      },
+      {
+        "text": "foi",
+        "start": 2.201,
+        "end": 2.369
+      },
+      {
+        "text": "capturado",
+        "start": 2.381,
+        "end": 2.958
+      },
+      {
+        "text": "pelo",
+        "start": 2.97,
+        "end": 3.174
+      },
+      {
+        "text": "Sol",
+        "start": 3.186,
+        "end": 3.547
+      }
+    ]
+  },
+  "s7": {
+    "text": "Uma volta dele leva uns quinhentos e cinquenta anos. Em 2047, ele chega mais perto do Sol que Netuno.",
+    "seconds": 7.413,
+    "words": [
+      {
+        "text": "Uma",
+        "start": 0,
+        "end": 0.174
+      },
+      {
+        "text": "volta",
+        "start": 0.186,
+        "end": 0.523
+      },
+      {
+        "text": "dele",
+        "start": 0.535,
+        "end": 0.763
+      },
+      {
+        "text": "leva",
+        "start": 0.775,
+        "end": 1.04
+      },
+      {
+        "text": "uns",
+        "start": 1.052,
+        "end": 1.28
+      },
+      {
+        "text": "quinhentos",
+        "start": 1.292,
+        "end": 1.833
+      },
+      {
+        "text": "e",
+        "start": 1.845,
+        "end": 1.953
+      },
+      {
+        "text": "cinquenta",
+        "start": 1.965,
+        "end": 2.446
+      },
+      {
+        "text": "anos",
+        "start": 2.458,
+        "end": 2.891
+      },
+      {
+        "text": "Em",
+        "start": 3.718,
+        "end": 4.403
+      },
+      {
+        "text": "2047",
+        "start": 4.403,
+        "end": 5.088
+      },
+      {
+        "text": "ele",
+        "start": 5.293,
+        "end": 5.413
+      },
+      {
+        "text": "chega",
+        "start": 5.425,
+        "end": 5.677
+      },
+      {
+        "text": "mais",
+        "start": 5.689,
+        "end": 5.942
+      },
+      {
+        "text": "perto",
+        "start": 5.954,
+        "end": 6.326
+      },
+      {
+        "text": "do",
+        "start": 6.338,
+        "end": 6.435
+      },
+      {
+        "text": "Sol",
+        "start": 6.447,
+        "end": 6.699
+      },
+      {
+        "text": "que",
+        "start": 6.711,
+        "end": 6.831
+      },
+      {
+        "text": "Netuno",
+        "start": 6.843,
+        "end": 7.336
+      }
+    ]
+  },
+  "s8": {
+    "text": "Pronto, agora você sabe. Falta a confirmação oficial, mas tem gente andando na contramão no Sistema Solar.",
+    "seconds": 7.041,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.33
+      },
+      {
+        "text": "agora",
+        "start": 0.594,
+        "end": 0.931
+      },
+      {
+        "text": "você",
+        "start": 0.943,
+        "end": 1.171
+      },
+      {
+        "text": "sabe",
+        "start": 1.183,
+        "end": 1.604
+      },
+      {
+        "text": "Falta",
+        "start": 2.431,
+        "end": 2.816
+      },
+      {
+        "text": "a",
+        "start": 2.828,
+        "end": 2.852
+      },
+      {
+        "text": "confirmação",
+        "start": 2.864,
+        "end": 3.501
+      },
+      {
+        "text": "oficial",
+        "start": 3.513,
+        "end": 4.054
+      },
+      {
+        "text": "mas",
+        "start": 4.354,
+        "end": 4.547
+      },
+      {
+        "text": "tem",
+        "start": 4.559,
+        "end": 4.715
+      },
+      {
+        "text": "gente",
+        "start": 4.727,
+        "end": 4.991
+      },
+      {
+        "text": "andando",
+        "start": 5.003,
+        "end": 5.352
+      },
+      {
+        "text": "na",
+        "start": 5.364,
+        "end": 5.472
+      },
+      {
+        "text": "contramão",
+        "start": 5.484,
+        "end": 5.977
+      },
+      {
+        "text": "no",
+        "start": 5.989,
+        "end": 6.061
+      },
+      {
+        "text": "Sistema",
+        "start": 6.073,
+        "end": 6.494
+      },
+      {
+        "text": "Solar",
+        "start": 6.506,
+        "end": 6.878
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
