@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AdditiveBlending, BufferAttribute, CatmullRomCurve3, Color, DoubleSide, EdgesGeometry, IcosahedronGeometry, PlaneGeometry, Vector3 } from "three";
+import { BufferAttribute, CatmullRomCurve3, Color, DoubleSide, EdgesGeometry, IcosahedronGeometry, PlaneGeometry, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 
 // "Por que 2026 está tão quente?" — elementos novos (aprovar na folha). Low-poly, cores de vértice, esquemático.
@@ -206,78 +206,256 @@ export const Thermometer3D: React.FC<{ v: number; h?: number; glow?: number }> =
   );
 };
 
-/* ------------------------------------------------------------------ PACÍFICO EM CORTE (EL NIÑO) */
+/* ------------------------------------------------------------------ PACÍFICO EM CORTE (EL NIÑO) v2 */
+
+const lerpC = (a: Color, b: Color, t: number) => a.clone().lerp(b, clamp(t, 0, 1));
+/** Profundidade da termoclina (topo da água fria) em x ∈ [−w/2, w/2]: normal = inclinada (grossa a oeste); El Niño = plana. */
+const thermo = (x: number, w: number, warm: number, depth: number) => {
+  const u = (x + w / 2) / w; // 0 = oeste (Ásia), 1 = leste (América do Sul)
+  const normal = -depth * (0.86 - 0.8 * u);
+  const nino = -depth * 0.42;
+  return normal + (nino - normal) * clamp(warm, 0, 1);
+};
+
+/** Ilha low-poly com praia e coqueiros simples. */
+const Island: React.FC<{ s?: number; seed: string; trees?: number }> = ({ s = 1, seed, trees = 2 }) => (
+  <group scale={s}>
+    <mesh position={[0, -0.05, 0]} scale={[1, 0.18, 0.8]}>
+      <icosahedronGeometry args={[0.6, 1]} />
+      <meshStandardMaterial color="#e8d49a" {...M} />
+    </mesh>
+    <mesh position={[0, 0.06, 0]} scale={[0.8, 0.35, 0.62]}>
+      <icosahedronGeometry args={[0.6, 1]} />
+      <meshStandardMaterial color="#4f9a4a" {...M} />
+    </mesh>
+    {Array.from({ length: trees }, (_, i) => {
+      const a = rand(`${seed}t${i}`) * Math.PI * 2;
+      const p: Vec3 = [Math.cos(a) * 0.25, 0.18, Math.sin(a) * 0.2];
+      return (
+        <group key={i} position={p}>
+          <mesh position={[0, 0.18, 0]} rotation={[0, 0, 0.15]}>
+            <cylinderGeometry args={[0.025, 0.035, 0.36, 5]} />
+            <meshStandardMaterial color="#8a6a4a" {...M} />
+          </mesh>
+          {[0, 1, 2, 3].map((j) => (
+            <mesh key={j} position={[0.03, 0.36, 0]} rotation={[0.5, (j * Math.PI) / 2, 0.9]}>
+              <coneGeometry args={[0.05, 0.3, 4]} />
+              <meshStandardMaterial color="#3f8a3a" {...M} />
+            </mesh>
+          ))}
+        </group>
+      );
+    })}
+  </group>
+);
+
+/** América do Sul em corte: faixa costeira + Andes com neve. */
+const Andes: React.FC<{ d: number }> = ({ d }) => (
+  <group>
+    <mesh position={[0.55, -0.2, 0]} scale={[0.9, 0.5, d / 2 + 0.2]}>
+      <boxGeometry args={[1.4, 1, 2]} />
+      <meshStandardMaterial color="#6f9a4a" {...M} />
+    </mesh>
+    <mesh position={[-0.12, 0.06, 0]} scale={[0.22, 0.1, d / 2 + 0.2]}>
+      <boxGeometry args={[1, 1, 2]} />
+      <meshStandardMaterial color="#e8d49a" {...M} />
+    </mesh>
+    {Array.from({ length: 7 }, (_, i) => {
+      const z = -d / 2 + 0.3 + (i / 6) * (d - 0.6);
+      const h = 0.8 + rand(`an${i}`) * 0.5;
+      return (
+        <group key={i} position={[0.65 + (rand(`ax${i}`) - 0.5) * 0.3, 0.25, z]}>
+          <mesh position={[0, h / 2, 0]}>
+            <coneGeometry args={[0.38, h, 6]} />
+            <meshStandardMaterial color="#8a7a66" {...M} />
+          </mesh>
+          <mesh position={[0, h * 0.82, 0]}>
+            <coneGeometry args={[0.16, h * 0.36, 6]} />
+            <meshStandardMaterial color="#f4f6f8" {...M} />
+          </mesh>
+        </group>
+      );
+    })}
+  </group>
+);
+
+/** Nuvem low-poly (chuva opcional). */
+const Cloud: React.FC<{ s?: number; rain?: number; f: number }> = ({ s = 1, rain = 0, f }) => (
+  <group scale={s}>
+    {[[-0.4, 0, 0, 0.42], [0, 0.12, 0.05, 0.55], [0.42, 0, -0.05, 0.4], [0.1, -0.05, 0.3, 0.38]].map(([x, y, z, r], i) => (
+      <mesh key={i} position={[x, y, z]}>
+        <icosahedronGeometry args={[r, 1]} />
+        <meshStandardMaterial color="#e8e4ee" roughness={1} flatShading />
+      </mesh>
+    ))}
+    {rain > 0.01
+      ? Array.from({ length: 14 }, (_, i) => {
+          const ph = (f * 0.05 + rand(`rn${i}`)) % 1;
+          return (
+            <mesh key={i} position={[(rand(`rx${i}`) - 0.5) * 1.1, -0.35 - ph * 1.6, (rand(`rz${i}`) - 0.5) * 0.6]}>
+              <boxGeometry args={[0.015, 0.14, 0.015]} />
+              <meshBasicMaterial color="#9fd0ff" transparent opacity={rain * (1 - ph)} />
+            </mesh>
+          );
+        })
+      : null}
+  </group>
+);
+
+/** Seta de vento (fita branca curva) apontando para −x (alísios). */
+const WindArrow: React.FC<{ len?: number; v?: number; ph: number }> = ({ len = 2.4, v = 1, ph }) => {
+  const k = clamp(v, 0, 1);
+  if (k < 0.02) return null;
+  const n = 18;
+  return (
+    <group>
+      {Array.from({ length: n }, (_, i) => {
+        const u = i / (n - 1);
+        const x = len / 2 - u * len;
+        const y = Math.sin(u * Math.PI * 2 + ph) * 0.06;
+        return (
+          <mesh key={i} position={[x, y, 0]} scale={k}>
+            <sphereGeometry args={[0.035, 6, 4]} />
+            <meshBasicMaterial color="#ffffff" transparent opacity={0.85} />
+          </mesh>
+        );
+      })}
+      <mesh position={[-len / 2 - 0.08, 0, 0]} rotation={[0, 0, Math.PI / 2]} scale={k}>
+        <coneGeometry args={[0.1, 0.24, 8]} />
+        <meshBasicMaterial color="#ffffff" />
+      </mesh>
+    </group>
+  );
+};
 
 /**
- * Bloco de oceano (corte) com costas: Ásia/Austrália à esquerda (−x), América do Sul à direita (+x).
- * warm 0..1 = mancha quente no Pacífico equatorial central/leste. plumes 0..1 = ondas de calor subindo (fase f).
+ * Pacífico equatorial em corte (diorama): Ásia/Austrália (ilhas) a oeste (−x), América do Sul (Andes) a leste (+x).
+ * Normal (warm 0): alísios fortes empurram a água quente para oeste (camada quente grossa lá), água fria sobe perto da
+ * América do Sul, nuvens/chuva a oeste. El Niño (warm 1): ventos fracos, a camada quente "escorrega" para leste,
+ * mancha quente no Pacífico central/leste, nuvens vão junto. plumes 0..1: ondas de calor subindo.
  */
-export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number; w?: number; d?: number }> = ({ f, warm = 0, plumes = 0, w = 10, d = 5 }) => {
-  const base = useMemo(() => new PlaneGeometry(w, d, 80, 40).rotateX(-Math.PI / 2), [w, d]);
+export const PacificSlice: React.FC<{ f: number; warm?: number; plumes?: number; w?: number; d?: number }> = ({ f, warm = 0, plumes = 0, w = 10, d = 4 }) => {
+  const wk = clamp(warm, 0, 1.2);
+  const depth = 2.0;
+  // superfície
+  const base = useMemo(() => new PlaneGeometry(w, d, 90, 36).rotateX(-Math.PI / 2), [w, d]);
   const geo = useMemo(() => {
     const g = base.clone();
     g.setAttribute("color", new BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3));
     return g;
   }, [base]);
   const pos = geo.attributes.position, col = geo.attributes.color, bp = base.attributes.position;
-  const cold = C("#1e5f9a"), mid = C("#2f86b8"), hot = C("#ff5a3a"), hot2 = C("#ffb04a");
-  const c = new Color();
-  const wk = clamp(warm, 0, 1.2);
+  const warmPool = C("#36b0b8"), coolE = C("#1c5f9e"), upw = C("#1a4f8a"), hot = C("#ff5a3a"), hot2 = C("#ffb04a"), foam = C("#e8f6fa");
   for (let i = 0; i < pos.count; i++) {
     const x = bp.getX(i), z = bp.getZ(i);
-    const y = Math.sin(x * 2.1 + f * 0.08) * 0.02 + Math.sin(z * 2.7 - f * 0.07) * 0.015;
+    const u = (x + w / 2) / w;
+    const y = Math.sin(x * 2.3 + f * 0.09 + z) * 0.03 + Math.sin(z * 3.1 - f * 0.08 + x * 0.7) * 0.02;
     pos.setY(i, y);
-    // mancha: centro ~ +1,5 em x (Pacífico leste), alongada em x, estreita em z (faixa equatorial)
-    const g = Math.exp(-((x - 1.4) ** 2) / (2 * 2.2 ** 2) - (z ** 2) / (2 * 0.7 ** 2)) * wk;
-    c.copy(cold).lerp(mid, clamp(0.5 - z / d, 0, 1) * 0.4).lerp(hot, clamp(g * 1.3, 0, 1));
-    if (g > 0.75) c.lerp(hot2, (g - 0.75) / 0.35);
+    // normal: quente a oeste, frio a leste (ressurgência perto da costa)
+    let c = lerpC(warmPool, coolE, u);
+    c = lerpC(c, upw, clamp((u - 0.8) / 0.2, 0, 1) * (1 - wk));
+    // El Niño: anomalia quente central/leste, faixa equatorial
+    const g = Math.exp(-((x - 1.0) ** 2) / (2 * 2.4 ** 2) - (z ** 2) / (2 * 0.8 ** 2)) * wk;
+    c = lerpC(c, hot, g * 1.25);
+    if (g > 0.75) c = lerpC(c, hot2, (g - 0.75) / 0.35);
+    if (y > 0.042) c = lerpC(c, foam, (y - 0.042) / 0.01);
     col.setXYZ(i, c.r, c.g, c.b);
   }
   pos.needsUpdate = true;
   col.needsUpdate = true;
   geo.computeVertexNormals();
-  const depth = 1.4;
+
+  // corte frontal: camada quente acima da termoclina, fria abaixo
+  const NX = 120, NY = 60;
+  const sec = useMemo(() => {
+    const g = new PlaneGeometry(w, depth, NX, NY);
+    g.setAttribute("color", new BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3));
+    return g;
+  }, [w]);
+  const sp = sec.attributes.position, sc = sec.attributes.color;
+  const warmL = C("#2fa6b4"), warmLn = C("#ff7a3a"), deep = C("#0d2a5a"), deep2 = C("#081a3a");
+  for (let i = 0; i < sp.count; i++) {
+    const x = sp.getX(i), yy = sp.getY(i) - depth / 2; // y de 0 (topo) a −depth
+    const th = thermo(x, w, wk, depth);
+    const above = yy > th;
+    let c: Color;
+    if (above) {
+      const g = Math.exp(-((x - 1.0) ** 2) / (2 * 2.6 ** 2)) * wk;
+      c = lerpC(warmL, warmLn, g);
+    } else c = lerpC(deep, deep2, clamp(-yy / depth, 0, 1));
+    if (Math.abs(yy - th) < depth / NY * 1.1) c = C("#e8f6fa");
+    sc.setXYZ(i, c.r, c.g, c.b);
+  }
+  sc.needsUpdate = true;
+  const ph = f * 0.12;
+  const wind = 1 - 0.85 * clamp(wk, 0, 1);
+  const cloudX = -3.2 + 4.4 * clamp(wk, 0, 1);
   return (
     <group>
       <mesh geometry={geo} receiveShadow>
-        <meshStandardMaterial vertexColors roughness={0.35} />
+        <meshStandardMaterial vertexColors roughness={0.3} metalness={0.05} />
       </mesh>
-      {/* corte do mar (frente) com camada quente no topo */}
-      <mesh position={[0, -depth / 2, d / 2]}>
+      {/* corte frontal e lateral */}
+      <mesh geometry={sec} position={[0, -depth / 2, d / 2]}>
+        <meshStandardMaterial vertexColors roughness={0.6} />
+      </mesh>
+      <mesh position={[0, -depth / 2, -d / 2]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[w, depth]} />
-        <meshStandardMaterial color="#123a66" roughness={0.6} />
+        <meshStandardMaterial color="#0a2048" />
       </mesh>
-      <mesh position={[1.4, -0.12, d / 2 + 0.005]} scale={[4.4 * clamp(wk, 0, 1), 0.24, 1]}>
-        <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial color="#ff6a3a" transparent opacity={0.85} />
+      {/* fundo do mar */}
+      <mesh position={[0, -depth - 0.06, 0]}>
+        <boxGeometry args={[w + 0.1, 0.12, d + 0.1]} />
+        <meshStandardMaterial color="#3a3242" {...M} />
       </mesh>
-      <mesh position={[0, -depth / 2, 0]}>
-        <boxGeometry args={[w, depth, d]} />
-        <meshStandardMaterial color="#0e2e52" transparent opacity={0.0} />
-      </mesh>
-      {/* costas */}
-      <mesh position={[-w / 2 - 0.5, -0.3, 0.3]} scale={[1.1, 0.9, 1.5]}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color="#6f9a52" {...M} />
-      </mesh>
-      <mesh position={[w / 2 + 0.45, -0.2, -0.2]} scale={[0.9, 1.1, 2.2]}>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color="#7a9a4a" {...M} />
-      </mesh>
-      <mesh position={[w / 2 + 0.75, 0.55, -0.4]} scale={[0.35, 0.7, 1.6]}>
-        <coneGeometry args={[1, 1.4, 6]} />
-        <meshStandardMaterial color="#8a7a6a" {...M} />
-      </mesh>
+      {/* ressurgência (água fria subindo perto da América do Sul) — some no El Niño */}
+      {wk < 0.95
+        ? [0, 1].map((i) => {
+            const ph2 = (f * 0.012 + i * 0.5) % 1;
+            return (
+              <mesh key={i} position={[w / 2 - 0.6 - i * 0.5, -depth + 0.3 + ph2 * (depth - 0.5), d / 2 + 0.02]} rotation={[0, 0, 0]}>
+                <coneGeometry args={[0.12, 0.3, 8]} />
+                <meshBasicMaterial color="#9fd8ff" transparent opacity={(1 - wk) * (1 - ph2) * 0.9} />
+              </mesh>
+            );
+          })
+        : null}
+      {/* continentes */}
+      <group position={[-w / 2 - 0.35, 0, -0.6]}>
+        <Island s={1.6} seed="i1" trees={3} />
+      </group>
+      <group position={[-w / 2 + 0.6, 0, 0.9]}>
+        <Island s={1.1} seed="i2" />
+      </group>
+      <group position={[-w / 2 + 0.2, 0, -1.6]}>
+        <Island s={0.9} seed="i3" trees={1} />
+      </group>
+      <group position={[w / 2 + 0.15, 0, 0]}>
+        <Andes d={d} />
+      </group>
+      {/* alísios */}
+      {[-0.9, 0.4].map((z, i) => (
+        <group key={i} position={[0.6 + i * 1.6, 0.55 + i * 0.12, z]}>
+          <WindArrow len={2.6} v={wind} ph={ph + i} />
+        </group>
+      ))}
+      {/* nuvens de chuva acompanham a água quente */}
+      <group position={[cloudX, 1.5, -0.4]}>
+        <Cloud s={1.1} rain={0.9} f={f} />
+      </group>
+      <group position={[cloudX + 1.2, 1.35, 0.6]}>
+        <Cloud s={0.8} rain={0.7} f={f + 13} />
+      </group>
       {/* ondas de calor subindo */}
       {plumes > 0.01
         ? Array.from({ length: 16 }, (_, i) => {
-            const x = 1.4 + (rand(`pl${i}`) - 0.5) * 4.2;
+            const x = 1.0 + (rand(`pl${i}`) - 0.5) * 4.2;
             const z = (rand(`plz${i}`) - 0.5) * 1.2;
-            const ph = (f * 0.01 + rand(`plp${i}`)) % 1;
+            const p2 = (f * 0.01 + rand(`plp${i}`)) % 1;
             return (
-              <mesh key={i} position={[x + Math.sin(ph * 9 + i) * 0.12, ph * 3.2 * plumes, z]} scale={[0.22 * (1 - ph * 0.4), 0.42, 0.22 * (1 - ph * 0.4)]}>
+              <mesh key={i} position={[x + Math.sin(p2 * 9 + i) * 0.12, p2 * 3.2 * plumes, z]} scale={[0.22 * (1 - p2 * 0.4), 0.42, 0.22 * (1 - p2 * 0.4)]}>
                 <sphereGeometry args={[1, 10, 8]} />
-                <meshBasicMaterial color="#ff8a4a" transparent opacity={0.5 * (1 - ph) * clamp(plumes, 0, 1)} blending={AdditiveBlending} depthWrite={false} toneMapped={false} />
+                <meshBasicMaterial color="#ffc890" transparent opacity={0.75 * (1 - p2) * clamp(plumes, 0, 1)} depthWrite={false} toneMapped={false} />
               </mesh>
             );
           })

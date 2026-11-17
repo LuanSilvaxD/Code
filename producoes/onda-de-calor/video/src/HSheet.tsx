@@ -26,10 +26,10 @@ export const HSheet: React.FC = () => (
     </div>
     <TileView t={{ name: "ESCADA ROLANTE + TERMÔMETRO", size: "aquecimento = escada que sobe sempre · mascote no degrau (no vídeo: pulo = El Niño)", target: [2.4, 1.6, 0], fit: 7.2, az: 24, el: 24, scene: (f) => (<><Escalator f={f} /><Mascot frame={f} position={escalatorTop(0.45)} scale={0.8} rotY={1.2} jump={0.3} /><group position={[6.2, 0.4, -1.0]}><Thermometer3D v={0.7} h={3.6} /></group></>) }} w={1080} h={500} bg={WARM} />
     <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
-      <TileView t={{ name: "PACÍFICO NORMAL", size: "Ásia/Austrália ← → América do Sul", target: [0, -0.2, 0], fit: 11.5, az: 0, el: 34, scene: (f) => <PacificSlice f={f} warm={0} /> }} w={540} h={380} bg={SPACE} />
-      <TileView t={{ name: "PACÍFICO COM EL NIÑO", size: "mancha quente + ondas de calor subindo", target: [0, 0.2, 0], fit: 11.5, az: 0, el: 34, scene: (f) => <PacificSlice f={f} warm={1} plumes={1} /> }} w={540} h={380} bg={SPACE} />
+      <TileView t={{ name: "PACÍFICO NORMAL", size: "ventos levam a água quente p/ oeste · água fria sobe na América do Sul", target: [0, 0.0, 0], fit: 12.5, az: 12, el: 22, scene: (f) => <PacificSlice f={f} warm={0} /> }} w={540} h={420} bg={SPACE} />
+      <TileView t={{ name: "PACÍFICO COM EL NIÑO", size: "ventos fracos · camada quente escorrega p/ leste · calor sobe", target: [0, 0.2, 0], fit: 12.5, az: 12, el: 22, scene: (f) => <PacificSlice f={f} warm={1} plumes={1} /> }} w={540} h={420} bg={SPACE} />
     </div>
-    <div style={{ position: "relative", height: 440, background: SPACE, overflow: "hidden", fontFamily: FONT }}>
+    <div style={{ position: "relative", height: 400, background: SPACE, overflow: "hidden", fontFamily: FONT }}>
       <div style={{ position: "absolute", left: 14, top: 8, color: "#fff", fontWeight: 900, fontSize: 22 }}>2D: RECORDE DE OUTUBRO · PÓDIO (2027?) · +1,75 °C · GRÁFICO DO ACORDO DE PARIS</div>
       <div style={{ position: "absolute", left: 20, top: 60, transform: "scale(0.62)", transformOrigin: "0 0" }}><RecordCalendar stamp={1} /></div>
       <div style={{ position: "absolute", left: 230, top: 50, transform: "scale(0.62)", transformOrigin: "0 0" }}><HeatPodium k={1} y2027={1} /></div>
