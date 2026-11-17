@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 64.4; // 1932 frames (1:04 — meta 60–75 s)
+export const SECONDS = 75.6; // 2268 frames (1:15,6 — meta 60–75 s; voz real +10%)
 export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,14 +21,14 @@ export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"] as const
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [8.2, 9.7, 6.3, 7.4, 7.6, 4.2, 8.0, 13.0];
+const PLANNED_SECONDS = [8.4, 11.0, 9.9, 10.3, 7.4, 7.0, 8.0, 13.6];
 /** A 1ª fala entra depois do whoosh de abertura. */
 const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// viradas ("Mas por quê?", hipótese 2→órbita, final) ganham 0,6 s
-const GAPS: number[] = [0.5, 0.5, 0.6, 0.5, 0.45, 0.6, 0.6];
+// viradas ("Mas existe…", "E por que ninguém viu?") ganham 0,55 s
+const GAPS: number[] = [0.45, 0.45, 0.55, 0.45, 0.55, 0.45, 0.5];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

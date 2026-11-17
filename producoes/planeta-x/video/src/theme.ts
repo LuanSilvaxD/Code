@@ -50,7 +50,7 @@ export const LIGHTING = {
 } as const;
 
 /** Perspectiva suave: FOV baixo e câmera afastada preservam a leitura do esquema. */
-export const CAMERA = { fov: 24, near: 0.05, far: 400 } as const;
+export const CAMERA = { fov: 24, near: 0.05, far: 900 } as const;
 
 /** Faixas seguras para Shorts/Reels (px numa tela 1080x1920). */
 export const SAFE = {

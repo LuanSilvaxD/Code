@@ -20,7 +20,8 @@ export const Background: React.FC = () => {
     // noite (viagem) esfria o estúdio; tribunal/fogueira escurecem (bg.dim)
     // universo invisível: espaço profundo; mar no iceberg (ice.show)
     const sea = track("ice.show", frame);
-    const tint = interpolateColors(sea, [0, 1], [BACKDROP.tint, "#0e2448"]);
+    const old = track("old.show", frame);
+    const tint = interpolateColors(old, [0, 1], [interpolateColors(sea, [0, 1], [BACKDROP.tint, "#0e2448"]), "#6a4428"]);
     return (
       <AbsoluteFill>
         <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />

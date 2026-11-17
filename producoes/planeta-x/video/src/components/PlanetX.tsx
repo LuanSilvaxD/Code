@@ -97,16 +97,17 @@ export const ObservatoryV2: React.FC<{ f: number; night?: number; scan?: number;
           </mesh>
         ))}
         <group rotation={[0, az, 0]}>
-          {/* teto facetado (meia esfera low-poly) */}
+          {/* teto facetado (meia esfera low-poly) com ABERTURA REAL na fenda (dá pra ver o telescópio dentro) */}
           <mesh position={[0, 1.5, 0]} castShadow>
-            <sphereGeometry args={[1.0, 14, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
-            <meshStandardMaterial color="#f4f4f2" roughness={0.4} flatShading />
+            <sphereGeometry args={[1.0, 28, 8, Math.PI / 2 + 0.2 * o + 0.03, Math.PI * 2 - 0.4 * o - 0.06, 0, Math.PI / 2]} />
+            <meshStandardMaterial color="#f4f4f2" roughness={0.4} flatShading side={DoubleSide} />
           </mesh>
-          {/* fenda aberta: faixa escura que segue a curva do teto e desce pela base */}
-          <mesh position={[0, 1.5, 0]}>
-            <sphereGeometry args={[1.006, 16, 8, Math.PI / 2 - 0.2 * o - 0.02, 0.4 * o + 0.04, 0.05, Math.PI / 2 - 0.05]} />
-            <meshStandardMaterial color="#0e0c16" side={DoubleSide} />
+          {/* piso interno escuro + luz interna (o telescópio aparece pela fenda) */}
+          <mesh position={[0, 1.503, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <circleGeometry args={[0.98, 28]} />
+            <meshStandardMaterial color="#1a1726" roughness={0.9} />
           </mesh>
+          <pointLight position={[0, 2.0, 0.1]} intensity={1.6 + winOn * 2} distance={2.2} color="#d8ccff" />
           <mesh position={[0, 1.15, 0]}>
             <cylinderGeometry args={[1.006, 1.006, 0.7 * o, 16, 1, true, -0.2 * o - 0.02, 0.4 * o + 0.04]} />
             <meshStandardMaterial color="#0e0c16" side={DoubleSide} />
