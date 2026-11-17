@@ -55,6 +55,7 @@ export const FishingBoat: React.FC<{ f: number; s?: number; rock?: number }> = (
       <mesh geometry={hull} castShadow>
         <meshStandardMaterial vertexColors roughness={0.6} side={2} />
       </mesh>
+      <Hull42 />
       {/* convés de tábuas */}
       {Array.from({ length: 6 }, (_, i) => (
         <mesh key={i} position={[-0.6 + i * 0.22, 0.33, 0]} receiveShadow>
@@ -76,8 +77,11 @@ export const FishingBoat: React.FC<{ f: number; s?: number; rock?: number }> = (
           <boxGeometry args={[0.01, 0.13, 0.32]} />
           <meshStandardMaterial color="#9fd8ff" emissive="#9fd8ff" emissiveIntensity={0.2} />
         </mesh>
+        <group position={[-0.1, 0.47, -0.12]} rotation={[0, 0.6, 0]}>
+          <RubberDuck s={0.5} />
+        </group>
         {/* lampião */}
-        <mesh position={[0.15, 0.52, 0.2]}>
+        <mesh position={[0.2, 0.3, 0.27]}>
           <sphereGeometry args={[0.04, 8, 6]} />
           <meshStandardMaterial color="#ffd27a" emissive="#ffb03a" emissiveIntensity={0.8} />
         </mesh>
@@ -116,6 +120,79 @@ export const FishingBoat: React.FC<{ f: number; s?: number; rock?: number }> = (
     </group>
   );
 };
+
+
+/* ------------------------------------------------------------------ REFERÊNCIAS GEEK (discretas, sem copiar marca/personagem) */
+
+/** Dígito estilo 7 segmentos (para o "42" do casco — Guia do Mochileiro). */
+const SEG: Record<string, number[]> = { "4": [5, 6, 1, 2], "2": [0, 1, 6, 4, 3] };
+// segmentos: 0 topo, 1 sup-dir, 2 inf-dir, 3 base, 4 inf-esq, 5 sup-esq, 6 meio
+const segPos: [number, number, boolean][] = [[0, 1, true], [0.5, 0.5, false], [0.5, -0.5, false], [0, -1, true], [-0.5, -0.5, false], [-0.5, 0.5, false], [0, 0, true]];
+const Digit: React.FC<{ d: string; s?: number; color?: string }> = ({ d, s = 0.05, color = "#ffffff" }) => (
+  <group>
+    {(SEG[d] ?? []).map((k) => {
+      const [x, y, h] = segPos[k];
+      return (
+        <mesh key={k} position={[x * s * 1.1, y * s * 1.1, 0]}>
+          <boxGeometry args={h ? [s * 0.9, s * 0.22, 0.004] : [s * 0.22, s * 0.9, 0.004]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+      );
+    })}
+  </group>
+);
+export const Hull42: React.FC = () => (
+  <group>
+    {[1, -1].map((side) => (
+      <group key={side} position={[0.38, 0.2, side * 0.395]} rotation={[0, side > 0 ? 0 : Math.PI, 0]}>
+        <group position={[-0.05 * side, 0, 0]}><Digit d="4" /></group>
+        <group position={[0.07 * side, 0, 0]}><Digit d="2" /></group>
+      </group>
+    ))}
+  </group>
+);
+
+/** Chapéu de palha (aceno a "pirata do chapéu de palha"): aba larga, copa, fita vermelha. */
+export const StrawHat: React.FC<{ s?: number }> = ({ s = 1 }) => (
+  <group scale={s}>
+    <mesh>
+      <cylinderGeometry args={[0.62, 0.66, 0.05, 24]} />
+      <meshStandardMaterial color="#e8c46a" roughness={0.9} flatShading />
+    </mesh>
+    <mesh position={[0, 0.16, 0]}>
+      <cylinderGeometry args={[0.3, 0.34, 0.3, 20]} />
+      <meshStandardMaterial color="#e2bc5e" roughness={0.9} flatShading />
+    </mesh>
+    <mesh position={[0, 0.06, 0]}>
+      <cylinderGeometry args={[0.345, 0.345, 0.08, 20]} />
+      <meshStandardMaterial color="#c8302a" roughness={0.7} />
+    </mesh>
+  </group>
+);
+
+/** Patinho de borracha (rubber duck debugging). */
+export const RubberDuck: React.FC<{ s?: number }> = ({ s = 1 }) => (
+  <group scale={s}>
+    <mesh scale={[1.25, 0.85, 1]}>
+      <sphereGeometry args={[0.1, 16, 12]} />
+      <meshStandardMaterial color="#ffd23a" roughness={0.4} />
+    </mesh>
+    <mesh position={[0.07, 0.1, 0]}>
+      <sphereGeometry args={[0.065, 16, 12]} />
+      <meshStandardMaterial color="#ffd23a" roughness={0.4} />
+    </mesh>
+    <mesh position={[0.135, 0.09, 0]} rotation={[0, 0, -Math.PI / 2]} scale={[1, 1, 0.7]}>
+      <coneGeometry args={[0.025, 0.05, 8]} />
+      <meshStandardMaterial color="#ff7a1a" />
+    </mesh>
+    {[1, -1].map((k) => (
+      <mesh key={k} position={[0.1, 0.12, k * 0.035]}>
+        <sphereGeometry args={[0.009, 8, 6]} />
+        <meshBasicMaterial color="#111" />
+      </mesh>
+    ))}
+  </group>
+);
 
 /* ------------------------------------------------------------------ MAPA DO BRASIL (regiões, esquemático) */
 

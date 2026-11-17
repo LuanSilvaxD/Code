@@ -4,7 +4,7 @@ import { TileView } from "./DinoSheet";
 import { PacificSlice } from "./components/Heat";
 import { OceanSurface } from "./components/Interstellar";
 import { Mascot } from "./components/Mascot";
-import { BrazilMap, FishingBoat } from "./components/Nino";
+import { BrazilMap, FishingBoat, StrawHat } from "./components/Nino";
 import { IntensityMeter, NinoTimeline, XmasCalendar } from "./components/Nino2D";
 import { FONT } from "./theme";
 
@@ -21,7 +21,7 @@ export const NSheet: React.FC = () => (
   <AbsoluteFill style={{ background: BRAND.colors.umbra }}>
     <Header />
     <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
-      <TileView t={{ name: "BARCO DE PESCA (PERU)", size: "casco pintado, cabine, mastro, rede, boias, lampião · mascote pescando", target: [0.1, 0.55, 0], fit: 3.2, az: 35, el: 14, scene: (f) => (<><group position={[0, -0.02, 0]}><OceanSurface f={f} size={14} /></group><FishingBoat f={f} /><Mascot frame={f} position={[0.12, 0.36, 0.12]} scale={0.26} rotY={1.0} /></>) }} w={540} h={480} bg={DUSK} />
+      <TileView t={{ name: "BARCO DE PESCA (PERU)", size: "referências geek: chapéu de palha · 42 no casco · patinho de borracha", target: [0.1, 0.55, 0], fit: 3.2, az: 35, el: 14, scene: (f) => (<><group position={[0, -0.02, 0]}><OceanSurface f={f} size={14} /></group><FishingBoat f={f} /><Mascot frame={f} position={[0.12, 0.36, 0.12]} scale={0.26} rotY={1.0} /><group position={[0.12, 0.36 + 0.26 * 1.85, 0.12]} rotation={[0.08, 0, -0.1]}><StrawHat s={0.26} /></group></>) }} w={540} h={480} bg={DUSK} />
       <TileView t={{ name: "BARCO NA COSTA (DIORAMA)", size: "perto dos Andes, Pacífico em El Niño", target: [4.6, 0.5, 0.6], fit: 6.0, az: 40, el: 22, scene: (f) => (<><PacificSlice f={f} warm={1} /><group position={[4.0, 0.0, 1.0]} rotation={[0, 0.6, 0]}><FishingBoat f={f} s={0.7} /></group></>) }} w={540} h={480} bg={SPACE} />
     </div>
     <div style={{ display: "grid", gridTemplateColumns: "540px 540px" }}>
