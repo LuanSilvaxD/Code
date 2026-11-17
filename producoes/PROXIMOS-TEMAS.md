@@ -19,7 +19,7 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - ~~**Planeta X**~~ — ENTREGUE (17/11).
 - ~~**Planeta do filme Interestelar**~~ — ENTREGUE (17/11) como Filme × Realidade #1.
 - ~~**Onda de calor**~~ — ENTREGUE (17/11). O vídeo do El Niño deve linkar este (não é continuação).
-- **El Niño 2027** (checar previsões NOAA/INMET).
+- ~~**El Niño 2027**~~ — ENTREGUE (17/11), com link do vídeo da onda de calor na descrição.
 - **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
 
 ## Quadro Filme × Realidade (ideia do usuário, 17/11/2026)
