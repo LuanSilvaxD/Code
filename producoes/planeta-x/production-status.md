@@ -3,4 +3,4 @@
 - Voz edge AntonioNeural +10% (cta +0%); "Lowell" gerado como "Lôuel" e corrigido nos timings.
 - Duração 75,6 s (2268 frames). Curtir+inscrever aos ~29,5 s (39%), lateral direita, sobre o Planeta Nove.
 - Cúpula do ObservatoryV2 agora tem abertura real na fenda + luz interna (telescópio visível no close).
-- Render em 2 partes (0-1133, 1134-2267) → montagem → loudnorm → entrega.
+- ENTREGUE 17/11: MP4 1:15,6 + publicacao.md + capa + zip. Drive: pasta "Planeta X escondido" (11FvAidNZdimW26Von-98ebqEXqi_TBjH).
