@@ -5,6 +5,8 @@ import { clamp } from "../utils/animation";
 const stroke = (px: number) => ({ WebkitTextStroke: `${px}px #0b0812`, paintOrder: "stroke fill" }) as const;
 /** Intervalo do tic (s): 7 anos ≈ 2.557 dias por hora → 3600/2557 ≈ 1,408 s por dia terrestre. */
 export const TICK_SECONDS = 3600 / 2557;
+/** Instante (s) do 1º tic — igual a T0 em scripts/ticktock.py. */
+export const TICK_T0 = 0.7;
 
 /** Relógio do planeta: mostrador + ponteiro que salta 1 passo por tic. ticks = nº de tics já dados (pode ser fracionário: o salto é rápido). */
 export const Clock2D: React.FC<{ ticks: number; size?: number; label?: string }> = ({ ticks, size = 300, label = "PLANETA" }) => {
@@ -105,7 +107,7 @@ export const SpinGauge: React.FC<{ v: number; size?: number }> = ({ v, size = 42
         </g>
         <circle cx={R} cy={R} r={20} fill="#8b5cf6" stroke="#0b0812" strokeWidth={4} />
       </svg>
-      <div style={{ marginTop: -size * 0.12, fontWeight: 900, fontSize: size * 0.17, color: k > 0.9 ? "#ff6a4a" : "#fff", ...stroke(6) }}>{(k * 99.9).toFixed(1)}%</div>
+      <div style={{ marginTop: -size * 0.12, fontWeight: 900, fontSize: size * 0.17, color: k > 0.9 ? "#ff6a4a" : "#fff", ...stroke(6) }}>{k > 0.97 ? "~100%" : `${Math.round(k * 100)}%`}</div>
       <div style={{ fontWeight: 900, fontSize: size * 0.075, color: "#c4b5fd", ...stroke(4) }}>ROTAÇÃO DO BURACO NEGRO</div>
     </div>
   );

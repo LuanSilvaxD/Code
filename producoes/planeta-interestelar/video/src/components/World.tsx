@@ -1,16 +1,15 @@
 import { Color } from "three";
 import { useCurrentFrame } from "remotion";
 import { track } from "../data/scenes";
-import { DEEP, NIB, OBS, OLD, P9_POS, P9W, PLU, SOL, sysT } from "../data/px";
+import { CMB, GPS, GRID, planetPos, SEA, SKY_BH, SPACE } from "../data/is";
 import { LIGHTING } from "../theme";
 import { clamp, type Vec3 } from "../utils/animation";
 import { cameraPoseAt } from "./CameraController";
 import { MascotFromTracks } from "./Mascot";
-import { AlignedOrbits, Nibiru, ObservatoryV2, OldObservatory, PlanetNine, Pluto } from "./PlanetX";
-import { Planet, PLANETS, SolarSystem } from "./Solar";
+import { BlackHole, Clock3D, CmbParticles, Earth, GiantWave, GpsSat, gridY, OceanPlanet, OceanSurface, SpacetimeGrid } from "./Interstellar";
 import { Stars } from "./SpaceScene";
 
-// Mundos do "Existe um Planeta X?". Tudo lê track("alvo.prop", frameGlobal). Posições em data/px.ts.
+// Mundos do "Filme × Realidade #1". Tudo lê track("alvo.prop", frameGlobal). Posições em data/is.ts.
 
 /** Luz que acompanha o alvo da câmera (a sombra cobre só o que está em quadro). */
 export const KolaLighting: React.FC = () => {
@@ -53,177 +52,113 @@ export const KolaLighting: React.FC = () => {
 
 const show = (k: string, f: number) => track(`${k}.show`, f) > 0.5;
 
-/** Pontos ao longo de uma elipse no plano xz (foco na origem, periélio na direção `dir`). draw 0..1. */
-const DotEllipse: React.FC<{ peri: number; apo: number; dir?: number; draw?: number; size?: number; color?: string; n?: number; opacity?: number }> = ({ peri, apo, dir = 0, draw = 1, size = 0.3, color = "#9fc8ff", n = 140, opacity = 1 }) => {
-  const a = (peri + apo) / 2;
-  const e = (apo - peri) / (apo + peri);
-  const N = Math.round(n * clamp(draw, 0, 1));
+/** Buraco negro com a "imagem do disco" virada para a câmera do frame. */
+const BH: React.FC<{ f: number; base: Vec3; at?: Vec3; r: number; spin?: number; tilt?: number }> = ({ f, base, at = [0, 0, 0], r, spin = 0.4, tilt }) => {
+  const cam = cameraPoseAt(f).position;
+  const world: Vec3 = [base[0] + at[0], base[1] + at[1], base[2] + at[2]];
   return (
-    <>
-      {Array.from({ length: N }, (_, j) => {
-        const u = (j / n) * Math.PI * 2;
-        const r = (a * (1 - e * e)) / (1 + e * Math.cos(u));
-        return (
-          <mesh key={j} position={[Math.cos(u + dir) * r, 0, -Math.sin(u + dir) * r]}>
-            <sphereGeometry args={[size, 6, 4]} />
-            <meshBasicMaterial color={color} transparent={opacity < 1} opacity={opacity} toneMapped={false} />
-          </mesh>
-        );
-      })}
-    </>
-  );
-};
-
-/** Seta 3D simples ao longo de +x (cilindro + cone). */
-const Arrow: React.FC<{ len?: number; color?: string; r?: number }> = ({ len = 3, color = "#ffcf3a", r = 0.35 }) => (
-  <group rotation={[0, 0, -Math.PI / 2]}>
-    <mesh position={[0, len / 2 - r, 0]}>
-      <cylinderGeometry args={[r * 0.4, r * 0.4, len - r * 2, 8]} />
-      <meshBasicMaterial color={color} toneMapped={false} />
-    </mesh>
-    <mesh position={[0, len - r, 0]}>
-      <coneGeometry args={[r, r * 2.2, 10]} />
-      <meshBasicMaterial color={color} toneMapped={false} />
-    </mesh>
-  </group>
-);
-
-/** s1 e s8: o Sistema Solar visto de longe, e lá fora uma silhueta escura (o "Planeta X"). */
-const DeepWorld: React.FC<{ f: number }> = ({ f }) => {
-  const q = clamp(track("x.k", f), 0, 1.3);
-  return (
-    <group position={DEEP}>
-      <Stars count={1600} radius={200} frame={f} />
-      <SolarSystem f={f} t={sysT(f)} sunR={1.0} arrows={0} />
-      {q > 0.01 ? (
-        <group position={[-18, 4, 7]} scale={q}>
-          <PlanetNine f={f} r={2.2} dark={1 - 0.75 * clamp(track("x.lit", f), 0, 1)} ghost={0} />
-        </group>
-      ) : null}
+    <group position={at}>
+      <BlackHole f={f} r={r} spin={spin} tilt={tilt} camera={cam} world={world} />
     </group>
   );
 };
 
-/** s3: Nibiru (desenho de boato) vindo na direção da Terra, e sumindo. */
-const NibWorld: React.FC<{ f: number }> = ({ f }) => {
-  const t = clamp(track("nib.t", f), 0, 1);
-  const k = clamp(track("nib.k", f, 1), 0, 1.2);
-  const from: Vec3 = [-1.6, 5.6, -3];
-  const to: Vec3 = [-0.5, 1.7, 0];
-  const p: Vec3 = [from[0] + (to[0] - from[0]) * t, from[1] + (to[1] - from[1]) * t, from[2] + (to[2] - from[2]) * t];
+/** s1/s2/s5/s8: Gargântua + planeta-oceano em órbita (raio orbit.r) + anel da órbita (orbit.k). */
+const SpaceWorld: React.FC<{ f: number }> = ({ f }) => {
+  const r = track("orbit.r", f, 6);
+  const ring = clamp(track("orbit.k", f), 0, 1);
+  const p = planetPos(r);
   return (
-    <group position={NIB}>
-      <Stars count={1200} radius={90} frame={f} />
-      <group position={[0.5, -1.2, 0]}>
-        <Planet r={0.85} color="#3f8fe0" spin={f * 0.01} />
-        <mesh scale={1.08}>
-          <sphereGeometry args={[0.85, 24, 16]} />
-          <meshBasicMaterial color="#8fd0ff" transparent opacity={0.14} depthWrite={false} toneMapped={false} />
-        </mesh>
+    <group position={SPACE}>
+      <Stars count={1600} radius={160} frame={f} />
+      <BH f={f} base={SPACE} r={1.6} spin={track("bh.spin", f, 0.35)} />
+      <group position={p}>
+        <OceanPlanet f={f} r={0.42} />
       </group>
-      {k > 0.01 ? (
-        <group position={p} rotation={[0, 0, -1.05]} scale={k}>
-          <Nibiru f={f} r={1.1} trail={1} />
-        </group>
-      ) : null}
-    </group>
-  );
-};
-
-/** s4/s5/s8: Sistema Solar de cima, órbitas alinhadas (esquema) e o Planeta Nove lá fora puxando. */
-const SolWorld: React.FC<{ f: number }> = ({ f }) => {
-  const orb = clamp(track("orb.k", f), 0, 1);
-  const p9 = clamp(track("p9.k", f), 0, 1.3);
-  const pull = clamp(track("pull", f), 0, 1);
-  const p9orb = clamp(track("p9.orb", f), 0, 1);
-  const pulse = 0.5 + 0.5 * Math.sin(f / 5);
-  return (
-    <group position={SOL}>
-      <SolarSystem f={f} t={sysT(f)} sunR={1.6} arrows={0} />
-      {orb > 0.01 ? <AlignedOrbits k={orb} /> : null}
-      {p9orb > 0.01 ? <DotEllipse peri={52} apo={92} dir={0.12} draw={p9orb} size={0.7} color="#9fc8ff" n={120} /> : null}
-      {p9 > 0.01 ? (
-        <group position={P9_POS} scale={p9}>
-          <PlanetNine f={f} r={4.2} ghost={0.55} />
-        </group>
-      ) : null}
-      {pull > 0.01
-        ? [-10, 0, 10].map((z, i) => {
-            const x0 = 30 + pulse * 2.5;
-            const ang = Math.atan2(-(P9_POS[2] - z), P9_POS[0] - x0);
-            return (
-              <group key={i} position={[x0, 0, z]} rotation={[0, ang, 0]} scale={pull}>
-                <Arrow len={10} r={1.3} color="#ffcf3a" />
-              </group>
-            );
+      {ring > 0.01
+        ? Array.from({ length: 90 }, (_, i) => {
+            const a = (i / 90) * Math.PI * 2;
+            return i / 90 < ring ? (
+              <mesh key={i} position={[Math.cos(a) * r, 0.25, Math.sin(a) * r]}>
+                <sphereGeometry args={[0.045, 6, 4]} />
+                <meshBasicMaterial color="#7fe0ff" toneMapped={false} />
+              </mesh>
+            ) : null;
           })
         : null}
     </group>
   );
 };
 
-/** s5/s6: Planeta Nove de perto (ilustração) com a Terra para comparar; luz do Sol fraca. */
-const P9World: React.FC<{ f: number }> = ({ f }) => {
-  const dark = clamp(track("p9.dark", f), 0, 1);
-  const earth = clamp(track("earth.k", f), 0, 1.3);
-  const sun = clamp(track("farsun.k", f), 0, 1.3);
+/** s3: malha do espaço-tempo afundando + relógios (perto = lento, longe = rápido). */
+const GridWorld: React.FC<{ f: number }> = ({ f }) => {
+  const depth = clamp(track("grid.depth", f), 0, 1);
+  const g0 = track("grid.t0", f, 0);
+  const t = Math.max(0, f - g0);
+  const clocks: { x: number; z: number; speed: number }[] = [
+    { x: 1.7, z: 0.4, speed: 0.012 },
+    { x: 4.2, z: 1.4, speed: 0.06 },
+    { x: 6.6, z: 2.6, speed: 0.16 },
+  ];
   return (
-    <group position={P9W}>
-      <Stars count={1400} radius={90} frame={f} />
-      <PlanetNine f={f} r={1.5} dark={dark} />
-      {earth > 0.01 ? (
-        <group position={[1.15, -2.3, 1.2]} scale={earth}>
-          <Planet r={0.62} color="#3f8fe0" spin={f * 0.01} />
+    <group position={GRID}>
+      <Stars count={900} radius={90} frame={f} />
+      <SpacetimeGrid depth={depth} size={18} />
+      <BH f={f} base={GRID} at={[0, -5.5 * depth + 0.6, 0]} r={0.75 * Math.max(0.3, depth)} />
+      {clocks.map((c, i) => (
+        <group key={i} position={[c.x, gridY(c.x, c.z, depth) + 0.45, c.z]} rotation={[1.0, 0, 0]} scale={clamp(track("clocks.k", f), 0, 1.2)}>
+          <Clock3D t={t * c.speed * (0.3 + 0.7 * depth) + i} r={0.62} tint={i === 0 ? "#ffd8d0" : "#f5f0ff"} />
         </group>
-      ) : null}
-      {sun > 0.01 ? (
-        <group position={[-4, 6, -26]} scale={sun}>
-          <mesh>
-            <sphereGeometry args={[0.22, 16, 12]} />
-            <meshBasicMaterial color="#fff6d8" toneMapped={false} />
-          </mesh>
-          <mesh scale={3.5}>
-            <sphereGeometry args={[0.22, 16, 12]} />
-            <meshBasicMaterial color="#ffd27a" transparent opacity={0.18} depthWrite={false} toneMapped={false} />
-          </mesh>
-        </group>
-      ) : null}
+      ))}
     </group>
   );
 };
+
+/** s4: Terra + satélite de GPS em órbita. */
+const GpsWorld: React.FC<{ f: number }> = ({ f }) => {
+  const a = -0.2 + (f - 615) * 0.003; // começa à direita da Terra (cena s4 começa ~f615)
+  return (
+    <group position={GPS}>
+      <Stars count={1200} radius={90} frame={f} />
+      <Earth f={f} r={1.6} />
+      <group position={[Math.cos(a) * 1.9, 2.3 + Math.sin(a * 0.7) * 0.2, Math.sin(a) * 1.2 + 1.4]} rotation={[0.25, -a, 0.15]}>
+        <GpsSat s={0.65} clockGlow={track("gps.glow", f)} />
+      </group>
+    </group>
+  );
+};
+
+/** s6: pouso no oceano raso; onda gigante cresce; buraco negro enorme no céu. */
+const SeaWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={SEA}>
+    <Stars count={900} radius={120} frame={f} />
+    <BH f={f} base={SEA} at={SKY_BH} r={2.1} tilt={0.28} />
+    <OceanSurface f={f} wave={0} size={90} />
+    <group position={[0, 0, -14]}>
+      <GiantWave f={f} h={8.5} len={110} k={track("wave.k", f)} />
+    </group>
+  </group>
+);
+
+/** s7: planeta + brilho do Big Bang chegando e esquentando. */
+const CmbWorld: React.FC<{ f: number }> = ({ f }) => (
+  <group position={CMB}>
+    <Stars count={900} radius={90} frame={f} />
+    <OceanPlanet f={f} r={1.1} />
+    {track("cmb.k", f) > 0.01 ? <CmbParticles t={(f - track("cmb.t0", f, 0)) / 75} n={130} R={10} /> : null}
+  </group>
+);
 
 export const World: React.FC = () => {
   const f = useCurrentFrame();
   return (
     <>
-      {show("deep", f) ? <DeepWorld f={f} /> : null}
-      {show("old", f) ? (
-        <group position={OLD}>
-          <OldObservatory f={f} />
-        </group>
-      ) : null}
-      {show("plu", f) ? (
-        <group position={PLU}>
-          <Stars count={1200} radius={90} frame={f} />
-          <group position={[0, 1.0, 0]}>
-            <Planet r={1.5} color="#4a6ae0" spin={f * 0.01} />
-          </group>
-          <group position={[0.9, -1.3, 1.2]} scale={clamp(track("pluto.k", f), 0, 1.3)}>
-            <Pluto f={f} r={0.27} />
-          </group>
-        </group>
-      ) : null}
-      {show("nib", f) ? <NibWorld f={f} /> : null}
-      {show("sol", f) ? <SolWorld f={f} /> : null}
-      {show("p9", f) ? <P9World f={f} /> : null}
-      {show("obs", f) ? (
-        <group position={OBS}>
-          <Stars count={1600} radius={90} frame={f} />
-          <ObservatoryV2 f={f} night={1} scan={track("scan", f, 0.3)} open={1} />
-        </group>
-      ) : null}
+      {show("space", f) ? <SpaceWorld f={f} /> : null}
+      {show("grid", f) ? <GridWorld f={f} /> : null}
+      {show("gps", f) ? <GpsWorld f={f} /> : null}
+      {show("sea", f) ? <SeaWorld f={f} /> : null}
+      {show("cmb", f) ? <CmbWorld f={f} /> : null}
       <MascotFromTracks />
     </>
   );
 };
-export { PLANETS };
