@@ -16,14 +16,14 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - A partir dos próximos vídeos: animação "curtir + inscrever" com cursor clicando, perto da metade do vídeo, em área que não atrapalhe (regra registrada na skill). Ajuste 17/11: mais lenta (~4,3 s), clique mais alto e sininho ao se inscrever (já implementado em planeta-x/video, base dos próximos).
 
 ## Temas anotados em 16/11/2026 (pedidos do Luan)
-- **Planeta X** — 1ª sugestão de inscrito do canal → EM PRODUÇÃO (17/11).
-- **Planeta do filme Interestelar** (Miller/Gargantua: tempo passa diferente perto do buraco negro). Fundo: tique-taque sincronizado do início ao fim (original nosso). A música-tema do filme (Hans Zimmer) é protegida por direitos → não usar.
+- ~~**Planeta X**~~ — ENTREGUE (17/11).
+- ~~**Planeta do filme Interestelar**~~ — ENTREGUE (17/11) como Filme × Realidade #1.
 - **Onda de calor:** 2026 já figura como o 2º ano mais quente da história (checar fonte: OMM/Copernicus).
 - **El Niño 2027** (checar previsões NOAA/INMET).
 - **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
 
 ## Quadro Filme × Realidade (ideia do usuário, 17/11/2026)
-"Isso funcionaria na vida real?" — #1 Interestelar (planeta de Miller). Ideias para os próximos (cada uma precisa de checagem de fatos antes do roteiro):
+"Isso funcionaria na vida real?" — #1 Interestelar (planeta de Miller) ENTREGUE 17/11. Ideias para os próximos (cada uma precisa de checagem de fatos antes do roteiro):
 - Jurassic Park — dá pra clonar dinossauro com DNA preso no âmbar?
 - Perdido em Marte — dá pra plantar batata no solo de Marte?
 - Armageddon — explodir um asteroide com bomba salvaria a Terra?
