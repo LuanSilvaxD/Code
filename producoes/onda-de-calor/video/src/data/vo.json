@@ -1,0 +1,931 @@
+{
+  "s1": {
+    "text": "Filme ou realidade? Em Interestelar, uma hora num planeta vale sete anos na Terra. Isso é possível?",
+    "seconds": 7.345,
+    "words": [
+      {
+        "text": "Filme",
+        "start": 0,
+        "end": 0.302
+      },
+      {
+        "text": "ou",
+        "start": 0.313,
+        "end": 0.384
+      },
+      {
+        "text": "realidade",
+        "start": 0.396,
+        "end": 1.092
+      },
+      {
+        "text": "Em",
+        "start": 1.902,
+        "end": 2.056
+      },
+      {
+        "text": "Interestelar",
+        "start": 2.068,
+        "end": 2.716
+      },
+      {
+        "text": "uma",
+        "start": 2.999,
+        "end": 3.164
+      },
+      {
+        "text": "hora",
+        "start": 3.176,
+        "end": 3.4
+      },
+      {
+        "text": "num",
+        "start": 3.412,
+        "end": 3.53
+      },
+      {
+        "text": "planeta",
+        "start": 3.542,
+        "end": 3.978
+      },
+      {
+        "text": "vale",
+        "start": 3.99,
+        "end": 4.237
+      },
+      {
+        "text": "sete",
+        "start": 4.249,
+        "end": 4.662
+      },
+      {
+        "text": "anos",
+        "start": 4.674,
+        "end": 4.945
+      },
+      {
+        "text": "na",
+        "start": 4.957,
+        "end": 5.098
+      },
+      {
+        "text": "Terra",
+        "start": 5.11,
+        "end": 5.476
+      },
+      {
+        "text": "Isso",
+        "start": 6.289,
+        "end": 6.584
+      },
+      {
+        "text": "é",
+        "start": 6.596,
+        "end": 6.619
+      },
+      {
+        "text": "possível",
+        "start": 6.631,
+        "end": 7.292
+      }
+    ]
+  },
+  "s2": {
+    "text": "Escuta esse tic-tac, a cada tic, passa quase um dia inteiro na Terra.",
+    "seconds": 4.157,
+    "words": [
+      {
+        "text": "Escuta",
+        "start": 0,
+        "end": 0.398
+      },
+      {
+        "text": "esse",
+        "start": 0.41,
+        "end": 0.622
+      },
+      {
+        "text": "tic-tac",
+        "start": 0.634,
+        "end": 1.212
+      },
+      {
+        "text": "a",
+        "start": 1.342,
+        "end": 1.424
+      },
+      {
+        "text": "cada",
+        "start": 1.436,
+        "end": 1.695
+      },
+      {
+        "text": "tic",
+        "start": 1.707,
+        "end": 2.061
+      },
+      {
+        "text": "passa",
+        "start": 2.25,
+        "end": 2.544
+      },
+      {
+        "text": "quase",
+        "start": 2.556,
+        "end": 2.898
+      },
+      {
+        "text": "um",
+        "start": 2.91,
+        "end": 3.004
+      },
+      {
+        "text": "dia",
+        "start": 3.016,
+        "end": 3.193
+      },
+      {
+        "text": "inteiro",
+        "start": 3.205,
+        "end": 3.57
+      },
+      {
+        "text": "na",
+        "start": 3.582,
+        "end": 3.712
+      },
+      {
+        "text": "Terra",
+        "start": 3.724,
+        "end": 4.078
+      }
+    ]
+  },
+  "s3": {
+    "text": "O segredo é Gargântua, um buraco negro gigante. Perto de uma gravidade enorme, o tempo passa mais devagar.",
+    "seconds": 6.798,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.052
+      },
+      {
+        "text": "segredo",
+        "start": 0.064,
+        "end": 0.5
+      },
+      {
+        "text": "é",
+        "start": 0.512,
+        "end": 0.559
+      },
+      {
+        "text": "Gargântua",
+        "start": 0.571,
+        "end": 1.149
+      },
+      {
+        "text": "um",
+        "start": 1.373,
+        "end": 1.479
+      },
+      {
+        "text": "buraco",
+        "start": 1.491,
+        "end": 1.927
+      },
+      {
+        "text": "negro",
+        "start": 1.939,
+        "end": 2.257
+      },
+      {
+        "text": "gigante",
+        "start": 2.269,
+        "end": 2.776
+      },
+      {
+        "text": "Perto",
+        "start": 3.587,
+        "end": 3.929
+      },
+      {
+        "text": "de",
+        "start": 3.941,
+        "end": 4.0
+      },
+      {
+        "text": "uma",
+        "start": 4.012,
+        "end": 4.118
+      },
+      {
+        "text": "gravidade",
+        "start": 4.13,
+        "end": 4.625
+      },
+      {
+        "text": "enorme",
+        "start": 4.637,
+        "end": 5.073
+      },
+      {
+        "text": "o",
+        "start": 5.191,
+        "end": 5.297
+      },
+      {
+        "text": "tempo",
+        "start": 5.309,
+        "end": 5.639
+      },
+      {
+        "text": "passa",
+        "start": 5.651,
+        "end": 5.957
+      },
+      {
+        "text": "mais",
+        "start": 5.969,
+        "end": 6.193
+      },
+      {
+        "text": "devagar",
+        "start": 6.205,
+        "end": 6.641
+      }
+    ]
+  },
+  "s4": {
+    "text": "Parece ficção, mas é Einstein. Os relógios dos satélites de GPS são corrigidos por causa disso, senão o mapa errava quilômetros por dia.",
+    "seconds": 9.068,
+    "words": [
+      {
+        "text": "Parece",
+        "start": 0,
+        "end": 0.362
+      },
+      {
+        "text": "ficção",
+        "start": 0.373,
+        "end": 0.869
+      },
+      {
+        "text": "mas",
+        "start": 1.128,
+        "end": 1.246
+      },
+      {
+        "text": "é",
+        "start": 1.258,
+        "end": 1.447
+      },
+      {
+        "text": "Einstein",
+        "start": 1.458,
+        "end": 1.942
+      },
+      {
+        "text": "Os",
+        "start": 2.753,
+        "end": 2.906
+      },
+      {
+        "text": "relógios",
+        "start": 2.918,
+        "end": 3.46
+      },
+      {
+        "text": "dos",
+        "start": 3.472,
+        "end": 3.649
+      },
+      {
+        "text": "satélites",
+        "start": 3.661,
+        "end": 4.227
+      },
+      {
+        "text": "de",
+        "start": 4.239,
+        "end": 4.309
+      },
+      {
+        "text": "GPS",
+        "start": 4.321,
+        "end": 4.923
+      },
+      {
+        "text": "são",
+        "start": 4.934,
+        "end": 5.123
+      },
+      {
+        "text": "corrigidos",
+        "start": 5.135,
+        "end": 5.713
+      },
+      {
+        "text": "por",
+        "start": 5.724,
+        "end": 5.866
+      },
+      {
+        "text": "causa",
+        "start": 5.878,
+        "end": 6.22
+      },
+      {
+        "text": "disso",
+        "start": 6.231,
+        "end": 6.585
+      },
+      {
+        "text": "senão",
+        "start": 6.88,
+        "end": 7.198
+      },
+      {
+        "text": "o",
+        "start": 7.21,
+        "end": 7.246
+      },
+      {
+        "text": "mapa",
+        "start": 7.257,
+        "end": 7.552
+      },
+      {
+        "text": "errava",
+        "start": 7.564,
+        "end": 7.871
+      },
+      {
+        "text": "quilômetros",
+        "start": 7.882,
+        "end": 8.472
+      },
+      {
+        "text": "por",
+        "start": 8.484,
+        "end": 8.661
+      },
+      {
+        "text": "dia",
+        "start": 8.673,
+        "end": 8.967
+      }
+    ]
+  },
+  "s5": {
+    "text": "Só que, pra chegar a sete anos por hora, o buraco negro teria que girar quase no limite, e o planeta, orbitar colado nele.",
+    "seconds": 7.588,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.219
+      },
+      {
+        "text": "que",
+        "start": 0.231,
+        "end": 0.49
+      },
+      {
+        "text": "pra",
+        "start": 0.738,
+        "end": 0.879
+      },
+      {
+        "text": "chegar",
+        "start": 0.891,
+        "end": 1.186
+      },
+      {
+        "text": "a",
+        "start": 1.198,
+        "end": 1.245
+      },
+      {
+        "text": "sete",
+        "start": 1.257,
+        "end": 1.634
+      },
+      {
+        "text": "anos",
+        "start": 1.646,
+        "end": 1.894
+      },
+      {
+        "text": "por",
+        "start": 1.905,
+        "end": 2.082
+      },
+      {
+        "text": "hora",
+        "start": 2.094,
+        "end": 2.342
+      },
+      {
+        "text": "o",
+        "start": 2.636,
+        "end": 2.707
+      },
+      {
+        "text": "buraco",
+        "start": 2.719,
+        "end": 3.132
+      },
+      {
+        "text": "negro",
+        "start": 3.144,
+        "end": 3.45
+      },
+      {
+        "text": "teria",
+        "start": 3.462,
+        "end": 3.721
+      },
+      {
+        "text": "que",
+        "start": 3.733,
+        "end": 3.816
+      },
+      {
+        "text": "girar",
+        "start": 3.827,
+        "end": 4.134
+      },
+      {
+        "text": "quase",
+        "start": 4.146,
+        "end": 4.511
+      },
+      {
+        "text": "no",
+        "start": 4.523,
+        "end": 4.582
+      },
+      {
+        "text": "limite",
+        "start": 4.594,
+        "end": 5.054
+      },
+      {
+        "text": "e",
+        "start": 5.396,
+        "end": 5.478
+      },
+      {
+        "text": "o",
+        "start": 5.49,
+        "end": 5.526
+      },
+      {
+        "text": "planeta",
+        "start": 5.537,
+        "end": 6.021
+      },
+      {
+        "text": "orbitar",
+        "start": 6.268,
+        "end": 6.717
+      },
+      {
+        "text": "colado",
+        "start": 6.728,
+        "end": 7.177
+      },
+      {
+        "text": "nele",
+        "start": 7.188,
+        "end": 7.495
+      }
+    ]
+  },
+  "s6": {
+    "text": "E as ondas gigantes? A gravidade do buraco negro puxa o oceano, o planeta balança, e surgem ondas do tamanho de montanhas.",
+    "seconds": 8.258,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.061
+      },
+      {
+        "text": "as",
+        "start": 0.073,
+        "end": 0.155
+      },
+      {
+        "text": "ondas",
+        "start": 0.167,
+        "end": 0.58
+      },
+      {
+        "text": "gigantes",
+        "start": 0.592,
+        "end": 1.229
+      },
+      {
+        "text": "A",
+        "start": 2.039,
+        "end": 2.134
+      },
+      {
+        "text": "gravidade",
+        "start": 2.146,
+        "end": 2.688
+      },
+      {
+        "text": "do",
+        "start": 2.7,
+        "end": 2.794
+      },
+      {
+        "text": "buraco",
+        "start": 2.806,
+        "end": 3.219
+      },
+      {
+        "text": "negro",
+        "start": 3.23,
+        "end": 3.561
+      },
+      {
+        "text": "puxa",
+        "start": 3.572,
+        "end": 3.844
+      },
+      {
+        "text": "o",
+        "start": 3.855,
+        "end": 3.867
+      },
+      {
+        "text": "oceano",
+        "start": 3.879,
+        "end": 4.363
+      },
+      {
+        "text": "o",
+        "start": 4.646,
+        "end": 4.74
+      },
+      {
+        "text": "planeta",
+        "start": 4.752,
+        "end": 5.212
+      },
+      {
+        "text": "balança",
+        "start": 5.223,
+        "end": 5.742
+      },
+      {
+        "text": "e",
+        "start": 6.049,
+        "end": 6.108
+      },
+      {
+        "text": "surgem",
+        "start": 6.12,
+        "end": 6.568
+      },
+      {
+        "text": "ondas",
+        "start": 6.58,
+        "end": 6.886
+      },
+      {
+        "text": "do",
+        "start": 6.898,
+        "end": 6.992
+      },
+      {
+        "text": "tamanho",
+        "start": 7.004,
+        "end": 7.405
+      },
+      {
+        "text": "de",
+        "start": 7.417,
+        "end": 7.488
+      },
+      {
+        "text": "montanhas",
+        "start": 7.499,
+        "end": 8.171
+      }
+    ]
+  },
+  "s7": {
+    "text": "Sem sol, o calor viria do brilho que sobrou do Big Bang, esquentado perto do buraco negro. Um estudo de 2020 fez essa conta.",
+    "seconds": 8.4,
+    "words": [
+      {
+        "text": "Sem",
+        "start": 0,
+        "end": 0.251
+      },
+      {
+        "text": "sol",
+        "start": 0.262,
+        "end": 0.593
+      },
+      {
+        "text": "o",
+        "start": 0.852,
+        "end": 0.923
+      },
+      {
+        "text": "calor",
+        "start": 0.935,
+        "end": 1.312
+      },
+      {
+        "text": "viria",
+        "start": 1.324,
+        "end": 1.583
+      },
+      {
+        "text": "do",
+        "start": 1.595,
+        "end": 1.701
+      },
+      {
+        "text": "brilho",
+        "start": 1.713,
+        "end": 2.055
+      },
+      {
+        "text": "que",
+        "start": 2.067,
+        "end": 2.161
+      },
+      {
+        "text": "sobrou",
+        "start": 2.173,
+        "end": 2.515
+      },
+      {
+        "text": "do",
+        "start": 2.527,
+        "end": 2.621
+      },
+      {
+        "text": "Big",
+        "start": 2.633,
+        "end": 2.857
+      },
+      {
+        "text": "Bang",
+        "start": 2.869,
+        "end": 3.234
+      },
+      {
+        "text": "esquentado",
+        "start": 3.482,
+        "end": 4.083
+      },
+      {
+        "text": "perto",
+        "start": 4.095,
+        "end": 4.401
+      },
+      {
+        "text": "do",
+        "start": 4.413,
+        "end": 4.496
+      },
+      {
+        "text": "buraco",
+        "start": 4.508,
+        "end": 4.92
+      },
+      {
+        "text": "negro",
+        "start": 4.932,
+        "end": 5.31
+      },
+      {
+        "text": "Um",
+        "start": 6.12,
+        "end": 6.262
+      },
+      {
+        "text": "estudo",
+        "start": 6.274,
+        "end": 6.651
+      },
+      {
+        "text": "de",
+        "start": 6.663,
+        "end": 6.757
+      },
+      {
+        "text": "2020",
+        "start": 6.769,
+        "end": 7.2
+      },
+      {
+        "text": "fez",
+        "start": 7.2,
+        "end": 7.63
+      },
+      {
+        "text": "essa",
+        "start": 7.642,
+        "end": 7.925
+      },
+      {
+        "text": "conta",
+        "start": 7.936,
+        "end": 8.326
+      }
+    ]
+  },
+  "s8": {
+    "text": "Veredito, funciona, com asterisco. A física permite, mas nunca acharam um planeta assim. Pronto, agora você sabe o que vale cada tic.",
+    "seconds": 9.901,
+    "words": [
+      {
+        "text": "Veredito",
+        "start": 0,
+        "end": 0.609
+      },
+      {
+        "text": "funciona",
+        "start": 0.939,
+        "end": 1.54
+      },
+      {
+        "text": "com",
+        "start": 1.811,
+        "end": 1.976
+      },
+      {
+        "text": "asterisco",
+        "start": 1.988,
+        "end": 2.601
+      },
+      {
+        "text": "A",
+        "start": 3.412,
+        "end": 3.542
+      },
+      {
+        "text": "física",
+        "start": 3.554,
+        "end": 3.967
+      },
+      {
+        "text": "permite",
+        "start": 3.978,
+        "end": 4.45
+      },
+      {
+        "text": "mas",
+        "start": 4.721,
+        "end": 4.922
+      },
+      {
+        "text": "nunca",
+        "start": 4.934,
+        "end": 5.228
+      },
+      {
+        "text": "acharam",
+        "start": 5.24,
+        "end": 5.594
+      },
+      {
+        "text": "um",
+        "start": 5.606,
+        "end": 5.676
+      },
+      {
+        "text": "planeta",
+        "start": 5.688,
+        "end": 6.101
+      },
+      {
+        "text": "assim",
+        "start": 6.113,
+        "end": 6.431
+      },
+      {
+        "text": "Pronto",
+        "start": 7.245,
+        "end": 7.634
+      },
+      {
+        "text": "agora",
+        "start": 7.882,
+        "end": 8.2
+      },
+      {
+        "text": "você",
+        "start": 8.212,
+        "end": 8.448
+      },
+      {
+        "text": "sabe",
+        "start": 8.459,
+        "end": 8.742
+      },
+      {
+        "text": "o",
+        "start": 8.754,
+        "end": 8.778
+      },
+      {
+        "text": "que",
+        "start": 8.79,
+        "end": 8.896
+      },
+      {
+        "text": "vale",
+        "start": 8.908,
+        "end": 9.167
+      },
+      {
+        "text": "cada",
+        "start": 9.179,
+        "end": 9.45
+      },
+      {
+        "text": "tic",
+        "start": 9.462,
+        "end": 9.804
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
