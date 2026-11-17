@@ -14,3 +14,10 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 
 ## Pendência de formato (16/11)
 - A partir dos próximos vídeos: animação "curtir + inscrever" com cursor clicando, perto da metade do vídeo, em área que não atrapalhe (regra registrada na skill).
+
+## Temas anotados em 16/11/2026 (pedidos do Luan)
+- **Planeta X** — 1ª sugestão de inscrito do canal → EM PRODUÇÃO (17/11).
+- **Planeta do filme Interestelar** (Miller/Gargantua: tempo passa diferente perto do buraco negro). Fundo: tique-taque sincronizado do início ao fim (original nosso). A música-tema do filme (Hans Zimmer) é protegida por direitos → não usar.
+- **Onda de calor:** 2026 já figura como o 2º ano mais quente da história (checar fonte: OMM/Copernicus).
+- **El Niño 2027** (checar previsões NOAA/INMET).
+- **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
