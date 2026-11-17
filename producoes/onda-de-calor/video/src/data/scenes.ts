@@ -153,7 +153,7 @@ export const scenes: ScenePlan[] = [
     ],
     badges: [
       { text: "UM DOS EL NIÑOS MAIS FORTES", variant: "warning", appearAt: W("s5", 5), disappearAt: W("s5", 16) },
-      { text: "VS. ANTES DAS FÁBRICAS (PRÉ-INDUSTRIAL)", variant: "info", appearAt: W("s5", 23) },
+      { text: "VS. ERA PRÉ-INDUSTRIAL", variant: "info", appearAt: W("s5", 23) },
     ],
     highlights: ["EL", "NIÑO", "FORTES", "OUTUBRO", "GRAU", "SETENTA", "CINCO", "FÁBRICAS"],
     captions: [cap("s5", 4, "E este El Niño é um dos mais fortes já vistos. Em outubro, a Terra ficou um grau e setenta e cinco acima da época antes das fábricas.")],
