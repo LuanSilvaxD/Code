@@ -33,3 +33,5 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - O Dia Depois de Amanhã — dá pra congelar o mundo em dias?
 
 - **E se o Sol sumisse agora?** — ENTREGUE 18/11 (VÍDEO-TESTE da abertura nova: sem fenda, gancho no frame 1, ~45 s). Comparar métricas com os anteriores; fazer mais 2 com a mesma abertura antes de concluir.
+
+- **Pterodáctilo no México? (Boato ou Verdade #5)** — ENTREGUE 18/11 (2º teste da abertura nova; assunto viral da semana no TikTok).

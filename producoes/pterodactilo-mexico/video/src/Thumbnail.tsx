@@ -32,11 +32,13 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
   return (
     <AbsoluteFill style={{ backgroundColor: BRAND.colors.umbra }}>
       <Background />
+      <AbsoluteFill style={{ transform: v ? "translateY(330px)" : undefined }}>
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
         <KolaLighting />
         <World />
       </ThreeCanvas>
+      </AbsoluteFill>
       <PostFx />
       <AbsoluteFill style={{ background: v ? "linear-gradient(180deg, rgba(11,8,18,0.88) 0%, rgba(11,8,18,0.55) 34%, rgba(0,0,0,0) 50%)" : "linear-gradient(90deg, rgba(11,8,18,0.9) 0%, rgba(11,8,18,0.45) 50%, rgba(0,0,0,0) 72%)" }} />
       {/* texto no terço superior: a base da capa fica sob a interface do TikTok/Shorts */}
