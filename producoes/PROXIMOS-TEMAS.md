@@ -31,3 +31,5 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - Procurando Nemo — peixe-palhaço muda de sexo?
 - Up — quantos balões levantariam uma casa?
 - O Dia Depois de Amanhã — dá pra congelar o mundo em dias?
+
+- **E se o Sol sumisse agora?** — ENTREGUE 18/11 (VÍDEO-TESTE da abertura nova: sem fenda, gancho no frame 1, ~45 s). Comparar métricas com os anteriores; fazer mais 2 com a mesma abertura antes de concluir.

@@ -110,7 +110,7 @@ export const scenes: ScenePlan[] = [
     badges: [{ text: "A LUZ LEVA 8 MIN 20 S", variant: "info", appearAt: W("s2", 2) }],
     highlights: ["TEMPO", "LUZ", "CHEGAR", "AQUI"],
     captions: [cap("s2", 1, "É o tempo que a luz dele leva pra chegar aqui.")],
-    audioCues: [narration("s2"), ...TICKS.map((t, i) => sfx("tick", t, 0.3 + i * 0.02)), sfx("power-down", BLACK - 3, 0.45)],
+    audioCues: [narration("s2"), ...TICKS.map((t, i) => sfx("tick", t, 0.3 + i * 0.02)), sfx("thud", BLACK, 0.4)],
   },
   {
     id: "s3", ...sc(2), voKey: "s3",
