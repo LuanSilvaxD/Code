@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 71.0; // 2130 frames (1:11 — meta 60–75 s; voz +6%)
+export const SECONDS = 66.2; // 1986 frames (1:06 — meta 60–75 s; voz +6%)
 export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,14 +21,14 @@ export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"] as const
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [9.6, 8.1, 9.8, 7.0, 8.3, 5.0, 9.9, 13.3];
+const PLANNED_SECONDS = [5.2, 8.8, 8.9, 5.1, 10.8, 7.9, 5.7, 13.8];
 /** A 1ª fala entra depois do whoosh de abertura. */
 const FIRST_VO = 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// viradas: "Quando esses ventos" e "No Brasil" ganham 0,55 s
-const GAPS: number[] = [0.5, 0.5, 0.45, 0.55, 0.4, 0.5, 0.55];
+// a reviravolta (s4→s5) ganha 0,7 s
+const GAPS: number[] = [0.5, 0.5, 0.5, 0.7, 0.5, 0.45, 0.6];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };
