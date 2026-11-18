@@ -81,14 +81,14 @@ export const useTrees = (n = 270) =>
   }, [n]);
 
 type MatP = { op: number; glow: number };
-const Leaf: React.FC<{ color: Color } & MatP> = ({ color, op, glow }) => {
-  const tr = op < 0.98;
-  return <meshStandardMaterial color={color} emissive={glow > 0.02 ? "#3aff7a" : "#000000"} emissiveIntensity={glow * 0.5} {...M} transparent={tr} opacity={op} depthWrite={!tr} />;
-};
-const Bark: React.FC<MatP & { color?: string }> = ({ op, color = "#5a3e26" }) => {
-  const tr = op < 0.98;
-  return <meshStandardMaterial color={color} {...M} transparent={tr} opacity={op} depthWrite={!tr} />;
-};
+// transparent SEMPRE true: trocar transparent no meio da animação não recompila o shader no render contínuo
+// (nos stills funciona, no vídeo não). Opacidade 1 + depthWrite garante o visual opaco normal.
+const Leaf: React.FC<{ color: Color } & MatP> = ({ color, op, glow }) => (
+  <meshStandardMaterial color={color} emissive={glow > 0.02 ? "#3aff7a" : "#000000"} emissiveIntensity={glow * 0.5} {...M} transparent opacity={op} depthWrite={op >= 0.98} />
+);
+const Bark: React.FC<MatP & { color?: string }> = ({ op, color = "#5a3e26" }) => (
+  <meshStandardMaterial color={color} {...M} transparent opacity={op} depthWrite={op >= 0.98} />
+);
 
 /** Árvore: 0 = copa larga (3 bolas), 1 = emergente gigante (copa em guarda-chuva), 2 = palmeira (açaí). op = opacidade (LiDAR). */
 const Tree: React.FC<{ t: TreeT; op: number; scanGlow: number }> = ({ t, op, scanGlow }) => {
@@ -509,7 +509,7 @@ export const RatanabaFake: React.FC<{ f: number; k?: number; crack?: number }> =
               <group key={t} position={[0, 0.15 + t * 0.3, 0]}>
                 <mesh castShadow>
                   <boxGeometry args={[w, 0.3, w]} />
-                  <meshStandardMaterial color="#ffcf3a" emissive="#ff9a1a" emissiveIntensity={0.25 + 0.12 * Math.sin(f / 6 + i + t)} metalness={0.75} roughness={0.25} flatShading transparent={cr > 0.01} opacity={1 - cr * 0.8} />
+                  <meshStandardMaterial color="#ffcf3a" emissive="#ff9a1a" emissiveIntensity={0.25 + 0.12 * Math.sin(f / 6 + i + t)} metalness={0.75} roughness={0.25} flatShading transparent opacity={1 - cr * 0.8} depthWrite={cr < 0.02} />
                 </mesh>
                 {/* friso brilhante */}
                 <mesh position={[0, 0.13, 0]}>
