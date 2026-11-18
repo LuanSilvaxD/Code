@@ -1,804 +1,558 @@
 {
   "s1": {
-    "text": "Boato ou verdade, existe uma cidade perdida escondida debaixo da Amazônia?",
-    "seconds": 4.279,
+    "text": "E se o Sol sumisse agora? Durante oito minutos, você nem ia perceber.",
+    "seconds": 4.986,
     "words": [
       {
-        "text": "Boato",
+        "text": "E",
         "start": 0,
-        "end": 0.42
+        "end": 0.073
       },
       {
-        "text": "ou",
-        "start": 0.432,
-        "end": 0.491
+        "text": "se",
+        "start": 0.085,
+        "end": 0.203
       },
       {
-        "text": "verdade",
-        "start": 0.503,
-        "end": 1.045
+        "text": "o",
+        "start": 0.214,
+        "end": 0.262
       },
       {
-        "text": "existe",
-        "start": 1.305,
-        "end": 1.729
+        "text": "Sol",
+        "start": 0.273,
+        "end": 0.509
       },
       {
-        "text": "uma",
-        "start": 1.741,
-        "end": 1.859
+        "text": "sumisse",
+        "start": 0.521,
+        "end": 0.957
       },
       {
-        "text": "cidade",
-        "start": 1.871,
-        "end": 2.271
+        "text": "agora",
+        "start": 0.969,
+        "end": 1.37
       },
       {
-        "text": "perdida",
-        "start": 2.283,
-        "end": 2.649
+        "text": "Durante",
+        "start": 2.181,
+        "end": 2.664
       },
       {
-        "text": "escondida",
-        "start": 2.661,
-        "end": 3.121
+        "text": "oito",
+        "start": 2.676,
+        "end": 2.9
       },
       {
-        "text": "debaixo",
-        "start": 3.132,
-        "end": 3.557
+        "text": "minutos",
+        "start": 2.912,
+        "end": 3.396
       },
       {
-        "text": "da",
-        "start": 3.569,
-        "end": 3.628
+        "text": "você",
+        "start": 3.584,
+        "end": 3.867
       },
       {
-        "text": "Amazônia",
-        "start": 3.639,
-        "end": 4.182
+        "text": "nem",
+        "start": 3.879,
+        "end": 4.127
+      },
+      {
+        "text": "ia",
+        "start": 4.138,
+        "end": 4.292
+      },
+      {
+        "text": "perceber",
+        "start": 4.304,
+        "end": 4.822
       }
     ]
   },
   "s2": {
-    "text": "Em 2022, viralizou Ratanabá, uma cidade de 450 milhões de anos, cheia de pirâmides, que seria a capital do mundo.",
-    "seconds": 8.334,
+    "text": "É o tempo que a luz dele leva pra chegar aqui.",
+    "seconds": 2.335,
     "words": [
       {
-        "text": "Em",
+        "text": "É",
         "start": 0,
-        "end": 0.502
+        "end": 0.072
       },
       {
-        "text": "2022",
-        "start": 0.502,
-        "end": 1.056
+        "text": "o",
+        "start": 0.084,
+        "end": 0.178
       },
       {
-        "text": "viralizou",
-        "start": 1.28,
-        "end": 1.834
-      },
-      {
-        "text": "Ratanabá",
-        "start": 1.846,
-        "end": 2.376
-      },
-      {
-        "text": "uma",
-        "start": 2.718,
-        "end": 2.86
-      },
-      {
-        "text": "cidade",
-        "start": 2.872,
-        "end": 3.308
-      },
-      {
-        "text": "de",
-        "start": 3.32,
-        "end": 3.391
-      },
-      {
-        "text": "450",
-        "start": 3.402,
-        "end": 4.175
-      },
-      {
-        "text": "milhões",
-        "start": 4.175,
-        "end": 4.947
-      },
-      {
-        "text": "de",
-        "start": 4.959,
-        "end": 5.053
-      },
-      {
-        "text": "anos",
-        "start": 5.065,
-        "end": 5.407
-      },
-      {
-        "text": "cheia",
-        "start": 5.608,
-        "end": 5.914
-      },
-      {
-        "text": "de",
-        "start": 5.926,
-        "end": 6.02
-      },
-      {
-        "text": "pirâmides",
-        "start": 6.032,
-        "end": 6.622
+        "text": "tempo",
+        "start": 0.19,
+        "end": 0.567
       },
       {
         "text": "que",
-        "start": 6.858,
-        "end": 6.975
-      },
-      {
-        "text": "seria",
-        "start": 6.987,
-        "end": 7.294
+        "start": 0.579,
+        "end": 0.661
       },
       {
         "text": "a",
-        "start": 7.306,
-        "end": 7.329
+        "start": 0.673,
+        "end": 0.709
       },
       {
-        "text": "capital",
-        "start": 7.341,
-        "end": 7.801
+        "text": "luz",
+        "start": 0.72,
+        "end": 0.944
       },
       {
-        "text": "do",
-        "start": 7.813,
-        "end": 7.895
+        "text": "dele",
+        "start": 0.956,
+        "end": 1.18
       },
       {
-        "text": "mundo",
-        "start": 7.907,
-        "end": 8.249
+        "text": "leva",
+        "start": 1.192,
+        "end": 1.487
+      },
+      {
+        "text": "pra",
+        "start": 1.499,
+        "end": 1.617
+      },
+      {
+        "text": "chegar",
+        "start": 1.629,
+        "end": 1.935
+      },
+      {
+        "text": "aqui",
+        "start": 1.947,
+        "end": 2.242
       }
     ]
   },
   "s3": {
-    "text": "Só que, há 450 milhões de anos, nem os dinossauros existiam. E o ser humano só apareceu há uns 300 mil anos.",
-    "seconds": 8.355,
+    "text": "Depois disso, escuridão total, e a Terra sai da órbita em linha reta.",
+    "seconds": 4.273,
     "words": [
       {
-        "text": "Só",
+        "text": "Depois",
         "start": 0,
-        "end": 0.229
+        "end": 0.34
       },
       {
-        "text": "que",
-        "start": 0.241,
-        "end": 0.524
+        "text": "disso",
+        "start": 0.352,
+        "end": 0.729
       },
       {
-        "text": "há",
-        "start": 0.712,
-        "end": 0.807
+        "text": "escuridão",
+        "start": 0.918,
+        "end": 1.425
       },
       {
-        "text": "450",
-        "start": 0.819,
-        "end": 1.574
+        "text": "total",
+        "start": 1.437,
+        "end": 1.885
       },
       {
-        "text": "milhões",
-        "start": 1.574,
-        "end": 2.328
+        "text": "e",
+        "start": 2.156,
+        "end": 2.251
       },
       {
-        "text": "de",
-        "start": 2.34,
-        "end": 2.434
+        "text": "a",
+        "start": 2.263,
+        "end": 2.357
       },
       {
-        "text": "anos",
-        "start": 2.446,
-        "end": 2.788
+        "text": "Terra",
+        "start": 2.369,
+        "end": 2.675
       },
       {
-        "text": "nem",
-        "start": 2.965,
-        "end": 3.201
+        "text": "sai",
+        "start": 2.687,
+        "end": 2.923
       },
       {
-        "text": "os",
-        "start": 3.212,
-        "end": 3.319
+        "text": "da",
+        "start": 2.935,
+        "end": 3.029
       },
       {
-        "text": "dinossauros",
-        "start": 3.33,
-        "end": 3.861
+        "text": "órbita",
+        "start": 3.041,
+        "end": 3.442
       },
       {
-        "text": "existiam",
-        "start": 3.873,
-        "end": 4.462
+        "text": "em",
+        "start": 3.454,
+        "end": 3.536
       },
       {
-        "text": "E",
-        "start": 5.273,
-        "end": 5.379
+        "text": "linha",
+        "start": 3.548,
+        "end": 3.807
       },
       {
-        "text": "o",
-        "start": 5.391,
-        "end": 5.438
-      },
-      {
-        "text": "ser",
-        "start": 5.45,
-        "end": 5.639
-      },
-      {
-        "text": "humano",
-        "start": 5.651,
-        "end": 6.004
-      },
-      {
-        "text": "só",
-        "start": 6.016,
-        "end": 6.205
-      },
-      {
-        "text": "apareceu",
-        "start": 6.217,
-        "end": 6.747
-      },
-      {
-        "text": "há",
-        "start": 6.759,
-        "end": 6.806
-      },
-      {
-        "text": "uns",
-        "start": 6.818,
-        "end": 6.995
-      },
-      {
-        "text": "300",
-        "start": 7.007,
-        "end": 7.443
-      },
-      {
-        "text": "mil",
-        "start": 7.443,
-        "end": 7.879
-      },
-      {
-        "text": "anos",
-        "start": 7.891,
-        "end": 8.269
+        "text": "reta",
+        "start": 3.819,
+        "end": 4.196
       }
     ]
   },
   "s4": {
-    "text": "Não existe nenhuma prova, e os arqueólogos são claros, Ratanabá é boato.",
-    "seconds": 4.423,
+    "text": "As plantas param a fotossíntese. Em uma semana, o planeta inteiro fica abaixo de zero.",
+    "seconds": 5.599,
     "words": [
       {
-        "text": "Não",
+        "text": "As",
         "start": 0,
-        "end": 0.219
+        "end": 0.173
       },
       {
-        "text": "existe",
-        "start": 0.231,
-        "end": 0.62
+        "text": "plantas",
+        "start": 0.185,
+        "end": 0.657
       },
       {
-        "text": "nenhuma",
-        "start": 0.632,
-        "end": 0.962
+        "text": "param",
+        "start": 0.669,
+        "end": 0.881
       },
       {
-        "text": "prova",
-        "start": 0.974,
-        "end": 1.363
+        "text": "a",
+        "start": 0.893,
+        "end": 0.94
       },
       {
-        "text": "e",
-        "start": 1.623,
-        "end": 1.705
+        "text": "fotossíntese",
+        "start": 0.952,
+        "end": 1.753
       },
       {
-        "text": "os",
-        "start": 1.717,
-        "end": 1.752
+        "text": "Em",
+        "start": 2.564,
+        "end": 2.694
       },
       {
-        "text": "arqueólogos",
-        "start": 1.764,
-        "end": 2.389
+        "text": "uma",
+        "start": 2.706,
+        "end": 2.883
       },
       {
-        "text": "são",
-        "start": 2.401,
-        "end": 2.566
+        "text": "semana",
+        "start": 2.894,
+        "end": 3.343
       },
       {
-        "text": "claros",
-        "start": 2.578,
-        "end": 3.05
+        "text": "o",
+        "start": 3.567,
+        "end": 3.649
       },
       {
-        "text": "Ratanabá",
-        "start": 3.238,
-        "end": 3.757
+        "text": "planeta",
+        "start": 3.661,
+        "end": 4.062
       },
       {
-        "text": "é",
-        "start": 3.769,
-        "end": 3.851
+        "text": "inteiro",
+        "start": 4.074,
+        "end": 4.416
       },
       {
-        "text": "boato",
-        "start": 3.863,
-        "end": 4.335
+        "text": "fica",
+        "start": 4.427,
+        "end": 4.64
+      },
+      {
+        "text": "abaixo",
+        "start": 4.652,
+        "end": 5.017
+      },
+      {
+        "text": "de",
+        "start": 5.029,
+        "end": 5.123
+      },
+      {
+        "text": "zero",
+        "start": 5.135,
+        "end": 5.489
       }
     ]
   },
   "s5": {
-    "text": "Mas aí vem a reviravolta, cidades antigas na Amazônia existem, sim. Quem achou foi um laser disparado de avião, o LiDAR, que enxerga o chão por baixo das árvores.",
-    "seconds": 10.282,
+    "text": "Em um ano, a média chega a setenta e três graus negativos, e os oceanos congelam por cima.",
+    "seconds": 5.004,
     "words": [
       {
-        "text": "Mas",
+        "text": "Em",
         "start": 0,
-        "end": 0.139
-      },
-      {
-        "text": "aí",
-        "start": 0.151,
-        "end": 0.445
-      },
-      {
-        "text": "vem",
-        "start": 0.457,
-        "end": 0.646
-      },
-      {
-        "text": "a",
-        "start": 0.658,
-        "end": 0.693
-      },
-      {
-        "text": "reviravolta",
-        "start": 0.705,
-        "end": 1.401
-      },
-      {
-        "text": "cidades",
-        "start": 1.66,
-        "end": 2.061
-      },
-      {
-        "text": "antigas",
-        "start": 2.073,
-        "end": 2.592
-      },
-      {
-        "text": "na",
-        "start": 2.603,
-        "end": 2.686
-      },
-      {
-        "text": "Amazônia",
-        "start": 2.698,
-        "end": 3.134
-      },
-      {
-        "text": "existem",
-        "start": 3.146,
-        "end": 3.594
-      },
-      {
-        "text": "sim",
-        "start": 3.795,
-        "end": 4.077
-      },
-      {
-        "text": "Quem",
-        "start": 4.888,
-        "end": 5.101
-      },
-      {
-        "text": "achou",
-        "start": 5.112,
-        "end": 5.478
-      },
-      {
-        "text": "foi",
-        "start": 5.49,
-        "end": 5.643
+        "end": 0.066
       },
       {
         "text": "um",
-        "start": 5.655,
-        "end": 5.749
+        "start": 0.078,
+        "end": 0.231
       },
       {
-        "text": "laser",
-        "start": 5.761,
-        "end": 6.056
+        "text": "ano",
+        "start": 0.243,
+        "end": 0.467
       },
       {
-        "text": "disparado",
-        "start": 6.068,
-        "end": 6.669
+        "text": "a",
+        "start": 0.715,
+        "end": 0.785
       },
       {
-        "text": "de",
-        "start": 6.681,
-        "end": 6.752
+        "text": "média",
+        "start": 0.797,
+        "end": 1.104
       },
       {
-        "text": "avião",
-        "start": 6.763,
-        "end": 7.129
+        "text": "chega",
+        "start": 1.116,
+        "end": 1.363
       },
       {
-        "text": "o",
-        "start": 7.388,
-        "end": 7.447
+        "text": "a",
+        "start": 1.375,
+        "end": 1.399
       },
       {
-        "text": "LiDAR",
-        "start": 7.459,
-        "end": 7.825
+        "text": "setenta",
+        "start": 1.41,
+        "end": 1.776
       },
       {
-        "text": "que",
-        "start": 8.049,
-        "end": 8.143
+        "text": "e",
+        "start": 1.788,
+        "end": 1.823
       },
       {
-        "text": "enxerga",
-        "start": 8.155,
-        "end": 8.579
+        "text": "três",
+        "start": 1.835,
+        "end": 2.047
       },
       {
-        "text": "o",
-        "start": 8.591,
-        "end": 8.627
+        "text": "graus",
+        "start": 2.059,
+        "end": 2.283
       },
       {
-        "text": "chão",
-        "start": 8.638,
-        "end": 8.91
+        "text": "negativos",
+        "start": 2.295,
+        "end": 2.932
+      },
+      {
+        "text": "e",
+        "start": 3.179,
+        "end": 3.238
+      },
+      {
+        "text": "os",
+        "start": 3.25,
+        "end": 3.297
+      },
+      {
+        "text": "oceanos",
+        "start": 3.309,
+        "end": 3.875
+      },
+      {
+        "text": "congelam",
+        "start": 3.887,
+        "end": 4.37
       },
       {
         "text": "por",
-        "start": 8.921,
-        "end": 9.086
+        "start": 4.382,
+        "end": 4.524
       },
       {
-        "text": "baixo",
-        "start": 9.098,
-        "end": 9.476
-      },
-      {
-        "text": "das",
-        "start": 9.487,
-        "end": 9.594
-      },
-      {
-        "text": "árvores",
-        "start": 9.605,
-        "end": 10.195
+        "text": "cima",
+        "start": 4.535,
+        "end": 4.913
       }
     ]
   },
   "s6": {
-    "text": "No Equador, ele revelou mais de seis mil plataformas de terra, ligadas por estradas retas, com cerca de 2.500 anos.",
-    "seconds": 7.446,
+    "text": "Mas lá no fundo, perto das fontes quentes do fundo do mar, a vida ainda pode resistir.",
+    "seconds": 5.068,
     "words": [
       {
-        "text": "No",
+        "text": "Mas",
         "start": 0,
-        "end": 0.113
+        "end": 0.231
       },
       {
-        "text": "Equador",
-        "start": 0.125,
-        "end": 0.621
+        "text": "lá",
+        "start": 0.243,
+        "end": 0.396
       },
       {
-        "text": "ele",
-        "start": 0.88,
-        "end": 0.986
+        "text": "no",
+        "start": 0.408,
+        "end": 0.491
       },
       {
-        "text": "revelou",
-        "start": 0.998,
-        "end": 1.399
+        "text": "fundo",
+        "start": 0.502,
+        "end": 0.868
       },
       {
-        "text": "mais",
-        "start": 1.411,
-        "end": 1.694
+        "text": "perto",
+        "start": 1.116,
+        "end": 1.41
       },
       {
-        "text": "de",
-        "start": 1.705,
-        "end": 1.812
+        "text": "das",
+        "start": 1.422,
+        "end": 1.599
       },
       {
-        "text": "seis",
-        "start": 1.823,
-        "end": 2.106
+        "text": "fontes",
+        "start": 1.611,
+        "end": 2.035
       },
       {
-        "text": "mil",
-        "start": 2.118,
-        "end": 2.271
+        "text": "quentes",
+        "start": 2.047,
+        "end": 2.389
       },
       {
-        "text": "plataformas",
-        "start": 2.283,
-        "end": 2.896
+        "text": "do",
+        "start": 2.401,
+        "end": 2.507
       },
       {
-        "text": "de",
-        "start": 2.908,
-        "end": 3.026
+        "text": "fundo",
+        "start": 2.519,
+        "end": 2.778
       },
       {
-        "text": "terra",
-        "start": 3.038,
-        "end": 3.345
+        "text": "do",
+        "start": 2.79,
+        "end": 2.884
       },
       {
-        "text": "ligadas",
-        "start": 3.58,
-        "end": 4.052
+        "text": "mar",
+        "start": 2.896,
+        "end": 3.132
       },
       {
-        "text": "por",
-        "start": 4.064,
-        "end": 4.205
+        "text": "a",
+        "start": 3.462,
+        "end": 3.557
       },
       {
-        "text": "estradas",
-        "start": 4.217,
-        "end": 4.642
+        "text": "vida",
+        "start": 3.568,
+        "end": 3.792
       },
       {
-        "text": "retas",
-        "start": 4.654,
-        "end": 5.102
+        "text": "ainda",
+        "start": 3.804,
+        "end": 4.099
       },
       {
-        "text": "com",
-        "start": 5.326,
-        "end": 5.503
+        "text": "pode",
+        "start": 4.111,
+        "end": 4.382
       },
       {
-        "text": "cerca",
-        "start": 5.514,
-        "end": 5.845
-      },
-      {
-        "text": "de",
-        "start": 5.856,
-        "end": 5.951
-      },
-      {
-        "text": "2.500",
-        "start": 5.963,
-        "end": 6.859
-      },
-      {
-        "text": "anos",
-        "start": 6.871,
-        "end": 7.366
+        "text": "resistir",
+        "start": 4.394,
+        "end": 4.925
       }
     ]
   },
   "s7": {
-    "text": "E na Bolívia, apareceram pirâmides de terra de até 22 metros, com canais e represas.",
-    "seconds": 5.075,
-    "words": [
-      {
-        "text": "E",
-        "start": 0,
-        "end": 0.041
-      },
-      {
-        "text": "na",
-        "start": 0.053,
-        "end": 0.148
-      },
-      {
-        "text": "Bolívia",
-        "start": 0.159,
-        "end": 0.666
-      },
-      {
-        "text": "apareceram",
-        "start": 0.867,
-        "end": 1.398
-      },
-      {
-        "text": "pirâmides",
-        "start": 1.409,
-        "end": 1.846
-      },
-      {
-        "text": "de",
-        "start": 1.858,
-        "end": 1.975
-      },
-      {
-        "text": "terra",
-        "start": 1.987,
-        "end": 2.27
-      },
-      {
-        "text": "de",
-        "start": 2.282,
-        "end": 2.353
-      },
-      {
-        "text": "até",
-        "start": 2.365,
-        "end": 2.6
-      },
-      {
-        "text": "22",
-        "start": 2.612,
-        "end": 3.066
-      },
-      {
-        "text": "metros",
-        "start": 3.066,
-        "end": 3.52
-      },
-      {
-        "text": "com",
-        "start": 3.756,
-        "end": 3.898
-      },
-      {
-        "text": "canais",
-        "start": 3.909,
-        "end": 4.24
-      },
-      {
-        "text": "e",
-        "start": 4.251,
-        "end": 4.334
-      },
-      {
-        "text": "represas",
-        "start": 4.346,
-        "end": 4.959
-      }
-    ]
-  },
-  "s8": {
-    "text": "Pronto, agora você sabe. Ratanabá é boato, mas a Amazônia já foi casa de cidades enormes, e o laser continua achando mais.",
-    "seconds": 8.168,
+    "text": "Pronto: agora você sabe. Sem o Sol, a gente teria oito minutos. Depois, só o escuro.",
+    "seconds": 7.331,
     "words": [
       {
         "text": "Pronto",
         "start": 0,
-        "end": 0.327
+        "end": 0.336
       },
       {
         "text": "agora",
-        "start": 0.587,
-        "end": 0.917
+        "start": 0.56,
+        "end": 0.914
       },
       {
         "text": "você",
-        "start": 0.929,
-        "end": 1.153
+        "start": 0.926,
+        "end": 1.162
       },
       {
         "text": "sabe",
-        "start": 1.165,
-        "end": 1.577
+        "start": 1.173,
+        "end": 1.598
       },
       {
-        "text": "Ratanabá",
-        "start": 2.388,
-        "end": 2.883
-      },
-      {
-        "text": "é",
-        "start": 2.895,
-        "end": 2.99
-      },
-      {
-        "text": "boato",
-        "start": 3.001,
-        "end": 3.414
-      },
-      {
-        "text": "mas",
-        "start": 3.685,
-        "end": 3.791
-      },
-      {
-        "text": "a",
-        "start": 3.803,
-        "end": 3.921
-      },
-      {
-        "text": "Amazônia",
-        "start": 3.933,
-        "end": 4.428
-      },
-      {
-        "text": "já",
-        "start": 4.44,
-        "end": 4.558
-      },
-      {
-        "text": "foi",
-        "start": 4.57,
-        "end": 4.747
-      },
-      {
-        "text": "casa",
-        "start": 4.758,
-        "end": 5.089
-      },
-      {
-        "text": "de",
-        "start": 5.1,
-        "end": 5.183
-      },
-      {
-        "text": "cidades",
-        "start": 5.195,
-        "end": 5.56
-      },
-      {
-        "text": "enormes",
-        "start": 5.572,
-        "end": 6.103
-      },
-      {
-        "text": "e",
-        "start": 6.362,
-        "end": 6.433
+        "text": "Sem",
+        "start": 2.409,
+        "end": 2.727
       },
       {
         "text": "o",
-        "start": 6.445,
-        "end": 6.48
+        "start": 2.739,
+        "end": 2.786
       },
       {
-        "text": "laser",
-        "start": 6.492,
-        "end": 6.822
+        "text": "Sol",
+        "start": 2.798,
+        "end": 3.152
       },
       {
-        "text": "continua",
-        "start": 6.834,
-        "end": 7.317
+        "text": "a",
+        "start": 3.246,
+        "end": 3.317
       },
       {
-        "text": "achando",
-        "start": 7.329,
-        "end": 7.671
+        "text": "gente",
+        "start": 3.329,
+        "end": 3.635
       },
       {
-        "text": "mais",
-        "start": 7.683,
-        "end": 8.096
+        "text": "teria",
+        "start": 3.647,
+        "end": 3.93
+      },
+      {
+        "text": "oito",
+        "start": 3.942,
+        "end": 4.237
+      },
+      {
+        "text": "minutos",
+        "start": 4.248,
+        "end": 4.791
+      },
+      {
+        "text": "Depois",
+        "start": 5.604,
+        "end": 6.253
+      },
+      {
+        "text": "só",
+        "start": 6.43,
+        "end": 6.666
+      },
+      {
+        "text": "o",
+        "start": 6.678,
+        "end": 6.76
+      },
+      {
+        "text": "escuro",
+        "start": 6.772,
+        "end": 7.232
       }
     ]
   },

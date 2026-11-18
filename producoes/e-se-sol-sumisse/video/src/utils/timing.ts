@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 66.2; // 1986 frames (1:06 — meta 60–75 s; voz +6%)
+export const SECONDS = 44.7; // 1341 frames (VÍDEO-TESTE ~45 s, sem abertura da fenda; voz +6%)
 export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -17,18 +17,18 @@ export const f = (seconds: number) => Math.round(seconds * FPS);
 export const s = (seconds: number) => Math.round(seconds * FPS);
 
 /** Uma fala por cena, na ordem das cenas. */
-export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"] as const;
+export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [5.2, 8.8, 8.9, 5.1, 10.8, 7.9, 5.7, 13.8];
-/** A 1ª fala entra depois do whoosh de abertura. */
-const FIRST_VO = 0.45;
+const PLANNED_SECONDS = [5.4, 3.6, 4.8, 6.1, 5.6, 5.6, 13.6];
+/** Sem abertura da fenda (teste): a 1ª fala entra quase no frame 1. */
+const FIRST_VO = 0.2;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// a reviravolta (s4→s5) ganha 0,7 s
-const GAPS: number[] = [0.5, 0.5, 0.5, 0.7, 0.5, 0.45, 0.6];
+// s2→s3 = 1,15 s: o momento de escuro e silêncio (0,8 s) quando a última luz chega
+const GAPS: number[] = [0.45, 1.15, 0.55, 0.5, 0.55, 0.55];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

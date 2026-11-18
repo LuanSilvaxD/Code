@@ -1,6 +1,6 @@
 import { Audio } from "@remotion/media";
 import { Sequence, staticFile } from "remotion";
-import { scenes } from "../data/scenes";
+import { scenes, track } from "../data/scenes";
 import { CTA_OFFSET, CTA_SECONDS, DURATION, f, HAS_CTA, OUTRO_SECONDS, VO } from "../utils/timing";
 
 // Áudio: narração (prioridade), efeitos de cada cena e trilha instrumental discreta.
@@ -28,7 +28,9 @@ const musicVolume = (frame: number) => {
     level = Math.min(level, MUSIC.base - (MUSIC.base - seg.floor) * d);
   }
   const fadeOut = Math.min(1, Math.max(0, (DURATION - frame) / 24));
-  return level * fadeOut;
+  // momento de silêncio (a última luz chega): music.mute 0..1
+  const mute = 1 - Math.min(1, Math.max(0, track("music.mute", frame)));
+  return level * fadeOut * mute;
 };
 
 /** Sons fixos da marca (scripts/sfx.py gera fenda-open/fenda-close). Mude para false se não gerar. */
@@ -38,7 +40,6 @@ export const Soundtrack: React.FC = () => (
   <>
     {BRAND_SFX ? (
       <>
-        <Audio name="Marca · fenda abre" src={staticFile("audio/sfx/fenda-open.wav")} volume={0.3} />
         <Sequence name="Marca · fenda fecha" from={DURATION - f(OUTRO_SECONDS)} layout="none">
           <Audio src={staticFile("audio/sfx/fenda-close.wav")} volume={0.34} />
         </Sequence>

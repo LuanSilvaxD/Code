@@ -3,14 +3,14 @@ import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig } from "remotio
 import { Soundtrack } from "./audio/Soundtrack";
 import { AnimatedCaptions } from "./components/AnimatedCaptions";
 import { Background } from "./components/Background";
-import { BrandIntro, BrandOutro } from "./components/Brand";
+import { BrandOutro } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
 import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
 import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { AMZ_MODULES } from "./scenes/AmzScenes";
+import { SUN_MODULES, SunBug, SunGlobal2D } from "./scenes/SunScenes";
 import { KolaLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
@@ -19,7 +19,7 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = AMZ_MODULES;
+const MODULES: Record<string, SceneModule> = SUN_MODULES;
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -61,12 +61,13 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
+      <SunGlobal2D />
       <PostFx />
       <AnimatedCaptions />
       <ProgressBar />
       <FadeOut />
-      {/* identidade Fenda Umbra: abertura (fenda abre) e encerramento (fenda fecha + marca + chamada) */}
-      <BrandIntro />
+      {/* TESTE: sem abertura da fenda; selo pequeno no canto o vídeo todo + encerramento da marca */}
+      <SunBug />
       <BrandOutro />
       <Soundtrack />
     </AbsoluteFill>
