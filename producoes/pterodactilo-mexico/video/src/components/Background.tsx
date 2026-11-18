@@ -27,9 +27,8 @@ export const Background: React.FC = () => {
         <AbsoluteFill style={{ background: `linear-gradient(180deg, ${umbra} 0%, ${tint} 55%, ${umbra} 100%)` }} />
         <AbsoluteFill style={{ background: `radial-gradient(ellipse 75% 34% at ${hx}% 52%, ${BACKDROP.halo}55 0%, ${BACKDROP.halo}14 45%, rgba(0,0,0,0) 75%)` }} />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse 95% 70% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45) 100%)" }} />
-        {/* Sol presente: brilho quente no alto; sem Sol (bg.dark): o estúdio quase apaga */}
-        <AbsoluteFill style={{ opacity: clamp(track("sun.k", frame, 1), 0, 1) * (1 - sea), background: "radial-gradient(circle at 25% 18%, rgba(255,170,60,0.35) 0%, rgba(255,120,30,0.12) 30%, rgba(0,0,0,0) 60%)" }} />
-        <AbsoluteFill style={{ opacity: 0.6 * clamp(track("bg.dark", frame), 0, 1), background: "#05040a" }} />
+        {/* noite em Juárez (bg.dark): céu noturno azulado */}
+        <AbsoluteFill style={{ opacity: clamp(track("bg.dark", frame), 0, 1), background: "linear-gradient(180deg,#070a1e 0%,#151a3a 55%,#2a2246 100%)" }} />
       </AbsoluteFill>
     );
   }

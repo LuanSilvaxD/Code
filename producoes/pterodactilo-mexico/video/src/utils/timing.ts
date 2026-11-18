@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 44.7; // 1341 frames (VÍDEO-TESTE ~45 s, sem abertura da fenda; voz +6%)
+export const SECONDS = 50.9; // 1527 frames (Boato ou Verdade #5, abertura nova; voz +6%)
 export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,14 +21,13 @@ export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [5.4, 3.6, 4.8, 6.1, 5.6, 5.6, 13.6];
+const PLANNED_SECONDS = [4.5, 5.9, 6.1, 7.0, 6.6, 6.9, 13.9];
 /** Sem abertura da fenda (teste): a 1ª fala entra quase no frame 1. */
 const FIRST_VO = 0.2;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-// s2→s3 = 1,15 s: o momento de escuro e silêncio (0,8 s) quando a última luz chega
-const GAPS: number[] = [0.45, 1.15, 0.55, 0.5, 0.55, 0.55];
+const GAPS: number[] = [0.5, 0.5, 0.5, 0.5, 0.55, 0.5];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

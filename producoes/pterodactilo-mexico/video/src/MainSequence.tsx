@@ -10,7 +10,7 @@ import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { SUN_MODULES, SunBug, SunGlobal2D } from "./scenes/SunScenes";
+import { PTM_MODULES, PtmBug, PtmGlobal2D } from "./scenes/PtmScenes";
 import { KolaLighting } from "./components/World";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA } from "./theme";
@@ -19,7 +19,7 @@ import { CAMERA } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = SUN_MODULES;
+const MODULES: Record<string, SceneModule> = PTM_MODULES;
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -61,13 +61,13 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
-      <SunGlobal2D />
+      <PtmGlobal2D />
       <PostFx />
       <AnimatedCaptions />
       <ProgressBar />
       <FadeOut />
       {/* TESTE: sem abertura da fenda; selo pequeno no canto o vídeo todo + encerramento da marca */}
-      <SunBug />
+      <PtmBug />
       <BrandOutro />
       <Soundtrack />
     </AbsoluteFill>

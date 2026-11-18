@@ -1,1 +1,715 @@
-{}
+{
+  "s1": {
+    "text": "Boato ou verdade: um pterodáctilo foi filmado voando no México?",
+    "seconds": 3.797,
+    "words": [
+      {
+        "text": "Boato",
+        "start": 0,
+        "end": 0.442
+      },
+      {
+        "text": "ou",
+        "start": 0.453,
+        "end": 0.512
+      },
+      {
+        "text": "verdade",
+        "start": 0.524,
+        "end": 1.078
+      },
+      {
+        "text": "um",
+        "start": 1.361,
+        "end": 1.468
+      },
+      {
+        "text": "pterodáctilo",
+        "start": 1.479,
+        "end": 2.152
+      },
+      {
+        "text": "foi",
+        "start": 2.163,
+        "end": 2.305
+      },
+      {
+        "text": "filmado",
+        "start": 2.317,
+        "end": 2.765
+      },
+      {
+        "text": "voando",
+        "start": 2.777,
+        "end": 3.13
+      },
+      {
+        "text": "no",
+        "start": 3.142,
+        "end": 3.225
+      },
+      {
+        "text": "México",
+        "start": 3.236,
+        "end": 3.708
+      }
+    ]
+  },
+  "s2": {
+    "text": "O vídeo viral é de uma câmera de segurança em Ciudad Juárez, à noite, e dura um segundo e meio.",
+    "seconds": 5.394,
+    "words": [
+      {
+        "text": "O",
+        "start": 0,
+        "end": 0.066
+      },
+      {
+        "text": "vídeo",
+        "start": 0.078,
+        "end": 0.361
+      },
+      {
+        "text": "viral",
+        "start": 0.373,
+        "end": 0.715
+      },
+      {
+        "text": "é",
+        "start": 0.726,
+        "end": 0.785
+      },
+      {
+        "text": "de",
+        "start": 0.797,
+        "end": 0.856
+      },
+      {
+        "text": "uma",
+        "start": 0.868,
+        "end": 1.021
+      },
+      {
+        "text": "câmera",
+        "start": 1.033,
+        "end": 1.399
+      },
+      {
+        "text": "de",
+        "start": 1.41,
+        "end": 1.481
+      },
+      {
+        "text": "segurança",
+        "start": 1.493,
+        "end": 2.024
+      },
+      {
+        "text": "em",
+        "start": 2.035,
+        "end": 2.106
+      },
+      {
+        "text": "Ciudad",
+        "start": 2.118,
+        "end": 2.425
+      },
+      {
+        "text": "Juárez",
+        "start": 2.436,
+        "end": 2.943
+      },
+      {
+        "text": "à",
+        "start": 3.144,
+        "end": 3.215
+      },
+      {
+        "text": "noite",
+        "start": 3.226,
+        "end": 3.663
+      },
+      {
+        "text": "e",
+        "start": 3.946,
+        "end": 4.052
+      },
+      {
+        "text": "dura",
+        "start": 4.064,
+        "end": 4.347
+      },
+      {
+        "text": "um",
+        "start": 4.359,
+        "end": 4.429
+      },
+      {
+        "text": "segundo",
+        "start": 4.441,
+        "end": 4.877
+      },
+      {
+        "text": "e",
+        "start": 4.889,
+        "end": 4.948
+      },
+      {
+        "text": "meio",
+        "start": 4.96,
+        "end": 5.29
+      }
+    ]
+  },
+  "s3": {
+    "text": "Detalhe: pterodáctilo nem é dinossauro. É um réptil voador, primo deles.",
+    "seconds": 5.58,
+    "words": [
+      {
+        "text": "Detalhe",
+        "start": 0,
+        "end": 0.53
+      },
+      {
+        "text": "pterodáctilo",
+        "start": 0.754,
+        "end": 1.485
+      },
+      {
+        "text": "nem",
+        "start": 1.497,
+        "end": 1.756
+      },
+      {
+        "text": "é",
+        "start": 1.768,
+        "end": 1.839
+      },
+      {
+        "text": "dinossauro",
+        "start": 1.851,
+        "end": 2.535
+      },
+      {
+        "text": "É",
+        "start": 3.346,
+        "end": 3.452
+      },
+      {
+        "text": "um",
+        "start": 3.463,
+        "end": 3.593
+      },
+      {
+        "text": "réptil",
+        "start": 3.605,
+        "end": 4.006
+      },
+      {
+        "text": "voador",
+        "start": 4.018,
+        "end": 4.454
+      },
+      {
+        "text": "primo",
+        "start": 4.69,
+        "end": 4.996
+      },
+      {
+        "text": "deles",
+        "start": 5.008,
+        "end": 5.468
+      }
+    ]
+  },
+  "s4": {
+    "text": "E eles voaram mesmo ali perto: no Texas, colado na fronteira, tem fóssil de um com mais de dez metros de asa.",
+    "seconds": 6.485,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.071
+      },
+      {
+        "text": "eles",
+        "start": 0.083,
+        "end": 0.283
+      },
+      {
+        "text": "voaram",
+        "start": 0.295,
+        "end": 0.59
+      },
+      {
+        "text": "mesmo",
+        "start": 0.602,
+        "end": 0.908
+      },
+      {
+        "text": "ali",
+        "start": 0.92,
+        "end": 1.097
+      },
+      {
+        "text": "perto",
+        "start": 1.109,
+        "end": 1.522
+      },
+      {
+        "text": "no",
+        "start": 1.781,
+        "end": 1.911
+      },
+      {
+        "text": "Texas",
+        "start": 1.923,
+        "end": 2.43
+      },
+      {
+        "text": "colado",
+        "start": 2.63,
+        "end": 3.043
+      },
+      {
+        "text": "na",
+        "start": 3.055,
+        "end": 3.172
+      },
+      {
+        "text": "fronteira",
+        "start": 3.184,
+        "end": 3.691
+      },
+      {
+        "text": "tem",
+        "start": 3.915,
+        "end": 4.057
+      },
+      {
+        "text": "fóssil",
+        "start": 4.069,
+        "end": 4.458
+      },
+      {
+        "text": "de",
+        "start": 4.47,
+        "end": 4.576
+      },
+      {
+        "text": "um",
+        "start": 4.588,
+        "end": 4.729
+      },
+      {
+        "text": "com",
+        "start": 4.741,
+        "end": 4.93
+      },
+      {
+        "text": "mais",
+        "start": 4.941,
+        "end": 5.177
+      },
+      {
+        "text": "de",
+        "start": 5.189,
+        "end": 5.283
+      },
+      {
+        "text": "dez",
+        "start": 5.295,
+        "end": 5.566
+      },
+      {
+        "text": "metros",
+        "start": 5.578,
+        "end": 5.967
+      },
+      {
+        "text": "de",
+        "start": 5.979,
+        "end": 6.085
+      },
+      {
+        "text": "asa",
+        "start": 6.097,
+        "end": 6.404
+      }
+    ]
+  },
+  "s5": {
+    "text": "Mas sumiram há sessenta e seis milhões de anos, junto com os dinossauros, depois do asteroide que caiu no México.",
+    "seconds": 6.055,
+    "words": [
+      {
+        "text": "Mas",
+        "start": 0,
+        "end": 0.205
+      },
+      {
+        "text": "sumiram",
+        "start": 0.216,
+        "end": 0.665
+      },
+      {
+        "text": "há",
+        "start": 0.676,
+        "end": 0.7
+      },
+      {
+        "text": "sessenta",
+        "start": 0.712,
+        "end": 1.148
+      },
+      {
+        "text": "e",
+        "start": 1.16,
+        "end": 1.183
+      },
+      {
+        "text": "seis",
+        "start": 1.195,
+        "end": 1.396
+      },
+      {
+        "text": "milhões",
+        "start": 1.407,
+        "end": 1.82
+      },
+      {
+        "text": "de",
+        "start": 1.832,
+        "end": 1.926
+      },
+      {
+        "text": "anos",
+        "start": 1.938,
+        "end": 2.28
+      },
+      {
+        "text": "junto",
+        "start": 2.374,
+        "end": 2.74
+      },
+      {
+        "text": "com",
+        "start": 2.752,
+        "end": 2.893
+      },
+      {
+        "text": "os",
+        "start": 2.905,
+        "end": 2.976
+      },
+      {
+        "text": "dinossauros",
+        "start": 2.988,
+        "end": 3.683
+      },
+      {
+        "text": "depois",
+        "start": 3.931,
+        "end": 4.32
+      },
+      {
+        "text": "do",
+        "start": 4.332,
+        "end": 4.403
+      },
+      {
+        "text": "asteroide",
+        "start": 4.414,
+        "end": 4.957
+      },
+      {
+        "text": "que",
+        "start": 4.969,
+        "end": 5.087
+      },
+      {
+        "text": "caiu",
+        "start": 5.098,
+        "end": 5.37
+      },
+      {
+        "text": "no",
+        "start": 5.382,
+        "end": 5.476
+      },
+      {
+        "text": "México",
+        "start": 5.488,
+        "end": 5.971
+      }
+    ]
+  },
+  "s6": {
+    "text": "E o vídeo? A Proteção Civil de Juárez diz que é entretenimento, e o mais provável é uma ave grande.",
+    "seconds": 6.382,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.088
+      },
+      {
+        "text": "o",
+        "start": 0.099,
+        "end": 0.17
+      },
+      {
+        "text": "vídeo",
+        "start": 0.182,
+        "end": 0.618
+      },
+      {
+        "text": "A",
+        "start": 1.429,
+        "end": 1.535
+      },
+      {
+        "text": "Proteção",
+        "start": 1.547,
+        "end": 2.054
+      },
+      {
+        "text": "Civil",
+        "start": 2.066,
+        "end": 2.396
+      },
+      {
+        "text": "de",
+        "start": 2.408,
+        "end": 2.479
+      },
+      {
+        "text": "Juárez",
+        "start": 2.491,
+        "end": 2.903
+      },
+      {
+        "text": "diz",
+        "start": 2.915,
+        "end": 3.151
+      },
+      {
+        "text": "que",
+        "start": 3.163,
+        "end": 3.245
+      },
+      {
+        "text": "é",
+        "start": 3.257,
+        "end": 3.281
+      },
+      {
+        "text": "entretenimento",
+        "start": 3.292,
+        "end": 4.071
+      },
+      {
+        "text": "e",
+        "start": 4.377,
+        "end": 4.472
+      },
+      {
+        "text": "o",
+        "start": 4.483,
+        "end": 4.531
+      },
+      {
+        "text": "mais",
+        "start": 4.542,
+        "end": 4.79
+      },
+      {
+        "text": "provável",
+        "start": 4.802,
+        "end": 5.38
+      },
+      {
+        "text": "é",
+        "start": 5.391,
+        "end": 5.45
+      },
+      {
+        "text": "uma",
+        "start": 5.462,
+        "end": 5.627
+      },
+      {
+        "text": "ave",
+        "start": 5.639,
+        "end": 5.887
+      },
+      {
+        "text": "grande",
+        "start": 5.899,
+        "end": 6.288
+      }
+    ]
+  },
+  "s7": {
+    "text": "Pronto: agora você sabe. Pterodáctilo vivo é boato. Mas eles já voaram ali, há setenta milhões de anos.",
+    "seconds": 7.887,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.336
+      },
+      {
+        "text": "agora",
+        "start": 0.56,
+        "end": 0.914
+      },
+      {
+        "text": "você",
+        "start": 0.926,
+        "end": 1.162
+      },
+      {
+        "text": "sabe",
+        "start": 1.173,
+        "end": 1.598
+      },
+      {
+        "text": "Pterodáctilo",
+        "start": 2.409,
+        "end": 3.128
+      },
+      {
+        "text": "vivo",
+        "start": 3.14,
+        "end": 3.411
+      },
+      {
+        "text": "é",
+        "start": 3.423,
+        "end": 3.47
+      },
+      {
+        "text": "boato",
+        "start": 3.482,
+        "end": 3.965
+      },
+      {
+        "text": "Mas",
+        "start": 4.779,
+        "end": 4.979
+      },
+      {
+        "text": "eles",
+        "start": 4.991,
+        "end": 5.357
+      },
+      {
+        "text": "já",
+        "start": 5.369,
+        "end": 5.475
+      },
+      {
+        "text": "voaram",
+        "start": 5.487,
+        "end": 5.805
+      },
+      {
+        "text": "ali",
+        "start": 5.817,
+        "end": 6.064
+      },
+      {
+        "text": "há",
+        "start": 6.3,
+        "end": 6.359
+      },
+      {
+        "text": "setenta",
+        "start": 6.371,
+        "end": 6.89
+      },
+      {
+        "text": "milhões",
+        "start": 6.902,
+        "end": 7.279
+      },
+      {
+        "text": "de",
+        "start": 7.291,
+        "end": 7.397
+      },
+      {
+        "text": "anos",
+        "start": 7.409,
+        "end": 7.798
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}

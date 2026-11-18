@@ -18,14 +18,14 @@ export const CctvFrame: React.FC<{ f: number; v: number; secs?: number; date?: s
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%)" }} />
       {grain.map((g, i) => <div key={i} style={{ position: "absolute", left: g.x, top: g.y, width: g.s, height: g.s, background: `rgba(230,240,230,${g.a})` }} />)}
       {/* cantos */}
-      {[[60, 300, "0 0"], [w - 60, 300, "1 0"], [60, h - 520, "0 1"], [w - 60, h - 520, "1 1"]].map(([x, y, o], i) => {
+      {[[60, 380, "0 0"], [w - 60, 380, "1 0"], [60, h - 520, "0 1"], [w - 60, h - 520, "1 1"]].map(([x, y, o], i) => {
         const [ox, oy] = String(o).split(" ").map(Number);
         return <div key={i} style={{ position: "absolute", left: Number(x) - ox * 70, top: Number(y) - oy * 70, width: 70, height: 70, borderLeft: ox ? undefined : "5px solid #e8f0e8", borderRight: ox ? "5px solid #e8f0e8" : undefined, borderTop: oy ? undefined : "5px solid #e8f0e8", borderBottom: oy ? "5px solid #e8f0e8" : undefined, opacity: 0.85 }} />;
       })}
-      <div style={{ position: "absolute", left: 90, top: 320, fontFamily: "monospace", fontWeight: 700, fontSize: 34, color: "#e8f0e8", textShadow: "0 0 6px #000" }}>
+      <div style={{ position: "absolute", left: 90, top: 400, fontFamily: "monospace", fontWeight: 700, fontSize: 34, color: "#e8f0e8", textShadow: "0 0 6px #000" }}>
         <span style={{ color: Math.floor(f / 12) % 2 ? "#ff3a3a" : "rgba(255,58,58,0.25)" }}>●</span> REC · CAM 03
       </div>
-      <div style={{ position: "absolute", right: 90, top: 320, fontFamily: "monospace", fontWeight: 700, fontSize: 32, color: "#e8f0e8", textShadow: "0 0 6px #000", textAlign: "right" }}>
+      <div style={{ position: "absolute", right: 90, top: 400, fontFamily: "monospace", fontWeight: 700, fontSize: 32, color: "#e8f0e8", textShadow: "0 0 6px #000", textAlign: "right" }}>
         {date}
         <br />
         {hh}

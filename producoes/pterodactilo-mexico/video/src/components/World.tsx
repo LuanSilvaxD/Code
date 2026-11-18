@@ -6,12 +6,12 @@ import { clamp, type Vec3 } from "../utils/animation";
 import { cameraPoseAt } from "./CameraController";
 import { MascotFromTracks } from "./Mascot";
 import { Stars } from "./SpaceScene";
-import { Sun } from "./Apagao";
-import { FrostEarth, HydrothermalVent, IceOceanSlice, WiltingTree } from "./SunGone";
-import { DEPART_DEG, EARTH_R, earthPos, OC, ORBIT_R, SP, SUN, SUN_R, TR, VE } from "../data/sun";
-import { rand } from "../utils/animation";
+import { Asteroid, BorderMap, FamilyTree, Giraffe, HeronFly, JuarezNight, MapPin, PLACES, Quetzalcoatlus, Shockwave } from "./Ptero";
+import { Aratasaurus } from "./Dino";
+import { CretaceousDiorama } from "./Sangue";
+import { CR, FT, JU, MP, QSC, SC, SKY } from "../data/ptm";
 
-// Mundos do "E se o Sol sumisse?". Tudo lê track("alvo.prop", frameGlobal). Posições em data/sun.ts.
+// Mundos do "Pterodáctilo no México?". Tudo lê track("alvo.prop", frameGlobal). Posições em data/ptm.ts.
 
 /** Luz que acompanha o alvo da câmera (a sombra cobre só o que está em quadro). */
 export const KolaLighting: React.FC = () => {
@@ -54,136 +54,94 @@ export const KolaLighting: React.FC = () => {
 
 const show = (k: string, f: number) => track(`${k}.show`, f) > 0.5;
 
-/** Pulsos de luz viajando de A até B. Só aparecem entre tail e head (frações 0..1 do caminho). */
-const LightSpan: React.FC<{ a: Vec3; b: Vec3; tail: number; head: number; f: number; on?: number }> = ({ a, b, tail, head, f, on = 1 }) => {
-  const N = 30;
+/** Silhueta que cruza o céu: x vai de -1 (esquerda) a 1 (direita); kind 0 = pterossauro, 1 = ave. */
+const SkyFlyer: React.FC<{ f: number }> = ({ f }) => {
+  const x = track("fly.x", f, -9);
+  if (x < -1.5 || x > 1.5) return null;
+  const pk = clamp(track("fly.p", f, 1), 0, 1), hk = clamp(track("fly.h", f), 0, 1);
+  const p: Vec3 = [SKY[0] + x * 3.2, SKY[1] - 0.2 + Math.sin(x * 2) * 0.15, SKY[2]];
   return (
-    <group>
-      {Array.from({ length: N }, (_, i) => {
-        const u = (((i + f * 0.35) / N) % 1 + 1) % 1;
-        if (u < tail || u > head || on < 0.01) return null;
-        const p: Vec3 = [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u];
-        const edge = Math.min(1, (u - tail) * 12, (head - u) * 12 + 0.3);
-        return (
-          <mesh key={i} position={p} scale={0.07 + 0.06 * edge}>
-            <sphereGeometry args={[1, 8, 6]} />
-            <meshBasicMaterial color="#ffe27a" transparent opacity={clamp(on, 0, 1) * (0.45 + 0.55 * edge)} toneMapped={false} depthWrite={false} />
-          </mesh>
-        );
-      })}
-    </group>
-  );
-};
-
-/** Órbita tracejada (some com `k`) e o caminho reto à frente (aparece com `path`). */
-const OrbitLines: React.FC<{ k: number; path: number }> = ({ k, path }) => {
-  const a0 = (DEPART_DEG * Math.PI) / 180;
-  const p0 = earthPos(DEPART_DEG, 0);
-  const tg: Vec3 = [-Math.sin(a0), Math.cos(a0), 0];
-  return (
-    <group>
-      {k > 0.01
-        ? Array.from({ length: 72 }, (_, i) => {
-            const a = (i / 72) * Math.PI * 2;
-            return (
-              <mesh key={i} position={[SUN[0] + Math.cos(a) * ORBIT_R, SUN[1] + Math.sin(a) * ORBIT_R, -0.05]} rotation={[0, 0, a]}>
-                <boxGeometry args={[0.03, 0.22, 0.03]} />
-                <meshBasicMaterial color="#c4b5fd" transparent opacity={0.55 * clamp(k, 0, 1)} depthWrite={false} />
-              </mesh>
-            );
-          })
-        : null}
-      {path > 0.01
-        ? Array.from({ length: 28 }, (_, i) => {
-            const d = 0.4 + i * 0.5;
-            if (i / 28 > path) return null;
-            return (
-              <mesh key={`p${i}`} position={[p0[0] + tg[0] * d, p0[1] + tg[1] * d, -0.05]} rotation={[0, 0, a0]}>
-                <boxGeometry args={[0.035, 0.24, 0.035]} />
-                <meshBasicMaterial color="#ff8a7a" transparent opacity={0.8} depthWrite={false} />
-              </mesh>
-            );
-          })
-        : null}
-    </group>
-  );
-};
-
-/** Contorno tracejado de onde o Sol estava. */
-const SunGhost: React.FC<{ k: number }> = ({ k }) =>
-  k < 0.01 ? null : (
-    <group position={SUN}>
-      {Array.from({ length: 40 }, (_, i) => {
-        const a = (i / 40) * Math.PI * 2;
-        return (
-          <mesh key={i} position={[Math.cos(a) * SUN_R, Math.sin(a) * SUN_R, 0]} rotation={[0, 0, a]}>
-            <boxGeometry args={[0.04, 0.16, 0.04]} />
-            <meshBasicMaterial color="#ffb02a" transparent opacity={0.45 * clamp(k, 0, 1)} depthWrite={false} />
-          </mesh>
-        );
-      })}
-    </group>
-  );
-
-const SpaceWorld: React.FC<{ f: number }> = ({ f }) => {
-  const sk = track("sun.k", f, 1);
-  const E = earthPos(track("earth.th", f, -70), track("earth.lx", f));
-  const sunAt: Vec3 = SUN;
-  return (
-    <group position={SP}>
-      <Stars count={900} radius={70} frame={f} />
-      {sk > 0.01 ? (
-        <group position={sunAt} scale={sk}>
-          <Sun r={SUN_R} f={f} pulse={track("sun.pulse", f)} />
-          <pointLight position={[0, 0, 2.5]} intensity={3 * sk} distance={14} color="#ffc070" />
+    <group position={p} rotation={[0.25, 0.25, 0.12]}>
+      {pk > 0.01 ? (
+        <group scale={0.32 * pk}>
+          <Quetzalcoatlus f={f} sil={1} flap={0.9} />
         </group>
       ) : null}
-      <SunGhost k={track("ghost", f)} />
-      <OrbitLines k={track("orbit", f, 1)} path={track("path", f)} />
-      <LightSpan a={sunAt} b={E} tail={track("light.tail", f)} head={track("light.head", f, 1)} f={f} on={track("light.on", f, 1)} />
-      <group position={E}>
-        <FrostEarth f={f} r={EARTH_R} frost={track("frost", f)} dark={track("earth.dark", f)} />
-      </group>
+      {hk > 0.01 ? (
+        <group scale={1.9 * hk}>
+          <HeronFly f={f} sil={1} />
+        </group>
+      ) : null}
     </group>
   );
 };
 
-/** Neve/poeira fina caindo no fundo do mar ("neve marinha"). */
-const MarineSnow: React.FC<{ f: number }> = ({ f }) => (
-  <group>
-    {Array.from({ length: 40 }, (_, i) => {
-      const ph = (f * 0.004 + rand(`ms${i}`)) % 1;
-      return (
-        <mesh key={i} position={[(rand(`mx${i}`) - 0.5) * 5, 2.6 - ph * 3, (rand(`mz${i}`) - 0.5) * 3]} scale={0.018}>
-          <icosahedronGeometry args={[1, 0]} />
-          <meshBasicMaterial color="#9fc4e8" transparent opacity={0.5} depthWrite={false} />
-        </mesh>
-      );
-    })}
-  </group>
+const Ground: React.FC<{ w: number; d: number; c: string }> = ({ w, d, c }) => (
+  <mesh position={[0, -0.05, 0]} receiveShadow>
+    <boxGeometry args={[w, 0.1, d]} />
+    <meshStandardMaterial color={c} roughness={1} flatShading />
+  </mesh>
 );
 
 export const World: React.FC = () => {
   const f = useCurrentFrame();
+  const ast = track("ast.t", f);
+  const chx = PLACES.chicxulub;
   return (
     <>
-      {show("sp", f) ? <SpaceWorld f={f} /> : null}
-      {show("tr", f) ? (
-        <group position={TR}>
-          <Stars count={500} radius={60} frame={f} />
-          <WiltingTree f={f} wilt={track("wilt", f)} frost={track("tfrost", f)} />
+      {show("ju", f) ? (
+        <group position={JU}>
+          <Stars count={600} radius={60} frame={f} />
+          <JuarezNight f={f} />
+          <SkyFlyer f={f} />
         </group>
       ) : null}
-      {show("oc", f) ? (
-        <group position={OC}>
+      {show("ft", f) ? (
+        <group position={FT}>
           <Stars count={500} radius={60} frame={f} />
-          <IceOceanSlice ice={track("ice", f, 1)} w={4.6} d={2.4} />
+          <FamilyTree grow={track("tree", f, 1)} />
+          {track("dino", f) > 0.01 ? (
+            <group position={[-2.1, 2.95, 0]} scale={0.32 * clamp(track("dino", f), 0, 1.1)} rotation={[0, 0.3, 0]}>
+              <Aratasaurus frame={f} />
+            </group>
+          ) : null}
+          {track("ptero", f) > 0.01 ? (
+            <group position={[2.1, 3.35, 0]} rotation={[0.45, -0.7, 0]} scale={0.22 * clamp(track("ptero", f), 0, 1.1)}>
+              <Quetzalcoatlus f={f} flap={0.5} />
+            </group>
+          ) : null}
         </group>
       ) : null}
-      {show("ve", f) ? (
-        <group position={VE}>
-          <HydrothermalVent f={f} />
-          <MarineSnow f={f} />
+      {show("mp", f) ? (
+        <group position={MP}>
+          <Stars count={400} radius={60} frame={f} />
+          <BorderMap f={f} crater={track("crater", f)} line={track("line", f)} />
+          <MapPin p={PLACES.juarez} c="#ffb02a" s={clamp(track("pin.j", f), 0, 1.2)} />
+          <MapPin p={PLACES.bigbend} c="#ff4a3d" s={clamp(track("pin.b", f), 0, 1.2)} />
+          <Asteroid from={[chx[0] + 3, 6, chx[2] - 3]} to={[chx[0], 0.25, chx[2]]} t={ast} f={f} />
+          <Shockwave p={[chx[0], 0, chx[2]]} k={track("shock", f)} />
+        </group>
+      ) : null}
+      {show("sc", f) ? (
+        <group position={SC}>
+          <Stars count={500} radius={80} frame={f} />
+          <Ground w={16} d={5} c="#8a7a5a" />
+          {track("q.k", f, 1) > 0.01 ? (
+            <group position={QSC} rotation={[0.22, -Math.PI / 2, 0]} scale={clamp(track("q.k", f, 1), 0, 1)}>
+              <Quetzalcoatlus f={f} flap={0.3} sil={track("q.sil", f)} />
+            </group>
+          ) : null}
+          <group position={[-4.6, 0, 0.8]} rotation={[0, 0.5, 0]}>
+            <Giraffe f={f} />
+          </group>
+        </group>
+      ) : null}
+      {show("cr", f) ? (
+        <group position={CR}>
+          <CretaceousDiorama f={f} />
+          <group position={[-2.5 + track("cr.x", f) * 5, 2.1, -0.6]} rotation={[0.2, -0.1, 0.1]} scale={0.3}>
+            <Quetzalcoatlus f={f} flap={0.4} glide={1} />
+          </group>
         </group>
       ) : null}
       <MascotFromTracks />
