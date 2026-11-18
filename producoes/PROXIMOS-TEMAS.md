@@ -20,7 +20,7 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - ~~**Planeta do filme Interestelar**~~ — ENTREGUE (17/11) como Filme × Realidade #1.
 - ~~**Onda de calor**~~ — ENTREGUE (17/11). O vídeo do El Niño deve linkar este (não é continuação).
 - ~~**El Niño 2027**~~ — ENTREGUE (17/11), com link do vídeo da onda de calor na descrição.
-- **A cidade perdida da Amazônia** (checar qual descoberta: geoglifos/LiDAR?).
+- ~~**A cidade perdida da Amazônia**~~ — ENTREGUE (18/11) como Boato ou Verdade #4 (Ratanabá × Upano/Casarabe).
 
 ## Quadro Filme × Realidade (ideia do usuário, 17/11/2026)
 "Isso funcionaria na vida real?" — #1 Interestelar (planeta de Miller) ENTREGUE 17/11. Ideias para os próximos (cada uma precisa de checagem de fatos antes do roteiro):
