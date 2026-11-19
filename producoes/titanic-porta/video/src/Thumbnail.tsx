@@ -32,7 +32,7 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
   return (
     <AbsoluteFill style={{ backgroundColor: BRAND.colors.umbra }}>
       <Background />
-      <AbsoluteFill style={{ transform: v ? "translateY(330px)" : undefined }}>
+      <AbsoluteFill style={{ transform: v ? "translateY(380px)" : undefined }}>
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 400, position: [8, 6, 30] }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <CameraController />
         <KolaLighting />
