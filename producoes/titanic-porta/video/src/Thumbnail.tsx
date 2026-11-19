@@ -14,10 +14,10 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "PTERODÁCTILO", color: "#ffffff", scale: 0.56 },
-  { text: "NO MÉXICO?", color: "#ffb02a", scale: 0.66 },
+  { text: "O JACK CABIA", color: "#ffffff", scale: 0.56 },
+  { text: "NA PORTA?", color: "#ffb02a", scale: 0.7 },
 ];
-export const THUMB_TAG = "BOATO OU VERDADE? #5";
+export const THUMB_TAG = "FILME × REALIDADE #2";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>

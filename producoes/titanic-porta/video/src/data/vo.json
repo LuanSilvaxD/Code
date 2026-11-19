@@ -1,1 +1,735 @@
-{}
+{
+  "s1": {
+    "text": "Filme ou realidade? Em Titanic, o Jack cabia na porta junto com a Rose?",
+    "seconds": 5.021,
+    "words": [
+      {
+        "text": "Filme",
+        "start": 0,
+        "end": 0.302
+      },
+      {
+        "text": "ou",
+        "start": 0.313,
+        "end": 0.384
+      },
+      {
+        "text": "realidade",
+        "start": 0.396,
+        "end": 1.092
+      },
+      {
+        "text": "Em",
+        "start": 1.902,
+        "end": 2.044
+      },
+      {
+        "text": "Titanic",
+        "start": 2.056,
+        "end": 2.598
+      },
+      {
+        "text": "o",
+        "start": 2.858,
+        "end": 2.928
+      },
+      {
+        "text": "Jack",
+        "start": 2.94,
+        "end": 3.176
+      },
+      {
+        "text": "cabia",
+        "start": 3.188,
+        "end": 3.553
+      },
+      {
+        "text": "na",
+        "start": 3.565,
+        "end": 3.695
+      },
+      {
+        "text": "porta",
+        "start": 3.707,
+        "end": 4.037
+      },
+      {
+        "text": "junto",
+        "start": 4.049,
+        "end": 4.343
+      },
+      {
+        "text": "com",
+        "start": 4.355,
+        "end": 4.509
+      },
+      {
+        "text": "a",
+        "start": 4.52,
+        "end": 4.556
+      },
+      {
+        "text": "Rose",
+        "start": 4.568,
+        "end": 4.933
+      }
+    ]
+  },
+  "s2": {
+    "text": "Primeiro: não era porta. Era um painel entalhado, copiado de um pedaço real do navio que está num museu.",
+    "seconds": 6.612,
+    "words": [
+      {
+        "text": "Primeiro",
+        "start": 0,
+        "end": 0.372
+      },
+      {
+        "text": "não",
+        "start": 0.585,
+        "end": 0.844
+      },
+      {
+        "text": "era",
+        "start": 0.856,
+        "end": 1.033
+      },
+      {
+        "text": "porta",
+        "start": 1.045,
+        "end": 1.446
+      },
+      {
+        "text": "Era",
+        "start": 2.256,
+        "end": 2.469
+      },
+      {
+        "text": "um",
+        "start": 2.481,
+        "end": 2.563
+      },
+      {
+        "text": "painel",
+        "start": 2.575,
+        "end": 2.905
+      },
+      {
+        "text": "entalhado",
+        "start": 2.917,
+        "end": 3.447
+      },
+      {
+        "text": "copiado",
+        "start": 3.695,
+        "end": 4.226
+      },
+      {
+        "text": "de",
+        "start": 4.238,
+        "end": 4.297
+      },
+      {
+        "text": "um",
+        "start": 4.308,
+        "end": 4.379
+      },
+      {
+        "text": "pedaço",
+        "start": 4.391,
+        "end": 4.815
+      },
+      {
+        "text": "real",
+        "start": 4.827,
+        "end": 5.134
+      },
+      {
+        "text": "do",
+        "start": 5.146,
+        "end": 5.228
+      },
+      {
+        "text": "navio",
+        "start": 5.24,
+        "end": 5.641
+      },
+      {
+        "text": "que",
+        "start": 5.653,
+        "end": 5.735
+      },
+      {
+        "text": "está",
+        "start": 5.747,
+        "end": 5.959
+      },
+      {
+        "text": "num",
+        "start": 5.971,
+        "end": 6.113
+      },
+      {
+        "text": "museu",
+        "start": 6.124,
+        "end": 6.537
+      }
+    ]
+  },
+  "s3": {
+    "text": "A água estava a dois graus negativos: em uns quinze minutos a pessoa apaga, e o resgate levou quase duas horas.",
+    "seconds": 6.206,
+    "words": [
+      {
+        "text": "A",
+        "start": 0,
+        "end": 0.082
+      },
+      {
+        "text": "água",
+        "start": 0.094,
+        "end": 0.365
+      },
+      {
+        "text": "estava",
+        "start": 0.377,
+        "end": 0.624
+      },
+      {
+        "text": "a",
+        "start": 0.636,
+        "end": 0.66
+      },
+      {
+        "text": "dois",
+        "start": 0.672,
+        "end": 0.872
+      },
+      {
+        "text": "graus",
+        "start": 0.884,
+        "end": 1.108
+      },
+      {
+        "text": "negativos",
+        "start": 1.12,
+        "end": 1.756
+      },
+      {
+        "text": "em",
+        "start": 1.98,
+        "end": 2.075
+      },
+      {
+        "text": "uns",
+        "start": 2.087,
+        "end": 2.24
+      },
+      {
+        "text": "quinze",
+        "start": 2.252,
+        "end": 2.558
+      },
+      {
+        "text": "minutos",
+        "start": 2.57,
+        "end": 2.912
+      },
+      {
+        "text": "a",
+        "start": 2.924,
+        "end": 3.054
+      },
+      {
+        "text": "pessoa",
+        "start": 3.065,
+        "end": 3.36
+      },
+      {
+        "text": "apaga",
+        "start": 3.372,
+        "end": 3.773
+      },
+      {
+        "text": "e",
+        "start": 4.032,
+        "end": 4.127
+      },
+      {
+        "text": "o",
+        "start": 4.139,
+        "end": 4.162
+      },
+      {
+        "text": "resgate",
+        "start": 4.174,
+        "end": 4.657
+      },
+      {
+        "text": "levou",
+        "start": 4.669,
+        "end": 4.952
+      },
+      {
+        "text": "quase",
+        "start": 4.964,
+        "end": 5.353
+      },
+      {
+        "text": "duas",
+        "start": 5.365,
+        "end": 5.648
+      },
+      {
+        "text": "horas",
+        "start": 5.66,
+        "end": 6.12
+      }
+    ]
+  },
+  "s4": {
+    "text": "Espaço tinha. O problema é boiar: com os dois em cima, a madeira afunda e o corpo fica na água gelada.",
+    "seconds": 6.667,
+    "words": [
+      {
+        "text": "Espaço",
+        "start": 0,
+        "end": 0.466
+      },
+      {
+        "text": "tinha",
+        "start": 0.478,
+        "end": 0.855
+      },
+      {
+        "text": "O",
+        "start": 1.666,
+        "end": 1.772
+      },
+      {
+        "text": "problema",
+        "start": 1.784,
+        "end": 2.244
+      },
+      {
+        "text": "é",
+        "start": 2.256,
+        "end": 2.279
+      },
+      {
+        "text": "boiar",
+        "start": 2.291,
+        "end": 2.645
+      },
+      {
+        "text": "com",
+        "start": 2.916,
+        "end": 3.046
+      },
+      {
+        "text": "os",
+        "start": 3.058,
+        "end": 3.14
+      },
+      {
+        "text": "dois",
+        "start": 3.152,
+        "end": 3.364
+      },
+      {
+        "text": "em",
+        "start": 3.376,
+        "end": 3.529
+      },
+      {
+        "text": "cima",
+        "start": 3.541,
+        "end": 3.883
+      },
+      {
+        "text": "a",
+        "start": 4.119,
+        "end": 4.178
+      },
+      {
+        "text": "madeira",
+        "start": 4.19,
+        "end": 4.508
+      },
+      {
+        "text": "afunda",
+        "start": 4.52,
+        "end": 4.956
+      },
+      {
+        "text": "e",
+        "start": 4.968,
+        "end": 5.027
+      },
+      {
+        "text": "o",
+        "start": 5.039,
+        "end": 5.109
+      },
+      {
+        "text": "corpo",
+        "start": 5.121,
+        "end": 5.487
+      },
+      {
+        "text": "fica",
+        "start": 5.499,
+        "end": 5.734
+      },
+      {
+        "text": "na",
+        "start": 5.746,
+        "end": 5.852
+      },
+      {
+        "text": "água",
+        "start": 5.864,
+        "end": 6.076
+      },
+      {
+        "text": "gelada",
+        "start": 6.088,
+        "end": 6.548
+      }
+    ]
+  },
+  "s5": {
+    "text": "Em 2012, os Caçadores de Mitos testaram: com um colete salva-vidas amarrado embaixo, a madeira aguenta os dois.",
+    "seconds": 6.667,
+    "words": [
+      {
+        "text": "Em",
+        "start": 0,
+        "end": 0.393
+      },
+      {
+        "text": "2012",
+        "start": 0.393,
+        "end": 0.841
+      },
+      {
+        "text": "os",
+        "start": 1.089,
+        "end": 1.183
+      },
+      {
+        "text": "Caçadores",
+        "start": 1.195,
+        "end": 1.785
+      },
+      {
+        "text": "de",
+        "start": 1.797,
+        "end": 1.891
+      },
+      {
+        "text": "Mitos",
+        "start": 1.903,
+        "end": 2.233
+      },
+      {
+        "text": "testaram",
+        "start": 2.245,
+        "end": 2.74
+      },
+      {
+        "text": "com",
+        "start": 3.058,
+        "end": 3.176
+      },
+      {
+        "text": "um",
+        "start": 3.188,
+        "end": 3.259
+      },
+      {
+        "text": "colete",
+        "start": 3.271,
+        "end": 3.648
+      },
+      {
+        "text": "salva-vidas",
+        "start": 3.66,
+        "end": 4.167
+      },
+      {
+        "text": "amarrado",
+        "start": 4.179,
+        "end": 4.662
+      },
+      {
+        "text": "embaixo",
+        "start": 4.674,
+        "end": 5.146
+      },
+      {
+        "text": "a",
+        "start": 5.334,
+        "end": 5.393
+      },
+      {
+        "text": "madeira",
+        "start": 5.405,
+        "end": 5.747
+      },
+      {
+        "text": "aguenta",
+        "start": 5.759,
+        "end": 6.089
+      },
+      {
+        "text": "os",
+        "start": 6.101,
+        "end": 6.172
+      },
+      {
+        "text": "dois",
+        "start": 6.183,
+        "end": 6.584
+      }
+    ]
+  },
+  "s6": {
+    "text": "E o próprio diretor testou com dublês, e admitiu: o Jack talvez tivesse sobrevivido.",
+    "seconds": 5.25,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.054
+      },
+      {
+        "text": "o",
+        "start": 0.066,
+        "end": 0.137
+      },
+      {
+        "text": "próprio",
+        "start": 0.149,
+        "end": 0.526
+      },
+      {
+        "text": "diretor",
+        "start": 0.538,
+        "end": 0.974
+      },
+      {
+        "text": "testou",
+        "start": 0.986,
+        "end": 1.328
+      },
+      {
+        "text": "com",
+        "start": 1.34,
+        "end": 1.469
+      },
+      {
+        "text": "dublês",
+        "start": 1.481,
+        "end": 1.941
+      },
+      {
+        "text": "e",
+        "start": 2.236,
+        "end": 2.307
+      },
+      {
+        "text": "admitiu",
+        "start": 2.318,
+        "end": 2.896
+      },
+      {
+        "text": "o",
+        "start": 3.238,
+        "end": 3.309
+      },
+      {
+        "text": "Jack",
+        "start": 3.321,
+        "end": 3.616
+      },
+      {
+        "text": "talvez",
+        "start": 3.627,
+        "end": 4.028
+      },
+      {
+        "text": "tivesse",
+        "start": 4.04,
+        "end": 4.418
+      },
+      {
+        "text": "sobrevivido",
+        "start": 4.429,
+        "end": 5.149
+      }
+    ]
+  },
+  "s7": {
+    "text": "Pronto: agora você sabe. Cabia, com asterisco: só com o colete embaixo. Mas aí o filme acabava diferente.",
+    "seconds": 8.235,
+    "words": [
+      {
+        "text": "Pronto",
+        "start": 0,
+        "end": 0.336
+      },
+      {
+        "text": "agora",
+        "start": 0.56,
+        "end": 0.914
+      },
+      {
+        "text": "você",
+        "start": 0.926,
+        "end": 1.162
+      },
+      {
+        "text": "sabe",
+        "start": 1.173,
+        "end": 1.598
+      },
+      {
+        "text": "Cabia",
+        "start": 2.409,
+        "end": 2.88
+      },
+      {
+        "text": "com",
+        "start": 3.069,
+        "end": 3.234
+      },
+      {
+        "text": "asterisco",
+        "start": 3.246,
+        "end": 3.836
+      },
+      {
+        "text": "só",
+        "start": 4.095,
+        "end": 4.331
+      },
+      {
+        "text": "com",
+        "start": 4.343,
+        "end": 4.472
+      },
+      {
+        "text": "o",
+        "start": 4.484,
+        "end": 4.52
+      },
+      {
+        "text": "colete",
+        "start": 4.531,
+        "end": 4.932
+      },
+      {
+        "text": "embaixo",
+        "start": 4.944,
+        "end": 5.439
+      },
+      {
+        "text": "Mas",
+        "start": 6.253,
+        "end": 6.442
+      },
+      {
+        "text": "aí",
+        "start": 6.454,
+        "end": 6.76
+      },
+      {
+        "text": "o",
+        "start": 6.772,
+        "end": 6.819
+      },
+      {
+        "text": "filme",
+        "start": 6.831,
+        "end": 7.114
+      },
+      {
+        "text": "acabava",
+        "start": 7.126,
+        "end": 7.562
+      },
+      {
+        "text": "diferente",
+        "start": 7.574,
+        "end": 8.163
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}

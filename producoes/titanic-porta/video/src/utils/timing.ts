@@ -9,7 +9,7 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 50.9; // 1527 frames (Boato ou Verdade #5, abertura nova; voz +6%)
+export const SECONDS = 54.0; // 1620 frames (Filme × Realidade #2, abertura nova; voz +6%)
 export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
@@ -21,7 +21,7 @@ export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [4.5, 5.9, 6.1, 7.0, 6.6, 6.9, 13.9];
+const PLANNED_SECONDS = [5.6, 7.1, 6.7, 7.2, 7.2, 5.8, 14.4];
 /** Sem abertura da fenda (teste): a 1ª fala entra quase no frame 1. */
 const FIRST_VO = 0.2;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
