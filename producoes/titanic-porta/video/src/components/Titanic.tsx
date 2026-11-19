@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { BufferAttribute, Color, DoubleSide, PlaneGeometry, Quaternion, Vector3 } from "three";
+import { BufferAttribute, BufferGeometry, Color, DoubleSide, PlaneGeometry, Quaternion, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 
 // "O Jack cabia na porta?" — elementos novos, desenhados por nós (nada do visual do filme).
@@ -26,39 +26,73 @@ const Rod: React.FC<{ a: Vec3; b: Vec3; r: number; c: string; seg?: number }> = 
   );
 };
 
-/* ------------------------------------------------------------------ MAR À NOITE */
+/* ------------------------------------------------------------------ MAR À NOITE (v2) */
 
-/** Mar noturno low-poly com ondulação suave e reflexo da lua (faixa clara em x≈moonX). */
-export const NightSea: React.FC<{ f: number; size?: number; moonX?: number; calm?: number }> = ({ f, size = 60, moonX = 4, calm = 1 }) => {
-  const base = useMemo(() => new PlaneGeometry(size, size, 90, 90).rotateX(-Math.PI / 2), [size]);
+/** Ondulação do mar (mesma conta no shader de vértices e para os objetos boiarem). */
+export const seaY = (x: number, z: number, f: number, calm = 1) => {
+  const t = f / 30;
+  const w1 = 1 - Math.abs(Math.sin(x * 0.42 + z * 0.18 + t * 0.9)); // cristas mais pontudas
+  const w2 = 1 - Math.abs(Math.sin(x * -0.25 + z * 0.55 + t * 0.7 + 1.3));
+  const w3 = Math.sin(x * 1.3 + z * 0.9 - t * 1.6) * 0.5 + Math.sin(x * 2.1 - z * 1.7 + t * 2.1) * 0.25;
+  return (w1 * 0.14 + w2 * 0.1 + w3 * 0.035 - 0.12) * calm;
+};
+
+/**
+ * Mar noturno v2: cristas pontudas, degradê para o horizonte (névoa), trilha de luz da lua com brilhos
+ * e espuma nas cristas. Cores de vértice sem depender das luzes do estúdio (meshBasic).
+ */
+export const NightSea: React.FC<{ f: number; size?: number; moonX?: number; calm?: number; seg?: number }> = ({ f, size = 70, moonX = 4, calm = 1, seg = 130 }) => {
+  const base = useMemo(() => new PlaneGeometry(size, size, seg, seg).rotateX(-Math.PI / 2), [size, seg]);
   const geo = useMemo(() => {
     const g = base.clone();
     g.setAttribute("color", new BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3));
     return g;
   }, [base]);
   const pos = geo.attributes.position, col = geo.attributes.color, bp = base.attributes.position;
-  const deep = C("#051a30"), mid = C("#0e3656"), glint = C("#8ab4d4");
+  const trough = C("#031427"), body = C("#0b3152"), crest = C("#1d5a82"), foam = C("#cfe6f5"), haze = C("#1e3a5e"), glint = C("#f4ecd0");
   const c = new Color();
   for (let i = 0; i < pos.count; i++) {
     const x = bp.getX(i), z = bp.getZ(i);
-    const y = (Math.sin(x * 0.7 + f * 0.05) * 0.05 + Math.sin(z * 1.1 - f * 0.04 + x * 0.4) * 0.04) * calm;
+    const y = seaY(x, z, f, calm);
     pos.setY(i, y);
-    const band = Math.exp(-((x - moonX) ** 2) / 3) * clamp((-z + 5) / 30, 0, 1);
-    c.copy(deep).lerp(mid, clamp(0.5 + y * 9 + Math.cos(x * 0.7 + f * 0.05) * 0.25, 0, 1)).lerp(glint, band * clamp(0.4 + y * 10, 0, 1));
+    const h = clamp((y / Math.max(0.05, calm) + 0.12) / 0.26, 0, 1); // 0 vale .. 1 crista
+    c.copy(trough).lerp(body, clamp(h * 1.4, 0, 1)).lerp(crest, clamp((h - 0.6) * 2.2, 0, 1));
+    // espuma só nas cristas mais altas, salpicada
+    const fleck = rand(`sf${i % 997}`) > 0.82 ? 1 : 0;
+    c.lerp(foam, clamp((h - 0.9) * 8, 0, 1) * 0.55 * fleck);
+    // trilha da lua: faixa estreita perto, larga longe; brilhos nas cristas
+    const far = clamp(-z / (size / 2), 0, 1);
+    const band = Math.exp(-((x - moonX * far) ** 2) / (0.4 + far * 6)) * clamp(far * 1.6, 0, 1);
+    c.lerp(C("#6a8cb0"), band * 0.45 * h).lerp(glint, band * clamp((h - 0.7) * 3, 0, 1) * 0.8);
+    // névoa no horizonte
+    c.lerp(haze, clamp((far - 0.35) * 1.3, 0, 0.85));
     col.setXYZ(i, c.r, c.g, c.b);
   }
   pos.needsUpdate = true;
   col.needsUpdate = true;
-  geo.computeVertexNormals();
   return (
-    <mesh geometry={geo} receiveShadow>
+    <mesh geometry={geo}>
       <meshBasicMaterial vertexColors />
     </mesh>
   );
 };
 
-/** Altura da ondulação do NightSea num ponto (para os objetos boiarem junto). */
-export const seaY = (x: number, z: number, f: number, calm = 1) => (Math.sin(x * 0.7 + f * 0.05) * 0.05 + Math.sin(z * 1.1 - f * 0.04 + x * 0.4) * 0.04) * calm;
+/** Pedaços de gelo / destroços boiando (pequenos, espalhados). */
+export const Debris: React.FC<{ f: number; n?: number; R?: number }> = ({ f, n = 26, R = 9 }) => (
+  <group>
+    {Array.from({ length: n }, (_, i) => {
+      const a = rand(`da${i}`) * Math.PI * 2, r = 1.6 + rand(`dr${i}`) * R;
+      const x = Math.cos(a) * r, z = Math.sin(a) * r - 2;
+      const ice = i % 3 !== 0;
+      return (
+        <mesh key={i} position={[x, seaY(x, z, f) + 0.01, z]} rotation={[0.1 * Math.sin(f / 20 + i), rand(`dy${i}`) * 3, 0]} scale={ice ? [0.12 + rand(`ds${i}`) * 0.16, 0.05, 0.1 + rand(`dt${i}`) * 0.14] : [0.45, 0.04, 0.1]}>
+          {ice ? <dodecahedronGeometry args={[1, 0]} /> : <boxGeometry args={[1, 1, 1]} />}
+          {ice ? <meshStandardMaterial color="#dcecf6" roughness={0.2} flatShading /> : <meshStandardMaterial color="#6a4a2e" {...M} />}
+        </mesh>
+      );
+    })}
+  </group>
+);
 
 /* ------------------------------------------------------------------ TRANSATLÂNTICO DE 1912 (miniatura) */
 
@@ -104,6 +138,41 @@ export const Liner1912: React.FC<{ f: number; sink?: number; lights?: number }> 
           </mesh>
         </group>
       ))}
+      {/* botes nos turcos (convés dos botes), dos dois lados */}
+      {[-9.5, -8.3, -7.1, -1.2, 0, 1.2, 4.6, 5.8].map((x, i) =>
+        [1, -1].map((s) => (
+          <group key={`b${i}${s}`} position={[x, H + 1.9, (W / 2 - 0.55) * s]}>
+            <mesh scale={[0.5, 0.14, 0.17]}>
+              <sphereGeometry args={[1, 8, 4, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
+              <meshStandardMaterial color="#f2efe6" {...M} side={DoubleSide} />
+            </mesh>
+            <Rod a={[-0.42, -0.05, 0]} b={[-0.42, 0.3, 0.12 * s]} r={0.02} c="#2a2a30" seg={4} />
+            <Rod a={[0.42, -0.05, 0]} b={[0.42, 0.3, 0.12 * s]} r={0.02} c="#2a2a30" seg={4} />
+          </group>
+        )),
+      )}
+      {/* ventiladores (bocais) */}
+      {[-5.2, -0.8, 3.6, 8.2].map((x, i) => (
+        <group key={`v${i}`} position={[x, H + 1.85, 0.6 * (i % 2 ? 1 : -1)]}>
+          <Rod a={[0, 0, 0]} b={[0, 0.4, 0]} r={0.06} c="#e2ddd0" seg={6} />
+          <mesh position={[0.06, 0.45, 0]} rotation={[0, 0, -Math.PI / 2]}>
+            <cylinderGeometry args={[0.11, 0.07, 0.14, 8]} />
+            <meshStandardMaterial color="#e2ddd0" {...M} />
+          </mesh>
+        </group>
+      ))}
+      {/* fumaça leve saindo das 3 primeiras chaminés */}
+      {[6.0, 1.5, -3.0].map((x, i) =>
+        Array.from({ length: 4 }, (_, j) => {
+          const ph = (f * 0.01 + j / 4 + i * 0.3) % 1;
+          return (
+            <mesh key={`sm${i}${j}`} position={[x * 0.9 - 0.3 - ph * 2.2, H + 4.6 + ph * 1.6, 0]} scale={0.4 + ph * 0.9}>
+              <icosahedronGeometry args={[1, 1]} />
+              <meshStandardMaterial color="#5a5a66" transparent opacity={0.35 * (1 - ph) * (1 - sk)} depthWrite={false} flatShading />
+            </mesh>
+          );
+        }),
+      )}
       {/* mastros e cordame */}
       <Rod a={[11, H + 0.4, 0]} b={[11.4, H + 6.5, 0]} r={0.06} c="#3a3028" />
       <Rod a={[-10.5, H + 0.4, 0]} b={[-10.8, H + 6.0, 0]} r={0.06} c="#3a3028" />
@@ -144,6 +213,18 @@ export const WoodPanel: React.FC<{ wet?: number; s?: number }> = ({ wet = 0, s =
       <mesh position={[0, T / 2, 0]} castShadow receiveShadow>
         <boxGeometry args={[Lx, T, Wz]} />
         <meshStandardMaterial color={tone(OAK)} {...M} roughness={0.7} />
+      </mesh>
+      {/* veios da madeira */}
+      {Array.from({ length: 9 }, (_, i) => (
+        <mesh key={`gr${i}`} position={[0, T + 0.001, -Wz / 2 + 0.1 + i * ((Wz - 0.2) / 8)]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[Lx - 0.2, 0.006]} />
+          <meshBasicMaterial color={tone(OAK_D)} transparent opacity={0.35} />
+        </mesh>
+      ))}
+      {/* borda chanfrada (lateral mais escura) */}
+      <mesh position={[0, T / 2, 0]} scale={[1.006, 0.9, 1.012]}>
+        <boxGeometry args={[Lx, T, Wz]} />
+        <meshStandardMaterial color={tone(OAK_D)} {...M} />
       </mesh>
       {/* moldura em relevo */}
       {[[0, Wz / 2 - 0.05, Lx - 0.06, 0.06], [0, -Wz / 2 + 0.05, Lx - 0.06, 0.06]].map(([x, z, l, w], i) => (
@@ -216,39 +297,126 @@ export const MuseumCase: React.FC = () => (
   </group>
 );
 
-/* ------------------------------------------------------------------ BOTE SALVA-VIDAS */
+/* ------------------------------------------------------------------ BOTE SALVA-VIDAS (v2) */
 
-/** Bote salva-vidas de madeira (~9 m) com remos e lanterna acesa. Proa para +x. */
-export const Lifeboat: React.FC<{ f: number; row?: number }> = ({ f, row = 1 }) => {
-  const a = Math.sin(f * 0.12) * 0.5 * row;
+/** Casco "duas proas" (baleeira) feito por seções: L comprimento, W boca, D pontal. Branco por fora. */
+const useHull = (L: number, W: number, D: number) =>
+  useMemo(() => {
+    const N = 28, Mn = 10;
+    const pos: number[] = [], idx: number[] = [];
+    for (let i = 0; i <= N; i++) {
+      const u = i / N, x = (u - 0.5) * L;
+      const k = Math.sqrt(Math.max(0, 1 - (2 * u - 1) ** 2)) ** 0.8; // afina nas pontas
+      const sheer = 0.12 * (2 * u - 1) ** 2; // borda sobe nas pontas
+      for (let j = 0; j <= Mn; j++) {
+        const th = (j / Mn) * Math.PI;
+        pos.push(x, sheer - D * Math.sin(th) * (0.35 + 0.65 * k), (W / 2) * Math.cos(th) * k);
+      }
+    }
+    for (let i = 0; i < N; i++)
+      for (let j = 0; j < Mn; j++) {
+        const a0 = i * (Mn + 1) + j, a1 = a0 + Mn + 1;
+        idx.push(a0, a1, a0 + 1, a1, a1 + 1, a0 + 1);
+      }
+    const g = new BufferGeometry();
+    g.setAttribute("position", new BufferAttribute(new Float32Array(pos), 3));
+    g.setIndex(idx);
+    g.computeVertexNormals();
+    return g;
+  }, [L, W, D]);
+
+/** Passageiro sentado (casaco escuro, cabeça, gorro/chapéu). Bem simples, para preencher o bote. */
+const Seated: React.FC<{ p: Vec3; seed: number; f: number }> = ({ p, seed, f }) => {
+  const coats = ["#2a2a34", "#3a2e2a", "#2e3a4a", "#4a3a5a", "#5a4a3a"];
+  const skin = ["#e8c4a0", "#c89a72", "#a8744e", "#f0d0b0"][seed % 4];
+  const sh = 0.02 * Math.sin(f / 4 + seed * 2); // tremendo de frio
   return (
-    <group>
-      <mesh scale={[4.5, 0.7, 1.1]} castShadow>
-        <sphereGeometry args={[1, 16, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
-        <meshStandardMaterial color="#efece4" {...M} side={DoubleSide} />
+    <group position={[p[0] + sh, p[1], p[2]]}>
+      <mesh position={[0, 0.28, 0]} scale={[0.2, 0.3, 0.17]} castShadow>
+        <icosahedronGeometry args={[1, 1]} />
+        <meshStandardMaterial color={coats[seed % coats.length]} {...M} />
       </mesh>
-      <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[4.3, 1.0, 1]}>
-        <circleGeometry args={[1, 18]} />
+      <mesh position={[0, 0.66, 0]} castShadow>
+        <sphereGeometry args={[0.11, 10, 8]} />
+        <meshStandardMaterial color={skin} {...M} />
+      </mesh>
+      <mesh position={[0, 0.74, 0]} scale={[1, 0.55, 1]}>
+        <sphereGeometry args={[0.115, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <meshStandardMaterial color={seed % 2 ? "#1a1a20" : "#6a3a3a"} {...M} />
+      </mesh>
+    </group>
+  );
+};
+
+/** Bote salva-vidas de madeira (~9 m, baleeira branca) com tábuas, bancos, remos, passageiros e lanterna. Proa +x. */
+export const Lifeboat: React.FC<{ f: number; row?: number; people?: number; lamp?: number }> = ({ f, row = 1, people = 6, lamp = 1 }) => {
+  const L = 8.4, W = 2.2, D = 0.85;
+  const hull = useHull(L, W, D);
+  const a = Math.sin(f * 0.12) * 0.45 * row;
+  const roll = 0.03 * Math.sin(f / 22), pitch = 0.02 * Math.sin(f / 31 + 1);
+  return (
+    <group rotation={[roll, 0, pitch]}>
+      <mesh geometry={hull} castShadow receiveShadow>
+        <meshStandardMaterial color="#f2efe6" {...M} roughness={0.6} side={DoubleSide} />
+      </mesh>
+      {/* tábuas (linhas do costado) */}
+      {[0.2, 0.42, 0.62].map((t, k) =>
+        [1, -1].map((s) => (
+          <mesh key={`${k}${s}`} position={[0, -D * t + 0.02, (W / 2) * (1 - t * 0.35) * s]} scale={[L * (0.48 - t * 0.12), 1, 1]}>
+            <boxGeometry args={[2, 0.012, 0.012]} />
+            <meshStandardMaterial color="#b8b4aa" />
+          </mesh>
+        )),
+      )}
+      {/* borda de madeira (alcatrate) */}
+      {[1, -1].map((s) => (
+        <mesh key={`g${s}`} position={[0, 0.04, (W / 2 - 0.02) * s]} scale={[L * 0.47, 1, 1]}>
+          <boxGeometry args={[2, 0.06, 0.07]} />
+          <meshStandardMaterial color="#9a6a3c" {...M} />
+        </mesh>
+      ))}
+      {/* faixa e número na proa */}
+      <mesh position={[0, -0.12, W / 2 - 0.005]} scale={[L * 0.44, 1, 1]}>
+        <boxGeometry args={[2, 0.05, 0.01]} />
+        <meshStandardMaterial color="#3a5a8a" />
+      </mesh>
+      {/* fundo e bancos */}
+      <mesh position={[0, -D * 0.62, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[L * 0.4, W * 0.32, 1]}>
+        <circleGeometry args={[1, 20]} />
         <meshStandardMaterial color="#8f6438" {...M} />
       </mesh>
-      {[-2, -0.7, 0.6, 1.9].map((x, i) => (
-        <Box key={i} p={[x, 0.02, 0]} s={[0.25, 0.06, 1.9]} c="#a87a4a" />
+      {[-2.4, -1.1, 0.2, 1.5, 2.6].map((x, i) => (
+        <Box key={i} p={[x, -0.18, 0]} s={[0.26, 0.05, W * Math.sqrt(1 - (x / (L / 2)) ** 2) - 0.1]} c="#a87a4a" />
       ))}
+      {/* passageiros */}
+      {Array.from({ length: people }, (_, i) => {
+        const x = -2.4 + (i % 5) * 1.3, z = (i < 5 ? 0.35 : -0.35) * (i % 2 ? 1 : -1);
+        return <Seated key={i} p={[x, -0.15, z]} seed={i + 3} f={f} />;
+      })}
       {/* remos */}
-      {[-1.4, 0, 1.4].map((x, i) =>
+      {[-1.7, -0.4, 0.9].map((x, i) =>
         [1, -1].map((s) => (
-          <group key={`${i}${s}`} position={[x, 0.05, 1.05 * s]} rotation={[s * (0.5 + a * 0.3), a, 0]}>
-            <Rod a={[0, 0, 0]} b={[0, 0, 2.2 * s]} r={0.035} c="#c9a172" />
+          <group key={`o${i}${s}`} position={[x, 0.06, (W / 2) * s]} rotation={[s * (0.42 + a * 0.25), a * 0.8, 0]}>
+            <Rod a={[0, 0, -0.5 * s]} b={[0, 0, 2.4 * s]} r={0.03} c="#c9a172" />
+            <Box p={[0, 0, 2.5 * s]} s={[0.14, 0.02, 0.5]} c="#c9a172" />
           </group>
         )),
       )}
-      {/* lanterna */}
-      <Rod a={[3.6, 0, 0]} b={[3.6, 1.0, 0]} r={0.03} c="#3a3028" />
-      <mesh position={[3.6, 1.08, 0]}>
-        <boxGeometry args={[0.14, 0.18, 0.14]} />
-        <meshBasicMaterial color="#ffd27a" toneMapped={false} />
-      </mesh>
-      <pointLight position={[3.6, 1.1, 0]} intensity={2.2} distance={6} color="#ffc070" />
+      {/* lanterna com halo */}
+      {lamp > 0.01 ? (
+        <group position={[3.3, 0, 0]}>
+          <Rod a={[0, 0, 0]} b={[0, 1.1, 0]} r={0.03} c="#3a3028" />
+          <mesh position={[0, 1.18, 0]}>
+            <boxGeometry args={[0.15, 0.2, 0.15]} />
+            <meshBasicMaterial color="#ffd27a" toneMapped={false} />
+          </mesh>
+          <mesh position={[0, 1.18, 0]}>
+            <sphereGeometry args={[0.45, 14, 10]} />
+            <meshBasicMaterial color="#ffb050" transparent opacity={0.1 * lamp} depthWrite={false} toneMapped={false} />
+          </mesh>
+          <pointLight position={[0, 1.2, 0]} intensity={2.4 * lamp} distance={7} color="#ffc070" />
+        </group>
+      ) : null}
     </group>
   );
 };
@@ -300,6 +468,23 @@ export const WaterSlice: React.FC<{ f: number; w?: number; h?: number; d?: numbe
         <meshBasicMaterial color="#cfe8ff" toneMapped={false} />
       </mesh>
     ))}
+    {/* camadas mais escuras com a profundidade */}
+    {[0.35, 0.65].map((t, i) => (
+      <mesh key={`dl${i}`} position={[0, -h * t - (h * 0.35) / 2 + 0.1, d / 2 + 0.004]}>
+        <planeGeometry args={[w, h * 0.35]} />
+        <meshBasicMaterial color="#04142a" transparent opacity={0.18 + i * 0.12} depthWrite={false} />
+      </mesh>
+    ))}
+    {/* bolhas subindo */}
+    {Array.from({ length: 14 }, (_, i) => {
+      const ph = (f * 0.012 + rand(`bb${i}`)) % 1;
+      return (
+        <mesh key={`bu${i}`} position={[-w / 2 + 0.3 + rand(`bx${i}`) * (w - 0.6), -h + 0.1 + ph * (h - 0.15), d / 2 - 0.2 - rand(`bz${i}`) * 0.6]} scale={0.02 + rand(`bs${i}`) * 0.025}>
+          <sphereGeometry args={[1, 8, 6]} />
+          <meshBasicMaterial color="#cfe8ff" transparent opacity={0.55 * (1 - ph * 0.5)} depthWrite={false} />
+        </mesh>
+      );
+    })}
     {/* "gelo" fininho na borda */}
     {Array.from({ length: 10 }, (_, i) => (
       <mesh key={`g${i}`} position={[-w / 2 + 0.2 + rand(`ig${i}`) * (w - 0.4), 0.01, -d / 2 + rand(`iz${i}`) * 0.4]} rotation={[-Math.PI / 2, 0, rand(`ir${i}`) * 3]}>
