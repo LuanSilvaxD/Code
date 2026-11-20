@@ -102,6 +102,16 @@ const useHull = () =>
     return g;
   }, []);
 
+/** Só o casco do Titanic (para reaproveitar em outros navios com escala diferente). */
+export const HullMesh: React.FC = () => {
+  const g = useHull();
+  return (
+    <mesh geometry={g} castShadow receiveShadow>
+      <meshStandardMaterial vertexColors {...M} roughness={0.55} metalness={0.15} />
+    </mesh>
+  );
+};
+
 /** Escotilhas instanciadas (3 fileiras nos dois lados). */
 const Portholes: React.FC<{ lights: number }> = ({ lights }) => {
   const pts = useMemo(() => {
@@ -167,7 +177,7 @@ const DavitBoat: React.FC<{ p: Vec3; s: number }> = ({ p, s }) => (
  * Titanic (desenho próprio, proporções do navio real). Proa +x, linha d'água em y = 0.
  * lights 0..1 acende escotilhas e janelas; smoke 0..1 fumaça nas 3 chaminés de verdade.
  */
-export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number; cutBridge?: boolean }> = ({ f, lights = 0, smoke = 0, cutBridge = false }) => {
+export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number; cutBridge?: boolean; wreck?: boolean }> = ({ f, lights = 0, smoke = 0, cutBridge = false, wreck = false }) => {
   const hull = useHull();
   const D = SHIP.deck, T = SHIP.top;
   const wins = useMemo(() => Array.from({ length: 64 }, (_, i) => ({ x: -9.3 + i * 0.28, lit: rand(`w${i}`) > 0.25 })), []);
@@ -214,8 +224,8 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number;
           <meshBasicMaterial color={lights > 0.5 ? "#ffe8b0" : "#3a3a46"} toneMapped={false} />
         </mesh>
       ))}
-      {/* 4 chaminés elípticas, inclinadas para trás */}
-      {[6.0, 2.4, -1.3, -5.0].map((x, i) => (
+      {/* 4 chaminés elípticas, inclinadas para trás (no naufrágio elas caíram: some) */}
+      {(wreck ? [] : [6.0, 2.4, -1.3, -5.0]).map((x, i) => (
         <group key={i} position={[x, D + 0.02, 0]} rotation={[0, 0, 0.09]}>
           <mesh position={[0, 1.05, 0]} scale={[1, 1, 0.78]} castShadow>
             <cylinderGeometry args={[0.32, 0.34, 2.1, 20]} />
@@ -245,7 +255,7 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number;
         </group>
       ))}
       {/* botes nos turcos */}
-      {[7.6, 6.85, 5.0, 4.25, -3.0, -3.75, -6.4, -7.15].map((x, i) =>
+      {(wreck ? [] : [7.6, 6.85, 5.0, 4.25, -3.0, -3.75, -6.4, -7.15]).map((x, i) =>
         [1, -1].map((s) => <DavitBoat key={`${i}${s}`} p={[x, D + 0.12, (SHIP.B / 2 - 0.12) * s]} s={s} />),
       )}
       {/* ventiladores */}
@@ -260,8 +270,9 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number;
           </group>
         )),
       )}
-      {/* mastros, cesto da gávea e antena */}
-      <Rod a={[10.6, T + 0.1, 0]} b={[10.85, 6.4, 0]} r={0.07} c="#8a6a48" seg={8} />
+      {/* mastros, cesto da gávea e antena (no naufrágio: mastro da proa tombado sobre o convés) */}
+      {wreck ? <Rod a={[10.6, T + 0.12, 0.1]} b={[5.6, T + 0.55, 0.5]} r={0.07} c="#5a3a22" seg={8} /> : null}
+      {wreck ? null : <><Rod a={[10.6, T + 0.1, 0]} b={[10.85, 6.4, 0]} r={0.07} c="#8a6a48" seg={8} />
       <mesh position={[10.72, 3.9, 0]}>
         <cylinderGeometry args={[0.16, 0.16, 0.22, 10, 1, true]} />
         <meshStandardMaterial color="#e8e0cc" {...M} side={DoubleSide} />
@@ -273,7 +284,7 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number;
           <Rod a={[10.8, 5.8, 0]} b={[10.0, T + 0.1, 1.2 * s]} r={0.006} c="#2a2a30" seg={3} />
           <Rod a={[-10.8, 5.5, 0]} b={[-10.0, T + 0.1, 1.2 * s]} r={0.006} c="#2a2a30" seg={3} />
         </group>
-      ))}
+      ))}</>}
       {/* luz de topo do mastro */}
       {lights > 0.01 ? (
         <mesh position={[10.86, 6.45, 0]}>
