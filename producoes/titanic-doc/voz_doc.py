@@ -59,6 +59,8 @@ async def build(src, out):
     proxy = os.environ.get("HTTPS_PROXY") or None
     d = tempfile.mkdtemp()
     parts = []
+    timings = []
+    t = 0.0
     for i, (text, rate, pitch, pause) in enumerate(parse(src)):
         spoken = text
         for k, v in SAY.items():
@@ -75,14 +77,20 @@ async def build(src, out):
         wav = f"{d}/{i:03d}.wav"
         trim = "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-af", f"{trim},apad=pad_dur={pause}", "-ar", "24000", "-ac", "1", wav], check=True)
+        dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", wav], capture_output=True, text=True).stdout)
+        timings.append({"text": text, "start": round(t, 3), "speech": round(dur - pause, 3), "end": round(t + dur, 3)})
+        t += dur
         parts.append(wav)
     lst = f"{d}/list.txt"
     with open(lst, "w") as fh:
         fh.write("".join(f"file '{p}'\n" for p in parts))
     raw = f"{d}/raw.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, raw], check=True)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-af", FINISH, "-b:a", "160k", out], check=True)
-    print(out)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-af", FINISH, "-ar", "48000", out], check=True)
+    import json
+    with open(re.sub(r"\.\w+$", ".json", out), "w", encoding="utf-8") as fh:
+        json.dump({"seconds": round(t, 3), "lines": timings}, fh, ensure_ascii=False, indent=1)
+    print(out, round(t, 2), "s")
 
 
 if __name__ == "__main__":

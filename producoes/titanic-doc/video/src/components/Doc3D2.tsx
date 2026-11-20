@@ -21,7 +21,7 @@ const Box: React.FC<{ p: Vec3; s: Vec3; c: string; r?: Vec3; e?: string; ei?: nu
  * Aplica em todos os materiais dos filhos: um plano de corte local (para partir o navio) e/ou ferrugem
  * (cores puxadas para marrom-alaranjado). O canvas precisa de gl.localClippingEnabled = true.
  */
-export const Treat: React.FC<{ clip?: { normal: Vec3; constant: number }; rust?: number; children: React.ReactNode }> = ({ clip, rust = 0, children }) => {
+export const Treat: React.FC<{ clip?: { normal: Vec3; constant: number }; rust?: number; tint?: [string, number]; children: React.ReactNode }> = ({ clip, rust = 0, tint, children }) => {
   const ref = useRef<Group>(null);
   const plane = useMemo(() => (clip ? new Plane(new Vector3(...clip.normal), clip.constant) : null), [clip?.normal[0], clip?.normal[1], clip?.normal[2], clip?.constant]);
   useLayoutEffect(() => {
@@ -29,7 +29,8 @@ export const Treat: React.FC<{ clip?: { normal: Vec3; constant: number }; rust?:
     if (!g) return;
     g.updateWorldMatrix(true, true);
     const world = plane ? plane.clone().applyMatrix4(g.matrixWorld) : null;
-    const rustC = C("#6a3a22");
+    const rustC = tint ? C(tint[0]) : C("#6a3a22");
+    const amt = tint ? tint[1] : rust;
     g.traverse((o) => {
       const mesh = o as Mesh;
       if (!mesh.material) return;
@@ -39,9 +40,9 @@ export const Treat: React.FC<{ clip?: { normal: Vec3; constant: number }; rust?:
           m.clippingPlanes = [world];
           m.side = DoubleSide;
         }
-        if (rust > 0 && m.color) {
+        if (amt > 0 && m.color) {
           if (!m.userData.orig) m.userData.orig = m.color.clone();
-          m.color.copy(m.userData.orig as Color).lerp(rustC, rust);
+          m.color.copy(m.userData.orig as Color).lerp(rustC, amt);
         }
         m.needsUpdate = true;
       }

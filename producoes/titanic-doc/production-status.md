@@ -1,5 +1,7 @@
 # Status: titanic-doc
 
-- Estrutura aprovada (19/11); sem legenda; mascote secundário.
+- Estrutura aprovada (19/11); sem legenda; mascote secundário; barras de cinema 2,39:1 no vídeo todo.
 - Voz: William humanizado (voz_doc.py), aprovada 20/11.
-- Roteiro v1 entregue (20/11), aguardando aprovação. ~1.055 palavras ≈ 8–9 min.
+- Roteiro v1 aprovado (20/11).
+- Designs: folha 1 v3 e folha 2 aprovadas.
+- Parte 1 (abertura fria + título + cap. 1): renderizando (src/doc/Part1.tsx, composição DocParte1, 123 s).

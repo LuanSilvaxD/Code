@@ -2,6 +2,7 @@ import { Composition } from "remotion";
 import { DinoSheet } from "./DinoSheet";
 import { DocSheet } from "./DocSheet";
 import { DocSheet2 } from "./DocSheet2";
+import { DocPart1, PART1_FRAMES } from "./doc/Part1";
 import { MainSequence } from "./MainSequence";
 import { Thumbnail } from "./Thumbnail";
 import { DURATION } from "./utils/timing";
@@ -12,6 +13,7 @@ export const RemotionRoot: React.FC = () => (
   <>
     <Composition id="DinoSheet" component={DinoSheet} durationInFrames={120} fps={30} width={1080} height={1920} />
     <Composition id="DocSheet" component={DocSheet} durationInFrames={120} fps={30} width={1920} height={1580} />
+    <Composition id="DocParte1" component={DocPart1} durationInFrames={PART1_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocSheet2" component={DocSheet2} durationInFrames={120} fps={30} width={1920} height={1620} />
     <Composition id="Titanic" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
