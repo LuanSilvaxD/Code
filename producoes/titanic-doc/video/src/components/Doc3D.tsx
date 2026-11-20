@@ -167,7 +167,7 @@ const DavitBoat: React.FC<{ p: Vec3; s: number }> = ({ p, s }) => (
  * Titanic (desenho próprio, proporções do navio real). Proa +x, linha d'água em y = 0.
  * lights 0..1 acende escotilhas e janelas; smoke 0..1 fumaça nas 3 chaminés de verdade.
  */
-export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number }> = ({ f, lights = 0, smoke = 0 }) => {
+export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number; cutBridge?: boolean }> = ({ f, lights = 0, smoke = 0, cutBridge = false }) => {
   const hull = useHull();
   const D = SHIP.deck, T = SHIP.top;
   const wins = useMemo(() => Array.from({ length: 64 }, (_, i) => ({ x: -9.3 + i * 0.28, lit: rand(`w${i}`) > 0.25 })), []);
@@ -202,13 +202,13 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number 
       {/* convés dos botes (madeira) */}
       <Box p={[-0.4, D + 0.01, 0]} s={[18.6, 0.02, SHIP.B * 0.92]} c="#b89a6e" />
       {/* casarias no convés dos botes */}
-      <Box p={[7.4, D + 0.17, 0]} s={[2.2, 0.32, 1.4]} c="#ece8de" />
+      {cutBridge ? null : <Box p={[7.4, D + 0.17, 0]} s={[2.2, 0.32, 1.4]} c="#ece8de" />}
       <Box p={[1.0, D + 0.15, 0]} s={[6.4, 0.28, 1.1]} c="#e6e1d4" />
       <Box p={[-4.6, D + 0.15, 0]} s={[3.6, 0.28, 1.1]} c="#e6e1d4" />
       {/* ponte de comando com asas */}
-      <Box p={[8.55, D + 0.2, 0]} s={[0.45, 0.4, 1.3]} c="#ece8de" />
-      <Box p={[8.55, D + 0.4, 0]} s={[0.5, 0.04, SHIP.B * 0.96]} c="#ece8de" />
-      {[-0.4, -0.2, 0, 0.2, 0.4].map((z, i) => (
+      {cutBridge ? null : <Box p={[8.55, D + 0.2, 0]} s={[0.45, 0.4, 1.3]} c="#ece8de" />}
+      {cutBridge ? null : <Box p={[8.55, D + 0.4, 0]} s={[0.5, 0.04, SHIP.B * 0.96]} c="#ece8de" />}
+      {(cutBridge ? [] : [-0.4, -0.2, 0, 0.2, 0.4]).map((z, i) => (
         <mesh key={`bw${i}`} position={[8.785, D + 0.26, z]} rotation={[0, Math.PI / 2, 0]}>
           <planeGeometry args={[0.13, 0.12]} />
           <meshBasicMaterial color={lights > 0.5 ? "#ffe8b0" : "#3a3a46"} toneMapped={false} />
