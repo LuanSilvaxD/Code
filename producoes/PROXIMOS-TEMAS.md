@@ -45,4 +45,4 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - 1,3 mil views nas primeiras 2h23, 1º de 10 no ranking do período. Retenção ainda não saiu: comparar com os "E se…?" antigos antes de concluir.
 
 ## Documentário Titanic (vídeo longo)
-- Plano no doc "Plano: documentário Titanic (Fenda Umbra)". Estrutura aprovada, sem legenda, mascote como personagem secundário. Aguardando a escolha da voz (amostras em producoes/titanic-doc/vozes, 1–18 + Kokoro).
+- Plano no doc "Plano: documentário Titanic (Fenda Umbra)". Estrutura aprovada, sem legenda, mascote como personagem secundário. Voz escolhida: 13, en-AU-WilliamMultilingualNeural (−4%), em 20/11; teste com números e nomes enviado (13b).
