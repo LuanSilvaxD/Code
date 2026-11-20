@@ -4,4 +4,4 @@
 - Voz: William humanizado (voz_doc.py), aprovada 20/11.
 - Roteiro v1 aprovado (20/11).
 - Designs: folha 1 v3 e folha 2 aprovadas.
-- Parte 1 (abertura fria + título + cap. 1): renderizando (src/doc/Part1.tsx, composição DocParte1, 123 s).
+- Parte 1 (abertura fria + título + cap. 1): renderizada 20/11 (123 s), enviada para revisão.
