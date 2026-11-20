@@ -37,3 +37,12 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - **Pterodáctilo no México? (Boato ou Verdade #5)** — ENTREGUE 18/11 (2º teste da abertura nova; assunto viral da semana no TikTok).
 
 - **O Jack cabia na porta? (Filme × Realidade #2, Titanic)** — ENTREGUE 19/11 (3º teste da abertura nova).
+
+## Pedidos do público (20/11/2026)
+- **E se a água sumisse?** — pedido nos comentários do "E se o Sol sumisse?" (o canal respondeu "Anotado"). Formato "E se…?" com a abertura nova (4º teste). Recorte a decidir: toda a água da Terra (mais dramático: o corpo humano é ~60% água) ou só os oceanos. Quando sair, responder no comentário com o link ou fixá-lo. Não citar o nome de quem pediu.
+
+## Métricas iniciais — E se o Sol sumisse? (abertura nova)
+- 1,3 mil views nas primeiras 2h23, 1º de 10 no ranking do período. Retenção ainda não saiu: comparar com os "E se…?" antigos antes de concluir.
+
+## Documentário Titanic (vídeo longo)
+- Plano no doc "Plano: documentário Titanic (Fenda Umbra)". Estrutura aprovada, sem legenda, mascote como personagem secundário. Aguardando a escolha da voz (amostras em producoes/titanic-doc/vozes, 1–18 + Kokoro).
