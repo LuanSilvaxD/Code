@@ -1,0 +1,18 @@
+(n) Na ponte, o oficial de serviço manda virar tudo pra esquerda e parar as máquinas.
+(d) O navio começa a virar... devagar demais.
+(d) Ele não bate de frente. Ele raspa.
+(n) O gelo passa pela lateral, do lado direito, por uns noventa metros.
+(n) Lá em cima, quase ninguém sente nada forte. Alguns passageiros acham que foi só um tranco.
+(d) Mas lá embaixo, a água está entrando.
+(n) E aqui está a conta que condenou o Titanic.
+(n) Ele aguentava até quatro compartimentos inundados.
+(f) O iceberg abriu cinco. Talvez seis.
+(n) E as paredes entre eles não iam até o teto.
+(n) Quando a frente do navio afunda, a água passa por cima da parede e enche o próximo compartimento...
+(d) e o próximo... e o próximo.
+(n) Como água numa forma de gelo inclinada.
+(n) O engenheiro que projetou o navio, Thomas Andrews, desce pra ver os estragos.
+(n) Faz as contas e dá o veredito ao capitão:
+(f) o Titanic vai afundar. Em uma hora, talvez duas.
+(d) E aí veio o maior problema de todos.
+(f) Os botes. | 1.2

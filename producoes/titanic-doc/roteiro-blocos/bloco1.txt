@@ -1,0 +1,15 @@
+(n) Dez de abril. O Titanic deixa o porto de Southampton, na Inglaterra, rumo a Nova York.
+(n) Ele tinha duzentos e sessenta e nove metros.
+(d) Era o maior objeto em movimento já construído pelo ser humano.
+(n) Lá dentro, três mundos.
+(n) Na primeira classe, salões, piscina, até quadra de squash.
+(n) Na terceira, centenas de famílias, muitas indo começar a vida na América.
+(n) E, por baixo de tudo, a grande aposta dos engenheiros:
+(n) o casco era dividido em dezesseis compartimentos, separados por paredes de aço.
+(n) Se um furo deixasse entrar água, as portas fechavam, e a água ficava presa ali.
+(d) Mesmo com quatro compartimentos inundados, ele continuaria boiando.
+(n) Uma revista técnica da época chegou a chamar o navio de... praticamente inafundável.
+(p) O problema?
+(d) Muita gente passou a acreditar nisso de verdade.
+(n) Só que, enquanto o navio cruzava o oceano,
+(f) o mar já estava avisando.

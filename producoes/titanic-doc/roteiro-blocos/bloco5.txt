@@ -1,0 +1,13 @@
+(n) Esse navio era o Californian.
+(n) A tripulação dele viu os foguetes, mas não entendeu o que eles significavam.
+(n) E o operador de rádio já tinha desligado o aparelho e ido dormir.
+(d) As investigações depois concluíram: se ele tivesse respondido, muitas vidas poderiam ter sido salvas.
+(n) Duas da manhã. A frente do Titanic já está debaixo d'água.
+(n) A popa começa a subir. Mais. E mais.
+(d) As luzes piscam... e se apagam.
+(f) E o casco, que não foi feito pra isso, se parte em dois.
+(d) Às duas e vinte, o Titanic desaparece.
+(n) Mais de mil pessoas ficam na água.
+(n) A água estava a dois graus negativos.
+(d) Em uns quinze minutos, o corpo apaga.
+(n) E o socorro mais próximo ainda estava a horas dali. | 1.3
