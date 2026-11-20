@@ -177,7 +177,7 @@ const DavitBoat: React.FC<{ p: Vec3; s: number }> = ({ p, s }) => (
  * Titanic (desenho próprio, proporções do navio real). Proa +x, linha d'água em y = 0.
  * lights 0..1 acende escotilhas e janelas; smoke 0..1 fumaça nas 3 chaminés de verdade.
  */
-export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number; cutBridge?: boolean; wreck?: boolean }> = ({ f, lights = 0, smoke = 0, cutBridge = false, wreck = false }) => {
+export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number; cutBridge?: boolean; wreck?: boolean; allBoats?: boolean }> = ({ f, lights = 0, smoke = 0, cutBridge = false, wreck = false, allBoats = false }) => {
   const hull = useHull();
   const D = SHIP.deck, T = SHIP.top;
   const wins = useMemo(() => Array.from({ length: 64 }, (_, i) => ({ x: -9.3 + i * 0.28, lit: rand(`w${i}`) > 0.25 })), []);
@@ -255,7 +255,7 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number;
         </group>
       ))}
       {/* botes nos turcos */}
-      {(wreck ? [] : [7.6, 6.85, 5.0, 4.25, -3.0, -3.75, -6.4, -7.15]).map((x, i) =>
+      {(wreck ? [] : allBoats ? Array.from({ length: 22 }, (_, k) => 7.8 - k * 0.72).filter((x) => Math.abs(x - 6.0) > 0.4 && Math.abs(x - 2.4) > 0.4 && Math.abs(x + 1.3) > 0.4 && Math.abs(x + 5.0) > 0.4) : [7.6, 6.85, 5.0, 4.25, -3.0, -3.75, -6.4, -7.15]).map((x, i) =>
         [1, -1].map((s) => <DavitBoat key={`${i}${s}`} p={[x, D + 0.12, (SHIP.B / 2 - 0.12) * s]} s={s} />),
       )}
       {/* ventiladores */}

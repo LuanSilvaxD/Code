@@ -78,6 +78,11 @@ async def build(src, out):
         trim = "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-af", f"{trim},apad=pad_dur={pause}", "-ar", "24000", "-ac", "1", wav], check=True)
         dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", wav], capture_output=True, text=True).stdout)
+        if (dur - pause) < 0.2 * len(text.split()):  # áudio cortado pelo serviço: gera de novo
+            print("áudio curto demais, refazendo:", text[:40])
+            await edge_tts.Communicate(spoken, VOICE, rate=rate, pitch=pitch, proxy=proxy).save(mp3)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-af", f"{trim},apad=pad_dur={pause}", "-ar", "24000", "-ac", "1", wav], check=True)
+            dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", wav], capture_output=True, text=True).stdout)
         timings.append({"text": text, "start": round(t, 3), "speech": round(dur - pause, 3), "end": round(t + dur, 3)})
         t += dur
         parts.append(wav)

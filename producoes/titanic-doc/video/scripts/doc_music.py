@@ -22,6 +22,9 @@ CFG = {
     3: dict(DUR=139.0, S=[0.0, 11.4, 28.0, 43.9, 56.3, 64.9, 77.4, 101.6, 113.9, 122.8, 132.2],
             INT=["tense", "curious", "calm", "tense", "calm", "build", "tense", "build", "reveal", "calm", "resolve"],
             HITS=[19.7, 74.0, 113.9, 118.8], VO=[("bloco4", 2.6), ("bloco5", 81.39)]),
+    4: dict(DUR=115.0, S=[0.0, 8.3, 17.7, 32.6, 44.9, 56.7, 67.0, 75.1, 87.7, 97.1, 103.1],
+            INT=["build", "tense", "reveal", "calm", "curious", "groove", "tense", "reveal", "calm", "resolve", "resolve"],
+            HITS=[17.7, 75.1, 83.7, 103.2], VO=[("bloco6", 2.6), ("bloco7", 44.95)]),
 }[PART]
 DUR, S, INTENTS, HITS = CFG["DUR"], CFG["S"], CFG["INT"], CFG["HITS"]
 mix = fm.render(S, INTENTS, DUR, "historia", hits=HITS, outro=0.0, theme=False, variant=f"titanic-doc-parte{PART}")

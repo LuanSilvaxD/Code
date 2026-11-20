@@ -5,6 +5,7 @@ import { DocSheet2 } from "./DocSheet2";
 import { DocPart1, PART1_FRAMES } from "./doc/Part1";
 import { DocPart2, PART2_FRAMES } from "./doc/Part2";
 import { DocPart3, PART3_FRAMES } from "./doc/Part3";
+import { DocPart4, PART4_FRAMES } from "./doc/Part4";
 import { MainSequence } from "./MainSequence";
 import { Thumbnail } from "./Thumbnail";
 import { DURATION } from "./utils/timing";
@@ -18,6 +19,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="DocParte1" component={DocPart1} durationInFrames={PART1_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocParte2" component={DocPart2} durationInFrames={PART2_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocParte3" component={DocPart3} durationInFrames={PART3_FRAMES} fps={30} width={1920} height={1080} />
+    <Composition id="DocParte4" component={DocPart4} durationInFrames={PART4_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocSheet2" component={DocSheet2} durationInFrames={120} fps={30} width={1920} height={1620} />
     <Composition id="Titanic" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CapaVertical" component={Thumbnail} durationInFrames={DURATION} fps={30} width={1080} height={1920} defaultProps={{ layout: "vertical" as const }} />
