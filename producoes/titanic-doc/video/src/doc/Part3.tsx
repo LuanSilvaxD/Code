@@ -1,5 +1,5 @@
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, Sequence, staticFile, useCurrentFrame } from "remotion";
 import { Mascot } from "../components/Mascot";
 import { Stars } from "../components/SpaceScene";
 import { RadioRoom, TitanicHero } from "../components/Doc3D";
@@ -173,8 +173,8 @@ export const DocPart3: React.FC = () => (
     </Shot>
     {/* 5 · botes descendo quase vazios (36,6–43,9 s) */}
     <Shot from={S(36.6)} to={S(43.9)}>
-      <Cine bg={NIGHT} fov={40} keys={[[0, [6, 0.6, 9], [0, 1.4, 1.4]], [S(7.3), [3.5, 0.5, 8], [-1, 1.2, 1.4]]]}>
-        {(f) => (<><Sky f={f} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[0, -0.25, 0]} rotation={[0, 0, -0.025]}><TitanicHero f={f} lights={1} /></group><group position={[1.2, interpolate(f, [0, S(7.3)], [2.3, 0.06]), 1.72]} scale={0.13}><Lifeboat f={f} people={3} lamp={1} row={0} /></group></>)}
+      <Cine bg={NIGHT} fov={29} keys={[[0, [3.6, 2.6, 4.6], [1.0, 2.0, 1.5]], [S(3.6), [3.3, 1.5, 4.3], [1.0, 1.0, 1.5]], [S(7.3), [3.1, 0.55, 4.0], [1.0, 0.25, 1.5]]]}>
+        {(f) => { const by = interpolate(f, [0, S(7.3)], [2.3, 0.06], { easing: Easing.inOut(Easing.sin) }); return (<><Sky f={f} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[0, -0.25, 0]} rotation={[0, 0, -0.025]}><TitanicHero f={f} lights={1} /></group><group position={[1.2, by, 1.72]} scale={0.13}><Lifeboat f={f} people={3} lamp={1} row={0} /></group>{[0.82, 1.58].map((x) => { const y0 = by + 0.1, y1 = 2.95; return (<mesh key={x} position={[x, (y0 + y1) / 2, 1.72]}><cylinderGeometry args={[0.006, 0.006, y1 - y0, 5]} /><meshStandardMaterial color="#d8ccb0" /></mesh>); })}</>); }}
       </Cine>
     </Shot>
     {/* 6 · 40 lugares, 12 pessoas — o mascote está nesse bote (43,9–48,6 s) */}

@@ -372,7 +372,7 @@ export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean; f?:
       sub: frustum(blob(10, 3.6, sd + "u", 0, 0, 0.8), -3.4, 3.1, 0.82, [0, 0], sd + "u"),
     };
   }, [seed]);
-  const mat = <meshStandardMaterial vertexColors roughness={0.28} metalness={0.05} flatShading emissive="#2a4a62" emissiveIntensity={0.35} />;
+  const mat = <meshStandardMaterial vertexColors roughness={0.28} metalness={0.05} flatShading emissive="#2a4a62" emissiveIntensity={0.35} side={DoubleSide} />;
   return (
     <group scale={s}>
       <mesh geometry={parts.base} castShadow receiveShadow>{mat}</mesh>

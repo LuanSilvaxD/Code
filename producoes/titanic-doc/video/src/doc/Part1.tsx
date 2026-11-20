@@ -286,8 +286,8 @@ export const DocPart1: React.FC = () => {
       </Shot>
       {/* C · a sombra à frente (vista do cesto) (12,4–17 s) */}
       <Shot from={S(12.4)} to={S(17)}>
-        <Cine bg={NIGHT} fov={40} keys={[[0, [0.2, 1.8, 0], [150, -44, 0]], [S(4.6), [0.4, 1.8, 0], [150, -45, 3]]]}>
-          {(f) => (<><Sky f={f} n={900} r={300} /><group position={[0, -39, 0]} scale={10}><NightSea f={f} size={200} seg={140} moonX={-30} /></group><group position={[-107.2, -39, 0]} scale={10}><TitanicHero f={f} lights={1} /></group><group position={[interpolate(f, [0, S(4.6)], [330, 210]), -39, 12]} scale={10}><DarkBerg f={f} k={0.68} /></group></>)}
+        <Cine bg={NIGHT} fov={40} keys={[[0, [0.2, 1.8, 0], [150, -40, 4]], [S(4.6), [0.4, 1.8, 0], [120, -37.5, 5]]]}>
+          {(f) => (<><Sky f={f} n={900} r={300} /><group position={[0, -39, 0]} scale={10}><NightSea f={f} size={200} seg={140} moonX={-30} /></group><group position={[-107.2, -39, 0]} scale={10}><TitanicHero f={f} lights={1} /></group><group position={[interpolate(f, [0, S(4.6)], [190, 128]), -39, 6]} scale={10}><DarkBerg f={f} k={0.6} /></group></>)}
         </Cine>
       </Shot>
       {/* D · o sino três vezes e o telefone (17–21,6 s) */}
@@ -304,7 +304,7 @@ export const DocPart1: React.FC = () => {
       </Shot>
       {/* F · menos de 40 segundos: o navio e o gelo (25–28 s) */}
       <Shot from={S(25)} to={S(28)}>
-        <Cine bg={NIGHT} fov={36} keys={[[0, [6, 7, 30], [11, 1.2, 0]], [S(3), [9, 5, 24], [13, 1.2, 1]]]}>
+        <Cine bg={NIGHT} fov={36} keys={[[0, [6, 9, 44], [6, 1.2, 0]], [S(3), [10, 7, 37], [9, 1.2, 1]]]}>
           {(f) => (<><Sky f={f} /><NightSea f={f} size={200} seg={150} moonX={-40} /><group position={[shipX(f, 0), 0, 0]}><TitanicHero f={f} lights={1} /></group><group position={[22, 0, 2.2]} scale={0.85}><DarkBerg f={f} k={0.45} /></group></>)}
         </Cine>
       </Shot>

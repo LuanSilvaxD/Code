@@ -249,8 +249,8 @@ export const DocPart2: React.FC = () => {
       </Shot>
       {/* 12 · vista de cima: vira devagar demais (71,9–76,4 s) */}
       <Shot from={S(71.9)} to={S(76.4)}>
-        <Cine bg={NIGHT} fov={40} keys={[[0, [10, 46, 6], [10, 0, 0]], [S(4.5), [12, 44, 6], [12, 0, 0]]]}>
-          {(f) => { const yaw = cl(f, 0, S(4.5)) * 0.12; return (<><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[shipX(f, 0), 0, 0]} rotation={[0, yaw, 0]}><TitanicHero f={f} lights={1} /></group><group position={[25.5, 0, 2.3]} scale={0.85}><DarkBerg f={f} k={0.4} foam={0} /></group></>); }}
+        <Cine bg={NIGHT} fov={40} keys={[[0, [4, 30, 26], [6, 0, 1]], [S(4.5), [7, 28, 24], [8, 0, 1]]]}>
+          {(f) => { const yaw = cl(f, 0, S(4.5)) * 0.12; return (<><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[shipX(f, 0), 0, 0]} rotation={[0, yaw, 0]}><TitanicHero f={f} lights={1} /></group><group position={[15.5, 0.55, 5.6]} scale={1.5}><Iceberg f={f} under={false} foam={0.6} /></group><pointLight position={[17.5, 12, 8]} intensity={30} distance={30} color="#cfe4ff" /></>); }}
         </Cine>
       </Shot>
       {/* 13 · no convés: ele raspa (76,4–80,2 s) — o mascote vê o gelo passar */}
@@ -274,7 +274,7 @@ export const DocPart2: React.FC = () => {
       </Shot>
       {/* 16–20 · os compartimentos (92,4–120,5 s) */}
       <Shot from={S(92.4)} to={S(120.5)} fin={14}>
-        <Cine bg={STUDIO} fov={30} light="day" keys={[[0, [0.6, 1.2, 33], [0.6, 0.7, 0]], [S(3.6), [6, 1.0, 22], [6, 0.6, 0]], [S(10.9), [6, 1.0, 22], [6, 0.6, 0]], [S(15.5), [8.5, 1.4, 10], [8.5, 1.4, 0]], [S(19), [8.5, 1.4, 10], [8.5, 1.2, 0]], [S(28.1), [3, 1.4, 30], [3, 0.4, 0]]]}>
+        <Cine bg={STUDIO} fov={30} light="day" keys={[[0, [0.6, 1.2, 33], [0.6, 0.7, 0]], [S(3.6), [6, 1.0, 22], [6, 0.6, 0]], [S(10.9), [6, 1.0, 22], [6, 0.6, 0]], [S(15.5), [8, 1.4, 15], [8, 1.2, 0]], [S(19), [8, 1.4, 15], [8, 1.1, 0]], [S(28.1), [3, 1.4, 30], [3, 0.4, 0]]]}>
           {(f) => {
             const start = cl(f, 0, S(3.6)) * 0.25;
             const open6 = cl(f, S(10.9), S(14.5));
