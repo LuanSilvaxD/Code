@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { BufferAttribute, BufferGeometry, Color, DoubleSide, IcosahedronGeometry, Object3D, Quaternion, Vector3 } from "three";
+import { BufferAttribute, BufferGeometry, Color, DoubleSide, Object3D, Quaternion, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 
 // Documentário "Titanic: o que realmente aconteceu naquela noite" — mundo em alta qualidade (16:9).
@@ -304,43 +304,84 @@ export const TitanicHero: React.FC<{ f: number; lights?: number; smoke?: number 
   );
 };
 
-/* ================================================================== ICEBERG */
+/* ================================================================== ICEBERG (v2: blocos facetados) */
 
-/** Iceberg facetado: parte de cima ~2,2 u, massa submersa maior e azulada. */
-export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean }> = ({ s = 1, seed = 3, under = true }) => {
-  const geos = useMemo(() => {
-    const mk = (r: number, det: number, yScale: number, k: number) => {
-      const g = new IcosahedronGeometry(r, det);
-      const p = g.attributes.position;
-      const v = new Vector3();
-      const col = new Float32Array(p.count * 3);
-      for (let i = 0; i < p.count; i++) {
-        v.fromBufferAttribute(p, i);
-        const n = Math.sin(v.x * 1.7 + seed) * Math.cos(v.z * 1.3 - seed) * 0.28 + Math.sin(v.y * 2.4 + v.x) * 0.16 + (rand(`ib${seed}-${i}`) - 0.5) * 0.14;
-        v.multiplyScalar(1 + n * k);
-        v.y *= yScale;
-        p.setXYZ(i, v.x, v.y, v.z);
-        const t = clamp((v.y + 1) / 3, 0, 1);
-        const c = C("#9fd2ea").lerp(C("#f4fbff"), t);
-        col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b;
-      }
-      g.setAttribute("color", new BufferAttribute(col, 3));
-      g.computeVertexNormals();
-      return g;
+type P2 = [number, number];
+/** Polígono irregular (raio médio r, n lados) para a base de um bloco de gelo. */
+const blob = (n: number, r: number, seed: string, ox = 0, oz = 0, squash = 1): P2[] =>
+  Array.from({ length: n }, (_, i) => {
+    const a = (i / n) * Math.PI * 2 + (rand(`${seed}a${i}`) - 0.5) * 0.35;
+    const rr = r * (0.72 + rand(`${seed}r${i}`) * 0.5);
+    return [ox + Math.cos(a) * rr, oz + Math.sin(a) * rr * squash];
+  });
+
+/**
+ * Tronco de prisma (base `poly` em y0, topo encolhido `k` e deslocado em y0+h), faces planas.
+ * Cor por face: topo branco-neve, paredes azul-gelo (mais fundas perto da água), paredes viradas para baixo mais escuras.
+ */
+const frustum = (poly: P2[], y0: number, h: number, k: number, off: P2, seed: string) => {
+  const cx = poly.reduce((s, p) => s + p[0], 0) / poly.length, cz = poly.reduce((s, p) => s + p[1], 0) / poly.length;
+  const top = poly.map(([x, z], i): [number, number, number] => [cx + (x - cx) * k * (0.9 + rand(`${seed}k${i}`) * 0.2) + off[0], y0 + h * (0.92 + rand(`${seed}h${i}`) * 0.16), cz + (z - cz) * k + off[1]]);
+  const bot = poly.map(([x, z]): [number, number, number] => [x, y0, z]);
+  const pos: number[] = [], col: number[] = [];
+  const snow = C("#f6fbff"), face = C("#cdeaf6"), deep = C("#7fc2de"), shade = C("#5aa6c8");
+  const tri = (a: number[], b: number[], c: number[]) => {
+    const u = new Vector3(b[0] - a[0], b[1] - a[1], b[2] - a[2]), v = new Vector3(c[0] - a[0], c[1] - a[1], c[2] - a[2]);
+    const n = u.cross(v).normalize();
+    const midY = (a[1] + b[1] + c[1]) / 3;
+    const cc = n.y > 0.75 ? snow.clone() : face.clone().lerp(deep, clamp(1 - (midY + 0.3) / 3, 0, 1)).lerp(shade, clamp(-n.y, 0, 1) * 0.8);
+    // leve variação por face (gelo não é uniforme)
+    cc.offsetHSL(0, 0, (rand(`${seed}f${pos.length}`) - 0.5) * 0.06);
+    for (const p of [a, b, c]) { pos.push(p[0], p[1], p[2]); col.push(cc.r, cc.g, cc.b); }
+  };
+  const n = poly.length;
+  for (let i = 0; i < n; i++) {
+    const j = (i + 1) % n;
+    tri(bot[i], bot[j], top[j]);
+    tri(bot[i], top[j], top[i]);
+  }
+  const tc = [top.reduce((s, p) => s + p[0], 0) / n, top.reduce((s, p) => s + p[1], 0) / n + h * 0.04, top.reduce((s, p) => s + p[2], 0) / n];
+  for (let i = 0; i < n; i++) tri(top[i], top[(i + 1) % n], tc);
+  const g = new BufferGeometry();
+  g.setAttribute("position", new BufferAttribute(new Float32Array(pos), 3));
+  g.setAttribute("color", new BufferAttribute(new Float32Array(col), 3));
+  g.computeVertexNormals();
+  return g;
+};
+
+/** Iceberg: base larga + bloco do meio + pico inclinado, faces planas, espuma na linha d'água e massa submersa azul. */
+export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean; f?: number }> = ({ s = 1, seed = 3, under = true, f = 0 }) => {
+  const parts = useMemo(() => {
+    const sd = `ice${seed}`;
+    return {
+      base: frustum(blob(9, 3.0, sd + "b", 0, 0, 0.75), -0.25, 0.85, 0.86, [0.1, 0], sd + "b"),
+      mid: frustum(blob(8, 1.9, sd + "m", 0.4, -0.1, 0.8), 0.55, 1.25, 0.78, [0.15, 0.05], sd + "m"),
+      peak: frustum(blob(6, 1.05, sd + "p", 0.9, -0.2, 0.9), 1.7, 1.7, 0.35, [0.35, 0.1], sd + "p"),
+      shard: frustum(blob(5, 0.7, sd + "s", -1.6, 0.4, 0.9), 0.55, 0.9, 0.4, [-0.1, 0], sd + "s"),
+      sub: frustum(blob(10, 3.6, sd + "u", 0, 0, 0.8), -3.4, 3.1, 0.82, [0, 0], sd + "u"),
     };
-    return { top: mk(1.6, 1, 1.1, 0.8), peak: mk(0.9, 1, 1.7, 0.9), base: mk(2.6, 1, 0.85, 0.6) };
   }, [seed]);
+  const mat = <meshStandardMaterial vertexColors roughness={0.28} metalness={0.05} flatShading emissive="#2a4a62" emissiveIntensity={0.35} />;
   return (
     <group scale={s}>
-      <mesh geometry={geos.top} position={[0, 0.6, 0]} castShadow>
-        <meshStandardMaterial vertexColors roughness={0.35} metalness={0.05} flatShading />
-      </mesh>
-      <mesh geometry={geos.peak} position={[0.5, 1.7, -0.3]} castShadow>
-        <meshStandardMaterial vertexColors roughness={0.35} flatShading />
-      </mesh>
+      <mesh geometry={parts.base} castShadow receiveShadow>{mat}</mesh>
+      <mesh geometry={parts.mid} castShadow receiveShadow>{mat}</mesh>
+      <mesh geometry={parts.peak} castShadow receiveShadow>{mat}</mesh>
+      <mesh geometry={parts.shard} castShadow receiveShadow>{mat}</mesh>
+      {/* espuma batendo na base */}
+      {Array.from({ length: 22 }, (_, i) => {
+        const a = (i / 22) * Math.PI * 2;
+        const r = 2.75 + Math.sin(i * 1.7) * 0.25;
+        return (
+          <mesh key={i} position={[Math.cos(a) * r, 0.02 + 0.02 * Math.sin(f / 10 + i), Math.sin(a) * r * 0.75]} rotation={[-Math.PI / 2, 0, a]} scale={[0.5, 0.18, 1]}>
+            <circleGeometry args={[0.5, 7]} />
+            <meshBasicMaterial color="#e8f4fa" transparent opacity={0.55} depthWrite={false} />
+          </mesh>
+        );
+      })}
       {under ? (
-        <mesh geometry={geos.base} position={[0, -2.0, 0]}>
-          <meshStandardMaterial vertexColors roughness={0.4} flatShading transparent opacity={0.85} />
+        <mesh geometry={parts.sub}>
+          <meshStandardMaterial vertexColors roughness={0.4} flatShading transparent opacity={0.55} depthWrite={false} color="#7fbcd8" />
         </mesh>
       ) : null}
     </group>
@@ -424,59 +465,166 @@ export const HullCutaway: React.FC<{ flood?: number[]; f: number }> = ({ flood =
 
 /* ================================================================== INTERIORES (1 u = 1 m) */
 
-/** Cesto da gávea: mastro, gaiola com corrimão, sino e telefone. */
+/**
+ * Cesto da gávea (1912): preso na FRENTE do mastro (proa = +x), parede baixa para ver o vigia da cintura para cima,
+ * sino num suporte acima, telefone, escada pela porta do mastro, cabos (estais) e lanterna fraca.
+ * O cesto fica centrado em x = NEST_X (relativo ao mastro); o vigia vai lá dentro.
+ */
+export const NEST_X = 0.9;
 export const CrowsNest: React.FC<{ f: number; bell?: number }> = ({ f, bell = 0 }) => {
-  const swing = clamp(bell, 0, 1) * 0.5 * Math.sin(f * 0.9);
+  const swing = clamp(bell, 0, 1) * 0.55 * Math.sin(f * 0.9);
   return (
     <group>
-      <Rod a={[0, -6, 0]} b={[0, 4, 0]} r={0.28} c="#8a6a48" seg={12} />
-      <mesh position={[0, 0, 0]}>
-        <cylinderGeometry args={[1.0, 1.0, 0.08, 20]} />
-        <meshStandardMaterial color="#6a5038" {...M} />
-      </mesh>
-      <mesh position={[0, 0.55, 0]}>
-        <cylinderGeometry args={[1.0, 1.0, 1.1, 20, 1, true]} />
-        <meshStandardMaterial color="#e8e0cc" {...M} side={DoubleSide} />
-      </mesh>
-      <mesh position={[0, 1.12, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[1.0, 0.04, 6, 28]} />
-        <meshStandardMaterial color="#8a6a48" {...M} />
-      </mesh>
-      {/* sino */}
-      <group position={[0.75, 1.5, 0.4]}>
-        <Rod a={[0, -0.4, 0]} b={[0, 0.25, 0]} r={0.025} c="#3a3028" />
-        <group position={[0, 0.2, 0]} rotation={[0, 0, swing]}>
-          <mesh position={[0, -0.12, 0]}>
-            <cylinderGeometry args={[0.07, 0.13, 0.2, 12, 1, true]} />
-            <meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} side={DoubleSide} />
+      {/* mastro (atrás do cesto) */}
+      <Rod a={[0, -14, 0]} b={[0, 6, 0]} r={0.3} c="#8a6a48" seg={14} />
+      {/* braçadeiras de ferro */}
+      {[-0.3, 1.25].map((y) => (
+        <mesh key={y} position={[0, y, 0]}>
+          <cylinderGeometry args={[0.33, 0.33, 0.1, 14]} />
+          <meshStandardMaterial color="#2a2a30" metalness={0.4} roughness={0.5} />
+        </mesh>
+      ))}
+      <group position={[NEST_X, 0, 0]}>
+        {/* piso e parede baixa (0,95 m), aberta atrás onde encosta no mastro */}
+        <mesh position={[0, 0, 0]}>
+          <cylinderGeometry args={[0.85, 0.75, 0.1, 22]} />
+          <meshStandardMaterial color="#5a4030" {...M} />
+        </mesh>
+        <mesh position={[0, 0.5, 0]} rotation={[0, Math.PI * 0.62, 0]}>
+          <cylinderGeometry args={[0.85, 0.82, 0.95, 26, 1, true, 0, Math.PI * 1.55]} />
+          <meshStandardMaterial color="#e6dcc4" {...M} side={DoubleSide} />
+        </mesh>
+        <mesh position={[0, 0.98, 0]} rotation={[Math.PI / 2, 0, Math.PI * 0.38]}>
+          <torusGeometry args={[0.86, 0.035, 6, 30, Math.PI * 1.55]} />
+          <meshStandardMaterial color="#7a5a3a" {...M} />
+        </mesh>
+        {/* faixas de reforço */}
+        {[0.2, 0.7].map((y) => (
+          <mesh key={y} position={[0, y, 0]} rotation={[Math.PI / 2, 0, Math.PI * 0.38]}>
+            <torusGeometry args={[0.855, 0.012, 4, 30, Math.PI * 1.55]} />
+            <meshStandardMaterial color="#9a8a6a" />
           </mesh>
+        ))}
+        {/* telefone na parede de dentro */}
+        <Box p={[-0.15, 0.72, -0.7]} s={[0.16, 0.24, 0.08]} c="#1e1e24" />
+        <Rod a={[-0.15, 0.72, -0.66]} b={[-0.05, 0.85, -0.6]} r={0.012} c="#1e1e24" seg={4} />
+      </group>
+      {/* sino num suporte acima do cesto */}
+      <group position={[0.45, 1.75, 0.0]}>
+        <Rod a={[-0.45, 0, 0]} b={[0.15, 0, 0]} r={0.025} c="#2a2a30" seg={5} />
+        <group position={[0.1, -0.02, 0]} rotation={[swing, 0, 0]}>
+          <mesh position={[0, -0.14, 0]}>
+            <cylinderGeometry args={[0.07, 0.14, 0.22, 14, 1, true]} />
+            <meshStandardMaterial color="#c9a24a" metalness={0.75} roughness={0.28} side={DoubleSide} />
+          </mesh>
+          <mesh position={[0, -0.03, 0]}>
+            <sphereGeometry args={[0.07, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
+            <meshStandardMaterial color="#c9a24a" metalness={0.75} roughness={0.28} />
+          </mesh>
+          <Rod a={[0, -0.05, 0]} b={[0, -0.6, 0]} r={0.006} c="#d8cdb6" seg={3} />
         </group>
       </group>
-      {/* telefone */}
-      <Box p={[-0.8, 0.85, 0.35]} s={[0.16, 0.24, 0.1]} c="#2a2a30" />
+      {/* estais descendo do mastro */}
+      {[1, -1].map((s) => (
+        <group key={s}>
+          <Rod a={[0, 4.5, 0]} b={[-1.2, -14, 3.2 * s]} r={0.018} c="#2a2a30" seg={3} />
+          <Rod a={[0, 3.5, 0]} b={[3.5, -14, 2.2 * s]} r={0.015} c="#2a2a30" seg={3} />
+        </group>
+      ))}
+      {/* lanterna fraca no mastro */}
+      <mesh position={[0.32, 1.4, 0.2]}>
+        <sphereGeometry args={[0.05, 8, 6]} />
+        <meshBasicMaterial color="#ffd890" toneMapped={false} />
+      </mesh>
+      <pointLight position={[0.6, 1.3, 0.3]} intensity={0.9} distance={3} color="#ffc070" />
     </group>
   );
 };
 
-/** Ponte de comando (casa do leme): roda do leme, telégrafo das máquinas, bitácula, janelas para a proa (+x). */
+/** Relógio de parede (h, m em horas/minutos). */
+export const WallClock: React.FC<{ p: Vec3; r?: number; h?: number; m?: number; rotY?: number }> = ({ p, r = 0.22, h = 11, m = 40, rotY = 0 }) => {
+  const am = (m / 60) * Math.PI * 2, ah = ((h % 12) / 12 + m / 720) * Math.PI * 2;
+  return (
+    <group position={p} rotation={[0, rotY, 0]}>
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[r, r, 0.05, 24]} />
+        <meshStandardMaterial color="#7a4a26" {...M} />
+      </mesh>
+      <mesh position={[0, 0, 0.03]}>
+        <circleGeometry args={[r * 0.86, 24]} />
+        <meshStandardMaterial color="#f4ecd8" emissive="#f4ecd8" emissiveIntensity={0.15} />
+      </mesh>
+      {Array.from({ length: 12 }, (_, i) => (
+        <mesh key={i} position={[Math.sin((i * Math.PI) / 6) * r * 0.72, Math.cos((i * Math.PI) / 6) * r * 0.72, 0.035]}>
+          <boxGeometry args={[0.012, 0.03, 0.005]} />
+          <meshBasicMaterial color="#2a2a30" />
+        </mesh>
+      ))}
+      <group position={[0, 0, 0.04]} rotation={[0, 0, -ah]}><Box p={[0, r * 0.25, 0]} s={[0.018, r * 0.5, 0.005]} c="#1a1a1e" /></group>
+      <group position={[0, 0, 0.045]} rotation={[0, 0, -am]}><Box p={[0, r * 0.35, 0]} s={[0.012, r * 0.7, 0.005]} c="#1a1a1e" /></group>
+    </group>
+  );
+};
+
+/** Piso de tábuas (faixas alternadas). */
+const Planks: React.FC<{ w: number; d: number; c1?: string; c2?: string }> = ({ w, d, c1 = "#8f6a44", c2 = "#80603c" }) => (
+  <group>
+    {Array.from({ length: Math.round(d / 0.25) }, (_, i) => (
+      <Box key={i} p={[0, -0.05, -d / 2 + 0.125 + i * 0.25]} s={[w, 0.1, 0.245]} c={i % 2 ? c1 : c2} />
+    ))}
+  </group>
+);
+
+/**
+ * Ponte de comando (casa do leme), janelas para a proa (+x). Piso de tábuas, paredes laterais com vigias,
+ * mesa de cartas com mapa, relógio, tubos de voz de latão, roda do leme, telégrafo, bitácula e lampiões.
+ * Por fora das janelas, a cena coloca mar e estrelas.
+ */
 export const Bridge: React.FC<{ f: number; wheel?: number; tele?: number; night?: number }> = ({ f, wheel = 0, tele = 0, night = 1 }) => (
   <group>
-    <Box p={[0, -0.05, 0]} s={[6, 0.1, 5]} c="#8f6a44" />
-    {/* parede da frente com janelas */}
-    <Box p={[2.5, 0.5, 0]} s={[0.12, 1.0, 5]} c="#ece8de" />
-    <Box p={[2.5, 2.3, 0]} s={[0.12, 0.6, 5]} c="#ece8de" />
+    <Planks w={6} d={5} />
+    {/* parede da frente: rodapé + janelas com caixilhos de madeira escura */}
+    <Box p={[2.5, 0.45, 0]} s={[0.14, 0.9, 5]} c="#ece8de" />
+    <Box p={[2.5, 2.35, 0]} s={[0.14, 0.5, 5]} c="#ece8de" />
+    {[-2.4, -1.2, 0, 1.2, 2.4].map((z, i) => <Box key={`m${i}`} p={[2.5, 1.45, z]} s={[0.16, 1.0, 0.1]} c="#5a3a1e" />)}
     {[-1.8, -0.6, 0.6, 1.8].map((z, i) => (
-      <group key={i}>
-        <Box p={[2.5, 1.5, z - 0.6]} s={[0.12, 1.0, 0.12]} c="#ece8de" />
-        <mesh position={[2.49, 1.5, z]} rotation={[0, -Math.PI / 2, 0]}>
-          <planeGeometry args={[1.08, 0.98]} />
-          <meshStandardMaterial color={night > 0.5 ? "#0a1426" : "#a8c8e0"} transparent opacity={0.85} roughness={0.05} metalness={0.3} />
-        </mesh>
+      <mesh key={`g${i}`} position={[2.48, 1.45, z]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[1.1, 1.0]} />
+        <meshStandardMaterial color={night > 0.5 ? "#081022" : "#a8c8e0"} transparent opacity={0.35} roughness={0.05} metalness={0.4} depthWrite={false} />
+      </mesh>
+    ))}
+    {/* paredes laterais com vigias */}
+    {[-2.5].map((z, k) => (
+      <group key={`w${k}`}>
+        <Box p={[0, 1.3, z]} s={[6, 2.6, 0.12]} c="#e6e0d2" />
+        {[-1.5, 0.5].map((x, i) => (
+          <group key={i} position={[x, 1.55, z - 0.07 * Math.sign(z)]} rotation={[0, z > 0 ? Math.PI : 0, 0]}>
+            <mesh><ringGeometry args={[0.2, 0.26, 20]} /><meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} side={DoubleSide} /></mesh>
+            <mesh><circleGeometry args={[0.2, 20]} /><meshBasicMaterial color="#081022" /></mesh>
+          </group>
+        ))}
       </group>
     ))}
-    <Box p={[2.5, 1.5, 2.45]} s={[0.12, 1.0, 0.12]} c="#ece8de" />
-    {/* teto */}
-    <Box p={[0, 2.65, 0]} s={[6, 0.1, 5]} c="#e2ddd0" />
+    {/* parede do fundo (meia altura, aberta para a câmera ver) */}
+    <Box p={[-2.95, 0.5, 0]} s={[0.1, 1.0, 5]} c="#7a4a26" />
+    {/* vigas do teto (sem teto: cenário aberto para a câmera) */}
+    {[-2, -0.7, 0.6, 1.9].map((x, i) => <Box key={`b${i}`} p={[x, 2.56, 0]} s={[0.12, 0.1, 5]} c="#c8bfae" />)}
+    {/* mesa de cartas com mapa e compasso */}
+    <Box p={[-1.9, 0.9, -1.7]} s={[1.2, 0.06, 0.8]} c="#7a4a26" />
+    <Box p={[-1.9, 0.45, -1.7]} s={[1.1, 0.88, 0.7]} c="#5a3a1e" />
+    <mesh position={[-1.9, 0.935, -1.7]} rotation={[-Math.PI / 2, 0, 0.1]}>
+      <planeGeometry args={[0.9, 0.6]} />
+      <meshStandardMaterial color="#e8dcc0" />
+    </mesh>
+    <Rod a={[-2.1, 0.94, -1.8]} b={[-1.75, 0.94, -1.55]} r={0.006} c="#3a5a8a" seg={3} />
+    <WallClock p={[-1.2, 2.0, -2.43]} h={11} m={40} />
+    {/* tubos de voz de latão */}
+    {[-0.4, 0.0].map((z, i) => (
+      <group key={`vt${i}`}>
+        <Rod a={[2.25, 0, 1.9 + z]} b={[2.25, 1.15, 1.9 + z]} r={0.04} c="#c9a24a" seg={8} />
+        <mesh position={[2.25, 1.2, 1.9 + z]}><cylinderGeometry args={[0.07, 0.045, 0.1, 10]} /><meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} /></mesh>
+      </group>
+    ))}
     {/* roda do leme */}
     <group position={[1.2, 1.2, 0]} rotation={[0, Math.PI / 2, wheel]}>
       <mesh>
@@ -492,53 +640,74 @@ export const Bridge: React.FC<{ f: number; wheel?: number; tele?: number; night?
       </mesh>
     </group>
     <Box p={[1.3, 0.55, 0]} s={[0.3, 1.1, 0.3]} c="#7a4a26" />
-    {/* telégrafo das máquinas */}
-    <group position={[1.4, 0, 1.4]}>
-      <Rod a={[0, 0, 0]} b={[0, 1.1, 0]} r={0.08} c="#c9a24a" seg={10} />
-      <mesh position={[0, 1.25, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <cylinderGeometry args={[0.26, 0.26, 0.14, 20]} />
-        <meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} />
-      </mesh>
-      <mesh position={[0.075, 1.25, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <circleGeometry args={[0.21, 20]} />
-        <meshStandardMaterial color="#f2ead6" emissive="#f2ead6" emissiveIntensity={0.15} />
-      </mesh>
-      <group position={[0.09, 1.25, 0]} rotation={[tele, 0, 0]}>
-        <Rod a={[0, 0, 0]} b={[0, 0.3, 0]} r={0.02} c="#2a2a30" seg={4} />
+    {/* telégrafos das máquinas (par) */}
+    {[1.4, -1.4].map((z, k) => (
+      <group key={`t${k}`} position={[1.6, 0, z]}>
+        <Rod a={[0, 0, 0]} b={[0, 1.1, 0]} r={0.08} c="#c9a24a" seg={10} />
+        <mesh position={[0, 1.25, 0]} rotation={[0, Math.PI / 2, 0]}>
+          <cylinderGeometry args={[0.26, 0.26, 0.14, 20]} />
+          <meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} />
+        </mesh>
+        <mesh position={[0.075, 1.25, 0]} rotation={[0, Math.PI / 2, 0]}>
+          <circleGeometry args={[0.21, 20]} />
+          <meshStandardMaterial color="#f2ead6" emissive="#f2ead6" emissiveIntensity={0.15} />
+        </mesh>
+        <group position={[0.09, 1.25, 0]} rotation={[tele, 0, 0]}>
+          <Rod a={[0, 0, 0]} b={[0, 0.3, 0]} r={0.02} c="#2a2a30" seg={4} />
+        </group>
       </group>
-    </group>
+    ))}
     {/* bitácula (bússola) */}
-    <group position={[0.2, 0, -1.4]}>
+    <group position={[0.2, 0, -1.2]}>
       <Rod a={[0, 0, 0]} b={[0, 1.0, 0]} r={0.16} c="#7a4a26" seg={10} />
       <mesh position={[0, 1.12, 0]}>
         <sphereGeometry args={[0.2, 14, 10, 0, Math.PI * 2, 0, Math.PI / 2]} />
         <meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.25} />
       </mesh>
     </group>
-    {/* lampião */}
-    <mesh position={[-1.5, 2.3, 0]}>
-      <sphereGeometry args={[0.12, 10, 8]} />
-      <meshBasicMaterial color="#ffe0a0" toneMapped={false} />
-    </mesh>
-    <pointLight position={[-1.5, 2.2, 0]} intensity={2.2 * night + 0.5} distance={8} color="#ffd08a" />
+    {/* lampiões */}
+    {[[-1.5, 0], [0.8, 1.6]].map(([x, z], i) => (
+      <group key={`l${i}`}>
+        <mesh position={[x, 2.32, z]}><sphereGeometry args={[0.1, 10, 8]} /><meshBasicMaterial color="#ffe0a0" toneMapped={false} /></mesh>
+        <pointLight position={[x, 2.2, z]} intensity={1.6 * night + 0.4} distance={6} color="#ffd08a" />
+      </group>
+    ))}
     {void f}
   </group>
 );
 
-/** Sala de rádio (Marconi): mesa, aparelho com mostradores, faísca azul, fones, pilhas de mensagens. */
+/**
+ * Sala de rádio (Marconi): paredes de madeira, vigia para a noite, relógio às 23h40, quadro de avisos,
+ * mesa com o aparelho (mostradores, faísca azul), chave, fones, cadeira e mensagens empilhando.
+ */
 export const RadioRoom: React.FC<{ f: number; spark?: number; papers?: number }> = ({ f, spark = 1, papers = 1 }) => {
   const sp = clamp(spark, 0, 1) * (Math.sin(f * 1.7) > 0.2 ? 1 : 0.25);
-  const nP = Math.round(clamp(papers, 0, 1) * 9);
+  const nP = Math.round(clamp(papers, 0, 1) * 12);
   return (
     <group>
-      <Box p={[0, -0.05, 0]} s={[4, 0.1, 3.5]} c="#6a4a30" />
+      <Planks w={4} d={3.5} c1="#6a4a30" c2="#5e4229" />
+      {/* parede do fundo com lambris */}
       <Box p={[0, 1.3, -1.75]} s={[4, 2.7, 0.1]} c="#e2d8c4" />
+      <Box p={[0, 0.5, -1.69]} s={[4, 1.0, 0.04]} c="#7a4a26" />
+      {Array.from({ length: 10 }, (_, i) => <Box key={`lp${i}`} p={[-1.8 + i * 0.4, 0.5, -1.665]} s={[0.02, 0.95, 0.01]} c="#5a3a1e" />)}
       <Box p={[-2, 1.3, 0]} s={[0.1, 2.7, 3.5]} c="#d8cdb6" />
+      {/* vigia com a noite lá fora */}
+      <group position={[-1.94, 1.6, 0.6]} rotation={[0, Math.PI / 2, 0]}>
+        <mesh><ringGeometry args={[0.2, 0.27, 22]} /><meshStandardMaterial color="#c9a24a" metalness={0.7} roughness={0.3} side={DoubleSide} /></mesh>
+        <mesh><circleGeometry args={[0.2, 22]} /><meshBasicMaterial color="#060c1c" /></mesh>
+      </group>
+      <WallClock p={[1.3, 2.1, -1.69]} h={11} m={40} />
+      {/* quadro de avisos com mensagens presas */}
+      <Box p={[-1.0, 1.95, -1.69]} s={[1.0, 0.6, 0.03]} c="#9a7a54" />
+      {[[-1.3, 2.05], [-1.0, 1.9], [-0.72, 2.05], [-1.15, 1.8]].map(([x, y], i) => (
+        <mesh key={`n${i}`} position={[x, y, -1.67]} rotation={[0, 0, (rand(`nb${i}`) - 0.5) * 0.3]}>
+          <planeGeometry args={[0.2, 0.26]} />
+          <meshStandardMaterial color="#f4efe2" />
+        </mesh>
+      ))}
       {/* mesa */}
       <Box p={[0, 0.75, -1.2]} s={[2.6, 0.06, 0.9]} c="#7a4a26" />
-      {[-1.2, 1.2].map((x) => (
-        <Box key={x} p={[x, 0.37, -1.2]} s={[0.08, 0.74, 0.8]} c="#5a3a1e" />
-      ))}
+      {[-1.2, 1.2].map((x) => <Box key={x} p={[x, 0.37, -1.2]} s={[0.08, 0.74, 0.8]} c="#5a3a1e" />)}
       {/* aparelho Marconi */}
       <Box p={[-0.5, 1.2, -1.55]} s={[1.3, 0.8, 0.3]} c="#3a2e24" />
       {[-0.95, -0.6, -0.25].map((x, i) => (
@@ -547,6 +716,12 @@ export const RadioRoom: React.FC<{ f: number; spark?: number; papers?: number }>
           <meshStandardMaterial color="#f2ead6" emissive="#f2ead6" emissiveIntensity={0.2} />
         </mesh>
       ))}
+      {[-0.95, -0.6, -0.25].map((x, i) => (
+        <mesh key={`k${i}`} position={[x, 1.02, -1.38]}><cylinderGeometry args={[0.035, 0.035, 0.04, 10]} /><meshStandardMaterial color="#1a1a1e" /></mesh>
+      ))}
+      {/* cabos pela parede */}
+      <Rod a={[0.1, 1.6, -1.68]} b={[0.1, 2.65, -1.68]} r={0.012} c="#1a1a1e" seg={4} />
+      <Rod a={[-0.3, 1.6, -1.68]} b={[-0.3, 2.65, -1.68]} r={0.012} c="#1a1a1e" seg={4} />
       {/* centelhador (faísca) */}
       <Box p={[0.55, 1.05, -1.5]} s={[0.4, 0.5, 0.3]} c="#2a2a30" />
       <mesh position={[0.55, 1.12, -1.33]}>
@@ -554,13 +729,17 @@ export const RadioRoom: React.FC<{ f: number; spark?: number; papers?: number }>
         <meshBasicMaterial color="#9fd8ff" transparent opacity={0.4 + 0.6 * sp} toneMapped={false} />
       </mesh>
       <pointLight position={[0.55, 1.15, -1.1]} intensity={1.6 * sp} distance={3} color="#9fd8ff" />
-      {/* chave de telégrafo */}
       <Box p={[0.1, 0.8, -0.95]} s={[0.22, 0.04, 0.1]} c="#c9a24a" metal={0.6} />
-      {/* fones */}
       <mesh position={[-0.9, 0.82, -0.95]} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[0.1, 0.02, 6, 16, Math.PI]} />
         <meshStandardMaterial color="#1a1a1e" />
       </mesh>
+      {/* cadeira */}
+      <group position={[0.0, 0, -0.45]}>
+        <Box p={[0, 0.46, 0]} s={[0.45, 0.05, 0.45]} c="#5a3a1e" />
+        <Box p={[0, 0.8, 0.21]} s={[0.45, 0.6, 0.05]} c="#5a3a1e" />
+        {[[-0.18, -0.18], [0.18, -0.18], [-0.18, 0.18], [0.18, 0.18]].map(([x, z], i) => <Box key={i} p={[x, 0.22, z]} s={[0.04, 0.44, 0.04]} c="#4a2e18" />)}
+      </group>
       {/* mensagens empilhando */}
       {Array.from({ length: nP }, (_, i) => (
         <mesh key={`p${i}`} position={[0.9 + (i % 3) * 0.04, 0.79 + i * 0.012, -1.0 + (i % 2) * 0.03]} rotation={[-Math.PI / 2, 0, rand(`pp${i}`) * 0.6]}>
@@ -568,12 +747,11 @@ export const RadioRoom: React.FC<{ f: number; spark?: number; papers?: number }>
           <meshStandardMaterial color="#f4efe2" side={DoubleSide} />
         </mesh>
       ))}
-      {/* lâmpada */}
       <mesh position={[0, 2.4, -0.6]}>
         <sphereGeometry args={[0.1, 10, 8]} />
         <meshBasicMaterial color="#ffe0a0" toneMapped={false} />
       </mesh>
-      <pointLight position={[0, 2.3, -0.4]} intensity={2.2} distance={7} color="#ffd08a" />
+      <pointLight position={[0, 2.3, -0.4]} intensity={2.0} distance={7} color="#ffd08a" />
     </group>
   );
 };

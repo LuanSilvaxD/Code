@@ -3,7 +3,7 @@ import { BRAND } from "./brand";
 import { TileView } from "./DinoSheet";
 import { Person, personLook, worldScale } from "./components/Person";
 import { Stars } from "./components/SpaceScene";
-import { Bridge, CrowsNest, HullCutaway, Iceberg, RadioRoom, TitanicHero } from "./components/Doc3D";
+import { Bridge, CrowsNest, HullCutaway, Iceberg, NEST_X, RadioRoom, TitanicHero } from "./components/Doc3D";
 import { NightSea } from "./components/Titanic";
 import { FONT } from "./theme";
 
@@ -32,11 +32,11 @@ export const DocSheet: React.FC = () => (
       <TileView t={{ name: "TITANIC · NOITE (14/4, 23h)", size: "escotilhas e janelas acesas · mar sem lua", target: [1, 1.6, 0], fit: 24, az: -30, el: 6, scene: (f) => (<><Stars count={900} radius={90} frame={f} /><NightSea f={f} size={120} seg={150} moonX={-20} /><TitanicHero f={f} lights={1} smoke={0.6} /></>) }} w={960} h={500} bg={NIGHT} />
     </div>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 384px)" }}>
-      <TileView t={{ name: "ICEBERG", size: "parte de cima + massa submersa", target: [0, 0.2, 0], fit: 8, az: 20, el: 6, scene: (f) => (<><Stars count={400} radius={60} frame={f} /><Iceberg /><mesh rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[30, 30]} /><meshStandardMaterial color="#0e2c4c" transparent opacity={0.55} depthWrite={false} /></mesh></>) }} w={384} h={500} bg={NIGHT} />
+      <TileView t={{ name: "ICEBERG", size: "blocos de gelo facetados · espuma na base · noite sem lua", target: [0.2, 1.1, 0], fit: 8.5, az: 20, el: 5, scene: (f) => (<><Stars count={500} radius={60} frame={f} /><Iceberg f={f} /><group position={[0, -0.02, 0]}><NightSea f={f} size={40} seg={70} moonX={2} calm={0.4} /></group></>) }} w={384} h={500} bg={NIGHT} />
       <TileView t={{ name: "CORTE: 16 COMPARTIMENTOS", size: "anteparas não iam até o topo · água transbordando", target: [0.6, 0.3, 0], fit: 27, az: 0, el: 4, scene: (f) => <group rotation={[0, 0, -0.06]} scale={[1, 1.8, 1]}><HullCutaway f={f} flood={FLOOD} /></group> }} w={384} h={500} bg={STUDIO} />
-      <TileView t={{ name: "CESTO DA GÁVEA", size: "vigia · sino · telefone · sem binóculos", target: [0, 1.0, 0], fit: 4.2, az: 25, el: 12, scene: (f) => (<><Stars count={400} radius={50} frame={f} /><CrowsNest f={f} bell={1} /><Person {...personLook(5)} frame={f} position={[0.1, 0.05, 0.1]} scale={WS.person} rotY={Math.PI / 2} point={1} seed={5} /></>) }} w={384} h={500} bg={NIGHT} />
-      <TileView t={{ name: "PONTE DE COMANDO", size: "leme · telégrafo das máquinas · bússola", target: [0.6, 1.2, 0], fit: 5.6, az: -55, el: 14, scene: (f) => (<><Bridge f={f} wheel={0.6} tele={-0.8} /><Person {...personLook(8)} frame={f} position={[0.6, 0, 0.3]} scale={WS.person} rotY={Math.PI / 2} seed={8} /></>) }} w={384} h={500} bg={STUDIO} />
-      <TileView t={{ name: "SALA DE RÁDIO", size: "telégrafo Marconi · faísca · mensagens empilhando", target: [0, 1.0, -0.6], fit: 4.4, az: 28, el: 14, scene: (f) => (<><RadioRoom f={f} /><Person {...personLook(12)} frame={f} position={[0, 0, -0.5]} scale={WS.person} rotY={Math.PI} seed={12} /></>) }} w={384} h={500} bg={STUDIO} />
+      <TileView t={{ name: "CESTO DA GÁVEA", size: "na frente do mastro · vigia vê o iceberg lá embaixo", target: [1.6, 0.6, 0], fit: 6.5, az: -35, el: 10, scene: (f) => (<><Stars count={600} radius={50} frame={f} /><group position={[0, -16, 0]}><NightSea f={f} size={90} seg={90} moonX={-6} /></group><group position={[9, -15.4, -1]} scale={0.6}><Iceberg f={f} under={false} /></group><CrowsNest f={f} bell={1} /><Person {...personLook(5)} frame={f} position={[NEST_X + 0.05, 0.05, 0.15]} scale={WS.person} rotY={Math.PI / 2} point={1} seed={5} /></>) }} w={384} h={500} bg={NIGHT} />
+      <TileView t={{ name: "PONTE DE COMANDO", size: "leme · telégrafos · mesa de cartas · relógio 23h40", target: [0.2, 1.2, 0], fit: 6.2, az: -62, el: 14, scene: (f) => (<><group position={[0, -8, 0]}><NightSea f={f} size={80} seg={80} moonX={0} /></group><group position={[25, 6, 0]}><Stars count={300} radius={18} frame={f} /></group><Bridge f={f} wheel={0.6} tele={-0.8} /><Person {...personLook(8)} frame={f} position={[0.6, 0, 0.3]} scale={WS.person} rotY={Math.PI / 2} seed={8} /></>) }} w={384} h={500} bg={STUDIO} />
+      <TileView t={{ name: "SALA DE RÁDIO", size: "aparelho Marconi · avisos de gelo empilhando · 23h40", target: [0, 1.2, -0.6], fit: 4.6, az: 30, el: 12, scene: (f) => (<><RadioRoom f={f} /><Person {...personLook(12)} frame={f} position={[0.55, 0, -0.55]} scale={WS.person} rotY={Math.PI + 0.4} seed={12} /></>) }} w={384} h={500} bg={STUDIO} />
     </div>
   </AbsoluteFill>
 );
