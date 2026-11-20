@@ -361,7 +361,7 @@ const frustum = (poly: P2[], y0: number, h: number, k: number, off: P2, seed: st
 };
 
 /** Iceberg: base larga + bloco do meio + pico inclinado, faces planas, espuma na linha d'água e massa submersa azul. */
-export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean; f?: number }> = ({ s = 1, seed = 3, under = true, f = 0 }) => {
+export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean; f?: number; foam?: number }> = ({ s = 1, seed = 3, under = true, f = 0, foam = 1 }) => {
   const parts = useMemo(() => {
     const sd = `ice${seed}`;
     return {
@@ -380,13 +380,13 @@ export const Iceberg: React.FC<{ s?: number; seed?: number; under?: boolean; f?:
       <mesh geometry={parts.peak} castShadow receiveShadow>{mat}</mesh>
       <mesh geometry={parts.shard} castShadow receiveShadow>{mat}</mesh>
       {/* espuma batendo na base */}
-      {Array.from({ length: 22 }, (_, i) => {
+      {(foam > 0.01 ? Array.from({ length: 22 }) : []).map((_, i) => {
         const a = (i / 22) * Math.PI * 2;
         const r = 2.75 + Math.sin(i * 1.7) * 0.25;
         return (
           <mesh key={i} position={[Math.cos(a) * r, 0.02 + 0.02 * Math.sin(f / 10 + i), Math.sin(a) * r * 0.75]} rotation={[-Math.PI / 2, 0, a]} scale={[0.5, 0.18, 1]}>
             <circleGeometry args={[0.5, 7]} />
-            <meshBasicMaterial color="#e8f4fa" transparent opacity={0.55} depthWrite={false} />
+            <meshBasicMaterial color="#e8f4fa" transparent opacity={0.55 * foam} depthWrite={false} />
           </mesh>
         );
       })}
