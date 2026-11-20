@@ -167,20 +167,20 @@ export const DocPart3: React.FC = () => (
     {/* 4b · "um barquinho no mar gelado, no escuro?" (30,8–36,6 s) */}
     <Shot from={S(30.8)} to={S(36.6)}>
       <Cine bg={NIGHT} fov={48} keys={[[0, [0, 20, -2], [1, 0, 8]], [S(5.8), [0, 19, -1], [1.5, 0, 9]]]}>
-        {(f) => (<><Sky f={f} n={500} r={90} p={[0, 0, 40]} /><NightSea f={f} size={120} seg={110} moonX={999} calm={0.15} /><group position={[1.2, 0.15, 8]} rotation={[0, 0.2, 0]} scale={0.9}><Lifeboat f={f} people={4} lamp={1} /></group><mesh position={[0, 10, -1.2]}><boxGeometry args={[30, 20, 0.4]} /><meshStandardMaterial color="#141418" flatShading /></mesh></>)}
+        {(f) => (<><Sky f={f} n={500} r={90} p={[0, 0, 40]} /><NightSea f={f} size={120} seg={110} moonX={999} calm={0.15} /><group position={[1.2, 0.58 + seaY(1.2, 8, f), 8]} rotation={[0.02 * Math.sin(f / 20), 0.2, 0]} scale={0.9}><Lifeboat f={f} people={4} lamp={1} /></group><mesh position={[0, 10, -1.2]}><boxGeometry args={[30, 20, 0.4]} /><meshStandardMaterial color="#141418" flatShading /></mesh></>)}
       </Cine>
       <Caption text="DE CIMA DO CONVÉS ATÉ A ÁGUA: ~20 METROS" from={S(1)} len={S(4.6)} pos="tl" />
     </Shot>
     {/* 5 · botes descendo quase vazios (36,6–43,9 s) */}
     <Shot from={S(36.6)} to={S(43.9)}>
       <Cine bg={NIGHT} fov={40} keys={[[0, [6, 0.6, 9], [0, 1.4, 1.4]], [S(7.3), [3.5, 0.5, 8], [-1, 1.2, 1.4]]]}>
-        {(f) => (<><Sky f={f} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[0, -0.25, 0]} rotation={[0, 0, -0.025]}><TitanicHero f={f} lights={1} /></group><group position={[1.2, interpolate(f, [0, S(7.3)], [2.3, 0.15]), 1.72]} scale={0.13}><Lifeboat f={f} people={3} lamp={1} row={0} /></group></>)}
+        {(f) => (<><Sky f={f} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.15} /><group position={[0, -0.25, 0]} rotation={[0, 0, -0.025]}><TitanicHero f={f} lights={1} /></group><group position={[1.2, interpolate(f, [0, S(7.3)], [2.3, 0.06]), 1.72]} scale={0.13}><Lifeboat f={f} people={3} lamp={1} row={0} /></group></>)}
       </Cine>
     </Shot>
     {/* 6 · 40 lugares, 12 pessoas — o mascote está nesse bote (43,9–48,6 s) */}
     <Shot from={S(43.9)} to={S(48.6)}>
       <Cine bg={NIGHT} fov={44} keys={[[0, [6, 2.6, 6], [0, 0.2, 0]], [S(4.7), [5, 2.2, 5.4], [0, 0.2, 0]]]}>
-        {(f) => (<><Sky f={f} n={600} r={80} /><NightSea f={f} size={80} seg={110} moonX={999} calm={0.2} /><group position={[0, 0.15 + seaY(0, 0, f), 0]} rotation={[0, -0.4, 0]}><Lifeboat f={f} people={10} lamp={1} row={0.4} /><Mascot frame={f} position={[-3.0, -0.1, 0.2]} scale={WS.mascot * 0.9} rotY={1.4} sit={1} look={0.4} /></group></>)}
+        {(f) => (<><Sky f={f} n={600} r={80} /><NightSea f={f} size={80} seg={110} moonX={999} calm={0.2} /><group position={[0, 0.6 + seaY(0, 0, f), 0]} rotation={[0, -0.4, 0]}><Lifeboat f={f} people={10} lamp={1} row={0.4} /><Mascot frame={f} position={[-3.0, -0.1, 0.2]} scale={WS.mascot * 0.9} rotY={1.4} sit={1} look={0.4} /></group></>)}
       </Cine>
       <Caption text="40 LUGARES · 12 PESSOAS" sub="O BOTE Nº 1" from={S(0.3)} len={S(4.2)} pos="tl" />
     </Shot>
@@ -278,7 +278,7 @@ export const DocPart3: React.FC = () => (
     {/* 20 · o socorro estava a horas dali (132,2–139 s) */}
     <Shot from={S(132.2)} to={PART3_FRAMES} fout={36}>
       <Cine bg={NIGHT} fov={40} keys={[[0, [0, 6, 30], [0, 1, 0]], [S(6.8), [0, 10, 38], [0, 1, 0]]]}>
-        {(f) => (<><Sky f={f} n={1200} r={160} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.2} />{[[-8, -6], [6, -10], [12, 4]].map(([x, z], i) => <group key={i} position={[x, 0.08, z]} scale={0.2}><Lifeboat f={f} people={8} /></group>)}</>)}
+        {(f) => (<><Sky f={f} n={1200} r={160} /><NightSea f={f} size={200} seg={140} moonX={999} calm={0.2} />{[[-8, -6], [6, -10], [12, 4]].map(([x, z], i) => <group key={i} position={[x, 0.09 + seaY(x, z, f) * 0.5, z]} scale={0.2}><Lifeboat f={f} people={8} /></group>)}</>)}
       </Cine>
     </Shot>
     <Letterbox />
