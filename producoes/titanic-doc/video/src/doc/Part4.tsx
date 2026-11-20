@@ -4,7 +4,8 @@ import { Logo, Wordmark } from "../components/Brand";
 import { Mascot } from "../components/Mascot";
 import { Stars } from "../components/SpaceScene";
 import { Iceberg, RadioRoom, Rod, TitanicHero } from "../components/Doc3D";
-import { Californian, Carpathia, IceField, MarineSnow, Rusticles, Seabed, Submersible, Treat } from "../components/Doc3D2";
+import { Californian, Carpathia, IceField, MarineSnow, Rusticles, Seabed, Treat } from "../components/Doc3D2";
+import { PORT_INSIDE, SubDSV } from "../components/Sub";
 import { Figure1912 } from "../components/Figures1912";
 import { Lifeboat, NightSea, seaY } from "../components/Titanic";
 import { FONT } from "../theme";
@@ -251,14 +252,14 @@ export const DocPart4: React.FC = () => {
       {/* 13a · 1985: a proa aparece na luz do submersível (75,1–80,4 s) */}
       <Shot from={S(75.1)} to={S(80.4)} fin={20}>
         <Cine bg={DEEP} fov={44} light="none" keys={[[0, [24, 3.2, 10], [12, 0.6, 0]], [S(5.3), [19, 3.0, 8.5], [10, 0.6, 0]]]}>
-          {(f) => (<><ambientLight intensity={1.1} color="#7a9aba" /><hemisphereLight args={["#7a9aca", "#1a1c20", 0.9]} /><directionalLight position={[20, 12, 14]} intensity={1.4} color="#cfe4ff" /><fog attach="fog" args={["#06101c", 14, 60]} /><Wreck f={f} /><group position={[17.5, 2.4, 3]} rotation={[0, Math.PI + 0.5, -0.1]} scale={0.12}><Submersible f={f} /></group><spotLight position={[17, 3, 2.6]} intensity={40} distance={30} angle={0.6} penumbra={0.5} color="#eef6ff" target-position={[11, 0.8, 0]} /></>)}
+          {(f) => (<><ambientLight intensity={1.1} color="#7a9aba" /><hemisphereLight args={["#7a9aca", "#1a1c20", 0.9]} /><directionalLight position={[20, 12, 14]} intensity={1.4} color="#cfe4ff" /><fog attach="fog" args={["#06101c", 14, 60]} /><Wreck f={f} /><group position={[17.5, 2.4, 3]} rotation={[0, Math.PI + 0.5, -0.1]} scale={0.12}><SubDSV f={f} beams={1.4} /></group><spotLight position={[17, 3, 2.6]} intensity={40} distance={30} angle={0.6} penumbra={0.5} color="#eef6ff" target-position={[11, 0.8, 0]} /></>)}
         </Cine>
         <Caption text="1º DE SETEMBRO DE 1985" sub="~3.800 METROS DE PROFUNDIDADE" from={S(0.6)} len={S(4.4)} pos="tl" />
       </Shot>
       {/* 13b · o mascote no submersível (80,4–83,7 s) */}
       <Shot from={S(80.4)} to={S(83.7)}>
-        <Cine bg={DEEP} fov={40} light="none" keys={[[0, [7.5, 0.4, 3.2], [1.7, -0.3, 0]], [S(3.3), [6.4, 0.3, 2.6], [1.7, -0.3, 0]]]}>
-          {(f) => (<><ambientLight intensity={0.9} color="#7a9aba" /><directionalLight position={[8, 6, 6]} intensity={1.2} color="#cfe4ff" /><fog attach="fog" args={["#06101c", 8, 34]} /><Treat clip={{ normal: [-1, 0, 0], constant: 2.4 }}><Submersible f={f} beams={0} /></Treat><mesh position={[2.4, 0, 0]} rotation={[0, Math.PI / 2, 0]} scale={[1.06, 1, 1]}><circleGeometry args={[0.92, 32]} /><meshStandardMaterial color="#bfe2f2" transparent opacity={0.18} depthWrite={false} /></mesh><pointLight position={[1.6, 0.5, 0]} intensity={4} distance={4} color="#ffd9a0" /><mesh position={[1.3, -0.75, 0]}><boxGeometry args={[0.8, 0.15, 0.9]} /><meshStandardMaterial color="#3a3a42" /></mesh><Mascot frame={f} position={[1.75, -0.68, 0]} scale={WS.mascot * 0.45} rotY={Math.PI / 2} wave={1} /><MarineSnow f={f} n={60} R={6} H={6} /></>)}
+        <Cine bg={DEEP} fov={40} light="none" keys={[[0, [7.5, 1.6, 7.5], [0.6, -0.1, 0]], [S(1.4), [6.8, 0.4, 4.2], [1.6, -0.4, 0]], [S(3.3), [5.3, -0.3, 0.55], [3.0, -0.42, 0]]]}>
+          {(f) => (<><ambientLight intensity={0.9} color="#7a9aba" /><directionalLight position={[8, 6, 6]} intensity={1.2} color="#cfe4ff" /><fog attach="fog" args={["#06101c", 8, 34]} /><SubDSV f={f} beams={0.35} /><Mascot frame={f} position={PORT_INSIDE} scale={WS.mascot * 0.46} rotY={Math.PI / 2} wave={1} /><MarineSnow f={f} n={60} R={6} H={6} /></>)}
         </Cine>
       </Shot>
       {/* 13c · partido em dois (83,7–87,7 s) */}
