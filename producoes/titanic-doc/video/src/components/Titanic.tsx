@@ -1,5 +1,6 @@
+import { RoundedBox } from "@react-three/drei";
 import { useMemo } from "react";
-import { BufferAttribute, BufferGeometry, Color, DoubleSide, PlaneGeometry, Quaternion, Vector3 } from "three";
+import { BufferAttribute, BufferGeometry, Color, DoubleSide, PlaneGeometry, Quaternion, Shape, ShapeGeometry, Vector3 } from "three";
 import { clamp, rand, type Vec3 } from "../utils/animation";
 
 // "O Jack cabia na porta?" — elementos novos, desenhados por nós (nada do visual do filme).
@@ -326,32 +327,108 @@ const useHull = (L: number, W: number, D: number) =>
   }, [L, W, D]);
 
 /** Passageiro sentado (casaco escuro, cabeça, gorro/chapéu). Bem simples, para preencher o bote. */
-const Seated: React.FC<{ p: Vec3; seed: number; f: number }> = ({ p, seed, f }) => {
-  const coats = ["#2a2a34", "#3a2e2a", "#2e3a4a", "#4a3a5a", "#5a4a3a"];
+const rbx = (p: Vec3, sz: [number, number, number], c: string, rot?: Vec3) => (
+  <group position={p} rotation={rot}>
+    <RoundedBox args={sz} radius={Math.min(...sz) * 0.3} smoothness={3} castShadow>
+      <meshStandardMaterial color={c} roughness={0.65} />
+    </RoundedBox>
+  </group>
+);
+/**
+ * Passageiro sentado no banco do bote (1 u = 1 m, quadril em y = 0, de frente para +x): pernas dobradas,
+ * mãos no colo, roupa de 1912 e frio (xale/cobertor em alguns). seed varia homem/mulher/criança e cores.
+ */
+const Seated: React.FC<{ p: Vec3; seed: number; f: number; rotY?: number }> = ({ p, seed, f, rotY = 0 }) => {
+  const kind = seed % 5 === 4 ? "child" : seed % 2 ? "woman" : "man";
+  const coats = ["#2a2a34", "#3a2e2a", "#2e3a4a", "#4a3a5a", "#5a4a3a", "#3a4a3a"];
+  const coat = coats[seed % coats.length];
   const skin = ["#e8c4a0", "#c89a72", "#a8744e", "#f0d0b0"][seed % 4];
-  const sh = 0.02 * Math.sin(f / 4 + seed * 2); // tremendo de frio
+  const hair = ["#3a2a1e", "#6a4428", "#1e1a18", "#8a6a3a"][(seed >> 1) % 4];
+  const shiver = 0.012 * Math.sin(f / 3.5 + seed * 2);
+  const k = kind === "child" ? 0.7 : 1;
+  const blanket = seed % 3 === 0;
   return (
-    <group position={[p[0] + sh, p[1], p[2]]}>
-      <mesh position={[0, 0.28, 0]} scale={[0.2, 0.3, 0.17]} castShadow>
-        <icosahedronGeometry args={[1, 1]} />
-        <meshStandardMaterial color={coats[seed % coats.length]} {...M} />
-      </mesh>
-      <mesh position={[0, 0.66, 0]} castShadow>
-        <sphereGeometry args={[0.11, 10, 8]} />
-        <meshStandardMaterial color={skin} {...M} />
-      </mesh>
-      <mesh position={[0, 0.74, 0]} scale={[1, 0.55, 1]}>
-        <sphereGeometry args={[0.115, 10, 6, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshStandardMaterial color={seed % 2 ? "#1a1a20" : "#6a3a3a"} {...M} />
-      </mesh>
+    <group position={p} rotation={[0, rotY, 0]} scale={k}>
+      {/* coxas e canelas */}
+      {[-1, 1].map((s) => (
+        <group key={s}>
+          {rbx([0.2, 0.05, 0.1 * s], [0.4, 0.13, 0.14], kind === "woman" ? coat : "#2a2a30")}
+          {rbx([0.39, -0.2, 0.1 * s], [0.12, 0.42, 0.13], kind === "woman" ? coat : "#2a2a30")}
+          {rbx([0.44, -0.42, 0.1 * s], [0.22, 0.07, 0.12], "#1a1612")}
+        </group>
+      ))}
+      {kind === "woman" ? rbx([0.22, 0.02, 0], [0.46, 0.16, 0.36], coat) : null}
+      {/* tronco (curvado de frio) */}
+      <group position={[0, 0.33 + shiver, 0]} rotation={[0, 0, -0.12]}>
+        {rbx([0, 0, 0], [0.24, 0.52, 0.38], coat)}
+        {blanket ? rbx([-0.01, 0.06, 0], [0.28, 0.44, 0.44], seed % 2 ? "#7a6a52" : "#5a4a6a") : null}
+        {/* braços com as mãos no colo */}
+        {[-1, 1].map((s) => (
+          <group key={s}>
+            {rbx([0.02, 0.06, 0.22 * s], [0.12, 0.3, 0.11], blanket ? (seed % 2 ? "#7a6a52" : "#5a4a6a") : coat, [0, 0, 0.25])}
+            {rbx([0.16, -0.12, 0.16 * s], [0.26, 0.1, 0.1], coat, [0, 0.3 * s, 0])}
+            {rbx([0.3, -0.13, 0.08 * s], [0.08, 0.07, 0.08], skin)}
+          </group>
+        ))}
+        {/* cabeça */}
+        <group position={[0.02, 0.43, 0]}>
+          {rbx([0, 0, 0], [0.22, 0.25, 0.22], skin)}
+          {[-1, 1].map((s) => (
+            <mesh key={s} position={[0.112, 0.02, 0.05 * s]}><boxGeometry args={[0.01, 0.04, 0.028]} /><meshStandardMaterial color="#1a1420" /></mesh>
+          ))}
+          {rbx([-0.03, 0.1, 0], [0.22, 0.08, 0.23], hair)}
+          {kind === "woman" ? (
+            <>
+              {rbx([-0.08, -0.02, 0], [0.08, 0.22, 0.22], hair)}
+              <mesh position={[0, 0.16, 0]}><cylinderGeometry args={[0.24, 0.24, 0.02, 18]} /><meshStandardMaterial color={seed % 3 ? "#2a1a24" : "#4a3a2a"} /></mesh>
+              <mesh position={[0, 0.21, 0]}><cylinderGeometry args={[0.11, 0.12, 0.09, 14]} /><meshStandardMaterial color={seed % 3 ? "#2a1a24" : "#4a3a2a"} /></mesh>
+              <mesh position={[0, 0.18, 0]}><cylinderGeometry args={[0.122, 0.122, 0.025, 14]} /><meshStandardMaterial color="#c8b8d8" /></mesh>
+            </>
+          ) : kind === "man" ? (
+            seed % 4 === 0 ? (
+              <>
+                <mesh position={[0, 0.15, 0]}><cylinderGeometry args={[0.17, 0.17, 0.015, 16]} /><meshStandardMaterial color="#121214" /></mesh>
+                <mesh position={[0, 0.2, 0]}><sphereGeometry args={[0.115, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2]} /><meshStandardMaterial color="#121214" /></mesh>
+              </>
+            ) : (
+              rbx([0.03, 0.15, 0], [0.24, 0.05, 0.25], "#4a4038")
+            )
+          ) : (
+            rbx([0.02, 0.15, 0], [0.22, 0.05, 0.23], "#5a4a3a")
+          )}
+        </group>
+      </group>
     </group>
   );
 };
+
+/** Fundo do bote no formato exato do casco, na altura yf (cobre toda a parte de dentro: nada de água aparecendo). */
+const useBoatFloor = (L: number, W: number, D: number, yf: number) =>
+  useMemo(() => {
+    const top: [number, number][] = [];
+    const N = 48;
+    for (let i = 0; i <= N; i++) {
+      const u = i / N, x = (u - 0.5) * L;
+      const kk = Math.sqrt(Math.max(0, 1 - (2 * u - 1) ** 2)) ** 0.8;
+      const sheer = 0.12 * (2 * u - 1) ** 2;
+      const sn = (sheer - yf) / (D * (0.35 + 0.65 * kk) + 1e-6);
+      const z = sn >= 1 ? 0 : (W / 2) * kk * Math.sqrt(1 - sn * sn);
+      top.push([x, z]);
+    }
+    const sh = new Shape();
+    top.forEach(([x, z], i) => (i === 0 ? sh.moveTo(x, z) : sh.lineTo(x, z)));
+    for (let i = top.length - 1; i >= 0; i--) sh.lineTo(top[i][0], -top[i][1]);
+    const g = new ShapeGeometry(sh);
+    g.rotateX(-Math.PI / 2);
+    return g;
+  }, [L, W, D, yf]);
 
 /** Bote salva-vidas de madeira (~9 m, baleeira branca) com tábuas, bancos, remos, passageiros e lanterna. Proa +x. */
 export const Lifeboat: React.FC<{ f: number; row?: number; people?: number; lamp?: number }> = ({ f, row = 1, people = 6, lamp = 1 }) => {
   const L = 8.4, W = 2.2, D = 0.85;
   const hull = useHull(L, W, D);
+  const FLOOR_Y = -0.52;
+  const floor = useBoatFloor(L, W, D, FLOOR_Y);
   const a = Math.sin(f * 0.12) * 0.45 * row;
   const roll = 0.03 * Math.sin(f / 22), pitch = 0.02 * Math.sin(f / 31 + 1);
   return (
@@ -380,18 +457,23 @@ export const Lifeboat: React.FC<{ f: number; row?: number; people?: number; lamp
         <boxGeometry args={[2, 0.05, 0.01]} />
         <meshStandardMaterial color="#3a5a8a" />
       </mesh>
-      {/* fundo e bancos */}
-      <mesh position={[0, -D * 0.62, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[L * 0.4, W * 0.32, 1]}>
-        <circleGeometry args={[1, 20]} />
-        <meshStandardMaterial color="#8f6438" {...M} />
+      {/* fundo no formato do casco (com tábuas) e bancos */}
+      <mesh geometry={floor} position={[0, FLOOR_Y, 0]} receiveShadow>
+        <meshStandardMaterial color="#8f6438" {...M} side={DoubleSide} />
       </mesh>
+      {Array.from({ length: 6 }, (_, i) => (
+        <mesh key={`fp${i}`} position={[0, FLOOR_Y + 0.004, -0.6 + i * 0.24]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[L * 0.7, 0.01]} />
+          <meshBasicMaterial color="#5a3a1e" />
+        </mesh>
+      ))}
       {[-2.4, -1.1, 0.2, 1.5, 2.6].map((x, i) => (
         <Box key={i} p={[x, -0.18, 0]} s={[0.26, 0.05, W * Math.sqrt(1 - (x / (L / 2)) ** 2) - 0.1]} c="#a87a4a" />
       ))}
-      {/* passageiros */}
+      {/* passageiros sentados nos bancos */}
       {Array.from({ length: people }, (_, i) => {
-        const x = -2.4 + (i % 5) * 1.3, z = (i < 5 ? 0.35 : -0.35) * (i % 2 ? 1 : -1);
-        return <Seated key={i} p={[x, -0.15, z]} seed={i + 3} f={f} />;
+        const x = [-2.4, -1.1, 0.2, 1.5, 2.6][i % 5] - 0.05, z = (i < 5 ? 0.42 : -0.42) * (i % 2 ? 1 : -1);
+        return <Seated key={i} p={[x, -0.13, z]} seed={i + 3} f={f} rotY={i % 3 === 0 ? Math.PI : 0} />;
       })}
       {/* remos */}
       {[-1.7, -0.4, 0.9].map((x, i) =>
