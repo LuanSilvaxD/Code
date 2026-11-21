@@ -45,7 +45,7 @@ export const Lights: React.FC<{ kind: LightKind }> = ({ kind }) =>
   ) : null;
 
 /** Canvas 3D de um plano: câmera animada por chaves (frames locais do plano). */
-export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: string; filter?: string; children: (f: number) => React.ReactNode }> = ({ keys, fov = 40, light = "night", bg, filter, children }) => {
+export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: string; filter?: string; w?: number; h?: number; children: (f: number) => React.ReactNode }> = ({ keys, fov = 40, light = "night", bg, filter, w = W, h = H, children }) => {
   const f = useCurrentFrame();
   const pose = poseAt(f, keys, fov);
   const Cam = () => {
@@ -54,7 +54,7 @@ export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: 
   };
   return (
     <AbsoluteFill style={{ background: bg, filter }}>
-      <ThreeCanvas width={W} height={H} gl={{ antialias: true }} shadows flat camera={{ fov, near: 0.1, far: 4000, position: pose.position }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
+      <ThreeCanvas width={w} height={h} gl={{ antialias: true }} shadows flat camera={{ fov, near: 0.1, far: 4000, position: pose.position }} onCreated={({ gl }) => { gl.localClippingEnabled = true; }}>
         <Cam />
         <Lights kind={light} />
         {children(f)}

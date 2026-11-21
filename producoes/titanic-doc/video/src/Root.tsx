@@ -1,3 +1,4 @@
+import { Post50 } from "./doc/Post50";
 import { DocThumb } from "./doc/DocThumb";
 import { Composition } from "remotion";
 import { DinoSheet } from "./DinoSheet";
@@ -22,6 +23,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="DocParte3" component={DocPart3} durationInFrames={PART3_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocThumbA" component={DocThumb} durationInFrames={1} fps={30} width={1280} height={720} defaultProps={{ v: "A" as const }} />
     <Composition id="DocThumbB" component={DocThumb} durationInFrames={1} fps={30} width={1280} height={720} defaultProps={{ v: "B" as const }} />
+    <Composition id="Post50" component={Post50} durationInFrames={1} fps={30} width={1080} height={1080} />
     <Composition id="DocParte4" component={DocPart4} durationInFrames={PART4_FRAMES} fps={30} width={1920} height={1080} />
     <Composition id="DocSheet2" component={DocSheet2} durationInFrames={120} fps={30} width={1920} height={1620} />
     <Composition id="Titanic" component={MainSequence} durationInFrames={DURATION} fps={30} width={1080} height={1920} />
