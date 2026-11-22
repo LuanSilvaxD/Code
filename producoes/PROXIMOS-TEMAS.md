@@ -46,3 +46,10 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 
 ## Documentário Titanic (vídeo longo)
 - Plano no doc "Plano: documentário Titanic (Fenda Umbra)". Estrutura aprovada, sem legenda, mascote como personagem secundário. Voz escolhida: 13, en-AU-WilliamMultilingualNeural (−4%), em 20/11; teste com números e nomes enviado (13b).
+
+## Sugestão de inscrito (comentário no Short do Planeta Nove, 22/11/2026)
+- Pergunta original: "se os humanos não tivessem evoluído assim, qual espécie estaria num nível parecido?"
+- Reformulação proposta: **"E se os humanos sumissem, quem dominaria a Terra?"** (quadro E se…)
+- Candidatos: chimpanzés/bonobos, corvos, polvos, golfinhos. Virada: "a evolução não tem plano/escada".
+- Checar em fontes primárias as alegações sobre polvos e corvos antes do roteiro.
+- Ao publicar: responder no comentário original com o link (não citar o nome do inscrito).
