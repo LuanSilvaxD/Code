@@ -53,3 +53,6 @@ Novos vídeos da lista de 14/11 (ainda não feitos):
 - Candidatos: chimpanzés/bonobos, corvos, polvos, golfinhos. Virada: "a evolução não tem plano/escada".
 - Checar em fontes primárias as alegações sobre polvos e corvos antes do roteiro.
 - Ao publicar: responder no comentário original com o link (não citar o nome do inscrito).
+
+## Voyager 1 a 1 dia-luz (entregue 25/11/2026)
+- Short 1:08, espaço, notícia da semana (18/11). Drive: 1KOwo8R-bDkewbgKB4e6yaRuOV63XcZZ7. 1º vídeo com os upgrades v3.1 (brilho 3D, abertura nova, expressões do mascote).

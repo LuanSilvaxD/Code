@@ -4,10 +4,10 @@ import { BRAND } from "./brand";
 import { Background } from "./components/Background";
 import { Logo, Wordmark } from "./components/Brand";
 import { CameraController } from "./components/CameraController";
-import { Lighting } from "./components/Lighting";
+import { PostFx3D } from "./components/PostFx3D";
 import { PostFx } from "./components/PostFx";
 import { World } from "./components/World";
-import { FONT, PALETTE } from "./theme";
+import { FONT, PALETTE, POST } from "./theme";
 
 // Capa (Shorts/TikTok, 1080×1920) e thumbnail (YouTube, 1280×720) feitas com o PRÓPRIO cenário 3D.
 // Renderize no quadro escolhido:  npx remotion still CapaVertical out/capa-vertical.png --frame=<N>
@@ -15,11 +15,11 @@ import { FONT, PALETTE } from "./theme";
 // Vídeo de revelação → a capa NÃO pode mostrar a resposta; use a pergunta e um quadro do mistério.
 
 export const THUMB_LINES: { text: string; color: string; scale: number }[] = [
-  { text: "PERGUNTA", color: "#ffffff", scale: 0.6 },
-  { text: "IMPACTANTE", color: "#c4b5fd", scale: 1 },
-  { text: "AQUI?", color: "#ffffff", scale: 0.75 },
+  { text: "UM OI LEVA", color: "#ffffff", scale: 0.62 },
+  { text: "1 DIA", color: "#ffd27a", scale: 1.15 },
+  { text: "PRA CHEGAR", color: "#ffffff", scale: 0.62 },
 ];
-export const THUMB_TAG = "TEMA";
+export const THUMB_TAG = "VOYAGER 1 · 26 BILHÕES DE KM";
 
 const Line: React.FC<{ text: string; color: string; size: number }> = ({ text, color, size }) => (
   <div style={{ fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 1.0, color, WebkitTextStroke: `${Math.round(size * 0.16)}px ${PALETTE.outline}`, paintOrder: "stroke fill", textShadow: "0 10px 26px rgba(0,0,0,0.55)", letterSpacing: -1 }}>
@@ -34,9 +34,9 @@ export const Thumbnail: React.FC<{ layout: "vertical" | "horizontal" }> = ({ lay
   return (
     <AbsoluteFill style={{ backgroundColor: BRAND.colors.umbra }}>
       <Background />
-      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.5, far: 400, position: [8, 6, 30] }}>
+      <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: 24, near: 0.05, far: 600, position: [8, 6, 30] }}>
         <CameraController />
-        <Lighting />
+        {POST.bloom > 0 ? <PostFx3D bloom={POST.bloom} /> : null}
         <World />
       </ThreeCanvas>
       <PostFx />
