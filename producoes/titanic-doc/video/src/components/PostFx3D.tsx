@@ -10,8 +10,8 @@ import { useCurrentFrame } from "remotion";
  *
  * - Feito à mão com a lib `postprocessing` (npm i postprocessing@6.39.6). O <EffectComposer> do
  *   @react-three/postprocessing sai EM BRANCO no render do Remotion (frameloop "never"): não use.
- * - Custo medido no render por software (swangle): ~2,5× mais lento. Ligue por cena/vídeo onde há luz
- *   (noite, fogo, vigias, faróis, espaço, neon), não em tudo.
+ * - Custo no render por software (swangle): ~0,3–0,4 s a mais por frame (cena leve: ~2,5×; Short normal: ~+25%).
+ *   Ligue por cena/vídeo onde há luz (noite, fogo, vigias, faróis, espaço, neon), não em tudo.
  * - ACES escurece cenas já escuras: deixe desligado em noite; use em cenas de dia/estúdio muito saturadas.
  * - Só materiais acima de `threshold` de luminância brilham: use emissive/meshBasic claros para o que deve brilhar.
  */
