@@ -8,7 +8,6 @@ import { CornerBug, HookText, SeriesTag } from "./components/Hook2D";
 import { LikeSubscribe } from "./components/LikeSubscribe";
 import { HOOK, OPENING } from "./opening";
 import { CameraController } from "./components/CameraController";
-import { Lighting } from "./components/Lighting";
 import { MascotFromTracks } from "./components/Mascot";
 import { PostFx, ProgressBar, Scrims } from "./components/PostFx";
 import { PostFx3D } from "./components/PostFx3D";
@@ -16,7 +15,7 @@ import { ScreenFxOverlay, useScreenFx } from "./components/ScreenFx";
 import { BadgeLayer } from "./components/TechnicalBadge";
 import { World } from "./components/World";
 import { scenes, track } from "./data/scenes";
-import { GanchoScene, SolucaoScene } from "./scenes/ExampleScenes";
+import { VoyOverlay } from "./scenes/VoyOverlay";
 import type { SceneModule } from "./scenes/types";
 import { CAMERA, POST } from "./theme";
 
@@ -24,10 +23,7 @@ import { CAMERA, POST } from "./theme";
 // um único canvas 3D com o cenário persistente + extras 3D de cada cena,
 // e por cima as camadas 2D de cada cena (rótulos, tela dividida), badges, legendas e áudio.
 
-const MODULES: Record<string, SceneModule> = {
-  "scene-01-gancho": GanchoScene,
-  "scene-02-solucao": SolucaoScene,
-};
+const MODULES: Record<string, SceneModule> = {};
 
 const FadeOut: React.FC = () => {
   const frame = useCurrentFrame();
@@ -59,7 +55,6 @@ export const MainSequence: React.FC = () => {
       <Background />
       <ThreeCanvas width={width} height={height} gl={{ antialias: true }} shadows="percentage" flat camera={{ fov: CAMERA.fov, near: CAMERA.near, far: CAMERA.far, position: [8, 6, 30] }}>
         <CameraController />
-        <Lighting />
         <World />
         {/* mascote da Fenda Umbra (aparece em todo vídeo; dirigido pelas trilhas mascot.* — utils/mascot.ts) */}
         <MascotFromTracks />
@@ -85,6 +80,7 @@ export const MainSequence: React.FC = () => {
           </Sequence>
         );
       })}
+      <VoyOverlay />
       <PostFx />
       <AnimatedCaptions />
       <ProgressBar />

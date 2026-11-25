@@ -35,7 +35,14 @@ _GAPS = [float(x) for x in re.search(r"const GAPS: number\[\] = \[([^\]]*)\]", _
 _KEYS = re.findall(r'"(s\d+)"', re.search(r"VO_KEYS = \[([^\]]*)\]", _TIMING).group(1))
 _VO = json.loads((ROOT / "src" / "data" / "vo.json").read_text(encoding="utf-8"))
 DUR = _num("SECONDS")
-FIRST_VO, LEAD = _num("FIRST_VO"), _num("LEAD")
+LEAD = _num("LEAD")
+# FIRST_VO depende da abertura (src/opening.ts): "hook" = 0,2 s, "fenda" = 0,45 s (ou número fixo, em projetos antigos)
+_fv = re.search(r"const FIRST_VO = ([0-9.]+)", _TIMING)
+if _fv:
+    FIRST_VO = float(_fv.group(1))
+else:
+    _op = (ROOT / "src" / "opening.ts")
+    FIRST_VO = 0.2 if (_op.exists() and re.search(r'OPENING: [^=]*= "hook"', _op.read_text(encoding="utf-8"))) else 0.45
 VO_AT = {}
 _t = FIRST_VO
 for _i, _k in enumerate(_KEYS):
@@ -60,11 +67,11 @@ def word(k, i):
 OUTRO = max(2.6, 0.6 + _VO["cta"]["seconds"] + 0.6) if "cta" in _VO else 2.6
 
 # ------------------------------------------------------------------ edite por vídeo
-PALETTE = "natureza"
+PALETTE = "espaco"
 VARIANT = ROOT.parent.name  # slug da produção
 n_sc = len(S)
-INTENTS = (["calm"] + ["curious"] * max(0, n_sc - 3) + ["build"] + ["reveal"])[-n_sc:] if n_sc > 1 else ["calm"]
-HITS: list[float] = []  # ex.: [word("s3", 12), word("s12", 2)]
+INTENTS = ["curious", "build", "reveal", "reveal", "calm", "tense", "resolve"]
+HITS: list[float] = [word("s3", 9), word("s4", 5), word("s5", 21)]
 
 mix = fm.render(S, INTENTS, DUR, PALETTE, hits=HITS, outro=OUTRO, variant=VARIANT)
 OUT.parent.mkdir(parents=True, exist_ok=True)

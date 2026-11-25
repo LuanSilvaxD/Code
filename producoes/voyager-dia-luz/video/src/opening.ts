@@ -9,8 +9,9 @@ export const OPENING: "hook" | "fenda" = "hook";
 /** Texto do gancho (2–3 linhas curtas; a 2ª é a maior) e etiqueta opcional do quadro ("BOATO OU VERDADE? #6"). */
 export const HOOK: { lines: [string, string][]; tag?: string; top?: number } = {
   lines: [
-    ["VOCÊ QUER", "#ffffff"],
-    ["X?", "#ffd27a"],
+    ["UM OI", "#ffffff"],
+    ["1 DIA", "#ffd27a"],
+    ["PRA CHEGAR", "#ffffff"],
   ],
 };
 

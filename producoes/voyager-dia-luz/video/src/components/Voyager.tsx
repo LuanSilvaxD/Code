@@ -227,7 +227,7 @@ export const Voyager: React.FC<{ f: number; rtg?: number; lights?: number; recor
           <meshStandardMaterial map={gold} color="#ffffff" metalness={0.15} roughness={0.5} transparent />
         </mesh>
         {/* disco de ouro na face lateral (+Y), sai e gira para a câmera com recordOut */}
-        <group position={[0, 0.86 + ro * 0.9, 0.02 + ro * 0.6]} rotation={[-Math.PI / 2 + ro * Math.PI / 2, 0, ro * f * 0.01]}>
+        <group position={[0, 0.86 + ro * 1.5, 0.02 + ro * 1.3]} rotation={[-Math.PI / 2 + ro * Math.PI / 2, 0, ro * f * 0.01]}>
           <GoldenRecord cover={ro > 0.05 ? 0 : 1} />
         </group>
         {/* luzes de status (estilizadas) */}
@@ -235,8 +235,8 @@ export const Voyager: React.FC<{ f: number; rtg?: number; lights?: number; recor
           const on = i < lights;
           const a = -0.9 + i * 0.16;
           return (
-            <mesh key={`led${i}`} position={[Math.cos(a) * 0.85, Math.sin(a) * 0.85, 0.2]}>
-              <sphereGeometry args={[0.025, 8, 6]} />
+            <mesh key={`led${i}`} position={[Math.cos(a) * 0.86, Math.sin(a) * 0.86, -0.25]}>
+              <sphereGeometry args={[0.04, 8, 6]} />
               <meshBasicMaterial color={on ? (i === 0 && blink ? "#c8ffd8" : "#58ff8a") : "#1a2a1e"} toneMapped={false} transparent />
             </mesh>
           );
@@ -266,7 +266,7 @@ export const Voyager: React.FC<{ f: number; rtg?: number; lights?: number; recor
       {/* haste do magnetômetro (13 m, diagonal) com sensores */}
       {mag > 0.01 ? (
         <group>
-          <Truss a={[0.3, 0.75, -0.2]} b={[0.3 + 12.4 * mag * 0.92, 0.75 + 12.4 * mag * 0.36, -0.2 - 12.4 * mag * 0.15]} w={0.06} bays={Math.max(4, Math.round(26 * mag))} c="#b8bcc4" />
+          <Truss a={[0.3, 0.75, -0.2]} b={[0.3 + 12.4 * mag * 0.92, 0.75 + 12.4 * mag * 0.36, -0.2 - 12.4 * mag * 0.15]} w={0.06} bays={Math.max(4, Math.round(26 * mag))} c="#868a94" />
           <mesh position={[0.3 + 12.4 * mag * 0.92, 0.75 + 12.4 * mag * 0.36, -0.2 - 12.4 * mag * 0.15]}><boxGeometry args={[0.14, 0.14, 0.14]} /><meshStandardMaterial color={WHITE} transparent /></mesh>
         </group>
       ) : null}
@@ -325,7 +325,7 @@ export const SunGlow: React.FC<{ r?: number }> = ({ r = 1 }) => (
 
 /** Pulso de rádio viajando de `from` a `to` (t 0..1): cabeça brilhante, ondinhas atrás e rastro de luz. */
 export const SignalPulse: React.FC<{ from: Vec3; to: Vec3; t: number; color?: string; size?: number }> = ({ from, to, t, color = "#c4b5fd", size = 0.5 }) => {
-  if (t <= 0 || t >= 1.02) return null;
+  if (t <= 0 || t >= 0.999) return null;
   const a = new Vector3(...from), b = new Vector3(...to);
   const at = (k: number): Vec3 => { const p = a.clone().lerp(b, clamp(k, 0, 1)); return [p.x, p.y, p.z]; };
   return (

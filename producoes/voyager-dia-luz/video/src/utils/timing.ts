@@ -10,25 +10,25 @@ export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
 /** Duração-alvo total (s). O último plano termina exatamente aqui. */
-export const SECONDS = 12;
-export const DURATION = SECONDS * FPS;
+export const SECONDS = 67.6; // Voyager a 1 dia-luz (voz +6%, abertura nova)
+export const DURATION = Math.round(SECONDS * FPS);
 
 export const f = (seconds: number) => Math.round(seconds * FPS);
 /** Segundo local (dentro da cena) -> frame local. */
 export const s = (seconds: number) => Math.round(seconds * FPS);
 
 /** Uma fala por cena, na ordem das cenas. */
-export const VO_KEYS = ["s1", "s2"] as const;
+export const VO_KEYS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"] as const;
 export type VoKey = (typeof VO_KEYS)[number];
 
 /** Durações planejadas no roteiro (s), uma por cena; somam SECONDS. */
-const PLANNED_SECONDS = [6, 6];
+const PLANNED_SECONDS = [7, 8.4, 10.2, 7.4, 9.1, 8.9, 16.6];
 /** A 1ª fala entra quase no frame 1 na abertura "hook"; depois do whoosh da fenda na abertura antiga. */
 const FIRST_VO = OPENING === "hook" ? 0.2 : 0.45;
 /** O corte de cada cena acontece este tanto antes da 1ª sílaba da sua fala. */
 const LEAD = 0.25;
 /** Pausa entre o fim de uma fala e o início da próxima (len = cenas - 1). */
-const GAPS: number[] = [0.55];
+const GAPS: number[] = [0.5, 0.5, 0.8, 0.6, 0.55, 0.6];
 
 type VoWord = { text: string; start: number; end: number };
 type VoLine = { text: string; seconds: number; words: VoWord[] };

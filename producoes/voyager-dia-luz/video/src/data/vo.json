@@ -1,1 +1,1015 @@
-{}
+{
+  "s1": {
+    "text": "Se você mandar um oi pra essa nave agora, ele só chega amanhã. E a resposta, só depois de amanhã.",
+    "seconds": 6.255,
+    "words": [
+      {
+        "text": "Se",
+        "start": 0,
+        "end": 0.121
+      },
+      {
+        "text": "você",
+        "start": 0.133,
+        "end": 0.416
+      },
+      {
+        "text": "mandar",
+        "start": 0.427,
+        "end": 0.758
+      },
+      {
+        "text": "um",
+        "start": 0.769,
+        "end": 0.852
+      },
+      {
+        "text": "oi",
+        "start": 0.864,
+        "end": 1.029
+      },
+      {
+        "text": "pra",
+        "start": 1.041,
+        "end": 1.206
+      },
+      {
+        "text": "essa",
+        "start": 1.218,
+        "end": 1.465
+      },
+      {
+        "text": "nave",
+        "start": 1.477,
+        "end": 1.713
+      },
+      {
+        "text": "agora",
+        "start": 1.725,
+        "end": 2.137
+      },
+      {
+        "text": "ele",
+        "start": 2.302,
+        "end": 2.468
+      },
+      {
+        "text": "só",
+        "start": 2.479,
+        "end": 2.644
+      },
+      {
+        "text": "chega",
+        "start": 2.656,
+        "end": 2.927
+      },
+      {
+        "text": "amanhã",
+        "start": 2.939,
+        "end": 3.281
+      },
+      {
+        "text": "E",
+        "start": 4.092,
+        "end": 4.198
+      },
+      {
+        "text": "a",
+        "start": 4.21,
+        "end": 4.269
+      },
+      {
+        "text": "resposta",
+        "start": 4.281,
+        "end": 4.906
+      },
+      {
+        "text": "só",
+        "start": 5.165,
+        "end": 5.283
+      },
+      {
+        "text": "depois",
+        "start": 5.295,
+        "end": 5.684
+      },
+      {
+        "text": "de",
+        "start": 5.696,
+        "end": 5.767
+      },
+      {
+        "text": "amanhã",
+        "start": 5.778,
+        "end": 6.132
+      }
+    ]
+  },
+  "s2": {
+    "text": "Essa é a Voyager 1. Ela saiu da Terra em 1977 e viaja a sessenta e um mil quilômetros por hora, sem parar, há quase cinquenta anos.",
+    "seconds": 9.145,
+    "words": [
+      {
+        "text": "Essa",
+        "start": 0,
+        "end": 0.277
+      },
+      {
+        "text": "é",
+        "start": 0.289,
+        "end": 0.348
+      },
+      {
+        "text": "a",
+        "start": 0.36,
+        "end": 0.407
+      },
+      {
+        "text": "Voyager",
+        "start": 0.419,
+        "end": 0.902
+      },
+      {
+        "text": "1",
+        "start": 0.914,
+        "end": 1.091
+      },
+      {
+        "text": "Ela",
+        "start": 1.902,
+        "end": 2.138
+      },
+      {
+        "text": "saiu",
+        "start": 2.15,
+        "end": 2.456
+      },
+      {
+        "text": "da",
+        "start": 2.468,
+        "end": 2.586
+      },
+      {
+        "text": "Terra",
+        "start": 2.598,
+        "end": 2.833
+      },
+      {
+        "text": "em",
+        "start": 2.845,
+        "end": 3.588
+      },
+      {
+        "text": "1977",
+        "start": 3.588,
+        "end": 4.331
+      },
+      {
+        "text": "e",
+        "start": 4.343,
+        "end": 4.378
+      },
+      {
+        "text": "viaja",
+        "start": 4.39,
+        "end": 4.791
+      },
+      {
+        "text": "a",
+        "start": 4.803,
+        "end": 4.826
+      },
+      {
+        "text": "sessenta",
+        "start": 4.838,
+        "end": 5.239
+      },
+      {
+        "text": "e",
+        "start": 5.251,
+        "end": 5.275
+      },
+      {
+        "text": "um",
+        "start": 5.286,
+        "end": 5.416
+      },
+      {
+        "text": "mil",
+        "start": 5.428,
+        "end": 5.616
+      },
+      {
+        "text": "quilômetros",
+        "start": 5.628,
+        "end": 6.194
+      },
+      {
+        "text": "por",
+        "start": 6.206,
+        "end": 6.359
+      },
+      {
+        "text": "hora",
+        "start": 6.371,
+        "end": 6.595
+      },
+      {
+        "text": "sem",
+        "start": 6.89,
+        "end": 7.067
+      },
+      {
+        "text": "parar",
+        "start": 7.079,
+        "end": 7.385
+      },
+      {
+        "text": "há",
+        "start": 7.657,
+        "end": 7.727
+      },
+      {
+        "text": "quase",
+        "start": 7.739,
+        "end": 8.093
+      },
+      {
+        "text": "cinquenta",
+        "start": 8.105,
+        "end": 8.612
+      },
+      {
+        "text": "anos",
+        "start": 8.624,
+        "end": 9.048
+      }
+    ]
+  },
+  "s3": {
+    "text": "No dia 18 de novembro, ela chegou a um dia-luz da Terra: a distância que a luz percorre em vinte e quatro horas. Quase vinte e seis bilhões de quilômetros.",
+    "seconds": 8.941,
+    "words": [
+      {
+        "text": "No",
+        "start": 0,
+        "end": 0.105
+      },
+      {
+        "text": "dia",
+        "start": 0.116,
+        "end": 0.317
+      },
+      {
+        "text": "18",
+        "start": 0.329,
+        "end": 0.667
+      },
+      {
+        "text": "de",
+        "start": 0.667,
+        "end": 1.005
+      },
+      {
+        "text": "novembro",
+        "start": 1.005,
+        "end": 1.343
+      },
+      {
+        "text": "ela",
+        "start": 1.543,
+        "end": 1.697
+      },
+      {
+        "text": "chegou",
+        "start": 1.708,
+        "end": 2.05
+      },
+      {
+        "text": "a",
+        "start": 2.062,
+        "end": 2.098
+      },
+      {
+        "text": "um",
+        "start": 2.109,
+        "end": 2.239
+      },
+      {
+        "text": "dia-luz",
+        "start": 2.251,
+        "end": 2.687
+      },
+      {
+        "text": "da",
+        "start": 2.699,
+        "end": 2.817
+      },
+      {
+        "text": "Terra",
+        "start": 2.829,
+        "end": 3.159
+      },
+      {
+        "text": "a",
+        "start": 3.418,
+        "end": 3.489
+      },
+      {
+        "text": "distância",
+        "start": 3.501,
+        "end": 4.032
+      },
+      {
+        "text": "que",
+        "start": 4.043,
+        "end": 4.126
+      },
+      {
+        "text": "a",
+        "start": 4.138,
+        "end": 4.173
+      },
+      {
+        "text": "luz",
+        "start": 4.185,
+        "end": 4.421
+      },
+      {
+        "text": "percorre",
+        "start": 4.432,
+        "end": 4.81
+      },
+      {
+        "text": "em",
+        "start": 4.822,
+        "end": 4.904
+      },
+      {
+        "text": "vinte",
+        "start": 4.916,
+        "end": 5.175
+      },
+      {
+        "text": "e",
+        "start": 5.187,
+        "end": 5.199
+      },
+      {
+        "text": "quatro",
+        "start": 5.211,
+        "end": 5.482
+      },
+      {
+        "text": "horas",
+        "start": 5.494,
+        "end": 5.907
+      },
+      {
+        "text": "Quase",
+        "start": 6.717,
+        "end": 7.095
+      },
+      {
+        "text": "vinte",
+        "start": 7.107,
+        "end": 7.331
+      },
+      {
+        "text": "e",
+        "start": 7.342,
+        "end": 7.366
+      },
+      {
+        "text": "seis",
+        "start": 7.378,
+        "end": 7.578
+      },
+      {
+        "text": "bilhões",
+        "start": 7.59,
+        "end": 8.062
+      },
+      {
+        "text": "de",
+        "start": 8.074,
+        "end": 8.168
+      },
+      {
+        "text": "quilômetros",
+        "start": 8.18,
+        "end": 8.852
+      }
+    ]
+  },
+  "s4": {
+    "text": "Nada feito por humanos foi tão longe. Desde 2012, ela já saiu da bolha do Sol e viaja no espaço entre as estrelas.",
+    "seconds": 7.739,
+    "words": [
+      {
+        "text": "Nada",
+        "start": 0,
+        "end": 0.254
+      },
+      {
+        "text": "feito",
+        "start": 0.266,
+        "end": 0.596
+      },
+      {
+        "text": "por",
+        "start": 0.608,
+        "end": 0.725
+      },
+      {
+        "text": "humanos",
+        "start": 0.737,
+        "end": 1.103
+      },
+      {
+        "text": "foi",
+        "start": 1.115,
+        "end": 1.303
+      },
+      {
+        "text": "tão",
+        "start": 1.315,
+        "end": 1.539
+      },
+      {
+        "text": "longe",
+        "start": 1.551,
+        "end": 1.94
+      },
+      {
+        "text": "Desde",
+        "start": 2.751,
+        "end": 3.128
+      },
+      {
+        "text": "2012",
+        "start": 3.14,
+        "end": 3.871
+      },
+      {
+        "text": "ela",
+        "start": 4.107,
+        "end": 4.284
+      },
+      {
+        "text": "já",
+        "start": 4.296,
+        "end": 4.425
+      },
+      {
+        "text": "saiu",
+        "start": 4.437,
+        "end": 4.744
+      },
+      {
+        "text": "da",
+        "start": 4.756,
+        "end": 4.862
+      },
+      {
+        "text": "bolha",
+        "start": 4.874,
+        "end": 5.227
+      },
+      {
+        "text": "do",
+        "start": 5.239,
+        "end": 5.333
+      },
+      {
+        "text": "Sol",
+        "start": 5.345,
+        "end": 5.64
+      },
+      {
+        "text": "e",
+        "start": 5.652,
+        "end": 5.699
+      },
+      {
+        "text": "viaja",
+        "start": 5.711,
+        "end": 6.147
+      },
+      {
+        "text": "no",
+        "start": 6.159,
+        "end": 6.241
+      },
+      {
+        "text": "espaço",
+        "start": 6.253,
+        "end": 6.701
+      },
+      {
+        "text": "entre",
+        "start": 6.713,
+        "end": 6.89
+      },
+      {
+        "text": "as",
+        "start": 6.902,
+        "end": 6.937
+      },
+      {
+        "text": "estrelas",
+        "start": 6.949,
+        "end": 7.668
+      }
+    ]
+  },
+  "s5": {
+    "text": "E leva um disco de ouro, com sons da Terra e saudações em cinquenta e cinco línguas. A de português diz: paz e felicidade a todos.",
+    "seconds": 8.117,
+    "words": [
+      {
+        "text": "E",
+        "start": 0,
+        "end": 0.053
+      },
+      {
+        "text": "leva",
+        "start": 0.065,
+        "end": 0.324
+      },
+      {
+        "text": "um",
+        "start": 0.336,
+        "end": 0.419
+      },
+      {
+        "text": "disco",
+        "start": 0.431,
+        "end": 0.761
+      },
+      {
+        "text": "de",
+        "start": 0.773,
+        "end": 0.914
+      },
+      {
+        "text": "ouro",
+        "start": 0.926,
+        "end": 1.174
+      },
+      {
+        "text": "com",
+        "start": 1.468,
+        "end": 1.669
+      },
+      {
+        "text": "sons",
+        "start": 1.681,
+        "end": 1.952
+      },
+      {
+        "text": "da",
+        "start": 1.964,
+        "end": 2.105
+      },
+      {
+        "text": "Terra",
+        "start": 2.117,
+        "end": 2.353
+      },
+      {
+        "text": "e",
+        "start": 2.365,
+        "end": 2.4
+      },
+      {
+        "text": "saudações",
+        "start": 2.412,
+        "end": 2.99
+      },
+      {
+        "text": "em",
+        "start": 3.001,
+        "end": 3.131
+      },
+      {
+        "text": "cinquenta",
+        "start": 3.143,
+        "end": 3.615
+      },
+      {
+        "text": "e",
+        "start": 3.626,
+        "end": 3.662
+      },
+      {
+        "text": "cinco",
+        "start": 3.674,
+        "end": 3.945
+      },
+      {
+        "text": "línguas",
+        "start": 3.957,
+        "end": 4.452
+      },
+      {
+        "text": "A",
+        "start": 5.263,
+        "end": 5.392
+      },
+      {
+        "text": "de",
+        "start": 5.404,
+        "end": 5.534
+      },
+      {
+        "text": "português",
+        "start": 5.546,
+        "end": 6.041
+      },
+      {
+        "text": "diz",
+        "start": 6.053,
+        "end": 6.407
+      },
+      {
+        "text": "paz",
+        "start": 6.607,
+        "end": 6.749
+      },
+      {
+        "text": "e",
+        "start": 6.76,
+        "end": 6.866
+      },
+      {
+        "text": "felicidade",
+        "start": 6.878,
+        "end": 7.468
+      },
+      {
+        "text": "a",
+        "start": 7.48,
+        "end": 7.527
+      },
+      {
+        "text": "todos",
+        "start": 7.539,
+        "end": 8.022
+      }
+    ]
+  },
+  "s6": {
+    "text": "Só que a energia dela vem de plutônio, e enfraquece todo ano. A NASA já desligou vários instrumentos pra ela durar até a próxima década.",
+    "seconds": 8.241,
+    "words": [
+      {
+        "text": "Só",
+        "start": 0,
+        "end": 0.217
+      },
+      {
+        "text": "que",
+        "start": 0.229,
+        "end": 0.312
+      },
+      {
+        "text": "a",
+        "start": 0.323,
+        "end": 0.359
+      },
+      {
+        "text": "energia",
+        "start": 0.37,
+        "end": 0.901
+      },
+      {
+        "text": "dela",
+        "start": 0.913,
+        "end": 1.137
+      },
+      {
+        "text": "vem",
+        "start": 1.149,
+        "end": 1.302
+      },
+      {
+        "text": "de",
+        "start": 1.314,
+        "end": 1.408
+      },
+      {
+        "text": "plutônio",
+        "start": 1.42,
+        "end": 1.915
+      },
+      {
+        "text": "e",
+        "start": 2.175,
+        "end": 2.222
+      },
+      {
+        "text": "enfraquece",
+        "start": 2.234,
+        "end": 2.847
+      },
+      {
+        "text": "todo",
+        "start": 2.859,
+        "end": 3.177
+      },
+      {
+        "text": "ano",
+        "start": 3.189,
+        "end": 3.46
+      },
+      {
+        "text": "A",
+        "start": 4.271,
+        "end": 4.377
+      },
+      {
+        "text": "NASA",
+        "start": 4.389,
+        "end": 4.731
+      },
+      {
+        "text": "já",
+        "start": 4.743,
+        "end": 4.872
+      },
+      {
+        "text": "desligou",
+        "start": 4.884,
+        "end": 5.309
+      },
+      {
+        "text": "vários",
+        "start": 5.321,
+        "end": 5.615
+      },
+      {
+        "text": "instrumentos",
+        "start": 5.627,
+        "end": 6.311
+      },
+      {
+        "text": "pra",
+        "start": 6.323,
+        "end": 6.476
+      },
+      {
+        "text": "ela",
+        "start": 6.488,
+        "end": 6.677
+      },
+      {
+        "text": "durar",
+        "start": 6.688,
+        "end": 6.971
+      },
+      {
+        "text": "até",
+        "start": 6.983,
+        "end": 7.184
+      },
+      {
+        "text": "a",
+        "start": 7.196,
+        "end": 7.254
+      },
+      {
+        "text": "próxima",
+        "start": 7.266,
+        "end": 7.703
+      },
+      {
+        "text": "década",
+        "start": 7.714,
+        "end": 8.115
+      }
+    ]
+  },
+  "s7": {
+    "text": "Um dia ela vai ficar muda. Mas o disco foi feito pra durar mais de um bilhão de anos. Pronto: agora você sabe onde está o objeto humano mais distante.",
+    "seconds": 9.908,
+    "words": [
+      {
+        "text": "Um",
+        "start": 0,
+        "end": 0.124
+      },
+      {
+        "text": "dia",
+        "start": 0.136,
+        "end": 0.419
+      },
+      {
+        "text": "ela",
+        "start": 0.431,
+        "end": 0.608
+      },
+      {
+        "text": "vai",
+        "start": 0.619,
+        "end": 0.749
+      },
+      {
+        "text": "ficar",
+        "start": 0.761,
+        "end": 1.079
+      },
+      {
+        "text": "muda",
+        "start": 1.091,
+        "end": 1.457
+      },
+      {
+        "text": "Mas",
+        "start": 2.267,
+        "end": 2.468
+      },
+      {
+        "text": "o",
+        "start": 2.48,
+        "end": 2.609
+      },
+      {
+        "text": "disco",
+        "start": 2.621,
+        "end": 2.963
+      },
+      {
+        "text": "foi",
+        "start": 2.975,
+        "end": 3.128
+      },
+      {
+        "text": "feito",
+        "start": 3.14,
+        "end": 3.458
+      },
+      {
+        "text": "pra",
+        "start": 3.47,
+        "end": 3.6
+      },
+      {
+        "text": "durar",
+        "start": 3.612,
+        "end": 3.918
+      },
+      {
+        "text": "mais",
+        "start": 3.93,
+        "end": 4.26
+      },
+      {
+        "text": "de",
+        "start": 4.272,
+        "end": 4.355
+      },
+      {
+        "text": "um",
+        "start": 4.366,
+        "end": 4.461
+      },
+      {
+        "text": "bilhão",
+        "start": 4.473,
+        "end": 4.838
+      },
+      {
+        "text": "de",
+        "start": 4.85,
+        "end": 4.991
+      },
+      {
+        "text": "anos",
+        "start": 5.003,
+        "end": 5.404
+      },
+      {
+        "text": "Pronto",
+        "start": 6.218,
+        "end": 6.595
+      },
+      {
+        "text": "agora",
+        "start": 6.89,
+        "end": 7.232
+      },
+      {
+        "text": "você",
+        "start": 7.244,
+        "end": 7.48
+      },
+      {
+        "text": "sabe",
+        "start": 7.491,
+        "end": 7.775
+      },
+      {
+        "text": "onde",
+        "start": 7.786,
+        "end": 7.951
+      },
+      {
+        "text": "está",
+        "start": 7.963,
+        "end": 8.187
+      },
+      {
+        "text": "o",
+        "start": 8.199,
+        "end": 8.223
+      },
+      {
+        "text": "objeto",
+        "start": 8.234,
+        "end": 8.694
+      },
+      {
+        "text": "humano",
+        "start": 8.706,
+        "end": 9.036
+      },
+      {
+        "text": "mais",
+        "start": 9.048,
+        "end": 9.284
+      },
+      {
+        "text": "distante",
+        "start": 9.296,
+        "end": 9.838
+      }
+    ]
+  },
+  "cta": {
+    "text": "Comenta o tema do próximo vídeo, segue a Fenda Umbra e compartilha!",
+    "seconds": 3.967,
+    "words": [
+      {
+        "text": "Comenta",
+        "start": 0,
+        "end": 0.418
+      },
+      {
+        "text": "o",
+        "start": 0.43,
+        "end": 0.48
+      },
+      {
+        "text": "tema",
+        "start": 0.492,
+        "end": 0.742
+      },
+      {
+        "text": "do",
+        "start": 0.755,
+        "end": 0.855
+      },
+      {
+        "text": "próximo",
+        "start": 0.868,
+        "end": 1.33
+      },
+      {
+        "text": "vídeo",
+        "start": 1.342,
+        "end": 1.705
+      },
+      {
+        "text": "segue",
+        "start": 1.98,
+        "end": 2.28
+      },
+      {
+        "text": "a",
+        "start": 2.292,
+        "end": 2.355
+      },
+      {
+        "text": "Fenda",
+        "start": 2.368,
+        "end": 2.73
+      },
+      {
+        "text": "Umbra",
+        "start": 2.743,
+        "end": 3.068
+      },
+      {
+        "text": "e",
+        "start": 3.08,
+        "end": 3.118
+      },
+      {
+        "text": "compartilha",
+        "start": 3.13,
+        "end": 3.855
+      }
+    ]
+  }
+}
