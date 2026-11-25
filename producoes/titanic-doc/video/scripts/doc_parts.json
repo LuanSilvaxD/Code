@@ -1,0 +1,4 @@
+{"slug": "titanic-doc", "palette": "historia",
+ "parts": {"4": {"dur": 115.0, "cuts": [0.0, 8.3, 17.7, 32.6, 44.9, 56.7, 67.0, 75.1, 87.7, 97.1, 103.1],
+   "intents": ["build", "tense", "reveal", "calm", "curious", "groove", "tense", "reveal", "calm", "resolve", "resolve"],
+   "hits": [17.7, 75.1, 83.7, 103.2], "vo": [["bloco6", 2.6], ["bloco7", 44.95]]}}}

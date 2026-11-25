@@ -2,6 +2,7 @@ import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { usePose } from "../components/CameraController";
 import { Lighting } from "../components/Lighting";
+import { PostFx3D } from "../components/PostFx3D";
 import { worldScale } from "../components/Person";
 import { FONT } from "../theme";
 import { clamp, rand, type Vec3 } from "../utils/animation";
@@ -45,7 +46,7 @@ export const Lights: React.FC<{ kind: LightKind }> = ({ kind }) =>
   ) : null;
 
 /** Canvas 3D de um plano: câmera animada por chaves (frames locais do plano). */
-export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: string; filter?: string; w?: number; h?: number; children: (f: number) => React.ReactNode }> = ({ keys, fov = 40, light = "night", bg, filter, w = W, h = H, children }) => {
+export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: string; filter?: string; w?: number; h?: number; glow?: number; children: (f: number) => React.ReactNode }> = ({ keys, fov = 40, light = "night", bg, filter, w = W, h = H, glow = 0, children }) => {
   const f = useCurrentFrame();
   const pose = poseAt(f, keys, fov);
   const Cam = () => {
@@ -58,6 +59,7 @@ export const Cine: React.FC<{ keys: Key[]; fov?: number; light?: LightKind; bg: 
         <Cam />
         <Lights kind={light} />
         {children(f)}
+        {glow > 0 ? <PostFx3D bloom={glow} /> : null}
       </ThreeCanvas>
     </AbsoluteFill>
   );
