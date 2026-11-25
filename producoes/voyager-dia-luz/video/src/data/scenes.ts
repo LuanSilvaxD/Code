@@ -103,8 +103,8 @@ const P = {
   rtg: orbit([-2.0, -0.1, -0.15], 6, 205, 18),
   rtg2: orbit([-1.6, -0.1, -0.15], 7, 190, 12),
   away: orbit([0, 0, -10], 28, 175, 6),
-  maqA: orbit([8, 0, 5], 40, -25, 38),
-  maqB: orbit([15, 0.5, 6], 58, -12, 30),
+  maqA: orbit([4, 0, 3], 42, -40, 38),
+  maqB: orbit([14, 0.8, 6], 60, -62, 32),
   maqC: orbit([2, 0, 3], 92, -28, 26),
   maqD: orbit([6, 0, 4], 80, -40, 22),
 };
@@ -131,7 +131,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s2", ...sc(1), voKey: "s2",
     narration: "Essa é a Voyager 1. Ela saiu da Terra em 1977 e viaja a sessenta e um mil quilômetros por hora, sem parar, há quase cinquenta anos.",
-    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.front, "inOut", 0.55), key(W("s2", 5) - 1, orbit([-0.8, -0.3, 0.2], 12, 70, 12), "inOut", 0.55), key(W("s2", 5), P.maqA, "inOut", 0.5), key(end(1), orbit([10, 0, 6], 36, -5, 32), "inOut", 0.5)] },
+    camera: { projection: "perspective", movement: "orbit", keys: [key(0, P.front, "inOut", 0.55), key(W("s2", 5) - 1, orbit([-0.8, -0.3, 0.2], 12, 70, 12), "inOut", 0.55), key(W("s2", 5), P.maqA, "inOut", 0.5), key(end(1), orbit([6, 0, 4], 42, -45, 34), "inOut", 0.5)] },
     objects: [{ id: "nave", type: "Voyager → maquete com trajetória", visible: true }],
     animations: [
       ...nave(0), ...maq(W("s2", 5)), set("esq.v", W("s2", 5), 1),
@@ -148,7 +148,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s3", ...sc(2), voKey: "s3",
     narration: "No dia 18 de novembro, ela chegou a um dia-luz da Terra: a distância que a luz percorre em vinte e quatro horas. Quase vinte e seis bilhões de quilômetros.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, orbit([10, 0, 6], 36, -5, 32), "inOut", 0.5), key(end(2), P.maqB, "inOut", 0.5)] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, orbit([6, 0, 4], 42, -45, 34), "inOut", 0.5), key(end(2), P.maqB, "inOut", 0.4)] },
     objects: [{ id: "maq", type: "maquete + régua + raio de luz", visible: true }],
     animations: [
       ...maq(0), set("esq.v", 0, 1),
@@ -167,7 +167,7 @@ export const scenes: ScenePlan[] = [
   {
     id: "s4", ...sc(3), voKey: "s4",
     narration: "Nada feito por humanos foi tão longe. Desde 2012, ela já saiu da bolha do Sol e viaja no espaço entre as estrelas.",
-    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.maqB, "inOut", 0.5), key(W("s4", 7), P.maqC, "inOut", 0.5), key(end(3), P.maqD, "inOut", 0.5)] },
+    camera: { projection: "perspective", movement: "dolly-out", keys: [key(0, P.maqB, "inOut", 0.4), key(W("s4", 7), P.maqC, "inOut", 0.5), key(end(3), P.maqD, "inOut", 0.5)] },
     objects: [{ id: "maq", type: "maquete + bolha do Sol", visible: true }],
     animations: [
       ...maq(0), set("esq.v", 0, 1), set("trail", 0, 1), lin("ruler", 0, 10, undefined, 0, "in"),
